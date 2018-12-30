@@ -1,12 +1,25 @@
 // (function(global){
 
-  var MAX = 10000;
+  const MAX = 10000;
 
-  var S = {};
-  var K = {};
+  const S = {};
+  const K = {};
+
+  S.isNumber = function(n){
+    if(typeof n === "number"){
+      if(Number.isNaN(n)){
+        return NaN;
+      }else{
+        return true;
+      }
+    }
+  };
 
   K.isPrimeNumber = function(n){
-    if(n === undefined || n === 0 || n === 1){
+    if(!S.isNumber(n)){
+      return false;
+    }
+    if(n === 0 || n === 1){
       return false;
     }
     if(n === 2){
