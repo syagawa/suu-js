@@ -15,7 +15,7 @@
     }
   };
 
-  K.isPrimeNumber = function(n){
+  S.isPrimeNumber = function(n){
     if(!S.isNumber(n)){
       return false;
     }
@@ -39,6 +39,19 @@
     return true;
   };
 
+  S.nextNumber = function(n){
+    if(!S.isNumber(n)){
+      return false;
+    }
+    return ++n;
+  };
+
+  S.prevNumber = function(n){
+    if(!S.isNumber(n)){
+      return false;
+    }
+    return --n;
+  };
 
 
 
