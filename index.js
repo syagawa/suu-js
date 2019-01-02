@@ -93,4 +93,23 @@
     return arr;
   };
 
+  K.fibonacciSequence = function(start){
+    if(start === undefined){
+      start = 0;
+    }
+    var arr = [start, start + 1];
+    console.info(arr);
+    var func = function(arr){
+      if(arr[arr.length - 1] >= MAX){
+        return arr;
+      }
+      var a = Number(arr[arr.length - 2]);
+      var b = Number(arr[arr.length - 1]);
+      var c = Number(a + b);
+      arr.push(c);
+      return func(arr);
+    };
+    return func(arr);
+  };
+
 // })(window);
