@@ -83,4 +83,14 @@
 
   };
 
+  K.primeNumbers = function(){
+    var arr = [];
+    for(var i = 2; i < MAX; i++){
+      if(S.isPrimeNumber(i)){
+        arr.push(i);
+      }
+    }
+    return arr;
+  };
+
 // })(window);
