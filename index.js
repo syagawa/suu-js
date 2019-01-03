@@ -98,7 +98,6 @@
       start = 0;
     }
     var arr = [start, start + 1];
-    console.info(arr);
     var func = function(arr){
       if(arr[arr.length - 1] >= MAX){
         return arr;
@@ -110,6 +109,17 @@
       return func(arr);
     };
     return func(arr);
+  };
+
+  S.isFibonacci = function(n){
+    if(n === 0){
+      return true;
+    }
+    var fib = K.fibonacciSequence(0);
+    var ind = fib.indexOf(n);
+    if(n > 0){
+      return true;
+    }
   };
 
 // })(window);
