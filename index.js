@@ -111,7 +111,7 @@
     return func(arr);
   };
 
-  S.isFibonacci = function(n){
+  S.isFibonacciNumber = function(n){
     if(n === 0){
       return true;
     }
