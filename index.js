@@ -122,4 +122,17 @@
     }
   };
 
+  S.isEvenNumber = function(n){
+    if( S.isNumber(n) && n % 2 === 0 ){
+      return true;
+    }
+  };
+
+  S.isOddNumber = function(n){
+    if( S.isNumber(n) && n % 2 !== 0 ){
+      return true;
+    }
+  };
+
+
 // })(window);
