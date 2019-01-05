@@ -134,5 +134,42 @@
     }
   };
 
+  K.commonDivisors = function(a, b){
+    var arr_a = [];
+    var arr_b = [];
+    for(var i = 1; i <= a; i++){
+      if( a % i === 0){
+        arr_a.push(i);
+      }
+    }
+    if(a === b){
+      return arr_a;
+    }
+    for(var j = 1; j <= b; j++){
+      if( b % j === 0){
+        arr_b.push(j);
+      }
+    }
+
+    var divs = [];
+
+    for(var k = 0; k < arr_a.length; k++){
+      var elm_a = arr_a[k];
+      for(var l = 0; l < arr_b.length; l++){
+        var elm_b = arr_b[l];
+        if(elm_a === elm_b){
+          divs.push(elm_a);
+        }
+      }
+    }
+
+    return divs;
+  };
+
+  K.maxCommonDivisor = function(a, b){
+    var arr = K.commonDivisors(a, b);
+    return arr[arr.length - 1];
+  };
+
 
 // })(window);
