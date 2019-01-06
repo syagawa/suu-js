@@ -171,5 +171,38 @@
     return arr[arr.length - 1];
   };
 
+  K.leastCommonMultiple = function(a, b){
+    var max = a * b;
+    var big;
+    if( a < b){
+      big = b;
+    }else{
+      big = a;
+    }
+    var arr_a = [];
+    var arr_b = [];
+
+    var i =1;
+    while(i <= big){
+      arr_a.push( a * i);
+      i++;
+    }
+    var j =1;
+    while(j <= big){
+      arr_b.push( b * j);
+      j++;
+    }
+
+    for(var k = 0; k < arr_a.length; k++){
+      var elm_a = arr_a[k];
+      for(var l = 0; l < arr_b.length; l++){
+        var elm_b = arr_b[l];
+        if(elm_a === elm_b){
+          return elm_a;
+        }
+      }
+    }
+  };
+
 
 // })(window);
