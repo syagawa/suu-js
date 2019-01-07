@@ -172,7 +172,6 @@
   };
 
   K.leastCommonMultiple = function(a, b){
-    var max = a * b;
     var big;
     if( a < b){
       big = b;
