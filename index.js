@@ -203,30 +203,42 @@
     }
   };
 
-  K.summation = function(array){
+  K.summation = function(){
+    var array = [];
+    for(var i = 0; i < arguments.length; i++){
+      array.push(arguments[i]);
+    }
+    if(array.length === 0){
+      return "Argument is not Number";
+    }
+
     var sum = 0;
-    for(var i = 0; i < array.length; i++){
-      var elm = array[i];
+    for(var j = 0; j < array.length; j++){
+      var elm = array[j];
       if(S.isNumber(elm)){
         sum += elm;
       }else{
-        return false;
+        return "Argument is not Number";
       }
     }
     return sum;
   };
 
-  K.infiniteProduct = function(array){
-    var ip = 1;
-    if(array.length === 0){
-      return false;
+  K.infiniteProduct = function(){
+    var array = [];
+    for(var i = 0; i < arguments.length; i++){
+      array.push(arguments[i]);
     }
-    for(var i = 0; i < array.length; i++){
-      var elm = array[i];
+    if(array.length === 0){
+      return "Argument is not Number";
+    }
+    var ip = 1;
+    for(var j = 0; j < array.length; j++){
+      var elm = array[j];
       if(S.isNumber(elm)){
         ip = ip * elm;
       }else{
-        return false;
+        return "Argument is not Number";
       }
     }
 
