@@ -216,5 +216,22 @@
     return sum;
   };
 
+  K.infiniteProduct = function(array){
+    var ip = 1;
+    if(array.length === 0){
+      return false;
+    }
+    for(var i = 0; i < array.length; i++){
+      var elm = array[i];
+      if(S.isNumber(elm)){
+        ip = ip * elm;
+      }else{
+        return false;
+      }
+    }
+
+    return ip;
+  };
+
 
 // })(window);
