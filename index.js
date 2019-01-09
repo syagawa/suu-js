@@ -245,5 +245,18 @@
     return ip;
   };
 
+  K.division = function(dividned, divisor){
+    var remainder = dividned % divisor;
+    var result = dividned / divisor;
+    var result_int = Math.floor(result);
+    return {
+      integer: {
+        remaider: remainder,
+        result: result_int
+      },
+      real: result
+    };
+  };
+
 
 // })(window);
