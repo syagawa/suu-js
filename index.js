@@ -251,10 +251,10 @@
     var result_int = Math.floor(result);
     return {
       integer: {
-        remaider: remainder,
+        remainder: remainder,
         result: result_int
       },
-      real: result
+      realNumber: result
     };
   };
 
