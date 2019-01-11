@@ -41,14 +41,14 @@
 
   S.nextNumber = function(n){
     if(!S.isNumber(n)){
-      return false;
+      return;
     }
     return ++n;
   };
 
   S.prevNumber = function(n){
     if(!S.isNumber(n)){
-      return false;
+      return;
     }
     return --n;
   };
