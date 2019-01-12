@@ -117,7 +117,7 @@
     }
     var fib = K.fibonacciSequence(0);
     var ind = fib.indexOf(n);
-    if(ind > 0){
+    if(ind >= 0){
       return true;
     }
   };
