@@ -134,22 +134,22 @@
     }
   };
 
-  K.commonDivisors = function(a, b){
-    var arr_a = [];
-    var arr_b = [];
-    for(var i = 1; i <= a; i++){
-      if( a % i === 0){
-        arr_a.push(i);
+  K.getDivisors = function(n){
+    var arr = [];
+    for(var i = 1; i <= n; i++){
+      if(n % i === 0){
+        arr.push(i);
       }
     }
+    return arr;
+  };
+
+  K.commonDivisors = function(a, b){
+    var arr_a = K.getDivisors(a);
     if(a === b){
       return arr_a;
     }
-    for(var j = 1; j <= b; j++){
-      if( b % j === 0){
-        arr_b.push(j);
-      }
-    }
+    var arr_b = K.getDivisors(b);
 
     var divs = [];
 
@@ -256,16 +256,6 @@
       },
       realNumber: result
     };
-  };
-
-  K.getDivisors = function(n){
-    var arr = [];
-    for(var i = 1; i <= n; i++){
-      if(n % i === 0){
-        arr.push(i);
-      }
-    }
-    return arr;
   };
 
 
