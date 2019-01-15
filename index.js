@@ -145,6 +145,10 @@
   };
 
   K.commonDivisors = function(a, b){
+    if(a === undefined || b === undefined){
+      return "This function has been called with incorrect parameters";
+    }
+
     var arr_a = K.divisors(a);
     if(a === b){
       return arr_a;
@@ -172,6 +176,10 @@
   };
 
   K.leastCommonMultiple = function(a, b){
+    if(a === undefined || b === undefined){
+      return "This function has been called with incorrect parameters";
+    }
+
     var big;
     if( a < b){
       big = b;
@@ -245,9 +253,13 @@
     return ip;
   };
 
-  K.division = function(dividned, divisor){
-    var remainder = dividned % divisor;
-    var result = dividned / divisor;
+  K.division = function(dividend, divisor){
+    if(dividend === undefined || divisor === undefined){
+      return "This function has been called with incorrect parameters";
+    }
+
+    var remainder = dividend % divisor;
+    var result = dividend / divisor;
     var result_int = Math.floor(result);
     return {
       integer: {
@@ -265,7 +277,7 @@
       a += arr[i];
     }
     return a;
-  }
+  };
 
 
 // })(window);
