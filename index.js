@@ -279,5 +279,12 @@
     return a;
   };
 
+  K.isAbundantNumber = function(n){
+    var sum = K.divisorsSummation(n);
+    if(sum > n * 2){
+      return true;
+    }
+  };
+
 
 // })(window);
