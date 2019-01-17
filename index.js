@@ -287,4 +287,14 @@
   };
 
 
+  // 調和数かどうか
+  // K.isHarmonicDivisorNumber = function(n){
+
+  // };
+
+  // 組み合わせ数の計算
+  // K.combinations = function(arr){
+  // };
+
+
 // })(window);
