@@ -286,6 +286,28 @@
     }
   };
 
+  K.isKaprekarNumberTypeA = function(n){
+    var num = n * n;
+    var s = String(num);
+    var len = s.length;
+    var first_len = 0;
+    var after_len = 0;
+    var first, after;
+    if(S.isOddNumber(len)){
+      first_len = (len - 1) / 2;
+      after_len = first_len + 1;
+    }else{
+      first_len = len / 2;
+      after_len = first_len;
+    }
+    first = Number(s.substr(0, first_len));
+    after = Number(s.substr(first_len, after_len));
+
+    if(( first + after ) === n){
+      return true;
+    }
+
+  };
 
   // 調和数かどうか
   // K.isHarmonicDivisorNumber = function(n){
