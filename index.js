@@ -309,6 +309,25 @@
 
   };
 
+  K.isKaprekarNumberTypeB = function(n){
+
+    var arr = String(n).split("");
+
+    var min = Number(arr.sort().join(""));
+    var max = Number(arr.reverse().join(""));
+
+    if((max - min) === n){
+      return true;
+    }
+
+  };
+
+  K.isKaprekarNumber = function(n){
+    if(K.isKaprekarNumberTypeA(n) || K.isKaprekarNumberTypeB(n)){
+      return true;
+    }
+  };
+
   // 調和数かどうか
   // K.isHarmonicDivisorNumber = function(n){
 
