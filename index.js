@@ -328,6 +328,13 @@
     }
   };
 
+  S.isInteger = function(n){
+    var f = Math.floor(n);
+    if( f === n){
+      return true;
+    }
+  };
+
   // 調和平均
   K.harmonicMean = function(arr){
     var len = arr.length;
