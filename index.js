@@ -346,9 +346,13 @@
   };
 
   // 調和数かどうか
-  // K.isHarmonicDivisorNumber = function(n){
-
-  // };
+  K.isHarmonicDivisorNumber = function(n){
+    var arr = K.divisors(n);
+    var res = K.harmonicMean(arr);
+    if(S.isInteger(res)){
+      return true;
+    }
+  };
 
   // 組み合わせ数の計算
   // K.combinations = function(arr){
