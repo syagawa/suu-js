@@ -354,6 +354,14 @@
     }
   };
 
+  S.isNuturalNumber = function(n){
+    if(n > 0 && S.isInteger(n)){
+      return true;
+    }
+  };
+
+  // isZero
+
   // 組み合わせ数の計算
   // K.combinations = function(arr){
   // };
