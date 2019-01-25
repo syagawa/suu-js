@@ -360,7 +360,11 @@
     }
   };
 
-  // isZero
+  S.isZero = function(n){
+    if( n === 0){
+      return true;
+    }
+  };
 
   // 組み合わせ数の計算
   // K.combinations = function(arr){
