@@ -370,5 +370,7 @@
   // K.combinations = function(arr){
   // };
 
+  // コラッツの予想
+
 
 // })(window);
