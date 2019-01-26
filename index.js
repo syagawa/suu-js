@@ -366,11 +366,34 @@
     }
   };
 
+  K.collatzhProbrem = function(num){
+
+    var arr = [];
+
+    var calc = function(n){
+      var res = n;
+      if(S.isOddNumber(n)){
+        res = n * 3 + 1;
+      }else if(S.isEvenNumber(n)){
+        res = n / 2;
+      }
+      return res;
+    };
+
+
+    while(num > 1){
+      num = calc(num);
+      arr.push(num);
+    }
+
+    return arr;
+
+
+  };
+
   // 組み合わせ数の計算
   // K.combinations = function(arr){
   // };
-
-  // コラッツの予想
 
 
 // })(window);
