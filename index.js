@@ -354,7 +354,7 @@
     }
   };
 
-  S.isNuturalNumber = function(n){
+  S.isNaturalNumber = function(n){
     if(n > 0 && S.isInteger(n)){
       return true;
     }
