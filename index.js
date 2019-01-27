@@ -175,6 +175,14 @@
     return arr[arr.length - 1];
   };
 
+  K.multiple = function(n){
+    var arr = [];
+    for(var i = 1; i < MAX; i++){
+      arr.push(n * i);
+    }
+    return arr;
+  };
+
   K.leastCommonMultiple = function(a, b){
     if(a === undefined || b === undefined){
       return "This function has been called with incorrect parameters";
@@ -380,14 +388,12 @@
       return res;
     };
 
-
     while(num > 1){
       num = calc(num);
       arr.push(num);
     }
 
     return arr;
-
 
   };
 
