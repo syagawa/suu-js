@@ -5,6 +5,8 @@
   const S = {};
   const K = {};
 
+  const FIRST_PRIME_NUMBER = 2;
+
   S.isNumber = function(n){
     if(typeof n === "number"){
       if(Number.isNaN(n)){
@@ -85,7 +87,7 @@
 
   K.primeNumbers = function(){
     var arr = [];
-    for(var i = 2; i < MAX; i++){
+    for(var i = FIRST_PRIME_NUMBER; i < MAX; i++){
       if(S.isPrimeNumber(i)){
         arr.push(i);
       }
