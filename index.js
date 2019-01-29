@@ -146,6 +146,47 @@
     return arr;
   };
 
+  // ユークリッドの互除法
+  K.euclideanAlgorithm = function(a, b){
+    if( !S.isNumber(a) || !S.isNumber(b)){
+      return "This function has been called with incorrect parameters";
+    }
+    if( a === b){
+      return a;
+    }
+
+    var temp;
+    if( a < b){
+      temp = a;
+      a = b;
+      b = temp;
+    }
+
+    var atemp = a;
+    var btemp = b;
+    var ctemp;
+    var res;
+    var counter = 0;
+    var coprime = "coprime";
+    while(ctemp !==0){
+      ctemp = atemp % btemp;
+      if(ctemp === 0){
+        res = btemp;
+        break;
+      }
+      if(ctemp === 1){
+        res = coprime;
+        break;
+      }
+      if(counter >= MAX){
+        break;
+      }
+      atemp = btemp;
+      btemp = ctemp;
+    }
+    return res;
+  };
+
   K.commonDivisors = function(a, b){
     if(a === undefined || b === undefined){
       return "This function has been called with incorrect parameters";
