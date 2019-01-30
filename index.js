@@ -440,6 +440,25 @@
 
   };
 
+  K.fermatTest = function(n, max){
+    if(!S.isInteger(n) || S.isZero(n) || n === 1){
+      return "This function has been called with incorrect parameters";
+    }
+
+    var p = n;
+    if(!max){
+      max = 100;
+    }
+
+    for( var i = 1; i <= max; i++){
+      var a = i;
+      var e = K.random(1, p -1);
+      var res = Math.pow(a, e) % p;
+      console.info(a, e, res);
+    }
+
+  };
+
   // 組み合わせ数の計算
   // K.combinations = function(arr){
   // };
