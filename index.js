@@ -85,6 +85,24 @@
 
   };
 
+  K.randomInt = function(min, max){
+    if( !S.isNumber(min) || !S.isNumber(max)){
+      return "This function has been called with incorrect parameters";
+    }
+    if(min >= max){
+      return "This function has been called with incorrect parameters";
+    }
+
+    var arr = [];
+    for(var i = min; i <= max; i++){
+      arr.push(i);
+    }
+
+    var res = K.randomElement(arr);
+
+    return res;
+  };
+
   K.primeNumbers = function(){
     var arr = [];
     for(var i = FIRST_PRIME_NUMBER; i < MAX; i++){
