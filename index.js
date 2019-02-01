@@ -463,18 +463,19 @@
       return "This function has been called with incorrect parameters";
     }
 
-    var p = n;
     if(!max){
       max = 100;
     }
 
     for( var i = 1; i <= max; i++){
-      var a = i;
-      var e = K.random(1, p -1);
-      var res = Math.pow(a, e) % p;
-      console.info(a, e, res);
+      var a = K.randomInt(2, n - 1);
+      var res = Math.pow(a, n - 1) % n;
+      console.log(a, i, res);
+      if(res !== 1){
+        return "Composit Number";
+      }
     }
-
+    return "Maybe Prime Number";
   };
 
   // 組み合わせ数の計算
