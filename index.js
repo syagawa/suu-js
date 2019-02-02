@@ -458,6 +458,8 @@
 
   };
 
+  // フェルマーテスト
+  // うまく動かず
   K.fermatTest = function(n, max){
     if(!S.isInteger(n) || S.isZero(n) || n === 1){
       return "This function has been called with incorrect parameters";
@@ -469,8 +471,12 @@
 
     for( var i = 1; i <= max; i++){
       var a = K.randomInt(2, n - 1);
+      if(K.maxCommonDivisor(a, n) !== 1){
+        console.log(a, n);
+        return "Composit Number";
+      }
       var res = Math.pow(a, n - 1) % n;
-      console.log(a, i, res);
+      console.log(i, n, a, res);
       if(res !== 1){
         return "Composit Number";
       }
