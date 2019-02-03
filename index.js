@@ -459,7 +459,7 @@
   };
 
   // フェルマーテスト
-  // うまく動かず
+  // JSの扱える範囲を超えていてうまく動かず
   K.fermatTest = function(n, max){
     if(!S.isInteger(n) || S.isZero(n) || n === 1){
       return "This function has been called with incorrect parameters";
