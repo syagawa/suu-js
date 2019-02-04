@@ -488,5 +488,24 @@
   // K.combinations = function(arr){
   // };
 
+  // 配列での計算
+  K.numToArray = function(n){
+    if(!S.isNumber(n)){
+      return "This function has been called with incorrect parameters";
+    }
+
+    var arr = [];
+    var str = String(n);
+    var len = str.length;
+    for(var i = 0; i < len; i++){
+      arr.push(str.slice(i, i + 1));
+      arr[i] = Number(arr[i]);
+    }
+
+    return arr;
+
+  };
+
+
 
 // })(window);
