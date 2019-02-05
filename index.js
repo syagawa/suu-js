@@ -540,16 +540,19 @@
     }
 
     len = arr_a.length;
+    var gap = len - arr_b.length;
 
     var over = 0, arr_c = [];
     for(var i = len - 1; i >= 0; i--){
-      var temp, res;
+      var res;
       var elm_a = arr_a[i];
-      var elm_b = arr_b[i] || 0;
+      var elm_b = arr_b[i - gap] || 0;
       res = elm_a + elm_b + over;
       if(res >= 10){
         over = 1;
         res = res - 10;
+      }else{
+        over = 0;
       }
       arr_c.unshift(res);
     }
