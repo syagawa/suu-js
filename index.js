@@ -506,6 +506,57 @@
 
   };
 
+  K.isNumArray = function(arr){
+    if( arr instanceof Array ){
+      for(var i = 0; i < arr.length; i++){
+        if( !S.isNumber(arr[i]) ){
+          return false;
+        }
+      }
+      return true;
+    }
+  };
+
+  K.arrayAdd = function(a, b){
+    if( !(a instanceof Array) ){
+      a = K.numToArray(a);
+    }
+    if( !(b instanceof Array) ){
+      b = K.numToArray(b);
+    }
+
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+
+    var arr_a, arr_b, len;
+
+    if(a.length < b.length){
+      arr_a = b;
+      arr_b = a;
+    }else{
+      arr_a = a;
+      arr_b = b;
+    }
+
+    len = arr_a.length;
+
+    var over = 0, arr_c = [];
+    for(var i = len - 1; i >= 0; i--){
+      var temp, res;
+      var elm_a = arr_a[i];
+      var elm_b = arr_b[i] || 0;
+      res = elm_a + elm_b + over;
+      if(res >= 10){
+        over = 1;
+        res = res - 10;
+      }
+      arr_c.unshift(res);
+    }
+
+    console.log(arr_c);
+
+  };
 
 
 // })(window);
