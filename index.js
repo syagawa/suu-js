@@ -556,6 +556,9 @@
       }
       arr_c.unshift(res);
     }
+    if(over > 0){
+      arr_c.unshift(over);
+    }
 
     console.log(arr_c);
 
