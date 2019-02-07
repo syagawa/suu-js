@@ -517,6 +517,7 @@
     }
   };
 
+  // todo 0start
   K.arrayAdd = function(a, b){
     if( !(a instanceof Array) ){
       a = K.numToArray(a);
@@ -560,7 +561,16 @@
       arr_c.unshift(over);
     }
 
-    console.log(arr_c);
+    var str = arr_c.join("");
+    var num = Number(str);
+    var leng = arr_c.length;
+
+    return {
+      array: arr_c,
+      string: str,
+      number: num,
+      length: leng
+    };
 
   };
 
