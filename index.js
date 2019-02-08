@@ -529,6 +529,9 @@
     if(!K.isNumArray(a) || !K.isNumArray(b)){
       return;
     }
+    if(S.isZero(a[0]) || S.isZero(a[0])){
+      return;
+    }
 
     var arr_a, arr_b, len;
 
