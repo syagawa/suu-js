@@ -518,7 +518,7 @@
   };
 
   // todo 0start
-  K.arrayAdd = function(a, b){
+  K.arraySummation = function(a, b){
     if( !(a instanceof Array) ){
       a = K.numToArray(a);
     }
