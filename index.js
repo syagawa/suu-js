@@ -592,6 +592,19 @@
       return;
     }
 
+    var arr_a, arr_b, len;
+
+    if(a.length < b.length){
+      arr_a = b;
+      arr_b = a;
+    }else{
+      arr_a = a;
+      arr_b = b;
+    }
+
+    len = arr_a.length;
+
+
   };
 
 
