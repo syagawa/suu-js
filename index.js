@@ -577,6 +577,50 @@
 
   };
 
+  K.arrayCompare = function(a, b){
+
+    var arr_a = [], arr_b = [];
+    for(var i = 0; i < a.length; i++){
+      var elm = a[i];
+      if(elm === 0 && arr_a.length === 0){
+        continue;
+      }
+      if(elm >=  0 && elm < 10){
+        arr_a.push(elm);
+      }
+    }
+
+    for(var j = 0; j < b.length; j++){
+      var elm = b[j];
+      if(elm === 0 && arr_b.length === 0){
+        continue;
+      }
+      if(elm >=  0 && elm < 10){
+        arr_b.push(elm);
+      }
+    }
+
+    if(arr_a.length > arr_b.length){
+      return [a,b];
+    }else if(arr_a.length < arr_b.length){
+      return [b,a];
+    }else{
+      for(var k = 0; k < arr_a.length; k++){
+        var elm_a = arr_a[i];
+        var elm_b = arr_b[i];
+        if(elm_a > elm_b){
+          return [a, b];
+        }else if(elm_a < elm_b){
+          return [b,a];
+        }else{
+          continue;
+        }
+      }
+      return "equal";
+    }
+
+  };
+
   K.arraySubtraction = function(a, b){
     if( !(a instanceof Array) ){
       a = K.numToArray(a);
