@@ -606,8 +606,8 @@
       return [b,a];
     }else{
       for(var k = 0; k < arr_a.length; k++){
-        var elm_a = arr_a[i];
-        var elm_b = arr_b[i];
+        var elm_a = arr_a[k];
+        var elm_b = arr_b[k];
         if(elm_a > elm_b){
           return [a, b];
         }else if(elm_a < elm_b){
