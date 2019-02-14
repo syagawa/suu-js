@@ -577,8 +577,7 @@
 
   };
 
-  K.arrayCompare = function(a, b){
-
+  K.getLarger = function(a, b){
     var arr_a = [], arr_b = [];
     for(var i = 0; i < a.length; i++){
       var elm = a[i];
@@ -600,25 +599,27 @@
       }
     }
 
+    var res;
+
     if(arr_a.length > arr_b.length){
-      return [a,b];
+      res = a;
     }else if(arr_a.length < arr_b.length){
-      return [b,a];
+      res = b;
     }else{
       for(var k = 0; k < arr_a.length; k++){
         var elm_a = arr_a[k];
         var elm_b = arr_b[k];
         if(elm_a > elm_b){
-          return [a, b];
+          res = a;
+          break;
         }else if(elm_a < elm_b){
-          return [b,a];
+          res = b;
         }else{
-          continue;
+          res = a;
         }
       }
-      return "equal";
     }
-
+    return res;
   };
 
   K.arraySubtraction = function(a, b){
