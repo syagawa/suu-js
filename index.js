@@ -580,22 +580,22 @@
   K.getLarger = function(a, b){
     var arr_a = [], arr_b = [];
     for(var i = 0; i < a.length; i++){
-      var elm = a[i];
-      if(elm === 0 && arr_a.length === 0){
+      var elm_a = a[i];
+      if(elm_a === 0 && arr_a.length === 0){
         continue;
       }
-      if(elm >=  0 && elm < 10){
-        arr_a.push(elm);
+      if(elm_a >=  0 && elm_a < 10){
+        arr_a.push(elm_a);
       }
     }
 
     for(var j = 0; j < b.length; j++){
-      var elm = b[j];
-      if(elm === 0 && arr_b.length === 0){
+      var elm_b = b[j];
+      if(elm_b === 0 && arr_b.length === 0){
         continue;
       }
-      if(elm >=  0 && elm < 10){
-        arr_b.push(elm);
+      if(elm_b >=  0 && elm_b < 10){
+        arr_b.push(elm_b);
       }
     }
 
@@ -607,12 +607,12 @@
       res = b;
     }else{
       for(var k = 0; k < arr_a.length; k++){
-        var elm_a = arr_a[k];
-        var elm_b = arr_b[k];
-        if(elm_a > elm_b){
+        var elm_aa = arr_a[k];
+        var elm_bb = arr_b[k];
+        if(elm_aa > elm_bb){
           res = a;
           break;
-        }else if(elm_a < elm_b){
+        }else if(elm_aa < elm_bb){
           res = b;
         }else{
           res = a;
