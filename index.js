@@ -533,17 +533,11 @@
       return;
     }
 
-    var arr_a, arr_b, len;
+    var res = K.getLarger(a, b);
+    var arr_a = res[0];
+    var arr_b = res[1];
+    var len = arr_a.length;
 
-    if(a.length < b.length){
-      arr_a = b;
-      arr_b = a;
-    }else{
-      arr_a = a;
-      arr_b = b;
-    }
-
-    len = arr_a.length;
     var gap = len - arr_b.length;
 
     var over = 0, arr_c = [];
@@ -602,20 +596,20 @@
     var res;
 
     if(arr_a.length > arr_b.length){
-      res = a;
+      res = [a, b];
     }else if(arr_a.length < arr_b.length){
-      res = b;
+      res = [b, a];
     }else{
       for(var k = 0; k < arr_a.length; k++){
         var elm_aa = arr_a[k];
         var elm_bb = arr_b[k];
         if(elm_aa > elm_bb){
-          res = a;
+          res = [a, b];
           break;
         }else if(elm_aa < elm_bb){
-          res = b;
+          res = [b, a];
         }else{
-          res = a;
+          res = [a, b];
         }
       }
     }
