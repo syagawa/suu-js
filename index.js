@@ -631,17 +631,12 @@
       return;
     }
 
-    var arr_a, arr_b, len;
+    var res = K.getLarger(a, b);
+    var arr_a = res[0];
+    var arr_b = res[1];
+    var len = arr_a.length;
 
-    if(a.length < b.length){
-      arr_a = b;
-      arr_b = a;
-    }else{
-      arr_a = a;
-      arr_b = b;
-    }
-
-    len = arr_a.length;
+    var gap = len - arr_b.length;
 
 
   };
