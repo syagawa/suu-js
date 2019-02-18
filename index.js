@@ -542,17 +542,17 @@
 
     var over = 0, arr_c = [];
     for(var i = len - 1; i >= 0; i--){
-      var res;
+      var _res;
       var elm_a = arr_a[i];
       var elm_b = arr_b[i - gap] || 0;
-      res = elm_a + elm_b + over;
-      if(res >= 10){
+      _res = elm_a + elm_b + over;
+      if(_res >= 10){
         over = 1;
-        res = res - 10;
+        _res = _res - 10;
       }else{
         over = 0;
       }
-      arr_c.unshift(res);
+      arr_c.unshift(_res);
     }
     if(over > 0){
       arr_c.unshift(over);
@@ -634,10 +634,39 @@
     var res = K.getLarger(a, b);
     var arr_a = res[0];
     var arr_b = res[1];
-    var len = arr_a.length;
+    var len = arr_b.length;
 
-    var gap = len - arr_b.length;
+    var gap = len - arr_a.length;
 
+    var arr_c = [];
+
+    for(var i = 0; i < gap; i++){
+      arr_c.push(arr_a[i]);
+    }
+
+    for(var j = 0; j < len; j++){
+      var elm_b = arr_b[j];
+      var elm_a = arr_b[j + gap];
+      var higher_digit = elm_a[j + gap - 1];
+      if(elm_b <= elm_a){
+        arr_c.push( elm_a - elm_b );
+      }else{
+        higher_digit = higher_digit - 1;
+        arr_c[arr_c.length - 1] = higher_digit;
+        arr_c.push( 10 - elm_b);
+      }
+    }
+
+    var str = arr_c.join("");
+    var num = Number(str);
+    var leng = arr_c.length;
+
+    return {
+      array: arr_c,
+      string: str,
+      number: num,
+      length: leng
+    };
 
   };
 
