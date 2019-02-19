@@ -636,7 +636,7 @@
     var arr_b = res[1];
     var len = arr_b.length;
 
-    var gap = len - arr_a.length;
+    var gap = arr_a.length - len;
 
     var arr_c = [];
 
@@ -646,7 +646,7 @@
 
     for(var j = 0; j < len; j++){
       var elm_b = arr_b[j];
-      var elm_a = arr_b[j + gap];
+      var elm_a = arr_a[j + gap];
       var higher_digit = elm_a[j + gap - 1];
       if(elm_b <= elm_a){
         arr_c.push( elm_a - elm_b );
