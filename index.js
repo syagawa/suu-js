@@ -657,7 +657,7 @@
       }
     }
 
-    var str = arr_c.join("");
+    var str = arr_c.join("").match(/[^0+].*/g)[0];
     var num = Number(str);
     var leng = arr_c.length;
 
