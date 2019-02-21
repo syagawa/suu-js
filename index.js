@@ -632,8 +632,12 @@
     }
 
     var res = K.getLarger(a, b);
-    var arr_a = res[0];
-    var arr_b = res[1];
+    if(res[0] === b){
+      return;
+    }
+
+    var arr_a = a;
+    var arr_b = b;
     var len = arr_b.length;
 
     var gap = arr_a.length - len;
@@ -657,7 +661,13 @@
       }
     }
 
-    var str = arr_c.join("").match(/[^0+].*/g)[0];
+    var str = arr_c.join("");
+    var m = str.match(/[^0+?]/);
+    if(m){
+      str = str.slice(m.index);
+    }else{
+      str = "0";
+    }
     var num = Number(str);
     var leng = arr_c.length;
 
