@@ -631,13 +631,14 @@
       return;
     }
 
+    var negative = false;
     var res = K.getLarger(a, b);
     if(res[0] === b){
-      return;
+      negative = true;
     }
 
-    var arr_a = a;
-    var arr_b = b;
+    var arr_a = res[0];
+    var arr_b = res[1];
     var len = arr_b.length;
 
     var gap = arr_a.length - len;
@@ -673,9 +674,10 @@
 
     return {
       array: arr_c,
-      string: str,
-      number: num,
-      length: leng
+      string: negative ? "-" + str : str,
+      number: negative ? -num : num,
+      length: leng,
+      negative: negative
     };
 
   };
