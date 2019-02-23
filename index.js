@@ -652,13 +652,13 @@
     for(var j = 0; j < len; j++){
       var elm_b = arr_b[j];
       var elm_a = arr_a[j + gap];
-      var higher_digit = elm_a[j + gap - 1];
+      var higher_digit = arr_a[j + gap - 1];
       if(elm_b <= elm_a){
         arr_c.push( elm_a - elm_b );
       }else{
         higher_digit = higher_digit - 1;
         arr_c[arr_c.length - 1] = higher_digit;
-        arr_c.push( 10 - elm_b);
+        arr_c.push( 10 + elm_a - elm_b);
       }
     }
 
