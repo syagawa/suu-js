@@ -665,6 +665,7 @@
     var m = str.match(/[^0+?]/);
     if(m){
       str = str.slice(m.index);
+      arr_c = arr_c.slice(m.index);
     }else{
       str = "0";
     }
