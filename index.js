@@ -682,5 +682,21 @@
 
   };
 
+  K.arrayMultiplication = function(a, b){
+    if( !(a instanceof Array) ){
+      a = K.numToArray(a);
+    }
+    if( !(b instanceof Array) ){
+      b = K.numToArray(b);
+    }
+
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+    if(S.isZero(a[0]) || S.isZero(a[0])){
+      return;
+    }
+
+  };
 
 // })(window);
