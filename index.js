@@ -697,6 +697,8 @@
       return;
     }
 
+    var multiplicand, multiplier;
+
   };
 
 // })(window);
