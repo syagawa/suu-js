@@ -697,7 +697,30 @@
       return;
     }
 
-    var multiplicand, multiplier;
+    var arr_a = [],
+        arr_b = [],
+        res_arrs = [],
+        len_a = a.length,
+        len_b = b.length;
+
+    for(var i = len_a - 1; i >= 0; i--){
+      var elm_a = arr_a[i];
+      var over = 0;
+      var res_arr = [];
+      for(var j = len_b - 1; j >= 0; j--){
+        var elm_b = arr_b[j];
+        var res = elm_a * elm_b;
+        var arr = String(res).split("");
+        if(arr.length === 2){
+          res = Number(arr[1]);
+          over = Number(arr[0]);
+        }
+        res_arr.unshift(res);
+      }
+      res_arrs.push(res_arr);
+    }
+
+    return res_arrs;
 
   };
 
