@@ -704,12 +704,14 @@
         len_b = b.length;
 
     for(var i = len_a - 1; i >= 0; i--){
-      var elm_a = arr_a[i];
+      var elm_a = a[i];
+      console.log(elm_a);
       var over = 0;
       var res_arr = [];
       for(var j = len_b - 1; j >= 0; j--){
-        var elm_b = arr_b[j];
+        var elm_b = b[j];
         var res = elm_a * elm_b;
+        console.log(res);
         var arr = String(res).split("");
         if(arr.length === 2){
           res = Number(arr[1]);
