@@ -710,7 +710,7 @@
       var res_arr = [];
       for(var j = len_b - 1; j >= 0; j--){
         var elm_b = b[j];
-        var res = elm_a * elm_b;
+        var res = (elm_a * elm_b) + over;
         console.log(res);
         var arr = String(res).split("");
         if(arr.length === 2){
@@ -722,6 +722,11 @@
       if(over > 0){
         res_arr.unshift(over);
       }
+      var pad = len_a -i - 1;
+      for(var k = 0; k < pad; k++){
+        res_arr.push(0);
+      }
+
       res_arrs.push(res_arr);
     }
 
