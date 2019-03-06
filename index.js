@@ -726,11 +726,19 @@
       for(var k = 0; k < pad; k++){
         res_arr.push(0);
       }
-
       res_arrs.push(res_arr);
     }
 
-    return res_arrs;
+    var before = [0];
+    var r = "";
+    for(var l = 0; l < res_arrs.length; l++){
+      r = K.arraySummation(res_arrs[l], before).array;
+      before = r;
+    }
+
+    return {
+      array: r
+    };
 
   };
 
