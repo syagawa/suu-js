@@ -529,8 +529,13 @@
     if(!K.isNumArray(a) || !K.isNumArray(b)){
       return;
     }
-    if(S.isZero(a[0]) || S.isZero(a[0])){
-      return;
+    if(S.isZero(a[0]) && S.isZero(b[0])){
+      return {
+        array: [0],
+        string: "0",
+        number: 0,
+        length: 1
+      };
     }
 
     var res = K.getLarger(a, b);
@@ -726,13 +731,14 @@
       for(var k = 0; k < pad; k++){
         res_arr.push(0);
       }
+      console.log(res_arr);
       res_arrs.push(res_arr);
     }
 
     var before = [0];
     var r = "";
     for(var l = 0; l < res_arrs.length; l++){
-      r = K.arraySummation(res_arrs[l], before).array;
+       r = K.arraySummation(res_arrs[l], before).array;
       before = r;
     }
 
