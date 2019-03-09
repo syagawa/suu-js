@@ -716,12 +716,13 @@
       for(var j = len_b - 1; j >= 0; j--){
         var elm_b = b[j];
         var res = (elm_a * elm_b) + over;
-        console.log(j,res);
+        over = 0;
         var arr = String(res).split("");
         if(arr.length === 2){
           res = Number(arr[1]);
           over = Number(arr[0]);
         }
+        console.log(j,res,over);
         res_arr.unshift(res);
       }
       if(over > 0){
