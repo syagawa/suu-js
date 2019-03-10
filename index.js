@@ -710,7 +710,6 @@
 
     for(var i = len_a - 1; i >= 0; i--){
       var elm_a = a[i];
-      // console.log(elm_a);
       var over = 0;
       var res_arr = [];
       for(var j = len_b - 1; j >= 0; j--){
@@ -722,7 +721,6 @@
           res = Number(arr[1]);
           over = Number(arr[0]);
         }
-        console.log(j,res,over);
         res_arr.unshift(res);
       }
       if(over > 0){
@@ -745,6 +743,16 @@
 
     return {
       array: r
+    };
+    var str = r.join("");
+    var num = Number(str);
+    var leng = r.length;
+
+    return {
+      array: r,
+      string: str,
+      number: num,
+      length: leng
     };
 
   };
