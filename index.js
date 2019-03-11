@@ -741,9 +741,6 @@
       before = r;
     }
 
-    return {
-      array: r
-    };
     var str = r.join("");
     var num = Number(str);
     var leng = r.length;
