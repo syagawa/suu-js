@@ -754,4 +754,9 @@
 
   };
 
+  K.arrayDivision = function(a, b){
+
+  };
+
+
 // })(window);
