@@ -632,7 +632,7 @@
     if(!K.isNumArray(a) || !K.isNumArray(b)){
       return;
     }
-    if(S.isZero(a[0]) || S.isZero(a[0])){
+    if(S.isZero(a[0]) || S.isZero(b[0])){
       return;
     }
 
@@ -698,7 +698,7 @@
     if(!K.isNumArray(a) || !K.isNumArray(b)){
       return;
     }
-    if(S.isZero(a[0]) || S.isZero(a[0])){
+    if(S.isZero(a[0]) || S.isZero(b[0])){
       return;
     }
 
@@ -755,7 +755,19 @@
   };
 
   K.arrayDivision = function(a, b){
+    if( !(a instanceof Array) ){
+      a = K.numToArray(a);
+    }
+    if( !(b instanceof Array) ){
+      b = K.numToArray(b);
+    }
 
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+    if(S.isZero(a[0]) || S.isZero(b[0])){
+      return;
+    }
   };
 
 
