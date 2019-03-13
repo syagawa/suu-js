@@ -621,6 +621,15 @@
     return res;
   };
 
+  K.isLarge = function(a, b){
+    var res = K.getLarger(a, b);
+    if(res[0] === a){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
   K.arraySubtraction = function(a, b){
     if( !(a instanceof Array) ){
       a = K.numToArray(a);
@@ -768,6 +777,14 @@
     if(S.isZero(a[0]) || S.isZero(b[0])){
       return;
     }
+
+    var temp = [];
+
+    while(K.isLarge(a, temp)){
+      // K.getLarger(res, a);
+    }
+
+
   };
 
 
