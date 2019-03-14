@@ -778,11 +778,18 @@
       return;
     }
 
-    var temp = [];
-
-    while(K.isLarge(a, temp)){
+    var temp = [0];
+    var res = [0];
+    while(K.isLarge(a, res)){
       // K.getLarger(res, a);
+      temp = K.arraySummation(temp, [1]).array;
+      console.log(temp);
+      res = K.arrayMultiplication(b,temp).array;
     }
+
+    res = K.arraySubtraction(res, K.arraySubtraction(temp, [1]).array);
+
+    console.log(res);
 
 
   };
