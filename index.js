@@ -630,6 +630,22 @@
     }
   };
 
+  K.isEqual = function(a, b){
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+    if(a.length === b.length){
+      for(var i = 0; i < a.length; i++){
+        if(a[i] !== b[i]){
+          return false;
+        }
+      }
+      return true;
+    }
+
+  };
+
+
   K.arraySubtraction = function(a, b){
     if( !(a instanceof Array) ){
       a = K.numToArray(a);
@@ -739,7 +755,7 @@
       for(var k = 0; k < pad; k++){
         res_arr.push(0);
       }
-      console.log(res_arr);
+      // console.log(res_arr);
       res_arrs.push(res_arr);
     }
 
@@ -779,15 +795,20 @@
     }
 
     var temp = [0];
-    var res = [0];
-    while(K.isLarge(a, res)){
-      // K.getLarger(res, a);
+    var sum = [0];
+    while(K.isLarge(a, sum) || K.isEqual(a, sum)){
+      // K.getLarger(sum, a);
       temp = K.arraySummation(temp, [1]).array;
       console.log(temp);
-      res = K.arrayMultiplication(b,temp).array;
+      sum = K.arrayMultiplication(b,temp).array;
     }
 
-    res = K.arraySubtraction(res, K.arraySubtraction(temp, [1]).array);
+    var res;
+    if(K.isEqual(a, sum)){
+      res = temp;
+    }else{
+      res = K.arraySubtraction(temp, [1]);
+    }
 
     console.log(res);
 
