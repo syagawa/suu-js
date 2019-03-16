@@ -599,7 +599,6 @@
     }
 
     var res;
-
     if(arr_a.length > arr_b.length){
       res = [a, b];
     }else if(arr_a.length < arr_b.length){
@@ -613,6 +612,7 @@
           break;
         }else if(elm_aa < elm_bb){
           res = [b, a];
+          break;
         }else{
           res = [a, b];
         }
@@ -799,8 +799,10 @@
     while(K.isLarge(a, sum) || K.isEqual(a, sum)){
       // K.getLarger(sum, a);
       temp = K.arraySummation(temp, [1]).array;
-      console.log(temp);
+      // console.log(temp);
       sum = K.arrayMultiplication(b,temp).array;
+      console.log(a, sum, K.isLarge(a, sum));
+
     }
 
     var res;
