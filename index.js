@@ -622,6 +622,9 @@
   };
 
   K.isLarge = function(a, b){
+    if(K.isEqual(a, b)){
+      return false;
+    }
     var res = K.getLarger(a, b);
     if(res[0] === a){
       return true;
