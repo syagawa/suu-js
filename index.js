@@ -730,9 +730,7 @@
       return;
     }
 
-    var arr_a = [],
-        arr_b = [],
-        res_arrs = [],
+    var res_arrs = [],
         len_a = a.length,
         len_b = b.length;
 
@@ -789,7 +787,6 @@
     if( !(b instanceof Array) ){
       b = K.numToArray(b);
     }
-
     if(!K.isNumArray(a) || !K.isNumArray(b)){
       return;
     }
@@ -809,13 +806,16 @@
     }
 
     var res;
+    var remainder = 0;
     if(K.isEqual(a, sum)){
       res = temp;
     }else{
       res = K.arraySubtraction(temp, [1]);
+      sum = K.arraySubtraction(sum, b).array;
+      remainder = K.arraySubtraction(a, sum).array;
     }
 
-    console.log(res);
+    console.log(res, remainder);
 
 
   };
