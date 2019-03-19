@@ -801,7 +801,7 @@
       temp = K.arraySummation(temp, [1]).array;
       // console.log(temp);
       sum = K.arrayMultiplication(b,temp).array;
-      console.log(a, sum, K.isLarge(a, sum));
+      // console.log(a, sum, K.isLarge(a, sum));
 
     }
 
@@ -815,8 +815,9 @@
       remainder = K.arraySubtraction(a, sum).array;
     }
 
-    console.log(res, remainder);
+    res.remainder = remainder;
 
+    return res;
 
   };
 
