@@ -7,6 +7,12 @@
 
   const FIRST_PRIME_NUMBER = 2;
 
+  const Su = function(num){
+  };
+  const makeSu = function(num){
+    return new Su(num);
+  };
+
   S.isNumber = function(n){
     if(typeof n === "number"){
       if(Number.isNaN(n)){
@@ -32,7 +38,7 @@
       return `Argument exceeds maximum value(${MAX})`;
     }
 
-    var max = n;
+    let max = n;
     for( var i = max -1; i > 1; i--){
       if( (max % i) === 0 ){
         return false;
