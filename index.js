@@ -7,12 +7,6 @@
 
   const FIRST_PRIME_NUMBER = 2;
 
-  const Su = function(num){
-  };
-  const makeSu = function(num){
-    return new Su(num);
-  };
-
   S.isNumber = function(n){
     if(typeof n === "number"){
       if(Number.isNaN(n)){
@@ -826,6 +820,17 @@
     return res;
 
   };
+
+  const Su = function(num){
+    this.array = null;
+    this.string = null;
+    this.number = null;
+    this.length = null;
+  };
+  const makeSu = function(num){
+    return new Su(num);
+  };
+
 
 
 // })(window);
