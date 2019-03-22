@@ -822,10 +822,13 @@
   };
 
   const Su = function(num){
-    this.array = null;
-    this.string = null;
-    this.number = null;
-    this.length = null;
+    const arr = K.numToArray(num);
+    const str = arr.join("");
+    const leng = arr.length;
+    this.array = arr;
+    this.string = str;
+    this.number = num;
+    this.length = leng;
   };
   const makeSu = function(num){
     return new Su(num);
