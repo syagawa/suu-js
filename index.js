@@ -822,6 +822,9 @@
   };
 
   const Su = function(num){
+    if(!num){
+      num = 0;
+    }
     const arr = K.numToArray(num);
     const str = arr.join("");
     const leng = arr.length;
