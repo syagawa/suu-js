@@ -825,13 +825,24 @@
     if(!num){
       num = 0;
     }
-    const arr = K.numToArray(num);
-    const str = arr.join("");
-    const leng = arr.length;
+    let arr,
+        str,
+        leng;
+    if(K.isNumArray(num)){
+      arr = num;
+      str = num.join("");
+      num = Number(str);
+      leng = num.length;
+    }else{
+      arr = K.numToArray(num);
+      str = arr.join("");
+      leng = arr.length;
+    }
     this.array = arr;
-    this.string = str;
     this.number = num;
+    this.string = str;
     this.length = leng;
+    
   };
   const makeSu = function(num){
     return new Su(num);
