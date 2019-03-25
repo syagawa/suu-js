@@ -825,6 +825,10 @@
     if(!num){
       num = 0;
     }
+    num = Number(num);
+    if(isNaN(num)){
+      num = 0;
+    }
     let arr,
         str,
         leng;
@@ -842,8 +846,8 @@
     this.number = num;
     this.string = str;
     this.length = leng;
-    
   };
+
   const makeSu = function(num){
     return new Su(num);
   };
