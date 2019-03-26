@@ -825,23 +825,23 @@
     if(!num){
       num = 0;
     }
-    num = Number(num);
-    if(isNaN(num)){
-      num = 0;
-    }
     let arr,
         str,
         leng;
     if(K.isNumArray(num)){
-      arr = num;
-      str = num.join("");
-      num = Number(str);
-      leng = num.length;
-    }else{
-      arr = K.numToArray(num);
-      str = arr.join("");
-      leng = arr.length;
+      num = Number(num.join(""));
     }
+
+    num = Number(num);
+    if(isNaN(num)){
+      num = 0;
+    }
+
+    arr = K.numToArray(num);
+    str = arr.join("");
+    leng = arr.length;
+
+
     this.array = arr;
     this.number = num;
     this.string = str;
