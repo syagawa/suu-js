@@ -538,6 +538,11 @@
       };
     }
 
+    const A = makeSu(a);
+    const B = makeSu(b);
+
+    console.log(A,B);
+
     var res = K.getLarger(a, b);
     var arr_a = res[0];
     var arr_b = res[1];
@@ -567,13 +572,9 @@
     var num = Number(str);
     var leng = arr_c.length;
 
-    return {
-      array: arr_c,
-      string: str,
-      number: num,
-      length: leng
-    };
+    const result = makeSu(arr_c);
 
+    return result;
   };
 
   K.getLarger = function(a, b){
@@ -840,7 +841,6 @@
     arr = K.numToArray(num);
     str = arr.join("");
     leng = arr.length;
-
 
     this.array = arr;
     this.number = num;
