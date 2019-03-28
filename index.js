@@ -852,6 +852,42 @@
     return new Su(num);
   };
 
+  Su.prototype.sum = function(a, b){
+    const A = makeSu(a);
+    const B = makeSu(b);
+
+    console.log(A,B);
+
+    const res = K.getLarger(a, b);
+    const arr_a = res[0];
+    const arr_b = res[1];
+    const len = arr_a.length;
+
+    const gap = len - arr_b.length;
+
+    let over = 0, arr_c = [];
+    for(let i = len - 1; i >= 0; i--){
+      let _res;
+      let elm_a = arr_a[i];
+      let elm_b = arr_b[i - gap] || 0;
+      _res = elm_a + elm_b + over;
+      if(_res >= 10){
+        over = 1;
+        _res = _res - 10;
+      }else{
+        over = 0;
+      }
+      arr_c.unshift(_res);
+    }
+    if(over > 0){
+      arr_c.unshift(over);
+    }
+
+    const result = makeSu(arr_c);
+
+    return result;
+  };
+
 
 
 // })(window);
