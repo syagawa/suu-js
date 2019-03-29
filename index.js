@@ -852,6 +852,51 @@
     return new Su(num);
   };
 
+   const getLarge = function(a, b){
+    var arr_a = [], arr_b = [];
+    for(var i = 0; i < a.length; i++){
+      var elm_a = a[i];
+      if(elm_a === 0 && arr_a.length === 0){
+        continue;
+      }
+      if(elm_a >=  0 && elm_a < 10){
+        arr_a.push(elm_a);
+      }
+    }
+
+    for(var j = 0; j < b.length; j++){
+      var elm_b = b[j];
+      if(elm_b === 0 && arr_b.length === 0){
+        continue;
+      }
+      if(elm_b >=  0 && elm_b < 10){
+        arr_b.push(elm_b);
+      }
+    }
+
+    var res;
+    if(arr_a.length > arr_b.length){
+      res = [a, b];
+    }else if(arr_a.length < arr_b.length){
+      res = [b, a];
+    }else{
+      for(var k = 0; k < arr_a.length; k++){
+        var elm_aa = arr_a[k];
+        var elm_bb = arr_b[k];
+        if(elm_aa > elm_bb){
+          res = [a, b];
+          break;
+        }else if(elm_aa < elm_bb){
+          res = [b, a];
+          break;
+        }else{
+          res = [a, b];
+        }
+      }
+    }
+    return res;
+  };
+
   Su.prototype.sum = function(a, b){
     const A = makeSu(a);
     const B = makeSu(b);
