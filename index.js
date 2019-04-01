@@ -852,10 +852,12 @@
     return new Su(num);
   };
 
-   const getLarge = function(a, b){
-    var arr_a = [], arr_b = [];
-    for(var i = 0; i < a.length; i++){
-      var elm_a = a[i];
+  const getLarge = function(a, b){
+    let aa = a.array;
+    let bb = b.array;
+    let arr_a = [], arr_b = [];
+    for(var i = 0; i < aa.length; i++){
+      var elm_a = aa[i];
       if(elm_a === 0 && arr_a.length === 0){
         continue;
       }
@@ -865,7 +867,7 @@
     }
 
     for(var j = 0; j < b.length; j++){
-      var elm_b = b[j];
+      var elm_b = bb[j];
       if(elm_b === 0 && arr_b.length === 0){
         continue;
       }
