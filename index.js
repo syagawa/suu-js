@@ -906,8 +906,8 @@
     console.log(A,B);
 
     const res = K.getLarger(a, b);
-    const arr_a = res[0];
-    const arr_b = res[1];
+    const arr_a = res[0].array;
+    const arr_b = res[1].array;
     const len = arr_a.length;
 
     const gap = len - arr_b.length;
