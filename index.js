@@ -876,7 +876,7 @@
       }
     }
 
-    var res;
+    var res = [a, b];
     if(arr_a.length > arr_b.length){
       res = [a, b];
     }else if(arr_a.length < arr_b.length){
@@ -905,7 +905,7 @@
 
     console.log(A,B);
 
-    const res = K.getLarger(a, b);
+    const res = getLarge(a, b);
     const arr_a = res[0].array;
     const arr_b = res[1].array;
     const len = arr_a.length;
