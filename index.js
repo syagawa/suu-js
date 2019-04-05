@@ -899,11 +899,9 @@
     return res;
   };
 
-  Su.prototype.sum = function(a, b){
-    const A = makeSu(a);
-    const B = makeSu(b);
-
-    console.log(A,B);
+  Su.prototype.add = function(elm){
+    const a = this;
+    const b = elm;
 
     const res = getLarge(a, b);
     const arr_a = res[0].array;
