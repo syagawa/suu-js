@@ -852,6 +852,12 @@
     return new Su(num);
   };
 
+  const isSu = function(su){
+    if(su instanceof Su){
+      return true;
+    }
+  };
+
   const getLarge = function(a, b){
     let aa = a.array;
     let bb = b.array;
@@ -899,9 +905,13 @@
     return res;
   };
 
-  Su.prototype.add = function(elm){
+  Su.prototype.add = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+
     const a = this;
-    const b = elm;
+    const b = su;
 
     const res = getLarge(a, b);
     const arr_a = res[0].array;
