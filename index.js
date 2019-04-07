@@ -943,6 +943,10 @@
     return result;
   };
 
+  Su.prototype.sum = function(su){
+    return this.add(su)
+  };
+
 
 
 // })(window);
