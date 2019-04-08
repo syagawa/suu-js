@@ -948,5 +948,79 @@
   };
 
 
+  Su.prototype.subtract = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+
+    const a = this;
+    const b = su;
+
+    if( !(a instanceof Array) ){
+      a = K.numToArray(a);
+    }
+    if( !(b instanceof Array) ){
+      b = K.numToArray(b);
+    }
+
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+    if(S.isZero(a[0]) || S.isZero(b[0])){
+      return;
+    }
+
+    var negative = false;
+    var res = K.getLarger(a, b);
+    if(res[0] === b){
+      negative = true;
+    }
+
+    var arr_a = res[0];
+    var arr_b = res[1];
+    var len = arr_b.length;
+
+    var gap = arr_a.length - len;
+
+    var arr_c = [];
+
+    for(var i = 0; i < gap; i++){
+      arr_c.push(arr_a[i]);
+    }
+
+    for(var j = 0; j < len; j++){
+      var elm_b = arr_b[j];
+      var elm_a = arr_a[j + gap];
+      var higher_digit = arr_c[arr_c.length - 1];
+      if(elm_b <= elm_a){
+        arr_c.push( elm_a - elm_b );
+      }else{
+        arr_c[arr_c.length - 1] = higher_digit - 1;
+        arr_c.push( 10 + elm_a - elm_b);
+      }
+    }
+
+    var str = arr_c.join("");
+    var m = str.match(/[^0+?]/);
+    if(m){
+      str = str.slice(m.index);
+      arr_c = arr_c.slice(m.index);
+    }else{
+      str = "0";
+    }
+    var num = Number(str);
+    var leng = arr_c.length;
+
+    return {
+      array: arr_c,
+      string: negative ? "-" + str : str,
+      number: negative ? -num : num,
+      length: leng,
+      negative: negative
+    };
+
+  };
+
+
 
 // })(window);
