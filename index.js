@@ -944,7 +944,7 @@
   };
 
   Su.prototype.sum = function(su){
-    return this.add(su)
+    return this.add(su);
   };
 
 
@@ -955,20 +955,6 @@
 
     const a = this;
     const b = su;
-
-    if( !(a instanceof Array) ){
-      a = K.numToArray(a);
-    }
-    if( !(b instanceof Array) ){
-      b = K.numToArray(b);
-    }
-
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(S.isZero(a[0]) || S.isZero(b[0])){
-      return;
-    }
 
     var negative = false;
     var res = K.getLarger(a, b);
