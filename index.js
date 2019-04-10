@@ -957,7 +957,7 @@
     const b = su;
 
     var negative = false;
-    var res = K.getLarger(a, b);
+    var res = getLarge(a, b);
     if(res[0] === b){
       negative = true;
     }
