@@ -947,6 +947,9 @@
     return this.add(su);
   };
 
+  Su.prototype.plus = function(su){
+    return this.add(su);
+  };
 
   Su.prototype.subtract = function(su){
     if(!isSu(su)){
