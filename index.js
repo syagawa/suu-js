@@ -959,19 +959,19 @@
     const a = this;
     const b = su;
 
-    var negative = false;
-    var res = getLarge(a, b);
+    let negative = false;
+    const res = getLarge(a, b);
     if(res[0] === b){
       negative = true;
     }
 
-    var arr_a = res[0];
-    var arr_b = res[1];
-    var len = arr_b.length;
+    const arr_a = res[0].array;
+    const arr_b = res[1].array;
+    const len = arr_b.length;
 
-    var gap = arr_a.length - len;
+    const gap = arr_a.length - len;
 
-    var arr_c = [];
+    let arr_c = [];
 
     for(var i = 0; i < gap; i++){
       arr_c.push(arr_a[i]);
