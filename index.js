@@ -822,7 +822,7 @@
 
   };
 
-  const Su = function(num){
+  const Su = function(num, negative){
     if(!num){
       num = 0;
     }
@@ -843,13 +843,14 @@
     leng = arr.length;
 
     this.array = arr;
-    this.number = num;
-    this.string = str;
+    this.number = negative ? -num : num;
+    this.string = negative ? "-" + str : str;
     this.length = leng;
+    this.negative = negative ? true : false;
   };
 
-  const makeSu = function(num){
-    return new Su(num);
+  const makeSu = function(num, negative){
+    return new Su(num, negative);
   };
 
   const isSu = function(su){
@@ -973,14 +974,14 @@
 
     let arr_c = [];
 
-    for(var i = 0; i < gap; i++){
+    for(let i = 0; i < gap; i++){
       arr_c.push(arr_a[i]);
     }
 
-    for(var j = 0; j < len; j++){
-      var elm_b = arr_b[j];
-      var elm_a = arr_a[j + gap];
-      var higher_digit = arr_c[arr_c.length - 1];
+    for(let j = 0; j < len; j++){
+      let elm_b = arr_b[j];
+      let elm_a = arr_a[j + gap];
+      let higher_digit = arr_c[arr_c.length - 1];
       if(elm_b <= elm_a){
         arr_c.push( elm_a - elm_b );
       }else{
@@ -989,24 +990,9 @@
       }
     }
 
-    var str = arr_c.join("");
-    var m = str.match(/[^0+?]/);
-    if(m){
-      str = str.slice(m.index);
-      arr_c = arr_c.slice(m.index);
-    }else{
-      str = "0";
-    }
-    var num = Number(str);
-    var leng = arr_c.length;
+    const result = makeSu(arr_c, negative);
 
-    return {
-      array: arr_c,
-      string: negative ? "-" + str : str,
-      number: negative ? -num : num,
-      length: leng,
-      negative: negative
-    };
+    return result;
 
   };
 
