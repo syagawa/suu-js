@@ -838,6 +838,11 @@
       num = 0;
     }
 
+    if(num === 0){
+      negative = false;
+    }
+
+
     arr = K.numToArray(num);
     str = arr.join("");
     leng = arr.length;
@@ -994,6 +999,10 @@
 
     return result;
 
+  };
+
+  Su.prototype.minus = functin(su){
+    return this.subtract(su);
   };
 
 
