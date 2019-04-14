@@ -826,6 +826,11 @@
     if(!num){
       num = 0;
     }
+    if(!negative && num < 0){
+      negative = true;
+      num = num * -1;
+    }
+
     let arr,
         str,
         leng;
