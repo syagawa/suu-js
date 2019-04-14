@@ -1001,7 +1001,7 @@
 
   };
 
-  Su.prototype.minus = functin(su){
+  Su.prototype.minus = function(su){
     return this.subtract(su);
   };
 
