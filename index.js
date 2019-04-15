@@ -1010,6 +1010,63 @@
     return this.subtract(su);
   };
 
+  Su.prototype.multiplication = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+
+    const a = this;
+    const b = su;
+
+    var res_arrs = [],
+        len_a = a.length,
+        len_b = b.length;
+
+    for(var i = len_a - 1; i >= 0; i--){
+      var elm_a = a[i];
+      var over = 0;
+      var res_arr = [];
+      for(var j = len_b - 1; j >= 0; j--){
+        var elm_b = b[j];
+        var res = (elm_a * elm_b) + over;
+        over = 0;
+        var arr = String(res).split("");
+        if(arr.length === 2){
+          res = Number(arr[1]);
+          over = Number(arr[0]);
+        }
+        res_arr.unshift(res);
+      }
+      if(over > 0){
+        res_arr.unshift(over);
+      }
+      var pad = len_a -i - 1;
+      for(var k = 0; k < pad; k++){
+        res_arr.push(0);
+      }
+      // console.log(res_arr);
+      res_arrs.push(res_arr);
+    }
+
+    var before = [0];
+    var r = "";
+    for(var l = 0; l < res_arrs.length; l++){
+       r = K.arraySummation(res_arrs[l], before).array;
+      before = r;
+    }
+
+    var str = r.join("");
+    var num = Number(str);
+    var leng = r.length;
+
+    return {
+      array: r,
+      string: str,
+      number: num,
+      length: leng
+    };
+
+  };
 
 
 // })(window);
