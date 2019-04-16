@@ -1023,11 +1023,11 @@
         len_b = b.length;
 
     for(var i = len_a - 1; i >= 0; i--){
-      var elm_a = a[i];
+      var elm_a = a.array[i];
       var over = 0;
       var res_arr = [];
       for(var j = len_b - 1; j >= 0; j--){
-        var elm_b = b[j];
+        var elm_b = b.array[j];
         var res = (elm_a * elm_b) + over;
         over = 0;
         var arr = String(res).split("");
@@ -1050,8 +1050,9 @@
 
     var before = [0];
     var r = "";
+    console.log(res_arrs);
     for(var l = 0; l < res_arrs.length; l++){
-       r = K.arraySummation(res_arrs[l], before).array;
+      r = res_arrs[1].add(before);
       before = r;
     }
 
