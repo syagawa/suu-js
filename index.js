@@ -1058,5 +1058,8 @@
     return r;
   };
 
+  Su.prototype.multiply = function(su){
+    return this.multiplication(su);
+  };
 
 // })(window);
