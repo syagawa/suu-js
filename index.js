@@ -1010,6 +1010,10 @@
     return this.subtract(su);
   };
 
+  Su.prototype.negate = function(){
+    this.negative = this.negative ? false: true;
+  };
+
   Su.prototype.multiplication = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -1017,6 +1021,15 @@
 
     const a = this;
     const b = su;
+
+    let negative = false;
+    if(a.negative === false && b.negative === true){
+      console.log("neg");
+      negative = true;
+    }else if(a.negative === true && b.negative === false){
+      console.log("neg");
+      negative = true;
+    }
 
     const res_arrs = [],
         len_a = a.length,
@@ -1054,6 +1067,8 @@
       r = s.add(before);
       before = r;
     }
+
+    console(r);
 
     return r;
   };
