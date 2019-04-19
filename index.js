@@ -1011,7 +1011,18 @@
   };
 
   Su.prototype.negate = function(){
-    this.negative = this.negative ? false: true;
+    if(this.number === 0){
+      return this;
+    }
+    if(this.negative){
+      this.string = this.string.replace(/-/, "");
+      this.nevative = false;
+    }else{
+      this.string = this.string.replace(/(^.)/, "-$1");
+      this.negative = true;
+    }
+    this.number = this.number * -1;
+    return this;
   };
 
   Su.prototype.multiplication = function(su){
