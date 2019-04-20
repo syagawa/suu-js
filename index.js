@@ -1035,10 +1035,8 @@
 
     let negative = false;
     if(a.negative === false && b.negative === true){
-      console.log("neg");
       negative = true;
     }else if(a.negative === true && b.negative === false){
-      console.log("neg");
       negative = true;
     }
 
@@ -1079,7 +1077,12 @@
       before = r;
     }
 
-    console(r);
+
+    console.log(r);
+
+    if(negative){
+      r.negate();
+    }
 
     return r;
   };
