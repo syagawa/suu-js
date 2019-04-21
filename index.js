@@ -1091,4 +1091,45 @@
     return this.multiplication(su);
   };
 
+  Su.prototype.division = function(a, b){
+    if( !(a instanceof Array) ){
+      a = K.numToArray(a);
+    }
+    if( !(b instanceof Array) ){
+      b = K.numToArray(b);
+    }
+    if(!K.isNumArray(a) || !K.isNumArray(b)){
+      return;
+    }
+    if(S.isZero(a[0]) || S.isZero(b[0])){
+      return;
+    }
+
+    var temp = [0];
+    var sum = [0];
+    while(K.isLarge(a, sum) || K.isEqual(a, sum)){
+      // K.getLarger(sum, a);
+      temp = K.arraySummation(temp, [1]).array;
+      // console.log(temp);
+      sum = K.arrayMultiplication(b,temp).array;
+      // console.log(a, sum, K.isLarge(a, sum));
+
+    }
+
+    var res;
+    var remainder = 0;
+    if(K.isEqual(a, sum)){
+      res = temp;
+    }else{
+      res = K.arraySubtraction(temp, [1]);
+      sum = K.arraySubtraction(sum, b).array;
+      remainder = K.arraySubtraction(a, sum).array;
+    }
+
+    res.remainder = remainder;
+
+    return res;
+
+  };
+
 // })(window);
