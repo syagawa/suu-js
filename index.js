@@ -916,6 +916,15 @@
     return res;
   };
 
+  Su.prototype.isLarge = function(su){
+    const a = this;
+    const b = su;
+    const res = getLarge(a, b);
+    if(res[0] === a){
+      return true;
+    }
+  };
+
   Su.prototype.add = function(su){
     if(!isSu(su)){
       su = makeSu(su);
