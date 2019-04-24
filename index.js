@@ -916,6 +916,21 @@
     return res;
   };
 
+  Su.prototype.isEqual = function(su){
+    const a = this;
+    const b = su;
+
+    if(a.length === b.length){
+      for(var i = 0; i < a.length; i++){
+        if(a.array[i] !== b.array[i]){
+          return false;
+        }
+      }
+      return true;
+    }
+
+  };
+
   Su.prototype.isLarge = function(su){
     const a = this;
     const b = su;
@@ -1111,7 +1126,7 @@
 
     var temp = [0];
     var sum = [0];
-    while(K.isLarge(a, sum) || K.isEqual(a, sum)){
+    while(a.isLarge(sum) || a.isEqual(sum)){
       // K.getLarger(sum, a);
       temp = K.arraySummation(temp, [1]).array;
       // console.log(temp);
