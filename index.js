@@ -934,6 +934,7 @@
   Su.prototype.isLarge = function(su){
     const a = this;
     const b = su;
+    console.log(a,b);
     const res = getLarge(a, b);
     if(res[0] === a){
       return true;
@@ -1116,16 +1117,16 @@
   };
 
   Su.prototype.division = function(su){
-
+    console.log(su);
     if(!isSu(su)){
       su = makeSu(su);
     }
-
+    console.log(su);
     const a = this;
     const b = su;
 
-    var temp = [0];
-    var sum = [0];
+    var temp = makeSu(0);
+    var sum = makeSu(0);
     while(a.isLarge(sum) || a.isEqual(sum)){
       // K.getLarger(sum, a);
       temp = K.arraySummation(temp, [1]).array;
