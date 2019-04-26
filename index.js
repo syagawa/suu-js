@@ -1117,33 +1117,31 @@
   };
 
   Su.prototype.division = function(su){
-    console.log(su);
     if(!isSu(su)){
       su = makeSu(su);
     }
-    console.log(su);
     const a = this;
     const b = su;
 
-    var temp = makeSu(0);
-    var sum = makeSu(0);
+    let temp = makeSu(0);
+    let sum = makeSu(0);
     while(a.isLarge(sum) || a.isEqual(sum)){
       // K.getLarger(sum, a);
-      temp = K.arraySummation(temp, [1]).array;
+      temp = temp.sum(makeSu(1));
       // console.log(temp);
-      sum = K.arrayMultiplication(b,temp).array;
+      sum = b.multiply(temp);
       // console.log(a, sum, K.isLarge(a, sum));
-
     }
 
-    var res;
-    var remainder = 0;
-    if(K.isEqual(a, sum)){
+
+    let res;
+    let remainder = 0;
+    if(a.isEqual(sum)){
       res = temp;
     }else{
-      res = K.arraySubtraction(temp, [1]);
-      sum = K.arraySubtraction(sum, b).array;
-      remainder = K.arraySubtraction(a, sum).array;
+      res = temp.subtract([1]);
+      sum = sum.subtract(b);
+      remainder = a.subtract(sum);
     }
 
     res.remainder = remainder;
