@@ -917,6 +917,9 @@
   };
 
   Su.prototype.isEqual = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
     const a = this;
     const b = su;
 
@@ -926,18 +929,28 @@
           return false;
         }
       }
-      return true;
+      if(a.negative === b.negative){
+        return true;
+      }else{
+        return false;
+      }
+    }else{
+      return false;
     }
 
   };
 
   Su.prototype.isLarge = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
     const a = this;
     const b = su;
-    console.log(a,b);
     const res = getLarge(a, b);
     if(res[0] === a){
       return true;
+    }else{
+      return false;
     }
   };
 
