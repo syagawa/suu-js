@@ -1129,6 +1129,14 @@
     return this.multiplication(su);
   };
 
+  Su.prototype.isZero = function(){
+    if(this.number === 0){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
   Su.prototype.division = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -1136,16 +1144,16 @@
     const a = this;
     const b = su;
 
+    if( a.isZero() || b.isZero()){
+      return makeSu(0);
+    }
+
     let temp = makeSu(0);
     let sum = makeSu(0);
     while(a.isLarge(sum) || a.isEqual(sum)){
-      // K.getLarger(sum, a);
       temp = temp.sum(makeSu(1));
-      // console.log(temp);
       sum = b.multiply(temp);
-      // console.log(a, sum, K.isLarge(a, sum));
     }
-
 
     let res;
     let remainder = 0;
