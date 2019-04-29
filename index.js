@@ -962,6 +962,15 @@
     const a = this;
     const b = su;
 
+    let negative;
+    if(a.negative && b.negative){
+      negative = true;
+    }else if(a.negative === false && b.negative === false){
+      negative = false;
+    }else{
+      return a.subtract(b);
+    }
+
     const res = getLarge(a, b);
     const arr_a = res[0].array;
     const arr_b = res[1].array;
@@ -988,6 +997,8 @@
     }
 
     const result = makeSu(arr_c);
+
+    result.nevative = negative;
 
     return result;
   };
