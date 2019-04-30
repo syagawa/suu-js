@@ -1182,4 +1182,8 @@
 
   };
 
+  Su.prototype.waru = function(su){
+    return this.division(su);
+  };
+
 // })(window);
