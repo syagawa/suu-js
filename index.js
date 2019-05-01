@@ -1126,9 +1126,6 @@
       before = r;
     }
 
-
-    console.log(r);
-
     if(negative){
       r.negate();
     }
@@ -1137,6 +1134,10 @@
   };
 
   Su.prototype.multiply = function(su){
+    return this.multiplication(su);
+  };
+
+  Su.prototype.kakeru = function(su){
     return this.multiplication(su);
   };
 
