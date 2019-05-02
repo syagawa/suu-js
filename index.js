@@ -940,6 +940,14 @@
 
   };
 
+  Su.prototype.isZero = function(){
+    if(this.number === 0){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
   Su.prototype.isLarge = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -1003,14 +1011,6 @@
     return result;
   };
 
-  Su.prototype.sum = function(su){
-    return this.add(su);
-  };
-
-  Su.prototype.plus = function(su){
-    return this.add(su);
-  };
-
   Su.prototype.subtract = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -1053,10 +1053,6 @@
 
     return result;
 
-  };
-
-  Su.prototype.minus = function(su){
-    return this.subtract(su);
   };
 
   Su.prototype.negate = function(){
@@ -1133,21 +1129,7 @@
     return r;
   };
 
-  Su.prototype.multiply = function(su){
-    return this.multiplication(su);
-  };
-
-  Su.prototype.kakeru = function(su){
-    return this.multiplication(su);
-  };
-
-  Su.prototype.isZero = function(){
-    if(this.number === 0){
-      return true;
-    }else{
-      return false;
-    }
-  };
+  
 
   Su.prototype.division = function(su){
     if(!isSu(su)){
@@ -1181,6 +1163,35 @@
 
     return res;
 
+  };
+
+
+  Su.prototype.sum = function(su){
+    return this.add(su);
+  };
+
+  Su.prototype.plus = function(su){
+    return this.add(su);
+  };
+
+  Su.prototype.tasu = function(su){
+    return this.add(su);
+  };
+
+  Su.prototype.minus = function(su){
+    return this.subtract(su);
+  };
+
+  Su.prototype.hiku = function(su){
+    return this.subtract(su);
+  };
+
+  Su.prototype.multiply = function(su){
+    return this.multiplication(su);
+  };
+
+  Su.prototype.kakeru = function(su){
+    return this.multiplication(su);
   };
 
   Su.prototype.waru = function(su){
