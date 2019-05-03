@@ -1198,4 +1198,8 @@
     return this.division(su);
   };
 
+  Su.prototype.next = function(){
+    return this.add(makeSu(1));
+  };
+
 // })(window);
