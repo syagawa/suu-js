@@ -1202,4 +1202,8 @@
     return this.add(makeSu(1));
   };
 
+  Su.prototype.prev = function(){
+    return this.subtract(makeSu(1));
+  };
+
 // })(window);
