@@ -1206,4 +1206,11 @@
     return this.subtract(makeSu(1));
   };
 
+  Su.prototype.isEvenNumber = function(){
+    if( this.division(2).remainder.number === 0 ){
+      return true;
+    }
+  };
+
+
 // })(window);
