@@ -1212,5 +1212,11 @@
     }
   };
 
+  Su.prototype.isOddNumber = function(){
+    if( this.division(2).remainder.number !== 0 ){
+      return true;
+    }
+  };
+
 
 // })(window);
