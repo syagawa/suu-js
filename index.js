@@ -1129,7 +1129,6 @@
     return r;
   };
 
-  
 
   Su.prototype.division = function(su){
     if(!isSu(su)){
@@ -1216,6 +1215,17 @@
     if( this.division(2).remainder.number !== 0 ){
       return true;
     }
+  };
+
+  Su.prototype.getDivisors = function(){
+    const arr = [];
+    for(let i = 1; this.isLarge(makeSu(i)); i++){
+      let su = makeSu(i);
+      if(this.division(su).remainder.isEqual(0)){
+        arr.push(su);
+      }
+    }
+    return arr;
   };
 
 
