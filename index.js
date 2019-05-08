@@ -1228,5 +1228,34 @@
     return arr;
   };
 
+  Su.prototype.getCommonDivisors = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+
+    let a = this;
+    let b = su;
+
+    const arr_a = a.getDivisors();
+    if(a.isEqual(b)){
+      return arr_a;
+    }
+    const arr_b = b.getDivisors();
+
+    const divs = [];
+
+    for(let i = 0; i < arr_a.length; i++){
+      var elm_a = arr_a[i];
+      for(let j = 0; j < arr_b.length; j++){
+        var elm_b = arr_b[j];
+        if(elm_a.isEqual(elm_b)){
+          divs.push(elm_a);
+        }
+      }
+    }
+
+    return divs;
+  };
+
 
 // })(window);
