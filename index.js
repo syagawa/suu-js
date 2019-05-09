@@ -1257,5 +1257,13 @@
     return divs;
   };
 
+  Su.prototype.getMaxCommonDivisor = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+    const arr = this.getCommonDivisors(su);
+    return arr[arr.length - 1];
+  };
+
 
 // })(window);
