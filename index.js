@@ -822,6 +822,8 @@
 
   };
 
+
+
   const Su = function(num, negative){
     if(!num){
       num = 0;
@@ -914,6 +916,10 @@
       }
     }
     return res;
+  };
+
+  Su.prototype.CONSTANT = {
+    MAX: MAX
   };
 
   Su.prototype.isEqual = function(su){
@@ -1265,5 +1271,12 @@
     return arr[arr.length - 1];
   };
 
+  Su.prototype.multiple = function(){
+    const arr = [];
+    for(let i = 1; i < this.CONSTANT.MAX; i++){
+      arr.push(this.multiplication(i));
+    }
+    return arr;
+  };
 
 // })(window);
