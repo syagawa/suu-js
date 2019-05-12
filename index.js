@@ -1279,7 +1279,7 @@
     return arr;
   };
 
-  Su.prototype.leastCommonMultiple = function(su){
+  Su.prototype.getLeastCommonMultiple = function(su){
     if(!isSu(su)){
       su = makeSu(su);
     }
@@ -1287,36 +1287,15 @@
     const a = this;
     const b = su;
 
-    let big;
-    if( b.isLarge(a)){
-      big = b;
-    }else{
-      big = a;
-    }
-    const arr_a = [];
-    const arr_b = [];
+    const maxCommonDivisor = a.getMaxCommonDivisor(b);
 
-    let i =1;
-    while(i <= big){
-      arr_a.push( a.multiply(i) );
-      i++;
-    }
+    const multi = a.multiply(b);
 
-    let j =1;
-    while(j <= big){
-      arr_b.push( b.multiply(j) );
-      j++;
-    }
+    const res = multi.division(maxCommonDivisor);
 
-    for(let k = 0; k < arr_a.length; k++){
-      let elm_a = arr_a[k];
-      for(let l = 0; l < arr_b.length; l++){
-        let elm_b = arr_b[l];
-        if(elm_a === elm_b){
-          return elm_a;
-        }
-      }
-    }
+    return res;
+
+
   };
 
 
