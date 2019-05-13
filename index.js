@@ -919,7 +919,7 @@
   };
 
   Su.prototype.CONSTANT = {
-    MAX: MAX
+    MAX: makeSu(MAX)
   };
 
   Su.prototype.isEqual = function(su){
@@ -1295,8 +1295,30 @@
 
     return res;
 
-
   };
+
+  Su.prototype.fibonacciSequence = function(start){
+    if(!isSu(start)){
+      start = makeSu(start);
+    }
+
+    const self = this;
+    const MAX = self.CONSTANT.MAX;
+
+    const arr = [start, start.add(1)];
+    const func = function(arr){
+      if(arr[arr.length - 1].isLarge(MAX)){
+        return arr;
+      }
+      const a = arr[arr.length - 2];
+      const b = arr[arr.length - 1];
+      const c = a.add(b);
+      arr.push(c);
+      return func(arr);
+    };
+    return func(arr);
+  };
+
 
 
 // })(window);
