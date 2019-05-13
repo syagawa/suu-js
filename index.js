@@ -1272,8 +1272,11 @@
   };
 
   Su.prototype.multiple = function(){
+    if(this.isZero()){
+      return [this];
+    }
     const arr = [];
-    for(let i = 1; i < this.CONSTANT.MAX; i++){
+    for(let i = 1; i < this.CONSTANT.MAX.number; i++){
       arr.push(this.multiplication(i));
     }
     return arr;
