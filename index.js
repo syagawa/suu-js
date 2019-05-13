@@ -1,6 +1,7 @@
 // (function(global){
 
   const MAX = 10000;
+  const MIN = -10000;
 
   const S = {};
   const K = {};
@@ -919,7 +920,8 @@
   };
 
   Su.prototype.CONSTANT = {
-    MAX: makeSu(MAX)
+    MAX: makeSu(MAX),
+    MIN: makeSu(MIN)
   };
 
   Su.prototype.isEqual = function(su){
