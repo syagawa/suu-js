@@ -1324,6 +1324,20 @@
     return func(arr);
   };
 
+  Su.prototype.isFibonacciNumber = function(){
+    const n = this;
+    if(n.isZero()){
+      return true;
+    }
+    const fibs = this.fibonacciSequence(0);
+    for(let i = 0; i < fibs.length; i++){
+      let f = fibs[i];
+      if(f.isEqual(n)){
+        return true;
+      }
+    }
+
+  };
 
 
 // })(window);
