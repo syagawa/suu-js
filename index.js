@@ -1351,5 +1351,14 @@
     return array;
   };
 
+  Su.prototype.summation = function(){
+    const arr = this.getSequence(...arguments);
+    let sum = makeSu(0);
+    for(let i = 0; i < arr.length; i++){
+      sum = sum.add(arr[i]);
+    }
+    return sum;
+  };
+
 
 // })(window);
