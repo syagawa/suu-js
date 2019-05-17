@@ -1360,5 +1360,16 @@
     return sum;
   };
 
+  Su.prototype.infiniteProduct = function(){
+    const arr = this.getSequence(...arguments);
+    let ip = arr[0];
+    for(let i = 1; i < arr.length; i++){
+      ip = ip.multiplication(arr[i]);
+    }
+    return ip;
+  };
+
+
+
 
 // })(window);
