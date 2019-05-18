@@ -860,6 +860,7 @@
     this.string = negative ? "-" + str : str;
     this.length = leng;
     this.negative = negative ? true : false;
+    this.integer = true;
   };
 
   const makeSu = function(num, negative){
@@ -967,6 +968,12 @@
       return true;
     }else{
       return false;
+    }
+  };
+
+  Su.prototype.isNaturalNumber = function(){
+    if(this.isLarge(0) && this.integer){
+      return true;
     }
   };
 
