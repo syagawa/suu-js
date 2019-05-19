@@ -874,42 +874,20 @@
   };
 
   const getLarge = function(a, b){
-    let aa = a.array;
-    let bb = b.array;
-    let arr_a = [], arr_b = [];
-    for(var i = 0; i < aa.length; i++){
-      var elm_a = aa[i];
-      if(elm_a === 0 && arr_a.length === 0){
-        continue;
-      }
-      if(elm_a >=  0 && elm_a < 10){
-        arr_a.push(elm_a);
-      }
-    }
 
-    for(var j = 0; j < b.length; j++){
-      var elm_b = bb[j];
-      if(elm_b === 0 && arr_b.length === 0){
-        continue;
-      }
-      if(elm_b >=  0 && elm_b < 10){
-        arr_b.push(elm_b);
-      }
-    }
-
-    var res = [a, b];
-    if(arr_a.length > arr_b.length){
+    let res = [a, b];
+    if(a.length > b.length){
       res = [a, b];
-    }else if(arr_a.length < arr_b.length){
+    }else if(a.length < b.length){
       res = [b, a];
     }else{
-      for(var k = 0; k < arr_a.length; k++){
-        var elm_aa = arr_a[k];
-        var elm_bb = arr_b[k];
-        if(elm_aa > elm_bb){
+      for(let i = 0; i < a.length; i++){
+        let elm_a = a.array[i];
+        var elm_b = b.array[i];
+        if(elm_a > elm_b){
           res = [a, b];
           break;
-        }else if(elm_aa < elm_bb){
+        }else if(elm_a < elm_b){
           res = [b, a];
           break;
         }else{
