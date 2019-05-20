@@ -875,7 +875,17 @@
 
   const getLarge = function(a, b){
 
+    let negative = false;
     let res = [a, b];
+
+    if(!a.negative && b.negative){
+      return res = [a, b];
+    }else if(a.negative && !b.negative){
+      return res = [b, a];
+    }else if(a.negative && b.negative){
+      negative = true;
+    }
+
     if(a.length > b.length){
       res = [a, b];
     }else if(a.length < b.length){
@@ -894,6 +904,9 @@
           res = [a, b];
         }
       }
+    }
+    if(negative){
+      res = [res[1], res[0]];
     }
     return res;
   };
