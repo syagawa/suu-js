@@ -965,6 +965,8 @@
   Su.prototype.isNaturalNumber = function(){
     if(this.isLarge(0) && this.integer){
       return true;
+    }else{
+      return false;
     }
   };
 
