@@ -1369,6 +1369,32 @@
     return ip;
   };
 
+  Su.prototype.random = function(min, max){
+    if(!isSu(min)){
+      min = makeSu(min);
+    }
+    if(!isSu(max)){
+      max = makeSu(max);
+    }
+
+    // if(min instanceof Array && min.length > 0){
+    //   return K.randomElement(min);
+    // }
+
+    // if(min === undefined){
+    //   min = 0;
+    // }
+    // if(max === undefined){
+    //   max = 1;
+    // }
+
+    // var len = max - min;
+    // var rand = Math.random();
+    // var res = ( rand * len ) + min;
+
+    // return res;
+  };
+
 
 
 
