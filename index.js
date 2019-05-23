@@ -861,6 +861,7 @@
     this.length = leng;
     this.negative = negative ? true : false;
     this.integer = true;
+    this.float = false;
   };
 
   const makeSu = function(num, negative){
@@ -1370,6 +1371,12 @@
   };
 
   Su.prototype.random = function(min, max){
+    if(min === undefined){
+      min = makeSu(0);
+    }
+    if(max === undefined){
+      max = makeSu(1);
+    }
     if(!isSu(min)){
       min = makeSu(min);
     }
