@@ -861,7 +861,7 @@
     this.length = leng;
     this.negative = negative ? true : false;
     this.integer = true;
-    this.float = false;
+
   };
 
   const makeSu = function(num, negative){
