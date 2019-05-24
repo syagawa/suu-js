@@ -860,7 +860,10 @@
     this.string = negative ? "-" + str : str;
     this.length = leng;
     this.negative = negative ? true : false;
-    this.integer = true;
+    this.fraction = {
+      numerator: this.array,
+      denominator: [1]
+    };
 
   };
 
@@ -949,6 +952,14 @@
     }
   };
 
+  Su.prototype.isOne = function(){
+    if(this.number === 1){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
   Su.prototype.isLarge = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -964,7 +975,7 @@
   };
 
   Su.prototype.isNaturalNumber = function(){
-    if(this.isLarge(0) && this.integer){
+    if(this.isLarge(0) && this.fraction.denominator[0] === 1){
       return true;
     }else{
       return false;
