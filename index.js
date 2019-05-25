@@ -1395,22 +1395,16 @@
       max = makeSu(max);
     }
 
-    // if(min instanceof Array && min.length > 0){
-    //   return K.randomElement(min);
-    // }
+    const str = String(Math.random());
+    let ran;
 
-    // if(min === undefined){
-    //   min = 0;
-    // }
-    // if(max === undefined){
-    //   max = 1;
-    // }
+    if(str === "0"){
+      ran = makeSu(0)
+    }else{
+      ran = makeSu(str.split(".")[1]);
 
-    // var len = max - min;
-    // var rand = Math.random();
-    // var res = ( rand * len ) + min;
-
-    // return res;
+    }
+    return ran;
   };
 
 
