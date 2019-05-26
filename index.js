@@ -1381,6 +1381,15 @@
     return ip;
   };
 
+  Su.prototype.digitsum = function(){
+    let sum = makeSu(0);
+    for(let i = 0; i < this.array.length; i++){
+      let a = makeSu(this.array[i]);
+      sum = sum.add(a);
+    }
+    return sum;
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
