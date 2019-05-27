@@ -796,8 +796,8 @@
       return;
     }
 
-    var temp = [0];
-    var sum = [0];
+    let temp = [0];
+    let sum = [0];
     while(K.isLarge(a, sum) || K.isEqual(a, sum)){
       // K.getLarger(sum, a);
       temp = K.arraySummation(temp, [1]).array;
@@ -807,8 +807,8 @@
 
     }
 
-    var res;
-    var remainder = 0;
+    let res;
+    let remainder = 0;
     if(K.isEqual(a, sum)){
       res = temp;
     }else{
@@ -897,7 +897,7 @@
     }else{
       for(let i = 0; i < a.length; i++){
         let elm_a = a.array[i];
-        var elm_b = b.array[i];
+        let elm_b = b.array[i];
         if(elm_a > elm_b){
           res = [a, b];
           break;
@@ -928,7 +928,7 @@
     const b = su;
 
     if(a.length === b.length){
-      for(var i = 0; i < a.length; i++){
+      for(let i = 0; i < a.length; i++){
         if(a.array[i] !== b.array[i]){
           return false;
         }
@@ -1265,9 +1265,9 @@
     const divs = [];
 
     for(let i = 0; i < arr_a.length; i++){
-      var elm_a = arr_a[i];
+      let elm_a = arr_a[i];
       for(let j = 0; j < arr_b.length; j++){
-        var elm_b = arr_b[j];
+        let elm_b = arr_b[j];
         if(elm_a.isEqual(elm_b)){
           divs.push(elm_a);
         }
@@ -1408,10 +1408,9 @@
     let ran;
 
     if(str === "0"){
-      ran = makeSu(0)
+      ran = makeSu(0);
     }else{
       ran = makeSu(str.split(".")[1]);
-
     }
     return ran;
   };
