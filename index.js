@@ -825,11 +825,15 @@
 
 
 
-  const Su = function(num, negative){
+  const Su = function(num, option){
     if(!num){
       num = 0;
     }
-    if(!negative && num < 0){
+    if(!option){
+      option = {};
+    }
+    let negative = false;
+    if(!option.negative && num < 0){
       negative = true;
       num = num * -1;
     }
@@ -862,13 +866,13 @@
     this.negative = negative ? true : false;
     this.fraction = {
       numerator: this.array,
-      denominator: [1]
+      denominator: option.denominator || [1]
     };
 
   };
 
-  const makeSu = function(num, negative){
-    return new Su(num, negative);
+  const makeSu = function(num, option){
+    return new Su(num, option);
   };
 
   const isSu = function(su){
@@ -1069,7 +1073,7 @@
       }
     }
 
-    const result = makeSu(arr_c, negative);
+    const result = makeSu(arr_c, { negative: negative });
 
     return result;
 
@@ -1405,12 +1409,23 @@
     }
 
     const str = String(Math.random());
+    console.info(str);
     let ran;
+    let digit = 0;
 
     if(str === "0"){
       ran = makeSu(0);
     }else{
-      ran = makeSu(str.split(".")[1]);
+      digit = 1;
+      let arr = str.split(".");
+      let decimal_part = arr[1];
+      let zero = decimal_part.match(/^0*/)[0];
+      digit = digit + zero.length;
+      let denominator = [1];
+      for(let i = 0; i < decimal_part.length; i++){
+        denominator.push(0);
+      }
+      ran = makeSu(arr[1], { denominator: denominator });
     }
     return ran;
   };
