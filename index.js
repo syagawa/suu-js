@@ -986,6 +986,13 @@
     }
   };
 
+  Su.prototype.isInteger = function(){
+    const denominator = this.fraction.denominator;
+    if(denominator.length === 1 && denominator[0] === 1){
+      return true;
+    }
+  };
+
   Su.prototype.add = function(su){
     if(!isSu(su)){
       su = makeSu(su);
