@@ -981,8 +981,6 @@
   Su.prototype.isNaturalNumber = function(){
     if(this.isLarge(0) && this.isInteger() && !this.negative){
       return true;
-    }else{
-      return false;
     }
   };
 
@@ -990,8 +988,6 @@
     const denominator = this.fraction.denominator;
     if(denominator.length === 1 && denominator[0] === 1){
       return true;
-    }else{
-      return false;
     }
   };
 
