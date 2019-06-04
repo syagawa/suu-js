@@ -838,6 +838,12 @@
       num = num * -1;
     }
 
+    let denominator = [1];
+    if(option.denominator){
+      denominator = option.denominator;
+    }
+
+
     let arr,
         str,
         leng;
@@ -866,7 +872,7 @@
     this.negative = negative ? true : false;
     this.fraction = {
       numerator: this.array,
-      denominator: option.denominator || [1]
+      denominator: denominator
     };
 
   };
@@ -1414,14 +1420,12 @@
     }
 
     const str = String(Math.random());
-    console.info(str);
     let ran;
-    let digit = 0;
 
     if(str === "0"){
       ran = makeSu(0);
     }else{
-      digit = 1;
+      let digit = 1;
       let arr = str.split(".");
       let decimal_part = arr[1];
       let zero = decimal_part.match(/^0*/)[0];
