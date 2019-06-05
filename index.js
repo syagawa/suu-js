@@ -1425,11 +1425,8 @@
     if(str === "0"){
       ran = makeSu(0);
     }else{
-      let digit = 1;
       let arr = str.split(".");
       let decimal_part = arr[1];
-      let zero = decimal_part.match(/^0*/)[0];
-      digit = digit + zero.length;
       let denominator = [1];
       for(let i = 0; i < decimal_part.length; i++){
         denominator.push(0);
