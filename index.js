@@ -843,9 +843,7 @@
       denominator = option.denominator;
     }
 
-
     let arr,
-        str,
         leng;
     if(K.isNumArray(num)){
       num = Number(num.join(""));
@@ -860,22 +858,33 @@
       negative = false;
     }
 
-
     arr = K.numToArray(num);
-    str = arr.join("");
     leng = arr.length;
 
-    this.array = arr;
-    this.number = negative ? -num : num;
-    this.string = negative ? "-" + str : str;
+    this.integer = arr;
+    this.decimal = [0];
     this.length = leng;
     this.negative = negative ? true : false;
     this.fraction = {
-      numerator: this.array,
+      numerator: this.integer,
       denominator: denominator
     };
-
   };
+
+  Su.prototype.getString = function(){
+    let str = String( this.integer.join(""));
+    const ac = this.decimal.reduce((a,e) => a + e);
+    if(ac !== 0){
+      str += "." + this.decimal.join("");
+    }
+    return this.negative? "-" + str: str;
+  };
+
+  Su.prototype.getNumber = function(){
+    const num = Number(this.getString());
+    return num;
+  };
+
 
   const makeSu = function(num, option){
     return new Su(num, option);
