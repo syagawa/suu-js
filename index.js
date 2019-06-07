@@ -825,45 +825,48 @@
 
 
 
-  const Su = function(num, option){
-    if(!num){
-      num = 0;
+  const Su = function(n, option){
+    if(!n){
+      n = 0;
     }
     if(!option){
       option = {};
     }
+
+    let str = String(n);
+
     let negative = false;
-    if(!option.negative && num < 0){
+    if(str[0] === "-"){
+      str = str.slice(1, str.length);
       negative = true;
-      num = num * -1;
     }
+    if(!negative && option && option.negative){
+      negative = true;
+    }
+
+    if(isNaN(Number(str))){
+      str = "0";
+    }
+    if(str === "0"){
+      negative = false;
+      denominator = [1];
+    }
+
+    let parts = str.split(".");
+    let num_str = parts[0];
+    let decimal_str = parts[1];
 
     let denominator = [1];
     if(option.denominator){
       denominator = option.denominator;
     }
 
-    let arr,
-        leng;
-    if(K.isNumArray(num)){
-      num = Number(num.join(""));
-    }
+    let int_arr = K.numToArray(num_str);
+    let int_leng = int_arr.length;
 
-    num = Number(num);
-    if(isNaN(num)){
-      num = 0;
-    }
-
-    if(num === 0){
-      negative = false;
-    }
-
-    arr = K.numToArray(num);
-    leng = arr.length;
-
-    this.integer = arr;
+    this.integer = int_arr;
     this.decimal = [0];
-    this.length = leng;
+    this.length = int_leng;
     this.negative = negative ? true : false;
     this.fraction = {
       numerator: this.integer,
