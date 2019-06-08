@@ -849,11 +849,10 @@
     }
     if(str === "0"){
       negative = false;
-      denominator = [1];
     }
 
     let parts = str.split(".");
-    let num_str = parts[0];
+    let int_str = parts[0];
     let decimal_str = parts[1];
 
     let denominator = [1];
@@ -861,12 +860,13 @@
       denominator = option.denominator;
     }
 
-    let int_arr = K.numToArray(num_str);
-    let int_leng = int_arr.length;
+    console.log(decimal_str);
+
+    let int_arr = K.numToArray(int_str);
+    let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
 
     this.integer = int_arr;
-    this.decimal = [0];
-    this.length = int_leng;
+    this.decimal = decimal_arr;
     this.negative = negative ? true : false;
     this.fraction = {
       numerator: this.integer,
