@@ -860,8 +860,6 @@
       denominator = option.denominator;
     }
 
-    console.log(decimal_str);
-
     let int_arr = K.numToArray(int_str);
     let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
 
@@ -872,6 +870,16 @@
       numerator: this.integer,
       denominator: denominator
     };
+  };
+
+  const makeSu = function(num, option){
+    return new Su(num, option);
+  };
+
+  const isSu = function(su){
+    if(su instanceof Su){
+      return true;
+    }
   };
 
   Su.prototype.getString = function(){
@@ -888,15 +896,9 @@
     return num;
   };
 
-
-  const makeSu = function(num, option){
-    return new Su(num, option);
-  };
-
-  const isSu = function(su){
-    if(su instanceof Su){
-      return true;
-    }
+  Su.prototype.getInteger = function(){
+    const num = Number(this.integer.join(""));
+    return num;
   };
 
   const getLarge = function(a, b){
