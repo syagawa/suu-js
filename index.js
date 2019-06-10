@@ -969,7 +969,7 @@
   };
 
   Su.prototype.isZero = function(){
-    if(this.number === 0){
+    if(this.integer.length === 1 && this.integer[0] === 0 && this.decimal.length === 1 && this.decimal[0] === 0){
       return true;
     }else{
       return false;
