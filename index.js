@@ -977,7 +977,7 @@
   };
 
   Su.prototype.isOne = function(){
-    if(this.number === 1){
+    if(this.getString() === "1"){
       return true;
     }else{
       return false;
