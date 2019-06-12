@@ -904,39 +904,58 @@
   const getLarge = function(a, b){
 
     let negative = false;
-    let res = [a, b];
+    let field = [];
 
     if(!a.negative && b.negative){
-      return res = [a, b];
+      return a;
     }else if(a.negative && !b.negative){
-      return res = [b, a];
+      return b;
     }else if(a.negative && b.negative){
       negative = true;
     }
 
-    if(a.length > b.length){
-      res = [a, b];
-    }else if(a.length < b.length){
-      res = [b, a];
+    if(a.integer.length > b.integer.length){
+      return a;
+    }else if(a.integer.length < b.integer.length){
+      return b;
     }else{
-      for(let i = 0; i < a.length; i++){
+      for(let i = 0; i < a.integer.length; i++){
         let elm_a = a.array[i];
         let elm_b = b.array[i];
         if(elm_a > elm_b){
-          res = [a, b];
+          field = [a, b];
           break;
         }else if(elm_a < elm_b){
-          res = [b, a];
+          field = [b, a];
           break;
-        }else{
-          res = [a, b];
         }
       }
     }
-    if(negative){
-      res = [res[1], res[0]];
+
+    if(field.length === 0){
+      const len = a.decimal.length >= b.decimal.length ? a.decimal.length : b.decimal.length;
+      for(let i = 0; i < len; i++){
+        let elm_a = a.decimal[i] ? a.decimal[i] : 0;
+        let elm_b = b.decimal[i] ? b.decimal[i] : 0;
+        if(elm_a > elm_b){
+          field = [a, b];
+          break;
+        }else if(elm_a < elm_b){
+          field = [b, a];
+          break;
+        }
+      }
     }
-    return res;
+
+    if(negative){
+      field = [field[1], field[0]];
+    }
+    if(field.length === 0){
+      return null;
+    }else{
+      return field[0];
+    }
+
   };
 
   Su.prototype.CONSTANT = {
