@@ -915,13 +915,19 @@
     }
 
     if(a.integer.length > b.integer.length){
+      if(negative){
+        return b;
+      }
       return a;
     }else if(a.integer.length < b.integer.length){
+      if(negative){
+        return a;
+      }
       return b;
     }else{
       for(let i = 0; i < a.integer.length; i++){
-        let elm_a = a.array[i];
-        let elm_b = b.array[i];
+        let elm_a = a.integer[i];
+        let elm_b = b.integer[i];
         if(elm_a > elm_b){
           field = [a, b];
           break;
