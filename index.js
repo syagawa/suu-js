@@ -975,13 +975,30 @@
     }
     const a = this;
     const b = su;
+    const i_a = a.integer;
+    const i_b = b.integer;
+    const d_a = a.decimal;
+    const d_b = b.decimal;
 
-    if(a.length === b.length){
-      for(let i = 0; i < a.length; i++){
-        if(a.array[i] !== b.array[i]){
-          return false;
+    const large = getLarge(a, b);
+
+    if(!large){
+      if(i_a.length === i_b.length){
+        for(let i = 0; i < i_a.length; i++){
+          if(i_a[i] !== i_b[i]){
+            return false;
+          }
         }
+      }else if(d_a.length === d_b.length){
+        for(let i = 0; i < d_a.length; i++){
+          if(d_a[i] !== d_b[i]){
+            return false;
+          }
+        }
+      }else{
+        return false;
       }
+
       if(a.negative === b.negative){
         return true;
       }else{
