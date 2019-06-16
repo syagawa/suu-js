@@ -1043,15 +1043,15 @@
     }
   };
 
-  Su.prototype.isNaturalNumber = function(){
-    if(this.isLarge(0) && this.isInteger() && !this.negative){
+  Su.prototype.isInteger = function(){
+    const denominator = this.fraction.denominator;
+    if(denominator.length === 1 && denominator[0] === 1){
       return true;
     }
   };
 
-  Su.prototype.isInteger = function(){
-    const denominator = this.fraction.denominator;
-    if(denominator.length === 1 && denominator[0] === 1){
+  Su.prototype.isNaturalNumber = function(){
+    if(!this.negative && this.isInteger() && this.isLarge(0)){
       return true;
     }
   };
@@ -1067,15 +1067,21 @@
     let negative;
     if(a.negative && b.negative){
       negative = true;
-    }else if(a.negative === false && b.negative === false){
+    }else if(!a.negative && !b.negative){
       negative = false;
     }else{
       return a.subtract(b);
     }
 
     const res = getLarge(a, b);
-    const arr_a = res[0].array;
-    const arr_b = res[1].array;
+    let arr_a = res.integer;
+    let arr_b;
+    if(res === a){
+      arr_b = b.integer;
+    }else{
+      arr_b = a.integer
+    }
+
     const len = arr_a.length;
 
     const gap = len - arr_b.length;
