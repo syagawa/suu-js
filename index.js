@@ -1074,23 +1074,26 @@
     }
 
     const res = getLarge(a, b);
-    let arr_a = res.integer;
-    let arr_b;
+    let int_a = res.integer;
+    let dec_a = res.decimal;
+    let int_b, dec_b;
     if(res === a){
-      arr_b = b.integer;
+      int_b = b.integer;
+      dec_b = b.decimal;
     }else{
-      arr_b = a.integer
+      int_b = a.integer;
+      dec_b = a.decimal;
     }
 
-    const len = arr_a.length;
+    const len = int_a.length;
 
-    const gap = len - arr_b.length;
+    const gap = len - int_b.length;
 
     let over = 0, arr_c = [];
     for(let i = len - 1; i >= 0; i--){
       let _res;
-      let elm_a = arr_a[i];
-      let elm_b = arr_b[i - gap] || 0;
+      let elm_a = int_a[i];
+      let elm_b = int_b[i - gap] || 0;
       _res = elm_a + elm_b + over;
       if(_res >= 10){
         over = 1;
