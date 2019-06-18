@@ -1085,12 +1085,41 @@
       dec_b = a.decimal;
     }
 
-    const len = int_a.length;
+    let len_i = int_a.length;
+    let len_d = dec_a.length;
 
-    const gap = len - int_b.length;
+    if(dec_b.length > dec_a.length){
+      len_d = dec_b.length;
+    }
+    let over = 0,
+        int_res = [],
+        dec_res = [];
 
-    let over = 0, arr_c = [];
-    for(let i = len - 1; i >= 0; i--){
+    for(let i = len_d - 1; i >= 0; i--){
+      let _res;
+      let elm_a = dec_a[i] || 0;
+      let elm_b = dec_b[i] || 0;
+      _res = elm_a + elm_b + over;
+      if(_res >= 10){
+        over = 1;
+        _res = _res - 10;
+      }else{
+        over = 0;
+      }
+      dec_res.unshift(_res);
+    }
+
+    for(let i = dec_res.length - 1; i >= 0; i-- ){
+      if(i ===0 && dec_res[i] === 0){
+        break;
+      }
+      if(dec_res[i] === 0){
+        dec_res.pop();
+      }
+    }
+
+    const gap = len_i - int_b.length;
+    for(let i = len_i - 1; i >= 0; i--){
       let _res;
       let elm_a = int_a[i];
       let elm_b = int_b[i - gap] || 0;
@@ -1101,15 +1130,13 @@
       }else{
         over = 0;
       }
-      arr_c.unshift(_res);
+      int_res.unshift(_res);
     }
     if(over > 0){
-      arr_c.unshift(over);
+      int_res.unshift(over);
     }
 
-    const result = makeSu(arr_c);
-
-    result.nevative = negative;
+    const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
 
     return result;
   };
