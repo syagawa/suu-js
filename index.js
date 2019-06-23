@@ -1149,10 +1149,14 @@
     const a = this;
     const b = su;
 
-    let negative = false;
-    const res = getLarge(a, b);
-    if(res[0] === b){
-      negative = true;
+    let negative;
+    if(!a.negative && b.negative){
+      b.negative = false;
+      return a.add(b);
+    }
+    if(a.negative && !b.negative){
+      b.negative = true;
+      return a.add(b);
     }
 
     const arr_a = res[0].array;
