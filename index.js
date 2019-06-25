@@ -1159,31 +1159,38 @@
       return a.add(b);
     }
 
-    const arr_a = res[0].array;
-    const arr_b = res[1].array;
-    const len = arr_b.length;
+    // const len = arr_b.length;
 
-    const gap = arr_a.length - len;
+    const int_a = a.integer;
+    const dec_a = a.decimal;
+    const int_b = b.integer;
+    const dec_b = b.decimal;
 
-    let arr_c = [];
+    const len_i = int_a.length;
+    const len_d = dec_a.length;
 
-    for(let i = 0; i < gap; i++){
-      arr_c.push(arr_a[i]);
+    const gap_i = int_a.length - int_b.length;
+    const gap_d = dec_a.length - dec_b.length;
+
+    let int = [];
+
+    for(let i = 0; i < gap_i; i++){
+      int.push(int_a[i]);
     }
 
-    for(let j = 0; j < len; j++){
-      let elm_b = arr_b[j];
-      let elm_a = arr_a[j + gap];
-      let higher_digit = arr_c[arr_c.length - 1];
+    for(let j = 0; j < int_b.length; j++){
+      let elm_b = int_b[j];
+      let elm_a = int_a[j + gap_i];
+      let higher_digit = int[int.length - 1];
       if(elm_b <= elm_a){
-        arr_c.push( elm_a - elm_b );
+        int.push( elm_a - elm_b );
       }else{
-        arr_c[arr_c.length - 1] = higher_digit - 1;
-        arr_c.push( 10 + elm_a - elm_b);
+        int[int.length - 1] = higher_digit - 1;
+        int.push( 10 + elm_a - elm_b);
       }
     }
 
-    const result = makeSu(arr_c, { negative: negative });
+    const result = makeSu(int, { negative: negative });
 
     return result;
 
