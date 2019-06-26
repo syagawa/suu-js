@@ -1146,8 +1146,8 @@
       su = makeSu(su);
     }
 
-    const a = this;
-    const b = su;
+    let a = this;
+    let b = su;
 
     let negative;
     if(!a.negative && b.negative){
@@ -1160,6 +1160,13 @@
     }
 
     // const len = arr_b.length;
+
+    const res = getLarge(a, b);
+
+    if(res !== a){
+      a = su;
+      b = this;
+    }
 
     const int_a = a.integer;
     const dec_a = a.decimal;
