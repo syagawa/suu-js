@@ -1146,6 +1146,10 @@
       su = makeSu(su);
     }
 
+    if(su.isZero()){
+      return this;
+    }
+
     let a = this;
     let b = su;
 
@@ -1158,6 +1162,7 @@
       b.negative = true;
       return a.add(b);
     }
+
 
     // const len = arr_b.length;
 
