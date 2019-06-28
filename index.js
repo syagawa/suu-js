@@ -1061,6 +1061,10 @@
       su = makeSu(su);
     }
 
+    if(su.isZero()){
+      return this;
+    }
+
     const a = this;
     const b = su;
 
