@@ -1178,22 +1178,16 @@
     }
 
     const int_a = a.integer;
-    const dec_a = a.decimal;
     const int_b = b.integer;
-    const dec_b = b.decimal;
 
     const len_i = int_a.length;
-    const len_d = dec_a.length;
 
     const gap_i = int_a.length - int_b.length;
-    const gap_d = dec_a.length - dec_b.length;
 
     let int = [];
-
     for(let i = 0; i < gap_i; i++){
       int.push(int_a[i]);
     }
-
     for(let j = 0; j < int_b.length; j++){
       let elm_b = int_b[j];
       let elm_a = int_a[j + gap_i];
@@ -1204,6 +1198,16 @@
         int[int.length - 1] = higher_digit - 1;
         int.push( 10 + elm_a - elm_b);
       }
+    }
+
+    const dec_a = a.decimal;
+    const dec_b = b.decimal;
+    const len_d = dec_a.length;
+    const gap_d = Math.abs(dec_a.length - dec_b.length);
+    const ind_d = len_d + gap_d - 1;
+
+    let dec = [];
+    for(let k = ind_d; k >= 0; k--){
     }
 
     const result = makeSu(int, { negative: negative });
