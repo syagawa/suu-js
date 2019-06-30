@@ -1179,9 +1179,7 @@
 
     const int_a = a.integer;
     const int_b = b.integer;
-
     const len_i = int_a.length;
-
     const gap_i = int_a.length - int_b.length;
 
     let int = [];
@@ -1202,15 +1200,27 @@
 
     const dec_a = a.decimal;
     const dec_b = b.decimal;
-    const len_d = dec_a.length;
-    const gap_d = Math.abs(dec_a.length - dec_b.length);
-    const ind_d = len_d + gap_d - 1;
+    const len_d = ( (dec_a.length - dec_b.length) >= 0 ) ? dec_a.length : dec_b.length;
 
     let dec = [];
-    for(let k = ind_d; k >= 0; k--){
+    for(let k = 0; k < len_d; k++){
+      let elm_b = dec_b[k];
+      let elm_a = dec_a[k];
+      let higher_digit = dec[k] ? dec[k] : int[int.length -1];
+      if(elm_b <= elm_a){
+        dec.push( elm_a - elm_b );
+      }else{
+        if(dec[dec.length - 1]){
+          dec[dec.length - 1] = higher_digit - 1;
+        }else{
+          int[int.length -1] = higher_digit - 1;
+        }
+        dec.push( 10 + elm_a - elm_b);
+      }
+
     }
 
-    const result = makeSu(int, { negative: negative });
+    const result = makeSu(int.join("") + "." + dec.join(""), { negative: negative });
 
     return result;
 
