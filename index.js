@@ -1175,6 +1175,7 @@
     if(res !== a){
       a = su;
       b = this;
+      negative = !negative;
     }
 
     const int_a = a.integer;
@@ -1204,8 +1205,8 @@
 
     let dec = [];
     for(let k = 0; k < len_d; k++){
-      let elm_b = dec_b[k];
-      let elm_a = dec_a[k];
+      let elm_b = dec_b[k] ? dec_b[k] : 0;
+      let elm_a = dec_a[k] ? dec_a[k] : 0;
       let higher_digit = dec[k] ? dec[k] : int[int.length -1];
       if(elm_b <= elm_a){
         dec.push( elm_a - elm_b );
