@@ -1157,16 +1157,21 @@
     let a = this;
     let b = su;
 
-    let negative;
-    if(!a.negative && b.negative){
-      b.negative = false;
-      return a.add(b);
-    }
-    if(a.negative && !b.negative){
-      b.negative = true;
+    // if(!a.negative && b.negative){
+    //   b.negative = false;
+    //   return a.add(b);
+    // }
+    // if(a.negative && !b.negative){
+    //   b.negative = true;
+    //   return a.add(b);
+    // }
+
+    if(a.negative !== b.negative){
+      b.negative = !b.negative;
       return a.add(b);
     }
 
+    let negative = false;
 
     // const len = arr_b.length;
 
