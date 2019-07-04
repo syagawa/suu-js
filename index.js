@@ -901,10 +901,15 @@
     return num;
   };
 
-  const getLarge = function(a, b){
+  const getLarge = function(a, b, absolute = false){
 
     let negative = false;
     let field = [];
+
+    if(absolute){
+      a.negative = false;
+      b.negative = false;
+    }
 
     if(!a.negative && b.negative){
       return a;
@@ -1175,7 +1180,7 @@
 
     // const len = arr_b.length;
 
-    const res = getLarge(a, b);
+    const res = getLarge(a, b, true);
 
     if(res !== a){
       a = su;
