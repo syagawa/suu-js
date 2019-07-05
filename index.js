@@ -1176,7 +1176,7 @@
       return a.add(b);
     }
 
-    let negative = false;
+    let negative = a.negative;
 
     // const len = arr_b.length;
 
@@ -1185,7 +1185,7 @@
     if(res !== a){
       a = su;
       b = this;
-      negative = !negative;
+      negative = a.negative;
     }
 
     const int_a = a.integer;
