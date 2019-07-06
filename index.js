@@ -1082,7 +1082,10 @@
       return a.subtract(b);
     }
 
-    const res = getLarge(a, b);
+    let res = getLarge(a, b);
+    if(!res){
+      res = a;
+    }
     let int_a = res.integer;
     let dec_a = res.decimal;
     let int_b, dec_b;
@@ -1104,6 +1107,7 @@
         int_res = [],
         dec_res = [];
 
+
     for(let i = len_d - 1; i >= 0; i--){
       let _res;
       let elm_a = dec_a[i] || 0;
@@ -1119,11 +1123,11 @@
     }
 
     for(let i = dec_res.length - 1; i >= 0; i-- ){
-      if(i ===0 && dec_res[i] === 0){
-        break;
-      }
-      if(dec_res[i] === 0){
+      let d = dec_res[i];
+      if(d === 0){
         dec_res.pop();
+      }else{
+        break;
       }
     }
 
@@ -1161,15 +1165,6 @@
 
     let a = this;
     let b = su;
-
-    // if(!a.negative && b.negative){
-    //   b.negative = false;
-    //   return a.add(b);
-    // }
-    // if(a.negative && !b.negative){
-    //   b.negative = true;
-    //   return a.add(b);
-    // }
 
     if(a.negative !== b.negative){
       b.negative = !b.negative;
@@ -1229,6 +1224,15 @@
         dec.push( 10 + elm_a - elm_b);
       }
 
+    }
+
+    for(let l = dec.length - 1; l >= 0; l--){
+      let d = dec[l];
+      if(d === 0){
+        dec.pop();
+      }else{
+        break;
+      }
     }
 
     const result = makeSu(int.join("") + "." + dec.join(""), { negative: negative });
