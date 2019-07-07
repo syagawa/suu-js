@@ -1173,10 +1173,7 @@
 
     let negative = a.negative;
 
-    // const len = arr_b.length;
-
     const res = getLarge(a, b, true);
-
     if(res !== a){
       a = su;
       b = this;
@@ -1246,13 +1243,10 @@
       return this;
     }
     if(this.negative){
-      this.string = this.string.replace(/-/, "");
       this.nevative = false;
     }else{
-      this.string = this.string.replace(/(^.)/, "-$1");
       this.negative = true;
     }
-    this.number = this.number * -1;
     return this;
   };
 
