@@ -1258,6 +1258,14 @@
     const a = this;
     const b = su;
 
+    if(a.isZero()){
+      return a;
+    }
+
+    if(b.isZero()){
+      return b;
+    }
+
     let negative = false;
     if(a.negative === false && b.negative === true){
       negative = true;
