@@ -1273,16 +1273,20 @@
       negative = true;
     }
 
-    const res_arrs = [],
-        len_a = a.length,
-        len_b = b.length;
+    const int_a = a.integer;
+    const int_b = b.integer;
+    const len_i_a = int_a.length;
+    const len_i_b = int_b.length;
 
-    for(let i = len_a - 1; i >= 0; i--){
-      let elm_a = a.array[i];
+    let int = [];
+
+
+    for(let i = len_i_a - 1; i >= 0; i--){
+      let elm_a = int_a[i];
       let over = 0;
       let res_arr = [];
-      for(let j = len_b - 1; j >= 0; j--){
-        let elm_b = b.array[j];
+      for(let j = len_i_b - 1; j >= 0; j--){
+        let elm_b = int_b[j];
         let res = (elm_a * elm_b) + over;
         over = 0;
         let arr = String(res).split("");
@@ -1295,17 +1299,17 @@
       if(over > 0){
         res_arr.unshift(over);
       }
-      let pad = len_a -i - 1;
+      let pad = len_i_a -i - 1;
       for(let k = 0; k < pad; k++){
         res_arr.push(0);
       }
-      res_arrs.push(res_arr);
+      int.push(res_arr);
     }
 
     let before = [0];
     let r = "";
-    for(let l = 0; l < res_arrs.length; l++){
-      let s = makeSu(res_arrs[l]);
+    for(let l = 0; l < int.length; l++){
+      let s = makeSu(int[l]);
       r = s.add(before);
       before = r;
     }
