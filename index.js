@@ -1278,8 +1278,7 @@
     const len_i_a = int_a.length;
     const len_i_b = int_b.length;
 
-    let int = [];
-
+    let ints = [];
 
     for(let i = len_i_a - 1; i >= 0; i--){
       let elm_a = int_a[i];
@@ -1303,13 +1302,13 @@
       for(let k = 0; k < pad; k++){
         res_arr.push(0);
       }
-      int.push(res_arr);
+      ints.push(res_arr);
     }
 
-    let before = [0];
+    let before = makeSu(0);
     let r = "";
-    for(let l = 0; l < int.length; l++){
-      let s = makeSu(int[l]);
+    for(let l = 0; l < ints.length; l++){
+      let s = makeSu(ints[l].join(""));
       r = s.add(before);
       before = r;
     }
