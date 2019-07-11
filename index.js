@@ -1278,6 +1278,11 @@
     const len_i_a = int_a.length;
     const len_i_b = int_b.length;
 
+    const dec_a = a.decimal;
+    const dec_b = b.decimal;
+    const len_d_a = dec_a.length;
+    const len_d_b = dec_b.length;
+
     let ints = [];
 
     for(let i = len_i_a - 1; i >= 0; i--){
@@ -1306,7 +1311,7 @@
     }
 
     let before = makeSu(0);
-    let r = "";
+    let r;
     for(let l = 0; l < ints.length; l++){
       let s = makeSu(ints[l].join(""));
       r = s.add(before);
