@@ -1061,6 +1061,10 @@
     }
   };
 
+  Su.prototype.concatIntegerAndDecimal = function(){
+    return this.integer.concat(this.decimal);
+  };
+
   Su.prototype.add = function(su){
     if(!isSu(su)){
       su = makeSu(su);
@@ -1282,6 +1286,10 @@
     const dec_b = b.decimal;
     const len_d_a = dec_a.length;
     const len_d_b = dec_b.length;
+
+    const aa = [];
+    const bb = [];
+
 
     let ints = [];
 
