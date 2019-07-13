@@ -1287,9 +1287,21 @@
     const len_d_a = dec_a.length;
     const len_d_b = dec_b.length;
 
-    const aa = [];
-    const bb = [];
+    const aa = a.concatIntegerAndDecimal();
+    const bb = b.concatIntegerAndDecimal();
 
+    const gap_dec = dec_a.length - dec_b.length;
+    if(gap_dec < 0){
+      for(let i = 0; i < Math.abs(gap_dec); i++){
+        aa.push(0);
+      }
+    }else if(gap_dec > 0){
+      for(let i = 0; i < Math.abs(gap_dec); i++){
+        bb.push(0);
+      }
+    }
+
+    console.log(aa, bb);
 
     let ints = [];
 
