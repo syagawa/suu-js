@@ -1290,27 +1290,29 @@
     const aa = a.concatIntegerAndDecimal();
     const bb = b.concatIntegerAndDecimal();
 
-    const gap_dec = dec_a.length - dec_b.length;
+    const gap_dec = len_d_a - len_d_b;
+    let len_dec = len_d_a;
     if(gap_dec < 0){
       for(let i = 0; i < Math.abs(gap_dec); i++){
         aa.push(0);
       }
+      len_dec = len_d_b;
     }else if(gap_dec > 0){
       for(let i = 0; i < Math.abs(gap_dec); i++){
         bb.push(0);
       }
     }
 
-    console.log(aa, bb);
+    console.log(aa, bb, len_dec);
 
     let ints = [];
 
-    for(let i = len_i_a - 1; i >= 0; i--){
-      let elm_a = int_a[i];
+    for(let i = aa.length - 1; i >= 0; i--){
+      let elm_a = aa[i];
       let over = 0;
       let res_arr = [];
-      for(let j = len_i_b - 1; j >= 0; j--){
-        let elm_b = int_b[j];
+      for(let j = bb.length - 1; j >= 0; j--){
+        let elm_b = bb[j];
         let res = (elm_a * elm_b) + over;
         over = 0;
         let arr = String(res).split("");
@@ -1330,10 +1332,15 @@
       ints.push(res_arr);
     }
 
+    console.info(ints);
+
     let before = makeSu(0);
     let r;
     for(let l = 0; l < ints.length; l++){
-      let s = makeSu(ints[l].join(""));
+      let elm = ints[l];
+      let int = elm.slice(0, elm.length - len_dec);
+      let dec = elm.slice(-len_dec);
+      let s = makeSu(int.join("") + "." + dec.join(""));
       r = s.add(before);
       before = r;
     }
