@@ -901,6 +901,12 @@
     return num;
   };
 
+  Su.prototype.getDecimal = function(){
+    const num = Number("0." + this.decimal.join(""));
+    return num;
+  };
+
+
   const getLarge = function(a, b, absolute = false){
 
     let negative = false;
