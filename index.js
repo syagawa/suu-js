@@ -1313,11 +1313,17 @@
 
     let ints = [];
 
+    let counter_i = 0;
+    let counter_j = 0;
     for(let i = aa.length - 1; i >= 0; i--){
+      counter_i++;
+      console.log("counter_i", counter_i);
       let elm_a = aa[i];
       let over = 0;
       let res_arr = [];
       for(let j = bb.length - 1; j >= 0; j--){
+        counter_j++;
+        console.log("counter_j", counter_j);
         let elm_b = bb[j];
         let res = (elm_a * elm_b) + over;
         over = 0;
