@@ -1313,6 +1313,19 @@
 
     let ints = [];
 
+    let counter_a = a.integer.length + a.decimal.length;
+
+
+    while(counter_a !== 0){
+      console.info("counter_a", counter_a);
+      counter_a--;
+      let counter_b = b.integer.length + b.decimal.length;
+      while(counter_b !== 0){
+        console.info("counter_b", counter_b);
+        counter_b--;
+      }
+    }
+
     let counter_i = 0;
     let counter_j = 0;
     for(let i = aa.length - 1; i >= 0; i--){
