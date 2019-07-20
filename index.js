@@ -1315,14 +1315,13 @@
 
     let counter_a = a.integer.length + a.decimal.length;
 
-
-    while(counter_a !== 0){
-      console.info("counter_a", counter_a);
+    while(counter_a > 0){
       counter_a--;
+      console.info("counter_a", counter_a);
       let counter_b = b.integer.length + b.decimal.length;
-      while(counter_b !== 0){
-        console.info("counter_b", counter_b);
+      while(counter_b > 0){
         counter_b--;
+        console.info("counter_b", counter_b);
       }
     }
 
