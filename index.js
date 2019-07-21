@@ -1313,15 +1313,32 @@
 
     let ints = [];
 
-    let counter_a = a.integer.length + a.decimal.length;
+    let counter_i_a = a.integer.length;
+    let counter_d_a = a.decimal.length;
 
-    while(counter_a > 0){
-      counter_a--;
-      console.info("counter_a", counter_a);
-      let counter_b = b.integer.length + b.decimal.length;
-      while(counter_b > 0){
-        counter_b--;
-        console.info("counter_b", counter_b);
+    while(counter_i_a > 0 || counter_d_a > 0){
+      let elm_a;
+      if(counter_d_a > 0){
+        counter_d_a--;
+        elm_a = a.decimal[counter_d_a];
+      }else{
+        counter_i_a--;
+        elm_a = a.integer[counter_i_a];
+      }
+      console.info("a", elm_a);
+      let counter_i_b = b.integer.length;
+      let counter_d_b = b.decimal.length;
+      while(counter_i_b > 0 || counter_d_b > 0){
+        let elm_b;
+        if(counter_d_b > 0){
+          counter_d_b--;
+          elm_b = b.decimal[counter_d_b];
+        }else{
+          counter_i_b--;
+          elm_b = b.integer[counter_i_b];
+        }
+        console.info("b", elm_b);
+
       }
     }
 
