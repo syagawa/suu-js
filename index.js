@@ -1325,7 +1325,7 @@
         counter_i_a--;
         elm_a = a.integer[counter_i_a];
       }
-      console.info("a", elm_a);
+      // console.info("a", elm_a);
       let counter_i_b = b.integer.length;
       let counter_d_b = b.decimal.length;
       while(counter_i_b > 0 || counter_d_b > 0){
@@ -1337,7 +1337,9 @@
           counter_i_b--;
           elm_b = b.integer[counter_i_b];
         }
-        console.info("b", elm_b);
+
+        let res = elm_a * elm_b;
+        console.info(elm_a, elm_b, res);
 
       }
     }
