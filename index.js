@@ -1318,28 +1318,34 @@
 
     while(counter_i_a > 0 || counter_d_a > 0){
       let elm_a;
+      let is_dec_a = false;
       if(counter_d_a > 0){
         counter_d_a--;
         elm_a = a.decimal[counter_d_a];
+        is_dec_a = true;
       }else{
         counter_i_a--;
         elm_a = a.integer[counter_i_a];
+        is_dec_a = false;
       }
       // console.info("a", elm_a);
       let counter_i_b = b.integer.length;
       let counter_d_b = b.decimal.length;
       while(counter_i_b > 0 || counter_d_b > 0){
         let elm_b;
+        let is_dec_b = false;
         if(counter_d_b > 0){
           counter_d_b--;
           elm_b = b.decimal[counter_d_b];
+          is_dec_b = true;
         }else{
           counter_i_b--;
           elm_b = b.integer[counter_i_b];
+          is_dec_b = false;
         }
 
         let res = elm_a * elm_b;
-        console.info(elm_a, elm_b, res);
+        console.info(elm_a, elm_b, res, is_dec_a, is_dec_b);
 
       }
     }
