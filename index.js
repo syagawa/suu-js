@@ -1345,7 +1345,15 @@
         }
 
         let res = elm_a * elm_b;
-        console.info(elm_a, elm_b, res, is_dec_a, is_dec_b);
+        console.info({
+          a: elm_a,
+          b: elm_b,
+          res: res,
+          is_dec_a: is_dec_a,
+          is_dec_b: is_dec_b,
+          dec_a_index: counter_d_a,
+          dec_b_index: counter_d_b
+        });
 
       }
     }
