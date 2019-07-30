@@ -1316,6 +1316,8 @@
     let counter_i_a = a.integer.length;
     let counter_d_a = a.decimal.length;
 
+    const results = [];
+
     while(counter_i_a > 0 || counter_d_a > 0){
       let elm_a;
       let is_dec_a = false;
@@ -1344,16 +1346,44 @@
           is_dec_b = false;
         }
 
-        let res = elm_a * elm_b;
+        const mult = elm_a * elm_b;
+        const dec_a_index =  counter_d_a;
+        const dec_b_index =  counter_d_b;
+        const dec_a_len =  is_dec_a ? counter_d_a + 1 : 0;
+        const dec_b_len =  is_dec_b ? counter_d_b + 1 : 0;
+
         console.info({
           a: elm_a,
           b: elm_b,
-          res: res,
+          mult: mult,
           is_dec_a: is_dec_a,
           is_dec_b: is_dec_b,
-          dec_a_index: counter_d_a,
-          dec_b_index: counter_d_b
+          dec_a_index: dec_a_index,
+          dec_b_index: dec_b_index,
+          dec_a_len: dec_a_len,
+          dec_b_len: dec_a_len
         });
+
+        const len = dec_a_len + dec_b_len;
+
+        let str;
+        if(len === 0){
+          str = mult.toString();
+        }else if( len === 1 ){
+          if(mult >= 10){
+            str = mult.toString().split("")[0] + "." + mult.toString().split("")[1];
+          }else{
+            str = "0." + mult.toString();
+          }
+        }else{
+          if(mult >= 10){
+            str = "0." + mult.toString().padStart(len - 1, "0");
+          }else{
+            str = "0." + mult.toString().padStart(len, "0");
+          }
+        }
+        const s = makeSu(str);
+        console.info(s);
 
       }
     }
