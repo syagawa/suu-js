@@ -1320,7 +1320,7 @@
 
     while(counter_i_a > 0 || counter_d_a > 0){
       let elm_a;
-      let is_dec_a = false;
+      let is_dec_a;
       if(counter_d_a > 0){
         counter_d_a--;
         elm_a = a.decimal[counter_d_a];
@@ -1330,9 +1330,11 @@
         elm_a = a.integer[counter_i_a];
         is_dec_a = false;
       }
+      let is_int_a = !is_dec_a;
       // console.info("a", elm_a);
       let counter_i_b = b.integer.length;
       let counter_d_b = b.decimal.length;
+
       while(counter_i_b > 0 || counter_d_b > 0){
         let elm_b;
         let is_dec_b = false;
@@ -1345,12 +1347,16 @@
           elm_b = b.integer[counter_i_b];
           is_dec_b = false;
         }
+        let is_int_b = !is_dec_b;
 
         const mult = elm_a * elm_b;
         const dec_a_index =  counter_d_a;
         const dec_b_index =  counter_d_b;
         const dec_a_len =  is_dec_a ? counter_d_a + 1 : 0;
         const dec_b_len =  is_dec_b ? counter_d_b + 1 : 0;
+        let dis_a = is_int_a ? a.integer.length - counter_i_a : -counter_d_a;
+        let dis_b = is_int_b ? b.integer.length - counter_i_b : -counter_d_b;
+
 
         console.info({
           a: elm_a,
@@ -1358,10 +1364,14 @@
           mult: mult,
           is_dec_a: is_dec_a,
           is_dec_b: is_dec_b,
+          is_int_a: is_int_a,
+          is_int_b: is_int_b,
           dec_a_index: dec_a_index,
           dec_b_index: dec_b_index,
           dec_a_len: dec_a_len,
-          dec_b_len: dec_a_len
+          dec_b_len: dec_a_len,
+          dis_a: dis_a,
+          dis_b: dis_b
         });
 
         const len = dec_a_len + dec_b_len;
@@ -1383,7 +1393,7 @@
           }
         }
         const s = makeSu(str);
-        console.info(s);
+        console.info(s.getString());
 
       }
     }
@@ -1398,7 +1408,7 @@
       let res_arr = [];
       for(let j = bb.length - 1; j >= 0; j--){
         counter_j++;
-        console.log("counter_j", counter_j);
+        // console.log("counter_j", counter_j);
         let elm_b = bb[j];
         let res = (elm_a * elm_b) + over;
         over = 0;
