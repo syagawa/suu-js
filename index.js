@@ -1354,8 +1354,8 @@
         const dec_b_index =  counter_d_b;
         const dec_a_len =  is_dec_a ? counter_d_a + 1 : 0;
         const dec_b_len =  is_dec_b ? counter_d_b + 1 : 0;
-        let dis_a = is_int_a ? a.integer.length - counter_i_a : -counter_d_a;
-        let dis_b = is_int_b ? b.integer.length - counter_i_b : -counter_d_b;
+        let dis_a = is_int_a ? a.integer.length - counter_i_a : -(counter_d_a + 1);
+        let dis_b = is_int_b ? b.integer.length - counter_i_b : -(counter_d_b + 1);
 
 
         console.info({
