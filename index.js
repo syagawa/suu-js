@@ -1354,8 +1354,10 @@
         const dec_b_index =  counter_d_b;
         const dec_a_len =  is_dec_a ? counter_d_a + 1 : 0;
         const dec_b_len =  is_dec_b ? counter_d_b + 1 : 0;
-        let dis_a = is_int_a ? a.integer.length - counter_i_a : -(counter_d_a + 1);
-        let dis_b = is_int_b ? b.integer.length - counter_i_b : -(counter_d_b + 1);
+        const int_a_len =  is_int_a ? counter_i_a + 1 : 0;
+        const int_b_len =  is_int_b ? counter_i_b + 1 : 0;
+        const dis_a = is_int_a ? a.integer.length - counter_i_a : -(counter_d_a + 1);
+        const dis_b = is_int_b ? b.integer.length - counter_i_b : -(counter_d_b + 1);
 
 
         console.info({
@@ -1371,7 +1373,9 @@
           dec_a_len: dec_a_len,
           dec_b_len: dec_a_len,
           dis_a: dis_a,
-          dis_b: dis_b
+          dis_b: dis_b,
+          int_a_len: int_a_len,
+          int_b_len: int_b_len
         });
 
         const len = dec_a_len + dec_b_len;
