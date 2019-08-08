@@ -1380,24 +1380,33 @@
 
         const len = dec_a_len + dec_b_len;
 
-        let str;
-        if(len === 0){
-          str = mult.toString();
-        }else if( len === 1 ){
-          if(mult >= 10){
-            str = mult.toString().split("")[0] + "." + mult.toString().split("")[1];
-          }else{
-            str = "0." + mult.toString();
-          }
-        }else{
-          if(mult >= 10){
-            str = "0." + mult.toString().padStart(len - 1, "0");
-          }else{
-            str = "0." + mult.toString().padStart(len, "0");
-          }
+        let res_int;
+        let res_dec;
+        if(dis_a < 0 && dis_b < 0){
+          let dis = Math.abs(dis_a) >= Math.abs(dis_b) ? Math.abs(dis_a) : Math.abs(dis_b);
+          res_dec = new Array(dis);
+          res_dec[dis - 1] = mult;
         }
-        const s = makeSu(str);
-        console.info(s.getString());
+
+
+        // let str;
+        // if(len === 0){
+        //   str = mult.toString();
+        // }else if( len === 1 ){
+        //   if(mult >= 10){
+        //     str = mult.toString().split("")[0] + "." + mult.toString().split("")[1];
+        //   }else{
+        //     str = "0." + mult.toString();
+        //   }
+        // }else{
+        //   if(mult >= 10){
+        //     str = "0." + mult.toString().padStart(len - 1, "0");
+        //   }else{
+        //     str = "0." + mult.toString().padStart(len, "0");
+        //   }
+        // }
+        // const s = makeSu(str);
+        // console.info(s.getString());
 
       }
     }
