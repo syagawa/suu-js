@@ -1380,14 +1380,20 @@
 
         const len = dec_a_len + dec_b_len;
 
+        const mult_res = String(mult).split("");
+        const one = mult_res[1] ? mult_res[1] : mult_res[0];
+        const ten = mult_res[1] ? mult_res[0] : 0;
         let res_int;
         let res_dec;
         if(dis_a < 0 && dis_b < 0){
           let dis = Math.abs(dis_a) >= Math.abs(dis_b) ? Math.abs(dis_a) : Math.abs(dis_b);
-          res_dec = new Array(dis);
-          res_dec[dis - 1] = mult;
+          res_int = new Array(dis + 1);
+          res_int[dis] = one;
+          if(ten){
+            res_dec.unshift(ten);
+          }
         }
-
+        console.info(res_int);
 
         // let str;
         // if(len === 0){
