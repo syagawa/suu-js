@@ -1391,10 +1391,18 @@
           res_int = new Array(dis + 1).fill(0, 0, dis + 1);
           res_int[dis] = Number(one);
           if(ten){
-            res_int(dis - 1);
+            res_int[dis - 1];
+          }
+        }else if(dis_a > 0 && dis_b > 0){
+          let dis = Math.abs(dis_a) >= Math.abs(dis_b) ? Math.abs(dis_a) : Math.abs(dis_b);
+          res_dec = new Array(dis + 1).fill(0, 0, dis + 1);
+          res_dec[dis] = Number(one);
+          if(ten){
+            res_dec[dis - 1];
           }
         }
-        console.info("res_int", res_int);
+
+        console.info("resres", res_int, res_dec);
 
         // let str;
         // if(len === 0){
