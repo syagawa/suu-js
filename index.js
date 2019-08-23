@@ -1386,21 +1386,9 @@
         const ten = mult_res[1] ? mult_res[0] : 0;
         let res_int;
         let res_dec;
-        let dis = 0;
+        let dis = dis_a + dis_b;
         if(dis_a < 0 && dis_b < 0){
-          dis = Math.abs(dis_a) >= Math.abs(dis_b) ? Math.abs(dis_a) : Math.abs(dis_b);
-          // res_int = new Array(dis + 1).fill(0, 0, dis + 1);
-          // res_int[dis] = Number(one);
-          // if(ten){
-          //   res_int[dis - 1];
-          // }
-        }else if(dis_a > 0 && dis_b > 0){
-          dis = Math.abs(dis_a) >= Math.abs(dis_b) ? Math.abs(dis_a) : Math.abs(dis_b);
-          // res_dec = new Array(dis + 1).fill(0, 0, dis + 1);
-          // res_dec[dis] = Number(one);
-          // if(ten){
-          //   res_dec[dis - 1];
-          // }
+          dis = dis- 1;
         }
 
 
