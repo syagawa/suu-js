@@ -1381,7 +1381,6 @@
         const len = dec_a_len + dec_b_len;
 
         const mult_res = String(mult).split("");
-        console.log(mult_res);
         const one = mult_res[1] ? mult_res[1] : mult_res[0];
         const ten = mult_res[1] ? mult_res[0] : 0;
         let res_int;
@@ -1392,7 +1391,16 @@
         }
 
 
-        console.info("resres", res_int, res_dec);
+        console.info("resres", dis, mult_res);
+        if(dis === 0){
+          if(mult_res.length === 2){
+            console.log(mult_res[0], ".", mult_res[1]);
+          }else{
+            console.log("0.", mult_res[0]);
+          }
+        }
+
+
 
         // let str;
         // if(len === 0){
