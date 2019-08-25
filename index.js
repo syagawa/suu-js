@@ -1398,6 +1398,10 @@
           }else{
             console.log("0.", mult_res[0]);
           }
+        }else if(dis > 0){
+          console.log(mult_res.join(""));
+        }else{
+          console.log("0.", mult_res.join(""));
         }
 
 
