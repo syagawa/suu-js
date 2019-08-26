@@ -1399,9 +1399,9 @@
             console.log("0.", mult_res[0]);
           }
         }else if(dis > 0){
-          console.log(mult_res.join(""));
+          console.log(mult_res.join("").padEnd(dis + mult_res.length -1, "0"));
         }else{
-          console.log("0.", mult_res.join(""));
+          console.log("0.", mult_res.join("").padStart(dis + mult_res.length, "0"));
         }
 
 
