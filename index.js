@@ -1393,14 +1393,14 @@
 
         if(dis === 0){
           if(mult_res.length === 2){
-            console.log(dis, mult_res[0], ".", mult_res[1]);
+            console.log("p0", dis, mult_res[0], ".", mult_res[1]);
           }else{
-            console.log(dis, "0.", mult_res[0]);
+            console.log("p1", dis, "0.", mult_res[0]);
           }
         }else if(dis > 0){
-          console.log(dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
+          console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
         }else{
-          console.log(dis, "0.", mult_res.join("").padStart(dis + mult_res.length + 1 , "0"));
+          console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis) + mult_res.length - 1 , "0"));
         }
 
 
