@@ -1386,8 +1386,11 @@
         let res_int;
         let res_dec;
         let dis = dis_a + dis_b;
-        if(dis_a < 0 && dis_b < 0){
-          dis = dis- 1;
+
+        if(dis_a < 0 && dis_b > 0){
+          dis = dis_a;
+        }else if(dis_a > 0 && dis_b < 0){
+          dis = dis_b;
         }
 
 
@@ -1400,7 +1403,7 @@
         }else if(dis > 0){
           console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
         }else{
-          console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis + mult_res.length), "0"));
+          console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis), "0"));
         }
 
 
