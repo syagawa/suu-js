@@ -1394,17 +1394,25 @@
         }
 
 
+        let res;
         if(dis === 0){
           if(mult_res.length === 2){
-            console.log("p0", dis, mult_res[0], ".", mult_res[1]);
+            res = mult_res[0], ".", mult_res[1];
+            // console.log("p0", dis, res);
           }else{
-            console.log("p1", dis, "0.", mult_res[0]);
+            res = mult_res[0];
+            // console.log("p1", dis, "0.", mult_res[0]);
           }
         }else if(dis > 0){
-          console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
+          res = mult_res.join("").padEnd(dis - mult_res.length, "0");
+          // console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
         }else{
-          console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis), "0"));
+          res = mult_res.join("").padStart(Math.abs(dis), "0");
+          // console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis), "0"));
         }
+        console.log(res);
+
+
 
 
         // let str;
