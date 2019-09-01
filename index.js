@@ -1400,20 +1400,21 @@
             res = mult_res[0], ".", mult_res[1];
             // console.log("p0", dis, res);
           }else{
-            res = mult_res[0];
+            res = "0." + mult_res[0];
             // console.log("p1", dis, "0.", mult_res[0]);
           }
         }else if(dis > 0){
           res = mult_res.join("").padEnd(dis - mult_res.length, "0");
           // console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
         }else{
-          res = mult_res.join("").padStart(Math.abs(dis), "0");
+          res = "0." + mult_res.join("").padStart(Math.abs(dis), "0");
           // console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis), "0"));
         }
         console.log(res);
 
+        console.log(makeSu(res));
 
-
+        results.push(makeSu(res));
 
         // let str;
         // if(len === 0){
