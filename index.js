@@ -1316,7 +1316,7 @@
     let counter_i_a = a.integer.length;
     let counter_d_a = a.decimal.length;
 
-    const results = [];
+    const results = [makeSu(0)];
 
     while(counter_i_a > 0 || counter_d_a > 0){
       let elm_a;
@@ -1398,45 +1398,26 @@
         if(dis === 0){
           if(mult_res.length === 2){
             res = mult_res[0], ".", mult_res[1];
-            // console.log("p0", dis, res);
           }else{
             res = "0." + mult_res[0];
-            // console.log("p1", dis, "0.", mult_res[0]);
           }
         }else if(dis > 0){
           res = mult_res.join("").padEnd(dis - mult_res.length, "0");
-          // console.log("p2", dis, mult_res.join("").padEnd(dis - mult_res.length, "0"));
         }else{
-          res = "0." + mult_res.join("").padStart(Math.abs(dis), "0");
-          // console.log("p3", dis, "0.", mult_res.join("").padStart(Math.abs(dis), "0"));
+          if(mult_res.length === 2 && dis === -1){
+            res = mult_res[0] + "." + mult_res[1];
+          }else{
+            res = "0." + mult_res.join("").padStart(Math.abs(dis), "0");
+          }
         }
         console.log(res);
 
-        console.log(makeSu(res));
-
-        results.push(makeSu(res));
-
-        // let str;
-        // if(len === 0){
-        //   str = mult.toString();
-        // }else if( len === 1 ){
-        //   if(mult >= 10){
-        //     str = mult.toString().split("")[0] + "." + mult.toString().split("")[1];
-        //   }else{
-        //     str = "0." + mult.toString();
-        //   }
-        // }else{
-        //   if(mult >= 10){
-        //     str = "0." + mult.toString().padStart(len - 1, "0");
-        //   }else{
-        //     str = "0." + mult.toString().padStart(len, "0");
-        //   }
-        // }
-        // const s = makeSu(str);
-        // console.info(s.getString());
-
+        const old = results[0];
+        results[0] = results[0].add(makeSu(res));
       }
     }
+
+    console.log("while res", results[0].getString());
 
     let counter_i = 0;
     let counter_j = 0;
@@ -1469,7 +1450,6 @@
       ints.push(res_arr);
     }
 
-    console.info(ints);
 
     let before = makeSu(0);
     let r;
