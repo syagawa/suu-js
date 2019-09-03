@@ -1283,11 +1283,6 @@
       negative = true;
     }
 
-    const int_a = a.integer;
-    const int_b = b.integer;
-    const len_i_a = int_a.length;
-    const len_i_b = int_b.length;
-
     const dec_a = a.decimal;
     const dec_b = b.decimal;
     const len_d_a = dec_a.length;
@@ -1309,10 +1304,6 @@
       }
     }
 
-    console.log(aa, bb, len_dec);
-
-    let ints = [];
-
     let counter_i_a = a.integer.length;
     let counter_d_a = a.decimal.length;
 
@@ -1331,7 +1322,6 @@
         is_dec_a = false;
       }
       let is_int_a = !is_dec_a;
-      // console.info("a", elm_a);
       let counter_i_b = b.integer.length;
       let counter_d_b = b.decimal.length;
 
@@ -1350,41 +1340,11 @@
         let is_int_b = !is_dec_b;
 
         const mult = elm_a * elm_b;
-        const dec_a_index =  counter_d_a;
-        const dec_b_index =  counter_d_b;
-        const dec_a_len =  is_dec_a ? counter_d_a + 1 : 0;
-        const dec_b_len =  is_dec_b ? counter_d_b + 1 : 0;
-        const int_a_len =  is_int_a ? counter_i_a + 1 : 0;
-        const int_b_len =  is_int_b ? counter_i_b + 1 : 0;
         const dis_a = is_int_a ? a.integer.length - counter_i_a : -(counter_d_a + 1);
         const dis_b = is_int_b ? b.integer.length - counter_i_b : -(counter_d_b + 1);
 
 
-        console.info({
-          a: elm_a,
-          b: elm_b,
-          mult: mult,
-          is_dec_a: is_dec_a,
-          is_dec_b: is_dec_b,
-          is_int_a: is_int_a,
-          is_int_b: is_int_b,
-          dec_a_index: dec_a_index,
-          dec_b_index: dec_b_index,
-          dec_a_len: dec_a_len,
-          dec_b_len: dec_a_len,
-          dis_a: dis_a,
-          dis_b: dis_b,
-          int_a_len: int_a_len,
-          int_b_len: int_b_len
-        });
-
-        const len = dec_a_len + dec_b_len;
-
         const mult_res = String(mult).split("");
-        const one = mult_res[1] ? mult_res[1] : mult_res[0];
-        const ten = mult_res[1] ? mult_res[0] : 0;
-        let res_int;
-        let res_dec;
         let dis = dis_a + dis_b;
 
         if(dis_a < 0 && dis_b > 0){
@@ -1410,57 +1370,11 @@
             res = "0." + mult_res.join("").padStart(Math.abs(dis), "0");
           }
         }
-        console.log(res);
-
-        const old = results[0];
         results[0] = results[0].add(makeSu(res));
       }
     }
 
-    console.log("while res", results[0].getString());
-
-    let counter_i = 0;
-    let counter_j = 0;
-    for(let i = aa.length - 1; i >= 0; i--){
-      counter_i++;
-      console.log("counter_i", counter_i);
-      let elm_a = aa[i];
-      let over = 0;
-      let res_arr = [];
-      for(let j = bb.length - 1; j >= 0; j--){
-        counter_j++;
-        // console.log("counter_j", counter_j);
-        let elm_b = bb[j];
-        let res = (elm_a * elm_b) + over;
-        over = 0;
-        let arr = String(res).split("");
-        if(arr.length === 2){
-          res = Number(arr[1]);
-          over = Number(arr[0]);
-        }
-        res_arr.unshift(res);
-      }
-      if(over > 0){
-        res_arr.unshift(over);
-      }
-      let pad = len_i_a -i - 1;
-      for(let k = 0; k < pad; k++){
-        res_arr.push(0);
-      }
-      ints.push(res_arr);
-    }
-
-
-    let before = makeSu(0);
-    let r;
-    for(let l = 0; l < ints.length; l++){
-      let elm = ints[l];
-      let int = elm.slice(0, elm.length - len_dec);
-      let dec = elm.slice(-len_dec);
-      let s = makeSu(int.join("") + "." + dec.join(""));
-      r = s.add(before);
-      before = r;
-    }
+    const r = results[0];
 
     if(negative){
       r.negate();
