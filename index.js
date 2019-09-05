@@ -1268,12 +1268,8 @@
     const a = this;
     const b = su;
 
-    if(a.isZero()){
-      return a;
-    }
-
-    if(b.isZero()){
-      return b;
+    if(a.isZero() || a.isZero()){
+      return makeSu(0);
     }
 
     let negative = false;
