@@ -1391,26 +1391,34 @@
       return makeSu(0);
     }
 
-    let temp = makeSu(0);
-    let sum = makeSu(0);
-    while(a.isLarge(sum) || a.isEqual(sum)){
-      temp = temp.sum(makeSu(1));
-      sum = b.multiply(temp);
+    let negative = false;
+    if(a.negative === false && b.negative === true){
+      negative = true;
+    }else if(a.negative === true && b.negative === false){
+      negative = true;
     }
 
-    let res;
-    let remainder = 0;
-    if(a.isEqual(sum)){
-      res = temp;
-    }else{
-      res = temp.subtract([1]);
-      sum = sum.subtract(b);
-      remainder = a.subtract(sum);
-    }
 
-    res.remainder = remainder;
+    // let temp = makeSu(0);
+    // let sum = makeSu(0);
+    // while(a.isLarge(sum) || a.isEqual(sum)){
+    //   temp = temp.sum(makeSu(1));
+    //   sum = b.multiply(temp);
+    // }
 
-    return res;
+    // let res;
+    // let remainder = 0;
+    // if(a.isEqual(sum)){
+    //   res = temp;
+    // }else{
+    //   res = temp.subtract([1]);
+    //   sum = sum.subtract(b);
+    //   remainder = a.subtract(sum);
+    // }
+
+    // res.remainder = remainder;
+
+    // return res;
 
   };
 
