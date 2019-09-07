@@ -1398,6 +1398,11 @@
       negative = true;
     }
 
+    const dec_a = a.decimal;
+    const dec_b = b.decimal;
+    const len_d_a = dec_a.length;
+    const len_d_b = dec_b.length;
+
 
     // let temp = makeSu(0);
     // let sum = makeSu(0);
