@@ -1403,6 +1403,9 @@
     const len_d_a = dec_a.length;
     const len_d_b = dec_b.length;
 
+    const aa = a.concatIntegerAndDecimal();
+    const bb = b.concatIntegerAndDecimal();
+
 
     // let temp = makeSu(0);
     // let sum = makeSu(0);
