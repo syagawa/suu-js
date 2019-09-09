@@ -1406,6 +1406,19 @@
     const aa = a.concatIntegerAndDecimal();
     const bb = b.concatIntegerAndDecimal();
 
+    const gap_dec = len_d_a - len_d_b;
+    let len_dec = len_d_a;
+    if(gap_dec < 0){
+      for(let i = 0; i < Math.abs(gap_dec); i++){
+        aa.push(0);
+      }
+      len_dec = len_d_b;
+    }else if(gap_dec > 0){
+      for(let i = 0; i < Math.abs(gap_dec); i++){
+        bb.push(0);
+      }
+    }
+
 
     // let temp = makeSu(0);
     // let sum = makeSu(0);
