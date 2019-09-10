@@ -1403,21 +1403,28 @@
     const len_d_a = dec_a.length;
     const len_d_b = dec_b.length;
 
-    const aa = a.concatIntegerAndDecimal();
-    const bb = b.concatIntegerAndDecimal();
+    let d_len = 0;
 
-    const gap_dec = len_d_a - len_d_b;
-    let len_dec = len_d_a;
-    if(gap_dec < 0){
-      for(let i = 0; i < Math.abs(gap_dec); i++){
-        aa.push(0);
-      }
-      len_dec = len_d_b;
-    }else if(gap_dec > 0){
-      for(let i = 0; i < Math.abs(gap_dec); i++){
-        bb.push(0);
-      }
+    if(len_d_a === len_d_b){
+      d_len = len_d_a;
+    }else if(len_d_a > len_d_b){
+      d_len = len_d_a;
+    }else if(len_d_a < len_d_b){
+      d_len = len_d_b;
     }
+
+
+    // let temp = [0];
+    // let sum = [0];
+    // while(K.isLarge(a, sum) || K.isEqual(a, sum)){
+    //   // K.getLarger(sum, a);
+    //   temp = K.arraySummation(temp, [1]).array;
+    //   // console.log(temp);
+    //   sum = K.arrayMultiplication(b,temp).array;
+    //   // console.log(a, sum, K.isLarge(a, sum));
+
+    // }
+
 
 
     // let temp = makeSu(0);
