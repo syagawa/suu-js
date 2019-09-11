@@ -1414,16 +1414,19 @@
     }
 
 
-    // let temp = [0];
-    // let sum = [0];
-    // while(K.isLarge(a, sum) || K.isEqual(a, sum)){
-    //   // K.getLarger(sum, a);
-    //   temp = K.arraySummation(temp, [1]).array;
-    //   // console.log(temp);
-    //   sum = K.arrayMultiplication(b,temp).array;
-    //   // console.log(a, sum, K.isLarge(a, sum));
+    let temp = makeSu(0);
+    let sum = makeSu(0);
+    while(a.isLarge(sum) || a.isEqual(sum)){
+      // K.getLarger(sum, a);
+      // temp = K.arraySummation(temp, [1]).array;
+      temp = temp.add(makeSu(1));
+      // console.log(temp);
+      // sum = K.arrayMultiplication(b,temp).array;
+      sum = b.multiplication(temp);
+      // console.log(a, sum, K.isLarge(a, sum));
+    }
 
-    // }
+    console.log(temp, sum);
 
 
 
