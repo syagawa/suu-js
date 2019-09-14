@@ -882,6 +882,10 @@
     }
   };
 
+
+  const zero = makeSu(0);
+  const one = makeSu(1);
+
   Su.prototype.getString = function(){
     let str = String( this.integer.join(""));
     const ac = this.decimal.reduce((a,e) => a + e);
