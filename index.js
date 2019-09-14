@@ -1414,25 +1414,23 @@
     }
 
 
-    let temp = makeSu(0);
+    let count = makeSu(0);
     let sum = makeSu(0);
-    let counter = 0;
     while(a.isLarge(sum) || a.isEqual(sum)){
       // K.getLarger(sum, a);
       // temp = K.arraySummation(temp, [1]).array;
-      temp = temp.add(makeSu(1));
+      count = count.add(makeSu(1));
       // console.log(temp);
       // sum = K.arrayMultiplication(b,temp).array;
-      sum = b.multiplication(temp);
+      sum = b.multiplication(count);
       // console.log(a, sum, K.isLarge(a, sum));
-      counter++;
-      if(counter > 1000){
-        console.log("over");
-        break;
-      }
     }
 
-    console.log(temp, sum);
+    count = count.subtract(makeSu(1));
+    sum = sum.subtract(b);
+
+    console.log(count, sum);
+
 
 
 
