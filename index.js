@@ -1204,13 +1204,21 @@
       int.push(int_a[i]);
     }
     for(let j = 0; j < int_b.length; j++){
+      let higher_i = int.length - 1;
       let elm_b = int_b[j];
       let elm_a = int_a[j + gap_i];
-      let higher_digit = int[int.length - 1];
+      let higher_digit = int[higher_i];
       if(elm_b <= elm_a){
         int.push( elm_a - elm_b );
       }else{
-        int[int.length - 1] = higher_digit - 1;
+
+        while(higher_digit === 0){
+          int[higher_i] = 9;
+          --higher_i;
+          higher_digit = int[higher_i];
+        }
+
+        int[higher_i] = higher_digit - 1;
         int.push( 10 + elm_a - elm_b);
       }
     }
