@@ -1199,6 +1199,11 @@
     const len_i = int_a.length;
     const gap_i = int_a.length - int_b.length;
 
+    const a_id = a.integer.concat(a.decimal);
+    const b_id = b.integer.concat(b.decimal);
+    const a_dp = a.integer.length;
+    const b_dp = b.integer.length;
+
     let int = [];
     for(let i = 0; i < gap_i; i++){
       int.push(int_a[i]);
