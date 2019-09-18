@@ -1204,6 +1204,27 @@
     const a_dp = a.integer.length;
     const b_dp = b.integer.length;
 
+    const a_i_len = a.integer.length;
+    const b_i_len = b.integer.length;
+
+    const a_d_len = a.decimal.length;
+    const b_d_len = b.decimal.length;
+
+    let length = 0;
+    if(a_i_len > b_i_len){
+      length += a_i_len;
+    }else{
+      length += b_i_len;
+    }
+
+    if(a_d_len > b_d_len){
+      length += a_d_len;
+    }else{
+      length += b_d_len;
+    }
+
+
+
     let int = [];
     for(let i = 0; i < gap_i; i++){
       int.push(int_a[i]);
