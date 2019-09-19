@@ -1196,7 +1196,7 @@
 
     const int_a = a.integer;
     const int_b = b.integer;
-    const len_i = int_a.length;
+    // const len_i = int_a.length;
     const gap_i = int_a.length - int_b.length;
 
     const a_id = a.integer.concat(a.decimal);
@@ -1210,20 +1210,22 @@
     const a_d_len = a.decimal.length;
     const b_d_len = b.decimal.length;
 
-    let length = 0;
+    let len_i = 0;
+    let len_d = 0;
     if(a_i_len > b_i_len){
-      length += a_i_len;
+      len_i += a_i_len;
     }else{
-      length += b_i_len;
+      len_i += b_i_len;
     }
-
     if(a_d_len > b_d_len){
-      length += a_d_len;
+      len_d += a_d_len;
     }else{
-      length += b_d_len;
+      len_d += b_d_len;
     }
 
+    for(let i = len_i + len_d - 1; i >= 0; i--){
 
+    }
 
     let int = [];
     for(let i = 0; i < gap_i; i++){
