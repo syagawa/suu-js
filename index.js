@@ -1223,9 +1223,24 @@
       len_d += b_d_len;
     }
 
+    let debt = 0;
+    const res_array = [];
     for(let i = len_i + len_d - 1; i >= 0; i--){
+      const a_elm = (a_id[i] ? a_id[i] : 0) - debt;
+      const b_elm = b_id[i] ? b_id[i] : 0;
+
+      let res = 0;
+      if(a_elm >= b_elm){
+        debt = 0;
+        res_array.unshift(a_elm - b_elm);
+      }else{
+        debt = 1;
+        res_array.unshift((debt * 10) + a_elm - b_elm);
+      }
 
     }
+
+    console.info("res_array", res_array);
 
     let int = [];
     for(let i = 0; i < gap_i; i++){
@@ -1251,45 +1266,45 @@
       }
     }
 
-    const dec_a = a.decimal;
-    const dec_b = b.decimal;
-    const len_d = ( (dec_a.length - dec_b.length) >= 0 ) ? dec_a.length : dec_b.length;
+    // const dec_a = a.decimal;
+    // const dec_b = b.decimal;
+    // const len_d = ( (dec_a.length - dec_b.length) >= 0 ) ? dec_a.length : dec_b.length;
 
-    let dec = [];
-    for(let k = 0; k < len_d; k++){
-      let elm_b = dec_b[k] ? dec_b[k] : 0;
-      let elm_a = dec_a[k] ? dec_a[k] : 0;
-      let higher_digit = dec[k -1] ? dec[k - 1] : int[int.length -1];
+    // let dec = [];
+    // for(let k = 0; k < len_d; k++){
+    //   let elm_b = dec_b[k] ? dec_b[k] : 0;
+    //   let elm_a = dec_a[k] ? dec_a[k] : 0;
+    //   let higher_digit = dec[k -1] ? dec[k - 1] : int[int.length -1];
 
-      if(dec[k -1] === 0){
+    //   if(dec[k -1] === 0){
         
-      }
+    //   }
 
-      if(elm_b <= elm_a){
-        dec.push( elm_a - elm_b );
-      }else{
-        if(dec[dec.length - 1]){
-          dec[dec.length - 1] = higher_digit - 1;
-        }else{
-          int[int.length -1] = higher_digit - 1;
-        }
-        dec.push( 10 + elm_a - elm_b);
-      }
+    //   if(elm_b <= elm_a){
+    //     dec.push( elm_a - elm_b );
+    //   }else{
+    //     if(dec[dec.length - 1]){
+    //       dec[dec.length - 1] = higher_digit - 1;
+    //     }else{
+    //       int[int.length -1] = higher_digit - 1;
+    //     }
+    //     dec.push( 10 + elm_a - elm_b);
+    //   }
 
-    }
+    // }
 
-    for(let l = dec.length - 1; l >= 0; l--){
-      let d = dec[l];
-      if(d === 0){
-        dec.pop();
-      }else{
-        break;
-      }
-    }
+    // for(let l = dec.length - 1; l >= 0; l--){
+    //   let d = dec[l];
+    //   if(d === 0){
+    //     dec.pop();
+    //   }else{
+    //     break;
+    //   }
+    // }
 
-    const result = makeSu(int.join("") + "." + dec.join(""), { negative: negative });
+    // const result = makeSu(int.join("") + "." + dec.join(""), { negative: negative });
 
-    return result;
+    // return result;
 
   };
 
