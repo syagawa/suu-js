@@ -1196,13 +1196,13 @@
 
     const int_a = a.integer;
     const int_b = b.integer;
-    // const len_i = int_a.length;
-    const gap_i = int_a.length - int_b.length;
 
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
     const a_dp = a.integer.length;
     const b_dp = b.integer.length;
+
+    console.info(a_id, b_id);
 
     const a_i_len = a.integer.length;
     const b_i_len = b.integer.length;
@@ -1225,10 +1225,12 @@
 
     let debt = 0;
     const res_array = [];
-    for(let i = len_i + len_d - 1; i >= 0; i--){
-      const a_elm = (a_id[i] ? a_id[i] : 0) - debt;
-      const b_elm = b_id[i] ? b_id[i] : 0;
-
+    for(let i = 0; i < len_i + len_d; i++){
+      const i_a = a_id.length - 1 - i;
+      const i_b = b_id.length - 1 - i;
+      const a_elm = (a_id[i_a] ? a_id[i_a] : 0) - debt;
+      const b_elm = b_id[i_b] ? b_id[i_b] : 0;
+      console.log(a_elm, b_elm);
       let res = 0;
       if(a_elm >= b_elm){
         debt = 0;
