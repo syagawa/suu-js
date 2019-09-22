@@ -1209,6 +1209,7 @@
 
     const a_d_len = a.decimal.length;
     const b_d_len = b.decimal.length;
+    const d_gap = Math.abs(a_d_len - b_d_len);
 
     let len_i = 0;
     let len_d = 0;
@@ -1219,8 +1220,15 @@
     }
     if(a_d_len > b_d_len){
       len_d += a_d_len;
+      for(let i = 0; i < d_gap; i++){
+        b_id.push(0);
+      }
     }else{
       len_d += b_d_len;
+      for(let i = 0; i < d_gap; i++){
+        a_id.push(0);
+      }
+
     }
 
     let debt = 0;
@@ -1242,71 +1250,13 @@
 
     }
 
-    console.info("res_array", res_array);
+    console.info("res_array", res_array, len_d);
 
-    let int = [];
-    for(let i = 0; i < gap_i; i++){
-      int.push(int_a[i]);
-    }
-    for(let j = 0; j < int_b.length; j++){
-      let higher_i = int.length - 1;
-      let elm_b = int_b[j];
-      let elm_a = int_a[j + gap_i];
-      let higher_digit = int[higher_i];
-      if(elm_b <= elm_a){
-        int.push( elm_a - elm_b );
-      }else{
+    let s = "";
+    res_array.splice(res_array.length - len_d, 0, ".");
 
-        while(higher_digit === 0){
-          int[higher_i] = 9;
-          --higher_i;
-          higher_digit = int[higher_i];
-        }
+    return makeSu(res_array.join(""));
 
-        int[higher_i] = higher_digit - 1;
-        int.push( 10 + elm_a - elm_b);
-      }
-    }
-
-    // const dec_a = a.decimal;
-    // const dec_b = b.decimal;
-    // const len_d = ( (dec_a.length - dec_b.length) >= 0 ) ? dec_a.length : dec_b.length;
-
-    // let dec = [];
-    // for(let k = 0; k < len_d; k++){
-    //   let elm_b = dec_b[k] ? dec_b[k] : 0;
-    //   let elm_a = dec_a[k] ? dec_a[k] : 0;
-    //   let higher_digit = dec[k -1] ? dec[k - 1] : int[int.length -1];
-
-    //   if(dec[k -1] === 0){
-        
-    //   }
-
-    //   if(elm_b <= elm_a){
-    //     dec.push( elm_a - elm_b );
-    //   }else{
-    //     if(dec[dec.length - 1]){
-    //       dec[dec.length - 1] = higher_digit - 1;
-    //     }else{
-    //       int[int.length -1] = higher_digit - 1;
-    //     }
-    //     dec.push( 10 + elm_a - elm_b);
-    //   }
-
-    // }
-
-    // for(let l = dec.length - 1; l >= 0; l--){
-    //   let d = dec[l];
-    //   if(d === 0){
-    //     dec.pop();
-    //   }else{
-    //     break;
-    //   }
-    // }
-
-    // const result = makeSu(int.join("") + "." + dec.join(""), { negative: negative });
-
-    // return result;
 
   };
 
