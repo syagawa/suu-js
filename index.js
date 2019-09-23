@@ -1238,7 +1238,6 @@
       const i_b = b_id.length - 1 - i;
       const a_elm = (a_id[i_a] ? a_id[i_a] : 0) - debt;
       const b_elm = b_id[i_b] ? b_id[i_b] : 0;
-      console.log(a_elm, b_elm);
       let res = 0;
       if(a_elm >= b_elm){
         debt = 0;
@@ -1250,7 +1249,6 @@
 
     }
 
-    console.info("res_array", res_array, len_d);
 
     let s = "";
     res_array.splice(res_array.length - len_d, 0, ".");
@@ -1296,19 +1294,21 @@
     const len_d_a = dec_a.length;
     const len_d_b = dec_b.length;
 
-    const aa = a.concatIntegerAndDecimal();
-    const bb = b.concatIntegerAndDecimal();
+    const a_id = a.concatIntegerAndDecimal();
+    const b_id = b.concatIntegerAndDecimal();
+
+    console.info(a_id, b_id);
 
     const gap_dec = len_d_a - len_d_b;
     let len_dec = len_d_a;
     if(gap_dec < 0){
       for(let i = 0; i < Math.abs(gap_dec); i++){
-        aa.push(0);
+        a_id.push(0);
       }
       len_dec = len_d_b;
     }else if(gap_dec > 0){
       for(let i = 0; i < Math.abs(gap_dec); i++){
-        bb.push(0);
+        b_id.push(0);
       }
     }
 
