@@ -1177,6 +1177,10 @@
       return this;
     }
 
+    if(this.isZero()){
+      return su.negate();
+    }
+
     let a = this;
     let b = su;
 
@@ -1278,7 +1282,7 @@
     const a = this;
     const b = su;
 
-    if(a.isZero() || a.isZero()){
+    if(a.isZero() || b.isZero()){
       return makeSu(0);
     }
 
