@@ -1297,6 +1297,16 @@
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
 
+    const a_dp = a.integer.length;
+    const b_dp = b.integer.length;
+
+    const a_i_len = a.integer.length;
+    const b_i_len = b.integer.length;
+
+    const a_d_len = a.decimal.length;
+    const b_d_len = b.decimal.length;
+
+
     console.info(a_id, b_id);
 
     const gap_dec = len_d_a - len_d_b;
