@@ -1297,17 +1297,22 @@
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
 
-    const a_dp = a.integer.length;
-    const b_dp = b.integer.length;
+    const dp_a = a.integer.length;
+    const dp_b = b.integer.length;
 
-    const a_i_len = a.integer.length;
-    const b_i_len = b.integer.length;
-
-    const a_d_len = a.decimal.length;
-    const b_d_len = b.decimal.length;
 
 
     console.info(a_id, b_id);
+
+    for(let i_a = 0; i_a < a_id.length; i_a++){
+      for(let i_b = 0; i_b < b_id.length; i_b++){
+        const elm_a = a_id[i_a];
+        const elm_b = b_id[i_b];
+        const pos_a = dp_a - i_a -1;
+        const pos_b = dp_b - i_b -1;
+      }
+    }
+
 
     const gap_dec = len_d_a - len_d_b;
     let len_dec = len_d_a;
