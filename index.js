@@ -1300,9 +1300,8 @@
     const dp_a = a.integer.length;
     const dp_b = b.integer.length;
 
-
-
     console.info(a_id, b_id);
+
 
     for(let i_a = 0; i_a < a_id.length; i_a++){
       for(let i_b = 0; i_b < b_id.length; i_b++){
@@ -1310,6 +1309,7 @@
         const elm_b = b_id[i_b];
         const pos_a = dp_a - i_a -1;
         const pos_b = dp_b - i_b -1;
+        const pos = pos_a + pob_b;
       }
     }
 
