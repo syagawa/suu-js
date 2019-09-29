@@ -1302,7 +1302,7 @@
 
     console.info(a_id, b_id);
 
-
+    const res_arr = [];
     for(let i_a = 0; i_a < a_id.length; i_a++){
       for(let i_b = 0; i_b < b_id.length; i_b++){
         const elm_a = a_id[i_a];
@@ -1310,6 +1310,20 @@
         const pos_a = dp_a - i_a -1;
         const pos_b = dp_b - i_b -1;
         const pos = pos_a + pob_b;
+        let res = elm_a * elm_b;
+        let len = Math.abs(pos);
+        let str;
+        if(pos >= 0){
+          len++;
+          str = String(res).padEnd(len, "0");
+        }else{
+          if(len === 1 && res > 9){
+            str = String(res)[0] + "." + String(res)[1];
+          }else{
+            str = String(res).padStart(len, "0");
+          }
+        }
+        res_arr.push(makeSu(str));
       }
     }
 
