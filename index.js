@@ -1316,7 +1316,14 @@
         console.info(pos);
         if(pos >= 0){
           len++;
-          str = String(res).padEnd(len, "0");
+          if(res > 9){
+            str = String(res).padEnd(len + 1, "0");
+          }else{
+            str = String(res).padEnd(len, "0");
+          }
+          console.info("str",str);
+
+
         }else{
           if(len === 1 && res > 9){
             str = String(res)[0] + "." + String(res)[1];
