@@ -1300,8 +1300,6 @@
     const dp_a = a.integer.length;
     const dp_b = b.integer.length;
 
-    console.info(a_id, b_id);
-
     const res_arr = [];
     for(let i_a = 0; i_a < a_id.length; i_a++){
       for(let i_b = 0; i_b < b_id.length; i_b++){
@@ -1313,7 +1311,6 @@
         let res = elm_a * elm_b;
         let len = Math.abs(pos);
         let str;
-        console.info(pos);
         if(pos >= 0){
           len++;
           if(res > 9){
@@ -1321,9 +1318,6 @@
           }else{
             str = String(res).padEnd(len, "0");
           }
-          console.info("str",str);
-
-
         }else{
           if(len === 1 && res > 9){
             str = String(res)[0] + "." + String(res)[1];
@@ -1335,7 +1329,6 @@
       }
     }
 
-    console.info(res_arr);
     let res = makeSu(0);
     for(let i = 0; i < res_arr.length; i++){
       res = res.add(res_arr[i]);
@@ -1343,99 +1336,7 @@
 
     return res;
 
-
-    // const gap_dec = len_d_a - len_d_b;
-    // let len_dec = len_d_a;
-    // if(gap_dec < 0){
-    //   for(let i = 0; i < Math.abs(gap_dec); i++){
-    //     a_id.push(0);
-    //   }
-    //   len_dec = len_d_b;
-    // }else if(gap_dec > 0){
-    //   for(let i = 0; i < Math.abs(gap_dec); i++){
-    //     b_id.push(0);
-    //   }
-    // }
-
-    // let counter_i_a = a.integer.length;
-    // let counter_d_a = a.decimal.length;
-
-    // const results = [makeSu(0)];
-
-    // while(counter_i_a > 0 || counter_d_a > 0){
-    //   let elm_a;
-    //   let is_dec_a;
-    //   if(counter_d_a > 0){
-    //     counter_d_a--;
-    //     elm_a = a.decimal[counter_d_a];
-    //     is_dec_a = true;
-    //   }else{
-    //     counter_i_a--;
-    //     elm_a = a.integer[counter_i_a];
-    //     is_dec_a = false;
-    //   }
-    //   let is_int_a = !is_dec_a;
-    //   let counter_i_b = b.integer.length;
-    //   let counter_d_b = b.decimal.length;
-
-    //   while(counter_i_b > 0 || counter_d_b > 0){
-    //     let elm_b;
-    //     let is_dec_b = false;
-    //     if(counter_d_b > 0){
-    //       counter_d_b--;
-    //       elm_b = b.decimal[counter_d_b];
-    //       is_dec_b = true;
-    //     }else{
-    //       counter_i_b--;
-    //       elm_b = b.integer[counter_i_b];
-    //       is_dec_b = false;
-    //     }
-    //     let is_int_b = !is_dec_b;
-
-    //     const mult = elm_a * elm_b;
-    //     const dis_a = is_int_a ? a.integer.length - counter_i_a : -(counter_d_a + 1);
-    //     const dis_b = is_int_b ? b.integer.length - counter_i_b : -(counter_d_b + 1);
-
-
-    //     const mult_res = String(mult).split("");
-    //     let dis = dis_a + dis_b;
-
-    //     if(dis_a < 0 && dis_b > 0){
-    //       dis = dis_a;
-    //     }else if(dis_a > 0 && dis_b < 0){
-    //       dis = dis_b;
-    //     }
-
-
-    //     let res;
-    //     if(dis === 0){
-    //       if(mult_res.length === 2){
-    //         res = mult_res[0], ".", mult_res[1];
-    //       }else{
-    //         res = "0." + mult_res[0];
-    //       }
-    //     }else if(dis > 0){
-    //       res = mult_res.join("").padEnd(dis - mult_res.length, "0");
-    //     }else{
-    //       if(mult_res.length === 2 && dis === -1){
-    //         res = mult_res[0] + "." + mult_res[1];
-    //       }else{
-    //         res = "0." + mult_res.join("").padStart(Math.abs(dis), "0");
-    //       }
-    //     }
-    //     results[0] = results[0].add(makeSu(res));
-    //   }
-    // }
-
-    // const r = results[0];
-
-    // if(negative){
-    //   r.negate();
-    // }
-
-    // return r;
   };
-
 
   Su.prototype.division = function(su){
     if(!isSu(su)){
