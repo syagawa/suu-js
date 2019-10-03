@@ -1386,36 +1386,10 @@
 
     count = count.subtract(makeSu(1));
     sum = sum.subtract(b);
-
-
     const remain = a.subtract(sum);
-
-
-    console.log(count.getString(), sum.getString(), remain.getString());
-
-
-
-    // let temp = makeSu(0);
-    // let sum = makeSu(0);
-    // while(a.isLarge(sum) || a.isEqual(sum)){
-    //   temp = temp.sum(makeSu(1));
-    //   sum = b.multiply(temp);
-    // }
-
-    // let res;
-    // let remainder = 0;
-    // if(a.isEqual(sum)){
-    //   res = temp;
-    // }else{
-    //   res = temp.subtract([1]);
-    //   sum = sum.subtract(b);
-    //   remainder = a.subtract(sum);
-    // }
-
-    // res.remainder = remainder;
-
-    // return res;
-
+    const res = sum;
+    res.remainder = remain;
+    return res;
   };
 
 
