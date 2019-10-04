@@ -854,6 +854,21 @@
     let parts = str.split(".");
     let int_str = parts[0];
     let decimal_str = parts[1];
+    console.info(typeof int_str);
+
+    if(int_str){
+      const int0 = int_str.match(/0/g);
+      if(int0.length === int_str.length){
+        int_str = "0";
+      }
+    }
+
+    if(decimal_str){
+      const dec0 = decimal_str.match(/0/g);
+      if(dec0.length === decimal_str.length){
+        decimal_str = "0";
+      }
+    }
 
     let denominator = [1];
     if(option.denominator){
@@ -1202,8 +1217,6 @@
     const a_dp = a.integer.length;
     const b_dp = b.integer.length;
 
-    console.info(a_id, b_id);
-
     const a_i_len = a.integer.length;
     const b_i_len = b.integer.length;
 
@@ -1254,7 +1267,6 @@
     res_array.splice(res_array.length - len_d, 0, ".");
 
     return makeSu(res_array.join(""));
-
 
   };
 
@@ -1387,7 +1399,7 @@
     count = count.subtract(makeSu(1));
     sum = sum.subtract(b);
     const remain = a.subtract(sum);
-    const res = sum;
+    const res = count;
     res.remainder = remain;
     return res;
   };
