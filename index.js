@@ -1635,6 +1635,10 @@
     return sum;
   };
 
+  Su.prototype.square = function(){
+    return this.multiplication(this);
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
