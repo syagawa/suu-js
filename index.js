@@ -1639,6 +1639,15 @@
     return this.multiplication(this);
   };
 
+  Su.prototype.cube = function(){
+    return this.multiplication(this).multiplication(this);
+  };
+
+
+  Su.prototype.exponentiation = function(su){
+
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
