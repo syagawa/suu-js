@@ -1644,8 +1644,21 @@
   };
 
 
-  Su.prototype.exponentiation = function(su){
-
+  Su.prototype.exponentiate = function(su){
+    const one = makeSu("1");
+    if(su.isZero()){
+      return one;
+    }
+    if(su.isEqual(one)){
+      return this;
+    }
+    let count = one;
+    let res = this;
+    while(!count.isEqual(su)){
+      res = this.multiplication(res);
+      count = count.next();
+    }
+    return res;
   };
 
   Su.prototype.random = function(min, max){
