@@ -922,7 +922,6 @@
     }
   };
 
-
   const zero = makeSu(0);
   const one = makeSu(1);
 
@@ -1092,6 +1091,23 @@
       return false;
     }
     if(res === a){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+  Su.prototype.isSmall = function(su){
+    if(!isSu(su)){
+      su = makeSu(su);
+    }
+    const a = this;
+    const b = su;
+    const res = getLarge(a, b);
+    if(!res){
+      return false;
+    }
+    if(res === b){
       return true;
     }else{
       return false;
@@ -1642,7 +1658,6 @@
   Su.prototype.cube = function(){
     return this.multiplication(this).multiplication(this);
   };
-
 
   Su.prototype.exponentiate = function(su){
     const one = makeSu("1");
