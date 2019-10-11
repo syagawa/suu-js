@@ -1669,7 +1669,7 @@
     }
     let count = one;
     let res = this;
-    while(!count.isEqual(su)){
+    while(count.isSmall(su)){
       res = this.multiplication(res);
       count = count.next();
     }
