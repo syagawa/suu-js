@@ -1127,6 +1127,12 @@
     }
   };
 
+  Su.prototype.containDecimal = function(){
+    if(this.decimal && this.decimal.length >= 1 && this.decimal[0] !== 0){
+      return true;
+    }
+  };
+
   Su.prototype.add = function(su){
     if(!isSu(su)){
       su = makeSu(su);
