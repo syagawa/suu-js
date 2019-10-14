@@ -1493,13 +1493,15 @@
   };
 
   Su.prototype.isEvenNumber = function(){
-    if( this.division(makeSu(2)).remainder.isZero() ){
+    const res = this.division(makeSu(2));
+    if( res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
       return true;
     }
   };
 
   Su.prototype.isOddNumber = function(){
-    if(!this.isEvenNumber()){
+    const res = this.division(makeSu(2));
+    if( !res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
       return true;
     }
   };
