@@ -1122,7 +1122,7 @@
   };
 
   Su.prototype.isNaturalNumber = function(){
-    if(!this.negative && this.isInteger() && this.isLarge(0)){
+    if(!this.negative && this.isInteger() && this.isLarge(0) && this.decimal[0] === 0 && this.decimal.length === 1){
       return true;
     }
   };
