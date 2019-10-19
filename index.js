@@ -1074,7 +1074,6 @@
 
   Su.prototype.isOne = function(){
     if(this.getString() === "1"){
-      
       return true;
     }else{
       return false;
@@ -1116,14 +1115,13 @@
   };
 
   Su.prototype.isInteger = function(){
-    const denominator = this.fraction.denominator;
-    if(denominator.length === 1 && denominator[0] === 1){
+    if(this.decimal[0] === 0 && this.decimal.length === 1){
       return true;
     }
   };
 
   Su.prototype.isNaturalNumber = function(){
-    if(!this.negative && this.isInteger() && this.isLarge(0) && this.decimal[0] === 0 && this.decimal.length === 1){
+    if(!this.negative && this.isInteger() && this.isLarge(0)){
       return true;
     }
   };
