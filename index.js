@@ -1683,6 +1683,31 @@
     return res;
   };
 
+  Su.prototype.isPrimeNumber = funtcion(){
+    if(this.containDecimal()){
+      return false;
+    }
+    if(this.isOne() || this.isZero()){
+      return false;
+    }
+    if(this.getString === "2"){
+      return true;
+    }
+
+    if(n >= MAX){
+      return `Argument exceeds maximum value(${MAX})`;
+    }
+
+    let max = n;
+    for( var i = max -1; i > 1; i--){
+      if( (max % i) === 0 ){
+        return false;
+      }
+    }
+    return true;
+
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
