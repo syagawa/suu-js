@@ -1683,7 +1683,7 @@
     return res;
   };
 
-  Su.prototype.isPrimeNumber = funtcion(){
+  Su.prototype.isPrimeNumber = function(){
     if(this.containDecimal()){
       return false;
     }
@@ -1694,18 +1694,17 @@
       return true;
     }
 
-    if(n >= MAX){
-      return `Argument exceeds maximum value(${MAX})`;
-    }
-
-    let max = n;
-    for( var i = max -1; i > 1; i--){
-      if( (max % i) === 0 ){
+    let max = this;
+    let counter = this.subtract(makeSu(1));
+    let zero = makeSu(0);
+    while(counter.isLarge(zero)){
+      let e = this.division(counter);
+      if(e.remainder.isZero()){
         return false;
       }
+      counter = counter.subtract(makeSu(1));
     }
     return true;
-
   };
 
   Su.prototype.random = function(min, max){
