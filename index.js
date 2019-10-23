@@ -1693,11 +1693,9 @@
     if(this.getString === "2"){
       return true;
     }
-
-    let max = this;
     let counter = this.subtract(makeSu(1));
-    let zero = makeSu(0);
-    while(counter.isLarge(zero)){
+    const one = makeSu(1);
+    while(counter.isLarge(one)){
       let e = this.division(counter);
       if(e.remainder.isZero()){
         return false;
