@@ -925,6 +925,12 @@
   const zero = makeSu(0);
   const one = makeSu(1);
 
+  const CONSTANTS = {
+    ZERO: makeSu(0),
+    ONE: makeSu(1),
+    FIRST_PRIME_NUMBER: makeSu(2)
+  };
+
   Su.prototype.getString = function(){
     let str = String( this.integer.join(""));
     const ac = this.decimal.reduce((a,e) => a + e);
