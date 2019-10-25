@@ -1615,6 +1615,9 @@
     if(n.isZero()){
       return true;
     }
+    if(n.containDecimal()){
+      return;
+    }
     const fibs = this.fibonacciSequence(0);
     for(let i = 0; i < fibs.length; i++){
       let f = fibs[i];
@@ -1622,7 +1625,6 @@
         return true;
       }
     }
-
   };
 
   Su.prototype.getSequence = function(){
