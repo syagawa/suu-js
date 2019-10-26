@@ -928,7 +928,9 @@
   const CONSTANTS = {
     ZERO: makeSu(0),
     ONE: makeSu(1),
-    FIRST_PRIME_NUMBER: makeSu(2)
+    FIRST_PRIME_NUMBER: makeSu(2),
+    MAX: makeSu(MAX),
+    MIN: makeSu(MIN)
   };
 
   Su.prototype.getString = function(){
@@ -1024,10 +1026,6 @@
 
   };
 
-  Su.prototype.CONSTANT = {
-    MAX: makeSu(MAX),
-    MIN: makeSu(MIN)
-  };
 
   Su.prototype.isEqual = function(su){
     if(!isSu(su)){
@@ -1564,7 +1562,7 @@
       return [this];
     }
     const arr = [];
-    for(let i = 1; i < this.CONSTANT.MAX.number; i++){
+    for(let i = 1; i < CONSTANTS.MAX.number; i++){
       arr.push(this.multiplication(i));
     }
     return arr;
@@ -1594,7 +1592,7 @@
     }
 
     const self = this;
-    const MAX = self.CONSTANT.MAX;
+    const MAX = CONSTANTS.MAX;
 
     const arr = [start, start.add(1)];
     const func = function(arr){
