@@ -1121,18 +1121,24 @@
   Su.prototype.isInteger = function(){
     if(this.decimal[0] === 0 && this.decimal.length === 1){
       return true;
+    }else{
+      return false;
     }
   };
 
   Su.prototype.isNaturalNumber = function(){
     if(!this.negative && this.isInteger() && this.isLarge(0)){
       return true;
+    }else{
+      return false;
     }
   };
 
   Su.prototype.containDecimal = function(){
     if(this.decimal && this.decimal.length >= 1 && this.decimal[0] !== 0){
       return true;
+    }else{
+      return false;
     }
   };
 
