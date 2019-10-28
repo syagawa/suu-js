@@ -1119,10 +1119,10 @@
   };
 
   Su.prototype.isInteger = function(){
-    if(this.decimal[0] === 0 && this.decimal.length === 1){
-      return true;
-    }else{
+    if(this.containDecimal()){
       return false;
+    }else{
+      return true;
     }
   };
 
