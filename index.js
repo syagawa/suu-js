@@ -1505,6 +1505,8 @@
     const res = this.division(makeSu(2));
     if( res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
       return true;
+    }else{
+      return false;
     }
   };
 
@@ -1512,6 +1514,8 @@
     const res = this.division(makeSu(2));
     if( !res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
       return true;
+    }else{
+      return false;
     }
   };
 
