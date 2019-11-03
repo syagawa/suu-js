@@ -1624,7 +1624,7 @@
       return true;
     }
     if(n.containDecimal()){
-      return;
+      return false;
     }
     const fibs = this.fibonacciSequence(0);
     for(let i = 0; i < fibs.length; i++){
@@ -1633,6 +1633,7 @@
         return true;
       }
     }
+    return false;
   };
 
   Su.prototype.getSequence = function(){
