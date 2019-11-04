@@ -1232,6 +1232,8 @@
 
     const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
 
+    console.log(result);
+
     return result;
   };
 
@@ -1379,6 +1381,7 @@
         let res = elm_a * elm_b;
         let len = Math.abs(pos);
         let str;
+        // console.log(res, pos);
         if(pos >= 0){
           len++;
           if(res > 9){
@@ -1393,12 +1396,16 @@
             str = "0." + String(res).padStart(len, "0");
           }
         }
+        // console.log(str);
         res_arr.push(makeSu(str));
       }
     }
 
+    console.log(res_arr);
+
     let res = makeSu(0);
     for(let i = 0; i < res_arr.length; i++){
+      console.log(i);
       res = res.add(res_arr[i]);
     }
 
