@@ -1676,11 +1676,11 @@
   };
 
   Su.prototype.square = function(){
-    return this.multiplication(this);
+    return this.exponentiate(makeSu(2));
   };
 
   Su.prototype.cube = function(){
-    return this.multiplication(this).multiplication(this);
+    return this.exponentiate(makeSu(3));
   };
 
   Su.prototype.exponentiate = function(su){
