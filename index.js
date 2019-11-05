@@ -1135,10 +1135,13 @@
   };
 
   Su.prototype.containDecimal = function(){
-    if(this.decimal && this.decimal.length >= 1 && this.decimal[0] !== 0){
-      return true;
-    }else{
+    const res = this.decimal.reduce(function(a, v){
+        return a + v;
+    });
+    if(res === 0){
       return false;
+    }else{
+      return true;
     }
   };
 
@@ -1231,8 +1234,6 @@
     }
 
     const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
-
-    console.log(result);
 
     return result;
   };
@@ -1401,11 +1402,8 @@
       }
     }
 
-    console.log(res_arr);
-
     let res = makeSu(0);
     for(let i = 0; i < res_arr.length; i++){
-      console.log(i);
       res = res.add(res_arr[i]);
     }
 
