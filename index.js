@@ -1077,6 +1077,9 @@
   };
 
   Su.prototype.isOne = function(){
+    if(this.negative){
+      return false;
+    }
     if(this.getString() === "1"){
       return true;
     }else{
