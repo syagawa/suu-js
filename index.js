@@ -1722,7 +1722,7 @@
     if(this.isOne() || this.isZero()){
       return false;
     }
-    if(this.getString === "2"){
+    if(this.getString() === "2"){
       return true;
     }
     let counter = this.subtract(makeSu(1));
@@ -1735,6 +1735,22 @@
       counter = counter.subtract(makeSu(1));
     }
     return true;
+  };
+
+  Su.prototype.divisorsSummation = function(){
+    const arr = this.getDivisors();
+    let a = makeSu(0);
+    for(let i = 0; i < arr.length; i++){
+      a = a.add(arr[i]);
+    }
+    return a;
+  };
+
+  Su.prototype.isAbundantNumber = function(){
+    // var sum = K.divisorsSummation(n);
+    // if(sum > n * 2){
+    //   return true;
+    // }
   };
 
   Su.prototype.random = function(min, max){
