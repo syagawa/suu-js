@@ -1542,6 +1542,7 @@
         arr.push(su);
       }
     }
+    arr.push(this);
     return arr;
   };
 
@@ -1747,10 +1748,12 @@
   };
 
   Su.prototype.isAbundantNumber = function(){
-    // var sum = K.divisorsSummation(n);
-    // if(sum > n * 2){
-    //   return true;
-    // }
+    const sum = this.divisorsSummation();
+    if(sum.isLarge( this.multiplication(makeSu(2)))){
+      return true;
+    }else{
+      return false;
+    }
   };
 
   Su.prototype.random = function(min, max){
