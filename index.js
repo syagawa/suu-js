@@ -1755,6 +1755,16 @@
       return false;
     }
   };
+  Su.prototype.isDeficientNumber = function(){
+    const sum = this.divisorsSummation();
+    if(sum.isSmall( this.multiplication(makeSu(2)))){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+
 
   Su.prototype.random = function(min, max){
     if(min === undefined){
