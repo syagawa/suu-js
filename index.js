@@ -1755,6 +1755,7 @@
       return false;
     }
   };
+
   Su.prototype.isDeficientNumber = function(){
     const sum = this.divisorsSummation();
     if(sum.isSmall( this.multiplication(makeSu(2)))){
@@ -1764,6 +1765,18 @@
     }
   };
 
+  Su.prototype.isPerfectNumber = function(){
+    const sum = this.divisorsSummation();
+    if(sum.subtract(this).isEqual(this)){
+      return true;
+    }else{
+      return false;
+    }
+  };
+
+  Su.prototype.factorial = function(){
+
+  };
 
 
   Su.prototype.random = function(min, max){
