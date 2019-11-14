@@ -1775,9 +1775,19 @@
   };
 
   Su.prototype.factorial = function(){
-
+    let res = this;
+    let counter = this.subtract(makeSu(1));
+    const zero = makeSu(0);
+    while(counter.isLarge(zero)){
+      res = res.multiplication(counter);
+      counter = counter.subtract(makeSu(1));
+    }
+    return res;
   };
 
+  Su.prototype.isTriangleNumber = function(){
+
+  };
 
   Su.prototype.random = function(min, max){
     if(min === undefined){
