@@ -1266,9 +1266,10 @@
 
     const res = getLarge(a, b, true);
     if(res !== a){
+      console.info("koko")
       a = su;
       b = this;
-      negative = a.negative;
+      negative = !a.negative;
     }
 
     const int_a = a.integer;
@@ -1327,8 +1328,8 @@
 
     let s = "";
     res_array.splice(res_array.length - len_d, 0, ".");
-
-    return makeSu(res_array.join(""));
+    const minus = negative ? "-" : "";
+    return makeSu(minus + res_array.join(""));
 
   };
 
