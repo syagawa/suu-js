@@ -1787,7 +1787,18 @@
   };
 
   Su.prototype.isTriangleNumber = function(){
-
+    let elm = makeSu(1);
+    let res = this;
+    while(true){
+      res = res.subtract(elm);
+      if(res.isZero()){
+        return true;
+      }
+      if(res.isSmall(makeSu(0))){
+        return false;
+      }
+      elm = elm.add(makeSu(1));
+    }
   };
 
   Su.prototype.random = function(min, max){
