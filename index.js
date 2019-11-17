@@ -1801,6 +1801,18 @@
     }
   };
 
+  Su.prototype.getTriangleNumbers = function(n){
+    let current = makeSu(1);
+    const arr = [];
+    let range = current;
+    while(current.isSmall(CONSTANTS.MAX)){
+      arr.push(current);
+      range = range.add(makeSu(1));
+      current = current.add(range);
+    }
+    return arr;
+  }
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
