@@ -1801,17 +1801,35 @@
     }
   };
 
-  Su.prototype.getTriangleNumbers = function(n){
+  Su.prototype.getTriangleNumbers = function(){
     let current = makeSu(1);
     const arr = [];
     let range = current;
+    const increment = makeSu(1);
     while(current.isSmall(CONSTANTS.MAX)){
       arr.push(current);
-      range = range.add(makeSu(1));
+      range = range.add(increment);
       current = current.add(range);
     }
     return arr;
-  }
+  };
+
+  Su.prototype.getSquareNumbers = function(){
+    let current = makeSu(1);
+    const arr = [];
+    let range = current;
+    const increment = makeSu(2);
+    while(current.isSmall(CONSTANTS.MAX)){
+      arr.push(current);
+      range = range.add(increment);
+      current = current.add(range);
+    }
+    return arr;
+  };
+
+  Su.getPolygonalNumbers = function(){
+
+  };
 
   Su.prototype.random = function(min, max){
     if(min === undefined){
