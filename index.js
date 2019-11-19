@@ -1827,7 +1827,22 @@
     return arr;
   };
 
-  Su.getPolygonalNumbers = function(){
+  Su.prototype.getPolygonalNumbers = function(n){
+    if(!isSu(n)){
+      n = makeSu(n);
+    }
+    let current = makeSu(1);
+    const arr = [];
+    let range = current;
+
+    const increment = n.subtract(makeSu(2));
+    while(current.isSmall(CONSTANTS.MAX)){
+      arr.push(current);
+      range = range.add(increment);
+      current = current.add(range);
+    }
+    return arr;
+
 
   };
 
