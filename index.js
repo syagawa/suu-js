@@ -1802,29 +1802,11 @@
   };
 
   Su.prototype.getTriangleNumbers = function(){
-    let current = makeSu(1);
-    const arr = [];
-    let range = current;
-    const increment = makeSu(1);
-    while(current.isSmall(CONSTANTS.MAX)){
-      arr.push(current);
-      range = range.add(increment);
-      current = current.add(range);
-    }
-    return arr;
+    return this.getPolygonalNumbers(makeSu(3));
   };
 
   Su.prototype.getSquareNumbers = function(){
-    let current = makeSu(1);
-    const arr = [];
-    let range = current;
-    const increment = makeSu(2);
-    while(current.isSmall(CONSTANTS.MAX)){
-      arr.push(current);
-      range = range.add(increment);
-      current = current.add(range);
-    }
-    return arr;
+    return this.getPolygonalNumbers(makeSu(4));
   };
 
   Su.prototype.getPolygonalNumbers = function(n){
@@ -1842,8 +1824,6 @@
       current = current.add(range);
     }
     return arr;
-
-
   };
 
   Su.prototype.random = function(min, max){
