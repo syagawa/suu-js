@@ -1813,6 +1813,9 @@
     if(!isSu(n)){
       n = makeSu(n);
     }
+    if(n.isSmall(makeSu(3))){
+      return [];
+    }
     let current = makeSu(1);
     const arr = [];
     let range = current;
