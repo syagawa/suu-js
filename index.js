@@ -1653,6 +1653,24 @@
     return false;
   };
 
+  Su.prototype.lucasSequence = function(){
+
+    const MAX = CONSTANTS.MAX;
+
+    const arr = [makeSu(2), makeSu(1)];
+    const func = function(arr){
+      if(arr[arr.length - 1].isLarge(MAX)){
+        return arr;
+      }
+      const a = arr[arr.length - 2];
+      const b = arr[arr.length - 1];
+      const c = a.add(b);
+      arr.push(c);
+      return func(arr);
+    };
+    return func(arr);
+  };
+
   Su.prototype.getSequence = function(){
     const array = [this];
     for(let i = 0; i < arguments.length; i++){
