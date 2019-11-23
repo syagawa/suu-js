@@ -1613,15 +1613,14 @@
 
   };
 
-  Su.prototype.fibonacciSequence = function(start){
-    if(!isSu(start)){
-      start = makeSu(start);
-    }
+  Su.prototype.fibonacciSequence = function(){
 
-    const self = this;
+    const zero = makeSu(0);
+    const one = makeSu(1);
+
     const MAX = CONSTANTS.MAX;
 
-    const arr = [start, start.add(1)];
+    const arr = [zero, one];
     const func = function(arr){
       if(arr[arr.length - 1].isLarge(MAX)){
         return arr;
