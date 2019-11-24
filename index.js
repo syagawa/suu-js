@@ -1670,6 +1670,22 @@
     return func(arr);
   };
 
+  Su.prototype.isLucasNumber = function(){
+    const n = this;
+    if(n.containDecimal()){
+      return false;
+    }
+    const lucs = this.lucasSequence(0);
+    for(let i = 0; i < lucs.length; i++){
+      let f = lucs[i];
+      if(f.isEqual(n)){
+        return true;
+      }
+    }
+    return false;
+  };
+
+
   Su.prototype.getSequence = function(){
     const array = [this];
     for(let i = 0; i < arguments.length; i++){
