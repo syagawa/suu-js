@@ -1862,6 +1862,22 @@
     return arr;
   };
 
+  Su.prototype.mersenneNumbers = function(){
+    const two = makeSu(2);
+    const arr = [];
+    let current = makeSu(0);
+    let ex = makeSu(1);
+    
+    while(current.isSmall(CONSTANTS.MAX)){
+      current = two.exponentiate(ex).subtract(makeSu(1));
+      arr.push(current);
+      ex = ex.add(makeSu(1));
+    }
+
+    return arr;
+    
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
