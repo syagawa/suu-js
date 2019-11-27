@@ -1873,9 +1873,19 @@
       arr.push(current);
       ex = ex.add(makeSu(1));
     }
-
     return arr;
-    
+  };
+
+  Su.prototype.mersennePrimeNumbers = function(){
+    const marr = this.mersenneNumbers();
+    const arr = [];
+    for(let i = 0; i < marr.length; i++){
+      const n = marr[i];
+      if(n.isPrimeNumber()){
+        arr.push(n);
+      }
+    }
+    return arr;
   };
 
   Su.prototype.random = function(min, max){
