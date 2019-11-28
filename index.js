@@ -1888,6 +1888,24 @@
     return arr;
   };
 
+  Su.prototype.isMersenneNumber = function(){
+    const n = this;
+    if(n.isZero()){
+      return false;
+    }
+    if(n.containDecimal()){
+      return false;
+    }
+    const ms = this.mersenneNumbers();
+    for(let i = 0; i < ms.length; i++){
+      let m = ms[i];
+      if(.isEqual(n)){
+        return true;
+      }
+    }
+    return false;
+  };
+
   Su.prototype.random = function(min, max){
     if(min === undefined){
       min = makeSu(0);
