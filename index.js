@@ -1899,7 +1899,25 @@
     const ms = this.mersenneNumbers();
     for(let i = 0; i < ms.length; i++){
       let m = ms[i];
-      if(.isEqual(n)){
+      if(m.isEqual(n)){
+        return true;
+      }
+    }
+    return false;
+  };
+
+  Su.prototype.isMersennePrimeNumber = function(){
+    const n = this;
+    if(n.isZero()){
+      return false;
+    }
+    if(n.containDecimal()){
+      return false;
+    }
+    const ms = this.mersennePrimeNumbers();
+    for(let i = 0; i < ms.length; i++){
+      let m = ms[i];
+      if(m.isEqual(n)){
         return true;
       }
     }
