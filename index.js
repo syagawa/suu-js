@@ -1685,6 +1685,19 @@
     return false;
   };
 
+  Su.prototype.lucasPrimeNumbers = function(){
+    const ls = this.lucasSequence();
+    const arr = [];
+
+    for(let i = 0; i < ls.length; i++){
+      const l = ls[i];
+      if(l.isPrimeNumber()){
+        arr.push(l);
+      }
+    }
+    return arr;
+  };
+
 
   Su.prototype.getSequence = function(){
     const array = [this];
