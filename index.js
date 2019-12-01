@@ -1470,10 +1470,6 @@
   };
 
 
-  Su.prototype.sum = function(su){
-    return this.add(su);
-  };
-
   Su.prototype.plus = function(su){
     return this.add(su);
   };
