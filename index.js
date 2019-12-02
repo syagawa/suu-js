@@ -1366,8 +1366,6 @@
 
     const dec_a = a.decimal;
     const dec_b = b.decimal;
-    const len_d_a = dec_a.length;
-    const len_d_b = dec_b.length;
 
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
@@ -1410,6 +1408,8 @@
     for(let i = 0; i < res_arr.length; i++){
       res = res.add(res_arr[i]);
     }
+
+    res.negative = negative;
 
     return res;
 
