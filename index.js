@@ -1384,7 +1384,6 @@
         let res = elm_a * elm_b;
         let len = Math.abs(pos);
         let str;
-        // console.log(res, pos);
         if(pos >= 0){
           len++;
           if(res > 9){
@@ -1399,7 +1398,6 @@
             str = "0." + String(res).padStart(len, "0");
           }
         }
-        // console.log(str);
         res_arr.push(makeSu(str));
       }
     }
@@ -1452,13 +1450,8 @@
     let count = makeSu(0);
     let sum = makeSu(0);
     while(a.isLarge(sum) || a.isEqual(sum)){
-      // K.getLarger(sum, a);
-      // temp = K.arraySummation(temp, [1]).array;
       count = count.add(makeSu(1));
-      // console.log(temp);
-      // sum = K.arrayMultiplication(b,temp).array;
       sum = b.multiplication(count);
-      // console.log(a, sum, K.isLarge(a, sum));
     }
 
     count = count.subtract(makeSu(1));
@@ -1466,6 +1459,7 @@
     const remain = a.subtract(sum);
     const res = count;
     res.remainder = remain;
+    res.negative = negative;
     return res;
   };
 
