@@ -1266,19 +1266,13 @@
 
     const res = getLarge(a, b, true);
     if(res !== a){
-      console.info("koko")
       a = su;
       b = this;
       negative = !a.negative;
     }
 
-    const int_a = a.integer;
-    const int_b = b.integer;
-
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
-    const a_dp = a.integer.length;
-    const b_dp = b.integer.length;
 
     const a_i_len = a.integer.length;
     const b_i_len = b.integer.length;
@@ -1324,13 +1318,9 @@
       }
 
     }
-
-
-    let s = "";
     res_array.splice(res_array.length - len_d, 0, ".");
     const minus = negative ? "-" : "";
     return makeSu(minus + res_array.join(""));
-
   };
 
   Su.prototype.negate = function(){
