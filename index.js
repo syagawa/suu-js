@@ -1308,7 +1308,6 @@
       const i_b = b_id.length - 1 - i;
       const a_elm = (a_id[i_a] ? a_id[i_a] : 0) - debt;
       const b_elm = b_id[i_b] ? b_id[i_b] : 0;
-      let res = 0;
       if(a_elm >= b_elm){
         debt = 0;
         res_array.unshift(a_elm - b_elm);
@@ -1353,9 +1352,6 @@
     }else if(a.negative === true && b.negative === false){
       negative = true;
     }
-
-    const dec_a = a.decimal;
-    const dec_b = b.decimal;
 
     const a_id = a.integer.concat(a.decimal);
     const b_id = b.integer.concat(b.decimal);
