@@ -922,6 +922,13 @@
     }
   };
 
+  const copySu = function(){
+    const str = this.getString();
+    const su = makeSu(str);
+    return su;
+  };
+
+
   const zero = makeSu(0);
   const one = makeSu(1);
 
