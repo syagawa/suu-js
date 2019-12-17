@@ -922,10 +922,9 @@
     }
   };
 
-  const copySu = function(){
-    const str = this.getString();
-    const su = makeSu(str);
-    return su;
+  const copySu = function(su){
+    const str = su.getString();
+    return makeSu(str);
   };
 
 
@@ -1156,16 +1155,12 @@
   };
 
   Su.prototype.add = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-
+    let a = copySu(this);
+    let b = copySu(su);
+    // getString()
     if(su.isZero()){
       return this;
     }
-
-    const a = this;
-    const b = su;
 
     let negative;
     if(a.negative && b.negative){
