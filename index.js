@@ -1155,11 +1155,13 @@
   };
 
   Su.prototype.add = function(su){
+    if(!isSu(su)){
+      return;
+    }
     let a = copySu(this);
     let b = copySu(su);
-    // getString()
-    if(su.isZero()){
-      return this;
+    if(b.isZero()){
+      return a;
     }
 
     let negative;
@@ -1245,15 +1247,16 @@
 
   Su.prototype.subtract = function(su){
     if(!isSu(su)){
-      su = makeSu(su);
+      return;
     }
-
+    let a = copySu(this);
+    let b = copySu(su);
     if(su.isZero()){
-      return this;
+      return a;
     }
 
     if(this.isZero()){
-      return su.negate();
+      return b.negate();
     }
 
     let a = this;
