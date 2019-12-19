@@ -1341,12 +1341,10 @@
 
   Su.prototype.multiplication = function(su){
     if(!isSu(su)){
-      su = makeSu(su);
+      return;
     }
-
-    const a = this;
-    const b = su;
-
+    let a = copySu(this);
+    let b = copySu(su);
     if(a.isZero() || b.isZero()){
       return makeSu(0);
     }
