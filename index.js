@@ -1404,14 +1404,15 @@
 
   Su.prototype.division = function(su){
     if(!isSu(su)){
-      su = makeSu(su);
+      return;
     }
-    const a = this;
-    const b = su;
-
-    if( a.isZero() || b.isZero()){
+    let a = copySu(this);
+    let b = copySu(su);
+    if(a.isZero() || b.isZero()){
       return makeSu(0);
     }
+
+
 
     let negative = false;
     if(a.negative === false && b.negative === true){
