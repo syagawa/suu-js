@@ -1259,9 +1259,6 @@
       return b.negate();
     }
 
-    let a = this;
-    let b = su;
-
     if(a.negative !== b.negative){
       b.negative = !b.negative;
       return a.add(b);
@@ -1412,8 +1409,6 @@
       return makeSu(0);
     }
 
-
-
     let negative = false;
     if(a.negative === false && b.negative === true){
       negative = true;
@@ -1435,7 +1430,6 @@
     }else if(len_d_a < len_d_b){
       d_len = len_d_b;
     }
-
 
     let count = makeSu(0);
     let sum = makeSu(0);
