@@ -1729,7 +1729,7 @@
       return this;
     }
     let count = one;
-    let res = this;
+    let res = copySu(this);
     while(count.isSmall(su)){
       res = this.multiplication(res);
       count = count.next();
