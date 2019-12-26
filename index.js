@@ -1929,7 +1929,11 @@
     let ran;
 
     if(str === "0"){
-      ran = makeSu(0);
+      if(min.isZero()){
+        ran = makeSu(0);
+      }else{
+        ran = min;
+      }
     }else{
       let arr = str.split(".");
       let decimal_part = arr[1];
@@ -1937,7 +1941,7 @@
       for(let i = 0; i < decimal_part.length; i++){
         denominator.push(0);
       }
-      ran = makeSu(arr[1], { denominator: denominator });
+      ran = makeSu("0." + arr[1], { denominator: denominator }).multiplication(max);
     }
     return ran;
   };
