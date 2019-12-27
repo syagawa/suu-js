@@ -895,21 +895,24 @@
 
     }
 
-    let denominator = [1];
-    if(option.denominator){
-      denominator = option.denominator;
-    }
-
     let int_arr = K.numToArray(int_str);
     let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
 
     this.integer = int_arr;
     this.decimal = decimal_arr;
     this.negative = negative ? true : false;
+    
+    let denominator = [1];
+
+    for(let i = 0; i < this.decimal.length; i++){
+      denominator.push(0);
+    }
+
     this.fraction = {
-      numerator: this.integer,
+      numerator: this.integer.concat(this.decimal),
       denominator: denominator
     };
+
   };
 
   const makeSu = function(num, option){
@@ -1936,12 +1939,7 @@
       }
     }else{
       let arr = str.split(".");
-      let decimal_part = arr[1];
-      let denominator = [1];
-      for(let i = 0; i < decimal_part.length; i++){
-        denominator.push(0);
-      }
-      ran = makeSu("0." + arr[1], { denominator: denominator }).multiplication(max);
+      ran = makeSu("0." + arr[1]).multiplication(max);
     }
     return ran;
   };
