@@ -569,10 +569,6 @@
       arr_c.unshift(over);
     }
 
-    var str = arr_c.join("");
-    var num = Number(str);
-    var leng = arr_c.length;
-
     const result = makeSu(arr_c);
 
     return result;
@@ -929,10 +925,6 @@
     const str = su.getString();
     return makeSu(str);
   };
-
-
-  const zero = makeSu(0);
-  const one = makeSu(1);
 
   const CONSTANTS = {
     ZERO: makeSu(0),
@@ -1417,21 +1409,6 @@
       negative = true;
     }else if(a.negative === true && b.negative === false){
       negative = true;
-    }
-
-    const dec_a = a.decimal;
-    const dec_b = b.decimal;
-    const len_d_a = dec_a.length;
-    const len_d_b = dec_b.length;
-
-    let d_len = 0;
-
-    if(len_d_a === len_d_b){
-      d_len = len_d_a;
-    }else if(len_d_a > len_d_b){
-      d_len = len_d_a;
-    }else if(len_d_a < len_d_b){
-      d_len = len_d_b;
     }
 
     let count = makeSu(0);
