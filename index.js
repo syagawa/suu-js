@@ -1789,7 +1789,8 @@
   Su.prototype.isTriangleNumber = function(){
     let elm = makeSu(1);
     let res = this;
-    while(true){
+    let b = true;
+    while(b){
       res = res.subtract(elm);
       if(res.isZero()){
         return true;
