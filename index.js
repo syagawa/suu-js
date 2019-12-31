@@ -1,1928 +1,1103 @@
-// (function(global){
+import { K, S } from "./SK.js/index.js";
+import { MAX, MIN } from "./constants.js";
 
-  const MAX = 10000;
-  const MIN = -10000;
+const Su = function(n, option){
+  if(!n){
+    n = 0;
+  }
+  if(!option){
+    option = {};
+  }
 
-  const S = {};
-  const K = {};
+  let str = String(n);
 
-  const FIRST_PRIME_NUMBER = 2;
+  let negative = false;
+  if(str[0] === "-"){
+    str = str.slice(1, str.length);
+    negative = true;
+  }
+  if(!negative && option && option.negative){
+    negative = true;
+  }
 
-  S.isNumber = function(n){
-    if(typeof n === "number"){
-      if(Number.isNaN(n)){
-        return NaN;
-      }else{
-        return true;
+  if(isNaN(Number(str))){
+    str = "0";
+  }
+  if(str === "0"){
+    negative = false;
+  }
+
+  let parts = str.split(".");
+  let int_str = parts[0];
+  let decimal_str = parts[1];
+  if(int_str){
+    const int0 = int_str.match(/0/g);
+    if(int0 && int0.length === int_str.length){
+      int_str = "0";
+    }
+    let new_int_str = "";
+    let start_zero = true;
+    for(let i = 0; i <int_str.length; i++){
+      if(int_str[i] !== "0" || !start_zero){
+        start_zero = false;
+        new_int_str += int_str[i];
       }
     }
+    if(!new_int_str){
+      int_str = "0";
+    }else{
+      int_str = new_int_str;
+    }
+  }
+
+  if(decimal_str){
+    const dec0 = decimal_str.match(/0/g);
+    if(dec0 && dec0.length === decimal_str.length){
+      decimal_str = "0";
+    }
+    let end_zero = true;
+    let new_decimal_str = "";
+    for(let i = decimal_str.length - 1; i >= 0; i--){
+      if(decimal_str[i] !== "0" || !end_zero){
+        end_zero = false;
+        new_decimal_str = decimal_str[i] + new_decimal_str;
+      }
+    }
+    if(!new_decimal_str){
+      decimal_str = "0";
+    }else{
+      decimal_str = new_decimal_str;
+    }
+
+  }
+
+  let int_arr = K.numToArray(int_str);
+  let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
+
+  this.integer = int_arr;
+  this.decimal = decimal_arr;
+  this.negative = negative ? true : false;
+  
+  let denominator = [1];
+
+  for(let i = 0; i < this.decimal.length; i++){
+    denominator.push(0);
+  }
+
+  this.fraction = {
+    numerator: this.integer.concat(this.decimal),
+    denominator: denominator
   };
 
-  S.isPrimeNumber = function(n){
-    if(!S.isNumber(n)){
-      return false;
-    }
-    if(n === 0 || n === 1){
-      return false;
-    }
-    if(n === 2){
-      return true;
-    }
+};
 
-    if(n >= MAX){
-      return `Argument exceeds maximum value(${MAX})`;
-    }
+const makeSu = function(num, option){
+  return new Su(num, option);
+};
 
-    let max = n;
-    for( var i = max -1; i > 1; i--){
-      if( (max % i) === 0 ){
-        return false;
-      }
-    }
+const isSu = function(su){
+  if(su instanceof Su){
     return true;
-  };
+  }
+};
 
-  S.nextNumber = function(n){
-    if(!S.isNumber(n)){
-      return;
-    }
-    return ++n;
-  };
+const copySu = function(su){
+  const str = su.getString();
+  return makeSu(str);
+};
 
-  S.prevNumber = function(n){
-    if(!S.isNumber(n)){
-      return;
-    }
-    return --n;
-  };
+const CONSTANTS = {
+  ZERO: makeSu(0),
+  ONE: makeSu(1),
+  FIRST_PRIME_NUMBER: makeSu(2),
+  MAX: makeSu(MAX),
+  MIN: makeSu(MIN)
+};
 
-  K.random = function(min, max){
+Su.prototype.getString = function(){
+  let str = String( this.integer.join(""));
+  const ac = this.decimal.reduce((a,e) => a + e);
+  if(ac !== 0){
+    str += "." + this.decimal.join("");
+  }
+  return this.negative? "-" + str: str;
+};
 
-    if(min instanceof Array && min.length > 0){
-      return K.randomElement(min);
-    }
+Su.prototype.getNumber = function(){
+  const num = Number(this.getString());
+  return num;
+};
 
-    if(min === undefined){
-      min = 0;
-    }
-    if(max === undefined){
-      max = 1;
-    }
+Su.prototype.getInteger = function(){
+  const num = Number(this.integer.join(""));
+  return num;
+};
 
-    var len = max - min;
-    var rand = Math.random();
-    var res = ( rand * len ) + min;
+Su.prototype.getDecimal = function(){
+  const num = Number("0." + this.decimal.join(""));
+  return num;
+};
 
-    return res;
-  };
 
-  K.randomElement = function(array){
-    var len = array.length;
-    var rand = Math.random();
+const getLarge = function(a, b, absolute = false){
 
-    var i = Math.floor(rand * len);
+  let negative = false;
+  let field = [];
 
-    return array[i];
+  if(absolute){
+    a.negative = false;
+    b.negative = false;
+  }
 
-  };
-
-  K.randomInt = function(min, max){
-    if( !S.isNumber(min) || !S.isNumber(max)){
-      return "This function has been called with incorrect parameters";
-    }
-    if(min >= max){
-      return "This function has been called with incorrect parameters";
-    }
-
-    var arr = [];
-    for(var i = min; i <= max; i++){
-      arr.push(i);
-    }
-
-    var res = K.randomElement(arr);
-
-    return res;
-  };
-
-  K.primeNumbers = function(){
-    var arr = [];
-    for(var i = FIRST_PRIME_NUMBER; i < MAX; i++){
-      if(S.isPrimeNumber(i)){
-        arr.push(i);
-      }
-    }
-    return arr;
-  };
-
-  K.fibonacciSequence = function(start){
-    if(start === undefined){
-      start = 0;
-    }
-    var arr = [start, start + 1];
-    var func = function(arr){
-      if(arr[arr.length - 1] >= MAX){
-        return arr;
-      }
-      var a = Number(arr[arr.length - 2]);
-      var b = Number(arr[arr.length - 1]);
-      var c = Number(a + b);
-      arr.push(c);
-      return func(arr);
-    };
-    return func(arr);
-  };
-
-  S.isFibonacciNumber = function(n){
-    if(n === 0){
-      return true;
-    }
-    var fib = K.fibonacciSequence(0);
-    var ind = fib.indexOf(n);
-    if(ind >= 0){
-      return true;
-    }
-  };
-
-  S.isEvenNumber = function(n){
-    if( S.isNumber(n) && n % 2 === 0 ){
-      return true;
-    }
-  };
-
-  S.isOddNumber = function(n){
-    if( S.isNumber(n) && n % 2 !== 0 ){
-      return true;
-    }
-  };
-
-  K.divisors = function(n){
-    var arr = [];
-    for(var i = 1; i <= n; i++){
-      if(n % i === 0){
-        arr.push(i);
-      }
-    }
-    return arr;
-  };
-
-  // ユークリッドの互除法
-  K.euclideanAlgorithm = function(a, b){
-    if( !S.isNumber(a) || !S.isNumber(b)){
-      return "This function has been called with incorrect parameters";
-    }
-    if( a === b){
-      return a;
-    }
-
-    var temp;
-    if( a < b){
-      temp = a;
-      a = b;
-      b = temp;
-    }
-
-    var atemp = a;
-    var btemp = b;
-    var ctemp;
-    var res;
-    var counter = 0;
-    var coprime = "coprime";
-    while(ctemp !==0){
-      ctemp = atemp % btemp;
-      if(ctemp === 0){
-        res = btemp;
-        break;
-      }
-      if(ctemp === 1){
-        res = coprime;
-        break;
-      }
-      if(counter >= MAX){
-        break;
-      }
-      atemp = btemp;
-      btemp = ctemp;
-    }
-    return res;
-  };
-
-  K.commonDivisors = function(a, b){
-    if(a === undefined || b === undefined){
-      return "This function has been called with incorrect parameters";
-    }
-
-    var arr_a = K.divisors(a);
-    if(a === b){
-      return arr_a;
-    }
-    var arr_b = K.divisors(b);
-
-    var divs = [];
-
-    for(var k = 0; k < arr_a.length; k++){
-      var elm_a = arr_a[k];
-      for(var l = 0; l < arr_b.length; l++){
-        var elm_b = arr_b[l];
-        if(elm_a === elm_b){
-          divs.push(elm_a);
-        }
-      }
-    }
-
-    return divs;
-  };
-
-  K.maxCommonDivisor = function(a, b){
-    var arr = K.commonDivisors(a, b);
-    return arr[arr.length - 1];
-  };
-
-  K.multiple = function(n){
-    var arr = [];
-    for(var i = 1; i < MAX; i++){
-      arr.push(n * i);
-    }
-    return arr;
-  };
-
-  K.leastCommonMultiple = function(a, b){
-    if(a === undefined || b === undefined){
-      return "This function has been called with incorrect parameters";
-    }
-
-    var big;
-    if( a < b){
-      big = b;
-    }else{
-      big = a;
-    }
-    var arr_a = [];
-    var arr_b = [];
-
-    var i =1;
-    while(i <= big){
-      arr_a.push( a * i);
-      i++;
-    }
-    var j =1;
-    while(j <= big){
-      arr_b.push( b * j);
-      j++;
-    }
-
-    for(var k = 0; k < arr_a.length; k++){
-      var elm_a = arr_a[k];
-      for(var l = 0; l < arr_b.length; l++){
-        var elm_b = arr_b[l];
-        if(elm_a === elm_b){
-          return elm_a;
-        }
-      }
-    }
-  };
-
-  K.summation = function(){
-    var array = [];
-    for(var i = 0; i < arguments.length; i++){
-      array.push(arguments[i]);
-    }
-    if(array.length === 0){
-      return "Argument is not Number";
-    }
-
-    var sum = 0;
-    for(var j = 0; j < array.length; j++){
-      var elm = array[j];
-      if(S.isNumber(elm)){
-        sum += elm;
-      }else{
-        return "Argument is not Number";
-      }
-    }
-    return sum;
-  };
-
-  K.infiniteProduct = function(){
-    var array = [];
-    for(var i = 0; i < arguments.length; i++){
-      array.push(arguments[i]);
-    }
-    if(array.length === 0){
-      return "Argument is not Number";
-    }
-    var ip = 1;
-    for(var j = 0; j < array.length; j++){
-      var elm = array[j];
-      if(S.isNumber(elm)){
-        ip = ip * elm;
-      }else{
-        return "Argument is not Number";
-      }
-    }
-
-    return ip;
-  };
-
-  K.division = function(dividend, divisor){
-    if(dividend === undefined || divisor === undefined){
-      return "This function has been called with incorrect parameters";
-    }
-
-    var remainder = dividend % divisor;
-    var result = dividend / divisor;
-    var result_int = Math.floor(result);
-    return {
-      integer: {
-        remainder: remainder,
-        result: result_int
-      },
-      realNumber: result
-    };
-  };
-
-  K.divisorsSummation = function(n){
-    var arr = K.divisors(n);
-    var a = 0;
-    for(var i = 0; i < arr.length; i++){
-      a += arr[i];
-    }
+  if(!a.negative && b.negative){
     return a;
-  };
-
-  K.isAbundantNumber = function(n){
-    var sum = K.divisorsSummation(n);
-    if(sum > n * 2){
-      return true;
-    }
-  };
-
-  K.isKaprekarNumberTypeA = function(n){
-    var num = n * n;
-    var s = String(num);
-    var len = s.length;
-    var first_len = 0;
-    var after_len = 0;
-    var first, after;
-    if(S.isOddNumber(len)){
-      first_len = (len - 1) / 2;
-      after_len = first_len + 1;
-    }else{
-      first_len = len / 2;
-      after_len = first_len;
-    }
-    first = Number(s.substr(0, first_len));
-    after = Number(s.substr(first_len, after_len));
-
-    if(( first + after ) === n){
-      return true;
-    }
-
-  };
-
-  K.isKaprekarNumberTypeB = function(n){
-
-    var arr = String(n).split("");
-
-    var min = Number(arr.sort().join(""));
-    var max = Number(arr.reverse().join(""));
-
-    if((max - min) === n){
-      return true;
-    }
-
-  };
-
-  K.isKaprekarNumber = function(n){
-    if(K.isKaprekarNumberTypeA(n) || K.isKaprekarNumberTypeB(n)){
-      return true;
-    }
-  };
-
-  S.isInteger = function(n){
-    var f = Math.floor(n);
-    if( f === n){
-      return true;
-    }
-  };
-
-  // 調和平均
-  K.harmonicMean = function(arr){
-    var len = arr.length;
-    var sum = 0;
-    for(var i = 0; i < len; i++){
-      sum += 1 / arr[i];
-    }
-    return len / sum;
-  };
-
-  // 調和数かどうか
-  K.isHarmonicDivisorNumber = function(n){
-    var arr = K.divisors(n);
-    var res = K.harmonicMean(arr);
-    if(S.isInteger(res)){
-      return true;
-    }
-  };
-
-  S.isNaturalNumber = function(n){
-    if(n > 0 && S.isInteger(n)){
-      return true;
-    }
-  };
-
-  S.isZero = function(n){
-    if( n === 0){
-      return true;
-    }
-  };
-
-  K.collatzhProbrem = function(num){
-
-    var arr = [];
-
-    var calc = function(n){
-      var res = n;
-      if(S.isOddNumber(n)){
-        res = n * 3 + 1;
-      }else if(S.isEvenNumber(n)){
-        res = n / 2;
-      }
-      return res;
-    };
-
-    while(num > 1){
-      num = calc(num);
-      arr.push(num);
-    }
-
-    return arr;
-
-  };
-
-  // フェルマーテスト
-  // JSの扱える範囲を超えていてうまく動かず
-  K.fermatTest = function(n, max){
-    if(!S.isInteger(n) || S.isZero(n) || n === 1){
-      return "This function has been called with incorrect parameters";
-    }
-
-    if(!max){
-      max = 100;
-    }
-
-    for( var i = 1; i <= max; i++){
-      var a = K.randomInt(2, n - 1);
-      if(K.maxCommonDivisor(a, n) !== 1){
-        console.log(a, n);
-        return "Composit Number";
-      }
-      var res = Math.pow(a, n - 1) % n;
-      console.log(i, n, a, res);
-      if(res !== 1){
-        return "Composit Number";
-      }
-    }
-    return "Maybe Prime Number";
-  };
-
-  // 組み合わせ数の計算
-  // K.combinations = function(arr){
-  // };
-
-  // 配列での計算
-  K.numToArray = function(n){
-
-    var arr = [];
-    var str = String(n);
-    var len = str.length;
-    for(var i = 0; i < len; i++){
-      var elm = Number(str.slice(i, i + 1));
-      if(!S.isNumber(elm)){
-        return "This function has been called with incorrect parameters";
-      }
-      arr.push(elm);
-    }
-
-    return arr;
-
-  };
-
-  K.isNumArray = function(arr){
-    if( arr instanceof Array ){
-      for(var i = 0; i < arr.length; i++){
-        if( !S.isNumber(arr[i]) ){
-          return false;
-        }
-      }
-      return true;
-    }
-  };
-
-  // todo 0start
-  K.arraySummation = function(a, b){
-    if( !(a instanceof Array) ){
-      a = K.numToArray(a);
-    }
-    if( !(b instanceof Array) ){
-      b = K.numToArray(b);
-    }
-
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(S.isZero(a[0]) && S.isZero(b[0])){
-      return {
-        array: [0],
-        string: "0",
-        number: 0,
-        length: 1
-      };
-    }
-
-    const A = makeSu(a);
-    const B = makeSu(b);
-
-    console.log(A,B);
-
-    var res = K.getLarger(a, b);
-    var arr_a = res[0];
-    var arr_b = res[1];
-    var len = arr_a.length;
-
-    var gap = len - arr_b.length;
-
-    var over = 0, arr_c = [];
-    for(var i = len - 1; i >= 0; i--){
-      var _res;
-      var elm_a = arr_a[i];
-      var elm_b = arr_b[i - gap] || 0;
-      _res = elm_a + elm_b + over;
-      if(_res >= 10){
-        over = 1;
-        _res = _res - 10;
-      }else{
-        over = 0;
-      }
-      arr_c.unshift(_res);
-    }
-    if(over > 0){
-      arr_c.unshift(over);
-    }
-
-    const result = makeSu(arr_c);
-
-    return result;
-  };
-
-  K.getLarger = function(a, b){
-    var arr_a = [], arr_b = [];
-    for(var i = 0; i < a.length; i++){
-      var elm_a = a[i];
-      if(elm_a === 0 && arr_a.length === 0){
-        continue;
-      }
-      if(elm_a >=  0 && elm_a < 10){
-        arr_a.push(elm_a);
-      }
-    }
-
-    for(var j = 0; j < b.length; j++){
-      var elm_b = b[j];
-      if(elm_b === 0 && arr_b.length === 0){
-        continue;
-      }
-      if(elm_b >=  0 && elm_b < 10){
-        arr_b.push(elm_b);
-      }
-    }
-
-    var res;
-    if(arr_a.length > arr_b.length){
-      res = [a, b];
-    }else if(arr_a.length < arr_b.length){
-      res = [b, a];
-    }else{
-      for(var k = 0; k < arr_a.length; k++){
-        var elm_aa = arr_a[k];
-        var elm_bb = arr_b[k];
-        if(elm_aa > elm_bb){
-          res = [a, b];
-          break;
-        }else if(elm_aa < elm_bb){
-          res = [b, a];
-          break;
-        }else{
-          res = [a, b];
-        }
-      }
-    }
-    return res;
-  };
-
-  K.isLarge = function(a, b){
-    if(K.isEqual(a, b)){
-      return false;
-    }
-    var res = K.getLarger(a, b);
-    if(res[0] === a){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  K.isEqual = function(a, b){
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(a.length === b.length){
-      for(var i = 0; i < a.length; i++){
-        if(a[i] !== b[i]){
-          return false;
-        }
-      }
-      return true;
-    }
-
-  };
-
-
-  K.arraySubtraction = function(a, b){
-    if( !(a instanceof Array) ){
-      a = K.numToArray(a);
-    }
-    if( !(b instanceof Array) ){
-      b = K.numToArray(b);
-    }
-
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(S.isZero(a[0]) || S.isZero(b[0])){
-      return;
-    }
-
-    var negative = false;
-    var res = K.getLarger(a, b);
-    if(res[0] === b){
-      negative = true;
-    }
-
-    var arr_a = res[0];
-    var arr_b = res[1];
-    var len = arr_b.length;
-
-    var gap = arr_a.length - len;
-
-    var arr_c = [];
-
-    for(var i = 0; i < gap; i++){
-      arr_c.push(arr_a[i]);
-    }
-
-    for(var j = 0; j < len; j++){
-      var elm_b = arr_b[j];
-      var elm_a = arr_a[j + gap];
-      var higher_digit = arr_c[arr_c.length - 1];
-      if(elm_b <= elm_a){
-        arr_c.push( elm_a - elm_b );
-      }else{
-        arr_c[arr_c.length - 1] = higher_digit - 1;
-        arr_c.push( 10 + elm_a - elm_b);
-      }
-    }
-
-    var str = arr_c.join("");
-    var m = str.match(/[^0+?]/);
-    if(m){
-      str = str.slice(m.index);
-      arr_c = arr_c.slice(m.index);
-    }else{
-      str = "0";
-    }
-    var num = Number(str);
-    var leng = arr_c.length;
-
-    return {
-      array: arr_c,
-      string: negative ? "-" + str : str,
-      number: negative ? -num : num,
-      length: leng,
-      negative: negative
-    };
-
-  };
-
-  K.arrayMultiplication = function(a, b){
-    if( !(a instanceof Array) ){
-      a = K.numToArray(a);
-    }
-    if( !(b instanceof Array) ){
-      b = K.numToArray(b);
-    }
-
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(S.isZero(a[0]) || S.isZero(b[0])){
-      return;
-    }
-
-    var res_arrs = [],
-        len_a = a.length,
-        len_b = b.length;
-
-    for(var i = len_a - 1; i >= 0; i--){
-      var elm_a = a[i];
-      var over = 0;
-      var res_arr = [];
-      for(var j = len_b - 1; j >= 0; j--){
-        var elm_b = b[j];
-        var res = (elm_a * elm_b) + over;
-        over = 0;
-        var arr = String(res).split("");
-        if(arr.length === 2){
-          res = Number(arr[1]);
-          over = Number(arr[0]);
-        }
-        res_arr.unshift(res);
-      }
-      if(over > 0){
-        res_arr.unshift(over);
-      }
-      var pad = len_a -i - 1;
-      for(var k = 0; k < pad; k++){
-        res_arr.push(0);
-      }
-      // console.log(res_arr);
-      res_arrs.push(res_arr);
-    }
-
-    var before = [0];
-    var r = "";
-    for(var l = 0; l < res_arrs.length; l++){
-       r = K.arraySummation(res_arrs[l], before).array;
-      before = r;
-    }
-
-    var str = r.join("");
-    var num = Number(str);
-    var leng = r.length;
-
-    return {
-      array: r,
-      string: str,
-      number: num,
-      length: leng
-    };
-
-  };
-
-  K.arrayDivision = function(a, b){
-    if( !(a instanceof Array) ){
-      a = K.numToArray(a);
-    }
-    if( !(b instanceof Array) ){
-      b = K.numToArray(b);
-    }
-    if(!K.isNumArray(a) || !K.isNumArray(b)){
-      return;
-    }
-    if(S.isZero(a[0]) || S.isZero(b[0])){
-      return;
-    }
-
-    let temp = [0];
-    let sum = [0];
-    while(K.isLarge(a, sum) || K.isEqual(a, sum)){
-      // K.getLarger(sum, a);
-      temp = K.arraySummation(temp, [1]).array;
-      // console.log(temp);
-      sum = K.arrayMultiplication(b,temp).array;
-      // console.log(a, sum, K.isLarge(a, sum));
-
-    }
-
-    let res;
-    let remainder = 0;
-    if(K.isEqual(a, sum)){
-      res = temp;
-    }else{
-      res = K.arraySubtraction(temp, [1]);
-      sum = K.arraySubtraction(sum, b).array;
-      remainder = K.arraySubtraction(a, sum).array;
-    }
-
-    res.remainder = remainder;
-
-    return res;
-
-  };
-
-
-
-  const Su = function(n, option){
-    if(!n){
-      n = 0;
-    }
-    if(!option){
-      option = {};
-    }
-
-    let str = String(n);
-
-    let negative = false;
-    if(str[0] === "-"){
-      str = str.slice(1, str.length);
-      negative = true;
-    }
-    if(!negative && option && option.negative){
-      negative = true;
-    }
-
-    if(isNaN(Number(str))){
-      str = "0";
-    }
-    if(str === "0"){
-      negative = false;
-    }
-
-    let parts = str.split(".");
-    let int_str = parts[0];
-    let decimal_str = parts[1];
-    if(int_str){
-      const int0 = int_str.match(/0/g);
-      if(int0 && int0.length === int_str.length){
-        int_str = "0";
-      }
-      let new_int_str = "";
-      let start_zero = true;
-      for(let i = 0; i <int_str.length; i++){
-        if(int_str[i] !== "0" || !start_zero){
-          start_zero = false;
-          new_int_str += int_str[i];
-        }
-      }
-      if(!new_int_str){
-        int_str = "0";
-      }else{
-        int_str = new_int_str;
-      }
-    }
-
-    if(decimal_str){
-      const dec0 = decimal_str.match(/0/g);
-      if(dec0 && dec0.length === decimal_str.length){
-        decimal_str = "0";
-      }
-      let end_zero = true;
-      let new_decimal_str = "";
-      for(let i = decimal_str.length - 1; i >= 0; i--){
-        if(decimal_str[i] !== "0" || !end_zero){
-          end_zero = false;
-          new_decimal_str = decimal_str[i] + new_decimal_str;
-        }
-      }
-      if(!new_decimal_str){
-        decimal_str = "0";
-      }else{
-        decimal_str = new_decimal_str;
-      }
-
-    }
-
-    let int_arr = K.numToArray(int_str);
-    let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
-
-    this.integer = int_arr;
-    this.decimal = decimal_arr;
-    this.negative = negative ? true : false;
-    
-    let denominator = [1];
-
-    for(let i = 0; i < this.decimal.length; i++){
-      denominator.push(0);
-    }
-
-    this.fraction = {
-      numerator: this.integer.concat(this.decimal),
-      denominator: denominator
-    };
-
-  };
-
-  const makeSu = function(num, option){
-    return new Su(num, option);
-  };
-
-  const isSu = function(su){
-    if(su instanceof Su){
-      return true;
-    }
-  };
-
-  const copySu = function(su){
-    const str = su.getString();
-    return makeSu(str);
-  };
-
-  const CONSTANTS = {
-    ZERO: makeSu(0),
-    ONE: makeSu(1),
-    FIRST_PRIME_NUMBER: makeSu(2),
-    MAX: makeSu(MAX),
-    MIN: makeSu(MIN)
-  };
-
-  Su.prototype.getString = function(){
-    let str = String( this.integer.join(""));
-    const ac = this.decimal.reduce((a,e) => a + e);
-    if(ac !== 0){
-      str += "." + this.decimal.join("");
-    }
-    return this.negative? "-" + str: str;
-  };
-
-  Su.prototype.getNumber = function(){
-    const num = Number(this.getString());
-    return num;
-  };
-
-  Su.prototype.getInteger = function(){
-    const num = Number(this.integer.join(""));
-    return num;
-  };
-
-  Su.prototype.getDecimal = function(){
-    const num = Number("0." + this.decimal.join(""));
-    return num;
-  };
-
-
-  const getLarge = function(a, b, absolute = false){
-
-    let negative = false;
-    let field = [];
-
-    if(absolute){
-      a.negative = false;
-      b.negative = false;
-    }
-
-    if(!a.negative && b.negative){
-      return a;
-    }else if(a.negative && !b.negative){
-      return b;
-    }else if(a.negative && b.negative){
-      negative = true;
-    }
-
-    if(a.integer.length > b.integer.length){
-      if(negative){
-        return b;
-      }
-      return a;
-    }else if(a.integer.length < b.integer.length){
-      if(negative){
-        return a;
-      }
-      return b;
-    }else{
-      for(let i = 0; i < a.integer.length; i++){
-        let elm_a = a.integer[i];
-        let elm_b = b.integer[i];
-        if(elm_a > elm_b){
-          field = [a, b];
-          break;
-        }else if(elm_a < elm_b){
-          field = [b, a];
-          break;
-        }
-      }
-    }
-
-    if(field.length === 0){
-      const len = a.decimal.length >= b.decimal.length ? a.decimal.length : b.decimal.length;
-      for(let i = 0; i < len; i++){
-        let elm_a = a.decimal[i] ? a.decimal[i] : 0;
-        let elm_b = b.decimal[i] ? b.decimal[i] : 0;
-        if(elm_a > elm_b){
-          field = [a, b];
-          break;
-        }else if(elm_a < elm_b){
-          field = [b, a];
-          break;
-        }
-      }
-    }
-
+  }else if(a.negative && !b.negative){
+    return b;
+  }else if(a.negative && b.negative){
+    negative = true;
+  }
+
+  if(a.integer.length > b.integer.length){
     if(negative){
-      field = [field[1], field[0]];
+      return b;
     }
-    if(field.length === 0){
-      return null;
-    }else{
-      return field[0];
-    }
-
-  };
-
-
-  Su.prototype.isEqual = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-    const a = this;
-    const b = su;
-    const i_a = a.integer;
-    const i_b = b.integer;
-    const d_a = a.decimal;
-    const d_b = b.decimal;
-
-    const large = getLarge(a, b);
-
-    if(!large){
-      if(i_a.length === i_b.length){
-        for(let i = 0; i < i_a.length; i++){
-          if(i_a[i] !== i_b[i]){
-            return false;
-          }
-        }
-      }else if(d_a.length === d_b.length){
-        for(let i = 0; i < d_a.length; i++){
-          if(d_a[i] !== d_b[i]){
-            return false;
-          }
-        }
-      }else{
-        return false;
-      }
-
-      if(a.negative === b.negative){
-        return true;
-      }else{
-        return false;
-      }
-    }else{
-      return false;
-    }
-
-  };
-
-  Su.prototype.isZero = function(){
-    if(this.integer.length === 1 && this.integer[0] === 0 && !this.containDecimal()){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.isOne = function(){
-    if(this.negative){
-      return false;
-    }
-    if(this.getString() === "1"){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.isLarge = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-    const a = this;
-    const b = su;
-    const res = getLarge(a, b);
-    if(!res){
-      return false;
-    }
-    if(res === a){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.isSmall = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-    const a = this;
-    const b = su;
-    const res = getLarge(a, b);
-    if(!res){
-      return false;
-    }
-    if(res === b){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.isInteger = function(){
-    if(this.containDecimal()){
-      return false;
-    }else{
-      return true;
-    }
-  };
-
-  Su.prototype.isNaturalNumber = function(){
-    if(!this.negative && this.isInteger() && this.isLarge(0)){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.containDecimal = function(){
-    const res = this.decimal.reduce(function(a, v){
-        return a + v;
-    });
-    if(res === 0){
-      return false;
-    }else{
-      return true;
-    }
-  };
-
-  Su.prototype.add = function(su){
-    if(!isSu(su)){
-      return;
-    }
-    let a = copySu(this);
-    let b = copySu(su);
-    if(b.isZero()){
+    return a;
+  }else if(a.integer.length < b.integer.length){
+    if(negative){
       return a;
     }
-
-    let negative;
-    if(a.negative && b.negative){
-      negative = true;
-    }else if(!a.negative && !b.negative){
-      negative = false;
-    }else{
-      return a.subtract(b);
-    }
-
-    let res = getLarge(a, b);
-    if(!res){
-      res = a;
-    }
-    let int_a = res.integer;
-    let dec_a = res.decimal;
-    let int_b, dec_b;
-    if(res === a){
-      int_b = b.integer;
-      dec_b = b.decimal;
-    }else{
-      int_b = a.integer;
-      dec_b = a.decimal;
-    }
-
-    let len_i = int_a.length;
-    let len_d = dec_a.length;
-
-    if(dec_b.length > dec_a.length){
-      len_d = dec_b.length;
-    }
-    let over = 0,
-        int_res = [],
-        dec_res = [];
-
-
-    for(let i = len_d - 1; i >= 0; i--){
-      let _res;
-      let elm_a = dec_a[i] || 0;
-      let elm_b = dec_b[i] || 0;
-      _res = elm_a + elm_b + over;
-      if(_res >= 10){
-        over = 1;
-        _res = _res - 10;
-      }else{
-        over = 0;
-      }
-      dec_res.unshift(_res);
-    }
-
-    for(let i = dec_res.length - 1; i >= 0; i-- ){
-      let d = dec_res[i];
-      if(d === 0){
-        dec_res.pop();
-      }else{
+    return b;
+  }else{
+    for(let i = 0; i < a.integer.length; i++){
+      let elm_a = a.integer[i];
+      let elm_b = b.integer[i];
+      if(elm_a > elm_b){
+        field = [a, b];
+        break;
+      }else if(elm_a < elm_b){
+        field = [b, a];
         break;
       }
     }
+  }
 
-    const gap = len_i - int_b.length;
-    for(let i = len_i - 1; i >= 0; i--){
-      let _res;
-      let elm_a = int_a[i];
-      let elm_b = int_b[i - gap] || 0;
-      _res = elm_a + elm_b + over;
-      if(_res >= 10){
-        over = 1;
-        _res = _res - 10;
-      }else{
-        over = 0;
-      }
-      int_res.unshift(_res);
-    }
-    if(over > 0){
-      int_res.unshift(over);
-    }
-
-    const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
-
-    return result;
-  };
-
-  Su.prototype.subtract = function(su){
-    if(!isSu(su)){
-      return;
-    }
-    let a = copySu(this);
-    let b = copySu(su);
-    if(su.isZero()){
-      return a;
-    }
-
-    if(this.isZero()){
-      return b.negate();
-    }
-
-    if(a.negative !== b.negative){
-      b.negative = !b.negative;
-      return a.add(b);
-    }
-
-    let negative = a.negative;
-
-    const res = getLarge(a, b, true);
-    if(res !== a){
-      a = su;
-      b = this;
-      negative = !a.negative;
-    }
-
-    const a_id = a.integer.concat(a.decimal);
-    const b_id = b.integer.concat(b.decimal);
-
-    const a_i_len = a.integer.length;
-    const b_i_len = b.integer.length;
-
-    const a_d_len = a.decimal.length;
-    const b_d_len = b.decimal.length;
-    const d_gap = Math.abs(a_d_len - b_d_len);
-
-    let len_i = 0;
-    let len_d = 0;
-    if(a_i_len > b_i_len){
-      len_i += a_i_len;
-    }else{
-      len_i += b_i_len;
-    }
-    if(a_d_len > b_d_len){
-      len_d += a_d_len;
-      for(let i = 0; i < d_gap; i++){
-        b_id.push(0);
-      }
-    }else{
-      len_d += b_d_len;
-      for(let i = 0; i < d_gap; i++){
-        a_id.push(0);
-      }
-
-    }
-
-    let debt = 0;
-    const res_array = [];
-    for(let i = 0; i < len_i + len_d; i++){
-      const i_a = a_id.length - 1 - i;
-      const i_b = b_id.length - 1 - i;
-      const a_elm = (a_id[i_a] ? a_id[i_a] : 0) - debt;
-      const b_elm = b_id[i_b] ? b_id[i_b] : 0;
-      if(a_elm >= b_elm){
-        debt = 0;
-        res_array.unshift(a_elm - b_elm);
-      }else{
-        debt = 1;
-        res_array.unshift((debt * 10) + a_elm - b_elm);
-      }
-
-    }
-    res_array.splice(res_array.length - len_d, 0, ".");
-    const minus = negative ? "-" : "";
-    return makeSu(minus + res_array.join(""));
-  };
-
-  Su.prototype.negate = function(){
-    if(this.number === 0){
-      return this;
-    }
-    if(this.negative){
-      this.nevative = false;
-    }else{
-      this.negative = true;
-    }
-    return this;
-  };
-
-  Su.prototype.multiplication = function(su){
-    if(!isSu(su)){
-      return;
-    }
-    let a = copySu(this);
-    let b = copySu(su);
-    if(a.isZero() || b.isZero()){
-      return makeSu(0);
-    }
-
-    let negative = false;
-    if(a.negative === false && b.negative === true){
-      negative = true;
-    }else if(a.negative === true && b.negative === false){
-      negative = true;
-    }
-
-    const a_id = a.integer.concat(a.decimal);
-    const b_id = b.integer.concat(b.decimal);
-
-    const dp_a = a.integer.length;
-    const dp_b = b.integer.length;
-
-    const res_arr = [];
-    for(let i_a = 0; i_a < a_id.length; i_a++){
-      for(let i_b = 0; i_b < b_id.length; i_b++){
-        const elm_a = a_id[i_a];
-        const elm_b = b_id[i_b];
-        const pos_a = dp_a - i_a -1;
-        const pos_b = dp_b - i_b -1;
-        const pos = pos_a + pos_b;
-        let res = elm_a * elm_b;
-        let len = Math.abs(pos);
-        let str;
-        if(pos >= 0){
-          len++;
-          if(res > 9){
-            str = String(res).padEnd(len + 1, "0");
-          }else{
-            str = String(res).padEnd(len, "0");
-          }
-        }else{
-          if(len === 1 && res > 9){
-            str = String(res)[0] + "." + String(res)[1];
-          }else{
-            str = "0." + String(res).padStart(len, "0");
-          }
-        }
-        res_arr.push(makeSu(str));
+  if(field.length === 0){
+    const len = a.decimal.length >= b.decimal.length ? a.decimal.length : b.decimal.length;
+    for(let i = 0; i < len; i++){
+      let elm_a = a.decimal[i] ? a.decimal[i] : 0;
+      let elm_b = b.decimal[i] ? b.decimal[i] : 0;
+      if(elm_a > elm_b){
+        field = [a, b];
+        break;
+      }else if(elm_a < elm_b){
+        field = [b, a];
+        break;
       }
     }
+  }
 
-    let res = makeSu(0);
-    for(let i = 0; i < res_arr.length; i++){
-      res = res.add(res_arr[i]);
-    }
+  if(negative){
+    field = [field[1], field[0]];
+  }
+  if(field.length === 0){
+    return null;
+  }else{
+    return field[0];
+  }
 
-    res.negative = negative;
-
-    return res;
-
-  };
-
-  Su.prototype.division = function(su){
-    if(!isSu(su)){
-      return;
-    }
-    let a = copySu(this);
-    let b = copySu(su);
-    if(a.isZero() || b.isZero()){
-      return makeSu(0);
-    }
-
-    let negative = false;
-    if(a.negative === false && b.negative === true){
-      negative = true;
-    }else if(a.negative === true && b.negative === false){
-      negative = true;
-    }
-
-    let count = makeSu(0);
-    let sum = makeSu(0);
-    while(a.isLarge(sum) || a.isEqual(sum)){
-      count = count.add(makeSu(1));
-      sum = b.multiplication(count);
-    }
-
-    count = count.subtract(makeSu(1));
-    sum = sum.subtract(b);
-    const remain = a.subtract(sum);
-    const res = count;
-    res.remainder = remain;
-    res.negative = negative;
-    return res;
-  };
+};
 
 
-  Su.prototype.plus = function(su){
-    return this.add(su);
-  };
+Su.prototype.isEqual = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+  const a = this;
+  const b = su;
+  const i_a = a.integer;
+  const i_b = b.integer;
+  const d_a = a.decimal;
+  const d_b = b.decimal;
 
-  Su.prototype.tasu = function(su){
-    return this.add(su);
-  };
+  const large = getLarge(a, b);
 
-  Su.prototype.minus = function(su){
-    return this.subtract(su);
-  };
-
-  Su.prototype.hiku = function(su){
-    return this.subtract(su);
-  };
-
-  Su.prototype.multiply = function(su){
-    return this.multiplication(su);
-  };
-
-  Su.prototype.kakeru = function(su){
-    return this.multiplication(su);
-  };
-
-  Su.prototype.waru = function(su){
-    return this.division(su);
-  };
-
-  Su.prototype.next = function(){
-    return this.add(makeSu(1));
-  };
-
-  Su.prototype.prev = function(){
-    return this.subtract(makeSu(1));
-  };
-
-  Su.prototype.isEvenNumber = function(){
-    if(this.isZero()){
-      return true;
-    }
-    const res = this.division(makeSu(2));
-    
-    if( res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.isOddNumber = function(){
-    if(this.isZero()){
-      return false;
-    }
-    const res = this.division(makeSu(2));
-    if( !res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
-      return true;
-    }else{
-      return false;
-    }
-  };
-
-  Su.prototype.getDivisors = function(){
-    const arr = [];
-    for(let i = 1; this.isLarge(makeSu(i)); i++){
-      let su = makeSu(i);
-      if(this.division(su).remainder.isEqual(0)){
-        arr.push(su);
-      }
-    }
-    arr.push(this);
-    return arr;
-  };
-
-  Su.prototype.getCommonDivisors = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-
-    let a = this;
-    let b = su;
-
-    const arr_a = a.getDivisors();
-    if(a.isEqual(b)){
-      return arr_a;
-    }
-    const arr_b = b.getDivisors();
-
-    const divs = [];
-
-    for(let i = 0; i < arr_a.length; i++){
-      let elm_a = arr_a[i];
-      for(let j = 0; j < arr_b.length; j++){
-        let elm_b = arr_b[j];
-        if(elm_a.isEqual(elm_b)){
-          divs.push(elm_a);
+  if(!large){
+    if(i_a.length === i_b.length){
+      for(let i = 0; i < i_a.length; i++){
+        if(i_a[i] !== i_b[i]){
+          return false;
         }
       }
-    }
-
-    return divs;
-  };
-
-  Su.prototype.getMaxCommonDivisor = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-    const arr = this.getCommonDivisors(su);
-    return arr[arr.length - 1];
-  };
-
-  Su.prototype.multiple = function(){
-    if(this.isZero()){
-      return [this];
-    }
-    const arr = [];
-    for(let i = 1; i < CONSTANTS.MAX.number; i++){
-      arr.push(this.multiplication(i));
-    }
-    return arr;
-  };
-
-  Su.prototype.getLeastCommonMultiple = function(su){
-    if(!isSu(su)){
-      su = makeSu(su);
-    }
-
-    const a = this;
-    const b = su;
-
-    const maxCommonDivisor = a.getMaxCommonDivisor(b);
-
-    const multi = a.multiply(b);
-
-    const res = multi.division(maxCommonDivisor);
-
-    return res;
-
-  };
-
-  Su.prototype.fibonacciSequence = function(){
-
-    const zero = makeSu(0);
-    const one = makeSu(1);
-
-    const MAX = CONSTANTS.MAX;
-
-    const arr = [zero, one];
-    const func = function(arr){
-      if(arr[arr.length - 1].isLarge(MAX)){
-        return arr;
+    }else if(d_a.length === d_b.length){
+      for(let i = 0; i < d_a.length; i++){
+        if(d_a[i] !== d_b[i]){
+          return false;
+        }
       }
-      const a = arr[arr.length - 2];
-      const b = arr[arr.length - 1];
-      const c = a.add(b);
-      arr.push(c);
-      return func(arr);
-    };
-    return func(arr);
-  };
+    }else{
+      return false;
+    }
 
-  Su.prototype.isFibonacciNumber = function(){
-    const n = this;
-    if(n.isZero()){
+    if(a.negative === b.negative){
       return true;
-    }
-    if(n.containDecimal()){
+    }else{
       return false;
     }
-    const fibs = this.fibonacciSequence(0);
-    for(let i = 0; i < fibs.length; i++){
-      let f = fibs[i];
-      if(f.isEqual(n)){
-        return true;
-      }
-    }
+  }else{
     return false;
-  };
+  }
 
-  Su.prototype.lucasSequence = function(){
+};
 
-    const MAX = CONSTANTS.MAX;
-
-    const arr = [makeSu(2), makeSu(1)];
-    const func = function(arr){
-      if(arr[arr.length - 1].isLarge(MAX)){
-        return arr;
-      }
-      const a = arr[arr.length - 2];
-      const b = arr[arr.length - 1];
-      const c = a.add(b);
-      arr.push(c);
-      return func(arr);
-    };
-    return func(arr);
-  };
-
-  Su.prototype.isLucasNumber = function(){
-    const n = this;
-    if(n.containDecimal()){
-      return false;
-    }
-    const lucs = this.lucasSequence(0);
-    for(let i = 0; i < lucs.length; i++){
-      let f = lucs[i];
-      if(f.isEqual(n)){
-        return true;
-      }
-    }
-    return false;
-  };
-
-  Su.prototype.lucasPrimeNumbers = function(){
-    const ls = this.lucasSequence();
-    const arr = [];
-
-    for(let i = 0; i < ls.length; i++){
-      const l = ls[i];
-      if(l.isPrimeNumber()){
-        arr.push(l);
-      }
-    }
-    return arr;
-  };
-
-
-  Su.prototype.getSequence = function(){
-    const array = [this];
-    for(let i = 0; i < arguments.length; i++){
-      let elm = arguments[i];
-      if(!isSu(elm)){
-        elm = makeSu(elm);
-      }
-      array.push(elm);
-    }
-    return array;
-  };
-
-  Su.prototype.summation = function(){
-    const arr = this.getSequence(...arguments);
-    let sum = makeSu(0);
-    for(let i = 0; i < arr.length; i++){
-      sum = sum.add(arr[i]);
-    }
-    return sum;
-  };
-
-  Su.prototype.infiniteProduct = function(){
-    const arr = this.getSequence(...arguments);
-    let ip = arr[0];
-    for(let i = 1; i < arr.length; i++){
-      ip = ip.multiplication(arr[i]);
-    }
-    return ip;
-  };
-
-  Su.prototype.digitsum = function(){
-    let sum = makeSu(0);
-    for(let i = 0; i < this.array.length; i++){
-      let a = makeSu(this.array[i]);
-      sum = sum.add(a);
-    }
-    return sum;
-  };
-
-  Su.prototype.square = function(){
-    return this.exponentiate(makeSu(2));
-  };
-
-  Su.prototype.cube = function(){
-    return this.exponentiate(makeSu(3));
-  };
-
-  Su.prototype.exponentiate = function(su){
-    const one = makeSu("1");
-    if(su.isZero()){
-      return one;
-    }
-    if(su.isEqual(one)){
-      return this;
-    }
-    let count = one;
-    let res = copySu(this);
-    while(count.isSmall(su)){
-      res = this.multiplication(res);
-      count = count.next();
-    }
-    return res;
-  };
-
-  Su.prototype.isPrimeNumber = function(){
-    if(this.containDecimal()){
-      return false;
-    }
-    if(this.isOne() || this.isZero()){
-      return false;
-    }
-    if(this.getString() === "2"){
-      return true;
-    }
-    let counter = this.subtract(makeSu(1));
-    const one = makeSu(1);
-    while(counter.isLarge(one)){
-      let e = this.division(counter);
-      if(e.remainder.isZero()){
-        return false;
-      }
-      counter = counter.subtract(makeSu(1));
-    }
+Su.prototype.isZero = function(){
+  if(this.integer.length === 1 && this.integer[0] === 0 && !this.containDecimal()){
     return true;
-  };
+  }else{
+    return false;
+  }
+};
 
-  Su.prototype.divisorsSummation = function(){
-    const arr = this.getDivisors();
-    let a = makeSu(0);
-    for(let i = 0; i < arr.length; i++){
-      a = a.add(arr[i]);
-    }
+Su.prototype.isOne = function(){
+  if(this.negative){
+    return false;
+  }
+  if(this.getString() === "1"){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isLarge = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+  const a = this;
+  const b = su;
+  const res = getLarge(a, b);
+  if(!res){
+    return false;
+  }
+  if(res === a){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isSmall = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+  const a = this;
+  const b = su;
+  const res = getLarge(a, b);
+  if(!res){
+    return false;
+  }
+  if(res === b){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isInteger = function(){
+  if(this.containDecimal()){
+    return false;
+  }else{
+    return true;
+  }
+};
+
+Su.prototype.isNaturalNumber = function(){
+  if(!this.negative && this.isInteger() && this.isLarge(0)){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.containDecimal = function(){
+  const res = this.decimal.reduce(function(a, v){
+      return a + v;
+  });
+  if(res === 0){
+    return false;
+  }else{
+    return true;
+  }
+};
+
+Su.prototype.add = function(su){
+  if(!isSu(su)){
+    return;
+  }
+  let a = copySu(this);
+  let b = copySu(su);
+  if(b.isZero()){
     return a;
-  };
+  }
 
-  Su.prototype.isAbundantNumber = function(){
-    const sum = this.divisorsSummation();
-    if(sum.isLarge( this.multiplication(makeSu(2)))){
-      return true;
+  let negative;
+  if(a.negative && b.negative){
+    negative = true;
+  }else if(!a.negative && !b.negative){
+    negative = false;
+  }else{
+    return a.subtract(b);
+  }
+
+  let res = getLarge(a, b);
+  if(!res){
+    res = a;
+  }
+  let int_a = res.integer;
+  let dec_a = res.decimal;
+  let int_b, dec_b;
+  if(res === a){
+    int_b = b.integer;
+    dec_b = b.decimal;
+  }else{
+    int_b = a.integer;
+    dec_b = a.decimal;
+  }
+
+  let len_i = int_a.length;
+  let len_d = dec_a.length;
+
+  if(dec_b.length > dec_a.length){
+    len_d = dec_b.length;
+  }
+  let over = 0,
+      int_res = [],
+      dec_res = [];
+
+
+  for(let i = len_d - 1; i >= 0; i--){
+    let _res;
+    let elm_a = dec_a[i] || 0;
+    let elm_b = dec_b[i] || 0;
+    _res = elm_a + elm_b + over;
+    if(_res >= 10){
+      over = 1;
+      _res = _res - 10;
     }else{
-      return false;
+      over = 0;
     }
-  };
+    dec_res.unshift(_res);
+  }
 
-  Su.prototype.isDeficientNumber = function(){
-    const sum = this.divisorsSummation();
-    if(sum.isSmall( this.multiplication(makeSu(2)))){
-      return true;
+  for(let i = dec_res.length - 1; i >= 0; i-- ){
+    let d = dec_res[i];
+    if(d === 0){
+      dec_res.pop();
     }else{
-      return false;
+      break;
     }
-  };
+  }
 
-  Su.prototype.isPerfectNumber = function(){
-    const sum = this.divisorsSummation();
-    if(sum.subtract(this).isEqual(this)){
-      return true;
+  const gap = len_i - int_b.length;
+  for(let i = len_i - 1; i >= 0; i--){
+    let _res;
+    let elm_a = int_a[i];
+    let elm_b = int_b[i - gap] || 0;
+    _res = elm_a + elm_b + over;
+    if(_res >= 10){
+      over = 1;
+      _res = _res - 10;
     }else{
-      return false;
+      over = 0;
     }
-  };
+    int_res.unshift(_res);
+  }
+  if(over > 0){
+    int_res.unshift(over);
+  }
 
-  Su.prototype.factorial = function(){
-    let res = this;
-    let counter = this.subtract(makeSu(1));
-    const zero = makeSu(0);
-    while(counter.isLarge(zero)){
-      res = res.multiplication(counter);
-      counter = counter.subtract(makeSu(1));
-    }
-    return res;
-  };
+  const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
 
-  Su.prototype.isTriangleNumber = function(){
-    let elm = makeSu(1);
-    let res = this;
-    let b = true;
-    while(b){
-      res = res.subtract(elm);
-      if(res.isZero()){
-        return true;
-      }
-      if(res.isSmall(makeSu(0))){
-        return false;
-      }
-      elm = elm.add(makeSu(1));
-    }
-  };
+  return result;
+};
 
-  Su.prototype.getTriangleNumbers = function(){
-    return this.getPolygonalNumbers(makeSu(3));
-  };
+Su.prototype.subtract = function(su){
+  if(!isSu(su)){
+    return;
+  }
+  let a = copySu(this);
+  let b = copySu(su);
+  if(su.isZero()){
+    return a;
+  }
 
-  Su.prototype.getSquareNumbers = function(){
-    return this.getPolygonalNumbers(makeSu(4));
-  };
+  if(this.isZero()){
+    return b.negate();
+  }
 
-  Su.prototype.getPolygonalNumbers = function(n){
-    if(!isSu(n)){
-      n = makeSu(n);
-    }
-    if(n.isSmall(makeSu(3))){
-      return [];
-    }
-    let current = makeSu(1);
-    const arr = [];
-    let range = current;
+  if(a.negative !== b.negative){
+    b.negative = !b.negative;
+    return a.add(b);
+  }
 
-    const increment = n.subtract(makeSu(2));
-    while(current.isSmall(CONSTANTS.MAX)){
-      arr.push(current);
-      range = range.add(increment);
-      current = current.add(range);
-    }
-    return arr;
-  };
+  let negative = a.negative;
 
-  Su.prototype.mersenneNumbers = function(){
-    const two = makeSu(2);
-    const arr = [];
-    let current = makeSu(0);
-    let ex = makeSu(1);
-    
-    while(current.isSmall(CONSTANTS.MAX)){
-      current = two.exponentiate(ex).subtract(makeSu(1));
-      arr.push(current);
-      ex = ex.add(makeSu(1));
-    }
-    return arr;
-  };
+  const res = getLarge(a, b, true);
+  if(res !== a){
+    a = su;
+    b = this;
+    negative = !a.negative;
+  }
 
-  Su.prototype.mersennePrimeNumbers = function(){
-    const marr = this.mersenneNumbers();
-    const arr = [];
-    for(let i = 0; i < marr.length; i++){
-      const n = marr[i];
-      if(n.isPrimeNumber()){
-        arr.push(n);
-      }
-    }
-    return arr;
-  };
+  const a_id = a.integer.concat(a.decimal);
+  const b_id = b.integer.concat(b.decimal);
 
-  Su.prototype.isMersenneNumber = function(){
-    const n = this;
-    if(n.isZero()){
-      return false;
-    }
-    if(n.containDecimal()){
-      return false;
-    }
-    const ms = this.mersenneNumbers();
-    for(let i = 0; i < ms.length; i++){
-      let m = ms[i];
-      if(m.isEqual(n)){
-        return true;
-      }
-    }
-    return false;
-  };
+  const a_i_len = a.integer.length;
+  const b_i_len = b.integer.length;
 
-  Su.prototype.isMersennePrimeNumber = function(){
-    const n = this;
-    if(n.isZero()){
-      return false;
-    }
-    if(n.containDecimal()){
-      return false;
-    }
-    const ms = this.mersennePrimeNumbers();
-    for(let i = 0; i < ms.length; i++){
-      let m = ms[i];
-      if(m.isEqual(n)){
-        return true;
-      }
-    }
-    return false;
-  };
+  const a_d_len = a.decimal.length;
+  const b_d_len = b.decimal.length;
+  const d_gap = Math.abs(a_d_len - b_d_len);
 
-  Su.prototype.random = function(min, max){
-    if(min === undefined){
-      min = makeSu(0);
+  let len_i = 0;
+  let len_d = 0;
+  if(a_i_len > b_i_len){
+    len_i += a_i_len;
+  }else{
+    len_i += b_i_len;
+  }
+  if(a_d_len > b_d_len){
+    len_d += a_d_len;
+    for(let i = 0; i < d_gap; i++){
+      b_id.push(0);
     }
-    if(max === undefined){
-      max = makeSu(1);
-    }
-    if(!isSu(min)){
-      min = makeSu(min);
-    }
-    if(!isSu(max)){
-      max = makeSu(max);
+  }else{
+    len_d += b_d_len;
+    for(let i = 0; i < d_gap; i++){
+      a_id.push(0);
     }
 
-    const str = String(Math.random());
-    let ran;
+  }
 
-    if(str === "0"){
-      if(min.isZero()){
-        ran = makeSu(0);
+  let debt = 0;
+  const res_array = [];
+  for(let i = 0; i < len_i + len_d; i++){
+    const i_a = a_id.length - 1 - i;
+    const i_b = b_id.length - 1 - i;
+    const a_elm = (a_id[i_a] ? a_id[i_a] : 0) - debt;
+    const b_elm = b_id[i_b] ? b_id[i_b] : 0;
+    if(a_elm >= b_elm){
+      debt = 0;
+      res_array.unshift(a_elm - b_elm);
+    }else{
+      debt = 1;
+      res_array.unshift((debt * 10) + a_elm - b_elm);
+    }
+
+  }
+  res_array.splice(res_array.length - len_d, 0, ".");
+  const minus = negative ? "-" : "";
+  return makeSu(minus + res_array.join(""));
+};
+
+Su.prototype.negate = function(){
+  if(this.number === 0){
+    return this;
+  }
+  if(this.negative){
+    this.nevative = false;
+  }else{
+    this.negative = true;
+  }
+  return this;
+};
+
+Su.prototype.multiplication = function(su){
+  if(!isSu(su)){
+    return;
+  }
+  let a = copySu(this);
+  let b = copySu(su);
+  if(a.isZero() || b.isZero()){
+    return makeSu(0);
+  }
+
+  let negative = false;
+  if(a.negative === false && b.negative === true){
+    negative = true;
+  }else if(a.negative === true && b.negative === false){
+    negative = true;
+  }
+
+  const a_id = a.integer.concat(a.decimal);
+  const b_id = b.integer.concat(b.decimal);
+
+  const dp_a = a.integer.length;
+  const dp_b = b.integer.length;
+
+  const res_arr = [];
+  for(let i_a = 0; i_a < a_id.length; i_a++){
+    for(let i_b = 0; i_b < b_id.length; i_b++){
+      const elm_a = a_id[i_a];
+      const elm_b = b_id[i_b];
+      const pos_a = dp_a - i_a -1;
+      const pos_b = dp_b - i_b -1;
+      const pos = pos_a + pos_b;
+      let res = elm_a * elm_b;
+      let len = Math.abs(pos);
+      let str;
+      if(pos >= 0){
+        len++;
+        if(res > 9){
+          str = String(res).padEnd(len + 1, "0");
+        }else{
+          str = String(res).padEnd(len, "0");
+        }
       }else{
-        ran = min;
+        if(len === 1 && res > 9){
+          str = String(res)[0] + "." + String(res)[1];
+        }else{
+          str = "0." + String(res).padStart(len, "0");
+        }
       }
-    }else{
-      let arr = str.split(".");
-      ran = makeSu("0." + arr[1]).multiplication(max);
+      res_arr.push(makeSu(str));
     }
-    return ran;
+  }
+
+  let res = makeSu(0);
+  for(let i = 0; i < res_arr.length; i++){
+    res = res.add(res_arr[i]);
+  }
+
+  res.negative = negative;
+
+  return res;
+
+};
+
+Su.prototype.division = function(su){
+  if(!isSu(su)){
+    return;
+  }
+  let a = copySu(this);
+  let b = copySu(su);
+  if(a.isZero() || b.isZero()){
+    return makeSu(0);
+  }
+
+  let negative = false;
+  if(a.negative === false && b.negative === true){
+    negative = true;
+  }else if(a.negative === true && b.negative === false){
+    negative = true;
+  }
+
+  let count = makeSu(0);
+  let sum = makeSu(0);
+  while(a.isLarge(sum) || a.isEqual(sum)){
+    count = count.add(makeSu(1));
+    sum = b.multiplication(count);
+  }
+
+  count = count.subtract(makeSu(1));
+  sum = sum.subtract(b);
+  const remain = a.subtract(sum);
+  const res = count;
+  res.remainder = remain;
+  res.negative = negative;
+  return res;
+};
+
+
+Su.prototype.plus = function(su){
+  return this.add(su);
+};
+
+Su.prototype.tasu = function(su){
+  return this.add(su);
+};
+
+Su.prototype.minus = function(su){
+  return this.subtract(su);
+};
+
+Su.prototype.hiku = function(su){
+  return this.subtract(su);
+};
+
+Su.prototype.multiply = function(su){
+  return this.multiplication(su);
+};
+
+Su.prototype.kakeru = function(su){
+  return this.multiplication(su);
+};
+
+Su.prototype.waru = function(su){
+  return this.division(su);
+};
+
+Su.prototype.next = function(){
+  return this.add(makeSu(1));
+};
+
+Su.prototype.prev = function(){
+  return this.subtract(makeSu(1));
+};
+
+Su.prototype.isEvenNumber = function(){
+  if(this.isZero()){
+    return true;
+  }
+  const res = this.division(makeSu(2));
+  
+  if( res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isOddNumber = function(){
+  if(this.isZero()){
+    return false;
+  }
+  const res = this.division(makeSu(2));
+  if( !res.remainder.isZero() && res.remainder.decimal[0] === 0 && res.remainder.decimal.length === 1){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.getDivisors = function(){
+  const arr = [];
+  for(let i = 1; this.isLarge(makeSu(i)); i++){
+    let su = makeSu(i);
+    if(this.division(su).remainder.isEqual(0)){
+      arr.push(su);
+    }
+  }
+  arr.push(this);
+  return arr;
+};
+
+Su.prototype.getCommonDivisors = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+
+  let a = this;
+  let b = su;
+
+  const arr_a = a.getDivisors();
+  if(a.isEqual(b)){
+    return arr_a;
+  }
+  const arr_b = b.getDivisors();
+
+  const divs = [];
+
+  for(let i = 0; i < arr_a.length; i++){
+    let elm_a = arr_a[i];
+    for(let j = 0; j < arr_b.length; j++){
+      let elm_b = arr_b[j];
+      if(elm_a.isEqual(elm_b)){
+        divs.push(elm_a);
+      }
+    }
+  }
+
+  return divs;
+};
+
+Su.prototype.getMaxCommonDivisor = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+  const arr = this.getCommonDivisors(su);
+  return arr[arr.length - 1];
+};
+
+Su.prototype.multiple = function(){
+  if(this.isZero()){
+    return [this];
+  }
+  const arr = [];
+  for(let i = 1; i < CONSTANTS.MAX.number; i++){
+    arr.push(this.multiplication(i));
+  }
+  return arr;
+};
+
+Su.prototype.getLeastCommonMultiple = function(su){
+  if(!isSu(su)){
+    su = makeSu(su);
+  }
+
+  const a = this;
+  const b = su;
+
+  const maxCommonDivisor = a.getMaxCommonDivisor(b);
+
+  const multi = a.multiply(b);
+
+  const res = multi.division(maxCommonDivisor);
+
+  return res;
+
+};
+
+Su.prototype.fibonacciSequence = function(){
+
+  const zero = makeSu(0);
+  const one = makeSu(1);
+
+  const MAX = CONSTANTS.MAX;
+
+  const arr = [zero, one];
+  const func = function(arr){
+    if(arr[arr.length - 1].isLarge(MAX)){
+      return arr;
+    }
+    const a = arr[arr.length - 2];
+    const b = arr[arr.length - 1];
+    const c = a.add(b);
+    arr.push(c);
+    return func(arr);
   };
+  return func(arr);
+};
+
+Su.prototype.isFibonacciNumber = function(){
+  const n = this;
+  if(n.isZero()){
+    return true;
+  }
+  if(n.containDecimal()){
+    return false;
+  }
+  const fibs = this.fibonacciSequence(0);
+  for(let i = 0; i < fibs.length; i++){
+    let f = fibs[i];
+    if(f.isEqual(n)){
+      return true;
+    }
+  }
+  return false;
+};
+
+Su.prototype.lucasSequence = function(){
+
+  const MAX = CONSTANTS.MAX;
+
+  const arr = [makeSu(2), makeSu(1)];
+  const func = function(arr){
+    if(arr[arr.length - 1].isLarge(MAX)){
+      return arr;
+    }
+    const a = arr[arr.length - 2];
+    const b = arr[arr.length - 1];
+    const c = a.add(b);
+    arr.push(c);
+    return func(arr);
+  };
+  return func(arr);
+};
+
+Su.prototype.isLucasNumber = function(){
+  const n = this;
+  if(n.containDecimal()){
+    return false;
+  }
+  const lucs = this.lucasSequence(0);
+  for(let i = 0; i < lucs.length; i++){
+    let f = lucs[i];
+    if(f.isEqual(n)){
+      return true;
+    }
+  }
+  return false;
+};
+
+Su.prototype.lucasPrimeNumbers = function(){
+  const ls = this.lucasSequence();
+  const arr = [];
+
+  for(let i = 0; i < ls.length; i++){
+    const l = ls[i];
+    if(l.isPrimeNumber()){
+      arr.push(l);
+    }
+  }
+  return arr;
+};
 
 
+Su.prototype.getSequence = function(){
+  const array = [this];
+  for(let i = 0; i < arguments.length; i++){
+    let elm = arguments[i];
+    if(!isSu(elm)){
+      elm = makeSu(elm);
+    }
+    array.push(elm);
+  }
+  return array;
+};
 
+Su.prototype.summation = function(){
+  const arr = this.getSequence(...arguments);
+  let sum = makeSu(0);
+  for(let i = 0; i < arr.length; i++){
+    sum = sum.add(arr[i]);
+  }
+  return sum;
+};
 
-// })(window);
+Su.prototype.infiniteProduct = function(){
+  const arr = this.getSequence(...arguments);
+  let ip = arr[0];
+  for(let i = 1; i < arr.length; i++){
+    ip = ip.multiplication(arr[i]);
+  }
+  return ip;
+};
+
+Su.prototype.digitsum = function(){
+  let sum = makeSu(0);
+  for(let i = 0; i < this.array.length; i++){
+    let a = makeSu(this.array[i]);
+    sum = sum.add(a);
+  }
+  return sum;
+};
+
+Su.prototype.square = function(){
+  return this.exponentiate(makeSu(2));
+};
+
+Su.prototype.cube = function(){
+  return this.exponentiate(makeSu(3));
+};
+
+Su.prototype.exponentiate = function(su){
+  const one = makeSu("1");
+  if(su.isZero()){
+    return one;
+  }
+  if(su.isEqual(one)){
+    return this;
+  }
+  let count = one;
+  let res = copySu(this);
+  while(count.isSmall(su)){
+    res = this.multiplication(res);
+    count = count.next();
+  }
+  return res;
+};
+
+Su.prototype.isPrimeNumber = function(){
+  if(this.containDecimal()){
+    return false;
+  }
+  if(this.isOne() || this.isZero()){
+    return false;
+  }
+  if(this.getString() === "2"){
+    return true;
+  }
+  let counter = this.subtract(makeSu(1));
+  const one = makeSu(1);
+  while(counter.isLarge(one)){
+    let e = this.division(counter);
+    if(e.remainder.isZero()){
+      return false;
+    }
+    counter = counter.subtract(makeSu(1));
+  }
+  return true;
+};
+
+Su.prototype.divisorsSummation = function(){
+  const arr = this.getDivisors();
+  let a = makeSu(0);
+  for(let i = 0; i < arr.length; i++){
+    a = a.add(arr[i]);
+  }
+  return a;
+};
+
+Su.prototype.isAbundantNumber = function(){
+  const sum = this.divisorsSummation();
+  if(sum.isLarge( this.multiplication(makeSu(2)))){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isDeficientNumber = function(){
+  const sum = this.divisorsSummation();
+  if(sum.isSmall( this.multiplication(makeSu(2)))){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.isPerfectNumber = function(){
+  const sum = this.divisorsSummation();
+  if(sum.subtract(this).isEqual(this)){
+    return true;
+  }else{
+    return false;
+  }
+};
+
+Su.prototype.factorial = function(){
+  let res = this;
+  let counter = this.subtract(makeSu(1));
+  const zero = makeSu(0);
+  while(counter.isLarge(zero)){
+    res = res.multiplication(counter);
+    counter = counter.subtract(makeSu(1));
+  }
+  return res;
+};
+
+Su.prototype.isTriangleNumber = function(){
+  let elm = makeSu(1);
+  let res = this;
+  let b = true;
+  while(b){
+    res = res.subtract(elm);
+    if(res.isZero()){
+      return true;
+    }
+    if(res.isSmall(makeSu(0))){
+      return false;
+    }
+    elm = elm.add(makeSu(1));
+  }
+};
+
+Su.prototype.getTriangleNumbers = function(){
+  return this.getPolygonalNumbers(makeSu(3));
+};
+
+Su.prototype.getSquareNumbers = function(){
+  return this.getPolygonalNumbers(makeSu(4));
+};
+
+Su.prototype.getPolygonalNumbers = function(n){
+  if(!isSu(n)){
+    n = makeSu(n);
+  }
+  if(n.isSmall(makeSu(3))){
+    return [];
+  }
+  let current = makeSu(1);
+  const arr = [];
+  let range = current;
+
+  const increment = n.subtract(makeSu(2));
+  while(current.isSmall(CONSTANTS.MAX)){
+    arr.push(current);
+    range = range.add(increment);
+    current = current.add(range);
+  }
+  return arr;
+};
+
+Su.prototype.mersenneNumbers = function(){
+  const two = makeSu(2);
+  const arr = [];
+  let current = makeSu(0);
+  let ex = makeSu(1);
+  
+  while(current.isSmall(CONSTANTS.MAX)){
+    current = two.exponentiate(ex).subtract(makeSu(1));
+    arr.push(current);
+    ex = ex.add(makeSu(1));
+  }
+  return arr;
+};
+
+Su.prototype.mersennePrimeNumbers = function(){
+  const marr = this.mersenneNumbers();
+  const arr = [];
+  for(let i = 0; i < marr.length; i++){
+    const n = marr[i];
+    if(n.isPrimeNumber()){
+      arr.push(n);
+    }
+  }
+  return arr;
+};
+
+Su.prototype.isMersenneNumber = function(){
+  const n = this;
+  if(n.isZero()){
+    return false;
+  }
+  if(n.containDecimal()){
+    return false;
+  }
+  const ms = this.mersenneNumbers();
+  for(let i = 0; i < ms.length; i++){
+    let m = ms[i];
+    if(m.isEqual(n)){
+      return true;
+    }
+  }
+  return false;
+};
+
+Su.prototype.isMersennePrimeNumber = function(){
+  const n = this;
+  if(n.isZero()){
+    return false;
+  }
+  if(n.containDecimal()){
+    return false;
+  }
+  const ms = this.mersennePrimeNumbers();
+  for(let i = 0; i < ms.length; i++){
+    let m = ms[i];
+    if(m.isEqual(n)){
+      return true;
+    }
+  }
+  return false;
+};
+
+Su.prototype.random = function(min, max){
+  if(min === undefined){
+    min = makeSu(0);
+  }
+  if(max === undefined){
+    max = makeSu(1);
+  }
+  if(!isSu(min)){
+    min = makeSu(min);
+  }
+  if(!isSu(max)){
+    max = makeSu(max);
+  }
+
+  const str = String(Math.random());
+  let ran;
+
+  if(str === "0"){
+    if(min.isZero()){
+      ran = makeSu(0);
+    }else{
+      ran = min;
+    }
+  }else{
+    let arr = str.split(".");
+    ran = makeSu("0." + arr[1]).multiplication(max);
+  }
+  return ran;
+};
