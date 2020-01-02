@@ -1,6 +1,23 @@
 
 const core = {};
 
+core.isNumber = function(n){
+  if(typeof n === "number"){
+    if(Number.isNaN(n)){
+      return NaN;
+    }else{
+      return true;
+    }
+  }
+};
+
+core.isZero = function(n){
+  if( n === 0){
+    return true;
+  }
+};
+
+
 // 配列での計算
 core.numToArray = function(n){
 
@@ -9,7 +26,7 @@ core.numToArray = function(n){
   var len = str.length;
   for(var i = 0; i < len; i++){
     var elm = Number(str.slice(i, i + 1));
-    if(!S.isNumber(elm)){
+    if(!this.isNumber(elm)){
       return "This function has been called with incorrect parameters";
     }
     arr.push(elm);
@@ -22,7 +39,7 @@ core.numToArray = function(n){
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(var i = 0; i < arr.length; i++){
-      if( !S.isNumber(arr[i]) ){
+      if( !this.isNumber(arr[i]) ){
         return false;
       }
     }

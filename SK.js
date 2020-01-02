@@ -5,16 +5,6 @@ const K = {};
 
 const FIRST_PRIME_NUMBER = 2;
 
-S.isNumber = function(n){
-  if(typeof n === "number"){
-    if(Number.isNaN(n)){
-      return NaN;
-    }else{
-      return true;
-    }
-  }
-};
-
 S.isPrimeNumber = function(n){
   if(!S.isNumber(n)){
     return false;
@@ -427,11 +417,6 @@ S.isNaturalNumber = function(n){
   }
 };
 
-S.isZero = function(n){
-  if( n === 0){
-    return true;
-  }
-};
 
 K.collatzhProbrem = function(num){
 
