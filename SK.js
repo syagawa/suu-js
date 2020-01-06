@@ -1,5 +1,6 @@
 import { MAX, MIN } from "./constants.js";
-import { cpre } from "./core.js";
+import { core } from "./core.js";
+import { makeSu } from "./index.js";
 
 const S = {};
 const K = {};
