@@ -1,4 +1,4 @@
-import { K, S } from "./SK.js/index.js";
+import { K, S } from "./SK.js";
 import { MAX, MIN } from "./constants.js";
 
 const Su = function(n, option){

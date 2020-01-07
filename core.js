@@ -1,4 +1,3 @@
-
 const core = {};
 
 core.isNumber = function(n){
