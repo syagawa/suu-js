@@ -3,7 +3,7 @@ import { core } from "./core.js";
 import { makeSu } from "./index.js";
 
 // todo 0start
-K.arraySummation = function(a, b){
+const arraySummation = function(a, b){
   if( !(a instanceof Array) ){
     a = core.numToArray(a);
   }
@@ -58,7 +58,7 @@ K.arraySummation = function(a, b){
   return result;
 };
 
-K.getLarger = function(a, b){
+const getLarger = function(a, b){
   var arr_a = [], arr_b = [];
   for(var i = 0; i < a.length; i++){
     var elm_a = a[i];
@@ -103,7 +103,7 @@ K.getLarger = function(a, b){
   return res;
 };
 
-K.isLarge = function(a, b){
+const isLarge = function(a, b){
   if(core.isEqual(a, b)){
     return false;
   }
@@ -115,7 +115,7 @@ K.isLarge = function(a, b){
   }
 };
 
-K.isEqual = function(a, b){
+const isEqual = function(a, b){
   if(!core.isNumArray(a) || !core.isNumArray(b)){
     return;
   }
