@@ -60,7 +60,7 @@ core.arraySubtraction = function(a, b){
   if(!core.isNumArray(a) || !core.isNumArray(b)){
     return;
   }
-  if(S.isZero(a[0]) || S.isZero(b[0])){
+  if(core.isZero(a[0]) || core.isZero(b[0])){
     return;
   }
 
@@ -126,7 +126,7 @@ core.arrayMultiplication = function(a, b){
   if(!core.isNumArray(a) || !core.isNumArray(b)){
     return;
   }
-  if(S.isZero(a[0]) || S.isZero(b[0])){
+  if(core.isZero(a[0]) || core.isZero(b[0])){
     return;
   }
 
@@ -190,7 +190,7 @@ core.arrayDivision = function(a, b){
   if(!core.isNumArray(a) || !core.isNumArray(b)){
     return;
   }
-  if(S.isZero(a[0]) || S.isZero(b[0])){
+  if(core.isZero(a[0]) || core.isZero(b[0])){
     return;
   }
 
