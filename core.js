@@ -19,25 +19,22 @@ core.isZero = function(n){
 
 // 配列での計算
 core.numToArray = function(n){
-
-  var arr = [];
-  var str = String(n);
-  var len = str.length;
-  for(var i = 0; i < len; i++){
-    var elm = Number(str.slice(i, i + 1));
+  const arr = [];
+  const str = String(n);
+  const len = str.length;
+  for(let i = 0; i < len; i++){
+    const elm = Number(str.slice(i, i + 1));
     if(!this.isNumber(elm)){
       return "This function has been called with incorrect parameters";
     }
     arr.push(elm);
   }
-
   return arr;
-
 };
 
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
-    for(var i = 0; i < arr.length; i++){
+    for(let i = 0; i < arr.length; i++){
       if( !this.isNumber(arr[i]) ){
         return false;
       }
@@ -45,7 +42,6 @@ core.isNumArray = function(arr){
     return true;
   }
 };
-
 
 
 
@@ -64,28 +60,28 @@ core.arraySubtraction = function(a, b){
     return;
   }
 
-  var negative = false;
-  var res = core.getLarger(a, b);
+  let negative = false;
+  const res = core.getLarger(a, b);
   if(res[0] === b){
     negative = true;
   }
 
-  var arr_a = res[0];
-  var arr_b = res[1];
-  var len = arr_b.length;
+  const arr_a = res[0];
+  const arr_b = res[1];
+  const len = arr_b.length;
 
-  var gap = arr_a.length - len;
+  const gap = arr_a.length - len;
 
-  var arr_c = [];
+  let arr_c = [];
 
-  for(var i = 0; i < gap; i++){
+  for(let i = 0; i < gap; i++){
     arr_c.push(arr_a[i]);
   }
 
-  for(var j = 0; j < len; j++){
-    var elm_b = arr_b[j];
-    var elm_a = arr_a[j + gap];
-    var higher_digit = arr_c[arr_c.length - 1];
+  for(let i = 0; i < len; i++){
+    const elm_b = arr_b[i];
+    const elm_a = arr_a[i + gap];
+    const higher_digit = arr_c[arr_c.length - 1];
     if(elm_b <= elm_a){
       arr_c.push( elm_a - elm_b );
     }else{
@@ -94,16 +90,16 @@ core.arraySubtraction = function(a, b){
     }
   }
 
-  var str = arr_c.join("");
-  var m = str.match(/[^0+?]/);
+  let str = arr_c.join("");
+  const m = str.match(/[^0+?]/);
   if(m){
     str = str.slice(m.index);
     arr_c = arr_c.slice(m.index);
   }else{
     str = "0";
   }
-  var num = Number(str);
-  var leng = arr_c.length;
+  const num = Number(str);
+  const leng = arr_c.length;
 
   return {
     array: arr_c,
