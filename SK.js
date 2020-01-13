@@ -1,13 +1,9 @@
 import { MAX, MIN } from "./constants.js";
-import { core } from "./core.js";
+import core from "./core.js";
 import { makeSu } from "./index.js";
 
 const S = {};
 const K = {};
-
-
-
-
 
 
 const FIRST_PRIME_NUMBER = 2;
@@ -27,8 +23,8 @@ S.isPrimeNumber = function(n){
     return `Argument exceeds maximum value(${MAX})`;
   }
 
-  let max = n;
-  for( var i = max -1; i > 1; i--){
+  const max = n;
+  for( let i = max -1; i > 1; i--){
     if( (max % i) === 0 ){
       return false;
     }

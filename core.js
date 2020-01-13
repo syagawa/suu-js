@@ -190,12 +190,8 @@ core.arrayDivision = function(a, b){
   let temp = [0];
   let sum = [0];
   while(core.isLarge(a, sum) || core.isEqual(a, sum)){
-    // core.getLarger(sum, a);
     temp = core.arraySummation(temp, [1]).array;
-    // console.log(temp);
     sum = core.arrayMultiplication(b,temp).array;
-    // console.log(a, sum, core.isLarge(a, sum));
-
   }
 
   let res;
@@ -213,3 +209,5 @@ core.arrayDivision = function(a, b){
   return res;
 
 };
+
+export default core;
