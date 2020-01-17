@@ -28,18 +28,18 @@ const arraySummation = function(a, b){
 
   console.log(A,B);
 
-  var res = core.getLarger(a, b);
-  var arr_a = res[0];
-  var arr_b = res[1];
-  var len = arr_a.length;
+  const res = core.getLarger(a, b);
+  const arr_a = res[0];
+  const arr_b = res[1];
+  const len = arr_a.length;
 
-  var gap = len - arr_b.length;
+  const gap = len - arr_b.length;
 
-  var over = 0, arr_c = [];
-  for(var i = len - 1; i >= 0; i--){
-    var _res;
-    var elm_a = arr_a[i];
-    var elm_b = arr_b[i - gap] || 0;
+  let over = 0, arr_c = [];
+  for(let i = len - 1; i >= 0; i--){
+    let _res;
+    const elm_a = arr_a[i];
+    const elm_b = arr_b[i - gap] || 0;
     _res = elm_a + elm_b + over;
     if(_res >= 10){
       over = 1;
