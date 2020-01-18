@@ -59,11 +59,9 @@ K.random = function(min, max){
     max = 1;
   }
 
-  var len = max - min;
-  var rand = Math.random();
-  var res = ( rand * len ) + min;
-
-  return res;
+  const len = max - min;
+  const rand = Math.random();
+  return ( rand * len ) + min;
 };
 
 K.randomElement = function(array){
