@@ -65,10 +65,10 @@ K.random = function(min, max){
 };
 
 K.randomElement = function(array){
-  var len = array.length;
-  var rand = Math.random();
+  const len = array.length;
+  const rand = Math.random();
 
-  var i = Math.floor(rand * len);
+  const i = Math.floor(rand * len);
 
   return array[i];
 
