@@ -59,9 +59,9 @@ const arraySummation = function(a, b){
 };
 
 const getLarger = function(a, b){
-  var arr_a = [], arr_b = [];
-  for(var i = 0; i < a.length; i++){
-    var elm_a = a[i];
+  const arr_a = [], arr_b = [];
+  for(let i = 0; i < a.length; i++){
+    const elm_a = a[i];
     if(elm_a === 0 && arr_a.length === 0){
       continue;
     }
@@ -70,8 +70,8 @@ const getLarger = function(a, b){
     }
   }
 
-  for(var j = 0; j < b.length; j++){
-    var elm_b = b[j];
+  for(let i = 0; i < b.length; i++){
+    const elm_b = b[i];
     if(elm_b === 0 && arr_b.length === 0){
       continue;
     }
@@ -80,15 +80,15 @@ const getLarger = function(a, b){
     }
   }
 
-  var res;
+  let res;
   if(arr_a.length > arr_b.length){
     res = [a, b];
   }else if(arr_a.length < arr_b.length){
     res = [b, a];
   }else{
-    for(var k = 0; k < arr_a.length; k++){
-      var elm_aa = arr_a[k];
-      var elm_bb = arr_b[k];
+    for(let i = 0; i < arr_a.length; i++){
+      const elm_aa = arr_a[i];
+      const elm_bb = arr_b[i];
       if(elm_aa > elm_bb){
         res = [a, b];
         break;
