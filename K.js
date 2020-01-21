@@ -102,30 +102,3 @@ const getLarger = function(a, b){
   }
   return res;
 };
-
-const isLarge = function(a, b){
-  if(core.isEqual(a, b)){
-    return false;
-  }
-  var res = core.getLarger(a, b);
-  if(res[0] === a){
-    return true;
-  }else{
-    return false;
-  }
-};
-
-const isEqual = function(a, b){
-  if(!core.isNumArray(a) || !core.isNumArray(b)){
-    return;
-  }
-  if(a.length === b.length){
-    for(var i = 0; i < a.length; i++){
-      if(a[i] !== b[i]){
-        return false;
-      }
-    }
-    return true;
-  }
-
-};
