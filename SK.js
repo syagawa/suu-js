@@ -65,13 +65,8 @@ K.random = function(min, max){
 };
 
 K.randomElement = function(array){
-  const len = array.length;
-  const rand = Math.random();
-
-  const i = Math.floor(rand * len);
-
+  const i = K.random(0, array.length - 1);
   return array[i];
-
 };
 
 K.randomInt = function(min, max){
@@ -82,12 +77,12 @@ K.randomInt = function(min, max){
     return "This function has been called with incorrect parameters";
   }
 
-  var arr = [];
-  for(var i = min; i <= max; i++){
+  const arr = [];
+  for(let i = min; i <= max; i++){
     arr.push(i);
   }
 
-  var res = K.randomElement(arr);
+  const res = K.randomElement(arr);
 
   return res;
 };
