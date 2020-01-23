@@ -88,8 +88,8 @@ K.randomInt = function(min, max){
 };
 
 K.primeNumbers = function(){
-  var arr = [];
-  for(var i = FIRST_PRIME_NUMBER; i < MAX; i++){
+  const arr = [];
+  for(let i = FIRST_PRIME_NUMBER; i < MAX; i++){
     if(S.isPrimeNumber(i)){
       arr.push(i);
     }
