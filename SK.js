@@ -101,15 +101,14 @@ K.fibonacciSequence = function(start){
   if(start === undefined){
     start = 0;
   }
-  var arr = [start, start + 1];
-  var func = function(arr){
+  const arr = [start, start + 1];
+  const func = function(arr){
     if(arr[arr.length - 1] >= MAX){
       return arr;
     }
-    var a = Number(arr[arr.length - 2]);
-    var b = Number(arr[arr.length - 1]);
-    var c = Number(a + b);
-    arr.push(c);
+    const a = Number(arr[arr.length - 2]);
+    const b = Number(arr[arr.length - 1]);
+    arr.push(Number(a + b));
     return func(arr);
   };
   return func(arr);
