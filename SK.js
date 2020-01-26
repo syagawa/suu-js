@@ -138,8 +138,8 @@ S.isOddNumber = function(n){
 };
 
 K.divisors = function(n){
-  var arr = [];
-  for(var i = 1; i <= n; i++){
+  const arr = [];
+  for(let i = 1; i <= n; i++){
     if(n % i === 0){
       arr.push(i);
     }
