@@ -118,9 +118,9 @@ S.isFibonacciNumber = function(n){
   if(n === 0){
     return true;
   }
-  var fib = K.fibonacciSequence(0);
-  var ind = fib.indexOf(n);
-  if(ind >= 0){
+  const fib = K.fibonacciSequence(0);
+  const index = fib.indexOf(n);
+  if(index >= 0){
     return true;
   }
 };
