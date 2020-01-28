@@ -156,19 +156,19 @@ K.euclideanAlgorithm = function(a, b){
     return a;
   }
 
-  var temp;
+  let temp;
   if( a < b){
     temp = a;
     a = b;
     b = temp;
   }
 
-  var atemp = a;
-  var btemp = b;
-  var ctemp;
-  var res;
-  var counter = 0;
-  var coprime = "coprime";
+  let atemp = a;
+  let btemp = b;
+  let ctemp;
+  let res;
+  let counter = 0;
+  const coprime = "coprime";
   while(ctemp !==0){
     ctemp = atemp % btemp;
     if(ctemp === 0){
@@ -193,18 +193,18 @@ K.commonDivisors = function(a, b){
     return "This function has been called with incorrect parameters";
   }
 
-  var arr_a = K.divisors(a);
+  const arr_a = K.divisors(a);
   if(a === b){
     return arr_a;
   }
-  var arr_b = K.divisors(b);
+  const arr_b = K.divisors(b);
 
-  var divs = [];
+  const divs = [];
 
-  for(var k = 0; k < arr_a.length; k++){
-    var elm_a = arr_a[k];
-    for(var l = 0; l < arr_b.length; l++){
-      var elm_b = arr_b[l];
+  for(let k = 0; k < arr_a.length; k++){
+    const elm_a = arr_a[k];
+    for(let l = 0; l < arr_b.length; l++){
+      const elm_b = arr_b[l];
       if(elm_a === elm_b){
         divs.push(elm_a);
       }
@@ -215,13 +215,13 @@ K.commonDivisors = function(a, b){
 };
 
 K.maxCommonDivisor = function(a, b){
-  var arr = K.commonDivisors(a, b);
+  const arr = K.commonDivisors(a, b);
   return arr[arr.length - 1];
 };
 
 K.multiple = function(n){
-  var arr = [];
-  for(var i = 1; i < MAX; i++){
+  const arr = [];
+  for(let i = 1; i < MAX; i++){
     arr.push(n * i);
   }
   return arr;
@@ -232,30 +232,30 @@ K.leastCommonMultiple = function(a, b){
     return "This function has been called with incorrect parameters";
   }
 
-  var big;
+  let big;
   if( a < b){
     big = b;
   }else{
     big = a;
   }
-  var arr_a = [];
-  var arr_b = [];
+  const arr_a = [];
+  const arr_b = [];
 
-  var i =1;
+  let i =1;
   while(i <= big){
     arr_a.push( a * i);
     i++;
   }
-  var j =1;
+  let j =1;
   while(j <= big){
     arr_b.push( b * j);
     j++;
   }
 
-  for(var k = 0; k < arr_a.length; k++){
-    var elm_a = arr_a[k];
-    for(var l = 0; l < arr_b.length; l++){
-      var elm_b = arr_b[l];
+  for(let k = 0; k < arr_a.length; k++){
+    const elm_a = arr_a[k];
+    for(let l = 0; l < arr_b.length; l++){
+      const elm_b = arr_b[l];
       if(elm_a === elm_b){
         return elm_a;
       }
@@ -264,17 +264,17 @@ K.leastCommonMultiple = function(a, b){
 };
 
 K.summation = function(){
-  var array = [];
-  for(var i = 0; i < arguments.length; i++){
+  const array = [];
+  for(let i = 0; i < arguments.length; i++){
     array.push(arguments[i]);
   }
   if(array.length === 0){
     return "Argument is not Number";
   }
 
-  var sum = 0;
-  for(var j = 0; j < array.length; j++){
-    var elm = array[j];
+  let sum = 0;
+  for(let j = 0; j < array.length; j++){
+    const elm = array[j];
     if(S.isNumber(elm)){
       sum += elm;
     }else{
