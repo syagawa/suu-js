@@ -467,6 +467,27 @@ K.fermatTest = function(n, max){
 // };
 
 
+
+K.getKumiawaseArr(num){
+  const arr = [];
+  let temp = num;
+  while(true){
+    const a = temp;
+    const b = num -temp;
+    const ar = [a,b];
+    arr.push(ar);
+    temp = temp -1;
+    if(temp < 0){
+      break;
+    }
+  }
+  return arr;
+}
+
+
+
+
+
 export default {
   S: S,
   K: K
