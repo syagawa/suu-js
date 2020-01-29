@@ -466,18 +466,19 @@ K.fermatTest = function(n, max){
 // K.combinations = function(arr){
 // };
 
-
-
-K.getKumiawaseArr(num){
+// 3 => [0, 3], [1, 2], [2, 1], [3, 0]
+K.getIncludesNumbers = function(num){
   const arr = [];
   let temp = num;
-  while(true){
+  let bool = true;
+  while(bool){
     const a = temp;
     const b = num -temp;
     const ar = [a,b];
     arr.push(ar);
     temp = temp -1;
     if(temp < 0){
+      bool = false;
       break;
     }
   }
