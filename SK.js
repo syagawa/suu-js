@@ -285,23 +285,22 @@ K.summation = function(){
 };
 
 K.infiniteProduct = function(){
-  var array = [];
-  for(var i = 0; i < arguments.length; i++){
+  const array = [];
+  for(let i = 0; i < arguments.length; i++){
     array.push(arguments[i]);
   }
   if(array.length === 0){
-    return "Argument is not Number";
+    return "Argument is empty.";
   }
-  var ip = 1;
-  for(var j = 0; j < array.length; j++){
-    var elm = array[j];
+  let ip = 1;
+  for(let i = 0; i < array.length; i++){
+    const elm = array[i];
     if(S.isNumber(elm)){
       ip = ip * elm;
     }else{
-      return "Argument is not Number";
+      return "Argument is not a Number";
     }
   }
-
   return ip;
 };
 
