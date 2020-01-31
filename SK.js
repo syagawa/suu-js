@@ -308,14 +308,11 @@ K.division = function(dividend, divisor){
   if(dividend === undefined || divisor === undefined){
     return "This function has been called with incorrect parameters";
   }
-
-  var remainder = dividend % divisor;
-  var result = dividend / divisor;
-  var result_int = Math.floor(result);
+  const result = dividend / divisor;
   return {
     integer: {
-      remainder: remainder,
-      result: result_int
+      remainder: dividend % divisor,
+      result: Math.floor(result)
     },
     realNumber: result
   };
