@@ -319,19 +319,20 @@ K.division = function(dividend, divisor){
 };
 
 K.divisorsSummation = function(n){
-  var arr = K.divisors(n);
-  var a = 0;
-  for(var i = 0; i < arr.length; i++){
+  const arr = K.divisors(n);
+  let a = 0;
+  for(let i = 0; i < arr.length; i++){
     a += arr[i];
   }
   return a;
 };
 
 K.isAbundantNumber = function(n){
-  var sum = K.divisorsSummation(n);
+  const sum = K.divisorsSummation(n);
   if(sum > n * 2){
     return true;
   }
+  return false;
 };
 
 K.isKaprekarNumberTypeA = function(n){
