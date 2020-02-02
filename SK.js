@@ -336,12 +336,12 @@ K.isAbundantNumber = function(n){
 };
 
 K.isKaprekarNumberTypeA = function(n){
-  var num = n * n;
-  var s = String(num);
-  var len = s.length;
-  var first_len = 0;
-  var after_len = 0;
-  var first, after;
+  const num = n * n;
+  const s = String(num);
+  const len = s.length;
+  let first_len = 0;
+  let after_len = 0;
+  let first, after;
   if(S.isOddNumber(len)){
     first_len = (len - 1) / 2;
     after_len = first_len + 1;
@@ -355,20 +355,20 @@ K.isKaprekarNumberTypeA = function(n){
   if(( first + after ) === n){
     return true;
   }
-
+  return false;
 };
 
 K.isKaprekarNumberTypeB = function(n){
 
-  var arr = String(n).split("");
+  const arr = String(n).split("");
 
-  var min = Number(arr.sort().join(""));
-  var max = Number(arr.reverse().join(""));
+  const min = Number(arr.sort().join(""));
+  const max = Number(arr.reverse().join(""));
 
   if((max - min) === n){
     return true;
   }
-
+  return false;
 };
 
 K.isKaprekarNumber = function(n){
