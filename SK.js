@@ -378,10 +378,11 @@ K.isKaprekarNumber = function(n){
 };
 
 S.isInteger = function(n){
-  var f = Math.floor(n);
+  const f = Math.floor(n);
   if( f === n){
     return true;
   }
+  return false;
 };
 
 // 調和平均
