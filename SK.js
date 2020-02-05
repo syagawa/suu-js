@@ -412,12 +412,12 @@ S.isNaturalNumber = function(n){
 };
 
 
-K.collatzhProbrem = function(num){
+K.collatzhProblem = function(num){
 
-  var arr = [];
+  const arr = [];
 
-  var calc = function(n){
-    var res = n;
+  const calc = function(n){
+    let res = n;
     if(S.isOddNumber(n)){
       res = n * 3 + 1;
     }else if(S.isEvenNumber(n)){
@@ -430,9 +430,7 @@ K.collatzhProbrem = function(num){
     num = calc(num);
     arr.push(num);
   }
-
   return arr;
-
 };
 
 // フェルマーテスト
