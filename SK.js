@@ -437,20 +437,20 @@ K.collatzhProblem = function(num){
 // JSの扱える範囲を超えていてうまく動かず
 K.fermatTest = function(n, max){
   if(!S.isInteger(n) || S.isZero(n) || n === 1){
-    return "This function has been called with incorrect parameters";
+    return "This function has been called with incorrect parameters. " + n + " is incorrect parameter.";
   }
 
   if(!max){
     max = 100;
   }
 
-  for( var i = 1; i <= max; i++){
-    var a = K.randomInt(2, n - 1);
+  for(let i = 1; i <= max; i++){
+    const a = K.randomInt(2, n - 1);
     if(K.maxCommonDivisor(a, n) !== 1){
       console.log(a, n);
       return "Composit Number";
     }
-    var res = Math.pow(a, n - 1) % n;
+    const res = Math.pow(a, n - 1) % n;
     console.log(i, n, a, res);
     if(res !== 1){
       return "Composit Number";
