@@ -1,5 +1,6 @@
 import { K, S } from "./SK.js";
 import { MAX, MIN } from "./constants.js";
+import core from "./core.js";
 
 const Su = function(n, option){
   if(!n){
@@ -71,8 +72,8 @@ const Su = function(n, option){
 
   }
 
-  let int_arr = K.numToArray(int_str);
-  let decimal_arr = decimal_str ? K.numToArray(decimal_str) : [0];
+  let int_arr = core.numToArray(int_str);
+  let decimal_arr = decimal_str ? core.numToArray(decimal_str) : [0];
 
   this.integer = int_arr;
   this.decimal = decimal_arr;
