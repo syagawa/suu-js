@@ -1103,6 +1103,6 @@ Su.prototype.random = function(min, max){
   return ran;
 };
 
-export default {
-  makeSu: makeSu
-}
+(function(global){
+  global.makeSu = makeSu;
+})(window)
