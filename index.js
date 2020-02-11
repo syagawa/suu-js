@@ -1,7 +1,7 @@
-import { makeSu } from "./su.js";
-
-
+import s from "./su.js";
 
 (function(global){
-  global.makeSu = makeSu;
+  global.makeSu = s.makeSu;
+  global.copySu = s.copySu;
+  global.isSu = s.isSu;
 })(window)
