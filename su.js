@@ -1107,5 +1107,7 @@ Su.prototype.random = function(min, max){
 export default {
   makeSu: makeSu,
   copySu: copySu,
-  isSu: isSu
+  isSu: isSu,
+  Kei: K,
+  Su: Su
 };
