@@ -313,12 +313,27 @@ Su.prototype.isInteger = function(){
 };
 
 Su.prototype.isNaturalNumber = function(){
-  if(!this.negative && this.isInteger() && this.isLarge(0)){
+  if(this.isPositive() && this.isInteger() && this.isLarge(0)){
     return true;
   }else{
     return false;
   }
 };
+
+Su.prototype.isNegative = function(){
+  if(this.negative){
+    return true;
+  }
+  return false;
+}
+
+Su.prototype.isPositive = function(){
+  if(this.isNegative()){
+    return false;
+  }
+  return true;
+}
+
 
 Su.prototype.containDecimal = function(){
   const res = this.decimal.reduce(function(a, v){
