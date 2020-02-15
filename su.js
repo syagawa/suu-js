@@ -528,6 +528,11 @@ Su.prototype.negate = function(){
   return this;
 };
 
+Su.prototype.makePositive = function(){
+  this.negative = false;
+  return this;
+};
+
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
     return;
