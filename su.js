@@ -529,9 +529,21 @@ Su.prototype.negate = function(){
 };
 
 Su.prototype.makePositive = function(){
+  if(this.number === 0){
+    return this;
+  }
   this.negative = false;
   return this;
 };
+
+Su.prototype.makeNegative = function(){
+  if(this.number === 0){
+    return this;
+  }
+  this.negative = true;
+  return this;
+};
+
 
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
