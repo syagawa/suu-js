@@ -108,6 +108,13 @@ const copySu = function(su){
   return makeSu(str);
 };
 
+const getMessage = function(type){
+  if(type === "notsu"){
+    return "Argument is not Su.";
+  }
+  return "";
+};
+
 const CONSTANTS = {
   ZERO: makeSu(0),
   ONE: makeSu(1),
@@ -348,7 +355,7 @@ Su.prototype.containDecimal = function(){
 
 Su.prototype.add = function(su){
   if(!isSu(su)){
-    return;
+    return getMessage("notsu");
   }
   let a = copySu(this);
   let b = copySu(su);
@@ -543,7 +550,6 @@ Su.prototype.makeNegative = function(){
   this.negative = true;
   return this;
 };
-
 
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
