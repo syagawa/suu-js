@@ -446,7 +446,7 @@ Su.prototype.add = function(su){
 
 Su.prototype.subtract = function(su){
   if(!isSu(su)){
-    return;
+    return getMessage("notsu");
   }
   let a = copySu(this);
   let b = copySu(su);
@@ -553,8 +553,9 @@ Su.prototype.makeNegative = function(){
 
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
-    return;
+    return getMessage("notsu");
   }
+
   let a = copySu(this);
   let b = copySu(su);
   if(a.isZero() || b.isZero()){
@@ -616,8 +617,9 @@ Su.prototype.multiplication = function(su){
 
 Su.prototype.division = function(su){
   if(!isSu(su)){
-    return;
+    return getMessage("notsu");
   }
+
   let a = copySu(this);
   let b = copySu(su);
   if(a.isZero() || b.isZero()){
