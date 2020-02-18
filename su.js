@@ -355,7 +355,7 @@ Su.prototype.containDecimal = function(){
 
 Su.prototype.add = function(su){
   if(!isSu(su)){
-    return getMessage("notsu");
+    throw new Error(getMessage("notsu"));
   }
   let a = copySu(this);
   let b = copySu(su);
@@ -446,7 +446,7 @@ Su.prototype.add = function(su){
 
 Su.prototype.subtract = function(su){
   if(!isSu(su)){
-    return getMessage("notsu");
+    throw new Error(getMessage("notsu"));
   }
   let a = copySu(this);
   let b = copySu(su);
@@ -553,7 +553,7 @@ Su.prototype.makeNegative = function(){
 
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
-    return getMessage("notsu");
+    throw new Error(getMessage("notsu"));
   }
 
   let a = copySu(this);
@@ -617,7 +617,7 @@ Su.prototype.multiplication = function(su){
 
 Su.prototype.division = function(su){
   if(!isSu(su)){
-    return getMessage("notsu");
+    throw new Error(getMessage("notsu"));
   }
 
   let a = copySu(this);
