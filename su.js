@@ -147,7 +147,6 @@ Su.prototype.getDecimal = function(){
   return num;
 };
 
-
 const getLarge = function(a, b, absolute = false){
 
   let negative = false;
@@ -156,6 +155,10 @@ const getLarge = function(a, b, absolute = false){
   if(absolute){
     a.negative = false;
     b.negative = false;
+  }
+
+  if(a.isZero() && b.isZero()){
+    return;
   }
 
   if(!a.negative && b.negative){
@@ -715,7 +718,8 @@ Su.prototype.getDivisors = function(){
   const arr = [];
   for(let i = 1; this.isLarge(makeSu(i)); i++){
     let su = makeSu(i);
-    if(this.division(su).remainder.isEqual(0)){
+    const remainder = this.division(su).remainder;
+    if(remainder.isZero()){
       arr.push(su);
     }
   }
