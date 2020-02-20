@@ -147,6 +147,11 @@ Su.prototype.getDecimal = function(){
   return num;
 };
 
+Su.prototype.clone = function(){
+  const str = this.getString();
+  return makeSu(str);
+};
+
 const getLarge = function(a, b, absolute = false){
 
   let negative = false;
