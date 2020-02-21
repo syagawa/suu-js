@@ -157,37 +157,41 @@ const getLarge = function(a, b, absolute = false){
   let negative = false;
   let field = [];
 
+  const _a = makeSu(a.getString());
+  const _b = makeSu(a.getString());
+
+
   if(absolute){
-    a.negative = false;
-    b.negative = false;
+    _a.negative = false;
+    _b.negative = false;
   }
 
-  if(a.isZero() && b.isZero()){
+  if(_a.isZero() && _b.isZero()){
     return;
   }
 
-  if(!a.negative && b.negative){
+  if(!_a.negative && _b.negative){
     return a;
-  }else if(a.negative && !b.negative){
-    return b;
-  }else if(a.negative && b.negative){
+  }else if(_a.negative && !_b.negative){
+    return _b;
+  }else if(_a.negative && _b.negative){
     negative = true;
   }
 
-  if(a.integer.length > b.integer.length){
+  if(_a.integer.length > _b.integer.length){
     if(negative){
       return b;
     }
     return a;
-  }else if(a.integer.length < b.integer.length){
+  }else if(_a.integer.length < _b.integer.length){
     if(negative){
       return a;
     }
     return b;
   }else{
-    for(let i = 0; i < a.integer.length; i++){
-      let elm_a = a.integer[i];
-      let elm_b = b.integer[i];
+    for(let i = 0; i < _a.integer.length; i++){
+      let elm_a = _a.integer[i];
+      let elm_b = _b.integer[i];
       if(elm_a > elm_b){
         field = [a, b];
         break;
@@ -199,10 +203,10 @@ const getLarge = function(a, b, absolute = false){
   }
 
   if(field.length === 0){
-    const len = a.decimal.length >= b.decimal.length ? a.decimal.length : b.decimal.length;
+    const len = _a.decimal.length >= _b.decimal.length ? _a.decimal.length : _b.decimal.length;
     for(let i = 0; i < len; i++){
-      let elm_a = a.decimal[i] ? a.decimal[i] : 0;
-      let elm_b = b.decimal[i] ? b.decimal[i] : 0;
+      let elm_a = _a.decimal[i] ? _a.decimal[i] : 0;
+      let elm_b = _b.decimal[i] ? _b.decimal[i] : 0;
       if(elm_a > elm_b){
         field = [a, b];
         break;
