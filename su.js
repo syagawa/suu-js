@@ -129,7 +129,7 @@ Su.prototype.getString = function(){
   if(ac !== 0){
     str += "." + this.decimal.join("");
   }
-  return this.negative? "-" + str: str;
+  return this.negative ? `-${str}` : str;
 };
 
 Su.prototype.getNumber = function(){
@@ -173,7 +173,7 @@ const getLarge = function(a, b, absolute = false){
   if(!_a.negative && _b.negative){
     return a;
   }else if(_a.negative && !_b.negative){
-    return _b;
+    return b;
   }else if(_a.negative && _b.negative){
     negative = true;
   }
@@ -188,17 +188,17 @@ const getLarge = function(a, b, absolute = false){
       return a;
     }
     return b;
-  }else{
-    for(let i = 0; i < _a.integer.length; i++){
-      let elm_a = _a.integer[i];
-      let elm_b = _b.integer[i];
-      if(elm_a > elm_b){
-        field = [a, b];
-        break;
-      }else if(elm_a < elm_b){
-        field = [b, a];
-        break;
-      }
+  }
+
+  for(let i = 0; i < _a.integer.length; i++){
+    let elm_a = _a.integer[i];
+    let elm_b = _b.integer[i];
+    if(elm_a > elm_b){
+      field = [a, b];
+      break;
+    }else if(elm_a < elm_b){
+      field = [b, a];
+      break;
     }
   }
 
@@ -222,9 +222,9 @@ const getLarge = function(a, b, absolute = false){
   }
   if(field.length === 0){
     return null;
-  }else{
-    return field[0];
   }
+
+  return field[0];
 
 };
 
