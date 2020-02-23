@@ -231,7 +231,7 @@ const getLarge = function(a, b, absolute = false){
 
 Su.prototype.isEqual = function(su){
   if(!isSu(su)){
-    su = makeSu(su);
+    return getMessage("notsu");
   }
   const a = this;
   const b = su;
