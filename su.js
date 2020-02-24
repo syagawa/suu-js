@@ -231,10 +231,10 @@ const getLarge = function(a, b, absolute = false){
 
 Su.prototype.isEqual = function(su){
   if(!isSu(su)){
-    return getMessage("notsu");
+    return false;
   }
-  const a = this;
-  const b = su;
+  const a = this.clone();
+  const b = su.clone();
   const i_a = a.integer;
   const i_b = b.integer;
   const d_a = a.decimal;
