@@ -5,5 +5,6 @@ import s from "./su.js";
   global.copySu = s.copySu;
   global.isSu = s.isSu;
   global.Kei = s.Kei,
-  global.Su = s.Su
+  global.Su = s.Su,
+  global.getLarge = s.getLarge
 })(window)

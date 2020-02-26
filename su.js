@@ -158,8 +158,7 @@ const getLarge = function(a, b, absolute = false){
   let field = [];
 
   const _a = makeSu(a.getString());
-  const _b = makeSu(a.getString());
-
+  const _b = makeSu(b.getString());
 
   if(absolute){
     _a.negative = false;
@@ -1167,5 +1166,6 @@ export default {
   copySu: copySu,
   isSu: isSu,
   Kei: K,
-  Su: Su
+  Su: Su,
+  getLarge: getLarge
 };
