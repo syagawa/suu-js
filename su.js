@@ -289,20 +289,15 @@ Su.prototype.isOne = function(){
 };
 
 Su.prototype.isLarge = function(su){
-  console.log(1);
-
   if(!isSu(su)){
-  console.log(2);
     return false;
   }
   const a = this.clone();
   const b = su.clone();
   const res = getLarge(a, b);
   if(!res){
-    console.log(3);
     return false;
   }
-  console.log(res.getString(),a.getString());
   if(res.getString() === a.getString()){
     return true;
   }else{
@@ -312,15 +307,15 @@ Su.prototype.isLarge = function(su){
 
 Su.prototype.isSmall = function(su){
   if(!isSu(su)){
-    su = makeSu(su);
+    return false;
   }
-  const a = this;
-  const b = su;
+  const a = this.clone();
+  const b = su.clone();
   const res = getLarge(a, b);
   if(!res){
     return false;
   }
-  if(res === b){
+  if(res.getString() === b.getString()){
     return true;
   }else{
     return false;
