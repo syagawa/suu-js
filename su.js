@@ -331,7 +331,7 @@ Su.prototype.isInteger = function(){
 };
 
 Su.prototype.isNaturalNumber = function(){
-  if(this.isPositive() && this.isInteger() && this.isLarge(0)){
+  if(this.isPositive() && this.isInteger() && this.isLarge(CONSTANTS.ZERO)){
     return true;
   }else{
     return false;
