@@ -346,7 +346,7 @@ Su.prototype.isNegative = function(){
 }
 
 Su.prototype.isPositive = function(){
-  if(this.isNegative()){
+  if(this.negative){
     return false;
   }
   return true;
