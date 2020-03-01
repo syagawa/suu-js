@@ -343,15 +343,14 @@ Su.prototype.isNegative = function(){
     return true;
   }
   return false;
-}
+};
 
 Su.prototype.isPositive = function(){
   if(this.negative){
     return false;
   }
   return true;
-}
-
+};
 
 Su.prototype.containDecimal = function(){
   const res = this.decimal.reduce(function(a, v){
@@ -368,11 +367,15 @@ Su.prototype.add = function(su){
   if(!isSu(su)){
     throw new Error(getMessage("notsu"));
   }
-  let a = copySu(this);
-  let b = copySu(su);
+  let a = this.clone();
+  let b = su.clone();
+  if(a.isZero()){
+    return b;
+  }
   if(b.isZero()){
     return a;
   }
+
 
   let negative;
   if(a.negative && b.negative){
