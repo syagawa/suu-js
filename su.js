@@ -376,7 +376,6 @@ Su.prototype.add = function(su){
     return a;
   }
 
-
   let negative;
   if(a.negative && b.negative){
     negative = true;
@@ -410,7 +409,6 @@ Su.prototype.add = function(su){
   let over = 0,
       int_res = [],
       dec_res = [];
-
 
   for(let i = len_d - 1; i >= 0; i--){
     let _res;
