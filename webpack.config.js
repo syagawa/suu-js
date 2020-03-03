@@ -14,8 +14,12 @@ module.exports = {
     "./index.js"
   ],
   output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, './'),
+    filename: "app.js",
+    path: path.resolve(__dirname, "./"),
+    library: 'suapp',
+    libraryExport: "default",
+    libraryTarget: "umd",
+    globalObject: "this"
   },
   module: {
     rules: [
