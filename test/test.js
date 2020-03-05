@@ -18,6 +18,12 @@ describe('Su', function() {
       const a = s.makeSu(1);
       const b = s.makeSu(1);
       assert.equal(a.add(b).getString(), "2");
-    })
+    });
+    it("1.5 + 1.5 = 3", () =>{
+      const a = s.makeSu("1.5");
+      const b = s.makeSu("1.5");
+      assert.equal(a.add(b).getString(), "3");
+    });
+
   });
 });
