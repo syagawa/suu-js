@@ -4,14 +4,33 @@ const s = global.s;
 
 describe('Su', function() {
   describe('makeSu', function() {
-    it("zero", () =>{
+    it("zero by string", () =>{
+      const zero = s.makeSu("0");
+      assert.equal(zero.getString(), "0");
+    });
+    it("zero by number", () =>{
       const zero = s.makeSu(0);
       assert.equal(zero.getString(), "0");
     });
-    it("one", () =>{
+    it("one by string", () =>{
+      const one = s.makeSu("1");
+      assert.equal(one.getString(), "1");
+    });
+    it("one by number", () =>{
       const one = s.makeSu(1);
       assert.equal(one.getString(), "1");
     });
+
+    it("100.55533 by string", () =>{
+      const one = s.makeSu("100.55533");
+      assert.equal(one.getString(), "100.55533");
+    });
+    it("100.55533 by number", () =>{
+      const one = s.makeSu(100.55533);
+      assert.equal(one.getString(), "100.55533");
+    });
+
+
   });
   describe('add', function() {
     it("1 + 1 = 2", () =>{
