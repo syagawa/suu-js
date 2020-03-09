@@ -39,6 +39,16 @@ describe('Su', function() {
       assert.equal(one.getString(), "-1");
     });
 
+    it("-100.55533 by string", () =>{
+      const one = s.makeSu("-100.55533");
+      assert.equal(one.getString(), "-100.55533");
+    });
+    it("-100.55533 by number", () =>{
+      const one = s.makeSu(-100.55533);
+      assert.equal(one.getString(), "-100.55533");
+    });
+
+
   });
   describe('add', function() {
     it("1 + 1 = 2", () =>{
