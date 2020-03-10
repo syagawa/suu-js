@@ -7,10 +7,14 @@ describe('Su', function() {
     it("zero by string", () =>{
       const zero = s.makeSu("0");
       assert.equal(zero.getString(), "0");
+      assert.equal(zero.integer.length, 1);
+      assert.equal(zero.integer[0], 0);
     });
     it("zero by number", () =>{
       const zero = s.makeSu(0);
       assert.equal(zero.getString(), "0");
+      assert.equal(zero.integer.length, 1);
+      assert.equal(zero.integer[0], 0);
     });
     it("one by string", () =>{
       const one = s.makeSu("1");
