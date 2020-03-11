@@ -19,10 +19,14 @@ describe('Su', function() {
     it("one by string", () =>{
       const one = s.makeSu("1");
       assert.equal(one.getString(), "1");
+      assert.equal(one.integer.length, 1);
+      assert.equal(one.integer[0], 1);
     });
     it("one by number", () =>{
       const one = s.makeSu(1);
       assert.equal(one.getString(), "1");
+      assert.equal(one.integer.length, 1);
+      assert.equal(one.integer[0], 1);
     });
 
     it("100.55533 by string", () =>{
@@ -37,12 +41,18 @@ describe('Su', function() {
     it("-1 by string", () =>{
       const one = s.makeSu("-1");
       assert.equal(one.getString(), "-1");
+      assert.equal(one.integer.length, 1);
+      assert.equal(one.integer[0], 1);
+      assert.equal(one.negative, true);
     });
     it("-1 by number", () =>{
       const one = s.makeSu(-1);
       assert.equal(one.getString(), "-1");
-    });
+      assert.equal(one.integer.length, 1);
+      assert.equal(one.integer[0], 1);
+      assert.equal(one.negative, true);
 
+    });
     it("-100.55533 by string", () =>{
       const one = s.makeSu("-100.55533");
       assert.equal(one.getString(), "-100.55533");
