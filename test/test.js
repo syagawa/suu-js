@@ -9,6 +9,10 @@ describe('Su', function() {
       assert.equal(zero.getString(), "0");
       assert.equal(zero.integer.length, 1);
       assert.equal(zero.integer[0], 0);
+      assert.equal(zero.fraction.numerator[0], 0);
+      assert.equal(zero.fraction.numerator[1], 0);
+      assert.equal(zero.fraction.denominator[0], 1);
+      assert.equal(zero.fraction.denominator[1], 0);
     });
     it("zero by number", () =>{
       const zero = s.makeSu(0);
@@ -21,6 +25,11 @@ describe('Su', function() {
       assert.equal(one.getString(), "1");
       assert.equal(one.integer.length, 1);
       assert.equal(one.integer[0], 1);
+      assert.equal(one.fraction.numerator[0], 1);
+      assert.equal(one.fraction.numerator[1], 0);
+      assert.equal(one.fraction.denominator[0], 1);
+      assert.equal(one.fraction.denominator[1], 0);
+
     });
     it("one by number", () =>{
       const one = s.makeSu(1);
