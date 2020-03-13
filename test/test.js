@@ -29,7 +29,6 @@ describe('Su', function() {
       assert.equal(one.fraction.numerator[1], 0);
       assert.equal(one.fraction.denominator[0], 1);
       assert.equal(one.fraction.denominator[1], 0);
-
     });
     it("one by number", () =>{
       const one = s.makeSu(1);
@@ -70,14 +69,16 @@ describe('Su', function() {
       const one = s.makeSu(-100.55533);
       assert.equal(one.getString(), "-100.55533");
     });
-
-
   });
   describe('add', function() {
     it("1 + 1 = 2", () =>{
       const a = s.makeSu(1);
       const b = s.makeSu(1);
-      assert.equal(a.add(b).getString(), "2");
+      const res = a.add(b);
+      assert.equal(res.getString(), "2");
+      assert.equal(res.integer[0], 2);
+      assert.equal(res.negative, false);
+
     });
     it("1.5 + 1.5 = 3", () =>{
       const a = s.makeSu("1.5");
