@@ -78,7 +78,11 @@ describe('Su', function() {
       assert.equal(res.getString(), "2");
       assert.equal(res.integer[0], 2);
       assert.equal(res.negative, false);
-
+      assert.equal(res.fraction.numerator[0], 2);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+      assert.equal(res.decimal[0], 0);
     });
     it("1.5 + 1.5 = 3", () =>{
       const a = s.makeSu("1.5");
