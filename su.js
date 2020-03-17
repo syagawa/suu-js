@@ -382,6 +382,7 @@ Su.prototype.add = function(su){
   }else if(!a.negative && !b.negative){
     negative = false;
   }else{
+    b.negate();
     return a.subtract(b);
   }
 
