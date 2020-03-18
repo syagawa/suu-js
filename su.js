@@ -381,9 +381,12 @@ Su.prototype.add = function(su){
     negative = true;
   }else if(!a.negative && !b.negative){
     negative = false;
-  }else{
-    b.negate();
+  }else if(!a.negative && b.negative){
+    b.makePositive();
     return a.subtract(b);
+  }else if(a.negative && !b.negative){
+    a.makePositive();
+    return b.subtract(a);
   }
 
   let res = getLarge(a, b);
