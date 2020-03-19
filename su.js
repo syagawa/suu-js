@@ -457,6 +457,10 @@ Su.prototype.add = function(su){
 
   const result = makeSu(int_res.join("") + "." + dec_res.join(""), {negative: negative});
 
+  if(result.isZero() && result.negative){
+    result.makePositive();
+  }
+
   return result;
 };
 
@@ -536,7 +540,14 @@ Su.prototype.subtract = function(su){
   }
   res_array.splice(res_array.length - len_d, 0, ".");
   const minus = negative ? "-" : "";
-  return makeSu(minus + res_array.join(""));
+
+  const result =  makeSu(minus + res_array.join(""));
+
+  if(result.isZero() && result.negative){
+    result.makePositive();
+  }
+
+  return result;
 };
 
 Su.prototype.negate = function(){
