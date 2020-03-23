@@ -136,6 +136,19 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[1], 0);
       assert.equal(res.decimal[0], 0);
     });
+    it("1 + -2", () =>{
+      const a = s.makeSu("1");
+      const b = s.makeSu("-2");
+      const res = a.add(b);
+      assert.equal(res.getString(), "-1");
+      assert.equal(res.integer[0], 1);
+      assert.equal(res.negative, true);
+      assert.equal(res.fraction.numerator[0], 1);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+      assert.equal(res.decimal[0], 0);
+    });
   });
   describe('subtract', function() {
     it("1 - 1 = 0", () =>{
