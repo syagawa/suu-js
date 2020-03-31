@@ -233,6 +233,34 @@ describe('Su', function() {
       assert.equal(res.decimal[0], 0);
     });
 
+    it("-3 - -2 = -1", () =>{
+      const a = s.makeSu("-3");
+      const b = s.makeSu("-2");
+      const res = a.subtract(b);
+      assert.equal(res.getString(), "-1");
+      assert.equal(res.integer[0], 1);
+      assert.equal(res.negative, true);
+      assert.equal(res.fraction.numerator[0], 1);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+      assert.equal(res.decimal[0], 0);
+    });
+
+    it("3 - 1.5 = 1.5", () =>{
+      const a = s.makeSu("3");
+      const b = s.makeSu("1.5");
+      const res = a.subtract(b);
+      assert.equal(res.getString(), "1.5");
+      assert.equal(res.integer[0], 1);
+      assert.equal(res.decimal[0], 5);
+      assert.equal(res.negative, false);
+      assert.equal(res.fraction.numerator[0], 1);
+      assert.equal(res.fraction.numerator[1], 5);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+    });
+
 
 
   });
