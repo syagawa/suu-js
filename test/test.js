@@ -304,16 +304,16 @@ describe('Su', function() {
     });
 
 
-    it("0.3 - 0.5 = -0.2", () =>{
-      const a = s.makeSu("0.3");
+    it("-0.3 - 0.5 = -0.8", () =>{
+      const a = s.makeSu("-0.3");
       const b = s.makeSu("0.5");
       const res = a.subtract(b);
-      assert.equal(res.getString(), "-0.2");
+      assert.equal(res.getString(), "-0.8");
       assert.equal(res.integer[0], 0);
-      assert.equal(res.decimal[0], 2);
+      assert.equal(res.decimal[0], 8);
       assert.equal(res.negative, true);
       assert.equal(res.fraction.numerator[0], 0);
-      assert.equal(res.fraction.numerator[1], 2);
+      assert.equal(res.fraction.numerator[1], 8);
       assert.equal(res.fraction.denominator[0], 1);
       assert.equal(res.fraction.denominator[1], 0);
     });
