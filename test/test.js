@@ -322,6 +322,7 @@ describe('Su', function() {
   });
 
   describe("multiplication", function() {
+    
     it("1 * 1 = 1", () =>{
       const a = s.makeSu("1");
       const b = s.makeSu("1");
@@ -335,6 +336,22 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[0], 1);
       assert.equal(res.fraction.denominator[1], 0);
     });
+
+    it("1 * 2 = 2", () =>{
+      const a = s.makeSu("1");
+      const b = s.makeSu("2");
+      const res = a.multiplication(b);
+      assert.equal(res.getString(), "2");
+      assert.equal(res.integer[0], 2);
+      assert.equal(res.decimal[0], 0);
+      assert.equal(res.negative, false);
+      assert.equal(res.fraction.numerator[0], 2);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+    });
+
+
 
   });
 
