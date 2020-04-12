@@ -397,6 +397,23 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[1], 0);
     });
 
+    it("1.5 * 1.5 = 2.25", () =>{
+      const a = s.makeSu("1.5");
+      const b = s.makeSu("1.5");
+      const res = a.multiplication(b);
+      assert.equal(res.getString(), "2.25");
+      assert.equal(res.integer[0], 2);
+      assert.equal(res.decimal[0], 2);
+      assert.equal(res.decimal[1], 5);
+      assert.equal(res.negative, false);
+      assert.equal(res.fraction.numerator[0], 2);
+      assert.equal(res.fraction.numerator[1], 2);
+      assert.equal(res.fraction.numerator[2], 5);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+      assert.equal(res.fraction.denominator[2], 0);
+    });
+
 
   });
 
