@@ -448,6 +448,23 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[0], 1);
       assert.equal(res.fraction.denominator[1], 0);
     });
+
+    it("2 / 1 = 2", () =>{
+      const a = s.makeSu("2");
+      const b = s.makeSu("1");
+      const res = a.division(b);
+      assert.equal(res.getString(), "2");
+      assert.equal(res.integer[0], 2);
+      assert.equal(res.decimal[0], 0);
+      assert.equal(res.negative, false);
+      assert.equal(res.fraction.numerator[0], 2);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+    });
+
+
+
   });
 
 });
