@@ -463,6 +463,20 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[1], 0);
     });
 
+    it("30 / 10 = ", () =>{
+      const a = s.makeSu("30");
+      const b = s.makeSu("10");
+      const res = a.division(b);
+      assert.equal(res.getString(), "3");
+      assert.equal(res.integer[0], 3);
+      assert.equal(res.decimal[0], 0);
+      assert.equal(res.negative, false);
+      assert.equal(res.fraction.numerator[0], 3);
+      assert.equal(res.fraction.numerator[1], 0);
+      assert.equal(res.fraction.denominator[0], 1);
+      assert.equal(res.fraction.denominator[1], 0);
+    });
+
     it("3 / 2 = ", () =>{
       const a = s.makeSu("3");
       const b = s.makeSu("2");
