@@ -1,5 +1,5 @@
 import { K, S } from "./SK.js";
-import { MAX, MIN } from "./constants.js";
+import { MAX, MIN, NaN, DBZ } from "./constants.js";
 
 import core from "./core.js";
 
@@ -649,9 +649,14 @@ Su.prototype.division = function(su){
 
   let a = copySu(this);
   let b = copySu(su);
-  if(a.isZero() || b.isZero()){
+  if(a.isZero()){
     return makeSu(0);
   }
+
+  if(b.isZero()){
+    return DBZ;
+  }
+
 
   let negative = false;
   if(a.negative === false && b.negative === true){

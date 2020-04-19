@@ -447,11 +447,9 @@ K.fermatTest = function(n, max){
   for(let i = 1; i <= max; i++){
     const a = K.randomInt(2, n - 1);
     if(K.maxCommonDivisor(a, n) !== 1){
-      console.log(a, n);
       return "Composit Number";
     }
     const res = Math.pow(a, n - 1) % n;
-    console.log(i, n, a, res);
     if(res !== 1){
       return "Composit Number";
     }
