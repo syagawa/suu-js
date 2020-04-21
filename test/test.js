@@ -521,6 +521,12 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[1], 0);
     });
 
+    it("1 / 0 = ", () =>{
+      const a = s.makeSu("1");
+      const b = s.makeSu("0");
+      const res = a.division(b);
+      assert.equal(res, "Division by Zero");
+    });
 
   });
 
