@@ -1,7 +1,11 @@
 import { K, S } from "./SK.js";
-import { MAX, MIN, NaN, DBZ } from "./constants.js";
+import constants from "./constants.js";
 
 import core from "./core.js";
+
+const MAX = constants.MAX;
+const MIN = constants.MIN;
+const DBZ = constants.DBZ;
 
 const Su = function(n, option){
   if(!n){
