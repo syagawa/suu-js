@@ -6,6 +6,7 @@ import core from "./core.js";
 const MAX = constants.MAX;
 const MIN = constants.MIN;
 const DBZ = constants.DBZ;
+const NAN = constants.NAN;
 
 const Su = function(n, option){
   if(!n){
@@ -653,11 +654,12 @@ Su.prototype.division = function(su){
 
   let a = copySu(this);
   let b = copySu(su);
-  if(a.isZero()){
-    return makeSu(0);
-  }
 
-  if(b.isZero()){
+  if(a.isZero() && b.isZero()){
+    return NAN;
+  }else if(a.isZero()){
+    return makeSu(0);
+  }else if(b.isZero()){
     return DBZ;
   }
 
