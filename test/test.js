@@ -528,6 +528,15 @@ describe('Su', function() {
       assert.equal(res, "Division by Zero");
     });
 
+
+    it("0 / 0 = ", () =>{
+      const a = s.makeSu("0");
+      const b = s.makeSu("0");
+      const res = a.division(b);
+      assert.equal(res, "Not a number");
+    });
+
+
   });
 
 });
