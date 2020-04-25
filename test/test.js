@@ -69,8 +69,13 @@ describe('Su', function() {
       const one = s.makeSu(-100.55533);
       assert.equal(one.getString(), "-100.55533");
     });
+    it("empty => 0", () =>{
+      const res = s.makeSu("");
+      assert.equal(res.isZero(), true);
+    });
+
   });
-  describe('add', function() {
+  describe("add", function() {
     it("1 + 1 = 2", () =>{
       const a = s.makeSu(1);
       const b = s.makeSu(1);
