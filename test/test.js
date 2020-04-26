@@ -74,6 +74,13 @@ describe('Su', function() {
       assert.equal(res.isZero(), true);
     });
 
+
+    it("NaN => 0", () =>{
+      const res = s.makeSu(NaN);
+      assert.equal(res.isZero(), true);
+    });
+
+
   });
   describe("add", function() {
     it("1 + 1 = 2", () =>{
