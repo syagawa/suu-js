@@ -76,7 +76,7 @@ describe('Su', function() {
 
     it("NaN => 0", () =>{
       const res = s.makeSu(NaN);
-      assert.equal(res.isZero(), true);
+      assert.equal(res, "Not a number");
     });
 
     it("string => 0", () =>{

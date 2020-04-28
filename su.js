@@ -9,6 +9,9 @@ const DBZ = constants.DBZ;
 const NAN = constants.NAN;
 
 const Su = function(n, option){
+  if(isNaN(n)){
+    return NAN;
+  }
   if(!n){
     n = 0;
   }
