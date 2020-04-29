@@ -10,7 +10,7 @@ const NAN = constants.NAN;
 
 const Su = function(n, option){
   if(isNaN(n)){
-    return NAN;
+    throw new Error(NAN);
   }
   if(!n){
     n = 0;
@@ -102,7 +102,8 @@ const Su = function(n, option){
 };
 
 const makeSu = function(num, option){
-  return new Su(num, option);
+  let res = new Su(num, option);
+  return res;
 };
 
 const isSu = function(su){
