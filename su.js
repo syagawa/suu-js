@@ -102,8 +102,15 @@ const Su = function(n, option){
 };
 
 const makeSu = function(num, option){
-  let res = new Su(num, option);
+  let res;
+  try{
+    res = new Su(num, option);
+  }catch(e){
+    res = e.message;
+  }
+
   return res;
+
 };
 
 const isSu = function(su){
