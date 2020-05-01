@@ -81,7 +81,7 @@ describe('Su', function() {
 
     it("string => 0", () =>{
       const res = s.makeSu("aaaaaaaaaaaaaaa");
-      assert.equal(res.isZero(), true);
+      assert.equal(res, "Not a number");
     });
 
 
