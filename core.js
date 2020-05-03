@@ -24,7 +24,7 @@ core.numToArray = function(n){
   for(let i = 0; i < len; i++){
     const elm = Number(str.slice(i, i + 1));
     if(!this.isNumber(elm)){
-      return "This function has been called with incorrect parameters";
+      throw new Error("This function has been called with incorrect parameters");
     }
     arr.push(elm);
   }

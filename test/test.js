@@ -61,7 +61,12 @@ describe('Su', function() {
       assert.equal(one.negative, true);
 
     });
-    
+
+    it("1000000000000000000000 by string", () =>{
+      const res = s.makeSu(1000000000000000000000);
+      assert.equal(res, "Not a number");
+    });
+
     it("1000000000000000000000 by string", () =>{
       const res = s.makeSu("1000000000000000000000");
       assert.equal(res.getString(), "1000000000000000000000");
