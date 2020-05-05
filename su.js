@@ -7,6 +7,7 @@ const MAX = constants.MAX;
 const MIN = constants.MIN;
 const DBZ = constants.DBZ;
 const NAN = constants.NAN;
+const NOTSU = constants.NOTSU;
 
 const Su = function(n, option){
   if(isNaN(n)){
@@ -122,13 +123,6 @@ const isSu = function(su){
 const copySu = function(su){
   const str = su.getString();
   return makeSu(str);
-};
-
-const getMessage = function(type){
-  if(type === "notsu"){
-    return "Argument is not Su.";
-  }
-  return "";
 };
 
 const CONSTANTS = {
@@ -381,7 +375,7 @@ Su.prototype.containDecimal = function(){
 
 Su.prototype.add = function(su){
   if(!isSu(su)){
-    throw new Error(getMessage("notsu"));
+    throw new Error(NOTSU);
   }
   let a = this.clone();
   let b = su.clone();
@@ -482,7 +476,7 @@ Su.prototype.add = function(su){
 
 Su.prototype.subtract = function(su){
   if(!isSu(su)){
-    throw new Error(getMessage("notsu"));
+    throw new Error(NOTSU);
   }
   let a = copySu(this);
   let b = copySu(su);
@@ -596,7 +590,7 @@ Su.prototype.makeNegative = function(){
 
 Su.prototype.multiplication = function(su){
   if(!isSu(su)){
-    throw new Error(getMessage("notsu"));
+    throw new Error(NOTSU);
   }
 
   let a = copySu(this);
@@ -660,7 +654,7 @@ Su.prototype.multiplication = function(su){
 
 Su.prototype.division = function(su){
   if(!isSu(su)){
-    throw new Error(getMessage("notsu"));
+    throw new Error(NOTSU);
   }
 
   let a = copySu(this);
