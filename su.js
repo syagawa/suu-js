@@ -82,8 +82,16 @@ const Su = function(n, option){
 
   }
 
-  let int_arr = core.numToArray(int_str);
-  let decimal_arr = decimal_str ? core.numToArray(decimal_str) : [0];
+  let int_arr;
+  let decimal_arr;
+
+
+  try{
+    int_arr = core.numToArray(int_str);
+    decimal_arr = decimal_str ? core.numToArray(decimal_str) : [0];
+  }catch(e){
+    throw new Error(NAN);
+  }
 
   this.integer = int_arr;
   this.decimal = decimal_arr;
