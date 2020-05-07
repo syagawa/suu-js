@@ -94,9 +94,17 @@ describe('Su', function() {
       const res = s.makeSu("aaaaaaaaaaaaaaa");
       assert.equal(res, "Not a number");
     });
-
-
   });
+
+  describe('isSu', function() {
+    it("zero by string", () =>{
+
+      const su = s.makeSu("1");
+      const res = s.isSu(su);
+      assert.equal(res, true);
+    });
+  });
+
   describe("add", function() {
     it("1 + 1 = 2", () =>{
       const a = s.makeSu(1);
