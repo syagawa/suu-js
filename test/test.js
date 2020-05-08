@@ -97,13 +97,21 @@ describe('Su', function() {
   });
 
   describe('isSu', function() {
-    it("zero by string", () =>{
-
+    it("isSu", () =>{
       const su = s.makeSu("1");
       const res = s.isSu(su);
       assert.equal(res, true);
     });
   });
+
+  describe('copySu', function() {
+    it("copySu", () =>{
+      const a = s.makeSu("1");
+      const b = s.copySu(a);
+      assert.equal(b.getString(), a.getString());
+    });
+  });
+
 
   describe("add", function() {
     it("1 + 1 = 2", () =>{
