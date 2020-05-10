@@ -116,6 +116,14 @@ describe('Su', function() {
       assert.equal(res, str);
     });
 
+    it("Su.getNumber", function(){
+      const num = 1;
+      const su = s.makeSu(num);
+      const res = su.getNumber();
+      assert.equal(res, 1);
+    });
+
+
   });
 
 
