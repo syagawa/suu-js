@@ -123,6 +123,13 @@ describe('Su', function() {
       assert.equal(res, 1);
     });
 
+    it("Su.getInteger", function(){
+      const num = 1;
+      const su = s.makeSu(num);
+      const res = su.getInteger();
+      assert.equal(res, [1]);
+    });
+
 
   });
 
