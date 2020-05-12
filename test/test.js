@@ -130,6 +130,13 @@ describe('Su', function() {
       assert.equal(res, [1]);
     });
 
+    it("Su.getDecimal", function(){
+      const num = 1;
+      const su = s.makeSu(num);
+      const res = su.getDecimal();
+      assert.equal(res, [0]);
+    });
+
 
   });
 
