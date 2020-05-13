@@ -137,6 +137,13 @@ describe('Su', function() {
       assert.equal(res, [0]);
     });
 
+    it("Su.clone & Su.isEqual", function(){
+      const num = 1;
+      const su = s.makeSu(num);
+      const res = su.clone();
+      assert.equal(res.isEqual(su), true);
+    });
+
 
   });
 
