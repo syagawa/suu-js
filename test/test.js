@@ -144,6 +144,12 @@ describe('Su', function() {
       assert.equal(res.isEqual(su), true);
     });
 
+    it("Su.isZero", function(){
+      const num = 0;
+      const su = s.makeSu(num);
+      assert.equal(su.isZero(), true);
+    });
+
 
   });
 
