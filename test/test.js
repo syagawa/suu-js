@@ -150,6 +150,19 @@ describe('Su', function() {
       assert.equal(su.isZero(), true);
     });
 
+    it("Su.isOne", function(){
+      const num = 1;
+      const su = s.makeSu(num);
+      assert.equal(su.isOne(), true);
+    });
+    
+    it("Su.isLarge", function(){
+      const a = s.makeSu(1);
+      const b = s.makeSu(2);
+      assert.equal(b.isLarge(a), true);
+    });
+
+
 
   });
 
