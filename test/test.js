@@ -162,6 +162,11 @@ describe('Su', function() {
       assert.equal(b.isLarge(a), true);
     });
 
+    it("Su.isSmall", function(){
+      const a = s.makeSu(2);
+      const b = s.makeSu(1);
+      assert.equal(b.isSmall(a), true);
+    });
 
 
   });
