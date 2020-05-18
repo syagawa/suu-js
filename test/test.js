@@ -168,6 +168,11 @@ describe('Su', function() {
       assert.equal(b.isSmall(a), true);
     });
 
+    it("Su.isNaturalNumber", function(){
+      const su = s.makeSu(1);
+      assert.equal(su.isNaturalNumber(), true);
+    });
+
 
   });
 
