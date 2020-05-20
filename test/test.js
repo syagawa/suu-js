@@ -173,6 +173,11 @@ describe('Su', function() {
       assert.equal(su.isNaturalNumber(), true);
     });
 
+    it("Su.isNegative", function(){
+      const su = s.makeSu("-1");
+      assert.equal(su.isNegative(), true);
+    });
+
 
   });
 
