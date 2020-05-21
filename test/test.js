@@ -177,6 +177,17 @@ describe('Su', function() {
       const su = s.makeSu("-1");
       assert.equal(su.isNegative(), true);
     });
+    
+    it("Su.isPositive", function(){
+      const su = s.makeSu("1");
+      assert.equal(su.isPositive(), true);
+    });
+
+    it("Su.containDecimal", function(){
+      const su = s.makeSu("1.1");
+      assert.equal(su.containDecimal(), true);
+    });
+
 
 
   });
