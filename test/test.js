@@ -187,7 +187,18 @@ describe('Su', function() {
       const su = s.makeSu("1.1");
       assert.equal(su.containDecimal(), true);
     });
-
+    
+    it("Su.prev", function(){
+      const a = s.makeSu("1");
+      const b = a.prev();
+      assert.equal(b.getString(), "0");
+    });
+    
+    it("Su.next", function(){
+      const a = s.makeSu("1");
+      const b = a.next();
+      assert.equal(b.getString(), "2");
+    });
 
 
   });
