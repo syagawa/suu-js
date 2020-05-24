@@ -200,6 +200,15 @@ describe('Su', function() {
       assert.equal(b.getString(), "2");
     });
 
+    it("Su.isEvenNumber", function(){
+      const one = s.makeSu("1");
+      const two = s.makeSu("2");
+      assert.equal(one.isEvenNumber(), false);
+      assert.equal(two.isEvenNumber(), true);
+    });
+
+
+
 
   });
 
