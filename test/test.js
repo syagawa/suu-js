@@ -207,6 +207,12 @@ describe('Su', function() {
       assert.equal(two.isEvenNumber(), true);
     });
 
+    it("Su.isOddNumber", function(){
+      const one = s.makeSu("1");
+      const two = s.makeSu("2");
+      assert.equal(one.isOddNumber(), true);
+      assert.equal(two.isOddNumber(), false);
+    });
 
 
 
