@@ -214,6 +214,16 @@ describe('Su', function() {
       assert.equal(two.isOddNumber(), false);
     });
 
+    it("Su.getDivisors", function(){
+      const ten = s.makeSu("10");
+      const res = ten.getDivisors();
+      assert.equal(res[0].getString(), "1");
+      assert.equal(res[1].getString(), "2");
+      assert.equal(res[2].getString(), "5");
+      assert.equal(res[3].getString(), "10");
+    });
+
+
 
 
   });
