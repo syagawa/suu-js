@@ -222,7 +222,16 @@ describe('Su', function() {
       assert.equal(res[2].getString(), "5");
       assert.equal(res[3].getString(), "10");
     });
-
+    
+    it("Su.getCommonDivisors", function(){
+      const a = s.makeSu("12");
+      const b = s.makeSu("6");
+      const res = a.getCommonDivisors(b);
+      assert.equal(res[0].getString(), "1");
+      assert.equal(res[1].getString(), "2");
+      assert.equal(res[2].getString(), "3");
+      assert.equal(res[3].getString(), "6");
+    });
 
 
 
