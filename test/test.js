@@ -232,7 +232,13 @@ describe('Su', function() {
       assert.equal(res[2].getString(), "3");
       assert.equal(res[3].getString(), "6");
     });
-
+    
+    it("Su.getMaxCommonDivisor", function(){
+      const a = s.makeSu("9");
+      const b = s.makeSu("6");
+      const res = a.getMaxCommonDivisor(b);
+      assert.equal(res.getString(), "3");
+    });
 
 
   });
