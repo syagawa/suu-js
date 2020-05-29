@@ -817,8 +817,10 @@ Su.prototype.multiple = function(){
     return [this];
   }
   const arr = [];
-  for(let i = 1; i < CONSTANTS.MAX.number; i++){
-    arr.push(this.multiplication(i));
+  let count = makeSu("1");
+  while(count.isSmall(CONSTANTS.MAX) || count.isEqual(CONSTANTS.MAX)){
+    arr.push(this.multiplication(count));
+    count = count.add(makeSu("1"));
   }
   return arr;
 };

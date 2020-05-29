@@ -240,6 +240,12 @@ describe('Su', function() {
       assert.equal(res.getString(), "3");
     });
 
+    it("Su.multiple", function(){
+      const su = s.makeSu("1");
+      const res = su.multiple();
+      assert.equal(res.length, 10000);
+    });
+
 
   });
 
