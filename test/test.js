@@ -246,12 +246,13 @@ describe('Su', function() {
       assert.equal(res.length, 10000);
     });
 
-    it("Su.getLeastCommonMultiple", function(){
+   it("Su.getLeastCommonMultiple", function(){
       const a = s.makeSu("2");
       const b = s.makeSu("3");
       const res = a.getLeastCommonMultiple(b);
       assert.equal(res.getString(), "6");
-    });
+    }); 
+    
 
 
     

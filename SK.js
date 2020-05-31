@@ -1,6 +1,7 @@
 import { MAX, MIN } from "./constants.js";
 import core from "./core.js";
 import { makeSu } from "./index.js";
+import CONSTANTS from "./constants.js";
 
 const S = {};
 const K = {};
@@ -478,7 +479,27 @@ K.getIncludesNumbers = function(num){
     }
   }
   return arr;
-}
+};
+
+// fibonacci
+K.makefibonacciSequence = function(a, b){
+
+  const MAX = CONSTANTS.MAX;
+
+  const arr = [a, b];
+  const func = function(arr){
+    if(arr[arr.length - 1].isLarge(MAX)){
+      return arr;
+    }
+    const a = arr[arr.length - 2];
+    const b = arr[arr.length - 1];
+    const c = a.add(b);
+    arr.push(c);
+    return func(arr);
+  };
+  return func(arr);
+};
+
 
 
 export default {
