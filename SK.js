@@ -484,6 +484,10 @@ K.getIncludesNumbers = function(num){
 // fibonacci
 K.makefibonacciSequence = function(a, b){
 
+  if(!a.isSu() || !b.isSu()){
+    return false;
+  }
+
   const MAX = CONSTANTS.MAX;
 
   const arr = [a, b];
