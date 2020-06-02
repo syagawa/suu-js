@@ -1,4 +1,8 @@
-import { K, S } from "./SK.js";
+import { 
+  K,
+  S,
+  makeFibonacciSequence
+} from "./SK.js";
 import constants from "./constants.js";
 
 import core from "./core.js";
@@ -8,6 +12,7 @@ const MIN = constants.MIN;
 const DBZ = constants.DBZ;
 const NAN = constants.NAN;
 const NOTSU = constants.NOTSU;
+
 
 const Su = function(n, option){
   if(isNaN(n)){
@@ -140,6 +145,7 @@ const CONSTANTS = {
   MAX: makeSu(MAX),
   MIN: makeSu(MIN)
 };
+
 
 Su.prototype.getString = function(){
   let str = String( this.integer.join(""));
@@ -843,26 +849,6 @@ Su.prototype.getLeastCommonMultiple = function(su){
 
 };
 
-Su.prototype.fibonacciSequence = function(){
-
-  const zero = makeSu(0);
-  const one = makeSu(1);
-
-  const MAX = CONSTANTS.MAX;
-
-  const arr = [zero, one];
-  const func = function(arr){
-    if(arr[arr.length - 1].isLarge(MAX)){
-      return arr;
-    }
-    const a = arr[arr.length - 2];
-    const b = arr[arr.length - 1];
-    const c = a.add(b);
-    arr.push(c);
-    return func(arr);
-  };
-  return func(arr);
-};
 
 Su.prototype.isFibonacciNumber = function(){
   const n = this;
@@ -872,7 +858,12 @@ Su.prototype.isFibonacciNumber = function(){
   if(n.containDecimal()){
     return false;
   }
-  const fibs = this.fibonacciSequence(0);
+
+  const zero = makeSu(0);
+  const one = makeSu(1);
+  console.log(K);
+
+  const fibs = makeFibonacciSequence(zero, one);
   for(let i = 0; i < fibs.length; i++){
     let f = fibs[i];
     if(f.isEqual(n)){

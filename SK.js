@@ -98,33 +98,6 @@ K.primeNumbers = function(){
   return arr;
 };
 
-K.fibonacciSequence = function(start){
-  if(start === undefined){
-    start = 0;
-  }
-  const arr = [start, start + 1];
-  const func = function(arr){
-    if(arr[arr.length - 1] >= MAX){
-      return arr;
-    }
-    const a = Number(arr[arr.length - 2]);
-    const b = Number(arr[arr.length - 1]);
-    arr.push(Number(a + b));
-    return func(arr);
-  };
-  return func(arr);
-};
-
-S.isFibonacciNumber = function(n){
-  if(n === 0){
-    return true;
-  }
-  const fib = K.fibonacciSequence(0);
-  const index = fib.indexOf(n);
-  if(index >= 0){
-    return true;
-  }
-};
 
 S.isEvenNumber = function(n){
   if( S.isNumber(n) && n % 2 === 0 ){
@@ -482,7 +455,7 @@ K.getIncludesNumbers = function(num){
 };
 
 // fibonacci
-K.makefibonacciSequence = function(a, b){
+const makeFibonacciSequence = function(a, b){
 
   if(!a.isSu() || !b.isSu()){
     return false;
@@ -508,5 +481,6 @@ K.makefibonacciSequence = function(a, b){
 
 export default {
   S: S,
-  K: K
+  K: K,
+  makeFibonacciSequence: makeFibonacciSequence
 }

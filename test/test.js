@@ -251,8 +251,13 @@ describe('Su', function() {
       const b = s.makeSu("3");
       const res = a.getLeastCommonMultiple(b);
       assert.equal(res.getString(), "6");
-    }); 
-    
+    });
+
+    it("Su.isFibonacciNumber", function(){
+       const su = s.makeSu("2");
+       const res = su.isFibonacciNumber();
+       assert.equal(res, true);
+     });
 
 
     
