@@ -1,6 +1,7 @@
 const path = require("path");
 
 let ENV = process.env.NODE_ENV;
+console.log(ENV);
 const MODE = process.env.APP_MODE;
 if(ENV !== "production"){
   ENV = "development";

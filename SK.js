@@ -483,4 +483,4 @@ export default {
   S: S,
   K: K,
   makeFibonacciSequence: makeFibonacciSequence
-}
+};
