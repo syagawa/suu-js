@@ -1,8 +1,4 @@
-import { 
-  K,
-  S,
-  makeFibonacciSequence
-} from "./SK.js";
+import SK from "./SK.js";
 import constants from "./constants.js";
 
 import core from "./core.js";
@@ -13,6 +9,9 @@ const DBZ = constants.DBZ;
 const NAN = constants.NAN;
 const NOTSU = constants.NOTSU;
 
+const K = SK.K; 
+const S = SK.S;
+const makeFibonacciSequence = SK.makeFibonacciSequence;
 
 const Su = function(n, option){
   if(isNaN(n)){
@@ -861,7 +860,6 @@ Su.prototype.isFibonacciNumber = function(){
 
   const zero = makeSu(0);
   const one = makeSu(1);
-  console.log(K);
 
   const fibs = makeFibonacciSequence(zero, one);
   for(let i = 0; i < fibs.length; i++){
