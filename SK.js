@@ -455,32 +455,8 @@ K.getIncludesNumbers = function(num){
 };
 
 // fibonacci
-const makeFibonacciSequence = function(a, b){
-
-  if(!a.isSu() || !b.isSu()){
-    return false;
-  }
-
-  const MAX = CONSTANTS.MAX;
-
-  const arr = [a, b];
-  const func = function(arr){
-    if(arr[arr.length - 1].isLarge(MAX)){
-      return arr;
-    }
-    const a = arr[arr.length - 2];
-    const b = arr[arr.length - 1];
-    const c = a.add(b);
-    arr.push(c);
-    return func(arr);
-  };
-  return func(arr);
-};
-
-
 
 export default {
   S: S,
-  K: K,
-  makeFibonacciSequence: makeFibonacciSequence
+  K: K
 };

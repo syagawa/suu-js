@@ -11,7 +11,6 @@ const NOTSU = constants.NOTSU;
 
 const K = SK.K; 
 const S = SK.S;
-const makeFibonacciSequence = SK.makeFibonacciSequence;
 
 const Su = function(n, option){
   if(isNaN(n)){
@@ -848,6 +847,28 @@ Su.prototype.getLeastCommonMultiple = function(su){
 
 };
 
+
+const makeFibonacciSequence = function(a, b){
+
+  if(!isSu(a) || !isSu(b)){
+    return false;
+  }
+
+  const MAX = CONSTANTS.MAX;
+
+  const arr = [a, b];
+  const func = function(arr){
+    if(arr[arr.length - 1].isLarge(MAX)){
+      return arr;
+    }
+    const a = arr[arr.length - 2];
+    const b = arr[arr.length - 1];
+    const c = a.add(b);
+    arr.push(c);
+    return func(arr);
+  };
+  return func(arr);
+};
 
 Su.prototype.isFibonacciNumber = function(){
   const n = this;
