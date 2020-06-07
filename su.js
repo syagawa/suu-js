@@ -870,6 +870,11 @@ const makeFibonacciSequence = function(a, b){
   return func(arr);
 };
 
+
+const makeLucasSequence = function(){
+  return makeFibonacciSequence(makeSu(2), makeSu(1));
+};
+
 Su.prototype.isFibonacciNumber = function(){
   const n = this;
   if(n.isZero()){
@@ -892,30 +897,12 @@ Su.prototype.isFibonacciNumber = function(){
   return false;
 };
 
-Su.prototype.lucasSequence = function(){
-
-  const MAX = CONSTANTS.MAX;
-
-  const arr = [makeSu(2), makeSu(1)];
-  const func = function(arr){
-    if(arr[arr.length - 1].isLarge(MAX)){
-      return arr;
-    }
-    const a = arr[arr.length - 2];
-    const b = arr[arr.length - 1];
-    const c = a.add(b);
-    arr.push(c);
-    return func(arr);
-  };
-  return func(arr);
-};
-
 Su.prototype.isLucasNumber = function(){
   const n = this;
   if(n.containDecimal()){
     return false;
   }
-  const lucs = this.lucasSequence(0);
+  const lucs = makeLucasSequence();
   for(let i = 0; i < lucs.length; i++){
     let f = lucs[i];
     if(f.isEqual(n)){
