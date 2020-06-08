@@ -257,7 +257,13 @@ describe('Su', function() {
        const su = s.makeSu("2");
        const res = su.isFibonacciNumber();
        assert.equal(res, true);
-     });
+    });
+
+    it("Su.isLucasNumber", function(){
+      const su = s.makeSu("2");
+      const res = su.isLucasNumber();
+      assert.equal(res, true);
+    });
 
 
     
