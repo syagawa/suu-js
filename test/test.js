@@ -264,6 +264,15 @@ describe('Su', function() {
       const res = su.isLucasNumber();
       assert.equal(res, true);
     });
+    
+    it("Su.summation", function(){
+      const one = s.makeSu("1");
+      const two = s.makeSu("2");
+      const three = s.makeSu("3");
+      const res = one.summation(two, three);
+      assert.equal(res.getString(), "6");
+    });
+
 
 
     

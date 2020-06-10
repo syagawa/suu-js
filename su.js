@@ -929,15 +929,7 @@ const makeSequence = function(first, others){
 }
 
 Su.prototype.getSequence = function(){
-  const array = [this];
-  for(let i = 0; i < arguments.length; i++){
-    let elm = arguments[i];
-    if(!isSu(elm)){
-      elm = makeSu(elm);
-    }
-    array.push(elm);
-  }
-  return array;
+  return makeSequence(this, arguments);
 };
 
 Su.prototype.summation = function(){
