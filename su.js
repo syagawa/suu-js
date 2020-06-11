@@ -933,7 +933,7 @@ Su.prototype.getSequence = function(){
 };
 
 Su.prototype.summation = function(){
-  const arr = this.getSequence(...arguments);
+  const arr = makeSequence(this, arguments);
   let sum = makeSu(0);
   for(let i = 0; i < arr.length; i++){
     sum = sum.add(arr[i]);
@@ -942,7 +942,7 @@ Su.prototype.summation = function(){
 };
 
 Su.prototype.infiniteProduct = function(){
-  const arr = this.getSequence(...arguments);
+  const arr = makeSequence(this, arguments);
   let ip = arr[0];
   for(let i = 1; i < arr.length; i++){
     ip = ip.multiplication(arr[i]);
