@@ -273,6 +273,14 @@ describe('Su', function() {
       assert.equal(res.getString(), "6");
     });
 
+    it("Su.infiniteProduct", function(){
+      const one = s.makeSu("1");
+      const two = s.makeSu("2");
+      const three = s.makeSu("3");
+      const four = s.makeSu("4");
+      const res = one.infiniteProduct(two, three, four);
+      assert.equal(res.getString(), "24");
+    });
 
 
     
