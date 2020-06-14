@@ -952,8 +952,8 @@ Su.prototype.infiniteProduct = function(){
 
 Su.prototype.digitsum = function(){
   let sum = makeSu(0);
-  for(let i = 0; i < this.array.length; i++){
-    let a = makeSu(this.array[i]);
+  for(let i = 0; i < this.integer.length; i++){
+    let a = makeSu(this.integer[i]);
     sum = sum.add(a);
   }
   return sum;

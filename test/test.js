@@ -282,6 +282,12 @@ describe('Su', function() {
       assert.equal(res.getString(), "24");
     });
 
+    it("Su.digitsum", function(){
+      const su = s.makeSu("123");
+      const res = su.digitsum();
+      assert.equal(res.getString(), "6");
+    });
+
 
     
   });
