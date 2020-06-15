@@ -289,6 +289,19 @@ describe('Su', function() {
     });
 
 
+    it("Su.square", function(){
+      const su = s.makeSu("5");
+      const res = su.square();
+      assert.equal(res.getString(), "25");
+    });
+
+    it("Su.cube", function(){
+      const su = s.makeSu("5");
+      const res = su.cube();
+      assert.equal(res.getString(), "125");
+    });
+
+
     
   });
 
