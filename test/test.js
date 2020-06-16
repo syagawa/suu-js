@@ -301,6 +301,11 @@ describe('Su', function() {
       assert.equal(res.getString(), "125");
     });
 
+    it("Su.exponentiate", function(){
+      const su = s.makeSu("5");
+      const res = su.exponentiate(su);
+      assert.equal(res.getString(), "3125");
+    });
 
     
   });
