@@ -307,6 +307,12 @@ describe('Su', function() {
       assert.equal(res.getString(), "3125");
     });
 
+    it("Su.isPrimeNumber", function(){
+      const su = s.makeSu("23");
+      const res = su.isPrimeNumber(su);
+      assert.equal(res, true);
+    });
+
     
   });
 
