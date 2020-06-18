@@ -312,8 +312,15 @@ describe('Su', function() {
       const res = su.isPrimeNumber(su);
       assert.equal(res, true);
     });
-
     
+    it("Su.divisorsSummation", function(){
+      const su = s.makeSu("12");
+      const res = su.divisorsSummation(su);
+      assert.equal(res.getString(), "28");
+    });
+
+
+
   });
 
 
