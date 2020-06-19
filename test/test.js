@@ -309,14 +309,20 @@ describe('Su', function() {
 
     it("Su.isPrimeNumber", function(){
       const su = s.makeSu("23");
-      const res = su.isPrimeNumber(su);
+      const res = su.isPrimeNumber();
       assert.equal(res, true);
     });
     
     it("Su.divisorsSummation", function(){
       const su = s.makeSu("12");
-      const res = su.divisorsSummation(su);
+      const res = su.divisorsSummation();
       assert.equal(res.getString(), "28");
+    });
+
+    it("Su.isAbundantNumber", function(){
+      const su = s.makeSu("20");
+      const res = su.isAbundantNumber();
+      assert.equal(res, true);
     });
 
 
