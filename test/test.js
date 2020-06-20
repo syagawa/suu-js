@@ -324,7 +324,12 @@ describe('Su', function() {
       const res = su.isAbundantNumber();
       assert.equal(res, true);
     });
-
+    
+    it("Su.isDeficientNumber", function(){
+      const su = s.makeSu("10");
+      const res = su.isDeficientNumber();
+      assert.equal(res, true);
+    });
 
 
   });
