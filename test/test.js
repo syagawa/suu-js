@@ -330,6 +330,13 @@ describe('Su', function() {
       const res = su.isDeficientNumber();
       assert.equal(res, true);
     });
+    
+    it("Su.isPerfectNumber", function(){
+      const su = s.makeSu("496");
+      const res = su.isPerfectNumber();
+      assert.equal(res, true);
+    });
+    
 
 
   });
