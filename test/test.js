@@ -336,7 +336,12 @@ describe('Su', function() {
       const res = su.isPerfectNumber();
       assert.equal(res, true);
     });
-    
+
+    it("Su.factorial", function(){
+      const su = s.makeSu("6");
+      const res = su.factorial();
+      assert.equal(res.getString(), "720");
+    });
 
 
   });
