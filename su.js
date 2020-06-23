@@ -1053,33 +1053,9 @@ Su.prototype.factorial = function(){
   return res;
 };
 
-Su.prototype.isTriangleNumber = function(){
-  let elm = makeSu(1);
-  let res = this;
-  let b = true;
-  while(b){
-    res = res.subtract(elm);
-    if(res.isZero()){
-      return true;
-    }
-    if(res.isSmall(makeSu(0))){
-      return false;
-    }
-    elm = elm.add(makeSu(1));
-  }
-};
-
-Su.prototype.getTriangleNumbers = function(){
-  return this.getPolygonalNumbers(makeSu(3));
-};
-
-Su.prototype.getSquareNumbers = function(){
-  return this.getPolygonalNumbers(makeSu(4));
-};
-
-Su.prototype.getPolygonalNumbers = function(n){
+const makePolygonalNumbers = function(n, max){
   if(!isSu(n)){
-    n = makeSu(n);
+    return;
   }
   if(n.isSmall(makeSu(3))){
     return [];
@@ -1088,14 +1064,44 @@ Su.prototype.getPolygonalNumbers = function(n){
   const arr = [];
   let range = current;
 
+  if(!max){
+    max = CONSTANTS.MAX;
+  }else{
+    max = max.next();
+  }
+
   const increment = n.subtract(makeSu(2));
-  while(current.isSmall(CONSTANTS.MAX)){
+  while(current.isSmall(max)){
     arr.push(current);
     range = range.add(increment);
     current = current.add(range);
   }
   return arr;
 };
+
+const makeTriangleNumbers = function(max){
+  return makePolygonalNumbers(makeSu(3), max);
+};
+
+const makeSquareNumbers = function(max){
+  return makePolygonalNumbers(makeSu(4), max);
+};
+
+Su.prototype.isTriangleNumber = function(){
+  const su = this;
+
+  const arr = makeTriangleNumbers(su);
+  const res = arr.find(elm =>{
+    return elm.isEqual(su);
+  });
+
+  if(res){
+    return true;
+  }
+  return false;
+
+};
+
 
 Su.prototype.mersenneNumbers = function(){
   const two = makeSu(2);

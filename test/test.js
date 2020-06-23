@@ -343,6 +343,12 @@ describe('Su', function() {
       assert.equal(res.getString(), "720");
     });
 
+    it("Su.isTriangleNumber", function(){
+      const su = s.makeSu("6");
+      const res = su.isTriangleNumber();
+      assert.equal(res, true);
+    });
+
 
   });
 
