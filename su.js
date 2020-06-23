@@ -1089,18 +1089,28 @@ const makeSquareNumbers = function(max){
 
 Su.prototype.isTriangleNumber = function(){
   const su = this;
-
   const arr = makeTriangleNumbers(su);
   const res = arr.find(elm =>{
     return elm.isEqual(su);
   });
-
   if(res){
     return true;
   }
   return false;
-
 };
+
+Su.prototype.isSquareNumber = function(){
+  const su = this;
+  const arr = makeSquareNumbers(su);
+  const res = arr.find(elm =>{
+    return elm.isEqual(su);
+  });
+  if(res){
+    return true;
+  }
+  return false;
+};
+
 
 
 Su.prototype.mersenneNumbers = function(){

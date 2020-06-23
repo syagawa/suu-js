@@ -349,6 +349,12 @@ describe('Su', function() {
       assert.equal(res, true);
     });
 
+    it("Su.isSquareNumber", function(){
+      const su = s.makeSu("16");
+      const res = su.isSquareNumber();
+      assert.equal(res, true);
+    });
+
 
   });
 
