@@ -1111,15 +1111,18 @@ Su.prototype.isSquareNumber = function(){
   return false;
 };
 
-
-
-Su.prototype.mersenneNumbers = function(){
+const makeMersenneNumbers = function(max){
+  if(!max){
+    max = CONSTANTS.MAX;
+  }else{
+    max = max.next();
+  }
   const two = makeSu(2);
   const arr = [];
   let current = makeSu(0);
   let ex = makeSu(1);
   
-  while(current.isSmall(CONSTANTS.MAX)){
+  while(current.isSmall(max)){
     current = two.exponentiate(ex).subtract(makeSu(1));
     arr.push(current);
     ex = ex.add(makeSu(1));
@@ -1127,8 +1130,13 @@ Su.prototype.mersenneNumbers = function(){
   return arr;
 };
 
-Su.prototype.mersennePrimeNumbers = function(){
-  const marr = this.mersenneNumbers();
+const makeMersennePrimeNumbers = function(max){
+  if(!max){
+    max = CONSTANTS.MAX;
+  }else{
+    max = max.next();
+  }
+  const marr = makeMersenneNumbers(max);
   const arr = [];
   for(let i = 0; i < marr.length; i++){
     const n = marr[i];
@@ -1147,7 +1155,7 @@ Su.prototype.isMersenneNumber = function(){
   if(n.containDecimal()){
     return false;
   }
-  const ms = this.mersenneNumbers();
+  const ms = makeMersenneNumbers(n);
   for(let i = 0; i < ms.length; i++){
     let m = ms[i];
     if(m.isEqual(n)){
@@ -1165,7 +1173,7 @@ Su.prototype.isMersennePrimeNumber = function(){
   if(n.containDecimal()){
     return false;
   }
-  const ms = this.mersennePrimeNumbers();
+  const ms = makeMersennePrimeNumbers(n);
   for(let i = 0; i < ms.length; i++){
     let m = ms[i];
     if(m.isEqual(n)){

@@ -355,6 +355,17 @@ describe('Su', function() {
       assert.equal(res, true);
     });
 
+    it("Su.isMersenneNumber", function(){
+      const su = s.makeSu("15");
+      const res = su.isMersenneNumber();
+      assert.equal(res, true);
+    });
+    
+    it("Su.isMersennePrimeNumber", function(){
+      const su = s.makeSu("7");
+      const res = su.isMersennePrimeNumber();
+      assert.equal(res, true);
+    });
 
   });
 
