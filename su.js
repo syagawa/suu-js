@@ -1183,35 +1183,6 @@ Su.prototype.isMersennePrimeNumber = function(){
   return false;
 };
 
-Su.prototype.random = function(min, max){
-  if(min === undefined){
-    min = makeSu(0);
-  }
-  if(max === undefined){
-    max = makeSu(1);
-  }
-  if(!isSu(min)){
-    min = makeSu(min);
-  }
-  if(!isSu(max)){
-    max = makeSu(max);
-  }
-
-  const str = String(Math.random());
-  let ran;
-
-  if(str === "0"){
-    if(min.isZero()){
-      ran = makeSu(0);
-    }else{
-      ran = min;
-    }
-  }else{
-    let arr = str.split(".");
-    ran = makeSu("0." + arr[1]).multiplication(max);
-  }
-  return ran;
-};
 
 export default {
   makeSu: makeSu,
