@@ -1,4 +1,3 @@
-import SK from "./SK.js";
 import constants from "./constants.js";
 
 import core from "./core.js";
@@ -9,8 +8,6 @@ const DBZ = constants.DBZ;
 const NAN = constants.NAN;
 const NOTSU = constants.NOTSU;
 
-const K = SK.K; 
-const S = SK.S;
 
 const Su = function(n, option){
   if(isNaN(n)){
@@ -1188,7 +1185,5 @@ export default {
   makeSu: makeSu,
   copySu: copySu,
   isSu: isSu,
-  Kei: K,
-  Su: Su,
-  getLarge: getLarge
+  Su: Su
 };

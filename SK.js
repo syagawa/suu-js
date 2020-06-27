@@ -9,61 +9,39 @@ const K = {};
 
 const FIRST_PRIME_NUMBER = 2;
 
-S.isPrimeNumber = function(n){
-  if(!S.isNumber(n)){
-    return false;
-  }
-  if(n === 0 || n === 1){
-    return false;
-  }
-  if(n === 2){
-    return true;
-  }
-
-  if(n >= MAX){
-    return `Argument exceeds maximum value(${MAX})`;
-  }
-
-  const max = n;
-  for( let i = max -1; i > 1; i--){
-    if( (max % i) === 0 ){
-      return false;
-    }
-  }
-  return true;
-};
-
-S.nextNumber = function(n){
-  if(!S.isNumber(n)){
-    return;
-  }
-  return ++n;
-};
-
-S.prevNumber = function(n){
-  if(!S.isNumber(n)){
-    return;
-  }
-  return --n;
-};
 
 K.random = function(min, max){
-
-  if(min instanceof Array && min.length > 0){
-    return K.randomElement(min);
-  }
-
   if(min === undefined){
-    min = 0;
+    min = makeSu(0);
   }
   if(max === undefined){
-    max = 1;
+    max = makeSu(1);
+  }
+  if(!isSu(min)){
+    min = makeSu(min);
+  }
+  if(!isSu(max)){
+    max = makeSu(max);
   }
 
-  const len = max - min;
-  const rand = Math.random();
-  return ( rand * len ) + min;
+  const str = String(Math.random());
+  let ran;
+
+  if(str === "0"){
+    if(min.isZero()){
+      ran = makeSu(0);
+    }else{
+      ran = min;
+    }
+  }else{
+    let arr = str.split(".");
+    ran = makeSu("0." + arr[1]).multiplication(max);
+  }
+  return ran;
 };
+  
+
+
 
 K.randomElement = function(array){
   const i = K.random(0, array.length - 1);
@@ -455,6 +433,118 @@ K.getIncludesNumbers = function(num){
 };
 
 // fibonacci
+
+
+
+
+
+
+
+// todo 0start
+const arraySummation = function(a, b){
+  if( !(a instanceof Array) ){
+    a = core.numToArray(a);
+  }
+  if( !(b instanceof Array) ){
+    b = core.numToArray(b);
+  }
+
+  if(!core.isNumArray(a) || !core.isNumArray(b)){
+    return;
+  }
+  if(core.isZero(a[0]) && core.isZero(b[0])){
+    return {
+      array: [0],
+      string: "0",
+      number: 0,
+      length: 1
+    };
+  }
+
+  const A = makeSu(a);
+  const B = makeSu(b);
+
+  console.log(A,B);
+
+  const res = core.getLarger(a, b);
+  const arr_a = res[0];
+  const arr_b = res[1];
+  const len = arr_a.length;
+
+  const gap = len - arr_b.length;
+
+  let over = 0, arr_c = [];
+  for(let i = len - 1; i >= 0; i--){
+    let _res;
+    const elm_a = arr_a[i];
+    const elm_b = arr_b[i - gap] || 0;
+    _res = elm_a + elm_b + over;
+    if(_res >= 10){
+      over = 1;
+      _res = _res - 10;
+    }else{
+      over = 0;
+    }
+    arr_c.unshift(_res);
+  }
+  if(over > 0){
+    arr_c.unshift(over);
+  }
+
+  const result = makeSu(arr_c);
+
+  return result;
+};
+
+const getLarger = function(a, b){
+  const arr_a = [], arr_b = [];
+  for(let i = 0; i < a.length; i++){
+    const elm_a = a[i];
+    if(elm_a === 0 && arr_a.length === 0){
+      continue;
+    }
+    if(elm_a >=  0 && elm_a < 10){
+      arr_a.push(elm_a);
+    }
+  }
+
+  for(let i = 0; i < b.length; i++){
+    const elm_b = b[i];
+    if(elm_b === 0 && arr_b.length === 0){
+      continue;
+    }
+    if(elm_b >=  0 && elm_b < 10){
+      arr_b.push(elm_b);
+    }
+  }
+
+  let res;
+  if(arr_a.length > arr_b.length){
+    res = [a, b];
+  }else if(arr_a.length < arr_b.length){
+    res = [b, a];
+  }else{
+    for(let i = 0; i < arr_a.length; i++){
+      const elm_aa = arr_a[i];
+      const elm_bb = arr_b[i];
+      if(elm_aa > elm_bb){
+        res = [a, b];
+        break;
+      }else if(elm_aa < elm_bb){
+        res = [b, a];
+        break;
+      }else{
+        res = [a, b];
+      }
+    }
+  }
+  return res;
+};
+
+
+
+
+
 
 export default {
   S: S,
