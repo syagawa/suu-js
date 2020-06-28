@@ -1,11 +1,16 @@
 import { MAX, MIN } from "./constants.js";
 import core from "./core.js";
-import { makeSu } from "./index.js";
+import su from "./su.js";
+
 import CONSTANTS from "./constants.js";
 
 const S = {};
 const K = {};
 
+const makeSu = su.makeSu;
+const copySu = su.copySu;
+const isSu = su.isSu;
+const Su = su.Su;
 
 const FIRST_PRIME_NUMBER = 2;
 
@@ -39,7 +44,6 @@ K.random = function(min, max){
   }
   return ran;
 };
-  
 
 
 

@@ -1,6 +1,7 @@
 const assert = require('assert');
 const app = require("../app.js");
 const s = global.s;
+const K = global.K;
 
 describe('Su', function() {
   describe('makeSu', function() {
@@ -840,7 +841,11 @@ describe('Su', function() {
   });
 
   describe('K methods', function() {
-    
+    it("K.random", () => {
+      const ran = K.random();
+      const one = s.makeSu(1);
+      assert.equal(ran.isSmall(one), true);
+    });
 
   });
 
