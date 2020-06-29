@@ -847,6 +847,11 @@ describe('Su', function() {
       assert.equal(ran.isSmall(one), true);
     });
 
+    it("K.randomElement", () => {
+      const elm = K.randomElement([1,2,3]);
+      const res = elm === 1 || elm === 2 || elm === 3 ? true : false;
+      assert.equal(res, true);
+    });
   });
 
 

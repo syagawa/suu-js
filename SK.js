@@ -45,10 +45,8 @@ K.random = function(min, max){
   return ran;
 };
 
-
-
 K.randomElement = function(array){
-  const i = K.random(0, array.length - 1);
+  const i = K.random(0, array.length).integer;
   return array[i];
 };
 
