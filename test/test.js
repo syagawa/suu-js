@@ -852,6 +852,16 @@ describe('Su', function() {
       const res = elm === 1 || elm === 2 || elm === 3 ? true : false;
       assert.equal(res, true);
     });
+
+    it("K.randomInt", () => {
+      const min = s.makeSu(1);
+      const max = s.makeSu(2);
+      const ran = K.randomInt(min, max);
+      const res = ran.getString() === "1" || ran.getString() === "2" ? true : false;
+      assert.equal(res, true);
+    });
+
+
   });
 
 

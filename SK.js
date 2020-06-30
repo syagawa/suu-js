@@ -51,16 +51,18 @@ K.randomElement = function(array){
 };
 
 K.randomInt = function(min, max){
-  if( !S.isNumber(min) || !S.isNumber(max)){
+
+  if( !isSu(min) || !isSu(max)){
     return "This function has been called with incorrect parameters";
   }
-  if(min >= max){
+  if(min.isEqual(max) || min.isLarge(max)){
     return "This function has been called with incorrect parameters";
   }
 
   const arr = [];
-  for(let i = min; i <= max; i++){
-    arr.push(i);
+  for(let i = min.getNumber(); i <= max.getNumber(); i++){
+    const s = makeSu(i);
+    arr.push(s);
   }
 
   const res = K.randomElement(arr);
