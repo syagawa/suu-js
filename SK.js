@@ -1,8 +1,10 @@
-import { MAX, MIN } from "./constants.js";
 import core from "./core.js";
 import su from "./su.js";
 
 import CONSTANTS from "./constants.js";
+
+const MAX = CONSTANTS.MAX;
+const MIN = CONSTANTS.MIN;
 
 const S = {};
 const K = {};
@@ -70,11 +72,19 @@ K.randomInt = function(min, max){
   return res;
 };
 
-K.primeNumbers = function(){
+K.makePrimeNumbers = function(max){
+  const MAX = 100;
+  if(!max){
+    max = MAX;
+  }
+  if(max > MAX){
+    max = MAX;
+  }
   const arr = [];
-  for(let i = FIRST_PRIME_NUMBER; i < MAX; i++){
-    if(S.isPrimeNumber(i)){
-      arr.push(i);
+  for(let i = FIRST_PRIME_NUMBER; i < max; i++){
+    const su = makeSu(i);
+    if(su.isPrimeNumber()){
+      arr.push(su);
     }
   }
   return arr;

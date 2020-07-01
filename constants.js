@@ -4,4 +4,4 @@ export default {
   DBZ: "Division by Zero",
   NAN: "Not a number",
   NOTSU: "Argument is not Su."
-}
+};
