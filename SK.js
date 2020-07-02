@@ -91,28 +91,6 @@ K.makePrimeNumbers = function(max){
 };
 
 
-S.isEvenNumber = function(n){
-  if( S.isNumber(n) && n % 2 === 0 ){
-    return true;
-  }
-};
-
-S.isOddNumber = function(n){
-  if( S.isNumber(n) && n % 2 !== 0 ){
-    return true;
-  }
-};
-
-K.divisors = function(n){
-  const arr = [];
-  for(let i = 1; i <= n; i++){
-    if(n % i === 0){
-      arr.push(i);
-    }
-  }
-  return arr;
-};
-
 // ユークリッドの互除法
 K.euclideanAlgorithm = function(a, b){
   if( !S.isNumber(a) || !S.isNumber(b)){
