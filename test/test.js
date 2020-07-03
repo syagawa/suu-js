@@ -860,6 +860,12 @@ describe('Su', function() {
       const res = ran.getString() === "1" || ran.getString() === "2" ? true : false;
       assert.equal(res, true);
     });
+    
+    it("K.makePrimeNumbers", () => {
+      const res = K.makePrimeNumbers(10);
+      const two = res[0];
+      assert.equal(two.getString(), "2");
+    });
 
 
   });

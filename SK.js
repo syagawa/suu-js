@@ -73,6 +73,10 @@ K.randomInt = function(min, max){
 };
 
 K.makePrimeNumbers = function(max){
+  if(max && max.isSu && max.isSu()){
+    max = Number(max.getString());
+  }
+
   const MAX = 100;
   if(!max){
     max = MAX;
