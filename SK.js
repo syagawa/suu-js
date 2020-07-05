@@ -157,6 +157,8 @@ K.summation = function(){
   return sum;
 };
 
+
+
 K.infiniteProduct = function(){
   const array = [];
   for(let i = 0; i < arguments.length; i++){

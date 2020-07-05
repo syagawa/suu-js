@@ -31,6 +31,27 @@ core.numToArray = function(n){
   return arr;
 };
 
+core.numToArrayWithDecimal = function(n){
+  const arr1 = [];
+  const arr2 = [];
+  const str = String(n);
+  const len = str.length;
+  let tgt = arr1;
+  for(let i = 0; i < len; i++){
+    const elm = Number(str[i]);
+    if(!this.isNumber(elm)){
+      if(elm === "." && tgt === arr1){
+        tgt = arr2;
+      }else{
+        throw new Error("This function has been called with incorrect parameters");
+      }
+    }
+    tgt.push(elm);
+  }
+  return [...arr1, ".", arr2];
+};
+
+
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
