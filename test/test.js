@@ -1,7 +1,7 @@
 const assert = require('assert');
 const app = require("../app.js");
-const s = global.s;
-const K = global.K;
+const s = app.s;
+const K = app.K;
 
 describe('Su', function() {
   describe('makeSu', function() {

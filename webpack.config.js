@@ -17,7 +17,7 @@ module.exports = {
   output: {
     filename: "app.js",
     path: path.resolve(__dirname, "./"),
-    library: 'suapp',
+    library: 'su',
     libraryExport: "default",
     libraryTarget: "umd",
     globalObject: "this"
