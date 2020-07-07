@@ -51,7 +51,6 @@ core.numToArrayWithDecimal = function(n){
   return [...arr1, ".", arr2];
 };
 
-
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
@@ -62,5 +61,17 @@ core.isNumArray = function(arr){
     return true;
   }
 };
+
+core.add = function(a, b){
+  if(!a && !b){
+    return;
+  }
+
+  const a_arr = this.numToArray(a).reverse();
+  const b_arr = this.numToArray(b).reverse();
+
+
+};
+
 
 export default core;
