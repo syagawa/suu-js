@@ -67,9 +67,38 @@ core.add = function(a, b){
     return;
   }
 
-  const a_arr = this.numToArray(a).reverse();
-  const b_arr = this.numToArray(b).reverse();
+  const a_ = this.numToArray(a).reverse();
+  const b_ = this.numToArray(b).reverse();
 
+  const arr = [];
+
+  let arr_a = a_;
+  let arr_b = b_;
+  if(a_.length < b_.length){
+    arr_a = b_;
+    arr_b = a_;
+  }
+  
+  
+  let carry = 0;
+  for(let i = 0; i < arr_a.length; i++){
+    const aa = arr_a[i] ? arr_a[i] : 0;
+    const bb = arr_b[i] ? arr_b[i] : 0;
+    let res = aa + bb + carry;
+    if(res > 9){
+      res = res -10;
+      carry = 1;
+    }else{
+      carry = 0;
+    }
+    arr.push(res);
+  }
+
+  if(carry > 0){
+    arr.push(carry);
+  }
+
+  return arr.reverse();
 
 };
 
