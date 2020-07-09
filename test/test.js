@@ -877,7 +877,6 @@ describe('Su', function() {
       const b = 47864;
       const res = core.add(a, b).join("");
       assert.equal(res, "48369");
-
     });
   });
 

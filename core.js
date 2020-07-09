@@ -3,11 +3,12 @@ const core = {};
 core.isNumber = function(n){
   if(typeof n === "number"){
     if(Number.isNaN(n)){
-      return NaN;
+      return false;
     }else{
       return true;
     }
   }
+  return false;
 };
 
 core.isZero = function(n){
@@ -49,6 +50,38 @@ core.numToArrayWithDecimal = function(n){
     tgt.push(elm);
   }
   return [...arr1, ".", arr2];
+};
+
+core.numToArrayWithDecimal2 = function(n){
+  const str = String(n);
+  const arr = str.split("");
+
+  const int = [];
+  const decimal = [];
+
+  let is_decimal = false;
+  for(let i = 0; i < arr.length; i++){
+
+    const num = Number(arr[i]);
+    const isNumber = this.isNumber(num);
+    if(!isNumber && arr[i] === "."){
+      is_decimal = true;
+      continue;
+    }else if(!isNumber){
+      throw new Error("This function has been called with incorrect parameters");
+    }
+
+    if(is_decimal){
+      decimal.push(num);
+    }else{
+      int.push(num);
+    }
+  }
+
+  return {
+    int: int,
+    decimal: decimal
+  };
 };
 
 core.isNumArray = function(arr){
