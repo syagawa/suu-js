@@ -100,38 +100,46 @@ core.add = function(a, b){
     return;
   }
 
-  const a_ = this.numToArray(a).reverse();
-  const b_ = this.numToArray(b).reverse();
+  const a_ = this.numToArrayWithDecimal2(a);
+  const b_ = this.numToArrayWithDecimal2(b);
 
-  const arr = [];
+  const a_int = a_.int.reverse();
+  const b_int = b_.int.reverse();
 
-  let arr_a = a_;
-  let arr_b = b_;
-  if(a_.length < b_.length){
-    arr_a = b_;
-    arr_b = a_;
-  }
-  
-  
-  let carry = 0;
-  for(let i = 0; i < arr_a.length; i++){
-    const aa = arr_a[i] ? arr_a[i] : 0;
-    const bb = arr_b[i] ? arr_b[i] : 0;
-    let res = aa + bb + carry;
-    if(res > 9){
-      res = res -10;
-      carry = 1;
-    }else{
-      carry = 0;
+  const a_dec = a_.decimal;
+  const b_dec = b_.decimal;
+
+  const calc = function(a, b){
+    const arr = [];
+    let arr_a = a;
+    let arr_b = b;
+    if(a.length < b.length){
+      arr_a = b;
+      arr_b = a;
     }
-    arr.push(res);
+    let carry = 0;
+    for(let i = 0; i < arr_a.length; i++){
+      const aa = arr_a[i] ? arr_a[i] : 0;
+      const bb = arr_b[i] ? arr_b[i] : 0;
+      let res = aa + bb + carry;
+      if(res > 9){
+        res = res -10;
+        carry = 1;
+      }else{
+        carry = 0;
+      }
+      arr.push(res);
+    }
+
+    if(carry > 0){
+      arr.push(carry);
+    }
+    return arr;
   }
 
-  if(carry > 0){
-    arr.push(carry);
-  }
+  const int_arr = calc(a_int, b_int).reverse();
 
-  return arr.reverse();
+  return int_arr;
 
 };
 
