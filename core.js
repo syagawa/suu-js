@@ -103,11 +103,27 @@ core.add = function(a, b){
   const a_ = this.numToArrayWithDecimal2(a);
   const b_ = this.numToArrayWithDecimal2(b);
 
-  const a_int = a_.int.reverse();
-  const b_int = b_.int.reverse();
+  const a_int = a_.int;
+  const b_int = b_.int;
 
   const a_dec = a_.decimal;
   const b_dec = b_.decimal;
+
+  let dec_len = a_dec.length;
+  if(dec_len < b_dec.length){
+    dec_len = b_dec.length;
+  }
+
+  for(let i = 0; i < dec_len; i++){
+    const a_d = a_dec[i];
+    const b_d = b_dec[i];
+    if(!core.isNumber(a_d)){
+      a_dec.push(0);
+    }
+    if(!core.isNumber(b_d)){
+      b_dec.push(0);
+    }
+  }
 
   const calc = function(a, b){
     const arr = [];
@@ -131,15 +147,38 @@ core.add = function(a, b){
       arr.push(res);
     }
 
-    if(carry > 0){
-      arr.push(carry);
+    return {
+      array: arr,
+      carry: carry
+    };
+  };
+
+  
+  const { dec_arr, dec_carry } = (function(){
+    const res = calc(a_dec.reverse(), b_dec.reverse());
+    return {
+      dec_arr: res.array.reverse(),
+      dec_carry: res.carry
+    };
+  })();
+
+  let int_arr = (function(dec_carry){
+    let res = calc(a_int.reverse(), b_int.reverse());
+    if(res.carry > 0){
+      res.array.push(res.carry);
     }
-    return arr;
-  }
 
-  const int_arr = calc(a_int, b_int).reverse();
+    if(dec_carry > 0){
+      res = calc(res.array, [dec_carry]);
+    }
+    return res.array.reverse();
+  })(dec_carry);
 
-  return int_arr;
+
+  return {
+    int: int_arr,
+    decimal: dec_arr
+  };
 
 };
 
