@@ -95,6 +95,29 @@ core.isNumArray = function(arr){
   }
 };
 
+core.fixCarry = function(arr){
+
+  const new_arr = [];
+  let carry = 0;
+  for(let i = 0; i < arr.length; i++){
+    let val = arr[i] + carry;
+    if(val > 9){
+      val = val - 10;
+      carry = 1;
+    }else if( val >= 0 && val <= 9){
+      carry = 0;
+    }
+
+    new_arr.push(val);
+  }
+  if(carry > 0){
+    new_arr.push(carry);
+  }
+
+  return new_arr;
+
+};
+
 core.add = function(a, b){
   if(!a && !b){
     return;
