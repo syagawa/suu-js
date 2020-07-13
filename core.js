@@ -156,51 +156,51 @@ core.add = function(a, b){
       arr_a = b;
       arr_b = a;
     }
-    let carry = 0;
     for(let i = 0; i < arr_a.length; i++){
       const aa = arr_a[i] ? arr_a[i] : 0;
       const bb = arr_b[i] ? arr_b[i] : 0;
-      let res = aa + bb + carry;
-      if(res > 9){
-        res = res -10;
-        carry = 1;
-      }else{
-        carry = 0;
-      }
+      let res = aa + bb;
       arr.push(res);
     }
 
-    return {
-      array: arr,
-      carry: carry
-    };
+    return core.fixCarry(arr);
+
   };
 
   
   const { dec_arr, dec_carry } = (function(){
+
+    const length = a_dec.length < b_dec.length ? b_dec.legth : a_dec.length;
+
     const res = calc(a_dec.reverse(), b_dec.reverse());
+
+
+    console.log(res);
+
+    let carry = 0;
+    if(res.length > length){
+      carry = res.pop();
+    }
     return {
-      dec_arr: res.array.reverse(),
-      dec_carry: res.carry
+      dec_arr: res,
+      dec_carry: carry
     };
   })();
 
   let int_arr = (function(dec_carry){
     let res = calc(a_int.reverse(), b_int.reverse());
-    if(res.carry > 0){
-      res.array.push(res.carry);
-    }
 
     if(dec_carry > 0){
-      res = calc(res.array, [dec_carry]);
+      console.info(res);
+      res = calc(res, [dec_carry]);
     }
-    return res.array.reverse();
+    return res;
   })(dec_carry);
 
 
   return {
-    int: int_arr,
-    decimal: dec_arr
+    int: int_arr.reverse(),
+    decimal: dec_arr.reverse()
   };
 
 };
