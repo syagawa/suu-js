@@ -17,6 +17,90 @@ core.isZero = function(n){
   }
 };
 
+core.compare = function(a, b){
+  if(!a || !b){
+    return;
+  }
+
+  let a_arr, b_arr;
+  if(a instanceof Array){
+    a_arr = a;
+  }else{
+    a_arr = core.numToArray(a);
+  }
+  if(b instanceof Array){
+    b_arr = b;
+  }else{
+    b_arr = core.numToArray(b);
+  }
+
+
+  if(a_arr[0] === 0){
+    const new_a = [];
+    let zero = true;
+    for(let i = 0; i < a_arr.length; i++){
+      const elm = a_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_a.push(elm);
+      zero = false;
+    }
+    a_arr = new_a;
+  }
+
+  if(b_arr[0] === 0){
+    const new_b = [];
+    let zero = true;
+    for(let i = 0; i < b_arr.length; i++){
+      const elm = b_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_b.push(elm);
+      zero = false;
+    }
+    b_arr = new_b;
+  }
+
+  const o = {
+    equal: false,
+    large: null,
+    small: null
+  };
+
+
+  if(a_arr.length > a_arr.length){
+    o.large = a;
+    o.small = b;
+    return o;
+  }
+  if(a_arr.length < a_arr.length){
+    o.large = b;
+    o.small = a;
+    return o;
+  }
+
+  for(let i = 0; i < a_arr.length; i++){
+    const aa = a_arr[i];
+    const bb = b_arr[i];
+    if(aa > bb){
+      o.large = a;
+      o.small = b;
+      return o;
+    }
+    if(aa < bb){
+      o.large = b;
+      o.small = a;
+      return o;
+    }
+  }
+
+  o.equal = true;
+  return o;
+
+};
+
 // 配列での計算
 core.numToArray = function(n){
   const arr = [];
@@ -125,10 +209,8 @@ core.add = function(a, b){
 
   const a_ = this.numToArrayWithDecimal2(a);
   const b_ = this.numToArrayWithDecimal2(b);
-
   const a_int = a_.int;
   const b_int = b_.int;
-
   const a_dec = a_.decimal;
   const b_dec = b_.decimal;
 
@@ -162,20 +244,12 @@ core.add = function(a, b){
       let res = aa + bb;
       arr.push(res);
     }
-
     return core.fixCarry(arr);
-
   };
 
-  
   const { dec_arr, dec_carry } = (function(){
-
     const length = a_dec.length < b_dec.length ? b_dec.legth : a_dec.length;
-
     const res = calc(a_dec.reverse(), b_dec.reverse());
-
-
-    console.log(res);
 
     let carry = 0;
     if(res.length > length){
@@ -197,12 +271,10 @@ core.add = function(a, b){
     return res;
   })(dec_carry);
 
-
   return {
     int: int_arr.reverse(),
     decimal: dec_arr.reverse()
   };
-
 };
 
 
