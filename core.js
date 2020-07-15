@@ -34,7 +34,6 @@ core.compare = function(a, b){
     b_arr = core.numToArray(b);
   }
 
-
   if(a_arr[0] === 0){
     const new_a = [];
     let zero = true;
@@ -69,7 +68,6 @@ core.compare = function(a, b){
     small: null
   };
 
-
   if(a_arr.length > a_arr.length){
     o.large = a;
     o.small = b;
@@ -100,6 +98,7 @@ core.compare = function(a, b){
   return o;
 
 };
+
 
 // 配列での計算
 core.numToArray = function(n){
@@ -143,6 +142,7 @@ core.numToArrayWithDecimal2 = function(n){
   const int = [];
   const decimal = [];
 
+  let head_zero = true;
   let is_decimal = false;
   for(let i = 0; i < arr.length; i++){
 
@@ -153,12 +153,24 @@ core.numToArrayWithDecimal2 = function(n){
       continue;
     }else if(!isNumber){
       throw new Error("This function has been called with incorrect parameters");
+    }else if(head_zero && num === 0 && !is_decimal){
+      continue;
     }
+    head_zero = false;
 
     if(is_decimal){
       decimal.push(num);
     }else{
       int.push(num);
+    }
+  }
+
+  for(let i = decimal.length - 1; i >= 0; i--){
+    const d = decimal[i];
+    if(d === 0){
+      decimal.pop();
+    }else{
+      break;
     }
   }
 
