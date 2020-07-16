@@ -17,87 +17,7 @@ core.isZero = function(n){
   }
 };
 
-core.compare = function(a, b){
-  if(!a || !b){
-    return;
-  }
 
-  let a_arr, b_arr;
-  if(a instanceof Array){
-    a_arr = a;
-  }else{
-    a_arr = core.numToArray(a);
-  }
-  if(b instanceof Array){
-    b_arr = b;
-  }else{
-    b_arr = core.numToArray(b);
-  }
-
-  if(a_arr[0] === 0){
-    const new_a = [];
-    let zero = true;
-    for(let i = 0; i < a_arr.length; i++){
-      const elm = a_arr[i];
-      if(elm === 0 && zero){
-        continue;
-      }
-      new_a.push(elm);
-      zero = false;
-    }
-    a_arr = new_a;
-  }
-
-  if(b_arr[0] === 0){
-    const new_b = [];
-    let zero = true;
-    for(let i = 0; i < b_arr.length; i++){
-      const elm = b_arr[i];
-      if(elm === 0 && zero){
-        continue;
-      }
-      new_b.push(elm);
-      zero = false;
-    }
-    b_arr = new_b;
-  }
-
-  const o = {
-    equal: false,
-    large: null,
-    small: null
-  };
-
-  if(a_arr.length > a_arr.length){
-    o.large = a;
-    o.small = b;
-    return o;
-  }
-  if(a_arr.length < a_arr.length){
-    o.large = b;
-    o.small = a;
-    return o;
-  }
-
-  for(let i = 0; i < a_arr.length; i++){
-    const aa = a_arr[i];
-    const bb = b_arr[i];
-    if(aa > bb){
-      o.large = a;
-      o.small = b;
-      return o;
-    }
-    if(aa < bb){
-      o.large = b;
-      o.small = a;
-      return o;
-    }
-  }
-
-  o.equal = true;
-  return o;
-
-};
 
 
 // 配列での計算
@@ -178,6 +98,88 @@ core.numToArrayWithDecimal2 = function(n){
     int: int,
     decimal: decimal
   };
+};
+
+core.compare = function(a, b){
+  if(!a || !b){
+    return;
+  }
+
+  let a_arr, b_arr;
+  if(a instanceof Array){
+    a_arr = a;
+  }else{
+    a_arr = core.numToArrayWithDecimal2(a);
+  }
+  if(b instanceof Array){
+    b_arr = b;
+  }else{
+    b_arr = core.numToArrayWithDecimal2(b);
+  }
+
+  if(a_arr[0] === 0){
+    const new_a = [];
+    let zero = true;
+    for(let i = 0; i < a_arr.length; i++){
+      const elm = a_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_a.push(elm);
+      zero = false;
+    }
+    a_arr = new_a;
+  }
+
+  if(b_arr[0] === 0){
+    const new_b = [];
+    let zero = true;
+    for(let i = 0; i < b_arr.length; i++){
+      const elm = b_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_b.push(elm);
+      zero = false;
+    }
+    b_arr = new_b;
+  }
+
+  const o = {
+    equal: false,
+    large: null,
+    small: null
+  };
+
+  if(a_arr.length > a_arr.length){
+    o.large = a;
+    o.small = b;
+    return o;
+  }
+  if(a_arr.length < a_arr.length){
+    o.large = b;
+    o.small = a;
+    return o;
+  }
+
+  for(let i = 0; i < a_arr.length; i++){
+    const aa = a_arr[i];
+    const bb = b_arr[i];
+    if(aa > bb){
+      o.large = a;
+      o.small = b;
+      return o;
+    }
+    if(aa < bb){
+      o.large = b;
+      o.small = a;
+      return o;
+    }
+  }
+
+  o.equal = true;
+  return o;
+
 };
 
 core.isNumArray = function(arr){
