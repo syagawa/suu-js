@@ -27,7 +27,7 @@ core.numToArray = function(n){
   const len = str.length;
   for(let i = 0; i < len; i++){
     const elm = Number(str.slice(i, i + 1));
-    if(!this.isNumber(elm)){
+    if(!core.isNumber(elm)){
       throw new Error("This function has been called with incorrect parameters");
     }
     arr.push(elm);
@@ -43,7 +43,7 @@ core.numToArrayWithDecimal = function(n){
   let tgt = arr1;
   for(let i = 0; i < len; i++){
     const elm = Number(str[i]);
-    if(!this.isNumber(elm)){
+    if(!core.isNumber(elm)){
       if(elm === "." && tgt === arr1){
         tgt = arr2;
       }else{
@@ -67,7 +67,7 @@ core.numToArrayWithDecimal2 = function(n){
   for(let i = 0; i < arr.length; i++){
 
     const num = Number(arr[i]);
-    const isNumber = this.isNumber(num);
+    const isNumber = core.isNumber(num);
     if(!isNumber && arr[i] === "."){
       is_decimal = true;
       continue;
@@ -185,7 +185,7 @@ core.compare = function(a, b){
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
-      if( !this.isNumber(arr[i]) ){
+      if( !core.isNumber(arr[i]) ){
         return false;
       }
     }
@@ -221,8 +221,8 @@ core.add = function(a, b){
     return;
   }
 
-  const a_ = this.numToArrayWithDecimal2(a);
-  const b_ = this.numToArrayWithDecimal2(b);
+  const a_ = core.numToArrayWithDecimal2(a);
+  const b_ = core.numToArrayWithDecimal2(b);
   const a_int = a_.int;
   const b_int = b_.int;
   const a_dec = a_.decimal;
