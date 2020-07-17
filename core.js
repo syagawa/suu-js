@@ -56,7 +56,13 @@ core.numToArrayWithDecimal = function(n){
 };
 
 core.numToArrayWithDecimal2 = function(n){
-  const str = String(n);
+  let str = String(n);
+  let negative = false;
+  if(str[0].match(/-/)){
+    str = str.replace(/^-/, "");
+    negative = true;
+  }
+
   const arr = str.split("");
 
   const int = [];
@@ -96,7 +102,8 @@ core.numToArrayWithDecimal2 = function(n){
 
   return {
     int: int,
-    decimal: decimal
+    decimal: decimal,
+    negative: negative
   };
 };
 
@@ -148,7 +155,7 @@ core.compare = function(a, b){
   const o = {
     equal: false,
     large: null,
-    small: null
+    small: null,
   };
 
   if(a_arr.length > a_arr.length){
