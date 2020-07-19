@@ -219,7 +219,6 @@ core.getLarge = function(a, b){
     return negative ? a : b;
   }
 
-  
   if(a_.decimal.length < b_.decimal.length){
     const len = b_.decimal.length - a_.decimal.length;
     for(let i = 0; i < len; i++){
@@ -238,6 +237,16 @@ core.getLarge = function(a, b){
   }
   if(dec_res.large === b_.decimal){
     return negative ? a : b;
+  }
+};
+
+core.getSmall = function(a, b){
+  const res = core.getLarge(a, b);
+  if(res === a){
+    return b;
+  }
+  if(res === b){
+    return a;
   }
 };
 
