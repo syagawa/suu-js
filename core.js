@@ -250,6 +250,14 @@ core.getSmall = function(a, b){
   }
 };
 
+core.isEqual = function(a, b){
+  const res = core.compare(a, b);
+  if(res.equal){
+    return true;
+  }
+  return false;
+}
+
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
