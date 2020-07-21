@@ -872,12 +872,12 @@ describe('Su', function() {
   });
 
   describe("core", function(){
-    it("core.add", () => {
-      const a = 505;
-      const b = 47864;
-      const res = core.add(a, b).int.join("");
-      assert.equal(res, "48369");
-    });
+    // it("core.add", () => {
+    //   const a = 505;
+    //   const b = 47864;
+    //   const res = core.add(a, b).int.join("");
+    //   assert.equal(res, "48369");
+    // });
   });
 
 

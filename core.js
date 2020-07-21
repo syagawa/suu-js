@@ -292,8 +292,11 @@ core.fixCarry = function(arr){
 
 };
 
-core.add = function(a, b){
+core.add_and_subtract = function(a, b, mode){
   if(!a && !b){
+    return;
+  }
+  if(!mode){
     return;
   }
 
