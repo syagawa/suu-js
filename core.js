@@ -300,6 +300,15 @@ core.add_and_subtract = function(a, b, mode){
     return;
   }
 
+  let plus;
+  if(mode === "+"){
+    plus = true;
+  }else if(mode === "-"){
+    plus = false;
+  }else{
+    return;
+  }
+
   const a_ = core.numToArrayWithDecimal2(a);
   const b_ = core.numToArrayWithDecimal2(b);
   const a_int = a_.int;
