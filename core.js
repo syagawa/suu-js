@@ -280,11 +280,13 @@ core.fixCarry = function(arr){
       carry = 1;
     }else if( val >= 0 && val <= 9){
       carry = 0;
+    }else{
+      val = 10 + val;
+      carry = -1;
     }
-
     new_arr.push(val);
   }
-  if(carry > 0){
+  if(carry !== 0){
     new_arr.push(carry);
   }
 
@@ -332,7 +334,7 @@ core.add_and_subtract = function(a, b, mode){
     }
   }
 
-  const calc = function(a, b){
+  const calc = function(a, b, plus){
     const arr = [];
     let arr_a = a;
     let arr_b = b;
@@ -343,7 +345,7 @@ core.add_and_subtract = function(a, b, mode){
     for(let i = 0; i < arr_a.length; i++){
       const aa = arr_a[i] ? arr_a[i] : 0;
       const bb = arr_b[i] ? arr_b[i] : 0;
-      let res = aa + bb;
+      let res = plus ? aa + bb : aa - bb;
       arr.push(res);
     }
     return core.fixCarry(arr);
@@ -351,7 +353,7 @@ core.add_and_subtract = function(a, b, mode){
 
   const { dec_arr, dec_carry } = (function(){
     const length = a_dec.length < b_dec.length ? b_dec.legth : a_dec.length;
-    const res = calc(a_dec.reverse(), b_dec.reverse());
+    const res = calc(a_dec.reverse(), b_dec.reverse(), plus);
 
     let carry = 0;
     if(res.length > length){
@@ -364,11 +366,10 @@ core.add_and_subtract = function(a, b, mode){
   })();
 
   let int_arr = (function(dec_carry){
-    let res = calc(a_int.reverse(), b_int.reverse());
+    let res = calc(a_int.reverse(), b_int.reverse(), plus);
 
-    if(dec_carry > 0){
-      console.info(res);
-      res = calc(res, [dec_carry]);
+    if(dec_carry !== 0){
+      res = calc(res, [dec_carry], true);
     }
     return res;
   })(dec_carry);
