@@ -380,5 +380,10 @@ core.add_and_subtract = function(a, b, mode){
   };
 };
 
+core.add = function(a, b){
+  const a_ = core.numToArrayWithDecimal2(a);
+  const b_ = core.numToArrayWithDecimal2(b);
+}
+
 
 export default core;
