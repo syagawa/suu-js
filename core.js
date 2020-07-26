@@ -85,9 +85,9 @@ core.numToArrayWithDecimal2 = function(n){
     head_zero = false;
 
     if(is_decimal){
-      decimal.push(num);
+      decimal.push(negative ? -num : num);
     }else{
-      int.push(num);
+      int.push(negative ? -num : num);
     }
   }
 
@@ -317,6 +317,8 @@ core.add_and_subtract = function(a, b, mode){
   const b_int = b_.int;
   const a_dec = a_.decimal;
   const b_dec = b_.decimal;
+  const a_negative = a_.negative;
+  const b_negative = b_.negative;
 
   let dec_len = a_dec.length;
   if(dec_len < b_dec.length){
@@ -383,6 +385,10 @@ core.add_and_subtract = function(a, b, mode){
 core.add = function(a, b){
   const a_ = core.numToArrayWithDecimal2(a);
   const b_ = core.numToArrayWithDecimal2(b);
+
+  let large = core.getLarge(a, b);
+
+
 }
 
 
