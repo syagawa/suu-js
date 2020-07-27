@@ -271,6 +271,26 @@ core.isNumArray = function(arr){
 
 core.fixCarry = function(arr){
 
+  console.log(arr);
+  let minus = false;
+  for(let i = arr.length - 1; i >=0; i--){
+    const elm = arr[i];
+    if(elm < 0){
+      minus = true;
+      break;
+    }else if(elm === 0){
+      continue;
+    }else{
+      break;
+    }
+  }
+  if(minus){
+    const cache = [];
+    arr.forEach( elm => {
+      cache.push(-elm);
+    });
+    arr = cache;
+  }
   const new_arr = [];
   let carry = 0;
   for(let i = 0; i < arr.length; i++){
@@ -289,6 +309,8 @@ core.fixCarry = function(arr){
   if(carry !== 0){
     new_arr.push(carry);
   }
+
+  console.log(new_arr)
 
   return new_arr;
 
