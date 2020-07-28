@@ -269,14 +269,14 @@ core.isNumArray = function(arr){
   }
 };
 
-core.fixCarry = function(arr){
+core.fixCarry = function(arr, minus){
 
   console.log(arr);
-  let minus = false;
+  let minus_ = minus;
   for(let i = arr.length - 1; i >=0; i--){
     const elm = arr[i];
     if(elm < 0){
-      minus = true;
+      minus_ = true;
       break;
     }else if(elm === 0){
       continue;
@@ -284,7 +284,7 @@ core.fixCarry = function(arr){
       break;
     }
   }
-  if(minus){
+  if(minus_){
     const cache = [];
     arr.forEach( elm => {
       cache.push(-elm);
@@ -310,9 +310,12 @@ core.fixCarry = function(arr){
     new_arr.push(carry);
   }
 
-  console.log(new_arr)
-
-  return new_arr;
+  console.log(new_arr);
+  console.log("minus", minus_);
+  return {
+    new_array: new_arr,
+    minus: minus_
+  };
 
 };
 
@@ -375,28 +378,34 @@ core.add_and_subtract = function(a, b, mode){
     return core.fixCarry(arr);
   };
 
-  const { dec_arr, dec_carry } = (function(){
+  const { dec_arr, dec_carry, dec_minus } = (function(){
     const length = a_dec.length < b_dec.length ? b_dec.legth : a_dec.length;
     const res = calc(a_dec.reverse(), b_dec.reverse(), plus);
 
     let carry = 0;
-    if(res.length > length){
-      carry = res.pop();
+    if(res.new_array.length > length){
+      carry = res.new_array.pop();
     }
     return {
-      dec_arr: res,
-      dec_carry: carry
+      dec_arr: res.new_array,
+      dec_carry: carry,
+      dec_minus: res.minus
     };
   })();
 
-  let int_arr = (function(dec_carry){
+  let { int_arr } = (function(dec_carry){
     let res = calc(a_int.reverse(), b_int.reverse(), plus);
 
     if(dec_carry !== 0){
-      res = calc(res, [dec_carry], true);
+      res = calc(res.new_array, [dec_carry], true);
     }
-    return res;
+    // return res;
+    return {
+      int_arr: res.new_array
+    };
   })(dec_carry);
+  console.log(int_arr);
+  console.log(dec_arr, dec_carry, dec_minus);
 
   return {
     int: int_arr.reverse(),
