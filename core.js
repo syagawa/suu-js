@@ -107,6 +107,17 @@ core.numToArrayWithDecimal2 = function(n){
   };
 };
 
+core.numToArrayWithDecimal3 = function(n){
+  let str = String(n);
+  let negative = false;
+  while(str[0].match(/^-/)){
+    str = str.replace(/^-/, "");
+    negative = !negative;
+  }
+
+
+};
+
 core.compare = function(a, b){
   if(!a || !b){
     return;
