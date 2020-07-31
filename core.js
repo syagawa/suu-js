@@ -115,6 +115,47 @@ core.numToArrayWithDecimal3 = function(n){
     negative = !negative;
   }
 
+  let dec_index = null;
+  let res = str.match(/\./g);
+  if(res && res.length > 1){
+    return;
+  }
+  if(res && res.length === 1){
+    dec_index = str.match(/\./).index;
+    str = str.replace(/\./, "");
+  }
+
+  console.info(str, dec_index);
+  const arr = [];
+  let zero_count = 0;
+  for(let i = 0; i < str.length; i++){
+
+    const num = Number(str[i]);
+    const isNumber = core.isNumber(num);
+    if(!isNumber){
+      throw new Error("This function has been called with incorrect parameters");
+    }else if(num === 0 && dec_index > i ){
+      zero_count++;
+      continue;
+    }
+    arr.push(num);
+  }
+  dec_index = dec_index - zero_count;
+
+  while(arr[arr.length - 1] === 0){
+    arr.pop();
+  }
+
+  const o = {
+    array: arr,
+    negative: negative,
+  };
+  if(dec_index === 0 || dec_index > 0){
+     o.decimal_index = dec_index;
+  }
+
+  return o;
+
 
 };
 
