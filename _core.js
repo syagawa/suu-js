@@ -11,7 +11,100 @@ core.isNumber = function(n){
   return false;
 };
 
+core.isZero = function(n){
+  if( n === 0){
+    return true;
+  }
+};
+
+// 配列での計算
+core.numToArray = function(n){
+  const arr = [];
+  const str = String(n);
+  const len = str.length;
+  for(let i = 0; i < len; i++){
+    const elm = Number(str.slice(i, i + 1));
+    if(!core.isNumber(elm)){
+      throw new Error("This function has been called with incorrect parameters");
+    }
+    arr.push(elm);
+  }
+  return arr;
+};
+
 core.numToArrayWithDecimal = function(n){
+  const arr1 = [];
+  const arr2 = [];
+  const str = String(n);
+  const len = str.length;
+  let tgt = arr1;
+  for(let i = 0; i < len; i++){
+    const elm = Number(str[i]);
+    if(!core.isNumber(elm)){
+      if(elm === "." && tgt === arr1){
+        tgt = arr2;
+      }else{
+        throw new Error("This function has been called with incorrect parameters");
+      }
+    }
+    tgt.push(elm);
+  }
+  return [...arr1, ".", arr2];
+};
+
+core.numToArrayWithDecimal2 = function(n){
+  let str = String(n);
+  let negative = false;
+  if(str[0].match(/-/)){
+    str = str.replace(/^-/, "");
+    negative = true;
+  }
+
+  const arr = str.split("");
+
+  const int = [];
+  const decimal = [];
+
+  let head_zero = true;
+  let is_decimal = false;
+  for(let i = 0; i < arr.length; i++){
+
+    const num = Number(arr[i]);
+    const isNumber = core.isNumber(num);
+    if(!isNumber && arr[i] === "."){
+      is_decimal = true;
+      continue;
+    }else if(!isNumber){
+      throw new Error("This function has been called with incorrect parameters");
+    }else if(head_zero && num === 0 && !is_decimal){
+      continue;
+    }
+    head_zero = false;
+
+    if(is_decimal){
+      decimal.push(negative ? -num : num);
+    }else{
+      int.push(negative ? -num : num);
+    }
+  }
+
+  for(let i = decimal.length - 1; i >= 0; i--){
+    const d = decimal[i];
+    if(d === 0){
+      decimal.pop();
+    }else{
+      break;
+    }
+  }
+
+  return {
+    int: int,
+    decimal: decimal,
+    negative: negative
+  };
+};
+
+core.numToArrayWithDecimal3 = function(n){
   let str = String(n);
   let negative = false;
   while(str[0].match(/^-/)){
@@ -66,21 +159,81 @@ core.compare = function(a, b){
   if(!a || !b){
     return;
   }
+
+  let a_arr, b_arr;
+  if(a instanceof Array){
+    a_arr = a;
+  }else{
+    a_arr = core.numToArrayWithDecimal2(a);
+  }
+  if(b instanceof Array){
+    b_arr = b;
+  }else{
+    b_arr = core.numToArrayWithDecimal2(b);
+  }
+
+  if(a_arr[0] === 0){
+    const new_a = [];
+    let zero = true;
+    for(let i = 0; i < a_arr.length; i++){
+      const elm = a_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_a.push(elm);
+      zero = false;
+    }
+    a_arr = new_a;
+  }
+
+  if(b_arr[0] === 0){
+    const new_b = [];
+    let zero = true;
+    for(let i = 0; i < b_arr.length; i++){
+      const elm = b_arr[i];
+      if(elm === 0 && zero){
+        continue;
+      }
+      new_b.push(elm);
+      zero = false;
+    }
+    b_arr = new_b;
+  }
+
   const o = {
-    small: null,
+    equal: false,
     large: null,
-    equal: false
+    small: null,
   };
-  if(!a.negative && b.negative){
-    o.small = b;
+
+  if(a_arr.length > a_arr.length){
     o.large = a;
+    o.small = b;
     return o;
   }
-  if(a.negative && !b.negative){
-    o.small = a;
+  if(a_arr.length < a_arr.length){
     o.large = b;
+    o.small = a;
     return o;
   }
+
+  for(let i = 0; i < a_arr.length; i++){
+    const aa = a_arr[i];
+    const bb = b_arr[i];
+    if(aa > bb){
+      o.large = a;
+      o.small = b;
+      return o;
+    }
+    if(aa < bb){
+      o.large = b;
+      o.small = a;
+      return o;
+    }
+  }
+
+  o.equal = true;
+  return o;
 
 };
 
