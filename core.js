@@ -19,7 +19,7 @@ core.numToArrayWithDecimal = function(n){
     negative = !negative;
   }
 
-  let dec_index = null;
+  let dec_index = -1;
   let res = str.match(/\./g);
   if(res && res.length > 1){
     return;
@@ -46,7 +46,7 @@ core.numToArrayWithDecimal = function(n){
   }
   dec_index = dec_index - zero_count;
 
-  while(arr[arr.length - 1] === 0){
+  while(dec_index > 0 && arr[arr.length - 1] === 0){
     arr.pop();
   }
 
