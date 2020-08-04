@@ -46,8 +46,12 @@ core.numToArrayWithDecimal = function(n){
   }
   dec_index = dec_index - zero_count;
 
-  while(dec_index > 0 && arr[arr.length - 1] === 0){
+  while(arr[arr.length - 1] === 0){
     arr.pop();
+  }
+  if(arr.length === 0){
+    arr.push(0);
+    dec_index = null;
   }
 
   const o = {
@@ -71,6 +75,16 @@ core.compare = function(a, b){
     large: null,
     equal: false
   };
+
+  const a_len = a.array.length;
+  const b_len = b.array.length;
+  const a_str = a.array.join("");
+  const b_str = b.array.join("");
+
+  if(a.array.length === 1 && a.array[0] === 0 && b.array.length === 1 && b.array[0] === 0){
+    o.equal = true;
+    return o;
+  }
   if(!a.negative && b.negative){
     o.small = b;
     o.large = a;
