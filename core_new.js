@@ -60,6 +60,8 @@ core.numToArrayWithDecimal = function(n){
   };
   if(dec_index === 0 || dec_index > 0){
      o.decimal_index = dec_index;
+  }else{
+    o.decimal_index = arr.length;
   }
 
   return o;
@@ -81,7 +83,7 @@ core.compare = function(a, b){
   const a_str = a.array.join("");
   const b_str = b.array.join("");
 
-  if(a.array.length === 1 && a.array[0] === 0 && b.array.length === 1 && b.array[0] === 0){
+  if(a_len === 1 && a_str === "0" && b_len === 1 && b_str === "0"){
     o.equal = true;
     return o;
   }
@@ -95,6 +97,13 @@ core.compare = function(a, b){
     o.large = b;
     return o;
   }
+
+
+
+
+
+
+
 
 };
 
