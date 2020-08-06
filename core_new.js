@@ -19,7 +19,7 @@ core.numToArrayWithDecimal = function(n){
     negative = !negative;
   }
 
-  let dec_index = -1;
+  let dec_index;
   let res = str.match(/\./g);
   if(res && res.length > 1){
     return;
@@ -27,6 +27,8 @@ core.numToArrayWithDecimal = function(n){
   if(res && res.length === 1){
     dec_index = str.match(/\./).index;
     str = str.replace(/\./, "");
+  }else{
+    dec_index = str.length;
   }
 
   console.info(str, dec_index);
@@ -38,20 +40,22 @@ core.numToArrayWithDecimal = function(n){
     const isNumber = core.isNumber(num);
     if(!isNumber){
       throw new Error("This function has been called with incorrect parameters");
-    }else if(num === 0 && dec_index > i ){
-      zero_count++;
-      continue;
     }
     arr.push(num);
   }
-  dec_index = dec_index - zero_count;
+  // dec_index = dec_index - zero_count;
 
   while(arr[arr.length - 1] === 0){
     arr.pop();
   }
+  while(arr[0] === 0){
+    arr.shift();
+    dec_index--;
+  }
+
   if(arr.length === 0){
     arr.push(0);
-    dec_index = null;
+    dec_index = 1;
   }
 
   const o = {
