@@ -2,7 +2,37 @@ const assert = require('assert');
 const app = require("../app.js");
 const s = app.s;
 const K = app.K;
-const core = app.core;
+const core = app.core2;
+
+describe("core", function(){
+  describe("isNumber", function(){
+    it("0", () => {
+      const zero = 0;
+      const res = core.isNumber(zero);
+      assert.equal(res, true);
+    });
+    it("-100.5786", () => {
+      const n = -100.5786;
+      const res = core.isNumber(n);
+      assert.equal(res, true);
+    });
+    it("NaN", () => {
+      const n = NaN;
+      const res = core.isNumber(n);
+      assert.equal(res, false);
+    });
+    it("String", () => {
+      const n = "9";
+      const res = core.isNumber(n);
+      assert.equal(res, false);
+    });
+
+  });
+
+});
+
+
+
 
 describe('Su', function() {
   describe('makeSu', function() {
