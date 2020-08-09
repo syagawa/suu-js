@@ -26,7 +26,16 @@ describe("core", function(){
       const res = core.isNumber(n);
       assert.equal(res, false);
     });
-
+  });
+  describe("numToArrayWithDecimal", function(){
+    it("0", () => {
+      const zero = 0;
+      const res = core.numToArrayWithDecimal(zero);
+      assert.equal(res.array.length, 1);
+      assert.equal(res.array[0], 0);
+      assert.equal(res.decimal_index, 1);
+      assert.equal(res.negative, false);
+    });
   });
 
 });
