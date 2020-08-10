@@ -36,6 +36,14 @@ describe("core", function(){
       assert.equal(res.decimal_index, 1);
       assert.equal(res.negative, false);
     });
+    it("0.000000000000000000001", () => {
+      const str = "0.000000000000000000001";
+      const res = core.numToArrayWithDecimal(str);
+      assert.equal(res.array.length, 22);
+      assert.equal(res.array[0], 0);
+      assert.equal(res.decimal_index, 1);
+      assert.equal(res.negative, false);
+    });
   });
 
 });

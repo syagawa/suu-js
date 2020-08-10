@@ -48,7 +48,7 @@ core.numToArrayWithDecimal = function(n){
   while(arr[arr.length - 1] === 0){
     arr.pop();
   }
-  while(arr[0] === 0){
+  while(dec_index > 1 && arr[0] === 0){
     arr.shift();
     dec_index--;
   }
