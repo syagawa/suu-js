@@ -44,6 +44,14 @@ describe("core", function(){
       assert.equal(res.decimal_index, 1);
       assert.equal(res.negative, false);
     });
+    it("1234567890.00000000000000000000", () => {
+      const str = "1234567890.00000000000000000000";
+      const res = core.numToArrayWithDecimal(str);
+      assert.equal(res.array.length, 10);
+      assert.equal(res.array[0], 1);
+      assert.equal(res.decimal_index, 10);
+      assert.equal(res.negative, false);
+    });
   });
 
 });
