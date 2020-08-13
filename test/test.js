@@ -61,7 +61,18 @@ describe("core", function(){
       assert.equal(res.negative, true);
     });
   });
-
+  describe("compare", function(){
+    it("1, 2", () => {
+      const one = core.numToArrayWithDecimal("1");
+      const two = core.numToArrayWithDecimal("2");
+      const res = core.compare(one, two);
+      assert.equal(res.large, two);
+      assert.equal(res.small, one);
+      assert.equal(res.equal, false);
+    });
+    
+  
+  });
 });
 
 
