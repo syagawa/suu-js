@@ -70,6 +70,14 @@ describe("core", function(){
       assert.equal(res.small, one);
       assert.equal(res.equal, false);
     });
+    it("2, 1", () => {
+      const two = core.numToArrayWithDecimal("2");
+      const one = core.numToArrayWithDecimal("1");
+      const res = core.compare(two, one);
+      assert.equal(res.large, two);
+      assert.equal(res.small, one);
+      assert.equal(res.equal, false);
+    });
     
   
   });
