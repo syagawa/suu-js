@@ -78,6 +78,14 @@ describe("core", function(){
       assert.equal(res.small, one);
       assert.equal(res.equal, false);
     });
+    it("0, 0", () => {
+      const zero1 = core.numToArrayWithDecimal("0");
+      const zero2 = core.numToArrayWithDecimal("0");
+      const res = core.compare(zero1, zero2);
+      assert.equal(res.large, null);
+      assert.equal(res.small, null);
+      assert.equal(res.equal, true);
+    });
     
   
   });
