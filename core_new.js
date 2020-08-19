@@ -111,28 +111,36 @@ core.compare = function(a, b){
     return o;
   }
 
+  const negative = a.negative;
+
+  const o_a_b = {
+    large: negative ? b : a,
+    small: negative ? a : b,
+    equal: false,
+  };
+  const o_b_a = {
+    large: negative ? a : b,
+    small: negative ? b : a,
+    equal: false
+  };
+
+
+
+
   if(a_int_len > b_int_len){
-    o.small = b;
-    o.large = a;
-    return o;
+    return o_a_b;
   }
   
   if(a_int_len < b_int_len){
-    o.small = a;
-    o.large = b;
-    return o;
+    return o_b_a;
   }
 
   for(let i = 0; i < a_int_len; i++){
     if(a_array[i] > b_array[i]){
-      o.small = b;
-      o.large = a;
-      return o;  
+      return o_a_b;
     }
     if(a_array[i] < b_array[i]){
-      o.small = a;
-      o.large = b;
-      return o;  
+      return o_b_a;  
     }
   }
 
@@ -141,21 +149,15 @@ core.compare = function(a, b){
     const aa = a_array[a_int_len + i] ? a_array[a_int_len + i] : 0;
     const bb = b_array[b_int_len + i] ? b_array[b_int_len + i] : 0;
     if(aa > bb){
-      o.small = b;
-      o.large = a;
-      return o;
+      return o_a_b;
     }
     if(aa < bb){
-      o.small = a;
-      o.large = b;
-      return o;
+      return o_b_a;
     }
   }
 
   o.equal = true;
   return o;
-
-
 
 };
 

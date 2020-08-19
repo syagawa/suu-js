@@ -110,6 +110,14 @@ describe("core", function(){
       assert.equal(res.small, null);
       assert.equal(res.equal, true);
     });
+    it("-200, -1", () => {
+      const num1 = core.numToArrayWithDecimal("-200");
+      const num2 = core.numToArrayWithDecimal("-1");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num2);
+      assert.equal(res.small, num1);
+      assert.equal(res.equal, false);
+    });
     
   
   });
