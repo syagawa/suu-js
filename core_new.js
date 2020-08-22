@@ -125,8 +125,6 @@ core.compare = function(a, b){
   };
 
 
-
-
   if(a_int_len > b_int_len){
     return o_a_b;
   }
