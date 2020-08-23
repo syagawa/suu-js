@@ -63,19 +63,19 @@ describe("core", function(){
   });
   describe("compare", function(){
     it("1, 2", () => {
-      const one = core.numToArrayWithDecimal("1");
-      const two = core.numToArrayWithDecimal("2");
-      const res = core.compare(one, two);
-      assert.equal(res.large, two);
-      assert.equal(res.small, one);
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("2");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num2);
+      assert.equal(res.small, num1);
       assert.equal(res.equal, false);
     });
     it("2, 1", () => {
-      const two = core.numToArrayWithDecimal("2");
-      const one = core.numToArrayWithDecimal("1");
-      const res = core.compare(two, one);
-      assert.equal(res.large, two);
-      assert.equal(res.small, one);
+      const num1 = core.numToArrayWithDecimal("2");
+      const num2 = core.numToArrayWithDecimal("1");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num1);
+      assert.equal(res.small, num2);
       assert.equal(res.equal, false);
     });
     it("1, 1", () => {
@@ -87,9 +87,9 @@ describe("core", function(){
       assert.equal(res.equal, true);
     });
     it("0, 0", () => {
-      const zero1 = core.numToArrayWithDecimal("0");
-      const zero2 = core.numToArrayWithDecimal("0");
-      const res = core.compare(zero1, zero2);
+      const num1 = core.numToArrayWithDecimal("0");
+      const num2 = core.numToArrayWithDecimal("0");
+      const res = core.compare(num1, num2);
       assert.equal(res.large, null);
       assert.equal(res.small, null);
       assert.equal(res.equal, true);
@@ -102,6 +102,17 @@ describe("core", function(){
       assert.equal(res.small, null);
       assert.equal(res.equal, true);
     });
+
+    it("-1, -2", () => {
+      const num1 = core.numToArrayWithDecimal("-1");
+      const num2 = core.numToArrayWithDecimal("-2");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num1);
+      assert.equal(res.small, num2);
+      assert.equal(res.equal, false);
+    });
+
+
     it("0, 0.1", () => {
       const num1 = core.numToArrayWithDecimal("0");
       const num2 = core.numToArrayWithDecimal("0.1");
@@ -125,24 +136,7 @@ describe("core", function(){
       assert.equal(res.large, null);
       assert.equal(res.small, null);
       assert.equal(res.equal, true);
-    });
-    it("-200, -1", () => {
-      const num1 = core.numToArrayWithDecimal("-200");
-      const num2 = core.numToArrayWithDecimal("-1");
-      const res = core.compare(num1, num2);
-      assert.equal(res.large, num2);
-      assert.equal(res.small, num1);
-      assert.equal(res.equal, false);
-    });
-    it("200, -1", () => {
-      const num1 = core.numToArrayWithDecimal("200");
-      const num2 = core.numToArrayWithDecimal("-1");
-      const res = core.compare(num1, num2);
-      assert.equal(res.large, num1);
-      assert.equal(res.small, num2);
-      assert.equal(res.equal, false);
-    });
-    
+    });    
     
   
   });
