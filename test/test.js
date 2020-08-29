@@ -178,6 +178,14 @@ describe("core", function(){
       assert.equal(res.small, num2);
       assert.equal(res.equal, false);
     });
+    it("1000, 1001", () => {
+      const num1 = core.numToArrayWithDecimal("1000");
+      const num2 = core.numToArrayWithDecimal("1001");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num2);
+      assert.equal(res.small, num1);
+      assert.equal(res.equal, false);
+    });
 
     
   
