@@ -186,9 +186,15 @@ describe("core", function(){
       assert.equal(res.small, num1);
       assert.equal(res.equal, false);
     });
+  });
 
-    
-  
+  describe("getLarge", function(){
+    it("1, 2", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("2");
+      const res = core.getLarge(num1, num2);
+      assert.equal(res, num2);
+    });
   });
 });
 

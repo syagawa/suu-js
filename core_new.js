@@ -160,54 +160,7 @@ core.compare = function(a, b){
 };
 
 core.getLarge = function(a, b){
-
-  const a_ = core.numToArrayWithDecimal2(a);
-  const b_ = core.numToArrayWithDecimal2(b);
-
-  let negative = false;
-
-  let result;
-
-  if(a_.negative && !b_.negative){
-    return b;
-  }
-
-  if(!a_.negative && b_.negative){
-    return a;
-  }
-
-  if(a_.negative && b_.negative){
-    negative = true;
-  }
-
-  const int_res = core.compare(a_.int, b_.int);
-
-  if(int_res.large === a_.int){
-    return negative ? b : a;
-  }
-  if(int_res.large === b_.int){
-    return negative ? a : b;
-  }
-
-  if(a_.decimal.length < b_.decimal.length){
-    const len = b_.decimal.length - a_.decimal.length;
-    for(let i = 0; i < len; i++){
-      a_.decimal.push(0);
-    }
-  }else if(a_.decimal.length > b_.decimal.length){
-    const len = a_.decimal.length - b_.decimal.length;
-    for(let i = 0; i < len; i++){
-      b_.decimal.push(0);
-    }
-  }
-  
-  const dec_res = core.compare(a_.decimal, b_.decimal);
-  if(dec_res.large === a_.decimal){
-    return negative ? b : a;
-  }
-  if(dec_res.large === b_.decimal){
-    return negative ? a : b;
-  }
+  return core.compare(a, b).large;
 };
 
 core.getSmall = function(a, b){
