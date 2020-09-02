@@ -164,13 +164,7 @@ core.getLarge = function(a, b){
 };
 
 core.getSmall = function(a, b){
-  const res = core.getLarge(a, b);
-  if(res === a){
-    return b;
-  }
-  if(res === b){
-    return a;
-  }
+  return core.compare(a, b).small;
 };
 
 core.isEqual = function(a, b){
