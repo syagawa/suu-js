@@ -240,6 +240,33 @@ describe("core", function(){
       assert.equal(res, num2);
     });
   });
+
+  describe("isEqual", function(){
+    it("1, 2", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("2");
+      const res = core.isEqual(num1, num2);
+      assert.equal(res, false);
+    });
+  });
+  describe("isEqual", function(){
+    it("1, 1", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("1");
+      const res = core.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
+  });
+  describe("isEqual", function(){
+    it("1, 1.00000000", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("1.00000000");
+      const res = core.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
+  });
+
+
 });
 
 
