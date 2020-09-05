@@ -253,8 +253,8 @@ core.add_and_subtract = function(a, b, mode){
     return;
   }
 
-  const a_ = core.numToArrayWithDecimal2(a);
-  const b_ = core.numToArrayWithDecimal2(b);
+  const a_ = core.numToArrayWithDecimal(a);
+  const b_ = core.numToArrayWithDecimal(b);
   const a_int = a_.int;
   const b_int = b_.int;
   const a_dec = a_.decimal;
@@ -331,8 +331,8 @@ core.add_and_subtract = function(a, b, mode){
 };
 
 core.add = function(a, b){
-  const a_ = core.numToArrayWithDecimal2(a);
-  const b_ = core.numToArrayWithDecimal2(b);
+  const a_ = core.numToArrayWithDecimal(a);
+  const b_ = core.numToArrayWithDecimal(b);
 
   let large = core.getLarge(a, b);
 
