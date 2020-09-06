@@ -31,9 +31,7 @@ core.numToArrayWithDecimal = function(n){
     dec_index = str.length;
   }
 
-  console.info(str, dec_index);
   const arr = [];
-  let zero_count = 0;
   for(let i = 0; i < str.length; i++){
 
     const num = Number(str[i]);
@@ -43,7 +41,6 @@ core.numToArrayWithDecimal = function(n){
     }
     arr.push(num);
   }
-  // dec_index = dec_index - zero_count;
 
   while(dec_index < arr.length && arr[arr.length - 1] === 0){
     arr.pop();
@@ -123,7 +120,6 @@ core.compare = function(a, b){
     small: negative ? b : a,
     equal: false
   };
-
 
   if(a_int_len > b_int_len){
     return o_a_b;
@@ -259,8 +255,6 @@ core.add_and_subtract = function(a, b, mode){
   const b_int = b_.int;
   const a_dec = a_.decimal;
   const b_dec = b_.decimal;
-  const a_negative = a_.negative;
-  const b_negative = b_.negative;
 
   let dec_len = a_dec.length;
   if(dec_len < b_dec.length){
