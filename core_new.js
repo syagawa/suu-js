@@ -249,8 +249,8 @@ core.add_and_subtract = function(a, b, mode){
     return;
   }
 
-  const a_ = core.numToArrayWithDecimal(a);
-  const b_ = core.numToArrayWithDecimal(b);
+  const a_ = core.numToArrayWithDecimal(a ? a : 0);
+  const b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_int = a_.int;
   const b_int = b_.int;
   const a_dec = a_.decimal;
