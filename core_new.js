@@ -253,24 +253,7 @@ core.add_and_subtract = function(a, b, mode){
   const b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_int = a_.int;
   const b_int = b_.int;
-  const a_dec = a_.decimal;
-  const b_dec = b_.decimal;
 
-  let dec_len = a_dec.length;
-  if(dec_len < b_dec.length){
-    dec_len = b_dec.length;
-  }
-
-  for(let i = 0; i < dec_len; i++){
-    const a_d = a_dec[i];
-    const b_d = b_dec[i];
-    if(!core.isNumber(a_d)){
-      a_dec.push(0);
-    }
-    if(!core.isNumber(b_d)){
-      b_dec.push(0);
-    }
-  }
 
   const calc = function(a, b, plus){
     const arr = [];
@@ -289,20 +272,6 @@ core.add_and_subtract = function(a, b, mode){
     return core.fixCarry(arr);
   };
 
-  const { dec_arr, dec_carry, dec_minus } = (function(){
-    const length = a_dec.length < b_dec.length ? b_dec.legth : a_dec.length;
-    const res = calc(a_dec.reverse(), b_dec.reverse(), plus);
-
-    let carry = 0;
-    if(res.new_array.length > length){
-      carry = res.new_array.pop();
-    }
-    return {
-      dec_arr: res.new_array,
-      dec_carry: carry,
-      dec_minus: res.minus
-    };
-  })();
 
   let { int_arr } = (function(dec_carry){
     let res = calc(a_int.reverse(), b_int.reverse(), plus);
@@ -314,13 +283,11 @@ core.add_and_subtract = function(a, b, mode){
     return {
       int_arr: res.new_array
     };
-  })(dec_carry);
+  })();
   console.log(int_arr);
-  console.log(dec_arr, dec_carry, dec_minus);
 
   return {
     int: int_arr.reverse(),
-    decimal: dec_arr.reverse()
   };
 };
 
