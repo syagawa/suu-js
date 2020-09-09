@@ -251,8 +251,10 @@ core.add_and_subtract = function(a, b, mode){
 
   const a_ = core.numToArrayWithDecimal(a ? a : 0);
   const b_ = core.numToArrayWithDecimal(b ? b : 0);
-  const a_int = a_.int;
-  const b_int = b_.int;
+  const a_arr = a_.array;
+  const b_arr = b_.array;
+  const a_negative = a_.negative;
+  const b_negative = b_.negative;
 
 
   const calc = function(a, b, plus){
@@ -273,22 +275,15 @@ core.add_and_subtract = function(a, b, mode){
   };
 
 
-  let { int_arr } = (function(dec_carry){
-    let res = calc(a_int.reverse(), b_int.reverse(), plus);
+  let res = calc(a_arr.reverse(), b_arr.reverse(), plus);
 
-    if(dec_carry !== 0){
-      res = calc(res.new_array, [dec_carry], true);
-    }
-    // return res;
-    return {
-      int_arr: res.new_array
-    };
-  })();
-  console.log(int_arr);
+  // if(dec_carry !== 0){
+  //   res = calc(res.new_array, [dec_carry], true);
+  // }
+  // return res;
 
-  return {
-    int: int_arr.reverse(),
-  };
+  return res;
+
 };
 
 core.add = function(a, b){
