@@ -184,7 +184,7 @@ core.isNumArray = function(arr){
 
 core.fixCarry = function(arr, minus){
 
-  console.log(arr);
+  console.log("1", arr);
   let minus_ = minus;
   for(let i = arr.length - 1; i >=0; i--){
     const elm = arr[i];
@@ -223,7 +223,7 @@ core.fixCarry = function(arr, minus){
     new_arr.push(carry);
   }
 
-  console.log(new_arr);
+  console.log("2", new_arr);
   console.log("minus", minus_);
   return {
     new_array: new_arr,
@@ -275,12 +275,15 @@ core.add_and_subtract = function(a, b, mode){
   };
 
 
-  let res = calc(a_arr.reverse(), b_arr.reverse(), plus);
+  const res = calc(a_arr.reverse(), b_arr.reverse(), plus);
 
   // if(dec_carry !== 0){
   //   res = calc(res.new_array, [dec_carry], true);
   // }
   // return res;
+
+
+  console.info("res", res);
 
   return res;
 
