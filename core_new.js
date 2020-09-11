@@ -275,17 +275,17 @@ core.add_and_subtract = function(a, b, mode){
   };
 
 
-  const res = calc(a_arr.reverse(), b_arr.reverse(), plus);
+  const { new_array, minus } = calc(a_arr.reverse(), b_arr.reverse(), plus);
 
   // if(dec_carry !== 0){
   //   res = calc(res.new_array, [dec_carry], true);
   // }
   // return res;
 
-
-  console.info("res", res);
-
-  return res;
+  return {
+    array: new_array.reverse(),
+    negative: minus ? true : false
+  };
 
 };
 
