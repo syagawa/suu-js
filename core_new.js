@@ -287,6 +287,7 @@ core.add_and_subtract = function(a, b, mode){
 
   const { new_array, minus } = calc(a_arr.reverse(), b_arr.reverse(), plus);
 
+  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
   // if(dec_carry !== 0){
   //   res = calc(res.new_array, [dec_carry], true);
   // }
@@ -294,7 +295,8 @@ core.add_and_subtract = function(a, b, mode){
 
   return {
     array: new_array.reverse(),
-    negative: minus ? true : false
+    negative: minus ? true : false,
+    decimal_index: decimal_index
   };
 
 };
