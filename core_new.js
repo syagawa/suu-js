@@ -261,23 +261,27 @@ core.add_and_subtract = function(a, b, mode){
 
   const dec_gap = a_dec_length - b_dec_length;
 
+  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
+
   if(dec_gap > 0){
     b_arr.push(...Array(dec_gap).fill(0));
   }else if(dec_gap < 0){
     a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
   }
 
-  const calc = function(a, b, plus){
+  const calc = function({a, b, plus}){
     const arr = [];
-    let arr_a = a;
-    let arr_b = b;
-    if(a.length < b.length){
+    let arr_a = a.array;
+    let arr_b = b.array;
+    if(arr_a.length < arr_b.length){
       arr_a = b;
       arr_b = a;
     }
+    const a_one = a.negative ? -1 : 1;
+    const b_one = b.negative ? -1 : 1;
     for(let i = 0; i < arr_a.length; i++){
-      const aa = arr_a[i] ? arr_a[i] : 0;
-      const bb = arr_b[i] ? arr_b[i] : 0;
+      const aa = arr_a[i] ? arr_a[i] * a_one : 0;
+      const bb = arr_b[i] ? arr_b[i] * b_one : 0;
       let res = plus ? aa + bb : aa - bb;
       arr.push(res);
     }
@@ -285,9 +289,18 @@ core.add_and_subtract = function(a, b, mode){
   };
 
 
-  const { new_array, minus } = calc(a_arr.reverse(), b_arr.reverse(), plus);
+  const { new_array, minus } = calc({
+    a: {
+      array: a_arr.reverse(),
+      negative: a_.negative,
+    },
+    b: {
+      array: b_arr.reverse(),
+      negative: b_.negative
+    },
+    plus: plus
+  });
 
-  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
   // if(dec_carry !== 0){
   //   res = calc(res.new_array, [dec_carry], true);
   // }
