@@ -11,6 +11,34 @@ core.isNumber = function(n){
   return false;
 };
 
+core.moldNumArray = function({ array, negative, decimal_index }){
+  while(decimal_index < array.length && array[array.length - 1] === 0){
+    array.pop();
+  }
+  while(decimal_index > 1 && array[0] === 0){
+    array.shift();
+    decimal_index--;
+  }
+
+  if(array.length === 0){
+    array.push(0);
+    decimal_index = 1;
+  }
+
+  const o = {
+    array: array,
+    negative: negative,
+  };
+  if(decimal_index === 0 || decimal_index > 0){
+     o.decimal_index = decimal_index;
+  }else{
+    o.decimal_index = array.length;
+  }
+
+  return o;
+
+};
+
 core.numToArrayWithDecimal = function(n){
   let str = String(n);
   let negative = false;
@@ -42,30 +70,7 @@ core.numToArrayWithDecimal = function(n){
     arr.push(num);
   }
 
-  while(dec_index < arr.length && arr[arr.length - 1] === 0){
-    arr.pop();
-  }
-  while(dec_index > 1 && arr[0] === 0){
-    arr.shift();
-    dec_index--;
-  }
-
-  if(arr.length === 0){
-    arr.push(0);
-    dec_index = 1;
-  }
-
-  const o = {
-    array: arr,
-    negative: negative,
-  };
-  if(dec_index === 0 || dec_index > 0){
-     o.decimal_index = dec_index;
-  }else{
-    o.decimal_index = arr.length;
-  }
-
-  return o;
+  return core.moldNumArray({ array: arr, negative: negative, decimal_index: dec_index});
 
 };
 
@@ -253,8 +258,6 @@ core.add_and_subtract = function(a, b, mode){
   const b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_arr = a_.array;
   const b_arr = b_.array;
-  const a_negative = a_.negative;
-  const b_negative = b_.negative;
 
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
