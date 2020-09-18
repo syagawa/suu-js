@@ -316,8 +316,7 @@ core.add = function(a, b){
   const a_ = core.numToArrayWithDecimal(a);
   const b_ = core.numToArrayWithDecimal(b);
 
-  let large = core.getLarge(a, b);
-
+  core.add_and_subtract(a_, b_, "+");
 
 }
 
