@@ -315,10 +315,13 @@ core.add_and_subtract = function(a, b, mode){
 core.add = function(a, b){
   const a_ = core.numToArrayWithDecimal(a);
   const b_ = core.numToArrayWithDecimal(b);
+  return core.add_and_subtract(a_, b_, "+");
+};
 
-  core.add_and_subtract(a_, b_, "+");
-
-}
-
+core.subtract = function(a, b){
+  const a_ = core.numToArrayWithDecimal(a);
+  const b_ = core.numToArrayWithDecimal(b);
+  return core.add_and_subtract(a_, b_, "-");
+};
 
 export default core;
