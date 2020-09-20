@@ -74,6 +74,22 @@ core.numToArrayWithDecimal = function(n){
 
 };
 
+core.numArrayToString = function(n){
+  if(!n.array || !n.decimal_index){
+    return "";
+  }
+
+  const arr = [...n.array];
+  arr.splice(n.decimal_index, 0, ",");
+  let str = arr.join("");
+  if(n.negative){
+    str = `-${str}`;
+  }
+
+  return str;
+
+};
+
 core.compare = function(a, b){
   if(!a || !b){
     return;
