@@ -86,7 +86,7 @@ core.numArrayToString = function(n){
     str = `-${str}`;
   }
 
-  return str;
+  return str.replace(/,$/, "");
 
 };
 
@@ -306,7 +306,6 @@ core.add_and_subtract = function(a, b, mode){
     }
     return core.fixCarry(arr);
   };
-
 
   const { new_array, minus } = calc({
     a: {

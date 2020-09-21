@@ -273,8 +273,7 @@ describe("core", function(){
       assert.equal(res, true);
     });
   });
-
-
+  
 });
 
 
