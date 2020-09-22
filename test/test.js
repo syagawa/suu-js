@@ -273,6 +273,14 @@ describe("core", function(){
       assert.equal(res, true);
     });
   });
+
+  describe("add", function(){
+    it("0 + 0 = 0", () => {
+      const res = core.add("0", "0");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
+  });
   
 });
 
