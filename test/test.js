@@ -286,10 +286,16 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
     });
+    
     it("1 + 1 = 2", () => {
       const res = core.add("1", "1");
       const str = core.numArrayToString(res);
       assert.equal(str, "2");
+    });
+    it("1 + 1001 = 1002", () => {
+      const res = core.add("1", "1001");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1002");
     });
 
   });

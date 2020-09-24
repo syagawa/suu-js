@@ -205,7 +205,6 @@ core.isNumArray = function(arr){
 
 core.fixCarry = function(arr, minus){
 
-  console.log("1", arr);
   let minus_ = minus;
   for(let i = arr.length - 1; i >=0; i--){
     const elm = arr[i];
@@ -244,8 +243,6 @@ core.fixCarry = function(arr, minus){
     new_arr.push(carry);
   }
 
-  console.log("2", new_arr);
-  console.log("minus", minus_);
   return {
     new_array: new_arr,
     minus: minus_
@@ -290,12 +287,16 @@ core.add_and_subtract = function(a, b, mode){
 
   const calc = function({a, b, plus}){
     const arr = [];
-    let arr_a = a.array;
-    let arr_b = b.array;
-    if(arr_a.length < arr_b.length){
-      arr_a = b;
-      arr_b = a;
+    let a_, b_;
+    if(a.array.length < b.array.length){
+      a_ = b;
+      b_ = a;
+    }else{
+      a_ = a;
+      b_ = b;
     }
+    const arr_a = a_.array;
+    const arr_b = b_.array;
     const a_one = a.negative ? -1 : 1;
     const b_one = b.negative ? -1 : 1;
     for(let i = 0; i < arr_a.length; i++){
@@ -309,18 +310,18 @@ core.add_and_subtract = function(a, b, mode){
 
   const { new_array, minus } = calc({
     a: {
-      array: a_arr.reverse(),
+      array: [...a_arr].reverse(),
       negative: a_.negative,
     },
     b: {
-      array: b_arr.reverse(),
+      array: [...b_arr].reverse(),
       negative: b_.negative
     },
     plus: plus
   });
 
   return core.moldNumArray({
-    array: new_array.reverse(),
+    array: [...new_array].reverse(),
     negative: minus ? true : false,
     decimal_index: decimal_index
   });
