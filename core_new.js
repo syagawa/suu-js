@@ -305,6 +305,7 @@ core.add_and_subtract = function(a, b, mode){
       let res = plus ? aa + bb : aa - bb;
       arr.push(res);
     }
+    console.info(arr);
     return core.fixCarry(arr);
   };
 
