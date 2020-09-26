@@ -279,6 +279,8 @@ core.add_and_subtract = function(a, b, mode){
 
   const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
 
+  const length = a_.array.length > b_.array.length ? a_.array.length : b_.array.length;
+
   if(dec_gap > 0){
     b_arr.push(...Array(dec_gap).fill(0));
   }else if(dec_gap < 0){
@@ -321,10 +323,14 @@ core.add_and_subtract = function(a, b, mode){
     plus: plus
   });
 
+
+  const gap = new_array.length - length;
+  const new_decimal_index = decimal_index + gap;
+
   return core.moldNumArray({
     array: [...new_array].reverse(),
     negative: minus ? true : false,
-    decimal_index: decimal_index
+    decimal_index: new_decimal_index
   });
 
 };

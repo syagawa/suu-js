@@ -292,11 +292,11 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "2");
     });
-    // it("1 + 9 = 10", () => {
-    //   const res = core.add("1", "9");
-    //   const str = core.numArrayToString(res);
-    //   assert.equal(str, "10");
-    // });
+    it("1 + 9 = 10", () => {
+      const res = core.add("1", "9");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "10");
+    });
     it("1 + 100 = 101", () => {
       const res = core.add("1", "100");
       const str = core.numArrayToString(res);
