@@ -323,7 +323,6 @@ core.add_and_subtract = function(a, b, mode){
     plus: plus
   });
 
-
   const gap = new_array.length - length;
   const new_decimal_index = decimal_index + gap;
 

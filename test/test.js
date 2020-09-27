@@ -302,6 +302,11 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "101");
     });
+    it("99.55 + 0.45 = 101", () => {
+      const res = core.add("99.55", "0.45");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "100");
+    });
 
   });
 
