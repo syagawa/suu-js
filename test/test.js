@@ -308,6 +308,14 @@ describe("core", function(){
       assert.equal(str, "100");
     });
 
+    it("1 + 0.45 = 1.45", () => {
+      const res = core.add("1", "0.45");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1.45");
+    });
+
+
+
   });
 
 });

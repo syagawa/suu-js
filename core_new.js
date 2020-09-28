@@ -80,13 +80,13 @@ core.numArrayToString = function(n){
   }
 
   const arr = [...n.array];
-  arr.splice(n.decimal_index, 0, ",");
+  arr.splice(n.decimal_index, 0, ".");
   let str = arr.join("");
   if(n.negative){
     str = `-${str}`;
   }
 
-  return str.replace(/,$/, "");
+  return str.replace(/\.$/, "");
 
 };
 
