@@ -331,6 +331,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-1");
     });
+    
+    it("1 + -2 = 0", () => {
+      const res = core.add("1", "-2");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-1");
+    });
 
   });
 
