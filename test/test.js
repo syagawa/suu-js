@@ -349,6 +349,13 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
     });
+    
+    it("-1.45 + 2 = 0.55", () => {
+      const res = core.add("-1.45", "2");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.55");
+    });
+
 
   });
 
