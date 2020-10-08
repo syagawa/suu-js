@@ -362,12 +362,17 @@ describe("core", function(){
       assert.equal(str, "-3.45");
     });
 
+    it("2 - 1 = 1", () => {
+      const res = core.subtract("2", "1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1");
+    });
+    
     it("1 - 1 = 0", () => {
       const res = core.subtract("1", "1");
       const str = core.numArrayToString(res);
       assert.equal(str, "0");
     });
-
 
   });
 
