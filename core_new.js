@@ -323,8 +323,13 @@ core.add_and_subtract = function(a, b, mode){
     plus: plus
   });
 
-  const gap = new_array.length - length;
-  const new_decimal_index = decimal_index + gap;
+  const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
+  const old_int_length = length - dec_length;
+  const new_int_length = new_array.length - dec_length;
+  // const gap = new_int_length - length;
+  console.info(decimal_index, new_array, length, dec_gap);
+  // const new_decimal_index = decimal_index + gap;
+  const new_decimal_index = new_int_length;
 
   return core.moldNumArray({
     array: [...new_array].reverse(),
