@@ -412,6 +412,12 @@ describe("core", function(){
       assert.equal(str, "9.5");
     });
 
+    it("10.1 - 0.5 = 9.6", () => {
+      const res = core.subtract("10.1", "0.5");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "9.6");
+    });
+
 
 
 
