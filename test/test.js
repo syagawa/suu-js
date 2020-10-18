@@ -345,7 +345,7 @@ describe("core", function(){
       assert.equal(str, "0");
     });
     
-    it("-1 + -1 = 0", () => {
+    it("-1 + -1 = -2", () => {
       const res = core.add("-1", "-1");
       const str = core.numArrayToString(res);
       assert.equal(str, "-2");
@@ -381,11 +381,12 @@ describe("core", function(){
       assert.equal(str, "0.55");
     });
     
-    it("-1.45 + -2 = 3.45", () => {
+    it("-1.45 + -2 = -3.45", () => {
       const res = core.add("-1.45", "-2");
       const str = core.numArrayToString(res);
       assert.equal(str, "-3.45");
     });
+
 
 
     it("2 - 1 = 1", () => {
@@ -422,6 +423,12 @@ describe("core", function(){
       const res = core.subtract("10.1", "10.2");
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.1");
+    });
+
+    it("10.1 - -10.2 = 20.3", () => {
+      const res = core.subtract("10.1", "-10.2");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "20.3");
     });
 
 
