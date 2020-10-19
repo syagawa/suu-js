@@ -425,12 +425,18 @@ describe("core", function(){
       assert.equal(str, "-0.1");
     });
 
+    
     it("10.1 - -10.2 = 20.3", () => {
       const res = core.subtract("10.1", "-10.2");
       const str = core.numArrayToString(res);
       assert.equal(str, "20.3");
     });
 
+    it("10.1 - -100 = 110.1", () => {
+      const res = core.subtract("10.1", "-100");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "110.1");
+    });
 
 
   });
