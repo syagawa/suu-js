@@ -444,6 +444,12 @@ describe("core", function(){
       assert.equal(str, "110.5");
     });
 
+    it("-10 - -10 = 0", () => {
+      const res = core.subtract("-10", "-10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
+
   });
 
 });
