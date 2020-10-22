@@ -450,6 +450,12 @@ describe("core", function(){
       assert.equal(str, "0");
     });
 
+    it("0 - 0 = 0", () => {
+      const res = core.subtract("0", "0");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
+
   });
 
 });
