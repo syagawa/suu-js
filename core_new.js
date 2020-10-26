@@ -273,7 +273,7 @@ core.add_and_subtract = function(a, b, mode){
   const b_arr = b_.array;
 
 
-  console.info(mode, a_.negative ? "-" : "+", b_.negative ? "-" : "+");
+  console.info(a_.negative ? "-" : "+", mode, b_.negative ? "-" : "+");
 
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
