@@ -273,7 +273,19 @@ core.add_and_subtract = function(a, b, mode){
   const b_arr = b_.array;
 
 
+  const a_mode = a_.negative ? "-" : "+";
+  const b_mode = b_.negative ? "-" : "+";
+
   console.info(a_.negative ? "-" : "+", mode, b_.negative ? "-" : "+");
+
+  // if(mode === "+" && b_mode === "-"){
+  //   mode = "-";
+  //   b_.negative = false;
+  // }else if(mode === "-" && b_mode === "+"){
+  //   mode = "+";
+  //   b_.negative = true;
+  // }
+
 
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
