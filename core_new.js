@@ -278,6 +278,8 @@ core.add_and_subtract = function(a, b, mode){
 
   console.info(a_.negative ? "-" : "+", mode, b_.negative ? "-" : "+");
 
+  const large = core.getLarge(a_, b_);
+  console.info(large);
   // if(mode === "+" && b_mode === "-"){
   //   mode = "-";
   //   b_.negative = false;
