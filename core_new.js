@@ -273,22 +273,6 @@ core.add_and_subtract = function(a, b, mode){
   const b_arr = b_.array;
 
 
-  const a_mode = a_.negative ? "-" : "+";
-  const b_mode = b_.negative ? "-" : "+";
-
-  console.info(a_.negative ? "-" : "+", mode, b_.negative ? "-" : "+");
-
-  const large = core.getLarge(a_, b_);
-  console.info(large === a_, large === b_);
-  // if(mode === "+" && b_mode === "-"){
-  //   mode = "-";
-  //   b_.negative = false;
-  // }else if(mode === "-" && b_mode === "+"){
-  //   mode = "+";
-  //   b_.negative = true;
-  // }
-
-
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
 
@@ -306,25 +290,20 @@ core.add_and_subtract = function(a, b, mode){
 
   const calc = function({a, b, plus}){
     const arr = [];
-    let a_, b_;
+    let len = a.array.length;
     if(a.array.length < b.array.length){
-      a_ = b;
-      b_ = a;
-    }else{
-      a_ = a;
-      b_ = b;
+      len = b.array.length;
     }
-    const arr_a = a_.array;
-    const arr_b = b_.array;
+    const arr_a = a.array;
+    const arr_b = b.array;
     const a_one = a.negative ? -1 : 1;
     const b_one = b.negative ? -1 : 1;
-    for(let i = 0; i < arr_a.length; i++){
+    for(let i = 0; i < len; i++){
       const aa = arr_a[i] ? arr_a[i] * a_one : 0;
       const bb = arr_b[i] ? arr_b[i] * b_one : 0;
       let res = plus ? aa + bb : aa - bb;
       arr.push(res);
     }
-    console.info("in calc before fixcarry", arr);
     return core.fixCarry(arr);
   };
 
@@ -343,9 +322,7 @@ core.add_and_subtract = function(a, b, mode){
   const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
   const old_int_length = length - dec_length;
   const new_int_length = new_array.length - dec_length;
-  // const gap = new_int_length - length;
-  console.info(decimal_index, new_array, length, dec_gap);
-  // const new_decimal_index = decimal_index + gap;
+
   const new_decimal_index = new_int_length;
 
   return core.moldNumArray({
