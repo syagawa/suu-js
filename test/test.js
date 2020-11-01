@@ -467,7 +467,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-10");
     });
-
+    
+    it("0 - -10 = 10", () => {
+      const res = core.subtract("0", "-10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "10");
+    });
   });
 
 });
