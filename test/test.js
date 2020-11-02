@@ -386,7 +386,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-3.45");
     });
-
+    
+    it("0 + -10 = -10", () => {
+      const res = core.add("0", "-10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-10");
+    });
 
 
     it("2 - 1 = 1", () => {
@@ -425,7 +430,6 @@ describe("core", function(){
       assert.equal(str, "-0.1");
     });
 
-    
     it("10.1 - -10.2 = 20.3", () => {
       const res = core.subtract("10.1", "-10.2");
       const str = core.numArrayToString(res);
