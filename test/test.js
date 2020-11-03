@@ -392,7 +392,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-10");
     });
-
+    
+    it("0 + -10.05 = -10.05", () => {
+      const res = core.add("0", "-10.05");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-10.05");
+    });
 
     it("2 - 1 = 1", () => {
       const res = core.subtract("2", "1");
