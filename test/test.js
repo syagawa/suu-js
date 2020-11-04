@@ -482,6 +482,13 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "10");
     });
+    
+    it("5 - -10 = 15", () => {
+      const res = core.subtract("5", "-10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "15");
+    });
+
   });
 
 });
