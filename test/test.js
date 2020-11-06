@@ -495,6 +495,11 @@ describe("core", function(){
       assert.equal(str, "-9.5");
     });
 
+    it("-1 - 10.5 = 11.5", () => {
+      const res = core.subtract("-1", "10.5");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-11.5");
+    });
   });
 
 });
