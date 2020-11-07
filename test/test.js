@@ -500,6 +500,14 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-11.5");
     });
+    
+    it("-10 - -10.5 = 11.5", () => {
+      const res = core.subtract("-10", "-10.5");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.5");
+    });
+
+
   });
 
 });
