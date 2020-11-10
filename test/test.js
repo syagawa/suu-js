@@ -512,10 +512,16 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "0.0005");
     });
+
     it("0 - 0.0005 = -0.0005", () => {
       const res = core.subtract("0", "0.0005");
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.0005");
+    });
+    it("1 - 0.0005 = 0.9995", () => {
+      const res = core.subtract("1", "0.0005");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.9995");
     });
 
   });
