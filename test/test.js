@@ -280,6 +280,11 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "0");
     });
+    it("1 + 0 = 0", () => {
+      const res = core.add("1", "0");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1");
+    });
 
 
   });
@@ -290,6 +295,11 @@ describe("core", function(){
       const res = core.subtract("0", "0");
       const str = core.numArrayToString(res);
       assert.equal(str, "0");
+    });
+    it("1 - 0 = 0", () => {
+      const res = core.subtract("1", "0");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1");
     });
 
   });
