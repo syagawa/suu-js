@@ -292,7 +292,11 @@ describe("core", function(){
       assert.equal(str, "1");
     });
 
-
+    it("1 + -1 = 0", () => {
+      const res = core.add("1", "-1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
 
 
   });
@@ -315,6 +319,11 @@ describe("core", function(){
       const res = core.subtract("0", "-1");
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
+    });
+    it("1 - 1 = 0", () => {
+      const res = core.subtract("1", "1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
     });
   });
 
