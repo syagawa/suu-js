@@ -303,7 +303,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "2");
     });
-
+    
+    it("10 + 1 = 11", () => {
+      const res = core.add("10", "1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "11");
+    });
 
   });
 
@@ -338,6 +343,13 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "2");
     });
+
+    it("10 - -1 = 11", () => {
+      const res = core.subtract("10", "-1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "11");
+    });
+
   });
 
 });
