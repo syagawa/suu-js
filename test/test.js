@@ -309,6 +309,11 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "11");
     });
+    it("1 + 10 = 11", () => {
+      const res = core.add("1", "10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "11");
+    });
 
   });
 
@@ -346,6 +351,11 @@ describe("core", function(){
 
     it("10 - -1 = 11", () => {
       const res = core.subtract("10", "-1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "11");
+    });
+    it("1 - -10 = 11", () => {
+      const res = core.subtract("1", "-10");
       const str = core.numArrayToString(res);
       assert.equal(str, "11");
     });
