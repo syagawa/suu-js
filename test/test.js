@@ -331,10 +331,17 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.1");
     });
+
+
     it("10 + -0.1 = 9.9", () => {
       const res = core.add("10", "-0.1");
       const str = core.numArrayToString(res);
       assert.equal(str, "9.9");
+    });
+    it("0.1 + -10 = -9.9", () => {
+      const res = core.add("0.1", "-10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-9.9");
     });
 
   });
@@ -400,10 +407,16 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.1");
     });
+
     it("10 - 0.1 = 9.9", () => {
       const res = core.subtract("10", "0.1");
       const str = core.numArrayToString(res);
       assert.equal(str, "9.9");
+    });
+    it("0.1 - 10 = -9.9", () => {
+      const res = core.subtract("0.1", "10");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-9.9");
     });
 
   });
