@@ -344,8 +344,14 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-9.9");
     });
+
     it("10 + 0.1 = 10.1", () => {
       const res = core.add("10", "0.1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "10.1");
+    });
+    it("10 + 0.10 = 10.1", () => {
+      const res = core.add("10", "0.10");
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
     });
@@ -426,8 +432,8 @@ describe("core", function(){
       assert.equal(str, "-9.9");
     });
     
-    it("10 - -0.1 = 10.1", () => {
-      const res = core.subtract("10", "-0.1");
+    it("10 - -0.10 = 10.1", () => {
+      const res = core.subtract("10", "-0.10");
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
     });
