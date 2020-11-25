@@ -350,12 +350,18 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
     });
+
     it("10 + 0.10 = 10.1", () => {
       const res = core.add("10", "0.10");
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
     });
-
+    
+    it("1 + 0.0001 = 1.0001", () => {
+      const res = core.add("1", "0.0001");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1.0001");
+    });
   });
 
   describe("subtract", function(){
@@ -436,6 +442,11 @@ describe("core", function(){
       const res = core.subtract("10", "-0.10");
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
+    });
+    it("1 - -0.0001 = 1.0001", () => {
+      const res = core.subtract("1", "-0.0001");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1.0001");
     });
   });
 
