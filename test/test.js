@@ -362,6 +362,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1.0001");
     });
+
+    it("0.0001 + 0.1 = 0.1001", () => {
+      const res = core.add("0.0001", "0.1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.1001");
+    });
   });
 
   describe("subtract", function(){
@@ -448,6 +454,15 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1.0001");
     });
+
+    it("0.0001 - -0.1 = 0.1001", () => {
+      const res = core.subtract("0.0001", "-0.1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.1001");
+    });
+
+
+
   });
 
 });
