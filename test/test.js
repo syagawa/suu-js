@@ -369,10 +369,16 @@ describe("core", function(){
       assert.equal(str, "0.1001");
     });
     
-    it("0.0001 + -0.1 = 0.1001", () => {
+    it("0.0001 + -0.1 = -0.0999", () => {
       const res = core.add("0.0001", "-0.1");
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.0999");
+    });
+
+    it("-0.0999 + 0.1 = 0.0001", () => {
+      const res = core.add("-0.0999", "0.1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.0001");
     });
   });
 
@@ -467,10 +473,16 @@ describe("core", function(){
       assert.equal(str, "0.1001");
     });
 
-    it("0.0001 - 0.1 = 0.1001", () => {
+    it("0.0001 - 0.1 = -0.0999", () => {
       const res = core.subtract("0.0001", "0.1");
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.0999");
+    });
+  
+    it("-0.0999 - -0.1 = 0.0001", () => {
+      const res = core.subtract("-0.0999", "-0.1");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0.0001");
     });
 
 
