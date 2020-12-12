@@ -453,6 +453,12 @@ describe("core", function(){
       assert.equal(str, "2000000000000000000001");
     });
 
+    it("1000000000000000000000.1 + -1000000000000000000000.9 = 0", () => {
+      const res = core.add("1000000000000000000000.1", "-1000000000000000000000.9");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-0.8");
+    });
+
 
   });
 
@@ -638,6 +644,12 @@ describe("core", function(){
       const res = core.subtract("1000000000000000000000.1", "-1000000000000000000000.9");
       const str = core.numArrayToString(res);
       assert.equal(str, "2000000000000000000001");
+    });
+
+    it("1000000000000000000000.1 - 1000000000000000000000.9 = 0", () => {
+      const res = core.subtract("1000000000000000000000.1", "1000000000000000000000.9");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-0.8");
     });
 
 
