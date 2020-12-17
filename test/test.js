@@ -478,6 +478,12 @@ describe("core", function(){
       assert.equal(str, "-11");
     });
 
+    it("-1.5 + -10.5 = -12", () => {
+      const res = core.add("-1.5", "-10.5");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-12");
+    });
+
 
 
   });
@@ -690,6 +696,11 @@ describe("core", function(){
       assert.equal(str, "-11");
     });
 
+    it("-1.5 - 10.5 = -12", () => {
+      const res = core.subtract("-1.5", "10.5");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-12");
+    });
 
 
   });
