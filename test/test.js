@@ -490,6 +490,12 @@ describe("core", function(){
       assert.equal(str, "1.515");
     });
 
+    it("1500 + 0.0015 = 1500.0015", () => {
+      const res = core.add("1500", "0.0015");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1500.0015");
+    });
+
 
   });
 
@@ -711,6 +717,13 @@ describe("core", function(){
       const res = core.subtract("1.5", "-0.015");
       const str = core.numArrayToString(res);
       assert.equal(str, "1.515");
+    });
+
+
+    it("1500 - -0.0015 = 1500.0015", () => {
+      const res = core.subtract("1500", "-0.0015");
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1500.0015");
     });
 
   });
