@@ -195,26 +195,21 @@ describe("core", function(){
       const res = core.getLarge(num1, num2);
       assert.equal(res, num2);
     });
-  });
 
-  describe("getLarge", function(){
     it("1, -2", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("-2");
       const res = core.getLarge(num1, num2);
       assert.equal(res, num1);
     });
-  });
 
-  describe("getLarge", function(){
     it("-1, -2", () => {
       const num1 = core.numToArrayWithDecimal("-1");
       const num2 = core.numToArrayWithDecimal("-2");
       const res = core.getLarge(num1, num2);
       assert.equal(res, num1);
     });
-  });
-  describe("getSmall", function(){
+
     it("1, 2", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("2");
@@ -230,9 +225,7 @@ describe("core", function(){
       const res = core.getSmall(num1, num2);
       assert.equal(res, num2);
     });
-  });
 
-  describe("getSmall", function(){
     it("-1, -2", () => {
       const num1 = core.numToArrayWithDecimal("-1");
       const num2 = core.numToArrayWithDecimal("-2");
@@ -248,24 +241,21 @@ describe("core", function(){
       const res = core.isEqual(num1, num2);
       assert.equal(res, false);
     });
-  });
-  describe("isEqual", function(){
+
     it("1, 1", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("1");
       const res = core.isEqual(num1, num2);
       assert.equal(res, true);
     });
-  });
-  describe("isEqual", function(){
+
     it("1, 1.00000000", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("1.00000000");
       const res = core.isEqual(num1, num2);
       assert.equal(res, true);
     });
-  });
-  describe("isEqual", function(){
+
     it("0, 0", () => {
       const num1 = core.numToArrayWithDecimal("0");
       const num2 = core.numToArrayWithDecimal("0");
