@@ -262,6 +262,13 @@ describe("core", function(){
       const res = core.isEqual(num1, num2);
       assert.equal(res, true);
     });
+
+    it("1, -1", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("-1");
+      const res = core.isEqual(num1, num2);
+      assert.equal(res, false);
+    });
   });
 
   describe("add", function(){
