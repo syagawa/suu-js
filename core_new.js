@@ -341,4 +341,17 @@ core.subtract = function(a, b){
   return core.add_and_subtract(a, b, "-");
 };
 
+
+core.multiplication = function(a, b){
+  if(!a && !b){
+    return;
+  }
+
+  const a_ = core.numToArrayWithDecimal(a ? a : 0);
+  const b_ = core.numToArrayWithDecimal(b ? b : 0);
+  const a_arr = a_.array;
+  const b_arr = b_.array;
+
+}
+
 export default core;
