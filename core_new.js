@@ -352,6 +352,19 @@ core.multiplication = function(a, b){
   const a_arr = a_.array;
   const b_arr = b_.array;
 
+  const a_negative = a_.negative;
+  const b_negative = b_.negative;
+  let negative;
+  if(a_negative && b_negative){
+    negative = false;
+  }else if(a_negative || b_negative){
+    negative = true;
+  }else{
+    negative = false;
+  }
+  
+
+
 }
 
 export default core;
