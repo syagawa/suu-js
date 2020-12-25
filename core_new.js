@@ -362,11 +362,23 @@ core.multiplication = function(a, b){
   }else{
     negative = false;
   }
-
+  
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
 
   const dec_gap = a_dec_length - b_dec_length;
+
+  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
+
+  const length = a_.array.length > b_.array.length ? a_.array.length : b_.array.length;
+
+  if(dec_gap > 0){
+    b_arr.push(...Array(dec_gap).fill(0));
+  }else if(dec_gap < 0){
+    a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
+  }
+
+
 
   return core.moldNumArray({
     array: [0],
