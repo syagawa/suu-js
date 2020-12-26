@@ -728,6 +728,16 @@ describe("core", function(){
 });
 
 
+describe("multiplication", function(){
+
+  it("1 x 0 = 0", () => {
+    const res = core.multiplication("0", "0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+});
+
+
 
 
 describe('Su', function() {

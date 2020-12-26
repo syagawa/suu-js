@@ -362,13 +362,17 @@ core.multiplication = function(a, b){
   }else{
     negative = false;
   }
-  
+
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
 
   const dec_gap = a_dec_length - b_dec_length;
 
-
+  return core.moldNumArray({
+    array: [0],
+    negative: false,
+    decimal_index: 1
+  });
 
 }
 
