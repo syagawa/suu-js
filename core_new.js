@@ -378,6 +378,23 @@ core.multiplication = function(a, b){
     a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
   }
 
+  const calc = function({a, b}){
+    const arr = [];
+    let len = a.array.length;
+    if(a.array.length < b.array.length){
+      len = b.array.length;
+    }
+    const arr_a = a.array;
+    const arr_b = b.array;
+    for(let i = 0; i < len; i++){
+      const aa = arr_a[i] ? arr_a[i] : 0;
+      const bb = arr_b[i] ? arr_b[i] : 0;
+      let res = aa * bb;
+      arr.push(res);
+    }
+    return core.fixCarry(arr);
+  };
+
 
 
   return core.moldNumArray({
