@@ -395,6 +395,17 @@ core.multiplication = function(a, b){
     return core.fixCarry(arr);
   };
 
+  const { new_array, minus } = calc({
+    a: {
+      array: [...a_arr].reverse(),
+      negative: a_.negative,
+    },
+    b: {
+      array: [...b_arr].reverse(),
+      negative: b_.negative
+    },
+  });
+
 
 
   return core.moldNumArray({
