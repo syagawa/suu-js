@@ -406,6 +406,12 @@ core.multiplication = function(a, b){
     },
   });
 
+  const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
+  const old_int_length = length - dec_length;
+  const new_int_length = new_array.length - dec_length;
+
+  const new_decimal_index = new_int_length;
+
 
 
   return core.moldNumArray({
@@ -413,6 +419,14 @@ core.multiplication = function(a, b){
     negative: false,
     decimal_index: 1
   });
+
+  // return core.moldNumArray({
+  //   array: [...new_array].reverse(),
+  //   negative: minus ? true : false,
+  //   decimal_index: new_decimal_index
+  // });
+
+
 
 }
 
