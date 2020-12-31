@@ -412,19 +412,11 @@ core.multiplication = function(a, b){
 
   const new_decimal_index = new_int_length;
 
-
-
   return core.moldNumArray({
-    array: [0],
-    negative: false,
-    decimal_index: 1
+    array: [...new_array].reverse(),
+    negative: negative,
+    decimal_index: new_decimal_index
   });
-
-  // return core.moldNumArray({
-  //   array: [...new_array].reverse(),
-  //   negative: minus ? true : false,
-  //   decimal_index: new_decimal_index
-  // });
 
 
 
