@@ -383,20 +383,20 @@ core.multiplication = function(a, b){
   }
 
   const calc = function({a, b}){
-    const arr = [];
-    let len = a.array.length;
-    if(a.array.length < b.array.length){
-      len = b.array.length;
-    }
+    const array = [];
     const arr_a = a.array;
     const arr_b = b.array;
-    for(let i = 0; i < len; i++){
+    for(let i = 0; i < arr_a.length; i++){
       const aa = arr_a[i] ? arr_a[i] : 0;
-      const bb = arr_b[i] ? arr_b[i] : 0;
-      let res = aa * bb;
-      arr.push(res);
+      const arr = [];
+      for(let j = 0; j < arr_b.length; j++){
+        const bb = arr_b[j] ? arr_b[j] : 0;
+        let res = aa * bb;
+        arr.push(res);
+      }
+      array.push(arr);
     }
-    return core.fixCarry(arr);
+    // return core.fixCarry(arr);
   };
 
   const { new_array } = calc({
