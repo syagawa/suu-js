@@ -388,7 +388,9 @@ core.multiplication = function(a, b){
     const arr_b = b.array;
     for(let i = 0; i < arr_a.length; i++){
       const aa = arr_a[i] ? arr_a[i] : 0;
-      const arr = [];
+      const arr = new Array(i);
+      arr.fill(0, 0, i);
+
       for(let j = 0; j < arr_b.length; j++){
         const bb = arr_b[j] ? arr_b[j] : 0;
         let res = aa * bb;
@@ -396,6 +398,7 @@ core.multiplication = function(a, b){
       }
       array.push(arr);
     }
+    console.info(array);
     // return core.fixCarry(arr);
   };
 
