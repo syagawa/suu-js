@@ -394,12 +394,13 @@ core.multiplication = function(a, b){
       for(let j = 0; j < arr_b.length; j++){
         const bb = arr_b[j] ? arr_b[j] : 0;
         let res = aa * bb;
+        
         arr.push(res);
       }
       array.push(arr);
     }
     console.info(array);
-    // return core.fixCarry(arr);
+    return core.fixCarry(array);
   };
 
   const { new_array } = calc({
