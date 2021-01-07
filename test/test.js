@@ -733,8 +733,6 @@ describe("multiplication", function(){
 });
 
 
-
-
 describe('Su', function() {
   describe('makeSu', function() {
     it("zero by string", () =>{
