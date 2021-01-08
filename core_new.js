@@ -368,9 +368,13 @@ core.multiplication = function(a, b){
 
   const dec_gap = a_dec_length - b_dec_length;
 
+  const dec_length = a_dec_length + b_dec_length;
+
+
   console.info("a:", a_, "b", b_);
   console.info("a", a_.array.length, "b", b_.array.length);
   console.info("a", a_dec_length, "b", b_dec_length);
+  console.info("dec_length", dec_length);
 
   const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
 
@@ -420,8 +424,8 @@ core.multiplication = function(a, b){
     },
   });
 
-  const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
-  const old_int_length = length - dec_length;
+  console.info(new_array, dec_length);
+
   const new_int_length = new_array.length - dec_length;
 
   const new_decimal_index = new_int_length;
