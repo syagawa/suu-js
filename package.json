@@ -34,10 +34,10 @@
     "@babel/runtime": "^7.12.5",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
-    "eslint": "^7.12.1",
-    "husky": "^4.3.6",
+    "eslint": "^7.17.0",
+    "husky": "^4.3.7",
     "mocha": "^8.2.1",
-    "webpack": "^5.3.1",
-    "webpack-cli": "^4.2.0"
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1"
   }
 }
