@@ -229,8 +229,12 @@ core.fixCarry = function(arr, minus){
   for(let i = 0; i < arr.length; i++){
     let val = arr[i] + carry;
     if(val > 9){
-      val = val - 10;
-      carry = 1;
+      const arr_ = String(val).split("");
+      val = Number(arr_[arr_.length - 1]);
+      const arr__ = arr_.slice(0, arr_.length - 1);
+      carry = Number(arr__.join(""));
+      // val = val - 10;
+      // carry = 1;
     }else if( val >= 0 && val <= 9){
       carry = 0;
     }else{
@@ -410,6 +414,7 @@ core.multiplication = function(a, b){
         array[tgt_index] = new_tgt;
       }
     }
+    console.info(array);
     return core.fixCarry(array);
   };
 
