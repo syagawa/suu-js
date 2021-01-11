@@ -229,15 +229,20 @@ core.fixCarry = function(arr, minus){
   for(let i = 0; i < arr.length; i++){
     let val = arr[i] + carry;
     if(val > 9){
-      const arr_ = String(val).split("");
-      val = Number(arr_[arr_.length - 1]);
-      const arr__ = arr_.slice(0, arr_.length - 1);
-      carry = Number(arr__.join(""));
+      const arr1 = String(val).split("");
+      val = Number(arr1[arr1.length - 1]);
+      const arr2 = arr1.slice(0, arr1.length - 1);
+      carry = Number(arr2.join(""));
       // val = val - 10;
       // carry = 1;
     }else if( val >= 0 && val <= 9){
       carry = 0;
     }else{
+      const arr1 = String(val * -1).split("");
+      // val = Number(arr1[arr1.length - 1]);
+      // const arr2 = arr1.slice(0, arr1.length - 1);
+      // carry = Number(arr2.join(""));
+
       val = 10 + val;
       carry = -1;
     }
