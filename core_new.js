@@ -239,12 +239,17 @@ core.fixCarry = function(arr, minus){
       carry = 0;
     }else{
       const arr1 = String(val * -1).split("");
-      // val = Number(arr1[arr1.length - 1]);
-      // const arr2 = arr1.slice(0, arr1.length - 1);
-      // carry = Number(arr2.join(""));
+      const val_ = Number(arr1[arr1.length - 1]) * -1 ;
+      const valval = 10 + val_;
+      const arr2 = arr1.slice(0, arr1.length - 1);
+      const carrycarry = (Number(arr2.join("")) + 10 ) * -1;
 
       val = 10 + val;
       carry = -1;
+
+      console.info(val, valval);
+      console.info(carry, carrycarry);
+
     }
     new_arr.push(val);
   }
