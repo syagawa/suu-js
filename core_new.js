@@ -439,9 +439,11 @@ core.multiplication = function(a, b){
 
   console.info(new_array, dec_length);
 
-  const new_int_length = new_array.length - dec_length;
+  // const new_int_length = new_array.length - dec_length;
 
-  const new_decimal_index = new_int_length;
+  // const new_decimal_index = new_int_length;
+  
+  const new_decimal_index = new_array.length;
 
   return core.moldNumArray({
     array: [...new_array].reverse(),
