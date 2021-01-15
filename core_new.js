@@ -378,25 +378,12 @@ core.multiplication = function(a, b){
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
 
-  const dec_gap = a_dec_length - b_dec_length;
-
   const dec_length = a_dec_length + b_dec_length;
-
 
   console.info("a:", a_, "b", b_);
   console.info("a", a_.array.length, "b", b_.array.length);
   console.info("a", a_dec_length, "b", b_dec_length);
   console.info("dec_length", dec_length);
-
-  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
-
-  const length = a_.array.length > b_.array.length ? a_.array.length : b_.array.length;
-
-  if(dec_gap > 0){
-    b_arr.push(...Array(dec_gap).fill(0));
-  }else if(dec_gap < 0){
-    a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
-  }
 
   const calc = function({a, b}){
     const array = [];
@@ -422,7 +409,6 @@ core.multiplication = function(a, b){
         array[tgt_index] = new_tgt;
       }
     }
-    console.info(array);
     return core.fixCarry(array);
   };
 
@@ -437,13 +423,7 @@ core.multiplication = function(a, b){
     },
   });
 
-  console.info(new_array, dec_length);
-
-  // const new_int_length = new_array.length - dec_length;
-
-  // const new_decimal_index = new_int_length;
-  
-  const new_decimal_index = new_array.length;
+  const new_decimal_index = new_array.length - dec_length;
 
   return core.moldNumArray({
     array: [...new_array].reverse(),
