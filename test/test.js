@@ -729,8 +729,13 @@ describe("core", function(){
 
 
 describe("multiplication", function(){
-  it("0 - 0 = 0", () => {
+  it("0 x 0 = 0", () => {
     const res = core.multiplication("0", "0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+  it("1 x 0 = 0", () => {
+    const res = core.multiplication("1", "0");
     const str = core.numArrayToString(res);
     assert.equal(str, "0");
   });
