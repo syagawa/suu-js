@@ -752,6 +752,12 @@ describe("multiplication", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
   });
+
+  it("2 x 1 = 2", () => {
+    const res = core.multiplication("2", "1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
 });
 
 
