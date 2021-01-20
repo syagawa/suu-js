@@ -380,10 +380,6 @@ core.multiplication = function(a, b){
 
   const dec_length = a_dec_length + b_dec_length;
 
-  console.info("a:", a_, "b", b_);
-  console.info("a", a_.array.length, "b", b_.array.length);
-  console.info("a", a_dec_length, "b", b_dec_length);
-  console.info("dec_length", dec_length);
 
   const calc = function({a, b}){
     const array = [];
