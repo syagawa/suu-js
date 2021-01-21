@@ -355,8 +355,14 @@ core.subtract = function(a, b){
 
 
 core.multiplication = function(a, b){
+
   if(!a && !b){
-    return;
+    const o = {
+      array: [0],
+      negative: false,
+      decimal_index: 1,
+    };
+    return core.moldNumArray(o);
   }
 
   const a_ = core.numToArrayWithDecimal(a ? a : 0);
@@ -374,12 +380,10 @@ core.multiplication = function(a, b){
   }else{
     negative = false;
   }
-  
+
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
-
   const dec_length = a_dec_length + b_dec_length;
-
 
   const calc = function({a, b}){
     const array = [];
@@ -427,8 +431,6 @@ core.multiplication = function(a, b){
     decimal_index: new_decimal_index
   });
 
-
-
-}
+};
 
 export default core;
