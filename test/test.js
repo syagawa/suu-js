@@ -760,12 +760,16 @@ describe("multiplication", function(){
   });
 
 
-
-
   it("2 x 1 = 2", () => {
     const res = core.multiplication("2", "1");
     const str = core.numArrayToString(res);
     assert.equal(str, "2");
+  });
+
+  it("2 x 2 = 4", () => {
+    const res = core.multiplication("2", "2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "4");
   });
 
 
