@@ -766,11 +766,19 @@ describe("multiplication", function(){
     assert.equal(str, "2");
   });
 
+  it("1 x 10 = 10", () => {
+    const res = core.multiplication("1", "10");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "10");
+  });
+
+
   it("2 x 2 = 4", () => {
     const res = core.multiplication("2", "2");
     const str = core.numArrayToString(res);
     assert.equal(str, "4");
   });
+
 
 
 });
