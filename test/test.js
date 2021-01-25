@@ -772,6 +772,12 @@ describe("multiplication", function(){
     assert.equal(str, "10");
   });
 
+  it("10 x 10 = 100", () => {
+    const res = core.multiplication("10", "10");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "100");
+  });
+
 
   it("2 x 2 = 4", () => {
     const res = core.multiplication("2", "2");
