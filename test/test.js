@@ -778,11 +778,16 @@ describe("multiplication", function(){
     assert.equal(str, "100");
   });
 
-
   it("2 x 2 = 4", () => {
     const res = core.multiplication("2", "2");
     const str = core.numArrayToString(res);
     assert.equal(str, "4");
+  });
+
+  it("20 x 20 = 40", () => {
+    const res = core.multiplication("20", "20");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "40");
   });
 
 
