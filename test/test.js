@@ -803,6 +803,12 @@ describe("multiplication", function(){
   });
 
 
+  it("1.01 x 1 = 1", () => {
+    const res = core.multiplication("1.01", "1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1.01");
+  });
+
 
 });
 
