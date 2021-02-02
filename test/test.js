@@ -808,6 +808,11 @@ describe("multiplication", function(){
     assert.equal(str, "1");
   });
 
+  it("2.1 x 2.5 = 5.25", () => {
+    const res = core.multiplication("2.1", "2.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "5.25");
+  });
 
   it("1.01 x 1 = 1", () => {
     const res = core.multiplication("1.01", "1");
