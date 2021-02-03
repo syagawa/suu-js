@@ -820,6 +820,11 @@ describe("multiplication", function(){
     assert.equal(str, "1.01");
   });
 
+  it("5.005005 x 2.2 = 5.25", () => {
+    const res = core.multiplication("5.005005", "2.2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "11.011011");
+  });
 
 });
 
