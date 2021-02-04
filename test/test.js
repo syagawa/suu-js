@@ -826,6 +826,12 @@ describe("multiplication", function(){
     assert.equal(str, "11.011011");
   });
 
+  it("2000 x 0.005 = 10", () => {
+    const res = core.multiplication("2000", "0.005");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "10");
+  });
+
 });
 
 
