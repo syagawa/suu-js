@@ -759,7 +759,7 @@ describe("multiplication", function(){
     assert.equal(str, "-1");
   });
   
-  it("-1 x -1 = -1", () => {
+  it("-1 x -1 = 1", () => {
     const res = core.multiplication("-1", "-1");
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
@@ -830,6 +830,12 @@ describe("multiplication", function(){
     const res = core.multiplication("2000", "0.005");
     const str = core.numArrayToString(res);
     assert.equal(str, "10");
+  });
+
+  it("2000 x -0.005 = 10", () => {
+    const res = core.multiplication("2000", "-0.005");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-10");
   });
 
 });
