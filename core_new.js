@@ -356,6 +356,10 @@ core.subtract = function(a, b){
 
 core.multiplication = function(a, b){
 
+  if(!a || !b){
+    return;
+  }
+
   if(!a && !b){
     const o = {
       array: [0],
@@ -432,5 +436,7 @@ core.multiplication = function(a, b){
   });
 
 };
+
+
 
 export default core;
