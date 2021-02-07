@@ -190,7 +190,13 @@ core.isEqual = function(a, b){
     return true;
   }
   return false;
-}
+};
+
+core.isZero = function(n){
+  const zero = core.numToArrayWithDecimal("0");
+  const num = core.numToArrayWithDecimal(n);
+  return core.isEqual(zero, num);
+};
 
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
