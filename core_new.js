@@ -198,6 +198,12 @@ core.isZero = function(n){
   return core.isEqual(zero, num);
 };
 
+core.isOne = function(n){
+  const one = core.numToArrayWithDecimal("1");
+  const num = core.numToArrayWithDecimal(n);
+  return core.isEqual(one, num);
+};
+
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
