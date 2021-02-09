@@ -193,15 +193,19 @@ core.isEqual = function(a, b){
 };
 
 core.isZero = function(n){
+  if(!n){
+    return false;
+  }
   const zero = core.numToArrayWithDecimal("0");
-  const num = core.numToArrayWithDecimal(n);
-  return core.isEqual(zero, num);
+  return core.isEqual(zero, n);
 };
 
 core.isOne = function(n){
+  if(!n){
+    return false;
+  }
   const one = core.numToArrayWithDecimal("1");
-  const num = core.numToArrayWithDecimal(n);
-  return core.isEqual(one, num);
+  return core.isEqual(one, n);
 };
 
 core.isNumArray = function(arr){
