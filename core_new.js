@@ -373,22 +373,19 @@ core.subtract = function(a, b){
 core.multiplication = function(a, b){
 
   if(!a || !b){
-    return;
-  }
-
-  if(!a && !b){
-    const o = {
-      array: [0],
-      negative: false,
-      decimal_index: 1,
-    };
-    return core.moldNumArray(o);
+    if(a !== 0 && b !== 0){
+      return;
+    }
   }
 
   const a_ = core.numToArrayWithDecimal(a ? a : 0);
   const b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_arr = a_.array;
   const b_arr = b_.array;
+
+  if(core.isZero(a_) || core.isZero(b_)){
+    return core.numToArrayWithDecimal("0");
+  }
 
   const a_negative = a_.negative;
   const b_negative = b_.negative;
