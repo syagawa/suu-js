@@ -348,7 +348,6 @@ core.add_and_subtract = function(a, b, mode){
   });
 
   const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
-  const old_int_length = length - dec_length;
   const new_int_length = new_array.length - dec_length;
 
   const new_decimal_index = new_int_length;
@@ -386,6 +385,16 @@ core.multiplication = function(a, b){
   if(core.isZero(a_) || core.isZero(b_)){
     return core.numToArrayWithDecimal("0");
   }
+
+  if(core.isOne(a_)){
+    return b_;
+  }
+
+  if(core.isOne(b_)){
+    return a_;
+  }
+
+
 
   const a_negative = a_.negative;
   const b_negative = b_.negative;
