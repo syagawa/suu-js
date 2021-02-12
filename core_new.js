@@ -282,12 +282,11 @@ core.add_and_subtract = function(a, b, mode){
   if(!a && !b){
     return;
   }
+  
+  let plus;
   if(!mode){
     return;
-  }
-
-  let plus;
-  if(mode === "+"){
+  }else if(mode === "+"){
     plus = true;
   }else if(mode === "-"){
     plus = false;
