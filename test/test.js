@@ -27,6 +27,8 @@ describe("core", function(){
       assert.equal(res, false);
     });
   });
+  
+
   describe("numToArrayWithDecimal", function(){
     it("0", () => {
       const zero = 0;
@@ -59,6 +61,13 @@ describe("core", function(){
       assert.equal(res.array[0], 1);
       assert.equal(res.decimal_index, 10);
       assert.equal(res.negative, true);
+    });
+  });
+  describe("isZero", function(){
+    it("0 is 0", () => {
+      const zero = core.numToArrayWithDecimal("0");
+      const res = core.isZero(zero);
+      assert.equal(res, true);
     });
   });
   describe("compare", function(){
