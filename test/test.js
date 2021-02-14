@@ -64,10 +64,15 @@ describe("core", function(){
     });
   });
   describe("isZero", function(){
-    it("0 is 0", () => {
+    it("0 is true", () => {
       const zero = core.numToArrayWithDecimal("0");
       const res = core.isZero(zero);
       assert.equal(res, true);
+    });
+    it("1 is false", () => {
+      const one = core.numToArrayWithDecimal("1");
+      const res = core.isZero(one);
+      assert.equal(res, false);
     });
   });
   describe("compare", function(){
