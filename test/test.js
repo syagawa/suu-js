@@ -75,6 +75,18 @@ describe("core", function(){
       assert.equal(res, false);
     });
   });
+  describe("isOne", function(){
+    it("1 is true", () => {
+      const one = core.numToArrayWithDecimal("1");
+      const res = core.isOne(one);
+      assert.equal(res, true);
+    });
+    it("0 is false", () => {
+      const zero = core.numToArrayWithDecimal("0");
+      const res = core.isOne(zero);
+      assert.equal(res, false);
+    });
+  });
   describe("compare", function(){
     it("1, 2", () => {
       const num1 = core.numToArrayWithDecimal("1");
