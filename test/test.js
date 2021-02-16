@@ -74,6 +74,11 @@ describe("core", function(){
       const res = core.isZero(one);
       assert.equal(res, false);
     });
+    it("0.0 is true", () => {
+      const zero = core.numToArrayWithDecimal("0.0");
+      const res = core.isZero(zero);
+      assert.equal(res, true);
+    });
   });
   describe("isOne", function(){
     it("1 is true", () => {
