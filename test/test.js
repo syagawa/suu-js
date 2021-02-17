@@ -86,6 +86,11 @@ describe("core", function(){
       const res = core.isOne(one);
       assert.equal(res, true);
     });
+    it("1.0 is true", () => {
+      const one = core.numToArrayWithDecimal("1.0");
+      const res = core.isOne(one);
+      assert.equal(res, true);
+    });
     it("0 is false", () => {
       const zero = core.numToArrayWithDecimal("0");
       const res = core.isOne(zero);
