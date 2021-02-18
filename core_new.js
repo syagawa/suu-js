@@ -279,8 +279,10 @@ core.fixCarry = function(arr, minus){
 };
 
 core.add_and_subtract = function(a, b, mode){
-  if(!a && !b){
-    return;
+  if(!a || !b){
+    if(a !== 0 && b !== 0){
+      return;
+    }
   }
   
   let plus;
