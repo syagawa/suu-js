@@ -302,6 +302,20 @@ core.add_and_subtract = function(a, b, mode){
   const b_arr = b_.array;
 
 
+  const a_is_zero = core.isZero(a_);
+  const b_is_zero = core.isZero(b_);
+
+  if(a_is_zero && b_is_zero){
+    return a_;
+  }else if(a_is_zero){
+    if(!plus){
+      b_.negative = !b_.negative;
+    }
+    return b_;
+  }else if(b_is_zero){
+    return a_;
+  }
+
   const a_dec_length = a_.array.length - a_.decimal_index;
   const b_dec_length = b_.array.length - b_.decimal_index;
 
