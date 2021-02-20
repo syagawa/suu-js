@@ -874,6 +874,14 @@ describe("multiplication", function(){
     assert.equal(str, "-10");
   });
 
+
+  it("10000000000000000 x 0 = 0", () => {
+    const res = core.multiplication("10000000000000000", "0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+
+
 });
 
 
