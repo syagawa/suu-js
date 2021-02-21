@@ -410,7 +410,6 @@ core.multiplication = function(a, b){
   }
 
 
-
   const a_negative = a_.negative;
   const b_negative = b_.negative;
   let negative;
@@ -474,6 +473,9 @@ core.multiplication = function(a, b){
 
 };
 
+core.multiple = function(a, b){
+  return core.multiplication(a, b);
+};
 
 
 export default core;
