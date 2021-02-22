@@ -478,4 +478,93 @@ core.multiple = function(a, b){
 };
 
 
+core.division = function(a, b){
+
+  if(!a || !b){
+    if(a !== 0 && b !== 0){
+      return;
+    }
+  }
+
+  const a_ = core.numToArrayWithDecimal(a ? a : 0);
+  const b_ = core.numToArrayWithDecimal(b ? b : 0);
+  const a_arr = a_.array;
+  const b_arr = b_.array;
+
+  if(core.isZero(a_) || core.isZero(b_)){
+    return core.numToArrayWithDecimal("0");
+  }
+
+  if(core.isOne(a_)){
+    return b_;
+  }
+
+  if(core.isOne(b_)){
+    return a_;
+  }
+
+
+  // const a_negative = a_.negative;
+  // const b_negative = b_.negative;
+  // let negative;
+  // if(a_negative && b_negative){
+  //   negative = false;
+  // }else if(a_negative || b_negative){
+  //   negative = true;
+  // }else{
+  //   negative = false;
+  // }
+
+  // const a_dec_length = a_.array.length - a_.decimal_index;
+  // const b_dec_length = b_.array.length - b_.decimal_index;
+  // const dec_length = a_dec_length + b_dec_length;
+
+  // const calc = function({a, b}){
+  //   const array = [];
+  //   const arr_a = a.array;
+  //   const arr_b = b.array;
+  //   for(let i = 0; i < arr_a.length; i++){
+  //     const aa = arr_a[i] ? arr_a[i] : 0;
+  //     const arr = new Array(i);
+  //     arr.fill(0, 0, i);
+
+  //     for(let j = 0; j < arr_b.length; j++){
+  //       const bb = arr_b[j] ? arr_b[j] : 0;
+  //       let res = aa * bb;
+        
+  //       arr.push(res);
+
+  //       const tgt_index = i + j;
+  //       let tgt = array[tgt_index];
+  //       if(!tgt){
+  //         tgt = 0;
+  //       }
+  //       const new_tgt = tgt + res;
+  //       array[tgt_index] = new_tgt;
+  //     }
+  //   }
+  //   return core.fixCarry(array);
+  // };
+
+  // const { new_array } = calc({
+  //   a: {
+  //     array: [...a_arr].reverse(),
+  //     negative: a_.negative,
+  //   },
+  //   b: {
+  //     array: [...b_arr].reverse(),
+  //     negative: b_.negative
+  //   },
+  // });
+
+  // const new_decimal_index = new_array.length - dec_length;
+
+  // return core.moldNumArray({
+  //   array: [...new_array].reverse(),
+  //   negative: negative,
+  //   decimal_index: new_decimal_index
+  // });
+
+};
+
 export default core;
