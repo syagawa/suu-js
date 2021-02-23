@@ -491,7 +491,11 @@ core.division = function(a, b){
   const a_arr = a_.array;
   const b_arr = b_.array;
 
-  if(core.isZero(a_) || core.isZero(b_)){
+  if(core.isZero(b_)){
+    return;
+  }
+
+  if(core.isZero(a_)){
     return core.numToArrayWithDecimal("0");
   }
 
