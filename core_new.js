@@ -499,9 +499,6 @@ core.division = function(a, b){
     return core.numToArrayWithDecimal("0");
   }
 
-  if(core.isOne(a_)){
-    return b_;
-  }
 
   if(core.isOne(b_)){
     return a_;
