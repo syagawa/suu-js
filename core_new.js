@@ -530,7 +530,13 @@ core.division = function(a, b){
 
       for(let j = 0; j < arr_b.length; j++){
         const bb = arr_b[j] ? arr_b[j] : 0;
-        let res = aa / bb;
+        const remain = aa % bb;
+        let res;
+        if(remain > 0){
+          res = 0;
+        }else{
+          res = aa / bb;
+        }
         
         arr.push(res);
 
