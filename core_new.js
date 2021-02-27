@@ -573,4 +573,8 @@ core.division = function(a, b){
 
 };
 
+core.divide = function(a, b){
+  return core.division(a, b);
+};
+
 export default core;
