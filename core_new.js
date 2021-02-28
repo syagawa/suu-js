@@ -506,6 +506,11 @@ core.division = function(a, b){
   const b_arr = b_.array;
   const a_negative = a_.negative;
   const b_negative = b_.negative;
+
+  const a_digit = a_arr.length;
+  const b_digit = b_arr.length;
+  console.info(a_digit, b_digit);
+
   let negative;
   if(a_negative && b_negative){
     negative = false;
