@@ -7,11 +7,6 @@
     "test": "mocha",
     "build": "cross-env NODE_ENV=production webpack"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm test"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/syagawa/suu-js.git"
