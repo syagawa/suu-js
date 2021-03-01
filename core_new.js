@@ -497,9 +497,12 @@ core.division = function(a, b){
     return core.numToArrayWithDecimal("0");
   }
 
-
   if(core.isOne(b_)){
     return a_;
+  }
+
+  if(core.isEqual(a_, b_)){
+    return core.numToArrayWithDecimal("1");
   }
 
   const a_arr = a_.array;
@@ -509,6 +512,7 @@ core.division = function(a, b){
 
   const a_digit = a_arr.length;
   const b_digit = b_arr.length;
+
   console.info(a_digit, b_digit);
 
   let negative;
