@@ -515,6 +515,29 @@ core.division = function(a, b){
 
   console.info(a_digit, b_digit);
 
+  // 10 / 2 
+  // 2 10 20 => 1
+
+  // 100 / 20
+  // 20 100 200 => 1
+
+  // 100 / 2
+  // 2 100 200 =? 2
+
+  let digit = 0;
+  let res = b_arr.join("");
+  for(let i = 0; i < a_digit; i++){
+    const n = core.numToArrayWithDecimal(res);
+    const large = core.getLarge(n, a_);
+    if(core.isEqual(large, n)){
+      digit = i + 1;
+      break;
+    }else{
+      res = `${res}0`;
+    }
+  }
+  console.info("digit", digit);
+
   let negative;
   if(a_negative && b_negative){
     negative = false;
