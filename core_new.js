@@ -526,14 +526,17 @@ core.division = function(a, b){
 
   let digit = 0;
   let res = b_arr.join("");
-  for(let i = 0; i < a_digit; i++){
+  let count = 0;
+  for(let i = 0; i < a_digit + 1; i++){
     const n = core.numToArrayWithDecimal(res);
     const large = core.getLarge(n, a_);
-    if(core.isEqual(large, n)){
-      digit = i + 1;
+    console.info(large);
+    if(large && core.isEqual(large, n)){
+      digit = count;
       break;
     }else{
       res = `${res}0`;
+      count++;
     }
   }
   console.info("digit", digit);
