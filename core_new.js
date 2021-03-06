@@ -557,6 +557,7 @@ core.division = function(a, b){
 
 
   const calc = function({a, b, digit}){
+    const arr = [];
     for(let i = 0; i < digit; i++){
 
       let less = true;
@@ -568,14 +569,15 @@ core.division = function(a, b){
         const large = core.getLarge(a, n);
         if(core.isEqual(n, large)){
           less = false;
-          res = core.subtract(n, b);
+          arr.push(count - 1);
+          break;
         }
       }
-
-
     }
+    console.info(arr);
   };
 
+  calc({a: core.numArrayToString(a_), b: core.numArrayToString(b_), digit});
   // const calc = function({a, b}){
   //   const array = [];
   //   const arr_a = a.array;
