@@ -565,7 +565,9 @@ core.division = function(a, b){
       let res = null;
       while(less){
         count++;
-        const n = core.multiplication(b, String(count));
+        const b_ = b.array.join("");
+        const n = core.multiplication(b_, String(count));
+        console.info("an", a, n);
         const large = core.getLarge(a, n);
         if(core.isEqual(n, large)){
           less = false;
@@ -577,7 +579,7 @@ core.division = function(a, b){
     console.info(arr);
   };
 
-  calc({a: core.numArrayToString(a_), b: core.numArrayToString(b_), digit});
+  calc({a: a_, b: b_, digit: digit});
   // const calc = function({a, b}){
   //   const array = [];
   //   const arr_a = a.array;
