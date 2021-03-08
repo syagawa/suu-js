@@ -563,11 +563,16 @@ core.division = function(a, b){
       let less = true;
       let count = 0;
       let res = null;
+      const b_ = b.array.join("");
       while(less){
         count++;
-        const b_ = b.array.join("");
         const n = core.multiplication(b_, String(count));
         console.info("an", a, n);
+        if(core.isEqual(a, n)){
+          less = false;
+          arr.push(count - 1);
+          break;
+        }
         const large = core.getLarge(a, n);
         if(core.isEqual(n, large)){
           less = false;
