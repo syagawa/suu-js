@@ -570,7 +570,7 @@ core.division = function(a, b){
         console.info("an", a, n);
         if(core.isEqual(a, n)){
           less = false;
-          arr.push(count - 1);
+          arr.push(count);
           break;
         }
         const large = core.getLarge(a, n);
