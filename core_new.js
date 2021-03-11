@@ -563,21 +563,21 @@ core.division = function(a, b){
       let less = true;
       let count = 0;
       let res = null;
+      const a_len = a.array.length;
+      const start = a_len - digit + i;
+      const a_ = core.numToArrayWithDecimal(a.array.slice(0,start).join(""));
+      const b_str = b.array.join("");
 
       while(less){
         count++;
-        const a_len = a.array.length;
-        const start = a_len - digit - i;
-        const arr = b.array.slice(0, start);
-        const b_ = arr.join("");
-        const n = core.multiplication(b_, String(count));
-        console.info("count", count);
-        if(core.isEqual(a, n)){
+        const n = core.multiplication(b_str, String(count));
+        console.info("count", count, start, a_, b_str);
+        if(core.isEqual(a_, n)){
           less = false;
           arr.push(count);
           break;
         }
-        const large = core.getLarge(a, n);
+        const large = core.getLarge(a_, n);
         if(core.isEqual(n, large)){
           less = false;
           arr.push(count - 1);
