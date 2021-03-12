@@ -208,6 +208,17 @@ core.isOne = function(n){
   return core.isEqual(one, n);
 };
 
+core.getZero = function(){
+  const zero = core.numToArrayWithDecimal("0");
+  return zero;
+};
+
+core.getOne = function(){
+  const one = core.numToArrayWithDecimal("1");
+  return one;
+};
+
+
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
@@ -567,7 +578,7 @@ core.division = function(a, b){
       const start = a_len - digit + i;
       const a_ = core.numToArrayWithDecimal(a.array.slice(0,start).join(""));
       const b_str = b.array.join("");
-
+      let remain = 0;
       while(less){
         count++;
         const n = core.multiplication(b_str, String(count));
