@@ -569,6 +569,7 @@ core.division = function(a, b){
 
   const calc = function({a, b, digit}){
     const arr = [];
+    let remain = null;
     for(let i = 0; i < digit; i++){
 
       let less = true;
@@ -578,20 +579,23 @@ core.division = function(a, b){
       const start = a_len - digit + i;
       const a_ = core.numToArrayWithDecimal(a.array.slice(0,start).join(""));
       const b_str = b.array.join("");
-      let remain = 0;
+
+      let n = null;
       while(less){
         count++;
-        const n = core.multiplication(b_str, String(count));
+        n = core.multiplication(b_str, String(count));
         console.info("count", count, start, a_, b_str);
         if(core.isEqual(a_, n)){
           less = false;
-          arr.push(count);
+          res = count;
+          arr.push(res);
           break;
         }
         const large = core.getLarge(a_, n);
         if(core.isEqual(n, large)){
           less = false;
-          arr.push(count - 1);
+          res = count - 1;
+          arr.push(res);
           break;
         }
       }
