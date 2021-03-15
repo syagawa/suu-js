@@ -580,15 +580,18 @@ core.division = function(a, b){
       const a_ = core.numToArrayWithDecimal(a.array.slice(0,start).join(""));
       const b_str = b.array.join("");
 
-      let n = null;
+      let n = core.getZero();
       while(less){
         count++;
+        const pre_n = n;
         n = core.multiplication(b_str, String(count));
         console.info("count", count, start, a_, b_str);
         if(core.isEqual(a_, n)){
           less = false;
           res = count;
           arr.push(res);
+          remain = core.subtract(a_, pre_n);
+          console.info(remain);
           break;
         }
         const large = core.getLarge(a_, n);
