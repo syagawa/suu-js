@@ -524,7 +524,7 @@ core.division = function(a, b){
   const a_digit = a_arr.length;
   const b_digit = b_arr.length;
 
-  console.info(a_digit, b_digit);
+  console.info("a_digit:", a_digit, "b_digit:", b_digit);
 
   // 10 / 2 
   // 2 10 20 => 1
@@ -551,7 +551,6 @@ core.division = function(a, b){
     }
   }
   console.info("digit", digit);
-
 
   let negative;
   if(a_negative && b_negative){
@@ -606,9 +605,12 @@ core.division = function(a, b){
       }
     }
     console.info(arr);
+    return {
+      new_array: arr,
+    }
   };
 
-  calc({a: a_, b: b_, digit: digit});
+  const { new_array } = calc({a: a_, b: b_, digit: digit});
   // const calc = function({a, b}){
   //   const array = [];
   //   const arr_a = a.array;
@@ -642,16 +644,16 @@ core.division = function(a, b){
   //   return core.fixCarry(array);
   // };
 
-  const { new_array } = calc({
-    a: {
-      array: [...a_arr].reverse(),
-      negative: a_.negative,
-    },
-    b: {
-      array: [...b_arr].reverse(),
-      negative: b_.negative
-    },
-  });
+  // const { new_array } = calc({
+  //   a: {
+  //     array: [...a_arr].reverse(),
+  //     negative: a_.negative,
+  //   },
+  //   b: {
+  //     array: [...b_arr].reverse(),
+  //     negative: b_.negative
+  //   },
+  // });
 
   const new_decimal_index = new_array.length - dec_length;
 
