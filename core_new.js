@@ -541,7 +541,7 @@ core.division = function(a, b){
   for(let i = 0; i < a_digit + 1; i++){
     const n = core.numToArrayWithDecimal(res);
     const large = core.getLarge(n, a_);
-    console.info(large);
+    console.info("large", large);
     if(large && core.isEqual(large, n)){
       digit = count;
       break;
@@ -577,7 +577,7 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      const a_ = core.add(a.array.slice(0,start).join(""), remain);
+      const a_ = core.add(a.array.slice(0,start + 1).join(""), remain);
       const b_str = b.array.join("");
 
       while(less){
@@ -604,7 +604,7 @@ core.division = function(a, b){
         }
       }
     }
-    console.info(arr);
+    console.info("arr", arr);
     return {
       new_array: arr,
     }
