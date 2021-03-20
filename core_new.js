@@ -577,7 +577,7 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      const a_ = core.add(a.array.slice(0,start + 1).join(""), remain);
+      const a_ = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
       const b_str = b.array.join("");
 
       while(less){
@@ -599,6 +599,8 @@ core.division = function(a, b){
           less = false;
           res = count - 1;
           arr.push(res);
+          remain = core.subtract(a_, pre_n);
+          console.info("remain", remain);
           n = core.getZero().array.join("");
           break;
         }
