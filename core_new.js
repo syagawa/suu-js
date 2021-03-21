@@ -577,15 +577,16 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      const a_ = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
+      remain = core.multiplication(remain, "10");
+      const a_str = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
       const b_str = b.array.join("");
 
       while(less){
         count++;
         const pre_n = n;
         n = core.multiplication(b_str, String(count));
-        console.info("count", count, start, a_, b_str);
-        if(core.isEqual(a_, n)){
+        console.info("count", count, start, a_str, b_str);
+        if(core.isEqual(a_str, n)){
           less = false;
           res = count;
           arr.push(res);
