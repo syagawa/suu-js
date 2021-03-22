@@ -583,14 +583,15 @@ core.division = function(a, b){
 
       while(less){
         count++;
-        const pre_n = n;
+        const pre_n = n.array.join("");
         n = core.multiplication(b_str, String(count));
         console.info("count", count, start, a_str, b_str);
-        if(core.isEqual(a_str, n)){
+        const a_ = core.numToArrayWithDecimal(a_str);
+        if(core.isEqual(a_, n)){
           less = false;
           res = count;
           arr.push(res);
-          remain = core.subtract(a_, pre_n);
+          remain = core.subtract(a_str, pre_n);
           console.info("remain", remain);
           n = core.subtract(a_.array.joins(""), pre_n.array.join(""));
           break;
@@ -600,7 +601,7 @@ core.division = function(a, b){
           less = false;
           res = count - 1;
           arr.push(res);
-          remain = core.subtract(a_, pre_n);
+          remain = core.subtract(a_str, pre_n);
           console.info("remain", remain);
           n = core.getZero().array.join("");
           break;
