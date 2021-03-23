@@ -40,6 +40,9 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 };
 
 core.numToArrayWithDecimal = function(n){
+  if(typeof n === "object"){
+    return console.info("Paremeter is object.", n);
+  }
   let str = String(n);
   let negative = false;
   while(str[0].match(/^-/)){
