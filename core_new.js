@@ -594,9 +594,11 @@ core.division = function(a, b){
           less = false;
           res = count;
           arr.push(res);
+          console.info("before remain");
           remain = core.subtract(a_str, pre_n);
+          console.info("after remain");
           console.info("remain", remain);
-          n = core.subtract(a_.array.joins(""), pre_n.array.join(""));
+          n = remain;
           break;
         }
         const large = core.getLarge(a_, n);
