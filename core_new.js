@@ -580,7 +580,7 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      remain = core.multiplication(remain, "10");
+      remain = core.multiplication(remain, "10").array.join("");
       const a_str = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
       const b_str = b.array.join("");
 
