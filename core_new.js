@@ -572,7 +572,7 @@ core.division = function(a, b){
   const calc = function({a, b, digit}){
     const arr = [];
     let remain = "0";
-    let n = "0";
+    let n = core.getZero();
     for(let i = 0; i < digit; i++){
 
       let less = true;
