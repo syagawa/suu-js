@@ -572,7 +572,7 @@ core.division = function(a, b){
   const calc = function({a, b, digit}){
     const arr = [];
     let remain = "0";
-    let n = core.getZero();
+    let n = "0";
     for(let i = 0; i < digit; i++){
 
       let less = true;
@@ -586,8 +586,8 @@ core.division = function(a, b){
 
       while(less){
         count++;
-        const pre_n = n.array.join("");
-        n = core.multiplication(b_str, String(count));
+        const pre_n = n;
+        n = core.multiplication(b_str, String(count)).array.join("");
         console.info("count", count, start, a_str, b_str);
         const a_ = core.numToArrayWithDecimal(a_str);
         if(core.isEqual(a_, n)){
@@ -595,7 +595,7 @@ core.division = function(a, b){
           res = count;
           arr.push(res);
           console.info("before remain");
-          remain = core.subtract(a_str, pre_n);
+          remain = core.subtract(a_str, pre_n).array.join("");
           console.info("after remain");
           console.info("remain", remain);
           n = remain;
@@ -606,7 +606,7 @@ core.division = function(a, b){
           less = false;
           res = count - 1;
           arr.push(res);
-          remain = core.subtract(a_str, pre_n);
+          remain = core.subtract(a_str, pre_n).array.join("");
           console.info("remain", remain);
           n = core.getZero().array.join("");
           break;
@@ -620,49 +620,6 @@ core.division = function(a, b){
   };
 
   const { new_array } = calc({a: a_, b: b_, digit: digit});
-  // const calc = function({a, b}){
-  //   const array = [];
-  //   const arr_a = a.array;
-  //   const arr_b = b.array;
-  //   for(let i = 0; i < arr_a.length; i++){
-  //     const aa = arr_a[i] ? arr_a[i] : 0;
-  //     const arr = new Array(i);
-  //     arr.fill(0, 0, i);
-
-  //     for(let j = 0; j < arr_b.length; j++){
-  //       const bb = arr_b[j] ? arr_b[j] : 0;
-  //       const remain = aa % bb;
-  //       let res;
-  //       if(remain > 0){
-  //         res = 0;
-  //       }else{
-  //         res = aa / bb;
-  //       }
-        
-  //       arr.push(res);
-
-  //       const tgt_index = i + j;
-  //       let tgt = array[tgt_index];
-  //       if(!tgt){
-  //         tgt = 0;
-  //       }
-  //       const new_tgt = tgt + res;
-  //       array[tgt_index] = new_tgt;
-  //     }
-  //   }
-  //   return core.fixCarry(array);
-  // };
-
-  // const { new_array } = calc({
-  //   a: {
-  //     array: [...a_arr].reverse(),
-  //     negative: a_.negative,
-  //   },
-  //   b: {
-  //     array: [...b_arr].reverse(),
-  //     negative: b_.negative
-  //   },
-  // });
 
   const new_decimal_index = new_array.length - dec_length;
 
