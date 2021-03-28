@@ -587,10 +587,11 @@ core.division = function(a, b){
       while(less){
         count++;
         const pre_n = n;
-        n = core.multiplication(b_str, String(count)).array.join("");
+        const n_ = core.multiplication(b_str, String(count));
+        n = n_.array.join("");
         console.info("count", count, start, a_str, b_str);
         const a_ = core.numToArrayWithDecimal(a_str);
-        if(core.isEqual(a_, n)){
+        if(core.isEqual(a_, n_)){
           less = false;
           res = count;
           arr.push(res);
@@ -601,7 +602,7 @@ core.division = function(a, b){
           n = remain;
           break;
         }
-        const large = core.getLarge(a_, n);
+        const large = core.getLarge(a_, n_);
         if(core.isEqual(n, large)){
           less = false;
           res = count - 1;
