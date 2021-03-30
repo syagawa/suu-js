@@ -79,7 +79,7 @@ core.numToArrayWithDecimal = function(n){
 };
 
 core.numArrayToString = function(n){
-  if(!n.array || !n.decimal_index){
+  if(!n.is_num_array || !n.array || !n.decimal_index){
     return "";
   }
 
@@ -98,22 +98,34 @@ core.compare = function(a, b){
   if(!a || !b){
     return;
   }
+
+  let a_ = a;
+  let b_ = b;
+  
+
+  if(!a_.is_num_array){
+    a_ = core.numToArrayWithDecimal(a_);
+  }
+  if(!b_.is_num_array){
+    b_ = core.numToArrayWithDecimal(b_);
+  }
+
   const o = {
     small: null,
     large: null,
     equal: false
   };
 
-  const a_array = a.array;
-  const b_array = b.array;
+  const a_array = a_.array;
+  const b_array = b_.array;
 
   const a_len = a_array.length;
   const b_len = b_array.length;
   const a_str = a_array.join("");
   const b_str = b_array.join("");
 
-  const a_int_len = a.decimal_index;
-  const b_int_len = b.decimal_index;
+  const a_int_len = a_.decimal_index;
+  const b_int_len = b_.decimal_index;
 
   const a_dec_len = a_len - a_int_len;
   const b_dec_len = b_len - b_int_len;
@@ -122,27 +134,27 @@ core.compare = function(a, b){
     o.equal = true;
     return o;
   }
-  if(!a.negative && b.negative){
-    o.small = b;
-    o.large = a;
+  if(!a_.negative && b_.negative){
+    o.small = b_;
+    o.large = a_;
     return o;
   }
-  if(a.negative && !b.negative){
-    o.small = a;
-    o.large = b;
+  if(a_.negative && !b_.negative){
+    o.small = a_;
+    o.large = b_;
     return o;
   }
 
-  const negative = a.negative;
+  const negative = a_.negative;
 
   const o_a_b = {
-    large: negative ? b : a,
-    small: negative ? a : b,
+    large: negative ? b_ : a_,
+    small: negative ? a_ : b_,
     equal: false,
   };
   const o_b_a = {
-    large: negative ? a : b,
-    small: negative ? b : a,
+    large: negative ? a_ : b_,
+    small: negative ? b_ : a_,
     equal: false
   };
 
