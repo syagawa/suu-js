@@ -95,8 +95,14 @@ core.numArrayToString = function(n){
 };
 
 core.compare = function(a, b){
+  const o = {
+    small: null,
+    large: null,
+    equal: false
+  };
+
   if(!a || !b){
-    return;
+    return o;
   }
 
   let a_ = a;
@@ -105,16 +111,17 @@ core.compare = function(a, b){
 
   if(!a_.is_num_array){
     a_ = core.numToArrayWithDecimal(a_);
+    if(!a_){
+      return o;
+    }
   }
   if(!b_.is_num_array){
     b_ = core.numToArrayWithDecimal(b_);
+    if(!b_){
+      return o;
+    }
   }
 
-  const o = {
-    small: null,
-    large: null,
-    equal: false
-  };
 
   const a_array = a_.array;
   const b_array = b_.array;
