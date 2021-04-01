@@ -107,7 +107,6 @@ core.compare = function(a, b){
 
   let a_ = a;
   let b_ = b;
-  
 
   if(!a_.is_num_array){
     a_ = core.numToArrayWithDecimal(a_);
@@ -121,7 +120,6 @@ core.compare = function(a, b){
       return o;
     }
   }
-
 
   const a_array = a_.array;
   const b_array = b_.array;
@@ -219,12 +217,18 @@ core.isZero = function(n){
   if(!n){
     return false;
   }
+  if(!n.is_num_array){
+    return false;
+  }
   const zero = core.numToArrayWithDecimal("0");
   return core.isEqual(zero, n);
 };
 
 core.isOne = function(n){
   if(!n){
+    return false;
+  }
+  if(!n.is_num_array){
     return false;
   }
   const one = core.numToArrayWithDecimal("1");
