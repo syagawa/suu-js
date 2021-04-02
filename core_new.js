@@ -249,7 +249,7 @@ core.getOne = function(){
 core.isNumArray = function(arr){
   if( arr instanceof Array ){
     for(let i = 0; i < arr.length; i++){
-      if( !core.isNumber(arr[i]) ){
+      if(!core.isNumber(arr[i]) ){
         return false;
       }
     }
@@ -316,6 +316,17 @@ core.fixCarry = function(arr, minus){
 
 };
 
+core.clone = function(n){
+  if(!n.is_num_array){
+    return null;
+  }
+  const o = {
+    ...n,
+    array: [...n.array],
+  };
+  return o;
+};
+
 core.add_and_subtract = function(a, b, mode){
   if(!a || !b){
     if(a !== 0 && b !== 0){
@@ -334,8 +345,11 @@ core.add_and_subtract = function(a, b, mode){
     return;
   }
 
-  const a_ = core.numToArrayWithDecimal(a ? a : 0);
-  const b_ = core.numToArrayWithDecimal(b ? b : 0);
+  let a_ = null;
+  let b_ = null;
+
+  a_ = core.numToArrayWithDecimal(a ? a : 0);
+  b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_arr = a_.array;
   const b_arr = b_.array;
 
