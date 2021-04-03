@@ -347,9 +347,17 @@ core.add_and_subtract = function(a, b, mode){
 
   let a_ = null;
   let b_ = null;
+  if(a.is_num_array){
+    a_ = core.clone(a);
+  }else{
+    a_ = core.numToArrayWithDecimal(a ? a : 0);
+  }
+  if(b.is_num_array){
+    b_ = core.clone(b);
+  }else{
+    b_ = core.numToArrayWithDecimal(b ? b : 0);
+  }
 
-  a_ = core.numToArrayWithDecimal(a ? a : 0);
-  b_ = core.numToArrayWithDecimal(b ? b : 0);
   const a_arr = a_.array;
   const b_arr = b_.array;
 
