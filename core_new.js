@@ -557,8 +557,19 @@ core.division = function(a, b){
     }
   }
 
-  const a_ = core.numToArrayWithDecimal(a ? a : 0);
-  const b_ = core.numToArrayWithDecimal(b ? b : 0);
+  let a_ = null;
+  let b_ = null;
+  if(a.is_num_array){
+    a_ = core.clone(a);
+  }else{
+    a_ = core.numToArrayWithDecimal(a ? a : 0);
+  }
+  if(b.is_num_array){
+    b_ = core.clone(b);
+  }else{
+    b_ = core.numToArrayWithDecimal(b ? b : 0);
+  }
+
 
   if(core.isZero(b_)){
     return;
