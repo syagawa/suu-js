@@ -682,13 +682,16 @@ core.division = function(a, b){
         }
       }
     }
-    console.info("arr", arr);
+    // console.info("arr", arr);
     return {
       new_array: arr,
+      remain: remain,
     }
   };
 
-  const { new_array } = calc({a: a_, b: b_, digit: digit});
+  const { new_array, remain } = calc({a: a_, b: b_, digit: digit});
+
+  console.info(new_array, remain);
 
   const new_decimal_index = new_array.length - dec_length;
 
