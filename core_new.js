@@ -683,9 +683,10 @@ core.division = function(a, b){
       }
     }
     // console.info("arr", arr);
+    const remain_arr = remain.split("");
     return {
       new_array: arr,
-      remain: remain,
+      remain_array: remain_arr,
     }
   };
 
