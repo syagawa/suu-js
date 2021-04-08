@@ -683,16 +683,16 @@ core.division = function(a, b){
       }
     }
     // console.info("arr", arr);
-    const remain_arr = remain.split("");
+    const remain_arr = core.numToArrayWithDecimal(remain).array;
     return {
       new_array: arr,
       remain_array: remain_arr,
     }
   };
 
-  const { new_array, remain } = calc({a: a_, b: b_, digit: digit});
+  const { new_array, remain_array } = calc({a: a_, b: b_, digit: digit});
 
-  console.info(new_array, remain);
+  console.info(new_array, remain_array);
 
   const new_decimal_index = new_array.length - dec_length;
 
