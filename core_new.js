@@ -639,8 +639,8 @@ core.division = function(a, b){
 
   const calc = function({a, b, digit}){
     const arr = [];
-    let remain = "0";
-    let n = "0";
+    let remain = core.getZero();
+    let n = core.getZero();
     for(let i = 0; i < digit; i++){
 
       let less = true;
@@ -648,7 +648,7 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      remain = core.multiplication(remain, "10").array.join("");
+      remain = core.multiplication(remain, "10");
       const a_str = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
       const b_str = b.array.join("");
 
