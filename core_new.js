@@ -644,27 +644,27 @@ core.division = function(a, b){
     for(let i = 0; i < digit; i++){
 
       let less = true;
-      let count = 0;
+      let count = core.getZero();
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
       remain = core.multiplication(remain, "10");
-      const a_str = core.add(a.array.slice(0,start + 1).join(""), remain).array.join("");
-      const b_str = b.array.join("");
+      const a_ = core.add(a, remain);
+      const b_ = core.clone(b);
 
       while(less){
-        count++;
+        count = core.add(count, "1");
         const pre_n = n;
-        const n_ = core.multiplication(b_str, String(count));
+        const n_ = core.multiplication(b_, count);
         n = n_.array.join("");
-        console.info("count", count, start, a_str, b_str);
-        const a_ = core.numToArrayWithDecimal(a_str);
+        console.info("count", count, start, a_, b_);
+        const a_ = core.numToArrayWithDecimal(a_);
         if(core.isEqual(a_, n_)){
           less = false;
           res = count;
           arr.push(res);
           console.info("before remain");
-          remain = core.subtract(a_str, pre_n).array.join("");
+          remain = core.subtract(a_, pre_n);
           console.info("after remain");
           console.info("remain", remain);
           n = remain;
@@ -673,11 +673,11 @@ core.division = function(a, b){
         const large = core.getLarge(a_, n_);
         if(core.isEqual(n, large)){
           less = false;
-          res = count - 1;
+          res = core.subtract(count, "1");
           arr.push(res);
-          remain = core.subtract(a_str, pre_n).array.join("");
+          remain = core.subtract(a_, pre_n);
           console.info("remain", remain);
-          n = core.getZero().array.join("");
+          n = core.getZero();
           break;
         }
       }
