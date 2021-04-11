@@ -658,7 +658,6 @@ core.division = function(a, b){
         const n_ = core.multiplication(b_, count);
         n = n_.array.join("");
         console.info("count", count, start, a_, b_);
-        const a_ = core.numToArrayWithDecimal(a_);
         if(core.isEqual(a_, n_)){
           less = false;
           res = count;
@@ -683,7 +682,7 @@ core.division = function(a, b){
       }
     }
     // console.info("arr", arr);
-    const remain_arr = core.numToArrayWithDecimal(remain).array;
+    const remain_arr = remain.array;
     return {
       new_array: arr,
       remain_array: remain_arr,
