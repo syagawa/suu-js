@@ -682,7 +682,7 @@ core.division = function(a, b){
       }
     }
     // console.info("arr", arr);
-    const new_arr = [...arr.map(e => e.array)];
+    const new_arr = arr.flatMap(e => e.array);
     const remain_arr = remain.array;
     return {
       new_array: new_arr,
