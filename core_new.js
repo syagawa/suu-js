@@ -220,7 +220,7 @@ core.isZero = function(n){
   if(!n.is_num_array){
     return false;
   }
-  const zero = core.numToArrayWithDecimal("0");
+  const zero = core.getZero();
   return core.isEqual(zero, n);
 };
 
@@ -649,7 +649,7 @@ core.division = function(a, b){
       const a_len = a.array.length;
       const start = a_len - digit + i;
       remain = core.multiplication(remain, "10");
-      const a_ = core.add(a, remain);
+      const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
 
       while(less){
