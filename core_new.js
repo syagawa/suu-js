@@ -640,9 +640,10 @@ core.division = function(a, b){
   const calc = function({a, b, digit}){
     const arr = [];
     let remain = core.getZero();
-    let n = core.getZero();
-    for(let i = 0; i < digit; i++){
+    let current = core.getZero();
+    const b_len = b.array.length;
 
+    for(let i = 0; i < digit; i++){
       let less = true;
       let count = core.getZero();
       let res = null;
