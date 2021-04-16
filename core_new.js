@@ -641,7 +641,11 @@ core.division = function(a, b){
     const arr = [];
     let remain = core.getZero();
     let current = core.getZero();
+    const a_len = a.array.length;
     const b_len = b.array.length;
+
+    let len = b_len;
+
 
     for(let i = 0; i < digit; i++){
       let less = true;
