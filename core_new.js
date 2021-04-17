@@ -639,13 +639,12 @@ core.division = function(a, b){
 
   const calc = function({a, b, digit}){
     const arr = [];
-    let remain = core.getZero();
-    let current = core.getZero();
     const a_len = a.array.length;
     const b_len = b.array.length;
+    let remain = core.getZero();
+    let current = core.getZero();
 
     let len = b_len;
-
 
     for(let i = 0; i < digit; i++){
       let less = true;
@@ -653,8 +652,10 @@ core.division = function(a, b){
       let res = null;
       const a_len = a.array.length;
       const start = a_len - digit + i;
-      remain = core.multiplication(remain, "10");
-      const a_ = core.isZero(remain) ? core.clone(a) : remain;
+      const remain1 = core.multiplication(remain, "10");
+      const remain2 = String(a.array.slice(i, i + 1));
+      remain = core.add(remain1, remain2);
+      // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
 
       while(less){
