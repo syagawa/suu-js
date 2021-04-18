@@ -657,32 +657,30 @@ core.division = function(a, b){
       remain = core.add(remain1, remain2);
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
+      let n = core.getZero();
 
       while(less){
         count = core.add(count, "1");
         const pre_n = n;
         const n_ = core.multiplication(b_, count);
-        n = n_.array.join("");
         console.info("count", count, start, a_, b_);
-        if(core.isEqual(a_, n_)){
+        if(core.isEqual(remain, n_)){
           less = false;
           res = count;
           arr.push(res);
           console.info("before remain");
-          remain = core.subtract(a_, pre_n);
+          remain = core.subtract(remain, n_);
           console.info("after remain");
           console.info("remain", remain);
-          n = remain;
           break;
         }
-        const large = core.getLarge(a_, n_);
+        const large = core.getLarge(remain, n_);
         if(core.isEqual(n, large)){
           less = false;
           res = core.subtract(count, "1");
           arr.push(res);
-          remain = core.subtract(a_, pre_n);
+          remain = core.subtract(remain, pre_n);
           console.info("remain", remain);
-          n = core.getZero();
           break;
         }
       }
