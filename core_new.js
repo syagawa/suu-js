@@ -659,11 +659,16 @@ core.division = function(a, b){
       const b_ = core.clone(b);
       let n = core.getZero();
 
+
       while(less){
         count = core.add(count, "1");
+        if(core.isEqual("100", count)){
+          less = false;
+          break;
+        }
         const pre_n = n;
         const n_ = core.multiplication(b_, count);
-        console.info("count", count, start, a_, b_);
+        console.info("count", count, remain, pre_n, n_, arr);
         if(core.isEqual(remain, n_)){
           less = false;
           res = count;
