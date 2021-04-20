@@ -658,7 +658,7 @@ core.division = function(a, b){
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
       let n = core.getZero();
-
+      console.info("first remain", remain.array.join(""));
 
       while(less){
         count = core.add(count, "1");
@@ -680,7 +680,7 @@ core.division = function(a, b){
           break;
         }
         const large = core.getLarge(remain, n_);
-        if(core.isEqual(n, large)){
+        if(core.isEqual(n_, large)){
           less = false;
           res = core.subtract(count, "1");
           arr.push(res);
