@@ -646,12 +646,12 @@ core.division = function(a, b){
 
     let len = b_len;
 
-    for(let i = 0; i < digit; i++){
+    for(let i = 0; i < a_len; i++){
       let less = true;
       let count = core.getZero();
       let res = null;
       const a_len = a.array.length;
-      const start = a_len - digit + i;
+      // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a.array.slice(i, i + 1));
       remain = core.add(remain1, remain2);
@@ -667,20 +667,22 @@ core.division = function(a, b){
           break;
         }
         const pre_n = n;
-        const n_ = core.multiplication(b_, count);
-        console.info("count", count, remain, pre_n, n_, arr);
-        if(core.isEqual(remain, n_)){
+        n = core.multiplication(b_, count);
+        console.info("count", count, remain, pre_n, n, arr);
+        if(core.isEqual(remain, n)){
+          console.info("equal!");
           less = false;
           res = count;
           arr.push(res);
           console.info("before remain");
-          remain = core.subtract(remain, n_);
+          remain = core.subtract(remain, n);
           console.info("after remain");
           console.info("remain", remain);
           break;
         }
-        const large = core.getLarge(remain, n_);
-        if(core.isEqual(n_, large)){
+        const large = core.getLarge(remain, n);
+        if(core.isEqual(n, large)){
+          console.info("large!", remain, pre_n, n, count);
           less = false;
           res = core.subtract(count, "1");
           arr.push(res);
