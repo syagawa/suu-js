@@ -705,10 +705,19 @@ core.division = function(a, b){
 
   console.info(new_array, remain_array);
 
+  if(remain_array.length === 1 && remain_array[0] === 0){
+    console.info("ok");
+  }else{
+    const a_ = core.numToArrayWithDecimal(remain_array.join(""));
+    const res = calc({a: a_, b: b_, digit: 10});
+    console.info(res);
+  }
+
+
   const new_decimal_index = new_array.length - dec_length;
 
   return core.moldNumArray({
-    array: [...new_array].reverse(),
+    array: [...new_array],
     negative: negative,
     decimal_index: new_decimal_index
   });
