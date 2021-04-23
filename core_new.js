@@ -659,6 +659,7 @@ core.division = function(a, b){
       const b_ = core.clone(b);
       let n = core.getZero();
       console.info("first remain", remain.array.join(""));
+      console.info(i, "/", a_len);
 
       while(less){
         count = core.add(count, "1");
@@ -710,7 +711,7 @@ core.division = function(a, b){
   }else{
     const a_ = core.numToArrayWithDecimal(remain_array.join(""));
     const res = calc({a: a_, b: b_, digit: 10});
-    console.info(res);
+    console.info("10", res);
   }
 
 
