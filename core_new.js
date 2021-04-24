@@ -637,23 +637,22 @@ core.division = function(a, b){
   const dec_length = a_dec_length + b_dec_length;
 
 
-  const calc = function({a, b, digit}){
+  const calc = function({a, b, digit, max}){
     const arr = [];
     const a_len = a.array.length;
     const b_len = b.array.length;
     let remain = core.getZero();
-    let current = core.getZero();
 
-    let len = b_len;
-
-    for(let i = 0; i < a_len; i++){
+    let last = 0;
+    for(let i = 0; i < a_len + max; i++){
+      last = i;
       let less = true;
       let count = core.getZero();
       let res = null;
       const a_len = a.array.length;
       // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
-      const remain2 = String(a.array.slice(i, i + 1));
+      const remain2 = String(a.array.slice(i, i + 1).length === 1 ? a.array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
@@ -693,6 +692,7 @@ core.division = function(a, b){
         }
       }
     }
+    
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     const remain_arr = remain.array;
@@ -702,7 +702,9 @@ core.division = function(a, b){
     }
   };
 
-  const { new_array, remain_array } = calc({a: a_, b: b_, digit: digit});
+  const max = 10;
+
+  const { new_array, remain_array } = calc({a: a_, b: b_, digit: digit, max: max});
 
   console.info(new_array, remain_array);
 
