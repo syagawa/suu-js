@@ -644,6 +644,7 @@ core.division = function(a, b){
     let remain = core.getZero();
 
     let last = 0;
+    let _decimal_index = a_len;
     for(let i = 0; i < a_len + max; i++){
       last = i;
       let less = true;
@@ -659,7 +660,11 @@ core.division = function(a, b){
       let n = core.getZero();
       console.info("first remain", remain.array.join(""));
       console.info(i, "/", a_len);
-
+      if(i === a_len && core.isZero(remain)){
+        break;
+      }else if(i === a_len){
+        arr.push(".");
+      }
       while(less){
         count = core.add(count, "1");
         if(core.isEqual("100", count)){
@@ -692,7 +697,7 @@ core.division = function(a, b){
         }
       }
     }
-    
+
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     const remain_arr = remain.array;
