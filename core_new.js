@@ -644,7 +644,7 @@ core.division = function(a, b){
     let remain = core.getZero();
 
     let last = 0;
-    let _decimal_index = a_len;
+    let decimal_index = a_len;
     for(let i = 0; i < a_len + max; i++){
       last = i;
       let less = true;
@@ -663,7 +663,7 @@ core.division = function(a, b){
       if(i === a_len && core.isZero(remain)){
         break;
       }else if(i === a_len){
-        arr.push(".");
+        console.info("aaa");
       }
       while(less){
         count = core.add(count, "1");
@@ -703,13 +703,14 @@ core.division = function(a, b){
     const remain_arr = remain.array;
     return {
       new_array: new_arr,
+      decimal_index: decimal_index,
       remain_array: remain_arr,
     }
   };
 
   const max = 10;
 
-  const { new_array, remain_array } = calc({a: a_, b: b_, digit: digit, max: max});
+  const { new_array, remain_array, decimal_index } = calc({a: a_, b: b_, digit: digit, max: max});
 
   console.info(new_array, remain_array);
 
@@ -722,12 +723,11 @@ core.division = function(a, b){
   }
 
 
-  const new_decimal_index = new_array.length - dec_length;
 
   return core.moldNumArray({
     array: [...new_array],
     negative: negative,
-    decimal_index: new_decimal_index
+    decimal_index: decimal_index
   });
 
 };
