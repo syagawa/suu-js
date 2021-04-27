@@ -645,6 +645,9 @@ core.division = function(a, b){
 
     let last = 0;
     let decimal_index = a_len;
+    const decimal_index_remain = 1;
+    const remain_prefix = [0];
+    let remain_is_decimal = false;
     for(let i = 0; i < a_len + max; i++){
       last = i;
       let less = true;
@@ -664,6 +667,10 @@ core.division = function(a, b){
         break;
       }else if(i === a_len){
         console.info("aaa");
+        remain_is_decimal = true;
+      }
+      if(i >= a_len){
+        remain_prefix.push(0);
       }
       while(less){
         count = core.add(count, "1");
@@ -700,11 +707,15 @@ core.division = function(a, b){
 
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
-    const remain_arr = remain.array;
+    let remain_arr = remain.array;
+    if(remain_is_decimal){
+      remain_arr = [...remain_prefix, ...remain_arr];
+    }
     return {
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
+      decimal_index_remain: decimal_index_remain,
     }
   };
 
