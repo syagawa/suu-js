@@ -645,7 +645,7 @@ core.division = function(a, b){
 
     let last = 0;
     let decimal_index = a_len;
-    const decimal_index_remain = 1;
+    const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     for(let i = 0; i < a_len + max; i++){
@@ -715,31 +715,40 @@ core.division = function(a, b){
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
-      decimal_index_remain: decimal_index_remain,
+      remain_decimal_index: remain_decimal_index,
     }
   };
 
   const max = 10;
 
-  const { new_array, remain_array, decimal_index } = calc({a: a_, b: b_, digit: digit, max: max});
+  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, digit: digit, max: max});
 
   console.info(new_array, remain_array);
 
-  if(remain_array.length === 1 && remain_array[0] === 0){
-    console.info("ok");
-  }else{
-    const a_ = core.numToArrayWithDecimal(remain_array.join(""));
-    const res = calc({a: a_, b: b_, digit: 10});
-    console.info("10", res);
-  }
+  // if(remain_array.length === 1 && remain_array[0] === 0){
+  //   console.info("ok");
+  // }else{
+  //   const a_ = core.numToArrayWithDecimal(remain_array.join(""));
+  //   const res = calc({a: a_, b: b_, digit: 10});
+  //   console.info("10", res);
+  // }
 
 
+  const result = {
+    quotient: core.moldNumArray({
+      array: [...new_array],
+      negative: negative,
+      decimal_index: decimal_index
+    }),
+    remainder: core.moldNumArray({
+      array: [...remain_array],
+      negative: negative,
+      decimal_index: remain_decimal_index
+    }),
+  };
 
-  return core.moldNumArray({
-    array: [...new_array],
-    negative: negative,
-    decimal_index: decimal_index
-  });
+
+  return result;
 
 };
 
