@@ -669,7 +669,7 @@ core.division = function(a, b){
         console.info("aaa");
         remain_is_decimal = true;
       }
-      if(i >= a_len){
+      if(i > a_len){
         remain_prefix.push(0);
       }
       while(less){
