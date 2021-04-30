@@ -637,19 +637,16 @@ core.division = function(a, b){
   const dec_length = a_dec_length + b_dec_length;
 
 
-  const calc = function({a, b, digit, max}){
+  const calc = function({a, b, max}){
     const arr = [];
     const a_len = a.array.length;
-    const b_len = b.array.length;
     let remain = core.getZero();
 
-    let last = 0;
     let decimal_index = a_len;
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     for(let i = 0; i < a_len + max; i++){
-      last = i;
       let less = true;
       let count = core.getZero();
       let res = null;
@@ -661,8 +658,8 @@ core.division = function(a, b){
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
       let n = core.getZero();
-      console.info("first remain", remain.array.join(""));
-      console.info(i, "/", a_len);
+      // console.info("first remain", remain.array.join(""));
+      // console.info(i, "/", a_len);
       if(i === a_len && core.isZero(remain)){
         break;
       }else if(i === a_len){
@@ -680,7 +677,7 @@ core.division = function(a, b){
         }
         const pre_n = n;
         n = core.multiplication(b_, count);
-        console.info("count", count, remain, pre_n, n, arr);
+        // console.info("count", count, remain, pre_n, n, arr);
         if(core.isEqual(remain, n)){
           console.info("equal!");
           less = false;
@@ -721,18 +718,9 @@ core.division = function(a, b){
 
   const max = 10;
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, digit: digit, max: max});
+  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max});
 
   console.info(new_array, remain_array);
-
-  // if(remain_array.length === 1 && remain_array[0] === 0){
-  //   console.info("ok");
-  // }else{
-  //   const a_ = core.numToArrayWithDecimal(remain_array.join(""));
-  //   const res = calc({a: a_, b: b_, digit: 10});
-  //   console.info("10", res);
-  // }
-
 
   const result = {
     quotient: core.moldNumArray({
