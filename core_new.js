@@ -632,11 +632,6 @@ core.division = function(a, b){
     negative = false;
   }
 
-  const a_dec_length = a_.array.length - a_.decimal_index;
-  const b_dec_length = b_.array.length - b_.decimal_index;
-  const dec_length = a_dec_length + b_dec_length;
-
-
   const calc = function({a, b, max}){
     const arr = [];
     const a_len = a.array.length;
@@ -663,7 +658,6 @@ core.division = function(a, b){
       if(i === a_len && core.isZero(remain)){
         break;
       }else if(i === a_len){
-        console.info("aaa");
         remain_is_decimal = true;
       }
       if(i > a_len){
@@ -679,24 +673,24 @@ core.division = function(a, b){
         n = core.multiplication(b_, count);
         // console.info("count", count, remain, pre_n, n, arr);
         if(core.isEqual(remain, n)){
-          console.info("equal!");
+          // console.info("equal!");
           less = false;
           res = count;
           arr.push(res);
-          console.info("before remain");
+          // console.info("before remain");
           remain = core.subtract(remain, n);
-          console.info("after remain");
-          console.info("remain", remain);
+          // console.info("after remain");
+          // console.info("remain", remain);
           break;
         }
         const large = core.getLarge(remain, n);
         if(core.isEqual(n, large)){
-          console.info("large!", remain, pre_n, n, count);
+          // console.info("large!", remain, pre_n, n, count);
           less = false;
           res = core.subtract(count, "1");
           arr.push(res);
           remain = core.subtract(remain, pre_n);
-          console.info("remain", remain);
+          // console.info("remain", remain);
           break;
         }
       }
@@ -716,9 +710,9 @@ core.division = function(a, b){
     }
   };
 
-  const max = 10;
+  const max_times_if_not_divisible = 10;
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max});
+  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
   console.info(new_array, remain_array);
 
