@@ -597,6 +597,16 @@ core.division = function(a, b){
 
   console.info("a_digit:", a_digit, "b_digit:", b_digit);
 
+
+  if(a_.negative){
+    a_.negative = false;
+  }
+
+  if(b_.negative){
+    b_.negative = false;
+  }
+
+
   // 10 / 2 
   // 2 10 20 => 1
 
