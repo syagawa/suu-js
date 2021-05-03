@@ -593,9 +593,8 @@ core.division = function(a, b){
   const b_negative = b_.negative;
 
   const a_digit = a_arr.length;
-  const b_digit = b_arr.length;
 
-  console.info("a_digit:", a_digit, "b_digit:", b_digit);
+  // console.info("a_digit:", a_digit, "b_digit:", b_digit);
 
 
   if(a_.negative){
@@ -616,22 +615,22 @@ core.division = function(a, b){
   // 100 / 2
   // 2 100 200 =? 2
 
-  let digit = 0;
-  let res = b_arr.join("");
-  let count = 0;
-  for(let i = 0; i < a_digit + 1; i++){
-    const n = core.numToArrayWithDecimal(res);
-    const large = core.getLarge(n, a_);
-    console.info("large", large);
-    if(large && core.isEqual(large, n)){
-      digit = count;
-      break;
-    }else{
-      res = `${res}0`;
-      count++;
-    }
-  }
-  console.info("digit", digit);
+  // let digit = 0;
+  // let res = b_arr.join("");
+  // // let count = 0;
+  // for(let i = 0; i < a_digit + 1; i++){
+  //   const n = core.numToArrayWithDecimal(res);
+  //   const large = core.getLarge(n, a_);
+  //   // console.info("large", large);
+  //   if(large && core.isEqual(large, n)){
+  //     // digit = count;
+  //     break;
+  //   }else{
+  //     res = `${res}0`;
+  //     // count++;
+  //   }
+  // }
+  // console.info("digit", digit);
 
   let negative;
   if(a_negative && b_negative){
@@ -724,23 +723,30 @@ core.division = function(a, b){
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
-  console.info(new_array, remain_array);
+  // console.info(new_array, remain_array);
 
-  const result = {
-    quotient: core.moldNumArray({
-      array: [...new_array],
-      negative: negative,
-      decimal_index: decimal_index
-    }),
-    remainder: core.moldNumArray({
-      array: [...remain_array],
-      negative: negative,
-      decimal_index: remain_decimal_index
-    }),
-  };
+  const remainder = core.moldNumArray({
+    array: [...remain_array],
+    negative: negative,
+    decimal_index: remain_decimal_index
+  });
+
+  const quotient = core.moldNumArray({
+    array: [...new_array],
+    negative: negative,
+    decimal_index: decimal_index
+  });
 
 
-  return result;
+  if(core.isZero(remainder)){
+    return quotient;
+  }else{
+    return {
+      quotient: quotient,
+      remainder:remainder,
+
+    }
+  }
 
 };
 
