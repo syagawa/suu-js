@@ -744,10 +744,8 @@ core.division = function(a, b){
     return {
       quotient: quotient,
       remainder:remainder,
-
     }
   }
-
 };
 
 core.divide = function(a, b){
