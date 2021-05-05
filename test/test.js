@@ -890,6 +890,15 @@ describe("division", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
   });
+
+  it("0 / 0 = undefined", () => {
+    const res = core.multiplication("0", "0");
+    assert.equal(res, undefined);
+  });
+  it("1 / 0 = undefined", () => {
+    const res = core.multiplication("1", "0");
+    assert.equal(res, undefined);
+  });
 });
 
 

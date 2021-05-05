@@ -553,7 +553,7 @@ core.division = function(a, b){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
-      return;
+      return undefined;
     }
   }
 
