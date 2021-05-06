@@ -886,19 +886,26 @@ describe("multiplication", function(){
 
 describe("division", function(){
   it("1 / 1 = 1", () => {
-    const res = core.multiplication("1", "1");
+    const res = core.division("1", "1");
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
   });
 
   it("0 / 0 = undefined", () => {
-    const res = core.multiplication("0", "0");
+    const res = core.division("0", "0");
     assert.equal(res, undefined);
   });
   it("1 / 0 = undefined", () => {
-    const res = core.multiplication("1", "0");
+    const res = core.division("1", "0");
     assert.equal(res, undefined);
   });
+
+  it("4 / 2 = 2", () => {
+    const res = core.division("4", "2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
+
 });
 
 

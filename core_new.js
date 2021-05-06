@@ -587,14 +587,9 @@ core.division = function(a, b){
     return core.numToArrayWithDecimal("1");
   }
 
-  const a_arr = a_.array;
-  const b_arr = b_.array;
   const a_negative = a_.negative;
   const b_negative = b_.negative;
 
-  const a_digit = a_arr.length;
-
-  // console.info("a_digit:", a_digit, "b_digit:", b_digit);
 
 
   if(a_.negative){
@@ -604,33 +599,6 @@ core.division = function(a, b){
   if(b_.negative){
     b_.negative = false;
   }
-
-
-  // 10 / 2 
-  // 2 10 20 => 1
-
-  // 100 / 20
-  // 20 100 200 => 1
-
-  // 100 / 2
-  // 2 100 200 =? 2
-
-  // let digit = 0;
-  // let res = b_arr.join("");
-  // // let count = 0;
-  // for(let i = 0; i < a_digit + 1; i++){
-  //   const n = core.numToArrayWithDecimal(res);
-  //   const large = core.getLarge(n, a_);
-  //   // console.info("large", large);
-  //   if(large && core.isEqual(large, n)){
-  //     // digit = count;
-  //     break;
-  //   }else{
-  //     res = `${res}0`;
-  //     // count++;
-  //   }
-  // }
-  // console.info("digit", digit);
 
   let negative;
   if(a_negative && b_negative){
