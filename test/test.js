@@ -906,6 +906,30 @@ describe("division", function(){
     assert.equal(str, "2");
   });
 
+  it("4 / -2 = -2", () => {
+    const res = core.division("4", "-2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2");
+  });
+
+  it("-4 / 2 = -2", () => {
+    const res = core.division("-4", "2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2");
+  });
+
+  it("-4 / -2 = 2", () => {
+    const res = core.division("-4", "-2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
+
+  it("3000 / 25 = 120", () => {
+    const res = core.division("3000", "25");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "120");
+  });
+
 });
 
 
