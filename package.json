@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "build": "cross-env NODE_ENV=production webpack",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
