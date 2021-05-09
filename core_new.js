@@ -708,12 +708,12 @@ core.division = function(a, b){
 
   if(core.isZero(remainder)){
     return quotient;
-  }else{
-    return {
-      quotient: quotient,
-      remainder:remainder,
-    }
   }
+  return {
+    quotient: quotient,
+    remainder:remainder,
+  }
+  
 };
 
 core.divide = function(a, b){
