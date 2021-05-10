@@ -895,9 +895,16 @@ describe("division", function(){
     const res = core.division("0", "0");
     assert.equal(res, undefined);
   });
+
   it("1 / 0 = undefined", () => {
     const res = core.division("1", "0");
     assert.equal(res, undefined);
+  });
+
+  it("0 / 1 = 0", () => {
+    const res = core.division("0", "1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
   });
 
   it("4 / 2 = 2", () => {
