@@ -937,6 +937,12 @@ describe("division", function(){
     assert.equal(str, "120");
   });
 
+  it("100 / 8 = 12.5", () => {
+    const res = core.division("100", "8");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "12.5");
+  });
+
   it("1 / 25 = 0.04", () => {
     const res = core.division("1", "25");
     const str = core.numArrayToString(res);
