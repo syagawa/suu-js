@@ -710,7 +710,7 @@ core.division = function(a, b){
     return quotient;
   }
   return {
-    quotient: quotient,
+    ...quotient,
     remainder:remainder,
   }
   
