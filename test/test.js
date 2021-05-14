@@ -949,11 +949,19 @@ describe("division", function(){
     assert.equal(str, "0.04");
   });
 
-  it("10 / 3 = 0.333333333", () => {
+  it("10 / 3 = 3.3333333333", () => {
     const res = core.division("10", "3");
     const str = core.numArrayToString(res);
-    assert.equal(str, "0.333333333");
+    assert.equal(str, "3.3333333333");
   });
+
+  it("1 / 7 = 0.1428571428", () => {
+    const res = core.division("1", "7");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1428571428");
+  });
+
+  
 
 });
 
