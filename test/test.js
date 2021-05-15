@@ -961,7 +961,6 @@ describe("division", function(){
     assert.equal(str, "0.1428571428");
   });
 
-  
 
 });
 

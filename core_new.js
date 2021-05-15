@@ -572,7 +572,7 @@ core.division = function(a, b){
 
 
   if(core.isZero(b_)){
-    return;
+    return undefined;
   }
 
   if(core.isZero(a_)){
@@ -589,8 +589,6 @@ core.division = function(a, b){
 
   const a_negative = a_.negative;
   const b_negative = b_.negative;
-
-
 
   if(a_.negative){
     a_.negative = false;
@@ -706,9 +704,6 @@ core.division = function(a, b){
   });
 
 
-  if(core.isZero(remainder)){
-    return quotient;
-  }
   return {
     ...quotient,
     remainder:remainder,
