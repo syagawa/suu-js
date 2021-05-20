@@ -949,8 +949,13 @@ describe("division", function(){
 
   it("3000 / 25 = 120", () => {
     const res = core.division("3000", "25");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "120");
+    const quotient = res;
+    const remainder = res.remainder;
+    const sum = core.add(quotient, remainder);
+    const pro = core.multiplication(sum, "25");
+    const str = core.numArrayToString(pro);
+    assert.equal(str, "3000");
+
   });
 
   it("100 / 8 = 12.5", () => {
