@@ -613,6 +613,12 @@ core.division = function(a, b){
     let remain = core.getZero();
 
     let decimal_index = a_len;
+
+    let b_zero_length = 0;
+    const b_zero_res = b.array.join("").match(/0+/);
+    if(b_zero_res && b_zero_res[1]){
+      b_zero_length = b_zero_res[1].length - b.decimal_index;
+    }
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
@@ -673,6 +679,10 @@ core.division = function(a, b){
 
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
+    if(b_zero_length > 0){
+      const zero_arr = new Array(b_zero_length).fill(0, 0, b_zero_length);
+      new_arr.push(...zero_arr);
+    }
     let remain_arr = remain.array;
     if(remain_is_decimal){
       remain_arr = [...remain_prefix, ...remain_arr];
