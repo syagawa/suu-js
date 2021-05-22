@@ -612,17 +612,19 @@ core.division = function(a, b){
     const a_len = a.array.length;
     let remain = core.getZero();
 
+    console.info(a, b);
     let decimal_index = a_len;
 
     let b_zero_length = 0;
     const b_zero_res = b.array.join("").match(/0+/);
-    if(b_zero_res && b_zero_res[1]){
-      b_zero_length = b_zero_res[1].length - b.decimal_index;
+    if(b_zero_res && b_zero_res[0]){
+      b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     for(let i = 0; i < a_len + max; i++){
+
       let less = true;
       let count = core.getZero();
       let res = null;
@@ -635,7 +637,7 @@ core.division = function(a, b){
       const b_ = core.clone(b);
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
-      // console.info(i, "/", a_len);
+      console.info(i, "/", a_len);
       if(i === a_len && core.isZero(remain)){
         break;
       }else if(i === a_len){
@@ -679,9 +681,10 @@ core.division = function(a, b){
 
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
+    console.info(b_zero_length);
     if(b_zero_length > 0){
-      const zero_arr = new Array(b_zero_length).fill(0, 0, b_zero_length);
-      new_arr.push(...zero_arr);
+      decimal_index = decimal_index + b_zero_length;
+      
     }
     let remain_arr = remain.array;
     if(remain_is_decimal){
@@ -713,6 +716,7 @@ core.division = function(a, b){
     decimal_index: decimal_index
   });
 
+  console.info(quotient);
 
   return {
     ...quotient,
