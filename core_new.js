@@ -638,17 +638,16 @@ core.division = function(a, b){
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
       console.info(i, "/", a_len);
-      if(i === a_len && core.isZero(remain)){
-        break;
-      }else if(i === a_len){
+      if(i === a_len){
         remain_is_decimal = true;
       }
       if(i > a_len){
         remain_prefix.push(0);
       }
+      const max_count = [1, ...new Array(max).fill("0")].join("");
       while(less){
         count = core.add(count, "1");
-        if(core.isEqual("100", count)){
+        if(core.isEqual(max_count, count)){
           less = false;
           break;
         }
@@ -681,7 +680,7 @@ core.division = function(a, b){
 
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
-    console.info(b_zero_length);
+    console.info(new_arr, b_zero_length);
     if(b_zero_length > 0){
       decimal_index = decimal_index + b_zero_length;
       
