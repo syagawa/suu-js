@@ -623,6 +623,7 @@ core.division = function(a, b){
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
+    let countcount = 0;
     for(let i = 0; i < a_len + max; i++){
 
       let less = true;
@@ -638,7 +639,9 @@ core.division = function(a, b){
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
       console.info(i, "/", a_len);
-      if(i === a_len){
+      if(i === a_len && core.isZero(remain)){
+        break;
+      }else if(i === a_len){
         remain_is_decimal = true;
       }
       if(i > a_len){
@@ -646,6 +649,7 @@ core.division = function(a, b){
       }
       const max_count = [1, ...new Array(max).fill("0")].join("");
       while(less){
+        countcount++;
         count = core.add(count, "1");
         if(core.isEqual(max_count, count)){
           less = false;
@@ -677,7 +681,7 @@ core.division = function(a, b){
         }
       }
     }
-
+    console.info("countcount", countcount);
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     console.info(new_arr, b_zero_length);
