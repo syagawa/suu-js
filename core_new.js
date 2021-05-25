@@ -615,11 +615,19 @@ core.division = function(a, b){
     console.info(a, b);
     let decimal_index = a_len;
 
+    let a_zero_length = 0;
+    const a_zero_res = a.array.join("").match(/0+/);
+    if(a_zero_res && a_zero_res[0]){
+      a_zero_length = a_zero_res[0].length - b.decimal_index;
+    }
+
     let b_zero_length = 0;
     const b_zero_res = b.array.join("").match(/0+/);
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
+    console.log(a_zero_length, b_zero_length);
+
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
