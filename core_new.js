@@ -626,7 +626,10 @@ core.division = function(a, b){
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
-    console.log(a_zero_length, b_zero_length);
+
+    const decimal_index_gap = a_zero_length - b_zero_length;
+    const a_array = a.array.slice(a_zero_length, a.array.length);
+    console.log(a_zero_length, b_zero_length, decimal_index_gap, a_array);
 
     const remain_decimal_index = 1;
     const remain_prefix = [0];
@@ -695,8 +698,8 @@ core.division = function(a, b){
     console.info(new_arr, b_zero_length);
     if(b_zero_length > 0){
       decimal_index = decimal_index + b_zero_length;
-      
     }
+    // decimal_index = decimal_index + decimal_index_gap;
     let remain_arr = remain.array;
     if(remain_is_decimal){
       remain_arr = [...remain_prefix, ...remain_arr];
