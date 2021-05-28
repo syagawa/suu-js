@@ -616,20 +616,21 @@ core.division = function(a, b){
     let decimal_index = a_len;
 
     let a_zero_length = 0;
-    const a_zero_res = a.array.join("").match(/0+/);
+    const a_zero_res = a.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
       a_zero_length = a_zero_res[0].length - b.decimal_index;
     }
 
     let b_zero_length = 0;
-    const b_zero_res = b.array.join("").match(/0+/);
+    const b_zero_res = b.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
 
     const decimal_index_gap = a_zero_length - b_zero_length;
     const a_array = a.array.slice(a_zero_length, a.array.length);
-    console.log(a_zero_length, b_zero_length, decimal_index_gap, a_array);
+    console.log(a_zero_length, b_zero_length, decimal_index_gap);
+    console.info("a_array", a_array);
 
     const remain_decimal_index = 1;
     const remain_prefix = [0];
