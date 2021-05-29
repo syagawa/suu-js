@@ -618,7 +618,7 @@ core.division = function(a, b){
     let a_zero_length = 0;
     const a_zero_res = a.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
-      a_zero_length = a_zero_res[0].length - b.decimal_index;
+      a_zero_length = a_zero_res[0].length - a.decimal_index;
     }
 
     let b_zero_length = 0;
@@ -629,8 +629,13 @@ core.division = function(a, b){
 
     const decimal_index_gap = a_zero_length - b_zero_length;
     const a_array = a.array.slice(a_zero_length, a.array.length);
-    console.log(a_zero_length, b_zero_length, decimal_index_gap);
+    
+    console.info("a_zero_length", a_zero_length);
+    console.info("b_zero_length", b_zero_length);
+    console.info("decimal_index_gap", decimal_index_gap);
     console.info("a_array", a_array);
+    console.info("a.array", a.array);
+    console.info("b.array", b.array);
 
     const remain_decimal_index = 1;
     const remain_prefix = [0];
