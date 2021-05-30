@@ -618,25 +618,29 @@ core.division = function(a, b){
     let a_zero_length = 0;
     const a_zero_res = a.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
-      a_zero_length = a_zero_res[0].length - a.decimal_index;
+      a_zero_length = a_zero_res[0].length;
+      // a_zero_length = a_zero_res[0].length - a.decimal_index;
     }
 
     let b_zero_length = 0;
     const b_zero_res = b.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
-      b_zero_length = b_zero_res[0].length - b.decimal_index;
+      b_zero_length = b_zero_res[0].length;
+      // b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
 
-    const decimal_index_gap = a_zero_length - b_zero_length;
+    const zerolength = Math.abs(a_zero_length - b_zero_length);
+
     const a_array = a.array.slice(a_zero_length, a.array.length);
     
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
-    console.info("decimal_index_gap", decimal_index_gap);
+    console.info("zerolength", zerolength);
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
 
+    // const a_len = a_array.length;
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
@@ -649,7 +653,7 @@ core.division = function(a, b){
       const a_len = a.array.length;
       // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
-      const remain2 = String(a.array.slice(i, i + 1).length === 1 ? a.array.slice(i, i + 1)[0] : "0");
+      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a.array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b);
@@ -702,10 +706,17 @@ core.division = function(a, b){
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     console.info(new_arr, b_zero_length);
+    if(a_zero_length > 0){
+      decimal_index = decimal_index - a_zero_length;
+    }
     if(b_zero_length > 0){
       decimal_index = decimal_index + b_zero_length;
+      // new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
     }
-    // decimal_index = decimal_index + decimal_index_gap;
+
+    console.info("decimal_index", decimal_index);
+    // decimal_index = decimal_index + zerolength;
+    // decimal_index = b_zero_length - a_zero_length;
     let remain_arr = remain.array;
     if(remain_is_decimal){
       remain_arr = [...remain_prefix, ...remain_arr];
