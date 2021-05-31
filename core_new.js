@@ -629,13 +629,12 @@ core.division = function(a, b){
       // b_zero_length = b_zero_res[0].length - b.decimal_index;
     }
 
-    const zerolength = Math.abs(a_zero_length - b_zero_length);
-
+    const zero_gap = a_zero_length - b_zero_length;
     const a_array = a.array.slice(a_zero_length, a.array.length);
     
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
-    console.info("zerolength", zerolength);
+    console.info("zero_gap", zero_gap);
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
@@ -707,12 +706,23 @@ core.division = function(a, b){
     const new_arr = arr.flatMap(e => e.array);
     console.info(new_arr, b_zero_length);
     if(a_zero_length > 0){
-      decimal_index = decimal_index - a_zero_length;
+      // decimal_index = decimal_index - a_zero_length;
     }
     if(b_zero_length > 0){
-      decimal_index = decimal_index + b_zero_length;
+      // decimal_index = decimal_index + b_zero_length;
       // new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
     }
+
+    if(zero_gap > 0){
+      console.info(zero_gap);
+      new_arr.unshift( ...(new Array(zero_gap).fill(0, 0, zero_gap)) );
+    }else if(zero_gap < 0){
+      console.info(zero_gap);
+      const zero_gap_abs = Math.abs(zero_gap);
+      decimal_index = decimal_index + b_zero_length - 1;
+      new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+
 
     console.info("decimal_index", decimal_index);
     // decimal_index = decimal_index + zerolength;
