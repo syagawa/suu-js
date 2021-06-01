@@ -622,12 +622,15 @@ core.division = function(a, b){
       // a_zero_length = a_zero_res[0].length - a.decimal_index;
     }
 
+    let b_clone = core.clone(b);
     let b_zero_length = 0;
-    const b_zero_res = b.array.join("").match(/^0+/);
+    const b_zero_res = b_clone.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length;
       // b_zero_length = b_zero_res[0].length - b.decimal_index;
+      b_clone = core.numToArrayWithDecimal(b_clone.array.filter(e => { return e; }).join(""));
     }
+
 
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = a.array.slice(a_zero_length, a.array.length);
@@ -655,7 +658,7 @@ core.division = function(a, b){
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a.array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
-      const b_ = core.clone(b);
+      const b_ = core.clone(b_clone);
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
       console.info(i, "/", a_len);
@@ -710,7 +713,8 @@ core.division = function(a, b){
     }
     if(b_zero_length > 0){
       // decimal_index = decimal_index + b_zero_length;
-      // new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
+      new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
+
     }
 
     if(zero_gap > 0){
