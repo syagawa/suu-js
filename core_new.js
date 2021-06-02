@@ -642,12 +642,15 @@ core.division = function(a, b){
     console.info("a.array", a.array);
     console.info("b.array", b.array);
 
+    const len = a_len + max;
+    console.info("len", len);
+
     // const a_len = a_array.length;
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     let countcount = 0;
-    for(let i = 0; i < a_len + max; i++){
+    for(let i = 0; i < len; i++){
 
       let less = true;
       let count = core.getZero();
@@ -718,7 +721,8 @@ core.division = function(a, b){
     }
 
     if(zero_gap > 0){
-      console.info(zero_gap);
+      console.info("zero_gap", zero_gap);
+      console.info("new_arr", new_arr);
       new_arr.unshift( ...(new Array(zero_gap).fill(0, 0, zero_gap)) );
     }else if(zero_gap < 0){
       console.info(zero_gap);
