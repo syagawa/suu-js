@@ -658,7 +658,7 @@ core.division = function(a, b){
       const a_len = a.array.length;
       // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
-      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a.array.slice(i, i + 1)[0] : "0");
+      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       // const a_ = core.isZero(remain) ? core.clone(a) : remain;
       const b_ = core.clone(b_clone);
@@ -723,6 +723,7 @@ core.division = function(a, b){
     if(zero_gap > 0){
       console.info("zero_gap", zero_gap);
       console.info("new_arr", new_arr);
+      decimal_index = decimal_index - a_zero_length;
       new_arr.unshift( ...(new Array(zero_gap).fill(0, 0, zero_gap)) );
     }else if(zero_gap < 0){
       console.info(zero_gap);
