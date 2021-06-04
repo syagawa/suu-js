@@ -720,22 +720,27 @@ core.division = function(a, b){
 
     }
 
-    if(zero_gap > 0){
+    const zero_gap_abs = Math.abs(zero_gap);
+    if(a_zero_length > 0){
       console.info("zero_gap", zero_gap);
       console.info("new_arr", new_arr);
       decimal_index = decimal_index - a_zero_length;
-      new_arr.unshift( ...(new Array(zero_gap).fill(0, 0, zero_gap)) );
-    }else if(zero_gap < 0){
+      new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap)) );
+    }
+    if(b_zero_length > 0){
       console.info(zero_gap);
-      const zero_gap_abs = Math.abs(zero_gap);
       decimal_index = decimal_index + b_zero_length - 1;
       new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
     }
 
+    // if(zero_gap > 0){
+    //   decimal_index = decimal_index - a_zero_length;
+    // }else if(zero_gap < 0){
+    //   decimal_index = decimal_index + b_zero_length - 1;
+    // }
 
-    console.info("decimal_index", decimal_index);
-    // decimal_index = decimal_index + zerolength;
-    // decimal_index = b_zero_length - a_zero_length;
+
+
     let remain_arr = remain.array;
     if(remain_is_decimal){
       remain_arr = [...remain_prefix, ...remain_arr];
