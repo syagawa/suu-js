@@ -731,10 +731,12 @@ core.division = function(a, b){
     }
     if(zero_gap < 0){
     // if(b_zero_length > 0){
-      console.info(zero_gap);
+      console.info("zero_gap", zero_gap);
+      
       // decimal_index = decimal_index - b_zero_length;
       // decimal_index = decimal_index + b_zero_length - 1;
       // decimal_index = decimal_index + b_zero_length;
+      decimal_index = decimal_index + zero_gap_abs;
       new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
       // const len = decimal_index - b_zero_length;
       // if(len < 1){
