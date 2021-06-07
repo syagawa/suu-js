@@ -983,6 +983,13 @@ describe("division", function(){
   });
 
 
+  it("1 / 5 = 0.2", () => {
+    const res = core.division("1", "5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.2");
+  });
+
+
 });
 
 
