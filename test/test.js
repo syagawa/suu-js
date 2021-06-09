@@ -982,7 +982,6 @@ describe("division", function(){
     assert.equal(str, "0.1428571428");
   });
 
-
   it("1 / 5 = 0.2", () => {
     const res = core.division("1", "5");
     const str = core.numArrayToString(res);
@@ -994,6 +993,20 @@ describe("division", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "2");
   });
+  
+  it("1 / 0.05 = 20", () => {
+    const res = core.division("1", "0.05");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "20");
+  });
+
+  it("1 / 0.005 = 200", () => {
+    const res = core.division("1", "0.005");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "200");
+  });
+
+
   it("0.1 / 5 = 0.02", () => {
     const res = core.division("0.1", "5");
     const str = core.numArrayToString(res);
