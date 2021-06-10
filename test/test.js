@@ -1013,6 +1013,20 @@ describe("division", function(){
     assert.equal(str, "0.02");
   });
 
+  it("0.01 / 5 = 0.002", () => {
+    const res = core.division("0.01", "5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.002");
+  });
+
+  it("0.001 / 5 = 0.0002", () => {
+    const res = core.division("0.001", "5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.0002");
+  });
+
+
+
   it("0.1 / 0.5 = 0.2", () => {
     const res = core.division("0.1", "0.5");
     const str = core.numArrayToString(res);
