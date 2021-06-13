@@ -1050,6 +1050,17 @@ describe("division", function(){
     assert.equal(str, "20");
   });
 
+  it("100 / 0.5 = 200", () => {
+    const res = core.division("100", "0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "200");
+  });
+  it("1000 / 0.5 = 2000", () => {
+    const res = core.division("1000", "0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2000");
+  });
+
 
 });
 
