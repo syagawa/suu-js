@@ -1067,6 +1067,12 @@ describe("division", function(){
     assert.equal(str, "0.4");
   });
 
+  it("10 / 2.5 = 0.4", () => {
+    const res = core.division("10", "2.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "4");
+  });
+
 
 
 });
