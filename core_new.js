@@ -732,6 +732,7 @@ core.division = function(a, b){
     if(zero_gap < 0){
     // if(b_zero_length > 0){
       console.info("zero_gap", zero_gap);
+      console.info("decimal_index", decimal_index);
       
       // decimal_index = decimal_index - b_zero_length;
       // decimal_index = decimal_index + b_zero_length - 1;

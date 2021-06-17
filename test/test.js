@@ -1067,10 +1067,16 @@ describe("division", function(){
     assert.equal(str, "0.4");
   });
 
-  it("10 / 2.5 = 0.4", () => {
+  it("10 / 2.5 = 4", () => {
     const res = core.division("10", "2.5");
     const str = core.numArrayToString(res);
     assert.equal(str, "4");
+  });
+
+  it("100 / 2.5 = 40", () => {
+    const res = core.division("100", "2.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "40");
   });
 
 
