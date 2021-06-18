@@ -711,10 +711,14 @@ core.division = function(a, b){
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     console.info(new_arr, b_zero_length);
+    let a_exists_zero = false;
+    let b_exists_zero = false;
     if(a_zero_length > 0){
-      // decimal_index = decimal_index - a_zero_length;
+      let a_exists_zero = true;
+    // decimal_index = decimal_index - a_zero_length;
     }
     if(b_zero_length > 0){
+      b_exists_zero = true;
       // decimal_index = decimal_index + b_zero_length;
       new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
 
@@ -750,6 +754,8 @@ core.division = function(a, b){
       decimal_index = decimal_index - len;
     }
     console.info("decimal_index", decimal_index);
+    console.info("a_exists_zero", a_exists_zero);
+    console.info("b_exists_zero", b_exists_zero);
     // if(zero_gap > 0){
     //   decimal_index = decimal_index - a_zero_length;
     // }else if(zero_gap < 0){
