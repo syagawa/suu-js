@@ -714,7 +714,7 @@ core.division = function(a, b){
     let a_exists_zero = false;
     let b_exists_zero = false;
     if(a_zero_length > 0){
-      let a_exists_zero = true;
+      a_exists_zero = true;
     // decimal_index = decimal_index - a_zero_length;
     }
     if(b_zero_length > 0){
