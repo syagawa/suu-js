@@ -641,6 +641,10 @@ core.division = function(a, b){
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
+    console.info("b_clone", b_clone);
+
+
+    const b_dec_length = b.array.length - b.decimal_index;
 
     const len = a_len + max;
     console.info("len", len);
@@ -748,11 +752,20 @@ core.division = function(a, b){
       //   const len_ = (len * -1) + 1;
       //   new_arr.unshift(...(new Array(len_).fill(0, 0, len_)))
       // }
+      // if(b_zero_length > 0){
+      //   decimal_index = decimal_index + b_dec_length - b_zero_length;
+      // }
     }
     if(zero_gap === 0){
       const len = a_zero_length;
       decimal_index = decimal_index - len;
     }
+
+    if(b_zero_length > 0){
+      decimal_index = decimal_index + b_dec_length - b_zero_length;
+    }
+
+
     console.info("decimal_index", decimal_index);
     console.info("a_exists_zero", a_exists_zero);
     console.info("b_exists_zero", b_exists_zero);
