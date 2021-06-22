@@ -644,6 +644,7 @@ core.division = function(a, b){
     console.info("b_clone", b_clone);
 
 
+    const a_dec_length = a.array.length - a.decimal_index;
     const b_dec_length = b.array.length - b.decimal_index;
 
     const len = a_len + max;
@@ -761,6 +762,9 @@ core.division = function(a, b){
       decimal_index = decimal_index - len;
     }
 
+    // if(a_zero_length > 0){
+    //   decimal_index = decimal_index - a_dec_length + a_zero_length;
+    // }
     if(b_zero_length > 0){
       decimal_index = decimal_index + b_dec_length - b_zero_length;
     }
