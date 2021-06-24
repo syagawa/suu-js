@@ -636,6 +636,8 @@ core.division = function(a, b){
     const a_array = a.array.slice(a_zero_length, a.array.length);
     
     const exists_zero_length = a_zero_length > 0 || b_zero_length > 0;
+    const a_exists_decimal = a_.array.length > a_.decimal_index ? true : false;
+    const b_exists_decimal = b_.array.length > b_.decimal_index ? true : false;
 
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
@@ -644,7 +646,9 @@ core.division = function(a, b){
     console.info("a.array", a.array);
     console.info("b.array", b.array);
     console.info("b_clone", b_clone);
-    console.info("exists_zero_length", exists_zero_length)
+    console.info("exists_zero_length", exists_zero_length);
+    console.info("a_exists_decimal", a_exists_decimal);
+    console.info("b_exists_decimal", b_exists_decimal);
 
 
     const a_dec_length = a.array.length - a.decimal_index;
