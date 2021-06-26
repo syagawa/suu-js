@@ -638,8 +638,6 @@ core.division = function(a, b){
     const exists_zero_length = a_zero_length > 0 || b_zero_length > 0;
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
-    const a_exists_decimal = a_decimal_length > 0 ? true : false;
-    const b_exists_decimal = b_decimal_length > 0 ? true : false;
 
     console.info("zero_gap", zero_gap);
     console.info("a_array", a_array);
@@ -651,12 +649,8 @@ core.division = function(a, b){
     console.info("exists_zero_length", exists_zero_length);
     console.info("a_decimal_length", a_decimal_length);
     console.info("b_decimal_length", b_decimal_length);
-    console.info("a_exists_decimal", a_exists_decimal);
-    console.info("b_exists_decimal", b_exists_decimal);
 
 
-    const a_dec_length = a.array.length - a.decimal_index;
-    const b_dec_length = b.array.length - b.decimal_index;
 
     const len = a_len + max;
     console.info("len", len);
@@ -773,11 +767,11 @@ core.division = function(a, b){
       decimal_index = decimal_index - len;
     }
 
-    // if(a_zero_length > 0){
-    //   decimal_index = decimal_index - a_dec_length + a_zero_length;
-    // }
+    if(a_decimal_length > 0){
+      decimal_index = decimal_index - a_decimal_length + a_zero_length;
+    }
     if(b_zero_length > 0){
-      decimal_index = decimal_index + b_dec_length - b_zero_length;
+      decimal_index = decimal_index + b_decimal_length - b_zero_length;
     }
 
 
