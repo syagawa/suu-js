@@ -720,12 +720,13 @@ core.division = function(a, b){
     console.info("countcount", countcount);
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
-    console.info(new_arr, b_zero_length);
+    console.info("new_arr", new_arr);
+    console.info("decimal_index", decimal_index);
     let a_exists_zero = false;
     let b_exists_zero = false;
     if(a_zero_length > 0){
       a_exists_zero = true;
-    // decimal_index = decimal_index - a_zero_length;
+      // decimal_index = decimal_index - a_zero_length;
     }
     if(b_zero_length > 0){
       b_exists_zero = true;
