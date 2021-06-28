@@ -635,7 +635,6 @@ core.division = function(a, b){
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = a.array.slice(a_zero_length, a.array.length);
     
-    const exists_zero_length = a_zero_length > 0 || b_zero_length > 0;
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
 
@@ -646,14 +645,11 @@ core.division = function(a, b){
     console.info("b_clone", b_clone);
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
-    console.info("exists_zero_length", exists_zero_length);
     console.info("a_decimal_length", a_decimal_length);
     console.info("b_decimal_length", b_decimal_length);
 
-
-
     const len = a_len + max;
-    console.info("len", len);
+    console.info("length for For", len);
 
     // const a_len = a_array.length;
     const remain_decimal_index = 1;
@@ -717,11 +713,11 @@ core.division = function(a, b){
         }
       }
     }
-    console.info("countcount", countcount);
+    console.info("countcount: ", countcount);
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
-    console.info("new_arr", new_arr);
-    console.info("decimal_index", decimal_index);
+    console.info("res new_arr", new_arr);
+    console.info("res decimal_index", decimal_index);
     let a_exists_zero = false;
     let b_exists_zero = false;
     if(a_zero_length > 0){
