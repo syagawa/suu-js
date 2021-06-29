@@ -738,7 +738,7 @@ core.division = function(a, b){
       console.info("zero_gap", zero_gap);
       console.info("new_arr", new_arr);
       decimal_index = decimal_index - a_zero_length;
-      new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap)) );
+      new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
     }
     if(zero_gap < 0){
     // if(b_zero_length > 0){
