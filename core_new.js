@@ -637,6 +637,8 @@ core.division = function(a, b){
     
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
+    const a_num_length = a_decimal_length - a_zero_length;
+    const b_num_length = b_decimal_length - b_zero_length;
 
     console.info("zero_gap", zero_gap);
     console.info("a_array", a_array);
@@ -647,6 +649,9 @@ core.division = function(a, b){
     console.info("b_zero_length", b_zero_length);
     console.info("a_decimal_length", a_decimal_length);
     console.info("b_decimal_length", b_decimal_length);
+    console.info("a_num_length", a_num_length);
+    console.info("a_num_length", a_num_length);
+
 
     const len = a_len + max;
     console.info("length for For", len);
@@ -771,6 +776,9 @@ core.division = function(a, b){
       decimal_index = decimal_index + b_decimal_length - b_zero_length;
     }
 
+    if(a_num_length > b_num_length){
+      decimal_index = decimal_index - (a_num_length - b_num_length);
+    }
 
     console.info("decimal_index", decimal_index);
     console.info("a_exists_zero", a_exists_zero);
