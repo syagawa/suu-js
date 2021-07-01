@@ -639,6 +639,8 @@ core.division = function(a, b){
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const a_num_length = a_decimal_length - a_zero_length;
     const b_num_length = b_decimal_length - b_zero_length;
+    const a_decimal_index = a.decimal_index;
+    const b_decimal_index = b.decimal_index;
 
     console.info("zero_gap", zero_gap);
     console.info("a_array", a_array);
@@ -650,7 +652,9 @@ core.division = function(a, b){
     console.info("a_decimal_length", a_decimal_length);
     console.info("b_decimal_length", b_decimal_length);
     console.info("a_num_length", a_num_length);
-    console.info("a_num_length", a_num_length);
+    console.info("b_num_length",b_num_length);
+    console.info("a_decimal_index",a_decimal_index);
+    console.info("b_decimal_index",b_decimal_index);
 
 
     const len = a_len + max;
