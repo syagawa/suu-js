@@ -615,11 +615,13 @@ core.division = function(a, b){
     console.info(a, b);
     let decimal_index = a_len;
 
+    let a_clone = core.clone(a);
     let a_zero_length = 0;
     const a_zero_res = a.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
       a_zero_length = a_zero_res[0].length;
       // a_zero_length = a_zero_res[0].length - a.decimal_index;
+      a_clone = core.numToArrayWithDecimal(b_clone.array.filter(e => { return e; }).join(""));
     }
 
     let b_clone = core.clone(b);
@@ -646,6 +648,7 @@ core.division = function(a, b){
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
+    console.info("a_clone", a_clone);
     console.info("b_clone", b_clone);
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
