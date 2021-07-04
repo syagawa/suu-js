@@ -621,7 +621,7 @@ core.division = function(a, b){
     if(a_zero_res && a_zero_res[0]){
       a_zero_length = a_zero_res[0].length;
       // a_zero_length = a_zero_res[0].length - a.decimal_index;
-      a_clone = core.numToArrayWithDecimal(b_clone.array.filter(e => { return e; }).join(""));
+      a_clone = core.numToArrayWithDecimal(a_clone.array.slice(a_zero_length, a_clone.array.length).join(""));
     }
 
     let b_clone = core.clone(b);
@@ -630,7 +630,7 @@ core.division = function(a, b){
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length;
       // b_zero_length = b_zero_res[0].length - b.decimal_index;
-      b_clone = core.numToArrayWithDecimal(b_clone.array.filter(e => { return e; }).join(""));
+     b_clone = core.numToArrayWithDecimal(b_clone.array.slice(b_zero_length, b_clone.array.length).join(""));
     }
 
 
