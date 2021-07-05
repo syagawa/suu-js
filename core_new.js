@@ -633,7 +633,6 @@ core.division = function(a, b){
      b_clone = core.numToArrayWithDecimal(b_clone.array.slice(b_zero_length, b_clone.array.length).join(""));
     }
 
-
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = a_clone.array.slice(a_zero_length, a.array.length);
     
@@ -683,11 +682,14 @@ core.division = function(a, b){
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
       console.info(i, "/", a_len);
-      if(i === a_len && core.isZero(remain)){
-        break;
-      }else if(i === a_len){
-        remain_is_decimal = true;
+      if(i === a_len){
+        if(core.isZero(remain)){
+          break;
+        }else {
+          remain_is_decimal = true;
+        }
       }
+
       if(i > a_len){
         remain_prefix.push(0);
       }
