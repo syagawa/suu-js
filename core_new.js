@@ -666,6 +666,7 @@ core.division = function(a, b){
     const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
+    let decimal_count = 0;
     let countcount = 0;
     for(let i = 0; i < len; i++){
 
@@ -681,17 +682,19 @@ core.division = function(a, b){
       const b_ = core.clone(b_clone);
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
-      console.info(i, "/", a_len);
+      // console.info(i, "/", a_len);
       if(i === a_len){
         if(core.isZero(remain)){
           break;
         }else {
           remain_is_decimal = true;
+          decimal_count++;
         }
       }
 
       if(i > a_len){
         remain_prefix.push(0);
+        decimal_count++;
       }
       const max_count = [1, ...new Array(max).fill("0")].join("");
       while(less){
@@ -728,6 +731,7 @@ core.division = function(a, b){
       }
     }
     console.info("countcount: ", countcount);
+    console.info("decimal_count: ", decimal_count);
     // console.info("arr", arr);
     const new_arr = arr.flatMap(e => e.array);
     console.info("res new_arr", new_arr);
