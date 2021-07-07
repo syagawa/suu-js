@@ -678,8 +678,6 @@ core.division = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
-      // const a_ = core.isZero(remain) ? core.clone(a) : remain;
-      const b_ = core.clone(b_clone);
       let n = core.getZero();
       // console.info("first remain", remain.array.join(""));
       // console.info(i, "/", a_len);
@@ -705,7 +703,7 @@ core.division = function(a, b){
           break;
         }
         const pre_n = n;
-        n = core.multiplication(b_, count);
+        n = core.multiplication(b_clone, count);
         // console.info("count", count, remain, pre_n, n, arr);
         if(core.isEqual(remain, n)){
           // console.info("equal!");
