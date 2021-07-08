@@ -642,8 +642,11 @@ core.division = function(a, b){
     const b_num_length = b_decimal_length - b_zero_length;
     const a_decimal_index = a.decimal_index;
     const b_decimal_index = b.decimal_index;
+    
+    const decimal_gap = a_decimal_length - b_decimal_length;
 
     console.info("zero_gap", zero_gap);
+    console.info("decimal_gap", decimal_gap);
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
