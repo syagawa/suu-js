@@ -615,6 +615,8 @@ core.division = function(a, b){
     console.info(a, b);
     let decimal_index = a_len;
 
+    let decimal_test_index = decimal_index;
+
     let a_clone = core.clone(a);
     let a_zero_length = 0;
     const a_zero_res = a.array.join("").match(/^0+/);
@@ -802,6 +804,18 @@ core.division = function(a, b){
     // }else if(zero_gap < 0){
     //   decimal_index = decimal_index + b_zero_length - 1;
     // }
+
+
+    // test
+    if(zero_gap > 0){
+      decimal_test_index = decimal_test_index - a_zero_length;
+      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(zero_gap < 0){
+      decimal_test_index = decimal_test_index + zero_gap_abs;
+      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+
 
 
 
