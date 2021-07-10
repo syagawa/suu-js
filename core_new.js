@@ -808,13 +808,23 @@ core.division = function(a, b){
 
     // test
     if(zero_gap > 0){
-      decimal_test_index = decimal_test_index - a_zero_length;
+      decimal_test_index = decimal_test_index - Math.abs(zero_gap);
       // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
     }
     if(zero_gap < 0){
-      decimal_test_index = decimal_test_index + zero_gap_abs;
+      decimal_test_index = decimal_test_index + Math.abs(zero_gap);
       // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
     }
+    if(decimal_gap > 0){
+      decimal_test_index = decimal_test_index - Math.abs(decimal_gap);
+      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(decimal_gap < 0){
+      decimal_test_index = decimal_test_index + Math.abs(decimal_gap);
+      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+
+    console.info("decimal_test_index", decimal_test_index);
 
 
 
