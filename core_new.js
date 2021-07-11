@@ -640,8 +640,8 @@ core.division = function(a, b){
     
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
-    const a_num_length = a_decimal_length - a_zero_length;
-    const b_num_length = b_decimal_length - b_zero_length;
+    const a_dec_num_length = a_decimal_length - a_zero_length;
+    const b_dec_num_length = b_decimal_length - b_zero_length;
     const a_decimal_index = a.decimal_index;
     const b_decimal_index = b.decimal_index;
     
@@ -658,8 +658,8 @@ core.division = function(a, b){
     console.info("b_zero_length", b_zero_length);
     console.info("a_decimal_length", a_decimal_length);
     console.info("b_decimal_length", b_decimal_length);
-    console.info("a_num_length", a_num_length);
-    console.info("b_num_length",b_num_length);
+    console.info("a_dec_num_length", a_dec_num_length);
+    console.info("b_dec_num_length",b_dec_num_length);
     console.info("a_decimal_index",a_decimal_index);
     console.info("b_decimal_index",b_decimal_index);
 
@@ -792,8 +792,8 @@ core.division = function(a, b){
       decimal_index = decimal_index + b_decimal_length - b_zero_length;
     }
 
-    if(a_num_length > b_num_length){
-      decimal_index = decimal_index - (a_num_length - b_num_length);
+    if(a_dec_num_length > b_dec_num_length){
+      decimal_index = decimal_index - (a_dec_num_length - b_dec_num_length);
     }
 
     console.info("decimal_index", decimal_index);
