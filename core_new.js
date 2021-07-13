@@ -640,8 +640,8 @@ core.division = function(a, b){
     
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
-    const a_dec_num_length = a_decimal_length - a_zero_length;
-    const b_dec_num_length = b_decimal_length - b_zero_length;
+    const a_dec_num_length = a_decimal_length - a_zero_length + 1;
+    const b_dec_num_length = b_decimal_length - b_zero_length + 1;
     const a_decimal_index = a.decimal_index;
     const b_decimal_index = b.decimal_index;
     
