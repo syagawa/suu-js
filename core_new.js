@@ -841,11 +841,247 @@ core.division = function(a, b){
     }
   };
 
+  const calc2 = function({a, b, max}){
+    const arr = [];
+    const a_len = a.array.length;
+    let remain = core.getZero();
+
+    console.info(a, b);
+    let decimal_index = a_len;
+
+    let decimal_test_index = decimal_index;
+
+    let a_clone = core.clone(a);
+    let a_zero_length = 0;
+    const a_zero_res = a.array.join("").match(/^0+/);
+    if(a_zero_res && a_zero_res[0]){
+      a_zero_length = a_zero_res[0].length;
+      // a_zero_length = a_zero_res[0].length - a.decimal_index;
+      a_clone = core.numToArrayWithDecimal(a_clone.array.slice(a_zero_length, a_clone.array.length).join(""));
+    }
+
+    let b_clone = core.clone(b);
+    let b_zero_length = 0;
+    const b_zero_res = b_clone.array.join("").match(/^0+/);
+    if(b_zero_res && b_zero_res[0]){
+      b_zero_length = b_zero_res[0].length;
+      // b_zero_length = b_zero_res[0].length - b.decimal_index;
+     b_clone = core.numToArrayWithDecimal(b_clone.array.slice(b_zero_length, b_clone.array.length).join(""));
+    }
+
+    const zero_gap = a_zero_length - b_zero_length;
+    const a_array = a_clone.array.slice(a_zero_length, a.array.length);
+    
+    const a_decimal_length = a_.array.length - a_.decimal_index;
+    const b_decimal_length = b_.array.length - b_.decimal_index;
+    const a_dec_num_length = a_decimal_length - a_zero_length + 1;
+    const b_dec_num_length = b_decimal_length - b_zero_length + 1;
+    const a_decimal_index = a.decimal_index;
+    const b_decimal_index = b.decimal_index;
+    
+    const decimal_gap = a_decimal_length - b_decimal_length;
+
+    console.info("zero_gap", zero_gap);
+    console.info("decimal_gap", decimal_gap);
+    console.info("a_array", a_array);
+    console.info("a.array", a.array);
+    console.info("b.array", b.array);
+    console.info("a_clone", a_clone);
+    console.info("b_clone", b_clone);
+    console.info("a_zero_length", a_zero_length);
+    console.info("b_zero_length", b_zero_length);
+    console.info("a_decimal_length", a_decimal_length);
+    console.info("b_decimal_length", b_decimal_length);
+    console.info("a_dec_num_length", a_dec_num_length);
+    console.info("b_dec_num_length",b_dec_num_length);
+    console.info("a_decimal_index",a_decimal_index);
+    console.info("b_decimal_index",b_decimal_index);
+
+
+    const len = a_len + max;
+    console.info("length for For", len);
+
+    // const a_len = a_array.length;
+    const remain_decimal_index = 1;
+    const remain_prefix = [0];
+    let remain_is_decimal = false;
+    let decimal_count = 0;
+    let countcount = 0;
+    for(let i = 0; i < len; i++){
+
+      let less = true;
+      let count = core.getZero();
+      let res = null;
+      const a_len = a_clone.array.length;
+      // const start = a_len - digit + i;
+      const remain1 = core.multiplication(remain, "10");
+      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
+      remain = core.add(remain1, remain2);
+      let n = core.getZero();
+      console.info("remain", remain.array.join(""));
+      // console.info(i, "/", a_len);
+      if(i === a_len){
+        if(core.isZero(remain)){
+          break;
+        }else {
+          remain_is_decimal = true;
+          decimal_count++;
+        }
+      }
+
+      if(i > a_len){
+        remain_prefix.push(0);
+        decimal_count++;
+      }
+      const max_count = [1, ...new Array(max).fill("0")].join("");
+      while(less){
+        countcount++;
+        count = core.add(count, "1");
+        if(core.isEqual(max_count, count)){
+          less = false;
+          break;
+        }
+        const pre_n = n;
+        n = core.multiplication(b_clone, count);
+        // console.info("count", count, remain, pre_n, n, arr);
+        if(core.isEqual(remain, n)){
+          // console.info("equal!");
+          less = false;
+          res = count;
+          arr.push(res);
+          // console.info("before remain");
+          remain = core.subtract(remain, n);
+          // console.info("after remain");
+          // console.info("remain", remain);
+          break;
+        }
+        const large = core.getLarge(remain, n);
+        if(core.isEqual(n, large)){
+          // console.info("large!", remain, pre_n, n, count);
+          less = false;
+          res = core.subtract(count, "1");
+          arr.push(res);
+          remain = core.subtract(remain, pre_n);
+          // console.info("remain", remain);
+          break;
+        }
+      }
+    }
+    console.info("countcount: ", countcount);
+    console.info("decimal_count: ", decimal_count);
+    // console.info("arr", arr);
+    const new_arr = arr.flatMap(e => e.array);
+    console.info("res new_arr", new_arr);
+    console.info("res decimal_index", decimal_index);
+    let a_exists_zero = false;
+    let b_exists_zero = false;
+    if(a_zero_length > 0){
+      a_exists_zero = true;
+      // decimal_index = decimal_index - a_zero_length;
+    }
+    if(b_zero_length > 0){
+      b_exists_zero = true;
+      // decimal_index = decimal_index + b_zero_length;
+      new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
+
+    }
+
+    const zero_gap_abs = Math.abs(zero_gap);
+
+    if(zero_gap > 0){
+    // if(a_zero_length > 0){
+      console.info("zero_gap", zero_gap);
+      console.info("new_arr", new_arr);
+      decimal_index = decimal_index - a_zero_length;
+      new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(zero_gap < 0){
+    // if(b_zero_length > 0){
+      console.info("zero_gap", zero_gap);
+      console.info("decimal_index", decimal_index);
+      
+      // decimal_index = decimal_index - b_zero_length;
+      // decimal_index = decimal_index + b_zero_length - 1;
+      // decimal_index = decimal_index + b_zero_length;
+      decimal_index = decimal_index + zero_gap_abs;
+      new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+      // const len = decimal_index - b_zero_length;
+      // if(len < 1){
+      //   const len_ = (len * -1) + 1;
+      //   new_arr.unshift(...(new Array(len_).fill(0, 0, len_)))
+      // }
+      // if(b_zero_length > 0){
+      //   decimal_index = decimal_index + b_dec_length - b_zero_length;
+      // }
+    }
+    if(zero_gap === 0){
+      const len = a_zero_length;
+      decimal_index = decimal_index - len;
+    }
+
+    if(a_decimal_length > 0){
+      decimal_index = decimal_index - a_decimal_length + a_zero_length;
+    }
+    if(b_zero_length > 0){
+      decimal_index = decimal_index + b_decimal_length - b_zero_length;
+    }
+
+    if(a_dec_num_length > b_dec_num_length){
+      decimal_index = decimal_index - (a_dec_num_length - b_dec_num_length);
+    }
+
+    console.info("decimal_index", decimal_index);
+    console.info("a_exists_zero", a_exists_zero);
+    console.info("b_exists_zero", b_exists_zero);
+    // if(zero_gap > 0){
+    //   decimal_index = decimal_index - a_zero_length;
+    // }else if(zero_gap < 0){
+    //   decimal_index = decimal_index + b_zero_length - 1;
+    // }
+
+
+    // test
+    if(zero_gap > 0){
+      decimal_test_index = decimal_test_index - Math.abs(zero_gap);
+      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(zero_gap < 0){
+      decimal_test_index = decimal_test_index + Math.abs(zero_gap);
+      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(decimal_gap > 0){
+      decimal_test_index = decimal_test_index - Math.abs(decimal_gap);
+      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+    if(decimal_gap < 0){
+      decimal_test_index = decimal_test_index + Math.abs(decimal_gap);
+      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
+    }
+
+    console.info("decimal_test_index", decimal_test_index);
+
+
+
+
+    let remain_arr = remain.array;
+    if(remain_is_decimal){
+      remain_arr = [...remain_prefix, ...remain_arr];
+    }
+    return {
+      new_array: new_arr,
+      decimal_index: decimal_index,
+      remain_array: remain_arr,
+      remain_decimal_index: remain_decimal_index,
+    }
+  };
+
   const max_times_if_not_divisible = 10;
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
+  
+  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible});
 
-  // console.info(new_array, remain_array);
+  console.info(res2);
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
