@@ -842,11 +842,9 @@ core.division = function(a, b){
   };
 
   const calc2 = function({a, b, max}){
-    const arr = [];
+    const res_arr = [];
     const a_len = a.array.length;
     let remain = core.getZero();
-
-    console.info(a, b);
     let decimal_index = a_len;
 
     let decimal_test_index = decimal_index;
@@ -948,7 +946,7 @@ core.division = function(a, b){
           // console.info("equal!");
           less = false;
           res = count;
-          arr.push(res);
+          res_arr.push(res);
           // console.info("before remain");
           remain = core.subtract(remain, n);
           // console.info("after remain");
@@ -960,7 +958,7 @@ core.division = function(a, b){
           // console.info("large!", remain, pre_n, n, count);
           less = false;
           res = core.subtract(count, "1");
-          arr.push(res);
+          res_arr.push(res);
           remain = core.subtract(remain, pre_n);
           // console.info("remain", remain);
           break;
@@ -970,7 +968,7 @@ core.division = function(a, b){
     console.info("countcount: ", countcount);
     console.info("decimal_count: ", decimal_count);
     // console.info("arr", arr);
-    const new_arr = arr.flatMap(e => e.array);
+    const new_arr = res_arr.flatMap(e => e.array);
     console.info("res new_arr", new_arr);
     console.info("res decimal_index", decimal_index);
     let a_exists_zero = false;
