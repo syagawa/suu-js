@@ -843,11 +843,8 @@ core.division = function(a, b){
 
   const calc2 = function({a, b, max}){
     const res_arr = [];
-    const a_len = a.array.length;
     let remain = core.getZero();
-    let decimal_index = a_len;
-
-    let decimal_test_index = decimal_index;
+    let decimal_index = a.decimal_index;
 
     let a_clone = core.clone(a);
     let a_zero_length = 0;
