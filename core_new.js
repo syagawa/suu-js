@@ -846,6 +846,8 @@ core.division = function(a, b){
     let remain = core.getZero();
     let decimal_index = a.decimal_index;
 
+    const a_ = core.clone(a);
+    const b_ = core.clone(a);
     let a_clone = core.clone(a);
     let a_zero_length = 0;
     const a_zero_res = a.array.join("").match(/^0+/);
@@ -1026,32 +1028,7 @@ core.division = function(a, b){
     console.info("decimal_index", decimal_index);
     console.info("a_exists_zero", a_exists_zero);
     console.info("b_exists_zero", b_exists_zero);
-    // if(zero_gap > 0){
-    //   decimal_index = decimal_index - a_zero_length;
-    // }else if(zero_gap < 0){
-    //   decimal_index = decimal_index + b_zero_length - 1;
-    // }
 
-
-    // test
-    if(zero_gap > 0){
-      decimal_test_index = decimal_test_index - Math.abs(zero_gap);
-      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-    }
-    if(zero_gap < 0){
-      decimal_test_index = decimal_test_index + Math.abs(zero_gap);
-      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-    }
-    if(decimal_gap > 0){
-      decimal_test_index = decimal_test_index - Math.abs(decimal_gap);
-      // new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-    }
-    if(decimal_gap < 0){
-      decimal_test_index = decimal_test_index + Math.abs(decimal_gap);
-      // new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-    }
-
-    console.info("decimal_test_index", decimal_test_index);
 
 
 
