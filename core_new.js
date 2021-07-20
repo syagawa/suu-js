@@ -844,19 +844,19 @@ core.division = function(a, b){
   const calc2 = function({a, b, max}){
     const res_arr = [];
     let remain = core.getZero();
-    let decimal_index = a.decimal_index;
-
     const a_ = core.clone(a);
     const b_ = core.clone(a);
-    let a_clone = core.clone(a);
+    let decimal_index = a.decimal_index;
+
+    let a_clone = core.clone(a_);
     let a_zero_length = 0;
-    const a_zero_res = a.array.join("").match(/^0+/);
+    const a_zero_res = a_.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
       a_zero_length = a_zero_res[0].length;
       a_clone = core.numToArrayWithDecimal(a_clone.array.slice(a_zero_length, a_clone.array.length).join(""));
     }
 
-    let b_clone = core.clone(b);
+    let b_clone = core.clone(b_);
     let b_zero_length = 0;
     const b_zero_res = b_clone.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
@@ -871,8 +871,8 @@ core.division = function(a, b){
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const a_dec_num_length = a_decimal_length - a_zero_length + 1;
     const b_dec_num_length = b_decimal_length - b_zero_length + 1;
-    const a_decimal_index = a.decimal_index;
-    const b_decimal_index = b.decimal_index;
+    const a_decimal_index = a_.decimal_index;
+    const b_decimal_index = b_.decimal_index;
     
     const decimal_gap = a_decimal_length - b_decimal_length;
 
