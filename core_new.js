@@ -893,11 +893,10 @@ core.division = function(a, b){
     console.info("b_decimal_index",b_decimal_index);
 
 
-    const len = 0 + max;
+    const len = a_clone.array.length + max;
     console.info("length for For", len);
 
     // const a_len = a_array.length;
-    const remain_decimal_index = 1;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     let decimal_count = 0;
@@ -1041,7 +1040,6 @@ core.division = function(a, b){
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
-      remain_decimal_index: remain_decimal_index,
     }
   };
 
