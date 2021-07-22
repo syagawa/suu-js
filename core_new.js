@@ -848,24 +848,24 @@ core.division = function(a, b){
     const b_ = core.clone(a);
     let decimal_index = a.decimal_index;
 
-    let a_clone = core.clone(a_);
+    let a_int_not_zero = core.clone(a_);
     let a_zero_length = 0;
     const a_zero_res = a_.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
       a_zero_length = a_zero_res[0].length;
-      a_clone = core.numToArrayWithDecimal(a_clone.array.slice(a_zero_length, a_clone.array.length).join(""));
+      a_int_not_zero = core.numToArrayWithDecimal(a_int_not_zero.array.slice(a_zero_length, a_int_not_zero.array.length).join(""));
     }
 
-    let b_clone = core.clone(b_);
+    let b_int_not_zero = core.clone(b_);
     let b_zero_length = 0;
-    const b_zero_res = b_clone.array.join("").match(/^0+/);
+    const b_zero_res = b_int_not_zero.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
       b_zero_length = b_zero_res[0].length;
-     b_clone = core.numToArrayWithDecimal(b_clone.array.slice(b_zero_length, b_clone.array.length).join(""));
+     b_int_not_zero = core.numToArrayWithDecimal(b_int_not_zero.array.slice(b_zero_length, b_int_not_zero.array.length).join(""));
     }
 
     const zero_gap = a_zero_length - b_zero_length;
-    const a_array = [...a_clone.array];
+    const a_array = [...a_int_not_zero.array];
     
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
@@ -881,8 +881,8 @@ core.division = function(a, b){
     console.info("a_array", a_array);
     console.info("a.array", a.array);
     console.info("b.array", b.array);
-    console.info("a_clone", a_clone);
-    console.info("b_clone", b_clone);
+    console.info("a_int_not_zero", a_int_not_zero);
+    console.info("b_int_not_zero", b_int_not_zero);
     console.info("a_zero_length", a_zero_length);
     console.info("b_zero_length", b_zero_length);
     console.info("a_decimal_length", a_decimal_length);
@@ -893,7 +893,7 @@ core.division = function(a, b){
     console.info("b_decimal_index",b_decimal_index);
 
 
-    const len = a_clone.array.length + max;
+    const len = a_int_not_zero.array.length + max;
     console.info("length for For", len);
 
     // const a_len = a_array.length;
@@ -906,7 +906,7 @@ core.division = function(a, b){
       let less = true;
       let count = core.getZero();
       let res = null;
-      const a_len = a_clone.array.length;
+      const a_len = a_int_not_zero.array.length;
       // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
@@ -936,7 +936,7 @@ core.division = function(a, b){
           break;
         }
         const pre_n = n;
-        n = core.multiplication(b_clone, count);
+        n = core.multiplication(b_int_not_zero, count);
         // console.info("count", count, remain, pre_n, n, arr);
         if(core.isEqual(remain, n)){
           // console.info("equal!");
