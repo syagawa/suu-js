@@ -914,7 +914,8 @@ core.division = function(a, b){
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       let n = core.getZero();
-      console.info("remain", remain.array.join(""));
+      console.info("res_arr for", res_arr.map(e=> e.array.join("")));
+      console.info("remain for", remain.array.join(""));
       // console.info(i, "/", a_len);
       if(i === a_len){
         if(core.isZero(remain)){
