@@ -845,7 +845,7 @@ core.division = function(a, b){
     const res_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
-    const b_ = core.clone(a);
+    const b_ = core.clone(b);
     let decimal_index = a.decimal_index;
 
     let a_int = core.clone(a_);
