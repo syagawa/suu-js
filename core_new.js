@@ -898,7 +898,7 @@ core.division = function(a, b){
     const len = a_int.array.length + max;
     console.info("length for For", len);
 
-    // const a_len = a_array.length;
+    const a_len = a_int.array.length;
     const remain_prefix = [0];
     let remain_is_decimal = false;
     let decimal_count = 0;
@@ -908,8 +908,6 @@ core.division = function(a, b){
       let less = true;
       let count = core.getZero();
       let res = null;
-      const a_len = a_int.array.length;
-      // const start = a_len - digit + i;
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
