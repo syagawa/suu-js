@@ -213,6 +213,13 @@ core.isEqual = function(a, b){
   return false;
 };
 
+core.isSmall = function(a, b){
+  return core.isEqual(core.getSmall(a, b), a);
+};
+core.isLarge = function(a, b){
+  return core.isEqual(core.getLarge(a, b), a);
+};
+
 core.isZero = function(n){
   if(!n){
     return false;
@@ -928,7 +935,7 @@ core.division = function(a, b){
         remain_prefix.push(0);
         decimal_count++;
       }
-      const max_count = [1, ...new Array(max).fill("0")].join("");
+      const max_count = core.isSmall(max, 1) ? core.getOne() : max;
       while(less){
         countcount++;
         count = core.add(count, "1");
@@ -1045,10 +1052,11 @@ core.division = function(a, b){
   };
 
   const max_times_if_not_divisible = 10;
+  const max_times_if_not_divisible2 = core.numToArrayWithDecimal("10");
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
   
-  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible});
+  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible2});
 
   console.info(res2);
 
