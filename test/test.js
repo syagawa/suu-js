@@ -307,6 +307,17 @@ describe("core", function(){
     });
   });
 
+  describe("isSmall", function(){
+    it("1 < 2", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("2");
+      const res = core.isSmall(num1, num2);
+      assert.equal(res, true);
+    });
+
+
+  });
+
   describe("add", function(){
     it("0 + 0 = 0", () => {
       const res = core.add("0", "0");
