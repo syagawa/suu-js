@@ -308,13 +308,26 @@ describe("core", function(){
   });
 
   describe("isSmall", function(){
-    it("1 < 2", () => {
+    it("1 < 2 => true", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("2");
       const res = core.isSmall(num1, num2);
       assert.equal(res, true);
     });
 
+    it("2 < 1 => false", () => {
+      const num1 = core.numToArrayWithDecimal("2");
+      const num2 = core.numToArrayWithDecimal("1");
+      const res = core.isSmall(num1, num2);
+      assert.equal(res, false);
+    });
+
+    it("1 < 1 => false", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("1");
+      const res = core.isSmall(num1, num2);
+      assert.equal(res, false);
+    });
 
   });
 
