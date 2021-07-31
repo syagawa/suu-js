@@ -329,6 +329,13 @@ describe("core", function(){
       assert.equal(res, false);
     });
 
+    it("1.0 < 1.1 => true", () => {
+      const num1 = core.numToArrayWithDecimal("1.0");
+      const num2 = core.numToArrayWithDecimal("1.1");
+      const res = core.isSmall(num1, num2);
+      assert.equal(res, true);
+    });
+
   });
 
   describe("add", function(){
