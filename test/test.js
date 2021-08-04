@@ -352,7 +352,7 @@ describe("core", function(){
 
     it("0 < 1 => true", () => {
       const num1 = core.numToArrayWithDecimal("0");
-      const num2 = core.numToArrayWithDecimal("2");
+      const num2 = core.numToArrayWithDecimal("1");
       const res = core.isSmall(num1, num2);
       assert.equal(res, true);
     });
@@ -426,6 +426,41 @@ describe("core", function(){
     it("1.1 < 1.1 => false", () => {
       const num1 = core.numToArrayWithDecimal("1.1");
       const num2 = core.numToArrayWithDecimal("1.1");
+      const res = core.isLarge(num1, num2);
+      assert.equal(res, false);
+    });
+
+    it("0 < 1 => false", () => {
+      const num1 = core.numToArrayWithDecimal("0");
+      const num2 = core.numToArrayWithDecimal("1");
+      const res = core.isLarge(num1, num2);
+      assert.equal(res, false);
+    });
+
+    it("1 < 0 => true", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("0");
+      const res = core.isLarge(num1, num2);
+      assert.equal(res, true);
+    });
+
+    it("-1 < 0 => false", () => {
+      const num1 = core.numToArrayWithDecimal("-1");
+      const num2 = core.numToArrayWithDecimal("0");
+      const res = core.isLarge(num1, num2);
+      assert.equal(res, false);
+    });
+
+    it("0 < -1 => true", () => {
+      const num1 = core.numToArrayWithDecimal("0");
+      const num2 = core.numToArrayWithDecimal("-1");
+      const res = core.isLarge(num1, num2);
+      assert.equal(res, true);
+    });
+
+    it("0 < 0 => false", () => {
+      const num1 = core.numToArrayWithDecimal("0");
+      const num2 = core.numToArrayWithDecimal("0");
       const res = core.isLarge(num1, num2);
       assert.equal(res, false);
     });
