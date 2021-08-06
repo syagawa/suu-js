@@ -939,7 +939,7 @@ core.division = function(a, b){
       while(less){
         countcount++;
         count = core.add(count, "1");
-        if(core.isEqual(max_count, count)){
+        if(core.isLarge(count, max_count)){
           less = false;
           break;
         }
