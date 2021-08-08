@@ -918,7 +918,7 @@ core.division = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
-      let n = core.getZero();
+      let product = core.getZero();
       console.info("res_arr for", res_arr.map(e=> e.array.join("")));
       console.info("remain for", remain.array.join(""));
       // console.info(i, "/", a_len);
@@ -943,27 +943,27 @@ core.division = function(a, b){
           less = false;
           break;
         }
-        const pre_n = n;
-        n = core.multiplication(b_int, count);
-        // console.info("count", count, remain, pre_n, n, arr);
-        if(core.isEqual(remain, n)){
+        const pre_product = product;
+        product = core.multiplication(b_int, count);
+        // console.info("count", count, remain, pre_product, n, arr);
+        if(core.isEqual(remain, product)){
           // console.info("equal!");
           less = false;
           res = count;
           res_arr.push(res);
           // console.info("before remain");
-          remain = core.subtract(remain, n);
+          remain = core.subtract(remain, product);
           // console.info("after remain");
           // console.info("remain", remain);
           break;
         }
-        const large = core.getLarge(remain, n);
-        if(core.isEqual(n, large)){
-          // console.info("large!", remain, pre_n, n, count);
+        const large = core.getLarge(remain, product);
+        if(core.isEqual(product, large)){
+          // console.info("large!", remain, pre_product, n, count);
           less = false;
           res = core.subtract(count, "1");
           res_arr.push(res);
-          remain = core.subtract(remain, pre_n);
+          remain = core.subtract(remain, pre_product);
           // console.info("remain", remain);
           break;
         }
