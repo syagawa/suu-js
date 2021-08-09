@@ -908,7 +908,7 @@ core.division = function(a, b){
     const a_len = a_int.array.length;
     const remain_prefix = [0];
     let remain_is_decimal = false;
-    let decimal_count = 0;
+    let decimal_count = core.getZero();
     let countcount = 0;
     for(let i = 0; i < len; i++){
 
@@ -927,14 +927,13 @@ core.division = function(a, b){
           break;
         }else {
           remain_is_decimal = true;
-          decimal_count++;
+          decimal_count = core.add(decimal_count, "1");
         }
+      }else if(i > a_len){
+        remain_prefix.push(0);
+        decimal_count = core.add(decimal_count, "1");
       }
 
-      if(i > a_len){
-        remain_prefix.push(0);
-        decimal_count++;
-      }
       const max_count = core.isSmall(max, 1) ? core.getOne() : max;
       while(less){
         countcount++;
