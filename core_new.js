@@ -912,7 +912,7 @@ core.division = function(a, b){
     let countcount = 0;
     for(let i = 0; i < len; i++){
 
-      let less = true;
+      let is_less = true;
       let count = core.getZero();
       let res = null;
       const remain1 = core.multiplication(remain, "10");
@@ -935,11 +935,11 @@ core.division = function(a, b){
       }
 
       const max_count = core.isSmall(max, 1) ? core.getOne() : max;
-      while(less){
+      while(is_less){
         countcount++;
         count = core.add(count, "1");
         if(core.isLarge(count, max_count)){
-          less = false;
+          is_less = false;
           break;
         }
         const pre_product = product;
@@ -947,7 +947,7 @@ core.division = function(a, b){
         // console.info("count", count, remain, pre_product, n, arr);
         if(core.isEqual(remain, product)){
           // console.info("equal!");
-          less = false;
+          is_less = false;
           res = count;
           res_arr.push(res);
           // console.info("before remain");
@@ -959,7 +959,7 @@ core.division = function(a, b){
         const large = core.getLarge(remain, product);
         if(core.isEqual(product, large)){
           // console.info("large!", remain, pre_product, n, count);
-          less = false;
+          is_less = false;
           res = core.subtract(count, "1");
           res_arr.push(res);
           remain = core.subtract(remain, pre_product);
