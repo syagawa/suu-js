@@ -906,7 +906,6 @@ core.division = function(a, b){
     console.info("length for For", len);
 
     const a_len = a_int.array.length;
-    const remain_prefix = [0];
     let remain_is_decimal = false;
     let decimal_count = core.getZero();
     let countcount = 0;
@@ -930,7 +929,6 @@ core.division = function(a, b){
           decimal_count = core.add(decimal_count, "1");
         }
       }else if(i > a_len){
-        remain_prefix.push(0);
         decimal_count = core.add(decimal_count, "1");
       }
 
@@ -1041,7 +1039,7 @@ core.division = function(a, b){
 
     let remain_arr = remain.array;
     if(remain_is_decimal){
-      remain_arr = [...remain_prefix, ...remain_arr];
+      remain_arr = [...remain_arr];
     }
     return {
       new_array: new_arr,
