@@ -902,14 +902,14 @@ core.division = function(a, b){
     console.info("b_decimal_index",b_decimal_index);
 
 
-    const len = a_int.array.length + max;
-    console.info("length for For", len);
+    const times = a_int.array.length + max;
+    console.info("length for For", times);
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
     let decimal_count = core.getZero();
     let countcount = 0;
-    for(let i = 0; i < len; i++){
+    for(let i = 0; i < times; i++){
 
       let is_less = true;
       let count = core.getZero();
