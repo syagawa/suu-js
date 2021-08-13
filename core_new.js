@@ -954,8 +954,7 @@ core.division = function(a, b){
           // console.info("remain", remain);
           break;
         }
-        const large = core.getLarge(remain, product);
-        if(core.isEqual(product, large)){
+        if(core.isLarge(product, remain)){
           // console.info("large!", remain, pre_product, n, count);
           is_less = false;
           res = core.subtract(count, "1");
