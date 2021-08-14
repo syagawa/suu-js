@@ -849,7 +849,7 @@ core.division = function(a, b){
   };
 
   const calc2 = function({a, b, max}){
-    const res_arr = [];
+    const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
     const b_ = core.clone(b);
@@ -913,12 +913,12 @@ core.division = function(a, b){
 
       let is_less = true;
       let count = core.getZero();
-      let res = null;
+      let result = null;
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       let product = core.getZero();
-      console.info("res_arr for", res_arr.map(e=> e.array.join("")));
+      console.info("res_arr for", result_arr.map(e=> e.array.join("")));
       console.info("remain for", remain.array.join(""));
       // console.info(i, "/", a_len);
       if(i === a_len){
@@ -946,8 +946,8 @@ core.division = function(a, b){
         if(core.isEqual(remain, product)){
           // console.info("equal!");
           is_less = false;
-          res = count;
-          res_arr.push(res);
+          result = count;
+          result_arr.push(result);
           // console.info("before remain");
           remain = core.subtract(remain, product);
           // console.info("after remain");
@@ -957,8 +957,8 @@ core.division = function(a, b){
         if(core.isLarge(product, remain)){
           // console.info("large!", remain, pre_product, n, count);
           is_less = false;
-          res = core.subtract(count, "1");
-          res_arr.push(res);
+          result = core.subtract(count, "1");
+          result_arr.push(result);
           remain = core.subtract(remain, pre_product);
           // console.info("remain", remain);
           break;
@@ -968,7 +968,7 @@ core.division = function(a, b){
     console.info("countcount: ", countcount);
     console.info("decimal_count: ", decimal_count);
     // console.info("arr", arr);
-    const new_arr = res_arr.flatMap(e => e.array);
+    const new_arr = result_arr.flatMap(e => e.array);
     console.info("res new_arr", new_arr);
     console.info("res decimal_index", decimal_index);
     let a_exists_zero = false;
