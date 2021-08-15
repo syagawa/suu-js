@@ -913,7 +913,6 @@ core.division = function(a, b){
 
       let is_less = true;
       let count = core.getZero();
-      let result = null;
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
@@ -942,25 +941,18 @@ core.division = function(a, b){
         }
         const pre_product = product;
         product = core.multiplication(b_int, count);
-        // console.info("count", count, remain, pre_product, n, arr);
         if(core.isEqual(remain, product)){
-          // console.info("equal!");
           is_less = false;
-          result = count;
+          const result = count;
           result_arr.push(result);
-          // console.info("before remain");
           remain = core.subtract(remain, product);
-          // console.info("after remain");
-          // console.info("remain", remain);
           break;
         }
         if(core.isLarge(product, remain)){
-          // console.info("large!", remain, pre_product, n, count);
           is_less = false;
-          result = core.subtract(count, "1");
+          const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
-          // console.info("remain", remain);
           break;
         }
       }
