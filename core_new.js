@@ -885,25 +885,25 @@ core.division = function(a, b){
     
     const decimal_gap = a_decimal_length - b_decimal_length;
 
-    console.info("zero_gap", zero_gap);
-    console.info("decimal_gap", decimal_gap);
-    console.info("a_array", a_array);
-    console.info("a.array", a.array);
-    console.info("b.array", b.array);
-    console.info("a_int", a_int);
-    console.info("b_int", b_int);
-    console.info("a_zero_length", a_zero_length);
-    console.info("b_zero_length", b_zero_length);
-    console.info("a_decimal_length", a_decimal_length);
-    console.info("b_decimal_length", b_decimal_length);
-    console.info("a_dec_num_length", a_dec_num_length);
-    console.info("b_dec_num_length",b_dec_num_length);
-    console.info("a_decimal_index",a_decimal_index);
-    console.info("b_decimal_index",b_decimal_index);
+    console.info("zero_gap 2", zero_gap);
+    console.info("decimal_gap 2", decimal_gap);
+    console.info("a_array 2", a_array);
+    console.info("a.array 2", a.array);
+    console.info("b.array 2", b.array);
+    console.info("a_int 2", a_int);
+    console.info("b_int 2", b_int);
+    console.info("a_zero_length 2", a_zero_length);
+    console.info("b_zero_length 2", b_zero_length);
+    console.info("a_decimal_length 2", a_decimal_length);
+    console.info("b_decimal_length 2", b_decimal_length);
+    console.info("a_dec_num_length 2", a_dec_num_length);
+    console.info("b_dec_num_length 2",b_dec_num_length);
+    console.info("a_decimal_index 2",a_decimal_index);
+    console.info("b_decimal_index 2",b_decimal_index);
 
 
     const times = a_int.array.length + max;
-    console.info("length for For", times);
+    console.info("length for For2", times);
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
@@ -917,8 +917,8 @@ core.division = function(a, b){
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       let product = core.getZero();
-      console.info("res_arr for", result_arr.map(e=> e.array.join("")));
-      console.info("remain for", remain.array.join(""));
+      console.info("res_arr for2", result_arr.map(e=> e.array.join("")));
+      console.info("remain for2", remain.array.join(""));
       // console.info(i, "/", a_len);
       if(i === a_len){
         if(core.isZero(remain)){
@@ -957,12 +957,12 @@ core.division = function(a, b){
         }
       }
     }
-    console.info("countcount: ", countcount);
-    console.info("decimal_count: ", decimal_count);
-    // console.info("arr", arr);
+    console.info("countcount2: ", countcount);
+    console.info("decimal_count2: ", decimal_count);
+    // console.info("arr 2", arr);
     const new_arr = result_arr.flatMap(e => e.array);
-    console.info("res new_arr", new_arr);
-    console.info("res decimal_index", decimal_index);
+    console.info("res new_arr 2", new_arr);
+    console.info("res decimal_index 2", decimal_index);
     let a_exists_zero = false;
     let b_exists_zero = false;
     if(a_zero_length > 0){
@@ -1026,8 +1026,6 @@ core.division = function(a, b){
 
 
 
-
-
     let remain_arr = remain.array;
     if(remain_is_decimal){
       remain_arr = [...remain_arr];
@@ -1046,7 +1044,7 @@ core.division = function(a, b){
   
   const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible2});
 
-  console.info(res2);
+  console.info("res2", res2);
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
