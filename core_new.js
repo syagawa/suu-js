@@ -921,13 +921,17 @@ core.division = function(a, b){
       console.info("remain for2", remain.array.join(""));
       // console.info(i, "/", a_len);
       if(i === a_len){
+        console.log("in i === a_len")
         if(core.isZero(remain)){
+          console.log("in core.isZero(remain)")
           break;
         }else {
+          console.log("in core.isZero(remain) else")
           remain_is_decimal = true;
           decimal_count = core.add(decimal_count, "1");
         }
       }else if(i > a_len){
+        console.log("in i > a_len")
         decimal_count = core.add(decimal_count, "1");
       }
 
@@ -935,15 +939,18 @@ core.division = function(a, b){
       // const max_count = core.isSmall(max, "10") ? "10" : max;
       const max_count = core.numToArrayWithDecimal("10");
       while(is_less){
+        console.log("in while");
         countcount++;
         count = core.add(count, "1");
         if(core.isLarge(count, max_count)){
+          console.log("in core.isLarge(count, max_count)");
           is_less = false;
           break;
         }
         const pre_product = product;
         product = core.multiplication(b_int, count);
         if(core.isEqual(remain, product)){
+          console.log("in core.isEqual(remain, product)");
           is_less = false;
           const result = count;
           result_arr.push(result);
@@ -951,6 +958,7 @@ core.division = function(a, b){
           break;
         }
         if(core.isLarge(product, remain)){
+          console.log("in core.isLarge(product, remain)");
           is_less = false;
           const result = core.subtract(count, "1");
           result_arr.push(result);
