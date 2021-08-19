@@ -1052,7 +1052,7 @@ core.division = function(a, b){
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
   
-  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible2});
+  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible});
 
   console.info("res2", res2);
 
