@@ -902,7 +902,7 @@ core.division = function(a, b){
     console.info("b_decimal_index 2",b_decimal_index);
 
 
-    const times = a_int.array.length + max;
+    const times = Number(core.add(a_int.array.length, max).array.join(""));
     console.info("length for For2", times);
 
     const a_len = a_int.array.length;
@@ -1052,7 +1052,7 @@ core.division = function(a, b){
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
   
-  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible});
+  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible2});
 
   console.info("res2", res2);
 
