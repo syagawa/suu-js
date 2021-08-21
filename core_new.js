@@ -903,7 +903,6 @@ core.division = function(a, b){
 
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
-    console.info("length for For2", times);
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
@@ -917,40 +916,29 @@ core.division = function(a, b){
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       let product = core.getZero();
-      console.info("res_arr for2", result_arr.map(e=> e.array.join("")));
-      console.info("remain for2", remain.array.join(""));
       // console.info(i, "/", a_len);
       if(i === a_len){
-        console.log("in i === a_len")
         if(core.isZero(remain)){
-          console.log("in core.isZero(remain)")
           break;
         }else {
-          console.log("in core.isZero(remain) else")
           remain_is_decimal = true;
           decimal_count = core.add(decimal_count, "1");
         }
       }else if(i > a_len){
-        console.log("in i > a_len")
         decimal_count = core.add(decimal_count, "1");
       }
 
-      // const max_count = core.isSmall(max, 1) ? core.getOne() : max;
-      // const max_count = core.isSmall(max, "10") ? "10" : max;
       const max_count = core.numToArrayWithDecimal("10");
       while(is_less){
-        console.log("in while");
         countcount++;
         count = core.add(count, "1");
         if(core.isLarge(count, max_count)){
-          console.log("in core.isLarge(count, max_count)");
           is_less = false;
           break;
         }
         const pre_product = product;
         product = core.multiplication(b_int, count);
         if(core.isEqual(remain, product)){
-          console.log("in core.isEqual(remain, product)");
           is_less = false;
           const result = count;
           result_arr.push(result);
@@ -958,7 +946,6 @@ core.division = function(a, b){
           break;
         }
         if(core.isLarge(product, remain)){
-          console.log("in core.isLarge(product, remain)");
           is_less = false;
           const result = core.subtract(count, "1");
           result_arr.push(result);
