@@ -906,7 +906,7 @@ core.division = function(a, b){
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
-    let decimal_count = core.getZero();
+    let decimal_count = 0;
     let countcount = 0;
     for(let i = 0; i < times; i++){
 
@@ -922,10 +922,10 @@ core.division = function(a, b){
           break;
         }else {
           remain_is_decimal = true;
-          decimal_count = core.add(decimal_count, "1");
+          decimal_count = decimal_count++;
         }
       }else if(i > a_len){
-        decimal_count = core.add(decimal_count, "1");
+        decimal_count = decimal_count++;
       }
 
       const max_count = core.numToArrayWithDecimal("10");
@@ -958,6 +958,7 @@ core.division = function(a, b){
     console.info("decimal_count2: ", decimal_count);
     console.info("result_arr 2", result_arr);
     const new_arr = result_arr.flatMap(e => e.array);
+    decimal_index = new_arr.length - decimal_count;
     console.info("res new_arr 2", new_arr);
     console.info("res decimal_index 2", decimal_index);
     let a_exists_zero = false;
