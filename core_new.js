@@ -885,22 +885,8 @@ core.division = function(a, b){
     
     const decimal_gap = a_decimal_length - b_decimal_length;
 
-    console.info("zero_gap 2", zero_gap);
-    console.info("decimal_gap 2", decimal_gap);
-    console.info("a_array 2", a_array);
-    console.info("a.array 2", a.array);
-    console.info("b.array 2", b.array);
-    console.info("a_int 2", a_int);
-    console.info("b_int 2", b_int);
-    console.info("a_zero_length 2", a_zero_length);
-    console.info("b_zero_length 2", b_zero_length);
-    console.info("a_decimal_length 2", a_decimal_length);
-    console.info("b_decimal_length 2", b_decimal_length);
-    console.info("a_dec_num_length 2", a_dec_num_length);
-    console.info("b_dec_num_length 2",b_dec_num_length);
-    console.info("a_decimal_index 2",a_decimal_index);
-    console.info("b_decimal_index 2",b_decimal_index);
-
+    console.info("calc2 zero_gap", zero_gap);
+    console.info("calc2 decimal_gap", decimal_gap);
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
@@ -954,13 +940,13 @@ core.division = function(a, b){
         }
       }
     }
-    console.info("countcount2: ", countcount);
-    console.info("decimal_count2: ", decimal_count);
-    console.info("result_arr 2", result_arr);
+    // console.info("calc2 countcount2: ", countcount);
+    // console.info("calc2 decimal_count2: ", decimal_count);
+    console.info("calc2 result_arr", result_arr);
     const new_arr = result_arr.flatMap(e => e.array);
     decimal_index = new_arr.length - decimal_count;
-    console.info("res new_arr 2", new_arr);
-    console.info("res decimal_index 2", decimal_index);
+    console.info("calc2 res new_arr", new_arr);
+    console.info("calc2 res decimal_index0", decimal_index);
     let a_exists_zero = false;
     let b_exists_zero = false;
     if(a_zero_length > 0){
@@ -977,30 +963,13 @@ core.division = function(a, b){
     const zero_gap_abs = Math.abs(zero_gap);
 
     if(zero_gap > 0){
-    // if(a_zero_length > 0){
-      console.info("zero_gap", zero_gap);
-      console.info("new_arr", new_arr);
       decimal_index = decimal_index - a_zero_length;
       new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
     }
     if(zero_gap < 0){
-    // if(b_zero_length > 0){
-      console.info("zero_gap", zero_gap);
-      console.info("decimal_index", decimal_index);
-      
-      // decimal_index = decimal_index - b_zero_length;
-      // decimal_index = decimal_index + b_zero_length - 1;
-      // decimal_index = decimal_index + b_zero_length;
       decimal_index = decimal_index + zero_gap_abs;
       new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-      // const len = decimal_index - b_zero_length;
-      // if(len < 1){
-      //   const len_ = (len * -1) + 1;
-      //   new_arr.unshift(...(new Array(len_).fill(0, 0, len_)))
-      // }
-      // if(b_zero_length > 0){
-      //   decimal_index = decimal_index + b_dec_length - b_zero_length;
-      // }
+
     }
     if(zero_gap === 0){
       const len = a_zero_length;
@@ -1018,11 +987,7 @@ core.division = function(a, b){
       decimal_index = decimal_index - (a_dec_num_length - b_dec_num_length);
     }
 
-    console.info("decimal_index", decimal_index);
-    console.info("a_exists_zero", a_exists_zero);
-    console.info("b_exists_zero", b_exists_zero);
-
-
+    console.info("calc2 decimal_index1", decimal_index);
 
     let remain_arr = remain.array;
     if(remain_is_decimal){
