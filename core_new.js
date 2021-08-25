@@ -1032,7 +1032,7 @@ core.division = function(a, b){
   const quotient2 = core.moldNumArray({
     array: [...res2.new_array],
     negative: negative,
-    decimal_index: decimal_index
+    decimal_index: res2.decimal_index
   });
 
   console.info("quotient2", quotient2);
