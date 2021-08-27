@@ -948,6 +948,9 @@ core.division = function(a, b){
     console.info("calc2 res new_arr", new_arr);
     console.info("calc2 res decimal_index0", decimal_index);
     
+
+    decimal_index = decimal_index - decimal_gap;
+
     // let a_exists_zero = false;
     // let b_exists_zero = false;
     // if(a_zero_length > 0){
