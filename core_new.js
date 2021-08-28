@@ -912,6 +912,9 @@ core.division = function(a, b){
         }
       }else if(i > a_len){
         decimal_count = decimal_count++;
+        if(core.isZero(remain)){
+          break;
+        }
       }
 
       const max_count = core.numToArrayWithDecimal("10");
