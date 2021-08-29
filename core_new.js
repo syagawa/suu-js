@@ -904,6 +904,7 @@ core.division = function(a, b){
       let product = core.getZero();
       // console.info(i, "/", a_len);
       if(i === a_len){
+        decimal_index = i;
         if(core.isZero(remain)){
           break;
         }else {
@@ -947,7 +948,7 @@ core.division = function(a, b){
     // console.info("calc2 decimal_count2: ", decimal_count);
     console.info("calc2 result_arr", result_arr);
     const new_arr = result_arr.flatMap(e => e.array);
-    decimal_index = new_arr.length - decimal_count;
+    // decimal_index = new_arr.length - decimal_count;
     console.info("calc2 res new_arr", new_arr);
     console.info("calc2 res decimal_index0", decimal_index);
     
