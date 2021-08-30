@@ -955,6 +955,14 @@ core.division = function(a, b){
 
     decimal_index = decimal_index - decimal_gap;
 
+    if(zero_gap > 0){
+      for(let i = 0; i < zero_gap; i++){
+        new_arr.unshift(0);
+        decimal_index++;
+      }
+    }
+
+
     // let a_exists_zero = false;
     // let b_exists_zero = false;
     // if(a_zero_length > 0){
