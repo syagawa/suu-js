@@ -953,7 +953,7 @@ core.division = function(a, b){
     console.info("calc2 res decimal_index0", decimal_index);
     
 
-    decimal_index = decimal_index - decimal_gap;
+    // decimal_index = decimal_index - decimal_gap;
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
@@ -962,6 +962,12 @@ core.division = function(a, b){
       }
     }
 
+    if(decimal_gap < 0){
+      for(let i = 0; i < Math.abs(decimal_gap); i++){
+        new_arr.push(0);
+        decimal_index++;
+      }
+    }
 
     // let a_exists_zero = false;
     // let b_exists_zero = false;
