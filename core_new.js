@@ -967,6 +967,10 @@ core.division = function(a, b){
         new_arr.push(0);
         decimal_index++;
       }
+    }else if(decimal_gap > 0){
+      for(let i = 0; i < Math.abs(decimal_gap); i++){
+        new_arr.unshit(0);
+      }
     }
 
     // let a_exists_zero = false;
