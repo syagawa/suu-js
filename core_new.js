@@ -944,16 +944,11 @@ core.division = function(a, b){
         }
       }
     }
-    // console.info("calc2 countcount2: ", countcount);
-    // console.info("calc2 decimal_count2: ", decimal_count);
     console.info("calc2 result_arr", result_arr);
     const new_arr = result_arr.flatMap(e => e.array);
-    // decimal_index = new_arr.length - decimal_count;
     console.info("calc2 res new_arr", new_arr);
     console.info("calc2 res decimal_index0", decimal_index);
-    
 
-    // decimal_index = decimal_index - decimal_gap;
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
@@ -969,46 +964,10 @@ core.division = function(a, b){
       }
     }else if(decimal_gap > 0){
       for(let i = 0; i < Math.abs(decimal_gap); i++){
-        new_arr.unshit(0);
+        new_arr.unshift(0);
       }
     }
 
-    // let a_exists_zero = false;
-    // let b_exists_zero = false;
-    // if(a_zero_length > 0){
-    //   a_exists_zero = true;
-    // }
-    // if(b_zero_length > 0){
-    //   b_exists_zero = true;
-    //   new_arr.push( ...(new Array(b_zero_length).fill(0, 0, b_zero_length)) );
-    // }
-
-    // const zero_gap_abs = Math.abs(zero_gap);
-
-    // if(zero_gap > 0){
-    //   decimal_index = decimal_index - a_zero_length;
-    //   new_arr.unshift( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-    // }
-    // if(zero_gap < 0){
-    //   decimal_index = decimal_index + zero_gap_abs;
-    //   new_arr.push( ...(new Array(zero_gap_abs).fill(0, 0, zero_gap_abs)) );
-
-    // }
-    // if(zero_gap === 0){
-    //   const len = a_zero_length;
-    //   decimal_index = decimal_index - len;
-    // }
-
-    // if(a_decimal_length > 0){
-    //   decimal_index = decimal_index - a_decimal_length + a_zero_length;
-    // }
-    // if(b_zero_length > 0){
-    //   decimal_index = decimal_index + b_decimal_length - b_zero_length;
-    // }
-
-    // if(a_dec_num_length > b_dec_num_length){
-    //   decimal_index = decimal_index - (a_dec_num_length - b_dec_num_length);
-    // }
 
     console.info("calc2 decimal_index1", decimal_index);
 
