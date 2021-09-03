@@ -614,7 +614,7 @@ core.division = function(a, b){
     negative = false;
   }
 
-  const calc = function({a, b, max}){
+  const calc_old = function({a, b, max}){
     const arr = [];
     const a_len = a.array.length;
     let remain = core.getZero();
@@ -848,7 +848,7 @@ core.division = function(a, b){
     }
   };
 
-  const calc2 = function({a, b, max}){
+  const calc = function({a, b, max}){
     const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
@@ -987,9 +987,8 @@ core.division = function(a, b){
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
   
-  const res2 = calc2({a: a_, b: b_, max: max_times_if_not_divisible2});
-
-  console.info("res2", res2);
+  // const res2 = calc({a: a_, b: b_, max: max_times_if_not_divisible2});
+  // console.info("res2", res2);
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
@@ -1005,20 +1004,20 @@ core.division = function(a, b){
 
   console.info(quotient);
 
-  const remainder2 = core.moldNumArray({
-    array: [...res2.remain_array],
-    negative: negative,
-    decimal_index: res2.remain_decimal_index
-  });
+  // const remainder2 = core.moldNumArray({
+  //   array: [...res2.remain_array],
+  //   negative: negative,
+  //   decimal_index: res2.remain_decimal_index
+  // });
 
-  const quotient2 = core.moldNumArray({
-    array: [...res2.new_array],
-    negative: negative,
-    decimal_index: res2.decimal_index
-  });
+  // const quotient2 = core.moldNumArray({
+  //   array: [...res2.new_array],
+  //   negative: negative,
+  //   decimal_index: res2.decimal_index
+  // });
 
-  console.info("quotient2", quotient2);
-  console.info("remainder2", remainder2);
+  // console.info("quotient2", quotient2);
+  // console.info("remainder2", remainder2);
 
 
 
