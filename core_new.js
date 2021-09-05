@@ -752,25 +752,6 @@ core.division = function(a, b){
     decimal_index: decimal_index
   });
 
-  console.info(quotient);
-
-  // const remainder2 = core.moldNumArray({
-  //   array: [...res2.remain_array],
-  //   negative: negative,
-  //   decimal_index: res2.remain_decimal_index
-  // });
-
-  // const quotient2 = core.moldNumArray({
-  //   array: [...res2.new_array],
-  //   negative: negative,
-  //   decimal_index: res2.decimal_index
-  // });
-
-  // console.info("quotient2", quotient2);
-  // console.info("remainder2", remainder2);
-
-
-
 
   return {
     ...quotient,
