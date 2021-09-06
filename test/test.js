@@ -1285,6 +1285,11 @@ describe("division", function(){
     assert.equal(str, "40000");
   });
 
+  it("0.1 / 0.25 = 0.4", () => {
+    const res = core.division("0.1", "0.25");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.4");
+  });
 
 
 });
