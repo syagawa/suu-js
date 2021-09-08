@@ -1303,6 +1303,18 @@ describe("division", function(){
     assert.equal(str, "40");
   });
 
+  it("0.1 / 0.00025 = 400", () => {
+    const res = core.division("0.1", "0.00025");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "400");
+  });
+
+  it("0.01 / 0.25 = 0.04", () => {
+    const res = core.division("0.01", "0.25");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.04");
+  });
+
 
 });
 
