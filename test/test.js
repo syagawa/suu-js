@@ -1341,11 +1341,11 @@ describe("division", function(){
   });
 
 
-  // it("1.01 / 0.101 = 10", () => {
-  //   const res = core.division("1.01", "0.101");
-  //   const str = core.numArrayToString(res);
-  //   assert.equal(str, "10");
-  // });
+  it("101 / 0.101 = 1000", () => {
+    const res = core.division("101", "0.101");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1000");
+  });
 
 
 });
