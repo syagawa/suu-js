@@ -1076,7 +1076,10 @@ describe("division", function(){
   it("1 / 1 = 1", () => {
     const res = core.division("1", "1");
     const str = core.numArrayToString(res);
+    console.log(res);
+    const remainder = core.numArrayToString(res.remainder);
     assert.equal(str, "1");
+    assert.equal(remainder, "0");
   });
 
   it("0 / 0 = undefined", () => {

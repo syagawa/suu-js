@@ -558,6 +558,7 @@ core.multiple = function(a, b){
 
 core.division = function(a, b){
 
+
   if(!a || !b){
     if(a !== 0 && b !== 0){
       return undefined;
@@ -583,15 +584,25 @@ core.division = function(a, b){
   }
 
   if(core.isZero(a_)){
-    return core.numToArrayWithDecimal("0");
+    return {
+      ...core.getZero(),
+      remainder: core.getZero(),
+    }
   }
 
   if(core.isOne(b_)){
-    return a_;
+    return {
+      ...a_,
+      remainder: core.getZero(),
+    };
   }
 
   if(core.isEqual(a_, b_)){
-    return core.numToArrayWithDecimal("1");
+    return {
+      ...core.getOne(),
+      remainder: core.getZero(),
+    }
+
   }
 
   const a_negative = a_.negative;
