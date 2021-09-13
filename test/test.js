@@ -1095,16 +1095,18 @@ describe("division", function(){
   it("0 / 1 = 0", () => {
     const res = core.division("0", "1");
     const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
     assert.equal(str, "0");
+    assert.equal(remainder, "0");
   });
 
   it("4 / 2 = 2", () => {
     const res = core.division("4", "2");
     const quotient = res;
     const remainder = res.remainder;
-    const sum = core.add(quotient, remainder);
-    const pro = core.multiplication(sum, "2");
-    const str = core.numArrayToString(pro);
+    const pro = core.multiplication(quotient, "2");
+    const sum = core.add(pro, remainder);
+    const str = core.numArrayToString(sum);
     assert.equal(str, "4");
   });
 
