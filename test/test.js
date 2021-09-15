@@ -1118,22 +1118,18 @@ describe("division", function(){
 
   it("-4 / 2 = -2", () => {
     const res = core.division("-4", "2");
-    const quotient = res;
-    const remainder = res.remainder;
-    const sum = core.add(quotient, remainder);
-    const pro = core.multiplication(sum, "2");
-    const str = core.numArrayToString(pro);
-    assert.equal(str, "-4");
+    const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
+    assert.equal(str, "-2");
+    assert.equal(remainder, "-0");
   });
 
   it("-4 / -2 = 2", () => {
     const res = core.division("-4", "-2");
-    const quotient = res;
-    const remainder = res.remainder;
-    const sum = core.add(quotient, remainder);
-    const pro = core.multiplication(sum, "-2");
-    const str = core.numArrayToString(pro);
-    assert.equal(str, "-4");
+    const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
+    assert.equal(str, "2");
+    assert.equal(remainder, "0");
   });
 
   it("3000 / 25 = 120", () => {
