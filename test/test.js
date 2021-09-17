@@ -1152,13 +1152,17 @@ describe("division", function(){
   it("1 / 25 = 0.04", () => {
     const res = core.division("1", "25");
     const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
     assert.equal(str, "0.04");
+    assert.equal(remainder, "0");
   });
 
   it("10 / 3 = 3.3333333333", () => {
     const res = core.division("10", "3");
     const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
     assert.equal(str, "3.3333333333");
+    // assert.equal(remainder, "0.0000000001");
   });
 
   it("1 / 7 = 0.1428571428", () => {
