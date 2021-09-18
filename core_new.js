@@ -632,6 +632,7 @@ core.division = function(a, b){
     const a_ = core.clone(a);
     const b_ = core.clone(b);
     let decimal_index = a.decimal_index;
+    let decimal_index_remain = decimal_index;
 
     let a_int = core.clone(a_);
     a_int.decimal_index = a_int.array.length;
@@ -716,11 +717,14 @@ core.division = function(a, b){
       }
     }
     const new_arr = result_arr.flatMap(e => e.array);
+    let remain_arr = remain.array;
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
         new_arr.unshift(0);
         decimal_index++;
+        remain_arr.unshift(0);
+        decimal_index_remain++;
       }
     }
 
@@ -728,14 +732,17 @@ core.division = function(a, b){
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.push(0);
         decimal_index++;
+        remain_arr.push(0);
+        decimal_index_remain++;
       }
     }else if(decimal_gap > 0){
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.unshift(0);
+        remain_arr.unshift(0);
       }
     }
 
-    let remain_arr = remain.array;
+    console.info("remain", remain_arr);
     if(remain_is_decimal){
       remain_arr = [...remain_arr];
     }
@@ -743,6 +750,7 @@ core.division = function(a, b){
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
+      remain_decimal_index: remain_decimal_index,
     }
   };
 
