@@ -666,6 +666,7 @@ core.division = function(a, b){
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
+    let remain_arr = [0];
     let decimal_count = 0;
     for(let i = 0; i < times; i++){
 
@@ -705,6 +706,7 @@ core.division = function(a, b){
           const result = count;
           result_arr.push(result);
           remain = core.subtract(remain, product);
+          remain_arr.push(Number(core.numArrayToString(remain)));
           break;
         }
         if(core.isLarge(product, remain)){
@@ -712,19 +714,18 @@ core.division = function(a, b){
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
+          remain_arr.push(0);
           break;
         }
       }
     }
     const new_arr = result_arr.flatMap(e => e.array);
-    let remain_arr = remain.array;
+    
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
         new_arr.unshift(0);
         decimal_index++;
-        remain_arr.unshift(0);
-        decimal_index_remain++;
       }
     }
 
@@ -732,17 +733,14 @@ core.division = function(a, b){
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.push(0);
         decimal_index++;
-        remain_arr.push(0);
-        decimal_index_remain++;
       }
     }else if(decimal_gap > 0){
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.unshift(0);
-        remain_arr.unshift(0);
       }
     }
 
-    console.info("remain", remain_arr);
+    console.info("remain", remain_arr, decimal_index_remain, decimal_count, remain_is_decimal);
     if(remain_is_decimal){
       remain_arr = [...remain_arr];
     }
@@ -750,7 +748,7 @@ core.division = function(a, b){
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
-      remain_decimal_index: remain_decimal_index,
+      remain_decimal_index: decimal_index_remain,
     }
   };
 
