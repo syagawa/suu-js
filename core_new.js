@@ -706,7 +706,7 @@ core.division = function(a, b){
           const result = count;
           result_arr.push(result);
           remain = core.subtract(remain, product);
-          remain_arr.push(Number(core.numArrayToString(remain)));
+          
           break;
         }
         if(core.isLarge(product, remain)){
@@ -714,11 +714,14 @@ core.division = function(a, b){
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
-          remain_arr.push(0);
+          if(remain_is_decimal){
+            remain_arr.push(0);
+          }
           break;
         }
       }
     }
+    remain_arr.push(Number(core.numArrayToString(remain)));
     const new_arr = result_arr.flatMap(e => e.array);
     
 
