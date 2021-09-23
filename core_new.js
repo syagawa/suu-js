@@ -558,7 +558,6 @@ core.multiple = function(a, b){
 
 core.division = function(a, b){
 
-
   if(!a || !b){
     if(a !== 0 && b !== 0){
       return undefined;
@@ -577,7 +576,6 @@ core.division = function(a, b){
   }else{
     b_ = core.numToArrayWithDecimal(b ? b : 0);
   }
-
 
   if(core.isZero(b_)){
     return undefined;
@@ -624,7 +622,6 @@ core.division = function(a, b){
   }else{
     negative = false;
   }
-
 
   const calc = function({a, b, max}){
     const result_arr = [];
@@ -724,6 +721,8 @@ core.division = function(a, b){
     remain_arr.push(Number(core.numArrayToString(remain)));
     const new_arr = result_arr.flatMap(e => e.array);
     
+    console.info("zero_gap", zero_gap);
+    console.info("decimal_gap", decimal_gap);
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
