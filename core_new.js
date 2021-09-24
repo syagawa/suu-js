@@ -721,8 +721,6 @@ core.division = function(a, b){
     remain_arr.push(Number(core.numArrayToString(remain)));
     const new_arr = result_arr.flatMap(e => e.array);
     
-    console.info("zero_gap", zero_gap);
-    console.info("decimal_gap", decimal_gap);
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
@@ -741,6 +739,9 @@ core.division = function(a, b){
         new_arr.unshift(0);
       }
     }
+
+    console.info("zero_gap", zero_gap);
+    console.info("decimal_gap", decimal_gap);
 
     console.info("remain", remain_arr, decimal_index_remain, decimal_count, remain_is_decimal);
     if(remain_is_decimal){
@@ -781,6 +782,18 @@ core.division = function(a, b){
 
 core.divide = function(a, b){
   return core.division(a, b);
+};
+
+
+core.checkQuotientAndRmainder = function({quotient, remainder, divisor, dividend}){
+
+  const res1 = core.multiple(quotient, divisor);
+  const res2 = core.add(res1, remainder);
+  if(core.equal(res2, dividend)){
+    return true;
+  }
+  return false;
+
 };
 
 export default core;
