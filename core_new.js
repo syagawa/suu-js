@@ -785,18 +785,21 @@ core.divide = function(a, b){
 };
 
 
-core.checkQuotientAndRmainder = function({quotient, remainder, dividend, divisor}){
+core.checkQuotientAndRmainder = function({dividend, divisor}){
+
+  const quotient = core.division(dividend, divisor);
+  const remainder = quotient.remainder;
 
   let equal = false;
   const res1 = core.multiple(quotient, divisor);
   const res2 = core.add(res1, remainder);
-  if(core.equal(res2, dividend)){
+  if(core.isEqual(res2, dividend)){
     equal = true;
   }
   return {
     equal: equal,
-    devidend: core.numArrayToString(dividend),
-    quotient: core.numArrayToString(quotient),
+    result: core.numArrayToString(res2),
+    dividend: dividend,
   }
 
 };
