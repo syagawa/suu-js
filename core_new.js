@@ -785,7 +785,7 @@ core.divide = function(a, b){
 };
 
 
-core.checkQuotientAndRmainder = function({dividend, divisor}){
+core.checkQuotientAndRemainder = function({dividend, divisor}){
 
   const quotient = core.division(dividend, divisor);
   const remainder = quotient.remainder;
