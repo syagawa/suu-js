@@ -801,8 +801,8 @@ core.getQuotientAndRemainderByDivision = function({dividend, divisor}){
   }
   return {
     equal: equal,
-    result: core.numArrayToString(res2),
-    dividend: core.numArrayToString(dd),
+    divident_result: core.numArrayToString(res2),
+    dividend_parameter: core.numArrayToString(dd),
   }
 
 };
