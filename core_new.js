@@ -785,7 +785,7 @@ core.divide = function(a, b){
 };
 
 
-core.getQuotientAndRemainderByDivision = function({dividend, divisor}){
+core.checkResultOfDivision = function({dividend, divisor}){
 
   const dd = core.numToArrayWithDecimal(dividend);
   const dr = core.numToArrayWithDecimal(divisor);
