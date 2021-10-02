@@ -718,7 +718,8 @@ core.division = function(a, b){
         }
       }
     }
-    remain_arr.push(Number(core.numArrayToString(remain)));
+
+    remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
     
 
