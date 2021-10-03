@@ -600,7 +600,6 @@ core.division = function(a, b){
       ...core.getOne(),
       remainder: core.getZero(),
     }
-
   }
 
   const a_negative = a_.negative;
@@ -676,6 +675,7 @@ core.division = function(a, b){
       // console.info(i, "/", a_len);
       if(i === a_len){
         decimal_index = i;
+        console.info("i === a_len", i, remain);
         if(core.isZero(remain)){
           break;
         }else {
@@ -683,6 +683,7 @@ core.division = function(a, b){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
+        console.info("i > a_len", i, remain);
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
