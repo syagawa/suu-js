@@ -664,6 +664,7 @@ core.division = function(a, b){
     let remain_is_decimal = false;
     let remain_arr = [0];
     let decimal_count = 0;
+    let remain_and_a_len_gap = 0;
     for(let i = 0; i < times; i++){
 
       let is_less = true;
@@ -671,11 +672,12 @@ core.division = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
+      remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       // console.info(i, "/", a_len);
       if(i === a_len){
         decimal_index = i;
-        console.info("i === a_len", i, remain);
+        console.info("i === a_len", i, remain, remain_and_a_len_gap);
         if(core.isZero(remain)){
           break;
         }else {
@@ -683,7 +685,7 @@ core.division = function(a, b){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
-        console.info("i > a_len", i, remain);
+        console.info("i > a_len", i, remain, remain_and_a_len_gap);
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
