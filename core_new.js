@@ -721,7 +721,7 @@ core.division = function(a, b){
         }
       }
     }
-
+    console.info("remain_and_a_len_gap", remain_and_a_len_gap);
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
     
