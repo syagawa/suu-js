@@ -744,6 +744,22 @@ core.division = function(a, b){
       }
     }
 
+    if(remain_and_a_len_gap > 0){
+      for(let i = 0; i < remain_and_a_len_gap; i++){
+        const tgt = remain_arr[0];
+        if(tgt === 0){
+          remain_arr.shift();
+        }else{
+          decimal_index_remain = decimal_index_remain - remain_and_a_len_gap;
+        }
+        remain_arr.push(0);
+      }
+    }else if(remain_and_a_len_gap < 0){
+      const len = Math.abs(remain_and_a_len_gap);
+      const arr = Array(len).fill(0);
+      remain_arr.unshift(...arr);
+    }
+
     console.info("zero_gap", zero_gap);
     console.info("decimal_gap", decimal_gap);
 
