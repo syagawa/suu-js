@@ -1174,8 +1174,12 @@ describe("division", function(){
     const res = core.division("1", "7");
     const str = core.numArrayToString(res);
     const remainder = core.numArrayToString(res.remainder);
+    const res2 = core.multiple(str, "7");
+    const res3 = core.add(res2, remainder);
+    const str2 = core.numArrayToString(res3);
     assert.equal(str, "0.1428571428");
     assert.equal(remainder, "0.0000000004");
+    assert.equal(str2, "1");
   });
 
   it("1 / 5 = 0.2", () => {

@@ -655,9 +655,6 @@ core.division = function(a, b){
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const decimal_gap = a_decimal_length - b_decimal_length;
 
-    console.info("calc2 zero_gap", zero_gap);
-    console.info("calc2 decimal_gap", decimal_gap);
-
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
     const a_len = a_int.array.length;
@@ -677,7 +674,6 @@ core.division = function(a, b){
       // console.info(i, "/", a_len);
       if(i === a_len){
         decimal_index = i;
-        console.info("i === a_len", i, remain, remain_and_a_len_gap);
         if(core.isZero(remain)){
           break;
         }else {
@@ -685,7 +681,6 @@ core.division = function(a, b){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
-        console.info("i > a_len", i, remain, remain_and_a_len_gap);
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
