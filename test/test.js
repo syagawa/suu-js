@@ -1104,8 +1104,12 @@ describe("division", function(){
     const res = core.division("4", "2");
     const str = core.numArrayToString(res);
     const remainder = core.numArrayToString(res.remainder);
+    const res2 = core.multiple(str, "2");
+    const res3 = core.add(res2, remainder);
+    const str2 = core.numArrayToString(res3);
     assert.equal(str, "2");
     assert.equal(remainder, "0");
+    assert.equal(str2, "4");
   });
 
   it("4 / -2 = -2", () => {
