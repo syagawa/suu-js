@@ -4,6 +4,26 @@ const s = app.s;
 const K = app.K;
 const core = app.core2;
 
+const checkResultOfDivision = function({dividend, divisor}){
+
+  const quotient = core.division(dividend, divisor);
+  const remainder = quotient.remainder;
+
+  let equal = false;
+  const res1 = core.multiple(quotient, divisor);
+  const res2 = core.add(res1, remainder);
+  if(core.isEqual(res2, dividend)){
+    equal = true;
+  }
+  return {
+    equal: equal,
+    divident_result: core.numArrayToString(res2),
+    dividend_parameter: core.numArrayToString(dividend),
+  }
+
+};
+
+
 describe("core", function(){
   describe("isNumber", function(){
     it("0", () => {
@@ -1103,13 +1123,9 @@ describe("division", function(){
   it("4 / 2 = 2", () => {
     const res = core.division("4", "2");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
-    const res2 = core.multiple(str, "2");
-    const res3 = core.add(res2, remainder);
-    const str2 = core.numArrayToString(res3);
+    const check_result = checkResultOfDivision({ dividend: "4", divisor: "2"});
     assert.equal(str, "2");
-    assert.equal(remainder, "0");
-    assert.equal(str2, "4");
+    assert.equal(check_result.equal, true);
   });
 
   it("4 / -2 = -2", () => {

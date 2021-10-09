@@ -800,26 +800,4 @@ core.divide = function(a, b){
 };
 
 
-core.checkResultOfDivision = function({dividend, divisor}){
-
-  const dd = core.numToArrayWithDecimal(dividend);
-  const dr = core.numToArrayWithDecimal(divisor);
-
-  const quotient = core.division(dd, dr);
-  const remainder = quotient.remainder;
-
-  let equal = false;
-  const res1 = core.multiple(quotient, dr);
-  const res2 = core.add(res1, remainder);
-  if(core.isEqual(res2, dd)){
-    equal = true;
-  }
-  return {
-    equal: equal,
-    divident_result: core.numArrayToString(res2),
-    dividend_parameter: core.numArrayToString(dd),
-  }
-
-};
-
 export default core;
