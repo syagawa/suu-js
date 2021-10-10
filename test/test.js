@@ -1131,9 +1131,9 @@ describe("division", function(){
   it("4 / -2 = -2", () => {
     const res = core.division("4", "-2");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkResultOfDivision({ dividend: "4", divisor: "2"});
     assert.equal(str, "-2");
-    assert.equal(remainder, "-0");
+    assert.equal(check_result.equal, true);
   });
 
   it("-4 / 2 = -2", () => {
