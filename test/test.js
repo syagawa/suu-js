@@ -17,10 +17,20 @@ const checkResultOfDivision = function({dividend, divisor}){
   }
   return {
     equal: equal,
-    divident_result: core.numArrayToString(res2),
+    dividend_result: core.numArrayToString(res2),
     dividend_parameter: core.numArrayToString(dividend),
   }
 
+};
+
+const checkRmainderAndQuotient = function({ dividend, divisor, quotient, remainder}){
+  const temp = core.multiple(divisor, quotient);
+  const result = core.add(temp, remainder);
+  return {
+    dividend_parameter: dividend,
+    dividend_result: result,
+    equal: core.isEqual(result, dividend) ? true : false,
+  }
 };
 
 
@@ -1123,7 +1133,7 @@ describe("division", function(){
   it("4 / 2 = 2", () => {
     const res = core.division("4", "2");
     const str = core.numArrayToString(res);
-    const check_result = checkResultOfDivision({ dividend: "4", divisor: "2"});
+    const check_result = checkRmainderAndQuotient({ dividend: "4", divisor: "2", remainder: res.remainder, quotient: res});
     assert.equal(str, "2");
     assert.equal(check_result.equal, true);
   });
@@ -1187,7 +1197,6 @@ describe("division", function(){
     assert.equal(str, "3.3333333333");
     assert.equal(remainder, "0.0000000001");
     assert.equal(str2, "10");
-
   });
 
   it("1 / 7 = 0.1428571428", () => {
