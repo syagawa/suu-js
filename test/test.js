@@ -1141,7 +1141,7 @@ describe("division", function(){
   it("4 / -2 = -2", () => {
     const res = core.division("4", "-2");
     const str = core.numArrayToString(res);
-    const check_result = checkResultOfDivision({ dividend: "4", divisor: "2"});
+    const check_result = checkRmainderAndQuotient({ dividend: "4", divisor: "-2", remainder: res.remainder, quotient: res});
     assert.equal(str, "-2");
     assert.equal(check_result.equal, true);
   });
@@ -1149,9 +1149,9 @@ describe("division", function(){
   it("-4 / 2 = -2", () => {
     const res = core.division("-4", "2");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkRmainderAndQuotient({ dividend: "-4", divisor: "2", remainder: res.remainder, quotient: res});
     assert.equal(str, "-2");
-    assert.equal(remainder, "-0");
+    assert.equal(check_result.equal, true);
   });
 
   it("-4 / -2 = 2", () => {
