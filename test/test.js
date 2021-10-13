@@ -4,25 +4,6 @@ const s = app.s;
 const K = app.K;
 const core = app.core2;
 
-const checkResultOfDivision = function({dividend, divisor}){
-
-  const quotient = core.division(dividend, divisor);
-  const remainder = quotient.remainder;
-
-  let equal = false;
-  const res1 = core.multiple(quotient, divisor);
-  const res2 = core.add(res1, remainder);
-  if(core.isEqual(res2, dividend)){
-    equal = true;
-  }
-  return {
-    equal: equal,
-    dividend_result: core.numArrayToString(res2),
-    dividend_parameter: core.numArrayToString(dividend),
-  }
-
-};
-
 const checkRmainderAndQuotient = function({ dividend, divisor, quotient, remainder}){
   const temp = core.multiple(divisor, quotient);
   const result = core.add(temp, remainder);
@@ -1157,17 +1138,17 @@ describe("division", function(){
   it("-4 / -2 = 2", () => {
     const res = core.division("-4", "-2");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkRmainderAndQuotient({ dividend: "-4", divisor: "-2", remainder: res.remainder, quotient: res});
     assert.equal(str, "2");
-    assert.equal(remainder, "0");
+    assert.equal(check_result.equal, true);
   });
 
   it("3000 / 25 = 120", () => {
     const res = core.division("3000", "25");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkRmainderAndQuotient({ dividend: "3000", divisor: "25", remainder: res.remainder, quotient: res});
     assert.equal(str, "120");
-    assert.equal(remainder, "0");
+    assert.equal(check_result.equal, true);
   });
 
   it("100 / 8 = 12.5", () => {
