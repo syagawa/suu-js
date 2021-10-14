@@ -38,7 +38,7 @@ describe("core", function(){
       assert.equal(res, false);
     });
   });
-  
+
 
   describe("numToArrayWithDecimal", function(){
     it("0", () => {
@@ -535,7 +535,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "2");
     });
-    
+
     it("10 + 1 = 11", () => {
       const res = core.add("10", "1");
       const str = core.numArrayToString(res);
@@ -588,7 +588,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "10.1");
     });
-    
+
     it("1 + 0.0001 = 1.0001", () => {
       const res = core.add("1", "0.0001");
       const str = core.numArrayToString(res);
@@ -600,7 +600,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "0.1001");
     });
-    
+
     it("0.0001 + -0.1 = -0.0999", () => {
       const res = core.add("0.0001", "-0.1");
       const str = core.numArrayToString(res);
@@ -715,7 +715,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-12");
     });
-    
+
     it("1.5 + 0.015 = 1.515", () => {
       const res = core.add("1.5", "0.015");
       const str = core.numArrayToString(res);
@@ -744,7 +744,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
     });
-    
+
     it("0 - -1 = 1", () => {
       const res = core.subtract("0", "-1");
       const str = core.numArrayToString(res);
@@ -804,7 +804,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-9.9");
     });
-    
+
     it("10 - -0.10 = 10.1", () => {
       const res = core.subtract("10", "-0.10");
       const str = core.numArrayToString(res);
@@ -827,7 +827,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "-0.0999");
     });
-  
+
     it("-0.0999 - -0.1 = 0.0001", () => {
       const res = core.subtract("-0.0999", "-0.1");
       const str = core.numArrayToString(res);
@@ -981,7 +981,7 @@ describe("multiplication", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "0");
   });
-  
+
   it("1 x 1 = 1", () => {
     const res = core.multiplication("1", "1");
     const str = core.numArrayToString(res);
@@ -993,7 +993,7 @@ describe("multiplication", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "-1");
   });
-  
+
   it("-1 x -1 = 1", () => {
     const res = core.multiplication("-1", "-1");
     const str = core.numArrayToString(res);
@@ -1154,18 +1154,17 @@ describe("division", function(){
   it("100 / 8 = 12.5", () => {
     const res = core.division("100", "8");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkRmainderAndQuotient({ dividend: "100", divisor: "8", remainder: res.remainder, quotient: res});
     assert.equal(str, "12.5");
-    assert.equal(remainder, "0");
-
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 25 = 0.04", () => {
     const res = core.division("1", "25");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "25", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.04");
-    assert.equal(remainder, "0");
+    assert.equal(check_result.equal, true);
   });
 
   it("10 / 3 = 3.3333333333", () => {
@@ -1203,7 +1202,7 @@ describe("division", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "2");
   });
-  
+
   it("1 / 0.05 = 20", () => {
     const res = core.division("1", "0.05");
     const str = core.numArrayToString(res);
@@ -1270,7 +1269,7 @@ describe("division", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "2000");
   });
-  
+
   it("1 / 2.5 = 0.4", () => {
     const res = core.division("1", "2.5");
     const str = core.numArrayToString(res);
@@ -1527,7 +1526,7 @@ describe('Su', function() {
       const su = s.makeSu(num);
       assert.equal(su.isOne(), true);
     });
-    
+
     it("Su.isLarge", function(){
       const a = s.makeSu(1);
       const b = s.makeSu(2);
@@ -1549,7 +1548,7 @@ describe('Su', function() {
       const su = s.makeSu("-1");
       assert.equal(su.isNegative(), true);
     });
-    
+
     it("Su.isPositive", function(){
       const su = s.makeSu("1");
       assert.equal(su.isPositive(), true);
@@ -1559,13 +1558,13 @@ describe('Su', function() {
       const su = s.makeSu("1.1");
       assert.equal(su.containDecimal(), true);
     });
-    
+
     it("Su.prev", function(){
       const a = s.makeSu("1");
       const b = a.prev();
       assert.equal(b.getString(), "0");
     });
-    
+
     it("Su.next", function(){
       const a = s.makeSu("1");
       const b = a.next();
@@ -1594,7 +1593,7 @@ describe('Su', function() {
       assert.equal(res[2].getString(), "5");
       assert.equal(res[3].getString(), "10");
     });
-    
+
     it("Su.getCommonDivisors", function(){
       const a = s.makeSu("12");
       const b = s.makeSu("6");
@@ -1604,7 +1603,7 @@ describe('Su', function() {
       assert.equal(res[2].getString(), "3");
       assert.equal(res[3].getString(), "6");
     });
-    
+
     it("Su.getMaxCommonDivisor", function(){
       const a = s.makeSu("9");
       const b = s.makeSu("6");
@@ -1636,7 +1635,7 @@ describe('Su', function() {
       const res = su.isLucasNumber();
       assert.equal(res, true);
     });
-    
+
     it("Su.summation", function(){
       const one = s.makeSu("1");
       const two = s.makeSu("2");
@@ -1684,7 +1683,7 @@ describe('Su', function() {
       const res = su.isPrimeNumber();
       assert.equal(res, true);
     });
-    
+
     it("Su.divisorsSummation", function(){
       const su = s.makeSu("12");
       const res = su.divisorsSummation();
@@ -1696,13 +1695,13 @@ describe('Su', function() {
       const res = su.isAbundantNumber();
       assert.equal(res, true);
     });
-    
+
     it("Su.isDeficientNumber", function(){
       const su = s.makeSu("10");
       const res = su.isDeficientNumber();
       assert.equal(res, true);
     });
-    
+
     it("Su.isPerfectNumber", function(){
       const su = s.makeSu("496");
       const res = su.isPerfectNumber();
@@ -1732,7 +1731,7 @@ describe('Su', function() {
       const res = su.isMersenneNumber();
       assert.equal(res, true);
     });
-    
+
     it("Su.isMersennePrimeNumber", function(){
       const su = s.makeSu("7");
       const res = su.isMersennePrimeNumber();
@@ -1946,7 +1945,7 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[1], 0);
     });
 
-    
+
     it("-3 - -1.5 = -1.5", () =>{
       const a = s.makeSu("-3");
       const b = s.makeSu("-1.5");
@@ -1994,7 +1993,7 @@ describe('Su', function() {
   });
 
   describe("multiplication", function() {
-    
+
     it("1 * 1 = 1", () =>{
       const a = s.makeSu("1");
       const b = s.makeSu("1");
@@ -2022,7 +2021,7 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[0], 1);
       assert.equal(res.fraction.denominator[1], 0);
     });
-    
+
     it("1 * -1 = -1", () =>{
       const a = s.makeSu("1");
       const b = s.makeSu("-1");
@@ -2036,7 +2035,7 @@ describe('Su', function() {
       assert.equal(res.fraction.denominator[0], 1);
       assert.equal(res.fraction.denominator[1], 0);
     });
-    
+
     it("-1 * -1 = 1", () =>{
       const a = s.makeSu("-1");
       const b = s.makeSu("-1");
@@ -2106,7 +2105,7 @@ describe('Su', function() {
   });
 
   describe("division", function() {
-    
+
     it("1 / 1 = 1", () =>{
       const a = s.makeSu("1");
       const b = s.makeSu("1");
@@ -2231,7 +2230,7 @@ describe('Su', function() {
       const res = ran.getString() === "1" || ran.getString() === "2" ? true : false;
       assert.equal(res, true);
     });
-    
+
     it("K.makePrimeNumbers", () => {
       const res = K.makePrimeNumbers(10);
       const two = res[0];
