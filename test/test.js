@@ -1178,19 +1178,17 @@ describe("division", function(){
   it("1 / 7 = 0.1428571428", () => {
     const res = core.division("1", "7");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
-    const res2 = core.multiple(str, "7");
-    const res3 = core.add(res2, remainder);
-    const str2 = core.numArrayToString(res3);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "7", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.1428571428");
-    assert.equal(remainder, "0.0000000004");
-    assert.equal(str2, "1");
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 5 = 0.2", () => {
     const res = core.division("1", "5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "5", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.2");
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 0.5 = 2", () => {
