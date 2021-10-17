@@ -1194,13 +1194,17 @@ describe("division", function(){
   it("1 / 0.5 = 2", () => {
     const res = core.division("1", "0.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "2");
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 0.05 = 20", () => {
     const res = core.division("1", "0.05");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.05", remainder: res.remainder, quotient: res});
     assert.equal(str, "20");
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 0.005 = 200", () => {
