@@ -1302,110 +1302,146 @@ describe("division", function(){
   it("100 / 0.5 = 200", () => {
     const res = core.division("100", "0.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "100", divisor: "0.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "200");
+    assert.equal(check_result.equal, true);
   });
   it("1000 / 0.5 = 2000", () => {
     const res = core.division("1000", "0.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1000", divisor: "0.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "2000");
+    assert.equal(check_result.equal, true);
   });
 
   it("1 / 2.5 = 0.4", () => {
     const res = core.division("1", "2.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "2.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.4");
+    assert.equal(check_result.equal, true);
   });
 
   it("10 / 2.5 = 4", () => {
     const res = core.division("10", "2.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "10", divisor: "2.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "4");
+    assert.equal(check_result.equal, true);
   });
 
   it("100 / 2.5 = 40", () => {
     const res = core.division("100", "2.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "100", divisor: "2.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "40");
+    assert.equal(check_result.equal, true);
   });
 
   it("1000 / 2.5 = 400", () => {
     const res = core.division("1000", "2.5");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1000", divisor: "2.5", remainder: res.remainder, quotient: res});
     assert.equal(str, "400");
+    assert.equal(check_result.equal, true);
   });
 
   it("1000 / 0.25 = 4000", () => {
     const res = core.division("1000", "0.25");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1000", divisor: "0.25", remainder: res.remainder, quotient: res});
     assert.equal(str, "4000");
+    assert.equal(check_result.equal, true);
   });
 
   it("1000 / 0.025 = 40000", () => {
     const res = core.division("1000", "0.025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1000", divisor: "0.025", remainder: res.remainder, quotient: res});
     assert.equal(str, "40000");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.1 / 0.25 = 0.4", () => {
     const res = core.division("0.1", "0.25");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.1", divisor: "0.25", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.4");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.1 / 0.025 = 4", () => {
     const res = core.division("0.1", "0.025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.1", divisor: "0.025", remainder: res.remainder, quotient: res});
     assert.equal(str, "4");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.1 / 0.0025 = 40", () => {
     const res = core.division("0.1", "0.0025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.1", divisor: "0.0025", remainder: res.remainder, quotient: res});
     assert.equal(str, "40");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.1 / 0.00025 = 400", () => {
     const res = core.division("0.1", "0.00025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.1", divisor: "0.00025", remainder: res.remainder, quotient: res});
     assert.equal(str, "400");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.01 / 0.25 = 0.04", () => {
     const res = core.division("0.01", "0.25");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.25", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.04");
+    assert.equal(check_result.equal, true);
   });
 
 
   it("0.01 / 0.025 = 0.4", () => {
     const res = core.division("0.01", "0.025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.025", remainder: res.remainder, quotient: res});
     assert.equal(str, "0.4");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.01 / 0.0025 = 4", () => {
     const res = core.division("0.01", "0.0025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.0025", remainder: res.remainder, quotient: res});
     assert.equal(str, "4");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.01 / 0.00025 = 40", () => {
     const res = core.division("0.01", "0.00025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.00025", remainder: res.remainder, quotient: res});
     assert.equal(str, "40");
+    assert.equal(check_result.equal, true);
   });
 
   it("0.01 / 0.000025 = 400", () => {
     const res = core.division("0.01", "0.000025");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.000025", remainder: res.remainder, quotient: res});
     assert.equal(str, "400");
+    assert.equal(check_result.equal, true);
   });
 
 
   it("101 / 0.101 = 1000", () => {
     const res = core.division("101", "0.101");
     const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "101", divisor: "0.101", remainder: res.remainder, quotient: res});
     assert.equal(str, "1000");
+    assert.equal(check_result.equal, true);
   });
 
 
