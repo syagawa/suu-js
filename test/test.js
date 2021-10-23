@@ -1182,8 +1182,21 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
-  
+  it("0.1 / 0.01 = 10", () => {
+    const res = core.division("0.1", "0.01");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.1", divisor: "0.01", remainder: res.remainder, quotient: res});
+    assert.equal(str, "10");
+    assert.equal(check_result.equal, true);
+  });
 
+  it("0.01 / 0.1 = 10", () => {
+    const res = core.division("0.01", "0.1");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.01", divisor: "0.1", remainder: res.remainder, quotient: res});
+    assert.equal(str, "0.1");
+    assert.equal(check_result.equal, true);
+  });
 
 
 
