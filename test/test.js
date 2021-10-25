@@ -1127,6 +1127,14 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("1 / 1000 = 0.001", () => {
+    const res = core.division("1", "1000");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "1000", remainder: res.remainder, quotient: res});
+    assert.equal(str, "0.001");
+    assert.equal(check_result.equal, true);
+  });
+
   it("1 / 0.1 = 10", () => {
     const res = core.division("1", "0.1");
     const str = core.numArrayToString(res);
@@ -1140,6 +1148,14 @@ describe("division", function(){
     const str = core.numArrayToString(res);
     const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.01", remainder: res.remainder, quotient: res});
     assert.equal(str, "100");
+    assert.equal(check_result.equal, true);
+  });
+
+  it("1 / 0.001 = 1000", () => {
+    const res = core.division("1", "0.001");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.001", remainder: res.remainder, quotient: res});
+    assert.equal(str, "1000");
     assert.equal(check_result.equal, true);
   });
 
