@@ -1328,6 +1328,14 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("10 / 0.03 = 333.333333333", () => {
+    const res = core.division("10", "0.03");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "10", divisor: "0.03", remainder: res.remainder, quotient: res});
+    assert.equal(str, "333.33333333");
+    assert.equal(check_result.equal, true);
+  });
+
 
   it("1 / 7 = 0.1428571428", () => {
     const res = core.division("1", "7");
