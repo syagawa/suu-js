@@ -1401,6 +1401,22 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("1 / 0.7 = 1.428571428", () => {
+    const res = core.division("1", "0.7");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.7", remainder: res.remainder, quotient: res});
+    assert.equal(str, "1.428571428");
+    assert.equal(check_result.equal, true);
+  });
+
+  it("1 / 0.07 = 14.28571428", () => {
+    const res = core.division("1", "0.07");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "0.07", remainder: res.remainder, quotient: res});
+    assert.equal(str, "14.28571428");
+    assert.equal(check_result.equal, true);
+  });
+
   it("1 / 5 = 0.2", () => {
     const res = core.division("1", "5");
     const str = core.numArrayToString(res);
