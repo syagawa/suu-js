@@ -1644,6 +1644,14 @@ describe("division", function(){
   });
 
 
+  it("101 / 10.1 = 10", () => {
+    const res = core.division("101", "10.1");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "101", divisor: "10.1", remainder: res.remainder, quotient: res});
+    assert.equal(str, "10");
+    assert.equal(check_result.equal, true);
+  });
+
   it("101 / 0.101 = 1000", () => {
     const res = core.division("101", "0.101");
     const str = core.numArrayToString(res);
