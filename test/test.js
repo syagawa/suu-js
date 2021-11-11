@@ -1708,6 +1708,14 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("0.0101 / 10.1 = 0.001", () => {
+    const res = core.division("0.0101", "10.1");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.0101", divisor: "10.1", remainder: res.remainder, quotient: res});
+    assert.equal(str, "0.001");
+    assert.equal(check_result.equal, true);
+  });
+
 });
 
 
