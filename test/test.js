@@ -1716,6 +1716,22 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("0.0101 / 1.01 = 0.01", () => {
+    const res = core.division("0.0101", "1.01");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.0101", divisor: "1.01", remainder: res.remainder, quotient: res});
+    assert.equal(str, "0.01");
+    assert.equal(check_result.equal, true);
+  });
+
+  it("0.0101 / 0.101 = 0.1", () => {
+    const res = core.division("0.0101", "0.101");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "0.0101", divisor: "0.101", remainder: res.remainder, quotient: res});
+    assert.equal(str, "0.1");
+    assert.equal(check_result.equal, true);
+  });
+
 });
 
 
