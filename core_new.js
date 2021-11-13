@@ -687,7 +687,7 @@ core.division = function(a, b){
         }
       }
 
-      const max_count = core.numToArrayWithDecimal("10");
+      const max_count = max;
       while(is_less){
         count = core.add(count, "1");
         if(core.isLarge(count, max_count)){
@@ -701,7 +701,6 @@ core.division = function(a, b){
           const result = count;
           result_arr.push(result);
           remain = core.subtract(remain, product);
-          
           break;
         }
         if(core.isLarge(product, remain)){
@@ -770,8 +769,7 @@ core.division = function(a, b){
     }
   };
 
-  const max_times_if_not_divisible = 10;
-  const max_times_if_not_divisible2 = core.numToArrayWithDecimal("10");
+  const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
