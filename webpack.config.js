@@ -1,4 +1,5 @@
 const path = require("path");
+const ESLintPlugin = require("eslint-webpack-plugin");
 
 let ENV = process.env.NODE_ENV;
 console.log(ENV);
@@ -24,16 +25,16 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        loader: "eslint-loader",
-        options: {
-          fix: false,
-          formatter: "stylish" //"codeframe"
-        }
-      },
+      // {
+      //   enforce: "pre",
+      //   test: /\.js$/,
+      //   exclude: /(node_modules)/,
+      //   loader: "eslint-loader",
+      //   options: {
+      //     fix: false,
+      //     formatter: "stylish" //"codeframe"
+      //   }
+      // },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -44,7 +45,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [],
+  plugins: [
+    new ESLintPlugin({
+      fix: false,
+      formatter: "stylish" //"codeframe"
+    })
+  ],
   resolve: {}
 };
 
