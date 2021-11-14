@@ -42,7 +42,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
 core.numToArrayWithDecimal = function(n){
   if(typeof n === "object"){
-    return console.info("Paremeter is object.", n);
+    return console.log("Paremeter is object.", n);
   }
   let str = String(n);
   let negative = false;
@@ -671,7 +671,6 @@ core.division = function(a, b){
       remain = core.add(remain1, remain2);
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
-      // console.info(i, "/", a_len);
       if(i === a_len){
         decimal_index = i;
         if(core.isZero(remain)){
@@ -715,7 +714,6 @@ core.division = function(a, b){
         }
       }
     }
-    console.info("remain_and_a_len_gap", remain_and_a_len_gap);
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
     
@@ -754,10 +752,6 @@ core.division = function(a, b){
       remain_arr.unshift(...arr);
     }
 
-    console.info("zero_gap", zero_gap);
-    console.info("decimal_gap", decimal_gap);
-
-    console.info("remain", remain_arr, decimal_index_remain, decimal_count, remain_is_decimal);
     if(remain_is_decimal){
       remain_arr = [...remain_arr];
     }
