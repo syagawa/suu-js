@@ -716,7 +716,6 @@ core.division = function(a, b){
     }
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
-    
 
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
