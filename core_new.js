@@ -243,13 +243,11 @@ core.isOne = function(n){
 };
 
 core.getZero = function(){
-  const zero = core.numToArrayWithDecimal("0");
-  return zero;
+  return core.numToArrayWithDecimal("0");
 };
 
 core.getOne = function(){
-  const one = core.numToArrayWithDecimal("1");
-  return one;
+  return core.numToArrayWithDecimal("1");
 };
 
 
@@ -387,10 +385,6 @@ core.add_and_subtract = function(a, b, mode){
   const b_dec_length = b_.array.length - b_.decimal_index;
 
   const dec_gap = a_dec_length - b_dec_length;
-
-  const decimal_index = a_.decimal_index >= b_.decimal_index ? a_.decimal_index : b_.decimal_index;
-
-  const length = a_.array.length > b_.array.length ? a_.array.length : b_.array.length;
 
   if(dec_gap > 0){
     b_arr.push(...Array(dec_gap).fill(0));
