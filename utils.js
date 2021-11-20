@@ -2,8 +2,9 @@ import core from "./core_new.js";
 
 const utils = {};
 
-utils.getString = function(n){
-  return core.numArrayToString(n);
+utils.copy = function(n){
+  const s = core.numArrayToString(n);
+  return core.numToArrayWithDecimal(s);
 };
 
 export default utils;
