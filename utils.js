@@ -7,4 +7,12 @@ utils.copy = function(n){
   return core.numToArrayWithDecimal(s);
 };
 
+utils.getLarge = function(a, b){
+  return core.getLarge(a, b);
+};
+
+utils.getSmall = function(a, b){
+  return core.getSmall(a, b);
+};
+
 export default utils;
