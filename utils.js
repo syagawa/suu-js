@@ -15,4 +15,9 @@ utils.getSmall = function(a, b){
   return core.getSmall(a, b);
 };
 
+utils.isEqual = function(a, b){
+  return core.isEqual(a, b);
+}
+
+
 export default utils;
