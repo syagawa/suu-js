@@ -19,5 +19,12 @@ utils.isEqual = function(a, b){
   return core.isEqual(a, b);
 }
 
+utils.isZero = function(n){
+  return core.isZero(n);
+}
+utils.isOne = function(n){
+  return core.isOne(n);
+}
+
 
 export default utils;
