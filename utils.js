@@ -26,5 +26,8 @@ utils.isOne = function(n){
   return core.isOne(n);
 }
 
+utils.getNumber = function(n){
+  return core.numToArrayWithDecimal(n);
+};
 
 export default utils;
