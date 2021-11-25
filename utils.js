@@ -30,4 +30,14 @@ utils.getNumber = function(n){
   return core.numToArrayWithDecimal(n);
 };
 
+utils.getOne = function(){
+  return core.getOne();
+};
+
+utils.getZero = function(n){
+  return core.getZero();
+};
+
+
+
 export default utils;
