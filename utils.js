@@ -38,6 +38,10 @@ utils.getZero = function(n){
   return core.getZero();
 };
 
+utils.square = function(n){
+  return core.multiplication(n, n);
+};
+
 
 
 export default utils;
