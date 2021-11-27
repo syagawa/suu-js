@@ -42,6 +42,18 @@ utils.square = function(n){
   return core.multiplication(n, n);
 };
 
+utils.getInteger = function(n){
+  let str = "";
+  for(let i = 0; i < n.decimal_index; i++){
+    const s = String(n.array[i]);
+    str = str + s;
+  }
+  const num = utils.getNumber(str);
+  return num;
+
+};
+
+
 
 
 export default utils;
