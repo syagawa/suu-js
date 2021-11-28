@@ -50,7 +50,21 @@ utils.getInteger = function(n){
   }
   const num = utils.getNumber(str);
   return num;
+};
 
+utils.getDecimal = function(n){
+  let str = "0.";
+  const len = n.array.length - n.decimal_index;
+  if(len > 0){
+    for(let i = n.decimal_index; i <= len; i++){
+      const s = String(n.array[i]);
+      str = str + s;
+    }
+  }else{
+    str = str + "0";
+  }
+  const num = utils.getNumber(str);
+  return num;
 };
 
 
