@@ -67,6 +67,15 @@ utils.getDecimal = function(n){
   return num;
 };
 
+utils.isNaturalNumber = function(n){
+  const decimal = utils.getDecimal(n);
+  const is_zero = utils.isZero(decimal);
+  if(is_zero && !n.negative){
+    return true;
+  }
+  return false;
+};
+
 
 
 
