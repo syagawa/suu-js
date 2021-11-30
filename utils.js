@@ -76,6 +76,13 @@ utils.isNaturalNumber = function(n){
   return false;
 };
 
+utils.isNegative = function(n){
+  return n.negative;
+};
+
+utils.isPositive = function(n){
+  return !n.negative;
+};
 
 
 
