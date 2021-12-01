@@ -3,8 +3,12 @@ import core from "./core_new.js";
 const utils = {};
 
 utils.copy = function(n){
-  const s = core.numArrayToString(n);
-  return core.numToArrayWithDecimal(s);
+  const c = core.clone(n);
+  if(!c){
+    const s = core.numArrayToString(n);
+    return core.numToArrayWithDecimal(s);
+  }
+  return c;
 };
 
 utils.getLarge = function(a, b){
