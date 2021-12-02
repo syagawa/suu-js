@@ -38,7 +38,7 @@ utils.getOne = function(){
   return core.getOne();
 };
 
-utils.getZero = function(n){
+utils.getZero = function(){
   return core.getZero();
 };
 
@@ -81,11 +81,13 @@ utils.isNaturalNumber = function(n){
 };
 
 utils.isNegative = function(n){
-  return n.negative;
+  const n_ = core.numToArrayWithDecimal(n);
+  return n_.negative;
 };
 
 utils.isPositive = function(n){
-  return !n.negative;
+  const n_ = core.numToArrayWithDecimal(n);
+  return !n_.negative;
 };
 
 
