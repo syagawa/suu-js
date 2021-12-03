@@ -57,11 +57,12 @@ utils.getInteger = function(n){
 };
 
 utils.getDecimal = function(n){
+  const n_ = utils.getNumber(n);
   let str = "0.";
-  const len = n.array.length - n.decimal_index;
+  const len = n_.array.length - n_.decimal_index;
   if(len > 0){
-    for(let i = n.decimal_index; i <= len; i++){
-      const s = String(n.array[i]);
+    for(let i = n_.decimal_index; i <= len; i++){
+      const s = String(n_.array[i]);
       str = str + s;
     }
   }else{
