@@ -81,6 +81,16 @@ utils.isNaturalNumber = function(n){
   return false;
 };
 
+utils.includeDecimal = function(n){
+  const decimal = utils.getDecimal(n);
+  const is_zero = utils.isZero(decimal);
+  if(is_zero){
+    return false;
+  }
+  return true;
+};
+
+
 utils.isNegative = function(n){
   const n_ = core.numToArrayWithDecimal(n);
   return n_.negative;
