@@ -15,6 +15,11 @@ const checkRmainderAndQuotient = function({ dividend, divisor, quotient, remaind
 
 
 describe("utils", function(){
+  it("getNumber", () => {
+    const num = utils.getNumber("1");
+    assert.equal(num.is_num_array, true);
+  });
+
   it("copy", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.copy(num1);
@@ -23,7 +28,17 @@ describe("utils", function(){
     assert.equal(num1_str, num2_str);
   });
 
+  it("getLarge", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("2");
+    const large = utils.getLarge(num1, num2);
+    const res = utils.isEqual(num2, large);
+    assert.equal(res, true);
+  });
+
 });
+
+
 
 
 
