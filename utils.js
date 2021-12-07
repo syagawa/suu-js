@@ -2,6 +2,10 @@ import core from "./core_new.js";
 
 const utils = {};
 
+utils.getNumber = function(n){
+  return core.numToArrayWithDecimal(n);
+};
+
 utils.copy = function(n){
   const c = core.clone(n);
   if(!c){
@@ -29,10 +33,6 @@ utils.isZero = function(n){
 utils.isOne = function(n){
   return core.isOne(n);
 }
-
-utils.getNumber = function(n){
-  return core.numToArrayWithDecimal(n);
-};
 
 utils.getOne = function(){
   return core.getOne();

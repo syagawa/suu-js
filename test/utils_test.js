@@ -36,6 +36,14 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getSmall", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("2");
+    const small = utils.getSmall(num1, num2);
+    const res = utils.isEqual(num1, small);
+    assert.equal(res, true);
+  });
+
 });
 
 
