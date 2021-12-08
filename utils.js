@@ -27,13 +27,6 @@ utils.isEqual = function(a, b){
   return core.isEqual(a, b);
 }
 
-utils.isZero = function(n){
-  return core.isZero(n);
-}
-utils.isOne = function(n){
-  return core.isOne(n);
-}
-
 utils.getOne = function(){
   return core.getOne();
 };
@@ -41,6 +34,14 @@ utils.getOne = function(){
 utils.getZero = function(){
   return core.getZero();
 };
+
+utils.isZero = function(n){
+  return core.isZero(n);
+}
+utils.isOne = function(n){
+  return core.isOne(n);
+}
+
 
 utils.square = function(n){
   return core.multiplication(n, n);
