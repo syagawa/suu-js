@@ -43,9 +43,24 @@ describe("utils", function(){
     const res = utils.isEqual(num1, small);
     assert.equal(res, true);
   });
+
   it("isEqual", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("1");
+    const res = utils.isEqual(num1, num2);
+    assert.equal(res, true);
+  });
+
+  it("getOne", () => {
+    const num1 = utils.getOne();
+    const num2 = utils.getNumber("1");
+    const res = utils.isEqual(num1, num2);
+    assert.equal(res, true);
+  });
+
+  it("getZero", () => {
+    const num1 = utils.getZero();
+    const num2 = utils.getNumber("0");
     const res = utils.isEqual(num1, num2);
     assert.equal(res, true);
   });
