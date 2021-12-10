@@ -51,6 +51,14 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  
+  it("getZero", () => {
+    const num1 = utils.getZero();
+    const num2 = utils.getNumber("0");
+    const res = utils.isEqual(num1, num2);
+    assert.equal(res, true);
+  });
+  
   it("getOne", () => {
     const num1 = utils.getOne();
     const num2 = utils.getNumber("1");
@@ -58,10 +66,15 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("getZero", () => {
+  it("isZero", () => {
     const num1 = utils.getZero();
-    const num2 = utils.getNumber("0");
-    const res = utils.isEqual(num1, num2);
+    const res = utils.isZero(num1);
+    assert.equal(res, true);
+  });
+
+  it("isOne", () => {
+    const num1 = utils.getOne();
+    const res = utils.isOne(num1);
     assert.equal(res, true);
   });
 

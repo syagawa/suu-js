@@ -27,13 +27,14 @@ utils.isEqual = function(a, b){
   return core.isEqual(a, b);
 }
 
+utils.getZero = function(){
+  return core.getZero();
+};
+
 utils.getOne = function(){
   return core.getOne();
 };
 
-utils.getZero = function(){
-  return core.getZero();
-};
 
 utils.isZero = function(n){
   return core.isZero(n);
