@@ -43,7 +43,6 @@ utils.isOne = function(n){
   return core.isOne(n);
 }
 
-
 utils.square = function(n){
   return core.multiplication(n, n);
 };

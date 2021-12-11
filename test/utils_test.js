@@ -78,6 +78,12 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isOne", () => {
+    const num = utils.getNumber("3");
+    const sq = utils.square(num);
+    const res = utils.isEqual(sq, utils.getNumber("9"));
+    assert.equal(res, true);
+  });
 });
 
 
