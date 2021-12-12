@@ -78,12 +78,22 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("isOne", () => {
+  it("square", () => {
     const num = utils.getNumber("3");
     const sq = utils.square(num);
     const res = utils.isEqual(sq, utils.getNumber("9"));
     assert.equal(res, true);
   });
+
+  it("getDecimal", () => {
+    const num1 = utils.getNumber("1.11");
+    const dec = utils.getDecimal(num1);
+    const num2 = utils.getNumber("0.11");
+    const res = utils.isEqual(dec, num2);
+    assert.equal(res, true);
+  });
+
+
 });
 
 
