@@ -93,6 +93,16 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isNaturalNumber", () => {
+    const num1 = utils.getNumber("1.0");
+    const num2 = utils.getNumber("1.11");
+    const res1 = utils.isNaturalNumber(num1);
+    const res2 = utils.isNaturalNumber(num2);
+    const res = res1 && !res2;
+    assert.equal(res, true);
+  });
+
+  
 
 });
 
