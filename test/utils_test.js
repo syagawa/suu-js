@@ -102,6 +102,15 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("includeDecimal", () => {
+    const num1 = utils.getNumber("1.11");
+    const num2 = utils.getNumber("1.0");
+    const res1 = utils.includeDecimal(num1);
+    const res2 = utils.includeDecimal(num2);
+    const res = res1 && !res2;
+    assert.equal(res, true);
+  });
+
   
 
 });
