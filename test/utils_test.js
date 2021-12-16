@@ -111,7 +111,24 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  
+  it("isNegative", () => {
+    const num1 = utils.getNumber("-1.11");
+    const num2 = utils.getNumber("1.0");
+    const res1 = utils.isNegative(num1);
+    const res2 = utils.isNegative(num2);
+    const res = res1 && !res2;
+    assert.equal(res, true);
+  });
+
+  it("isPositive", () => {
+    const num1 = utils.getNumber("1.11");
+    const num2 = utils.getNumber("-1.0");
+    const res1 = utils.isPositive(num1);
+    const res2 = utils.isPositive(num2);
+    const res = res1 && !res2;
+    assert.equal(res, true);
+  });
+
 
 });
 

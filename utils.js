@@ -91,7 +91,6 @@ utils.includeDecimal = function(n){
   return true;
 };
 
-
 utils.isNegative = function(n){
   const n_ = core.numToArrayWithDecimal(n);
   return n_.negative;
