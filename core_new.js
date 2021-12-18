@@ -787,25 +787,5 @@ core.divide = function(a, b){
   return core.division(a, b);
 };
 
-core.negate = function(n){
-  const num = core.numToArrayWithDecimal(n);
-  if(num){
-    num.negative = true;
-  }
-  return num;
-};
-
-core.makePositive = function(n){
-  const num = core.numToArrayWithDecimal(n);
-  if(num){
-    num.negative = false;
-  }
-  return num;
-};
-
-core.makeNegative = function(n){
-  return core.negate(n);
-};
-
 
 export default core;

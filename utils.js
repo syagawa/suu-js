@@ -101,6 +101,26 @@ utils.isPositive = function(n){
   return !n_.negative;
 };
 
+utils.negate = function(n){
+  const num = core.numToArrayWithDecimal(n);
+  if(num){
+    num.negative = true;
+  }
+  return num;
+};
+
+utils.makePositive = function(n){
+  const num = core.numToArrayWithDecimal(n);
+  if(num){
+    num.negative = false;
+  }
+  return num;
+};
+
+utils.makeNegative = function(n){
+  return core.negate(n);
+};
+
 
 
 export default utils;
