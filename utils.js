@@ -98,7 +98,7 @@ utils.isNegative = function(n){
 
 utils.isPositive = function(n){
   const n_ = core.numToArrayWithDecimal(n);
-  return !n_.negative;
+  return n_.negative;
 };
 
 utils.negate = function(n){
