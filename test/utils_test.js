@@ -129,14 +129,12 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  // it("makeNegative", () => {
-  //   const num1 = utils.getNumber("1");
-  //   const num2 = utils.makeNegative(num1);
-  //   const res1 = utils.isNegative(num1);
-  //   const res2 = utils.isPositive(num2);
-  //   const res = res1 && res2;
-  //   assert.equal(res, true);
-  // });
+  it("makeNegative", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.makeNegative(num1);
+    const res = utils.isNegative(num2);
+    assert.equal(res, true);
+  });
 
 
 });

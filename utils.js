@@ -118,7 +118,7 @@ utils.makePositive = function(n){
 };
 
 utils.makeNegative = function(n){
-  return core.negate(n);
+  return utils.negate(n);
 };
 
 
