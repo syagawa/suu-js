@@ -42,7 +42,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
 core.numToArrayWithDecimal = function(n){
   if(n.is_num_array){
-    return n;
+    return core.clone(n);
   }
   if(typeof n === "object"){
     return console.log("Paremeter is object.", n);
