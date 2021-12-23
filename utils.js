@@ -117,8 +117,16 @@ utils.makePositive = function(n){
   return num;
 };
 
-utils.makeNegative = function(n){
+utils.getNegativeNumber = function(n){
   return utils.negate(n);
+};
+
+utils.getPositiveNumber = function(n){
+  const num = core.numToArrayWithDecimal(n);
+  if(num){
+    num.negative = false;
+  }
+  return num;
 };
 
 

@@ -129,9 +129,9 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("makeNegative", () => {
+  it("getNegativeNumber", () => {
     const num1 = utils.getNumber("1");
-    const num2 = utils.makeNegative(num1);
+    const num2 = utils.getNegativeNumber(num1);
     const res = utils.isNegative(num2);
     assert.equal(res, true);
   });
