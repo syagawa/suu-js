@@ -129,6 +129,13 @@ utils.getPositiveNumber = function(n){
   return num;
 };
 
+utils.getNext = function(n){
+  return core.add(n, "1");
+};
+
+utils.getPrev = function(n){
+  return core.subtract(n, "1");
+};
 
 
 export default utils;

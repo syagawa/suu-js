@@ -136,6 +136,20 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getNext", () => {
+    const num1 = utils.getNumber("1");
+    const next = utils.getNumber("2");
+    const res = utils.getNext(num1);
+    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+  });
+
+  it("getPrev", () => {
+    const num1 = utils.getNumber("1");
+    const prev = utils.getNumber("0");
+    const res = utils.getPrev(num1);
+    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+  });
+
 
 });
 
