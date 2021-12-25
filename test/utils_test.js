@@ -150,6 +150,18 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
 
+  it("isEvenNumber", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("2");
+    const num3 = utils.getNumber("2.2");
+    const res1 = utils.isEvenNumber(num1);
+    const res2 = utils.isEvenNumber(num2);
+    const res3 = utils.isEvenNumber(num3);
+    const res = !res1 && res2 && !res3;
+    assert.equal(res, true);
+  });
+
+
 
 });
 

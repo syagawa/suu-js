@@ -137,5 +137,21 @@ utils.getPrev = function(n){
   return core.subtract(n, "1");
 };
 
+utils.isEvenNumber = function(n){
+  if(utils.isZero(n)){
+    return true;
+  }
+
+  const res = core.division(n, "2");
+
+  const decimal = utils.getDecimal(res);
+  const is_zero = utils.isZero(decimal);
+  if(is_zero){
+    return true;
+  }
+  return false;
+
+};
+
 
 export default utils;
