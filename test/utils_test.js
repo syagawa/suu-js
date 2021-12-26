@@ -150,6 +150,17 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
 
+  it("isInteger", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("1.1");
+    const num3 = utils.getNumber("-1");
+    const res1 = utils.isInteger(num1);
+    const res2 = utils.isInteger(num2);
+    const res3 = utils.isInteger(num3);
+    const res = res1 && !res2 && res3;
+    assert.equal(res, true);
+  });
+
   it("isEvenNumber", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("2");

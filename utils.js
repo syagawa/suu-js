@@ -137,6 +137,20 @@ utils.getPrev = function(n){
   return core.subtract(n, "1");
 };
 
+utils.isInteger = function(n){
+  if(utils.isZero(n)){
+    return true;
+  }
+
+  const decimal = utils.getDecimal(n);
+  if(utils.isEqual(decimal, "0")){
+    return true;
+  }
+  return false;
+
+};
+
+
 utils.isEvenNumber = function(n){
   if(utils.isZero(n)){
     return true;
@@ -152,6 +166,21 @@ utils.isEvenNumber = function(n){
   return false;
 
 };
+// utils.isOddNumber = function(n){
+//   if(utils.isZero(n)){
+//     return false;
+//   }
+
+//   const res = core.division(n, "2");
+
+//   const decimal = utils.getDecimal(res);
+//   const is_zero = utils.isZero(decimal);
+//   if(is_zero){
+//     return true;
+//   }
+//   return false;
+
+// };
 
 
 export default utils;
