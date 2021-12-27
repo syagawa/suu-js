@@ -156,6 +156,10 @@ utils.isEvenNumber = function(n){
     return true;
   }
 
+  if(!utils.isInteger(n)){
+    return false;
+  }
+
   const res = core.division(n, "2");
 
   const decimal = utils.getDecimal(res);
