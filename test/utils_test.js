@@ -172,6 +172,17 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isOddNumber", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("2");
+    const num3 = utils.getNumber("2.2");
+    const res1 = utils.isOddNumber(num1);
+    const res2 = utils.isOddNumber(num2);
+    const res3 = utils.isOddNumber(num3);
+    const res = res1 && !res2 && !res3;
+    assert.equal(res, true);
+  });
+
 
 
 });

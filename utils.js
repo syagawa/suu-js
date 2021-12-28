@@ -170,21 +170,24 @@ utils.isEvenNumber = function(n){
   return false;
 
 };
-// utils.isOddNumber = function(n){
-//   if(utils.isZero(n)){
-//     return false;
-//   }
+utils.isOddNumber = function(n){
+  if(utils.isZero(n)){
+    return false;
+  }
 
-//   const res = core.division(n, "2");
+  if(!utils.isInteger(n)){
+    return false;
+  }
 
-//   const decimal = utils.getDecimal(res);
-//   const is_zero = utils.isZero(decimal);
-//   if(is_zero){
-//     return true;
-//   }
-//   return false;
+  const res = core.division(n, "2");
 
-// };
+  const decimal = utils.getDecimal(res);
+  const bool = core.isEqual("0.5", decimal);
+  if(bool){
+    return true;
+  }
+  return false;
 
+};
 
 export default utils;
