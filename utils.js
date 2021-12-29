@@ -168,8 +168,8 @@ utils.isEvenNumber = function(n){
     return true;
   }
   return false;
-
 };
+
 utils.isOddNumber = function(n){
   if(utils.isZero(n)){
     return false;
@@ -187,7 +187,23 @@ utils.isOddNumber = function(n){
     return true;
   }
   return false;
+};
 
+utils.getDivisors = function(n){
+  const num = utils.getNumber(n);
+  const arr = [];
+  if(!num){
+    arr.push(num);
+    return arr;
+  }
+  for(let i = 1; core.isLarge(num, i) || core.isEqual(num, i); i++){
+    const { remainder } = core.division(num, i);
+    if(core.isZero(remainder)){
+      arr.push(utils.getNumber(i));
+    }
+  }
+  arr.push(num);
+  return arr;
 };
 
 export default utils;
