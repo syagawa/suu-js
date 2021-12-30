@@ -196,7 +196,7 @@ utils.getDivisors = function(n){
     arr.push(num);
     return arr;
   }
-  for(let i = 1; core.isLarge(num, i) || core.isEqual(num, i); i++){
+  for(let i = 1; core.isLarge(num, i); i++){
     const { remainder } = core.division(num, i);
     if(core.isZero(remainder)){
       arr.push(utils.getNumber(i));
