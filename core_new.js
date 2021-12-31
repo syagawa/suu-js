@@ -787,5 +787,9 @@ core.divide = function(a, b){
   return core.division(a, b);
 };
 
+core.modulo = function(a, b){
+  return core.getZero();
+};
+
 
 export default core;
