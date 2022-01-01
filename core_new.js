@@ -553,7 +553,7 @@ core.multiple = function(a, b){
 };
 
 
-core.division = function(a, b){
+core.division = function(a, b, modulo){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
@@ -759,7 +759,7 @@ core.division = function(a, b){
     }
   };
 
-  const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
+  const max_times_if_not_divisible = modulo ? core.getZero() : core.numToArrayWithDecimal("10");
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
