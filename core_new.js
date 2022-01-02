@@ -653,6 +653,7 @@ core.division = function(a, b, modulo){
     const decimal_gap = a_decimal_length - b_decimal_length;
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
+    console.info("times", times);
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
@@ -666,6 +667,7 @@ core.division = function(a, b, modulo){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
+      console.info("remain", remain);
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       if(i === a_len){
@@ -783,8 +785,8 @@ core.division = function(a, b, modulo){
   
 };
 
-core.divide = function(a, b){
-  return core.division(a, b);
+core.divide = function(a, b, modulo){
+  return core.division(a, b, modulo);
 };
 
 core.modulo = function(a, b){
