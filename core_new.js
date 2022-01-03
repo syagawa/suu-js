@@ -619,7 +619,7 @@ core.division = function(a, b, modulo){
     negative = false;
   }
 
-  const calc = function({a, b, max}){
+  const calc = function({a, b, max, modulo}){
     const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
@@ -688,7 +688,8 @@ core.division = function(a, b, modulo){
       const max_count = max;
       while(is_less){
         count = core.add(count, "1");
-        if(core.isLarge(count, max_count)){
+        if(core.isLarge(count, max_count) && !modulo){
+          console.info("in core.isLarge(count, max_count)");
           is_less = false;
           break;
         }
@@ -763,7 +764,7 @@ core.division = function(a, b, modulo){
 
   const max_times_if_not_divisible = modulo ? core.getZero() : core.numToArrayWithDecimal("10");
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
+  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, modulo: modulo});
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
