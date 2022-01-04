@@ -1309,7 +1309,6 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
-
   it("3000 / 25 = 120", () => {
     const res = core.division("3000", "25");
     const str = core.numArrayToString(res);
@@ -1633,7 +1632,6 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
-
   it("0.01 / 0.025 = 0.4", () => {
     const res = core.division("0.01", "0.025");
     const str = core.numArrayToString(res);
@@ -1754,6 +1752,16 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+});
+
+describe("modulo", function(){
+  it("1 / 1 = 1", () => {
+    const res = core.modulo("1", "1");
+    const str = core.numArrayToString(res);
+    const remainder = core.numArrayToString(res.remainder);
+    assert.equal(str, "1");
+    assert.equal(remainder, "0");
+  });
 });
 
 
