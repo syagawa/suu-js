@@ -1755,13 +1755,12 @@ describe("division", function(){
 });
 
 describe("modulo", function(){
-  it("1 / 1 = 1", () => {
+  it("1 % 1 => 0", () => {
     const res = core.modulo("1", "1");
     const str = core.numArrayToString(res);
-    const remainder = core.numArrayToString(res.remainder);
-    assert.equal(str, "1");
-    assert.equal(remainder, "0");
+    assert.equal(str, "0");
   });
+
 });
 
 

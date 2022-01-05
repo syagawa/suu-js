@@ -788,7 +788,8 @@ core.divide = function(a, b, modulo){
 };
 
 core.modulo = function(a, b){
-  return core.division(a, b, true);
+  const { remainder } = core.division(a, b, true);
+  return remainder;
 };
 
 
