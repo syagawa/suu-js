@@ -553,7 +553,7 @@ core.multiple = function(a, b){
 };
 
 
-core.division = function(a, b, modulo){
+core.division = function(a, b, is_modulo){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
@@ -619,7 +619,7 @@ core.division = function(a, b, modulo){
     negative = false;
   }
 
-  const calc = function({a, b, max, modulo}){
+  const calc = function({a, b, max, is_modulo}){
     const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
@@ -686,7 +686,7 @@ core.division = function(a, b, modulo){
       const max_count = max;
       while(is_less){
         count = core.add(count, "1");
-        if(core.isLarge(count, max_count) && !modulo){
+        if(core.isLarge(count, max_count) && !is_modulo){
           console.info("in core.isLarge(count, max_count)");
           is_less = false;
           break;
@@ -694,6 +694,7 @@ core.division = function(a, b, modulo){
         const pre_product = product;
         product = core.multiplication(b_int, count);
         if(core.isEqual(remain, product)){
+          console.log("in core.isEqual(remain, product)");
           is_less = false;
           const result = count;
           result_arr.push(result);
@@ -705,6 +706,7 @@ core.division = function(a, b, modulo){
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
+          console.log("in core.isLarge(product, remain)", result, remain);
           if(remain_is_decimal){
             remain_arr.push(0);
           }
@@ -715,7 +717,10 @@ core.division = function(a, b, modulo){
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
 
+
+    
     if(zero_gap > 0){
+      console.info("zero_gap > 0");
       for(let i = 0; i < zero_gap; i++){
         new_arr.unshift(0);
         decimal_index++;
@@ -723,17 +728,20 @@ core.division = function(a, b, modulo){
     }
 
     if(decimal_gap < 0){
+      console.info("decimal_gap < 0");
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.push(0);
         decimal_index++;
       }
     }else if(decimal_gap > 0){
+      console.info("decimal_gap > 0");
       for(let i = 0; i < Math.abs(decimal_gap); i++){
         new_arr.unshift(0);
       }
     }
 
     if(remain_and_a_len_gap > 0){
+      console.info("remain_and_a_len_gap > 0");
       for(let i = 0; i < remain_and_a_len_gap; i++){
         const tgt = remain_arr[0];
         if(tgt === 0){
@@ -744,13 +752,21 @@ core.division = function(a, b, modulo){
         remain_arr.push(0);
       }
     }else if(remain_and_a_len_gap < 0){
+      console.info("remain_and_a_len_gap < 0");
       const len = Math.abs(remain_and_a_len_gap);
       const arr = Array(len).fill(0);
       remain_arr.unshift(...arr);
     }
 
     if(remain_is_decimal){
+      console.info("remain_is_decimal");
       remain_arr = [...remain_arr];
+    }
+
+    console.info(new_arr, decimal_index, remain_arr, decimal_index_remain);
+
+    if(is_modulo){
+      decimal_index_remain++;
     }
     return {
       new_array: new_arr,
@@ -760,9 +776,9 @@ core.division = function(a, b, modulo){
     }
   };
 
-  const max_times_if_not_divisible = modulo ? core.getZero() : core.numToArrayWithDecimal("10");
+  const max_times_if_not_divisible = is_modulo ? core.getZero() : core.numToArrayWithDecimal("10");
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, modulo: modulo});
+  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, is_modulo: is_modulo});
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
@@ -783,8 +799,8 @@ core.division = function(a, b, modulo){
   
 };
 
-core.divide = function(a, b, modulo){
-  return core.division(a, b, modulo);
+core.divide = function(a, b, is_modulo){
+  return core.division(a, b, is_modulo);
 };
 
 core.modulo = function(a, b){
