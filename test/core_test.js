@@ -1761,6 +1761,12 @@ describe("modulo", function(){
     assert.equal(str, "0");
   });
 
+  it("1 % 2 => 1", () => {
+    const res = core.modulo("1", "2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+
 });
 
 
