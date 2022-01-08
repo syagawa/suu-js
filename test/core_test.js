@@ -1767,6 +1767,18 @@ describe("modulo", function(){
     assert.equal(str, "1");
   });
 
+  it("2 % 1 => 0", () => {
+    const res = core.modulo("2", "1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+
+  it("3 % 2 => 1", () => {
+    const res = core.modulo("3", "2");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+
 });
 
 

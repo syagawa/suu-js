@@ -35,7 +35,6 @@ utils.getOne = function(){
   return core.getOne();
 };
 
-
 utils.isZero = function(n){
   return core.isZero(n);
 }
