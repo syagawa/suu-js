@@ -552,6 +552,22 @@ core.multiple = function(a, b){
   return core.multiplication(a, b);
 };
 
+core.getDecimal = function(n){
+  const n_ = core.numToArrayWithDecimal(n);
+  let str = "0.";
+  const len = n_.array.length - n_.decimal_index;
+  if(len > 0){
+    for(let i = n_.decimal_index; i <= len; i++){
+      const s = String(n_.array[i]);
+      str = str + s;
+    }
+  }else{
+    str = str + "0";
+  }
+  const num = core.numToArrayWithDecimal(str);
+  return num;
+};
+
 
 core.division = function(a, b, is_modulo){
 
@@ -754,9 +770,9 @@ core.division = function(a, b, is_modulo){
       remain_arr = [...remain_arr];
     }
 
-
     if(is_modulo){
       decimal_index_remain++;
+      console.info("a_", a_);
     }
     return {
       new_array: new_arr,

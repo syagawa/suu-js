@@ -57,19 +57,7 @@ utils.getInteger = function(n){
 };
 
 utils.getDecimal = function(n){
-  const n_ = utils.getNumber(n);
-  let str = "0.";
-  const len = n_.array.length - n_.decimal_index;
-  if(len > 0){
-    for(let i = n_.decimal_index; i <= len; i++){
-      const s = String(n_.array[i]);
-      str = str + s;
-    }
-  }else{
-    str = str + "0";
-  }
-  const num = utils.getNumber(str);
-  return num;
+  return core.getDecimal(n);
 };
 
 utils.isNaturalNumber = function(n){
