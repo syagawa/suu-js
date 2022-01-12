@@ -648,6 +648,7 @@ core.division = function(a, b, is_modulo){
     let a_zero_length = 0;
     const a_zero_res = a_.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
+      console.info("if(a_zero_res && a_zero_res[0])");
       a_zero_length = a_zero_res[0].length;
       a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
     }
@@ -657,6 +658,7 @@ core.division = function(a, b, is_modulo){
     let b_zero_length = 0;
     const b_zero_res = b_int.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
+      console.info("if(b_zero_res && b_zero_res[0])");
       b_zero_length = b_zero_res[0].length;
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
@@ -685,6 +687,7 @@ core.division = function(a, b, is_modulo){
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       if(i === a_len){
+        console.info("if(i === a_len)");
         decimal_index = i;
         if(core.isZero(remain)){
           break;
@@ -693,6 +696,7 @@ core.division = function(a, b, is_modulo){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
+        console.info("}else if(i > a_len){");
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
@@ -703,12 +707,15 @@ core.division = function(a, b, is_modulo){
       while(is_less){
         count = core.add(count, "1");
         if(core.isLarge(count, max_count) && !is_modulo){
+          console.info("if(core.isLarge(count, max_count) && !is_modulo){");
+          
           is_less = false;
           break;
         }
         const pre_product = product;
         product = core.multiplication(b_int, count);
         if(core.isEqual(remain, product)){
+          console.info("if(core.isEqual(remain, product)){");
           is_less = false;
           const result = count;
           result_arr.push(result);
@@ -716,11 +723,13 @@ core.division = function(a, b, is_modulo){
           break;
         }
         if(core.isLarge(product, remain)){
+          console.info("if(core.isLarge(product, remain)){");
           is_less = false;
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
           if(remain_is_decimal){
+            console.info("if(remain_is_decimal){");
             remain_arr.push(0);
           }
           break;
@@ -730,8 +739,6 @@ core.division = function(a, b, is_modulo){
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
 
-
-    
     if(zero_gap > 0){
       for(let i = 0; i < zero_gap; i++){
         new_arr.unshift(0);
@@ -785,6 +792,7 @@ core.division = function(a, b, is_modulo){
   const max_times_if_not_divisible = is_modulo ? core.getZero() : core.numToArrayWithDecimal("10");
 
   const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, is_modulo: is_modulo});
+
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
