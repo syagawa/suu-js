@@ -728,8 +728,8 @@ core.division = function(a, b, is_modulo){
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
-          console.info("if(core.isLarge(product, remain))1 result_arr", result_arr);
-          console.info("if(core.isLarge(product, remain))1 remain", remain);
+          console.info("if(core.isLarge(product, remain))1 result_arr", result_arr.map(e => e.array[0]));
+          console.info("if(core.isLarge(product, remain))1 remain", core.numArrayToString(remain));
 
           if(remain_is_decimal){
             console.info("if(remain_is_decimal){");
