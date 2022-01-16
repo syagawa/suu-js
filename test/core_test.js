@@ -1791,6 +1791,18 @@ describe("modulo", function(){
     assert.equal(str, "7");
   });
 
+  it("7.9 % 90 => 7.9", () => {
+    const res = core.modulo("7.9", "90");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "7.9");
+  });
+
+  // it("7.9 % 7 => 0.9", () => {
+  //   const res = core.modulo("7.9", "7");
+  //   const str = core.numArrayToString(res);
+  //   assert.equal(str, "0.9");
+  // });
+
 });
 
 
