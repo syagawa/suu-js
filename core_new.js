@@ -684,6 +684,8 @@ core.division = function(a, b, is_modulo){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
+      console.info("remain1 in for", core.numArrayToString(remain1));
+      console.info("remain2 in for", remain2);
       console.info("remain in for", core.numArrayToString(remain));
       console.info("decimal_index_remain in for", decimal_index_remain);
       console.info("remain_arr in for", remain_arr);
