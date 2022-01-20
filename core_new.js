@@ -643,6 +643,8 @@ core.division = function(a, b, need_remain){
     let decimal_index = a.decimal_index;
     let decimal_index_remain = decimal_index;
 
+    console.log("first calc", "remain: ", remain, "decimal_index: ", decimal_index, "decimal_index_remain: ", decimal_index_remain);
+
     let a_int = core.clone(a_);
     a_int.decimal_index = a_int.array.length;
     let a_zero_length = 0;
@@ -662,6 +664,9 @@ core.division = function(a, b, need_remain){
       b_zero_length = b_zero_res[0].length;
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
+
+    console.log("a_int: ", a_int);
+    console.log("b_int: ", b_int);
 
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = [...a_int.array];
