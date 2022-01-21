@@ -665,15 +665,17 @@ core.division = function(a, b, need_remain){
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
 
-    console.log("a_int: ", a_int);
-    console.log("b_int: ", b_int);
-
+    
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = [...a_int.array];
     
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const decimal_gap = a_decimal_length - b_decimal_length;
+    
+    console.log("a_int: ", a_int);
+    console.log("b_int: ", b_int);
+    console.log("decimal_gap: ", decimal_gap);
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
@@ -683,8 +685,9 @@ core.division = function(a, b, need_remain){
     const remain_for_modulo = [];
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
+    let c = 0;
     for(let i = 0; i < times; i++){
-
+      c++;
       let is_less = true;
       let count = core.getZero();
       const remain1 = core.multiplication(remain, "10");
@@ -698,6 +701,7 @@ core.division = function(a, b, need_remain){
       console.info("decimal_count in for", decimal_count);
       console.info("remain_and_a_len_gap in for", remain_and_a_len_gap);
       console.info("remain_for_modulo in for", remain_for_modulo);
+      console.info("c in for", c);
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       if(i === a_len){
