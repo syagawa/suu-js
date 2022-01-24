@@ -765,6 +765,9 @@ core.division = function(a, b, need_remain){
         }
       }
     }
+    console.info("cccc c", c);
+    console.info("cccc remain", remain);
+
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
 
