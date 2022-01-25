@@ -737,7 +737,11 @@ core.division = function(a, b, need_remain){
           is_less = false;
           const result = count;
           result_arr.push(result);
-          remain = core.subtract(remain, product);
+          if(need_remain){
+            remain = core.subtract(remain, pre_product);
+          }else{
+            remain = core.subtract(remain, product);
+          }
           break;
         }
         if(core.isLarge(product, remain)){
