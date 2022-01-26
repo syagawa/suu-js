@@ -738,6 +738,7 @@ core.division = function(a, b, need_remain){
           const result = count;
           result_arr.push(result);
           if(need_remain){
+            console.info("in need_remain", "remain", remain, "pre_product", pre_product, "c", c);
             remain = core.subtract(remain, pre_product);
           }else{
             remain = core.subtract(remain, product);
