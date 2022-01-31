@@ -750,6 +750,7 @@ core.division = function(a, b, need_remain){
           console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
           if(core.isLarge(pre_product, a) && need_remain){
+            console.info("---- if(core.isLarge(pre_product, a) && need_remain){", "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain));
             break;
           }
           const result = core.subtract(count, "1");
