@@ -749,8 +749,11 @@ core.division = function(a, b, need_remain){
         if(core.isLarge(product, remain)){
           console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
+          if(need_remain){
+            console.info("---- if(need_remain){ koko0", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain));
+          }
           if(core.isLarge(pre_product, a) && need_remain){
-            console.info("---- if(core.isLarge(pre_product, a) && need_remain){", "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain));
+            console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
             break;
           }
           const result = core.subtract(count, "1");
