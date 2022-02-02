@@ -702,6 +702,7 @@ core.division = function(a, b, need_remain){
       console.info("-- remain_and_a_len_gap in for", remain_and_a_len_gap);
       console.info("-- remain_for_modulo in for", remain_for_modulo);
       console.info("-- c in for", c);
+      console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       if(i === a_len){
