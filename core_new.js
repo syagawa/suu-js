@@ -693,15 +693,11 @@ core.division = function(a, b, need_remain){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
-      console.info("-- remain1 in for", core.numArrayToString(remain1));
-      console.info("-- remain2 in for", remain2);
+      console.info("-- a in for", core.numArrayToString(a));
+      console.info("-- b in for", core.numArrayToString(b));
       console.info("-- remain in for", core.numArrayToString(remain));
-      console.info("-- decimal_index_remain in for", decimal_index_remain);
-      console.info("-- remain_arr in for", remain_arr);
-      console.info("-- decimal_count in for", decimal_count);
-      console.info("-- remain_and_a_len_gap in for", remain_and_a_len_gap);
-      console.info("-- remain_for_modulo in for", remain_for_modulo);
       console.info("-- c in for", c);
+
       console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
