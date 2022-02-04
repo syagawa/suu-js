@@ -682,7 +682,7 @@ core.division = function(a, b, need_remain){
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
     let remain_arr = [0];
-    const remain_for_modulo = [];
+    let remain_for_modulo = [...a_.array];
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
     let c = 0;
@@ -699,6 +699,9 @@ core.division = function(a, b, need_remain){
       console.info("-- c in for", c);
 
       console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
+      remain_for_modulo[c-1] = remain_for_modulo[c -1] - Number(core.numArrayToString(remain));
+      console.info("-- a_ - remain_for_modulo", remain_for_modulo);
+
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       if(i === a_len){
