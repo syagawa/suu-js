@@ -699,7 +699,6 @@ core.division = function(a, b, need_remain){
       console.info("-- c in for", c);
 
       console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
-      remain_for_modulo[c-1] = remain_for_modulo[c -1] - Number(core.numArrayToString(remain));
       console.info("-- a_ - remain_for_modulo", remain_for_modulo);
 
       remain_and_a_len_gap = remain.array.length - a_len;
@@ -740,6 +739,7 @@ core.division = function(a, b, need_remain){
           if(need_remain){
             console.info("---- in need_remain", "remain", core.numArrayToString(remain), "pre_product", core.numArrayToString(pre_product), "c", c);
             remain = core.getZero();
+            remain_for_modulo[c-1] = remain_for_modulo[c -1] - Number(core.numArrayToString(product));
             // remain = core.subtract(remain, pre_product);
           }else{
             remain = core.subtract(remain, product);
