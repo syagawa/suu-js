@@ -739,7 +739,11 @@ core.division = function(a, b, need_remain){
           if(need_remain){
             console.info("---- in need_remain", "remain", core.numArrayToString(remain), "pre_product", core.numArrayToString(pre_product), "c", c);
             remain = core.getZero();
-            remain_for_modulo[c-1] = remain_for_modulo[c -1] - Number(core.numArrayToString(product));
+            const product_length = product.array.length;
+            const start = c - product_length;
+            for(let i = start; i < product_length; i++){
+              remain_for_modulo[i] = remain_for_modulo[i] - product.array[i];
+            }
             // remain = core.subtract(remain, pre_product);
           }else{
             remain = core.subtract(remain, product);
