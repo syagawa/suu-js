@@ -826,19 +826,23 @@ core.division = function(a, b, need_remain){
     if(need_remain){
       decimal_index_remain++;
       console.info("a_", a_);
+      // remain_arr = remain_for_modulo;
+      // decimal_index_remain = a_.decimal_index;
     }
     return {
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
       remain_decimal_index: decimal_index_remain,
+      remain_for_modulo: remain_for_modulo
     }
   };
 
   const max_times_if_not_divisible = need_remain ? core.getZero() : core.numToArrayWithDecimal("10");
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, need_remain: need_remain});
+  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo } = calc({a: a_, b: b_, max: max_times_if_not_divisible, need_remain: need_remain});
 
+  console.info("remain_for_modulo!!", remain_for_modulo);
 
   const remainder = core.moldNumArray({
     array: [...remain_array],
