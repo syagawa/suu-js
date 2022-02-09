@@ -755,6 +755,13 @@ core.division = function(a, b, need_remain){
           is_less = false;
           if(need_remain){
             console.info("---- if(need_remain){ koko0", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain));
+
+            const pre_product_length = pre_product.array.length;
+            const start = c - pre_product_length;
+            for(let i = start; i < pre_product_length; i++){
+              remain_for_modulo[i] = remain_for_modulo[i] - pre_product.array[i];
+            }
+
           }
           if(core.isLarge(pre_product, a) && need_remain){
             console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
