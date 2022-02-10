@@ -763,10 +763,10 @@ core.division = function(a, b, need_remain){
             }
 
           }
-          if(core.isLarge(pre_product, a) && need_remain){
-            console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
-            break;
-          }
+          // if(core.isLarge(pre_product, a) && need_remain){
+          //   console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
+          //   break;
+          // }
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
