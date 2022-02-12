@@ -737,7 +737,7 @@ core.division = function(a, b, need_remain){
           const result = count;
           result_arr.push(result);
           if(need_remain){
-            console.info("---- in need_remain", "remain", core.numArrayToString(remain), "pre_product", core.numArrayToString(pre_product), "c", c);
+            console.info("---- in need_remain", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
             remain = core.getZero();
             const product_length = product.array.length;
             const start = c - product_length;
@@ -754,7 +754,7 @@ core.division = function(a, b, need_remain){
           console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
           if(need_remain){
-            console.info("---- if(need_remain){ koko0", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain));
+            console.info("---- if(need_remain){ koko0", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
 
             const pre_product_length = pre_product.array.length;
             const start = c - pre_product_length;
