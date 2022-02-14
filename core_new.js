@@ -878,6 +878,10 @@ core.divide = function(a, b, need_remain){
 };
 
 core.modulo = function(a, b){
+  if(core.isLarge(b, a)){
+    const a_ = core.numToArrayWithDecimal(a);
+    return a_;
+  }
   const { remainder } = core.division(a, b, true);
   return remainder;
 };
