@@ -737,16 +737,17 @@ core.division = function(a, b, need_remain){
           const result = count;
           result_arr.push(result);
           if(need_remain){
-            console.info("---- in need_remain", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
+            console.info("---- in need_remain equal", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
             remain = core.getZero();
             const product_length = product.array.length;
             const pos = c - product_length;
-            console.info("---- in need_remain", "pos", pos);
+            console.info("---- in need_remain equal", "pos", pos);
             
             for(let i = 0; i < product_length; i++){
               remain_for_modulo[i + pos] = remain_for_modulo[i + pos] - product.array[i];
             }
-            // remain = core.subtract(remain, pre_product);
+            console.info("---- in need_remain equal after", "remain_for_modulo", remain_for_modulo);
+            
           }else{
             remain = core.subtract(remain, product);
           }
@@ -756,13 +757,14 @@ core.division = function(a, b, need_remain){
           console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
           if(need_remain){
-            console.info("---- if(need_remain){ koko0", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
+            console.info("---- if(need_remain){ large", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
 
             const pre_product_length = pre_product.array.length;
             const start = c - pre_product_length;
             for(let i = start; i < pre_product_length; i++){
               remain_for_modulo[i] = remain_for_modulo[i] - pre_product.array[i];
             }
+            console.info("---- if(need_remain){ large after", "remain_for_modulo", remain_for_modulo);
 
           }
           // if(core.isLarge(pre_product, a) && need_remain){
