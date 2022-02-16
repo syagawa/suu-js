@@ -683,6 +683,8 @@ core.division = function(a, b, need_remain){
     let remain_is_decimal = false;
     let remain_arr = [0];
     let remain_for_modulo = [...a_.array];
+    let remain_for_modulo2 = core.clone(a_);
+
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
     let c = 0;
@@ -703,6 +705,7 @@ core.division = function(a, b, need_remain){
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
+      let product_for_modulo = core.getZero();
       if(i === a_len){
         console.info("-- if(i === a_len)");
         decimal_index = i;
@@ -730,7 +733,12 @@ core.division = function(a, b, need_remain){
           break;
         }
         const pre_product = product;
+        const pre_product_for_modulo = product_for_modulo;
         product = core.multiplication(b_int, count);
+        product_for_modulo = core.multiplication(b_, count);
+        console.info("product_for_modulo", core.numArrayToString(product_for_modulo));
+        console.info("pre_product_for_modulo", core.numArrayToString(pre_product_for_modulo));
+
         if(core.isEqual(remain, product)){
           console.info("---- if(core.isEqual(remain, product)){");
           is_less = false;
