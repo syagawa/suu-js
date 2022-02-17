@@ -755,6 +755,10 @@ core.division = function(a, b, need_remain){
               remain_for_modulo[i + pos] = remain_for_modulo[i + pos] - product.array[i];
             }
             console.info("---- in need_remain equal after", "remain_for_modulo", remain_for_modulo);
+
+            remain_for_modulo2 = core.subtract(remain_for_modulo2, product_for_modulo);
+            console.info("---- in need_remain equal after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo2));
+
             
           }else{
             remain = core.subtract(remain, product);
@@ -773,6 +777,10 @@ core.division = function(a, b, need_remain){
               remain_for_modulo[i] = remain_for_modulo[i] - pre_product.array[i];
             }
             console.info("---- if(need_remain){ large after", "remain_for_modulo", remain_for_modulo);
+
+            remain_for_modulo2 = core.subtract(remain_for_modulo2, pre_product_for_modulo);
+            console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo2));
+
 
           }
           // if(core.isLarge(pre_product, a) && need_remain){
