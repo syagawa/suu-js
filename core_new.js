@@ -778,7 +778,9 @@ core.division = function(a, b, need_remain){
             }
             console.info("---- if(need_remain){ large after", "remain_for_modulo", remain_for_modulo);
 
-            remain_for_modulo2 = core.subtract(remain_for_modulo2, pre_product_for_modulo);
+            if(core.isLarge(remain_for_modulo2, pre_product_for_modulo) || core.isEqual(remain_for_modulo2, pre_product_for_modulo)){
+              remain_for_modulo2 = core.subtract(remain_for_modulo2, pre_product_for_modulo);
+            }
             console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo2));
 
 
