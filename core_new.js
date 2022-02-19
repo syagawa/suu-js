@@ -682,8 +682,7 @@ core.division = function(a, b, need_remain){
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
     let remain_arr = [0];
-    let remain_for_modulo = [...a_.array];
-    let remain_for_modulo2 = core.clone(a_);
+    let remain_for_modulo = core.clone(a_);
 
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
@@ -701,7 +700,6 @@ core.division = function(a, b, need_remain){
       console.info("-- c in for", c);
 
       console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
-      console.info("-- a_ - remain_for_modulo", remain_for_modulo);
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
@@ -751,13 +749,9 @@ core.division = function(a, b, need_remain){
             const pos = c - product_length;
             console.info("---- in need_remain equal", "pos", pos);
             
-            for(let i = 0; i < product_length; i++){
-              remain_for_modulo[i + pos] = remain_for_modulo[i + pos] - product.array[i];
-            }
-            console.info("---- in need_remain equal after", "remain_for_modulo", remain_for_modulo);
 
-            remain_for_modulo2 = core.subtract(remain_for_modulo2, product_for_modulo);
-            console.info("---- in need_remain equal after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo2));
+            remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
+            console.info("---- in need_remain equal after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
 
             
           }else{
@@ -771,17 +765,12 @@ core.division = function(a, b, need_remain){
           if(need_remain){
             console.info("---- if(need_remain){ large", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
 
-            const pre_product_length = pre_product.array.length;
-            const start = c - pre_product_length;
-            for(let i = start; i < pre_product_length; i++){
-              remain_for_modulo[i] = remain_for_modulo[i] - pre_product.array[i];
-            }
-            console.info("---- if(need_remain){ large after", "remain_for_modulo", remain_for_modulo);
 
-            if(core.isLarge(remain_for_modulo2, pre_product_for_modulo) || core.isEqual(remain_for_modulo2, pre_product_for_modulo)){
-              remain_for_modulo2 = core.subtract(remain_for_modulo2, pre_product_for_modulo);
+
+            if(core.isLarge(remain_for_modulo, pre_product_for_modulo) || core.isEqual(remain_for_modulo, pre_product_for_modulo)){
+              remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
             }
-            console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo2));
+            console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
 
 
           }
@@ -797,9 +786,6 @@ core.division = function(a, b, need_remain){
           console.info("---- if(core.isLarge(product, remain))1 result_arr", result_arr.map(e => e.array[0]));
           console.info("---- if(core.isLarge(product, remain))1 remain", core.numArrayToString(remain));
           console.info("---- if(core.isLarge(product, remain))1 product", core.numArrayToString(product));
-          // if(need_remain){
-          //   remain_for_modulo.push(remain);
-          // }
           if(remain_is_decimal){
             console.info("---- if(remain_is_decimal){");
             remain_arr.push(0);
@@ -855,8 +841,6 @@ core.division = function(a, b, need_remain){
     if(need_remain){
       decimal_index_remain++;
       console.info("a_", a_);
-      // remain_arr = remain_for_modulo;
-      // decimal_index_remain = a_.decimal_index;
     }
     return {
       new_array: new_arr,
@@ -864,7 +848,7 @@ core.division = function(a, b, need_remain){
       remain_array: remain_arr,
       remain_decimal_index: decimal_index_remain,
       remain_for_modulo: remain_for_modulo,
-      remain_for_modulo_decimal_index: a_.decimal_index,
+      remain_for_modulo_decimal_index: remain_for_modulo.decimal_index,
     }
   };
 
