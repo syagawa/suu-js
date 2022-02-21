@@ -744,7 +744,7 @@ core.division = function(a, b, need_remain){
           result_arr.push(result);
           if(need_remain){
             console.info("---- in need_remain equal", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
-            remain = core.getZero();
+            // remain = core.getZero();
             const product_length = product.array.length;
             const pos = c - product_length;
             console.info("---- in need_remain equal", "pos", pos);
