@@ -962,7 +962,7 @@ core.modulo2 = function(a, b){
     negative = false;
   }
 
-  const calc = function({a, b, max, need_remain}){
+  const calc = function({a, b, max}){
     const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
@@ -970,14 +970,11 @@ core.modulo2 = function(a, b){
     let decimal_index = a.decimal_index;
     let decimal_index_remain = decimal_index;
 
-    console.log("first calc", "remain: ", remain, "decimal_index: ", decimal_index, "decimal_index_remain: ", decimal_index_remain);
-
     let a_int = core.clone(a_);
     a_int.decimal_index = a_int.array.length;
     let a_zero_length = 0;
     const a_zero_res = a_.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
-      console.info("if(a_zero_res && a_zero_res[0])");
       a_zero_length = a_zero_res[0].length;
       a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
     }
@@ -987,12 +984,10 @@ core.modulo2 = function(a, b){
     let b_zero_length = 0;
     const b_zero_res = b_int.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
-      console.info("if(b_zero_res && b_zero_res[0])");
       b_zero_length = b_zero_res[0].length;
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
 
-    
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = [...a_int.array];
     
@@ -1000,10 +995,6 @@ core.modulo2 = function(a, b){
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const decimal_gap = a_decimal_length - b_decimal_length;
     
-    console.log("a_int: ", a_int);
-    console.log("b_int: ", b_int);
-    console.log("decimal_gap: ", decimal_gap);
-
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
     const a_len = a_int.array.length;
@@ -1021,18 +1012,11 @@ core.modulo2 = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
-      console.info("-- a in for", core.numArrayToString(a));
-      console.info("-- b in for", core.numArrayToString(b));
-      console.info("-- remain in for", core.numArrayToString(remain));
-      console.info("-- c in for", c);
-
-      console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       let product_for_modulo = core.getZero();
       if(i === a_len){
-        console.info("-- if(i === a_len)");
         decimal_index = i;
         if(core.isZero(remain)){
           break;
@@ -1041,19 +1025,16 @@ core.modulo2 = function(a, b){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
-        console.info("-- }else if(i > a_len){");
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
         }
       }
-      // else if(need_remain && core.isLarge(b, ))
 
       const max_count = max;
       while(is_less){
         count = core.add(count, "1");
-        if(core.isLarge(count, max_count) && !need_remain){
-          console.info("---- if(core.isLarge(count, max_count) && !need_remain){");
+        if(core.isLarge(count, max_count)){
           is_less = false;
           break;
         }
@@ -1061,68 +1042,37 @@ core.modulo2 = function(a, b){
         const pre_product_for_modulo = product_for_modulo;
         product = core.multiplication(b_int, count);
         product_for_modulo = core.multiplication(b_, count);
-        console.info("product_for_modulo", core.numArrayToString(product_for_modulo));
-        console.info("pre_product_for_modulo", core.numArrayToString(pre_product_for_modulo));
 
         if(core.isEqual(remain, product)){
-          console.info("---- if(core.isEqual(remain, product)){");
           is_less = false;
           const result = count;
           result_arr.push(result);
-          if(need_remain){
-            console.info("---- in need_remain equal", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
-            // remain = core.getZero();
-            const product_length = product.array.length;
-            const pos = c - product_length;
-            console.info("---- in need_remain equal", "pos", pos);
-            
 
-            remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
-            console.info("---- in need_remain equal after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
+          remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
+          remain = core.subtract(remain, product);
 
-            
-          }else{
-            remain = core.subtract(remain, product);
-          }
           break;
         }
         if(core.isLarge(product, remain)){
-          console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
-          if(need_remain){
-            console.info("---- if(need_remain){ large", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
 
 
-
-            if(core.isLarge(remain_for_modulo, pre_product_for_modulo) || core.isEqual(remain_for_modulo, pre_product_for_modulo)){
-              remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
-            }
-            console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
-
-
+          if(core.isLarge(remain_for_modulo, pre_product_for_modulo) || core.isEqual(remain_for_modulo, pre_product_for_modulo)){
+             remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
           }
-          // if(core.isLarge(pre_product, a) && need_remain){
-          //   console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
-          //   break;
-          // }
+
+
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
 
-          console.info("---- if(core.isLarge(product, remain))1 pre_product", core.numArrayToString(pre_product));
-          console.info("---- if(core.isLarge(product, remain))1 result_arr", result_arr.map(e => e.array[0]));
-          console.info("---- if(core.isLarge(product, remain))1 remain", core.numArrayToString(remain));
-          console.info("---- if(core.isLarge(product, remain))1 product", core.numArrayToString(product));
           if(remain_is_decimal){
-            console.info("---- if(remain_is_decimal){");
             remain_arr.push(0);
           }
           break;
         }
       }
     }
-    console.info("cccc c", c);
-    console.info("cccc remain", remain);
 
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
@@ -1165,10 +1115,10 @@ core.modulo2 = function(a, b){
       remain_arr = [...remain_arr];
     }
 
-    if(need_remain){
-      decimal_index_remain++;
-      console.info("a_", a_);
-    }
+
+    decimal_index_remain++;
+    console.info("a_", a_);
+    
     return {
       new_array: new_arr,
       decimal_index: decimal_index,
@@ -1179,9 +1129,9 @@ core.modulo2 = function(a, b){
     }
   };
 
-  const max_times_if_not_divisible = need_remain ? core.getZero() : core.numToArrayWithDecimal("10");
+  const max_times_if_not_divisible = core.getZero();
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, need_remain: need_remain});
+  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
 
   const remainder = core.moldNumArray({
