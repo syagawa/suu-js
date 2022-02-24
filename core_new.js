@@ -1134,18 +1134,8 @@ core.modulo2 = function(a, b){
   const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
 
-  const remainder = core.moldNumArray({
-    array: [...remain_array],
-    negative: negative,
-    decimal_index: remain_decimal_index
-  });
-
-  // remain_for_modulo.negative = negative;
-  // const remainder = remain_for_modulo;
-
-  console.info("remain_for_modulo!!", remain_for_modulo, remain_for_modulo_decimal_index);
-  console.info("remainder!!", remainder);
-
+  remain_for_modulo.negative = negative;
+  const remainder = remain_for_modulo;
 
   const quotient = core.moldNumArray({
     array: [...new_array],
