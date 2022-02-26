@@ -967,8 +967,6 @@ core.modulo2 = function(a, b){
     let remain = core.getZero();
     const a_ = core.clone(a);
     const b_ = core.clone(b);
-    let decimal_index = a.decimal_index;
-    let decimal_index_remain = decimal_index;
 
     let a_int = core.clone(a_);
     a_int.decimal_index = a_int.array.length;
@@ -1004,9 +1002,7 @@ core.modulo2 = function(a, b){
 
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
-    let c = 0;
     for(let i = 0; i < times; i++){
-      c++;
       let is_less = true;
       let count = core.getZero();
       const remain1 = core.multiplication(remain, "10");
@@ -1017,7 +1013,6 @@ core.modulo2 = function(a, b){
       let product = core.getZero();
       let product_for_modulo = core.getZero();
       if(i === a_len){
-        decimal_index = i;
         if(core.isZero(remain)){
           break;
         }else {
@@ -1077,31 +1072,12 @@ core.modulo2 = function(a, b){
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
 
-    if(zero_gap > 0){
-      for(let i = 0; i < zero_gap; i++){
-        new_arr.unshift(0);
-        decimal_index++;
-      }
-    }
-
-    if(decimal_gap < 0){
-      for(let i = 0; i < Math.abs(decimal_gap); i++){
-        new_arr.push(0);
-        decimal_index++;
-      }
-    }else if(decimal_gap > 0){
-      for(let i = 0; i < Math.abs(decimal_gap); i++){
-        new_arr.unshift(0);
-      }
-    }
 
     if(remain_and_a_len_gap > 0){
       for(let i = 0; i < remain_and_a_len_gap; i++){
         const tgt = remain_arr[0];
         if(tgt === 0){
           remain_arr.shift();
-        }else{
-          decimal_index_remain = decimal_index_remain - remain_and_a_len_gap;
         }
         remain_arr.push(0);
       }
@@ -1116,14 +1092,13 @@ core.modulo2 = function(a, b){
     }
 
 
-    decimal_index_remain++;
     console.info("a_", a_);
     
     return {
       new_array: new_arr,
       decimal_index: decimal_index,
       remain_array: remain_arr,
-      remain_decimal_index: decimal_index_remain,
+      remain_decimal_index: null,
       remain_for_modulo: remain_for_modulo,
       remain_for_modulo_decimal_index: remain_for_modulo.decimal_index,
     }
