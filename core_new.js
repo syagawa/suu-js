@@ -928,6 +928,13 @@ core.modulo2 = function(a, b){
     }
   }
 
+
+  if(core.isLarge(b, a)){
+    const a_ = core.numToArrayWithDecimal(a);
+    return a_;
+  }
+
+
   if(core.isOne(b_)){
     return {
       ...a_,
@@ -986,13 +993,8 @@ core.modulo2 = function(a, b){
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
 
-    const zero_gap = a_zero_length - b_zero_length;
     const a_array = [...a_int.array];
-    
-    const a_decimal_length = a_.array.length - a_.decimal_index;
-    const b_decimal_length = b_.array.length - b_.decimal_index;
-    const decimal_gap = a_decimal_length - b_decimal_length;
-    
+
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
     const a_len = a_int.array.length;
