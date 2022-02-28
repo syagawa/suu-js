@@ -935,16 +935,9 @@ core.modulo2 = function(a, b){
   }
 
 
-  if(core.isOne(b_)){
-    return {
-      ...a_,
-      remainder: core.getZero(),
-    };
-  }
-
   if(core.isEqual(a_, b_)){
     return {
-      ...core.getOne(),
+      ...core.getZero(),
       remainder: core.getZero(),
     }
   }
