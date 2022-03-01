@@ -1045,20 +1045,6 @@ core.modulo2 = function(a, b){
         }
         if(core.isLarge(product, remain)){
           is_less = false;
-
-
-          if(core.isLarge(remain_for_modulo, pre_product_for_modulo) || core.isEqual(remain_for_modulo, pre_product_for_modulo)){
-             remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
-          }
-
-
-          const result = core.subtract(count, "1");
-          result_arr.push(result);
-          remain = core.subtract(remain, pre_product);
-
-          if(remain_is_decimal){
-            remain_arr.push(0);
-          }
           break;
         }
       }
@@ -1066,7 +1052,6 @@ core.modulo2 = function(a, b){
 
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
-
 
     if(remain_and_a_len_gap > 0){
       for(let i = 0; i < remain_and_a_len_gap; i++){
