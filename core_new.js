@@ -1028,8 +1028,6 @@ core.modulo2 = function(a, b){
           is_less = false;
           break;
         }
-        const pre_product = product;
-        const pre_product_for_modulo = product_for_modulo;
         product = core.multiplication(b_int, count);
         product_for_modulo = core.multiplication(b_, count);
 
@@ -1045,10 +1043,14 @@ core.modulo2 = function(a, b){
         }
         if(core.isLarge(product, remain)){
           is_less = false;
+          remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
           break;
         }
+
       }
     }
+
+    console.info("remain_for_modulo", remain_for_modulo);
 
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
