@@ -1003,22 +1003,14 @@ core.modulo2 = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
+      remain_for_modulo = core.add(remain1, remain2);
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
       let product_for_modulo = core.getZero();
-      if(i === a_len){
-        if(core.isZero(remain)){
-          break;
-        }else {
-          remain_is_decimal = true;
-          decimal_count = decimal_count++;
-        }
-      }else if(i > a_len){
-        decimal_count = decimal_count++;
-        if(core.isZero(remain)){
-          break;
-        }
+      
+      if(core.isZero(remain_for_modulo)){
+        break;
       }
 
       const max_count = max;
