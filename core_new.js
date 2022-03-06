@@ -1021,6 +1021,7 @@ core.modulo2 = function(a, b){
           break;
         }
         product = core.multiplication(b_int, count);
+        const pre_product_for_modulo = product_for_modulo;
         product_for_modulo = core.multiplication(b_, count);
 
         if(core.isEqual(remain, product)){
@@ -1035,7 +1036,7 @@ core.modulo2 = function(a, b){
         }
         if(core.isLarge(product, remain)){
           is_less = false;
-          remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
+          remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
           break;
         }
 
