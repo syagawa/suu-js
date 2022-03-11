@@ -1000,7 +1000,7 @@ core.modulo2 = function(a, b){
     for(let i = 0; i < times; i++){
       let is_less = true;
       let count = core.getZero();
-      const remain1 = core.multiplication(remain, "10");
+      const remain1 = core.multiplication(remain_for_modulo, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
       // remain_for_modulo = remain_for_modulo;
