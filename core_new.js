@@ -962,142 +962,28 @@ core.modulo2 = function(a, b){
     negative = false;
   }
 
-  const calc = function({a, b, max}){
-    const result_arr = [];
-    let remain = core.getZero();
-    let remain_for_modulo = core.getZero();
-    const a_ = core.clone(a);
-    const b_ = core.clone(b);
+  const calc = function({a, b}){
+    // 15.5 - (2 * Math.floor(15.5 / 2))
+    const divided = core.divide(a, b);
+    const floored = {
+      ...divided,
+      array: divided.array.slice(0, divided.decimal_index)
+    };
 
-    let a_int = core.clone(a_);
-    a_int.decimal_index = a_int.array.length;
-    let a_zero_length = 0;
-    const a_zero_res = a_.array.join("").match(/^0+/);
-    if(a_zero_res && a_zero_res[0]){
-      a_zero_length = a_zero_res[0].length;
-      a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
-    }
-
-    let b_int = core.clone(b_);
-    b_int.decimal_index = b_int.array.length;
-    let b_zero_length = 0;
-    const b_zero_res = b_int.array.join("").match(/^0+/);
-    if(b_zero_res && b_zero_res[0]){
-      b_zero_length = b_zero_res[0].length;
-      b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
-    }
-
-    const a_array = [...a_int.array];
-
-    const times = Number(core.add(a_int.array.length, max).array.join(""));
-
-    const a_len = a_int.array.length;
-    let remain_is_decimal = false;
-    let remain_arr = [0];
-
-    let decimal_count = 0;
-    let remain_and_a_len_gap = 0;
-    for(let i = 0; i < times; i++){
-      let is_less = true;
-      let count = core.getZero();
-      const remain1 = core.multiplication(remain_for_modulo, "10");
-      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
-      remain = core.add(remain1, remain2);
-      remain_for_modulo = core.add(remain1, remain2);
-
-      remain_and_a_len_gap = remain.array.length - a_len;
-      let product = core.getZero();
-      let product_for_modulo = core.getZero();
-      
-      if(core.isZero(remain_for_modulo)){
-        break;
-      }
-
-      const max_count = max;
-      while(is_less){
-        count = core.add(count, "1");
-        if(core.isLarge(count, max_count)){
-          is_less = false;
-          break;
-        }
-        product = core.multiplication(b_int, count);
-        const pre_product_for_modulo = product_for_modulo;
-        product_for_modulo = core.multiplication(b_, count);
-
-        if(core.isEqual(remain_for_modulo, product_for_modulo)){
-          console.info("isEqual");
-          is_less = false;
-          const result = count;
-          result_arr.push(result);
-
-          remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
-          remain = core.subtract(remain, product);
-
-          break;
-        }
-        if(core.isLarge(product_for_modulo, remain_for_modulo)){
-          console.info("isLarge");
-          is_less = false;
-          remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
-          break;
-        }
-
-      }
-    }
-
-    console.info("remain_for_modulo", remain_for_modulo);
-
-    remain_arr.push(...remain.array);
-    const new_arr = result_arr.flatMap(e => e.array);
-
-    if(remain_and_a_len_gap > 0){
-      for(let i = 0; i < remain_and_a_len_gap; i++){
-        const tgt = remain_arr[0];
-        if(tgt === 0){
-          remain_arr.shift();
-        }
-        remain_arr.push(0);
-      }
-    }else if(remain_and_a_len_gap < 0){
-      const len = Math.abs(remain_and_a_len_gap);
-      const arr = Array(len).fill(0);
-      remain_arr.unshift(...arr);
-    }
-
-    if(remain_is_decimal){
-      remain_arr = [...remain_arr];
-    }
-
-
-    console.info("a_", a_);
-    
-    return {
-      new_array: new_arr,
-      decimal_index: decimal_index,
-      remain_array: remain_arr,
-      remain_decimal_index: null,
-      remain_for_modulo: remain_for_modulo,
-      remain_for_modulo_decimal_index: remain_for_modulo.decimal_index,
-    }
+    const multipled = core.multiple(b, floored);
+    const res = core.subtract(a, multipled);
+    return res;
   };
 
-  const max_times_if_not_divisible = core.getZero();
-
-  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
-
-
-  remain_for_modulo.negative = negative;
-  const remainder = remain_for_modulo;
+  const res = calc({a: a_, b: b_});
 
   const quotient = core.moldNumArray({
-    array: [...new_array],
+    ...res,
     negative: negative,
-    decimal_index: decimal_index
   });
 
   return {
     ...quotient,
-    remainder:remainder,
   }
   
 };
