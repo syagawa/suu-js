@@ -896,6 +896,15 @@ core.modulo = function(a, b){
   return remainder;
 };
 
+core.floor = function(num){
+  const n = core.numToArrayWithDecimal(num);
+  return {
+    ...n,
+    array: n.array.slice(0, n.decimal_index)
+  };
+};
+
+
 core.modulo2 = function(a, b){
 
   if(!a || !b){
