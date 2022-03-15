@@ -974,11 +974,7 @@ core.modulo2 = function(a, b){
   const calc = function({a, b}){
     // 15.5 - (2 * Math.floor(15.5 / 2))
     const divided = core.divide(a, b);
-    const floored = {
-      ...divided,
-      array: divided.array.slice(0, divided.decimal_index)
-    };
-
+    const floored = core.floor(divided);
     const multipled = core.multiple(b, floored);
     const res = core.subtract(a, multipled);
     return res;
