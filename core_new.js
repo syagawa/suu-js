@@ -904,6 +904,22 @@ core.floor = function(num){
   };
 };
 
+core.ceil = function(num){
+  const n = core.numToArrayWithDecimal(num);
+  const dec = n.array.slice(n.decimal_index, n.array.length);
+  const dec_n = core.numToArrayWithDecimal(dec.join(""));
+  if(core.isZero(dec_n)){
+    return n;
+  }
+
+  if(n.negative){
+    return core.subtract(n, "1");
+  }else{
+    return core.add(n, "1");
+  }
+
+};
+
 
 core.modulo2 = function(a, b){
 
