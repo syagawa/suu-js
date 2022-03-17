@@ -898,10 +898,15 @@ core.modulo = function(a, b){
 
 core.floor = function(num){
   const n = core.numToArrayWithDecimal(num);
-  return {
+  const is_decimal = n.decimal_index < n.array.length;
+  let n_ = {
     ...n,
     array: n.array.slice(0, n.decimal_index)
   };
+  if(n.negative && is_decimal){
+    n_ = core.add(n_, "1");
+  }
+  return n_;
 };
 
 core.ceil = function(num){
