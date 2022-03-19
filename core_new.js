@@ -909,7 +909,7 @@ core.floor = function(num){
     array: n.array.slice(0, n.decimal_index)
   };
   if(n.negative && is_decimal){
-    n_ = core.add(n_, "1");
+    n_ = core.subtract(n_, "1");
   }
   return n_;
 };
@@ -923,7 +923,10 @@ core.ceil = function(num){
   }
 
   if(n.negative){
-    return core.subtract(n, "1");
+    return {
+      ...n,
+      array: n.array.slice(0, n.decimal_index)
+    };
   }else{
     return core.add(n, "1");
   }
