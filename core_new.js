@@ -49,7 +49,7 @@ core.numToArrayWithDecimal = function(n){
   }
   let str = String(n);
   let negative = false;
-  while(str[0].match(/^-/)){
+  while(str && str[0].match(/^-/)){
     str = str.replace(/^-/, "");
     negative = !negative;
   }
@@ -887,15 +887,6 @@ core.divide = function(a, b, need_remain){
   return core.division(a, b, need_remain);
 };
 
-core.modulo = function(a, b){
-  if(core.isLarge(b, a)){
-    const a_ = core.numToArrayWithDecimal(a);
-    return a_;
-  }
-  const { remainder } = core.division(a, b, true);
-  return remainder;
-};
-
 core.floor = function(num){
   const n = core.numToArrayWithDecimal(num);
   const is_decimal = n.decimal_index < n.array.length;
@@ -921,7 +912,6 @@ core.ceil = function(num){
   if(core.isZero(dec_n)){
     return n;
   }
-
   if(n.negative){
     return {
       ...n,
@@ -934,7 +924,7 @@ core.ceil = function(num){
 };
 
 
-core.modulo2 = function(a, b){
+core.modulo = function(a, b){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){

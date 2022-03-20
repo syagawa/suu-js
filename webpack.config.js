@@ -51,9 +51,10 @@ module.exports = {
       formatter: "stylish" //"codeframe"
     })
   ],
-  resolve: {}
+  resolve: {},
+  devtool: "inline-source-map",
 };
 
 if (ENV !== 'production') {
-    module.exports.devtool = 'inline-source-map';
+  module.exports.devtool = 'inline-source-map';
 }
