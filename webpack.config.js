@@ -52,7 +52,6 @@ module.exports = {
     })
   ],
   resolve: {},
-  devtool: "inline-source-map",
 };
 
 if (ENV !== 'production') {
