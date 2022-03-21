@@ -1754,6 +1754,15 @@ describe("division", function(){
 
 });
 
+describe("floor", function(){
+  it("1 => 1", () => {
+    const res = core.floor("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+});
+
+
 describe("modulo", function(){
   it("1 % 1 => 0", () => {
     const res = core.modulo("1", "1");
