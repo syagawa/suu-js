@@ -1760,6 +1760,17 @@ describe("floor", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
   });
+
+  it("1.5 => 1", () => {
+    const res = core.floor("1.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+  it("1.00000000001 => 1", () => {
+    const res = core.floor("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
 });
 
 
