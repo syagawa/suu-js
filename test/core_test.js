@@ -1782,6 +1782,18 @@ describe("floor", function(){
     assert.equal(str, "0");
   });
 
+  it("0.5 => 0", () => {
+    const res = core.floor("0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+
+  it("-1 => -1", () => {
+    const res = core.floor("-1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-1");
+  });
+
 });
 
 
