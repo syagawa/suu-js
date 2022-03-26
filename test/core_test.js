@@ -1805,6 +1805,72 @@ describe("floor", function(){
     assert.equal(str, "-2");
   });
 
+  it("-100.5 => -101", () => {
+    const res = core.floor("-100.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-101");
+  });
+
+});
+
+describe("ceil", function(){
+  it("1 => 1", () => {
+    const res = core.ceil("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+  it("1.5 => 2", () => {
+    const res = core.ceil("1.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
+  it("1.00000000001 => 2", () => {
+    const res = core.ceil("1.00000000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
+  it("101.00000000001 => 102", () => {
+    const res = core.ceil("101.00000000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "102");
+  });
+
+  it("0 => 0", () => {
+    const res = core.ceil("0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+
+  it("0.5 => 0", () => {
+    const res = core.ceil("0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
+
+  it("-1 => -1", () => {
+    const res = core.ceil("-1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-1");
+  });
+
+  // it("-0.5 => 0", () => {
+  //   const res = core.ceil("-0.5");
+  //   const str = core.numArrayToString(res);
+  //   assert.equal(str, "0");
+  // });
+
+  it("-1.5 => -1", () => {
+    const res = core.ceil("-1.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-1");
+  });
+
+  it("-100.5 => -100", () => {
+    const res = core.ceil("-100.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-100");
+  });
+
 });
 
 

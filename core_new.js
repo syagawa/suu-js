@@ -907,19 +907,20 @@ core.floor = function(num){
 
 core.ceil = function(num){
   const n = core.numToArrayWithDecimal(num);
+  const is_decimal = n.decimal_index < n.array.length;
   const dec = n.array.slice(n.decimal_index, n.array.length);
   const dec_n = core.numToArrayWithDecimal(dec.join(""));
   if(core.isZero(dec_n)){
     return n;
   }
-  if(n.negative){
-    return {
-      ...n,
-      array: n.array.slice(0, n.decimal_index)
-    };
-  }else{
-    return core.add(n, "1");
+  let n_ = {
+    ...n,
+    array: n.array.slice(0, n.decimal_index)
+  };
+  if(!n.negative && is_decimal){
+    n_ = core.add(n_, "1");
   }
+  return n_;
 
 };
 
