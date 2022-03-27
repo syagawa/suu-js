@@ -1853,11 +1853,11 @@ describe("ceil", function(){
     assert.equal(str, "-1");
   });
 
-  // it("-0.5 => 0", () => {
-  //   const res = core.ceil("-0.5");
-  //   const str = core.numArrayToString(res);
-  //   assert.equal(str, "0");
-  // });
+  it("-0.5 => 0", () => {
+    const res = core.ceil("-0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
 
   it("-1.5 => -1", () => {
     const res = core.ceil("-1.5");
