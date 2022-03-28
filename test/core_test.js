@@ -1855,8 +1855,8 @@ describe("ceil", function(){
 
   it("-0.5 => 0", () => {
     const res = core.ceil("-0.5");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
+    const is_zero = core.isZero(res)
+    assert.equal(is_zero, true);
   });
 
   it("-1.5 => -1", () => {
@@ -1889,8 +1889,8 @@ describe("modulo", function(){
 
   it("2 % 1 => 0", () => {
     const res = core.modulo("2", "1");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
+    const is_zero = core.isZero(res)
+    assert.equal(is_zero, true);
   });
 
   it("3 % 2 => 1", () => {

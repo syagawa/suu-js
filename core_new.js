@@ -920,9 +920,6 @@ core.ceil = function(num){
   if(!n.negative && is_decimal){
     n_ = core.add(n_, "1");
   }
-  if(n.negative && core.isZero(n_)){
-    n_.negative = false;
-  }
   return n_;
 
 };
