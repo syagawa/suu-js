@@ -1778,14 +1778,12 @@ describe("floor", function(){
 
   it("0 => 0", () => {
     const res = core.floor("0");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
+    assert.equal(core.isZero(res), true);
   });
 
   it("0.5 => 0", () => {
     const res = core.floor("0.5");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
+    assert.equal(core.isZero(res), true);
   });
 
   it("-1 => -1", () => {
