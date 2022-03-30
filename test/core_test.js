@@ -1915,11 +1915,17 @@ describe("modulo", function(){
     assert.equal(str, "7.9");
   });
 
-  // it("7.9 % 7 => 0.9", () => {
-  //   const res = core.modulo("7.9", "7");
-  //   const str = core.numArrayToString(res);
-  //   assert.equal(str, "0.9");
-  // });
+  it("7.9 % 7 => 0.9", () => {
+    const res = core.modulo("7.9", "7");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.9");
+  });
+
+  it("7.9 % 7.8 => 0.1", () => {
+    const res = core.modulo("7.9", "7.8");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
 
 });
 
