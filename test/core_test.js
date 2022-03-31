@@ -1927,6 +1927,18 @@ describe("modulo", function(){
     assert.equal(str, "0.1");
   });
 
+
+  it("7.9 % 7.8 => 0.1", () => {
+    const res = core.modulo("7.9", "7.8");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
+
+  it("-1 % 1 => 0", () => {
+    const res = core.modulo("-1", "1");
+    assert.equal(core.isZero(res), true);
+  });
+
 });
 
 

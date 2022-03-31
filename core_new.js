@@ -957,8 +957,12 @@ core.modulo = function(a, b){
     }
   }
 
+  const a_posi = core.clone(a_);
+  const b_posi = core.clone(b_);
+  a_posi.negative = false;
+  b_posi.negative = false;
 
-  if(core.isLarge(b, a)){
+  if(core.isLarge(b_posi, a_posi)){
     const a_ = core.numToArrayWithDecimal(a);
     return a_;
   }
