@@ -1939,6 +1939,17 @@ describe("modulo", function(){
     assert.equal(core.isZero(res), true);
   });
 
+  it("1 % -1 => 0", () => {
+    const res = core.modulo("1", "-1");
+    assert.equal(core.isZero(res), true);
+  });
+
+  it("-1 % -1 => 0", () => {
+    const res = core.modulo("-1", "-1");
+    assert.equal(core.isZero(res), true);
+  });
+
+
 });
 
 
