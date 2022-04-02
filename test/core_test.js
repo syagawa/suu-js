@@ -1949,6 +1949,18 @@ describe("modulo", function(){
     assert.equal(core.isZero(res), true);
   });
 
+  it("-1 % -10 => -1", () => {
+    const res = core.modulo("-1", "-10");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-1");
+  });
+  it("-10 % -1 => 0", () => {
+    const res = core.modulo("-1", "-1");
+    assert.equal(core.isZero(res), true);
+  });
+
+
+
 
 });
 
