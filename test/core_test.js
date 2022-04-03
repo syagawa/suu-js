@@ -1954,12 +1954,23 @@ describe("modulo", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "-1");
   });
+
   it("-10 % -1 => 0", () => {
     const res = core.modulo("-1", "-1");
     assert.equal(core.isZero(res), true);
   });
 
+  it("-10 % -4 => -2", () => {
+    const res = core.modulo("-10", "-4");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2");
+  });
 
+  it("-10.5 % -4 => -2.5", () => {
+    const res = core.modulo("-10.5", "-4");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2.5");
+  });
 
 
 });

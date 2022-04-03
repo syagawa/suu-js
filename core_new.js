@@ -975,21 +975,9 @@ core.modulo = function(a, b){
     }
   }
 
-  const a_negative = a_.negative;
-  const b_negative = b_.negative;
-
-  if(a_.negative){
-    a_.negative = false;
-  }
-
-  if(b_.negative){
-    b_.negative = false;
-  }
 
   let negative;
-  if(a_negative && b_negative){
-    negative = false;
-  }else if(a_negative || b_negative){
+  if(b_.negative){
     negative = true;
   }else{
     negative = false;
@@ -1004,7 +992,7 @@ core.modulo = function(a, b){
     return res;
   };
 
-  const res = calc({a: a_, b: b_});
+  const res = calc({a: {...a_, negative: false}, b: {...b_, negative: false} });
 
   const quotient = core.moldNumArray({
     ...res,
