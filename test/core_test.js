@@ -1972,6 +1972,19 @@ describe("modulo", function(){
     assert.equal(str, "-2.5");
   });
 
+  it("-10.5 % -4.25 => -2", () => {
+    const res = core.modulo("-10.5", "-4.25");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2");
+  });
+
+  it("-10.5 % -4.24 => -2.02", () => {
+    const res = core.modulo("-10.5", "-4.24");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-2.02");
+  });
+
+
 
 });
 
