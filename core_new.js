@@ -977,7 +977,7 @@ core.modulo = function(a, b){
 
 
   let negative;
-  if(b_.negative){
+  if(a_.negative){
     negative = true;
   }else{
     negative = false;
