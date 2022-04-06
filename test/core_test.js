@@ -1927,7 +1927,6 @@ describe("modulo", function(){
     assert.equal(str, "0.1");
   });
 
-
   it("7.9 % 7.8 => 0.1", () => {
     const res = core.modulo("7.9", "7.8");
     const str = core.numArrayToString(res);
@@ -1984,6 +1983,17 @@ describe("modulo", function(){
     assert.equal(str, "-2.02");
   });
 
+  it("-10.5 % -1.2422 => -0.5624", () => {
+    const res = core.modulo("-10.5", "-1.2422");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-0.5624");
+  });
+
+  it("0.5 % 0.6 => 0.5", () => {
+    const res = core.modulo("0.5", "0.6");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.5");
+  });
 
 
 });
