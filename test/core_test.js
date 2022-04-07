@@ -1989,10 +1989,21 @@ describe("modulo", function(){
     assert.equal(str, "-0.5624");
   });
 
+  it("0.5 % 0.5 => 0", () => {
+    const res = core.modulo("0.5", "0.5");
+    assert.equal(core.isZero(res), true);
+  });
+
   it("0.5 % 0.6 => 0.5", () => {
     const res = core.modulo("0.5", "0.6");
     const str = core.numArrayToString(res);
     assert.equal(str, "0.5");
+  });
+
+  it("0.5 % 0.4 => 0.1", () => {
+    const res = core.modulo("0.5", "0.4");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
   });
 
 
