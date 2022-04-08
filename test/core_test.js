@@ -2006,6 +2006,16 @@ describe("modulo", function(){
     assert.equal(str, "0.1");
   });
 
+  it("0.5 % 0.1 => 0", () => {
+    const res = core.modulo("0.5", "0.1");
+    assert.equal(core.isZero(res), true);
+  });
+
+  it("0.5 % 0.25 => 0", () => {
+    const res = core.modulo("0.5", "0.25");
+    assert.equal(core.isZero(res), true);
+  });
+
 
 });
 
