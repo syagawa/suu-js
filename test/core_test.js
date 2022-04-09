@@ -2016,6 +2016,13 @@ describe("modulo", function(){
     assert.equal(core.isZero(res), true);
   });
 
+  it("0.5 % 0.251 => 0.249", () => {
+    const res = core.modulo("0.5", "0.251");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.249");
+
+  });
+
 
 });
 
