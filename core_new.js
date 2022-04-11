@@ -569,7 +569,7 @@ core.getDecimal = function(n){
 };
 
 
-core.division = function(a, b, need_remain){
+core.division = function(a, b){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
@@ -635,7 +635,7 @@ core.division = function(a, b, need_remain){
     negative = false;
   }
 
-  const calc = function({a, b, max, need_remain}){
+  const calc = function({a, b, max}){
     const result_arr = [];
     let remain = core.getZero();
     const a_ = core.clone(a);
@@ -720,13 +720,11 @@ core.division = function(a, b, need_remain){
           break;
         }
       }
-      // else if(need_remain && core.isLarge(b, ))
 
       const max_count = max;
       while(is_less){
         count = core.add(count, "1");
-        if(core.isLarge(count, max_count) && !need_remain){
-          console.info("---- if(core.isLarge(count, max_count) && !need_remain){");
+        if(core.isLarge(count, max_count)){
           is_less = false;
           break;
         }
@@ -742,42 +740,13 @@ core.division = function(a, b, need_remain){
           is_less = false;
           const result = count;
           result_arr.push(result);
-          if(need_remain){
-            console.info("---- in need_remain equal", "remain", core.numArrayToString(remain), "product", core.numArrayToString(product), "c", c);
-            // remain = core.getZero();
-            const product_length = product.array.length;
-            const pos = c - product_length;
-            console.info("---- in need_remain equal", "pos", pos);
-            
+          remain = core.subtract(remain, product);
 
-            remain_for_modulo = core.subtract(remain_for_modulo, product_for_modulo);
-            console.info("---- in need_remain equal after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
-
-            
-          }else{
-            remain = core.subtract(remain, product);
-          }
           break;
         }
         if(core.isLarge(product, remain)){
           console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
-          if(need_remain){
-            console.info("---- if(need_remain){ large", "product", core.numArrayToString(product), "pre_product", core.numArrayToString(pre_product), "remain", core.numArrayToString(remain), "c", c);
-
-
-
-            if(core.isLarge(remain_for_modulo, pre_product_for_modulo) || core.isEqual(remain_for_modulo, pre_product_for_modulo)){
-              remain_for_modulo = core.subtract(remain_for_modulo, pre_product_for_modulo);
-            }
-            console.info("---- if(need_remain){ large after", "remain_for_modulo2", core.numArrayToString(remain_for_modulo));
-
-
-          }
-          // if(core.isLarge(pre_product, a) && need_remain){
-          //   console.info("---- if(core.isLarge(pre_product, a) && need_remain){ koko1", "pre_product", core.numArrayToString(pre_product), "a", core.numArrayToString(a), "remain", core.numArrayToString(remain));
-          //   break;
-          // }
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
@@ -838,10 +807,6 @@ core.division = function(a, b, need_remain){
       remain_arr = [...remain_arr];
     }
 
-    if(need_remain){
-      decimal_index_remain++;
-      console.info("a_", a_);
-    }
     return {
       new_array: new_arr,
       decimal_index: decimal_index,
@@ -852,9 +817,9 @@ core.division = function(a, b, need_remain){
     }
   };
 
-  const max_times_if_not_divisible = need_remain ? core.getZero() : core.numToArrayWithDecimal("10");
+  const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible, need_remain: need_remain});
+  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
 
   const remainder = core.moldNumArray({
@@ -883,8 +848,8 @@ core.division = function(a, b, need_remain){
   
 };
 
-core.divide = function(a, b, need_remain){
-  return core.division(a, b, need_remain);
+core.divide = function(a, b){
+  return core.division(a, b);
 };
 
 core.floor = function(num){
@@ -967,14 +932,12 @@ core.modulo = function(a, b){
     return a_;
   }
 
-
   if(core.isEqual(a_, b_)){
     return {
       ...core.getZero(),
       remainder: core.getZero(),
     }
   }
-
 
   let negative;
   if(a_.negative){
