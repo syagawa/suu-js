@@ -643,14 +643,11 @@ core.division = function(a, b){
     let decimal_index = a.decimal_index;
     let decimal_index_remain = decimal_index;
 
-    console.log("first calc", "remain: ", remain, "decimal_index: ", decimal_index, "decimal_index_remain: ", decimal_index_remain);
-
     let a_int = core.clone(a_);
     a_int.decimal_index = a_int.array.length;
     let a_zero_length = 0;
     const a_zero_res = a_.array.join("").match(/^0+/);
     if(a_zero_res && a_zero_res[0]){
-      console.info("if(a_zero_res && a_zero_res[0])");
       a_zero_length = a_zero_res[0].length;
       a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
     }
@@ -660,7 +657,6 @@ core.division = function(a, b){
     let b_zero_length = 0;
     const b_zero_res = b_int.array.join("").match(/^0+/);
     if(b_zero_res && b_zero_res[0]){
-      console.info("if(b_zero_res && b_zero_res[0])");
       b_zero_length = b_zero_res[0].length;
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
@@ -673,9 +669,6 @@ core.division = function(a, b){
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const decimal_gap = a_decimal_length - b_decimal_length;
     
-    console.log("a_int: ", a_int);
-    console.log("b_int: ", b_int);
-    console.log("decimal_gap: ", decimal_gap);
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
@@ -694,12 +687,6 @@ core.division = function(a, b){
       const remain1 = core.multiplication(remain, "10");
       const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
       remain = core.add(remain1, remain2);
-      console.info("-- a in for", core.numArrayToString(a));
-      console.info("-- b in for", core.numArrayToString(b));
-      console.info("-- remain in for", core.numArrayToString(remain));
-      console.info("-- c in for", c);
-
-      console.info("-- a_ - remain", core.numArrayToString(core.subtract(a_, remain)));
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
