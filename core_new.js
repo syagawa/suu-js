@@ -690,9 +690,7 @@ core.division = function(a, b){
 
       remain_and_a_len_gap = remain.array.length - a_len;
       let product = core.getZero();
-      let product_for_modulo = core.getZero();
       if(i === a_len){
-        console.info("-- if(i === a_len)");
         decimal_index = i;
         if(core.isZero(remain)){
           break;
@@ -701,7 +699,6 @@ core.division = function(a, b){
           decimal_count = decimal_count++;
         }
       }else if(i > a_len){
-        console.info("-- }else if(i > a_len){");
         decimal_count = decimal_count++;
         if(core.isZero(remain)){
           break;
@@ -716,42 +713,28 @@ core.division = function(a, b){
           break;
         }
         const pre_product = product;
-        const pre_product_for_modulo = product_for_modulo;
         product = core.multiplication(b_int, count);
-        product_for_modulo = core.multiplication(b_, count);
-        console.info("product_for_modulo", core.numArrayToString(product_for_modulo));
-        console.info("pre_product_for_modulo", core.numArrayToString(pre_product_for_modulo));
 
         if(core.isEqual(remain, product)){
-          console.info("---- if(core.isEqual(remain, product)){");
           is_less = false;
           const result = count;
           result_arr.push(result);
           remain = core.subtract(remain, product);
-
           break;
         }
         if(core.isLarge(product, remain)){
-          console.info("---- if(core.isLarge(product, remain))0");
           is_less = false;
           const result = core.subtract(count, "1");
           result_arr.push(result);
           remain = core.subtract(remain, pre_product);
 
-          console.info("---- if(core.isLarge(product, remain))1 pre_product", core.numArrayToString(pre_product));
-          console.info("---- if(core.isLarge(product, remain))1 result_arr", result_arr.map(e => e.array[0]));
-          console.info("---- if(core.isLarge(product, remain))1 remain", core.numArrayToString(remain));
-          console.info("---- if(core.isLarge(product, remain))1 product", core.numArrayToString(product));
           if(remain_is_decimal){
-            console.info("---- if(remain_is_decimal){");
             remain_arr.push(0);
           }
           break;
         }
       }
     }
-    console.info("cccc c", c);
-    console.info("cccc remain", remain);
 
     remain_arr.push(...remain.array);
     const new_arr = result_arr.flatMap(e => e.array);
@@ -814,12 +797,6 @@ core.division = function(a, b){
     negative: negative,
     decimal_index: remain_decimal_index
   });
-
-  // remain_for_modulo.negative = negative;
-  // const remainder = remain_for_modulo;
-
-  console.info("remain_for_modulo!!", remain_for_modulo, remain_for_modulo_decimal_index);
-  console.info("remainder!!", remainder);
 
 
   const quotient = core.moldNumArray({
