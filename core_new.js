@@ -661,27 +661,21 @@ core.division = function(a, b){
       b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
     }
 
-    
     const zero_gap = a_zero_length - b_zero_length;
     const a_array = [...a_int.array];
-    
     const a_decimal_length = a_.array.length - a_.decimal_index;
     const b_decimal_length = b_.array.length - b_.decimal_index;
     const decimal_gap = a_decimal_length - b_decimal_length;
-    
 
     const times = Number(core.add(a_int.array.length, max).array.join(""));
 
     const a_len = a_int.array.length;
     let remain_is_decimal = false;
     let remain_arr = [0];
-    let remain_for_modulo = core.clone(a_);
 
     let decimal_count = 0;
     let remain_and_a_len_gap = 0;
-    let c = 0;
     for(let i = 0; i < times; i++){
-      c++;
       let is_less = true;
       let count = core.getZero();
       const remain1 = core.multiplication(remain, "10");
@@ -782,14 +776,12 @@ core.division = function(a, b){
       decimal_index: decimal_index,
       remain_array: remain_arr,
       remain_decimal_index: decimal_index_remain,
-      remain_for_modulo: remain_for_modulo,
-      remain_for_modulo_decimal_index: remain_for_modulo.decimal_index,
     }
   };
 
   const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
 
-  const { new_array, decimal_index, remain_array, remain_decimal_index, remain_for_modulo, remain_for_modulo_decimal_index } = calc({a: a_, b: b_, max: max_times_if_not_divisible});
+  const { new_array, decimal_index, remain_array, remain_decimal_index} = calc({a: a_, b: b_, max: max_times_if_not_divisible});
 
 
   const remainder = core.moldNumArray({
