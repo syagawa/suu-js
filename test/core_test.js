@@ -1767,6 +1767,14 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
+  it("1 / -1 = -1", () => {
+    const res = core.division("1", "-1");
+    const str = core.numArrayToString(res);
+    const check_result = checkRmainderAndQuotient({ dividend: "1", divisor: "-1", remainder: res.remainder, quotient: res});
+    assert.equal(str, "-1");
+    assert.equal(check_result.equal, true);
+  });
+
 });
 
 describe("floor", function(){
