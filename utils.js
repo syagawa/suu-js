@@ -177,8 +177,11 @@ utils.isOddNumber = function(n){
 };
 
 utils.getDivisors = function(n){
-  const num = utils.getNumber(n);
   const arr = [];
+  if(!n && n !== 0){
+    return arr;
+  }
+  const num = utils.getNumber(n);
   if(!num){
     arr.push(num);
     return arr;
