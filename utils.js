@@ -184,7 +184,9 @@ utils.getDivisors = function(n){
   const num = utils.getNumber(n);
 
   if(!num){
-    arr.push(num);
+    return arr;
+  }
+  if(core.isZero(num)){
     return arr;
   }
   if(utils.isNaturalNumber(num)){
