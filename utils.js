@@ -190,7 +190,7 @@ utils.getDivisors = function(n){
     return arr;
   }
   if(utils.isNaturalNumber(num)){
-    for(let i = 1; core.isLarge(num, i); i++){
+    for(let i = core.getOne(); core.isLarge(num, i); i = core.add(i, "1")){
       const { remainder } = core.division(num, i);
       if(core.isZero(remainder)){
         arr.push(utils.getNumber(i));
