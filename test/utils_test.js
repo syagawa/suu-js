@@ -183,6 +183,14 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getDivisorts", () => {
+    const num1 = utils.getNumber("1");
+    const res1 = utils.getDivisors(num1);
+    const one = res1[0];
+    assert.equal(res1.length, 1);
+    assert.equal("1", core.numArrayToString(one));
+  });
+
 
 
 });
