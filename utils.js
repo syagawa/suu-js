@@ -194,7 +194,11 @@ utils.getDivisors = function(n){
       arr.push(num)
     }else{
       for(let i = core.add("1", "1"); core.isLarge(num, i); i = core.add(i, "1")){
-        const { remainder } = core.division(num, i);
+        const res= core.division(num, i);
+        if(!utils.isNaturalNumber(res)){
+          continue;
+        }
+        const remainder = res.remainder;
         if(core.isZero(remainder)){
           arr.push(utils.getNumber(i));
         }
