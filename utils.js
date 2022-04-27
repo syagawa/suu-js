@@ -193,7 +193,7 @@ utils.getDivisors = function(n){
     if(core.isOne(num)){
       arr.push(num)
     }else{
-      for(let i = core.add("1", "1"); core.isLarge(num, i); i = core.add(i, "1")){
+      for(let i = core.add("1", "1"); core.isEqual(num, i) || core.isLarge(num, i); i = core.add(i, "1")){
         const res= core.division(num, i);
         if(!utils.isNaturalNumber(res)){
           continue;
