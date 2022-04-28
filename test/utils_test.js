@@ -183,7 +183,7 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("getDivisorts 1", () => {
+  it("getDivisors 1", () => {
     const num1 = utils.getNumber("1");
     const res1 = utils.getDivisors(num1);
     const one = res1[0];
@@ -191,15 +191,15 @@ describe("utils", function(){
     assert.equal("1", core.numArrayToString(one));
   });
 
-  // it("getDivisorts 2", () => {
-  //   const num1 = utils.getNumber("2");
-  //   const res1 = utils.getDivisors(num1);
-  //   const one = res1[0];
-  //   const two = res1[1];
-  //   assert.equal(res1.length, 2);
-  //   assert.equal("1", core.numArrayToString(one));
-  //   assert.equal("2", core.numArrayToString(two));
-  // });
+  it("getDivisors 2", () => {
+    const num1 = utils.getNumber("2");
+    const res1 = utils.getDivisors(num1);
+    const one = res1[0];
+    const two = res1[1];
+    assert.equal(res1.length, 2);
+    assert.equal("1", core.numArrayToString(one));
+    assert.equal("2", core.numArrayToString(two));
+  });
 
 
 
