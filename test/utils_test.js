@@ -200,6 +200,21 @@ describe("utils", function(){
     assert.equal("1", core.numArrayToString(one));
     assert.equal("2", core.numArrayToString(two));
   });
+  
+  it("getDivisors 10", () => {
+    const num = utils.getNumber("10");
+    const res = utils.getDivisors(num);
+    const one = res[0];
+    const two = res[1];
+    const five = res[2];
+    const ten = res[3];
+
+    assert.equal(res.length, 4);
+    assert.equal("1", core.numArrayToString(one));
+    assert.equal("2", core.numArrayToString(two));
+    assert.equal("5", core.numArrayToString(five));
+    assert.equal("10", core.numArrayToString(ten));
+  });
 
 
 

@@ -203,7 +203,6 @@ utils.getDivisors = function(n){
           arr.push(utils.getNumber(i));
         }
       }
-      // arr.push(num);
     }
   }
   return arr;
