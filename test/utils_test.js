@@ -216,6 +216,18 @@ describe("utils", function(){
     assert.equal("10", core.numArrayToString(ten));
   });
 
+  it("getDivisors 0", () => {
+    const num = utils.getNumber("0");
+    const res = utils.getDivisors(num);
+    assert.equal(res.length, 0);
+  });
+
+  it("getDivisors 0.5", () => {
+    const num = utils.getNumber("0.5");
+    const res = utils.getDivisors(num);
+    assert.equal(res.length, 0);
+  });
+
 
 
 });
