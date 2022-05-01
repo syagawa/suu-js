@@ -2,6 +2,7 @@ import core from "./core_new.js";
 
 const utils = {};
 
+
 utils.getNumber = function(n){
   return core.numToArrayWithDecimal(n);
 };
@@ -176,6 +177,7 @@ utils.isOddNumber = function(n){
   return false;
 };
 
+
 utils.getDivisors = function(n){
   const arr = [];
   if(!n && n !== 0){
@@ -206,6 +208,34 @@ utils.getDivisors = function(n){
     }
   }
   return arr;
+};
+
+utils.commonDivisors = function(a, b){
+  const arr = [];
+  if(!a && a !== 0){
+    return arr;
+  }
+  if(!b && b !== 0){
+    return arr;
+  }
+
+  const a_ = utils.getNumber(a);
+  const b_ = utils.getNumber(b);
+
+  const a_divisors = utils.getDivisors(a_);
+  const b_divisors = utils.getDivisors(b_);
+  for(let i = 0; i < a_divisors.length; i++){
+    const a_n = a_divisors[i];
+    for(let j = 0; j < b_divisors.length; j++){
+      const b_n = b_divisors[j];
+      if(core.isEqual(a_n, b_n)){
+        arr.push(a_n);
+      }
+    }
+  }
+
+  return arr;
+
 };
 
 export default utils;
