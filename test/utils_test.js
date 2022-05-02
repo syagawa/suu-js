@@ -3,17 +3,6 @@ const app = require("../app.js");
 const core = app.core2;
 const utils = app.utils;
 
-const checkRmainderAndQuotient = function({ dividend, divisor, quotient, remainder}){
-  const temp = core.multiple(divisor, quotient);
-  const result = core.add(temp, remainder);
-  return {
-    dividend_parameter: dividend,
-    dividend_result: result,
-    equal: core.isEqual(result, dividend) ? true : false,
-  }
-};
-
-
 describe("utils", function(){
   it("getNumber", () => {
     const num = utils.getNumber("1");
@@ -183,49 +172,52 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("getDivisors 1", () => {
-    const num1 = utils.getNumber("1");
-    const res1 = utils.getDivisors(num1);
-    const one = res1[0];
-    assert.equal(res1.length, 1);
-    assert.equal("1", core.numArrayToString(one));
-  });
+  describe("getDivisors", function(){
+    it("1", () => {
+      const num1 = utils.getNumber("1");
+      const res1 = utils.getDivisors(num1);
+      const one = res1[0];
+      assert.equal(res1.length, 1);
+      assert.equal("1", core.numArrayToString(one));
+    });
 
-  it("getDivisors 2", () => {
-    const num1 = utils.getNumber("2");
-    const res1 = utils.getDivisors(num1);
-    const one = res1[0];
-    const two = res1[1];
-    assert.equal(res1.length, 2);
-    assert.equal("1", core.numArrayToString(one));
-    assert.equal("2", core.numArrayToString(two));
-  });
-  
-  it("getDivisors 10", () => {
-    const num = utils.getNumber("10");
-    const res = utils.getDivisors(num);
-    const one = res[0];
-    const two = res[1];
-    const five = res[2];
-    const ten = res[3];
 
-    assert.equal(res.length, 4);
-    assert.equal("1", core.numArrayToString(one));
-    assert.equal("2", core.numArrayToString(two));
-    assert.equal("5", core.numArrayToString(five));
-    assert.equal("10", core.numArrayToString(ten));
-  });
+    it("2", () => {
+      const num1 = utils.getNumber("2");
+      const res1 = utils.getDivisors(num1);
+      const one = res1[0];
+      const two = res1[1];
+      assert.equal(res1.length, 2);
+      assert.equal("1", core.numArrayToString(one));
+      assert.equal("2", core.numArrayToString(two));
+    });
+    
+    it("10", () => {
+      const num = utils.getNumber("10");
+      const res = utils.getDivisors(num);
+      const one = res[0];
+      const two = res[1];
+      const five = res[2];
+      const ten = res[3];
 
-  it("getDivisors 0", () => {
-    const num = utils.getNumber("0");
-    const res = utils.getDivisors(num);
-    assert.equal(res.length, 0);
-  });
+      assert.equal(res.length, 4);
+      assert.equal("1", core.numArrayToString(one));
+      assert.equal("2", core.numArrayToString(two));
+      assert.equal("5", core.numArrayToString(five));
+      assert.equal("10", core.numArrayToString(ten));
+    });
 
-  it("getDivisors 0.5", () => {
-    const num = utils.getNumber("0.5");
-    const res = utils.getDivisors(num);
-    assert.equal(res.length, 0);
+    it("0", () => {
+      const num = utils.getNumber("0");
+      const res = utils.getDivisors(num);
+      assert.equal(res.length, 0);
+    });
+
+    it("0.5", () => {
+      const num = utils.getNumber("0.5");
+      const res = utils.getDivisors(num);
+      assert.equal(res.length, 0);
+    });
   });
 
 
