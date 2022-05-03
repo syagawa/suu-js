@@ -223,6 +223,9 @@ utils.commonDivisors = function(a, b){
   const b_ = utils.getNumber(b);
 
   const a_divisors = utils.getDivisors(a_);
+  if(core.isEqual(a_, b_)){
+    return a_divisors;
+  }
   const b_divisors = utils.getDivisors(b_);
   for(let i = 0; i < a_divisors.length; i++){
     const a_n = a_divisors[i];
