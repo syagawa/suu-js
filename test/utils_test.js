@@ -220,8 +220,16 @@ describe("utils", function(){
   });
 
   describe("commonDivisors", function(){
-    it("1", () => {
+    it("1, 1", () => {
       const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("1");
+      const res1 = utils.commonDivisors(num1, num2);
+      assert.equal(res1.length, 1);
+      assert.equal("1", core.numArrayToString(res1[0]));
+    });
+
+    it("2, 1", () => {
+      const num1 = utils.getNumber("2");
       const num2 = utils.getNumber("1");
       const res1 = utils.commonDivisors(num1, num2);
       assert.equal(res1.length, 1);
