@@ -244,6 +244,15 @@ describe("utils", function(){
       assert.equal("1", core.numArrayToString(res1[0]));
       assert.equal("3", core.numArrayToString(res1[1]));
     });
+
+    it("7, 11", () => {
+      const num1 = utils.getNumber("7");
+      const num2 = utils.getNumber("11");
+      const res1 = utils.commonDivisors(num1, num2);
+      assert.equal(res1.length, 1);
+      assert.equal("1", core.numArrayToString(res1[0]));
+    });
+
   });
 
 
