@@ -267,6 +267,15 @@ describe("utils", function(){
       assert.equal(res1.length, 0);
     });
 
+    it("1.5, 3", () => {
+      const num1 = utils.getNumber("1.5");
+      const num2 = utils.getNumber("3");
+      const res1 = utils.commonDivisors(num1, num2);
+      assert.equal(res1.length, 0);
+    });
+
+
+
   });
 
 
