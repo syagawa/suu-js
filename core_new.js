@@ -253,18 +253,6 @@ core.getOne = function(){
   return core.numToArrayWithDecimal("1");
 };
 
-
-core.isNumArray = function(arr){
-  if( arr instanceof Array ){
-    for(let i = 0; i < arr.length; i++){
-      if(!core.isNumber(arr[i]) ){
-        return false;
-      }
-    }
-    return true;
-  }
-};
-
 core.fixCarry = function(arr, minus){
 
   let minus_ = minus;
@@ -295,18 +283,9 @@ core.fixCarry = function(arr, minus){
       val = Number(arr1[arr1.length - 1]);
       const arr2 = arr1.slice(0, arr1.length - 1);
       carry = Number(arr2.join(""));
-      // val = val - 10;
-      // carry = 1;
     }else if( val >= 0 && val <= 9){
       carry = 0;
     }else{
-      // const arr1 = String(val * -1).split("");
-      // const val_ = Number(arr1[arr1.length - 1]) * -1 ;
-      // val = 10 + val_;
-      // const arr2 = arr1.slice(0, arr1.length - 1);
-      // const carry_ = (Number(arr2.join("")));
-      // carry = carry_ === 0 ? 0 : carry_ * -1;
-
       val = 10 + val;
       carry = -1;
 
