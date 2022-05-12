@@ -238,7 +238,23 @@ utils.commonDivisors = function(a, b){
   }
 
   return arr;
+};
 
+utils.commonMultiple = function(a, b){
+  const arr = [];
+  if(!a && a !== 0){
+    return arr;
+  }
+  if(!b && b !== 0){
+    return arr;
+  }
+
+  const a_ = utils.getNumber(a);
+  const b_ = utils.getNumber(b);
+
+  
+
+  return arr;
 };
 
 export default utils;
