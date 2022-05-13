@@ -252,7 +252,10 @@ utils.commonMultiple = function(a, b){
   const a_ = utils.getNumber(a);
   const b_ = utils.getNumber(b);
 
-  
+  if(core.isEqual(a_, b_)){
+    arr.push(a_);
+    return arr;
+  }
 
   return arr;
 };
