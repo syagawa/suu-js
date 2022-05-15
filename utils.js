@@ -239,7 +239,7 @@ utils.commonDivisors = function(a, b){
   return arr;
 };
 
-utils.MaximumCommonDivisors = function(a, b){
+utils.maximumCommonDivisor = function(a, b){
   const arr = utils.commonDivisors(a, b);
   if(!arr.length){
     return null;
