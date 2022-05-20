@@ -247,8 +247,8 @@ utils.maximumCommonDivisor = function(a, b){
   return arr[arr.length - 1];
 };
 
-utils.commonMultiple = function(a, b){
-  const limit = 10;
+utils.commonMultiple = function(a, b, limit){
+  const limit_length = limit ? limit : 10;
   const arr = [];
   if(!a && a !== 0){
     return arr;
@@ -267,11 +267,11 @@ utils.commonMultiple = function(a, b){
 
   const a_arr = [];
   const b_arr = [];
-  for(let i = 1; i <= limit; i++){
+  for(let i = 1; i <= limit_length; i++){
     const a_num = core.multiple(a_, i);
     a_arr.push(a_num);
   }
-  for(let j = 1; j <= limit; j++){
+  for(let j = 1; j <= limit_length; j++){
     const b_num = core.multiple(b_, j);
     b_arr.push(b_num);
   }
@@ -282,7 +282,6 @@ utils.commonMultiple = function(a, b){
       arr.push(tgt);
     }
   });
-
 
   return arr;
 };
