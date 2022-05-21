@@ -286,4 +286,9 @@ utils.commonMultiple = function(a, b, limit){
   return arr;
 };
 
+utils.minimumCommonMultiple = function(a, b, limit){
+  const arr = utils.commonMultiple(a, b, limit);
+  return arr[0];
+};
+
 export default utils;
