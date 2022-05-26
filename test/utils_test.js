@@ -334,6 +334,18 @@ describe("utils", function(){
 
   });
 
+  describe("minimumCommonMultiple", function(){
+    it("1, 1", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("1");
+      const res1 = utils.minimumCommonMultiple(num1, num2);
+      assert.equal("1", core.numArrayToString(res1));
+    });
+
+
+
+  });
+
 });
 
 
