@@ -329,9 +329,8 @@ describe("utils", function(){
       const num1 = utils.getNumber("6.5");
       const num2 = utils.getNumber("9");
       const res1 = utils.commonMultiple(num1, num2);
-      assert.equal("", core.numArrayToString(res1));
+      assert.equal(0, res1.length);
     });
-    
 
   });
 
