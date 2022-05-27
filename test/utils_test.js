@@ -341,6 +341,13 @@ describe("utils", function(){
       const res1 = utils.minimumCommonMultiple(num1, num2);
       assert.equal("1", core.numArrayToString(res1));
     });
+    
+    it("6, 9", () => {
+      const num1 = utils.getNumber("6");
+      const num2 = utils.getNumber("9");
+      const res1 = utils.minimumCommonMultiple(num1, num2);
+      assert.equal("18", core.numArrayToString(res1));
+    });
 
 
 
