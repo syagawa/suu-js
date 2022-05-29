@@ -297,14 +297,14 @@ describe("utils", function(){
       const num1 = utils.getNumber("0");
       const num2 = utils.getNumber("0");
       const res1 = utils.maximumCommonDivisor(num1, num2);
-      assert.equal(null, res1);
+      assert.equal(true, !res1);
     });
 
     it("2.5, 10", () => {
       const num1 = utils.getNumber("2.5");
       const num2 = utils.getNumber("10");
       const res1 = utils.maximumCommonDivisor(num1, num2);
-      assert.equal(null, res1);
+      assert.equal(true, !res1);
     });
   });
 
@@ -353,7 +353,7 @@ describe("utils", function(){
       const num1 = utils.getNumber("6.5");
       const num2 = utils.getNumber("9");
       const res1 = utils.minimumCommonMultiple(num1, num2);
-      assert.equal(undefined, res1);
+      assert.equal(true, !res1);
     });
 
 
