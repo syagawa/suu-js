@@ -239,7 +239,7 @@ utils.commonDivisors = function(a, b){
   return arr;
 };
 
-utils.maximumCommonDivisor = function(a, b){
+utils.greatestCommonDivisor = function(a, b){
   const arr = utils.commonDivisors(a, b);
   if(!arr.length){
     return null;
@@ -286,7 +286,7 @@ utils.commonMultiple = function(a, b, limit){
   return arr;
 };
 
-utils.minimumCommonMultiple = function(a, b, limit){
+utils.leastCommonMultiple = function(a, b, limit){
   const arr = utils.commonMultiple(a, b, limit);
   return arr[0];
 };

@@ -278,32 +278,32 @@ describe("utils", function(){
   });
 
 
-  describe("maximumCommonDivisor", function(){
+  describe("greatestCommonDivisor", function(){
     it("1, 1", () => {
       const num1 = utils.getNumber("1");
       const num2 = utils.getNumber("1");
-      const res1 = utils.maximumCommonDivisor(num1, num2);
+      const res1 = utils.greatestCommonDivisor(num1, num2);
       assert.equal("1", core.numArrayToString(res1));
     });
     
     it("6, 9", () => {
       const num1 = utils.getNumber("6");
       const num2 = utils.getNumber("9");
-      const res1 = utils.maximumCommonDivisor(num1, num2);
+      const res1 = utils.greatestCommonDivisor(num1, num2);
       assert.equal("3", core.numArrayToString(res1));
     });
 
     it("0, 0", () => {
       const num1 = utils.getNumber("0");
       const num2 = utils.getNumber("0");
-      const res1 = utils.maximumCommonDivisor(num1, num2);
+      const res1 = utils.greatestCommonDivisor(num1, num2);
       assert.equal(true, !res1);
     });
 
     it("2.5, 10", () => {
       const num1 = utils.getNumber("2.5");
       const num2 = utils.getNumber("10");
-      const res1 = utils.maximumCommonDivisor(num1, num2);
+      const res1 = utils.greatestCommonDivisor(num1, num2);
       assert.equal(true, !res1);
     });
   });
@@ -334,25 +334,25 @@ describe("utils", function(){
 
   });
 
-  describe("minimumCommonMultiple", function(){
+  describe("leastCommonMultiple", function(){
     it("1, 1", () => {
       const num1 = utils.getNumber("1");
       const num2 = utils.getNumber("1");
-      const res1 = utils.minimumCommonMultiple(num1, num2);
+      const res1 = utils.leastCommonMultiple(num1, num2);
       assert.equal("1", core.numArrayToString(res1));
     });
     
     it("6, 9", () => {
       const num1 = utils.getNumber("6");
       const num2 = utils.getNumber("9");
-      const res1 = utils.minimumCommonMultiple(num1, num2);
+      const res1 = utils.leastCommonMultiple(num1, num2);
       assert.equal("18", core.numArrayToString(res1));
     });
     
     it("6.5, 9", () => {
       const num1 = utils.getNumber("6.5");
       const num2 = utils.getNumber("9");
-      const res1 = utils.minimumCommonMultiple(num1, num2);
+      const res1 = utils.leastCommonMultiple(num1, num2);
       assert.equal(true, !res1);
     });
 
