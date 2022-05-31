@@ -291,4 +291,37 @@ utils.leastCommonMultiple = function(a, b, limit){
   return arr[0];
 };
 
+
+
+utils.makeFibonacciSequence = function(a, b, limit){
+
+  const limit_length = limit ? limit : 100;
+  const arr = []
+
+  if(!a && a !== 0){
+    return arr;
+  }
+
+  if(!b && b !== 0){
+    return arr;
+  }
+
+  const a_ = utils.getNumber(a);
+  const b_ = utils.getNumber(b);
+
+  arr.push(...[a_, b_]);
+
+  const func = function(arr){
+    if(arr.length >= limit_length){
+      return arr;
+    }
+    const a = arr[arr.length - 2];
+    const b = arr[arr.length - 1];
+    const c = core.add(a,b);
+    arr.push(c);
+    return func(arr);
+  };
+  return func(arr);
+};
+
 export default utils;
