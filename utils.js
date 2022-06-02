@@ -324,4 +324,9 @@ utils.makeFibonacciSequence = function(a, b, limit){
   return func(arr);
 };
 
+utils.makeLucaSequence = function(){
+  return utils.makeFibonacciSequence("2", "1");
+};
+
+
 export default utils;
