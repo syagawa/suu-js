@@ -293,23 +293,19 @@ utils.leastCommonMultiple = function(a, b, limit){
 
 
 
-utils.makeFibonacciSequence = function(a, b, limit){
+utils.makeFibonacciSequence = function(first, limit){
 
   const limit_length = limit ? limit : 100;
   const arr = []
 
-  if(!a && a !== 0){
+  if(!first && first !== 0){
     return arr;
   }
 
-  if(!b && b !== 0){
-    return arr;
-  }
+  const a = utils.getNumber(first);
+  const b = core.add(a, "1");
 
-  const a_ = utils.getNumber(a);
-  const b_ = utils.getNumber(b);
-
-  arr.push(...[a_, b_]);
+  arr.push(...[a, b]);
 
   const func = function(arr){
     if(arr.length >= limit_length){

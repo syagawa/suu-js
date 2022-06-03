@@ -361,8 +361,7 @@ describe("utils", function(){
   describe("makeFibonacciSequence", function(){
     it("1, 2", () => {
       const num1 = utils.getNumber("1");
-      const num2 = utils.getNumber("2");
-      const res1 = utils.makeFibonacciSequence(num1, num2);
+      const res1 = utils.makeFibonacciSequence(num1);
       assert.equal("1", core.numArrayToString(res1[0]));
       assert.equal("2", core.numArrayToString(res1[1]));
       assert.equal("3", core.numArrayToString(res1[2]));
