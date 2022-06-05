@@ -324,7 +324,9 @@ utils.makeFibonacciSequence = function(first, limit){
 };
 
 utils.makeLucaSequence = function(){
-  return utils.makeFibonacciSequence("2", "1");
+  const n1 = utils.getNumber("2");
+  const n2 = utils.getNumber("1");
+  return fibonacciCalc([n1, n2], 100);
 };
 
 
