@@ -360,16 +360,18 @@ describe("utils", function(){
 
   describe("makeFibonacciSequence", function(){
     it("1, 2", () => {
-      const num1 = utils.getNumber("1");
+      const num1 = utils.getNumber("0");
       const res1 = utils.makeFibonacciSequence(num1);
-      assert.equal("1", core.numArrayToString(res1[0]));
-      assert.equal("2", core.numArrayToString(res1[1]));
-      assert.equal("3", core.numArrayToString(res1[2]));
-      assert.equal("5", core.numArrayToString(res1[3]));
-      assert.equal("8", core.numArrayToString(res1[4]));
-      assert.equal("13", core.numArrayToString(res1[5]));
-      assert.equal("21", core.numArrayToString(res1[6]));
-      assert.equal("34", core.numArrayToString(res1[7]));
+      assert.equal("0", core.numArrayToString(res1[0]));
+      assert.equal("1", core.numArrayToString(res1[1]));
+      assert.equal("1", core.numArrayToString(res1[2]));
+      assert.equal("2", core.numArrayToString(res1[3]));
+      assert.equal("3", core.numArrayToString(res1[4]));
+      assert.equal("5", core.numArrayToString(res1[5]));
+      assert.equal("8", core.numArrayToString(res1[6]));
+      assert.equal("13", core.numArrayToString(res1[7]));
+      assert.equal("21", core.numArrayToString(res1[8]));
+      assert.equal("34", core.numArrayToString(res1[9]));
 
     });
 
