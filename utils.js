@@ -293,8 +293,11 @@ utils.leastCommonMultiple = function(a, b, limit){
 
 
 const fibonacciCalc = function({array, limit, length}){
+
+  const max = limit ? limit : 100;
+
   const func = function(array){
-    if(array.length >= limit){
+    if(array.length >= max){
       return array;
     }
     let res = utils.getNumber("0");
@@ -309,9 +312,8 @@ const fibonacciCalc = function({array, limit, length}){
   return func(array);
 };
 
-utils.makeFibonacciSequence = function(first, limit){
+utils.makeFibonacciSequence = function(first){
 
-  const limit_length = limit ? limit : 100;
   const arr = []
 
   if(!first && first !== 0){
@@ -323,7 +325,7 @@ utils.makeFibonacciSequence = function(first, limit){
 
   arr.push(...[a, b]);
 
-  return fibonacciCalc({array: arr, limit: limit_length, length: 2});
+  return fibonacciCalc({array: arr, limit: 100, length: 2});
 };
 
 utils.makeLucaSequence = function(){
