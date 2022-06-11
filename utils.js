@@ -315,20 +315,12 @@ const fibonacciCalc = function({array, limit}){
   return func(array);
 };
 
-utils.makeFibonacciSequence = function(first){
-
-  const arr = []
-
-  if(!first && first !== 0){
-    return arr;
-  }
+utils.makeFibonacciSequence = function(first="0"){
 
   const a = utils.getNumber(first);
   const b = core.add(a, "1");
 
-  arr.push(...[a, b]);
-
-  return fibonacciCalc({array: arr, limit: 100});
+  return fibonacciCalc({array: [a, b], limit: 100});
 };
 
 utils.makeLucaSequence = function(){
