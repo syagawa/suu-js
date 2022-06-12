@@ -292,7 +292,7 @@ utils.leastCommonMultiple = function(a, b, limit){
 };
 
 
-const fibonacciCalc = function({array, limit}){
+const fibonacciReccurenceRelation = function({array, limit}){
 
   const max = limit ? limit : 100;
 
@@ -320,13 +320,13 @@ utils.makeFibonacciSequence = function(first="0"){
   const a = utils.getNumber(first);
   const b = core.add(a, "1");
 
-  return fibonacciCalc({array: [a, b], limit: 100});
+  return fibonacciReccurenceRelation({array: [a, b], limit: 100});
 };
 
 utils.makeLucaSequence = function(){
   const n1 = utils.getNumber("2");
   const n2 = utils.getNumber("1");
-  return fibonacciCalc({array: [n1, n2], limit: 100});
+  return fibonacciReccurenceRelation({array: [n1, n2], limit: 100});
 };
 
 
