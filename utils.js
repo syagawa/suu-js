@@ -316,41 +316,43 @@ const fibonacciReccurenceRelation = function({array, limit}){
 };
 
 utils.makeFibonacciSequence = function(first="0"){
-
   const a = utils.getNumber(first);
   const b = core.add(a, "1");
-
   return fibonacciReccurenceRelation({array: [a, b], limit: 100});
 };
 
 utils.makeTribonacciSequence = function(){
-
   const a = utils.getNumber("0");
   const b = utils.getNumber("0");
   const c = utils.getNumber("1");
-
   return fibonacciReccurenceRelation({array: [a, b, c], limit: 100});
 };
 
 utils.makeTetranacciSequence = function(){
-
   const a = utils.getNumber("0");
   const b = utils.getNumber("0");
   const c = utils.getNumber("0");
   const d = utils.getNumber("1");
-
   return fibonacciReccurenceRelation({array: [a, b, c, d], limit: 100});
 };
 
 utils.makePentanacciSequence = function(){
-
   const a = utils.getNumber("0");
   const b = utils.getNumber("0");
   const c = utils.getNumber("0");
   const d = utils.getNumber("0");
   const e = utils.getNumber("1");
-
   return fibonacciReccurenceRelation({array: [a, b, c, d, e], limit: 100});
+};
+
+utils.makeHexanacciSequence = function(){
+  const a = utils.getNumber("0");
+  const b = utils.getNumber("0");
+  const c = utils.getNumber("0");
+  const d = utils.getNumber("0");
+  const e = utils.getNumber("0");
+  const f = utils.getNumber("1");
+  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f], limit: 100});
 };
 
 utils.makeLucaSequence = function(){
