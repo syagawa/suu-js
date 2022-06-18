@@ -366,6 +366,18 @@ utils.makeHeptanacciSequence = function(){
   return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g], limit: 100});
 };
 
+utils.makeOctanacciSequence = function(){
+  const a = utils.getNumber("0");
+  const b = utils.getNumber("0");
+  const c = utils.getNumber("0");
+  const d = utils.getNumber("0");
+  const e = utils.getNumber("0");
+  const f = utils.getNumber("0");
+  const g = utils.getNumber("0");
+  const h = utils.getNumber("1");
+  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h], limit: 100});
+};
+
 utils.makeLucaSequence = function(){
   const n1 = utils.getNumber("2");
   const n2 = utils.getNumber("1");
