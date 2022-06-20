@@ -391,6 +391,20 @@ utils.makeNonanacciSequence = function(){
   return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i], limit: 100});
 };
 
+utils.makeDecanacciSequence = function(){
+  const a = utils.getNumber("0");
+  const b = utils.getNumber("0");
+  const c = utils.getNumber("0");
+  const d = utils.getNumber("0");
+  const e = utils.getNumber("0");
+  const f = utils.getNumber("0");
+  const g = utils.getNumber("0");
+  const h = utils.getNumber("0");
+  const i = utils.getNumber("0");
+  const j = utils.getNumber("1");
+  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i, j], limit: 100});
+};
+
 utils.makeLucaSequence = function(){
   const n1 = utils.getNumber("2");
   const n2 = utils.getNumber("1");
