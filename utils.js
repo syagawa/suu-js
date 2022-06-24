@@ -315,9 +315,9 @@ const fibonacciReccurenceRelation = function({array, limit}){
   return func(array);
 };
 
-utils.makeFibonacciSequence = function(first="0"){
+utils.makeFibonacciSequence = function(first="0", last="1"){
   const a = utils.getNumber(first);
-  const b = core.add(a, "1");
+  const b = utils.getNumber(last);
   return fibonacciReccurenceRelation({array: [a, b], limit: 100});
 };
 
