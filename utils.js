@@ -315,16 +315,31 @@ const fibonacciReccurenceRelation = function({array, limit}){
   return func(array);
 };
 
-utils.makeFibonacciSequence = function(first="0", last="1"){
+const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }){
+  const len = length;
   const a = utils.getNumber(first);
   const b = utils.getNumber(last);
-  return fibonacciReccurenceRelation({array: [a, b], limit: 100});
+  const arr = [];
+  for(let i = 0; i < len; i++){
+    let tgt = a;
+    if(i === (len -1)){
+      tgt = b;
+    }
+    arr.push(tgt);
+  }
+  return arr;
+};
+
+utils.makeFibonacciSequence = function(first="0", last="1"){
+  const arr = makeFibonacciInitialArray({first, last, length: 2});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeTribonacciSequence = function(){
   const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("1");
+  const b = utils.getNumber("1");
+
+
   return fibonacciReccurenceRelation({array: [a, b, c], limit: 100});
 };
 
