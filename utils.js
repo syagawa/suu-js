@@ -336,144 +336,58 @@ utils.makeFibonacciSequence = function(first="0", last="1"){
 };
 
 utils.makeTribonacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("1");
-
-
-  return fibonacciReccurenceRelation({array: [a, b, c], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 3});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeTetranacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 4});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makePentanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 5});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeHexanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 6});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeHeptanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 7});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeOctanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 8});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeNonanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("0");
-  const i = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 9});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeDecanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("0");
-  const i = utils.getNumber("0");
-  const j = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i, j], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 10});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeUndecanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("0");
-  const i = utils.getNumber("0");
-  const j = utils.getNumber("0");
-  const k = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i, j, k], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 11});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeDodecanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("0");
-  const i = utils.getNumber("0");
-  const j = utils.getNumber("0");
-  const k = utils.getNumber("0");
-  const l = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i, j, k, l], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 12});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeIcosanacciSequence = function(){
-  const a = utils.getNumber("0");
-  const b = utils.getNumber("0");
-  const c = utils.getNumber("0");
-  const d = utils.getNumber("0");
-  const e = utils.getNumber("0");
-  const f = utils.getNumber("0");
-  const g = utils.getNumber("0");
-  const h = utils.getNumber("0");
-  const i = utils.getNumber("0");
-  const j = utils.getNumber("0");
-  const k = utils.getNumber("0");
-  const l = utils.getNumber("0");
-  const m = utils.getNumber("0");
-  const n = utils.getNumber("0");
-  const o = utils.getNumber("0");
-  const p = utils.getNumber("0");
-  const q = utils.getNumber("0");
-  const r = utils.getNumber("0");
-  const s = utils.getNumber("0");
-  const t = utils.getNumber("1");
-
-  return fibonacciReccurenceRelation({array: [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 20});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 utils.makeLucaSequence = function(){
