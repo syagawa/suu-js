@@ -359,7 +359,7 @@ describe("utils", function(){
   });
 
   describe("makeFibonacciSequence", function(){
-    it("1, 2", () => {
+    it("0, 1", () => {
       const num1 = utils.getNumber("0");
       const res1 = utils.makeFibonacciSequence(num1);
       assert.equal("0", core.numArrayToString(res1[0]));
@@ -372,7 +372,22 @@ describe("utils", function(){
       assert.equal("13", core.numArrayToString(res1[7]));
       assert.equal("21", core.numArrayToString(res1[8]));
       assert.equal("34", core.numArrayToString(res1[9]));
+    });
 
+  });
+  describe("makeTribonacciSequence", function(){
+    it("0, 0, 1", () => {
+      const res1 = utils.makeTribonacciSequence();
+      assert.equal("0", core.numArrayToString(res1[0]));
+      assert.equal("0", core.numArrayToString(res1[1]));
+      assert.equal("1", core.numArrayToString(res1[2]));
+      assert.equal("1", core.numArrayToString(res1[3]));
+      assert.equal("2", core.numArrayToString(res1[4]));
+      assert.equal("4", core.numArrayToString(res1[5]));
+      assert.equal("7", core.numArrayToString(res1[6]));
+      assert.equal("13", core.numArrayToString(res1[7]));
+      assert.equal("24", core.numArrayToString(res1[8]));
+      assert.equal("44", core.numArrayToString(res1[9]));
     });
 
   });
