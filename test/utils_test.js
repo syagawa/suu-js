@@ -407,6 +407,22 @@ describe("utils", function(){
     });
   });
 
+  describe("makePentanacciSequence", function(){
+    it("0, 0, 0, 1", () => {
+      const res1 = utils.makePentanacciSequence();
+      assert.equal("0", core.numArrayToString(res1[0]));
+      assert.equal("0", core.numArrayToString(res1[1]));
+      assert.equal("0", core.numArrayToString(res1[2]));
+      assert.equal("0", core.numArrayToString(res1[3]));
+      assert.equal("1", core.numArrayToString(res1[4]));
+      assert.equal("1", core.numArrayToString(res1[5]));
+      assert.equal("2", core.numArrayToString(res1[6]));
+      assert.equal("4", core.numArrayToString(res1[7]));
+      assert.equal("8", core.numArrayToString(res1[8]));
+      assert.equal("16", core.numArrayToString(res1[9]));
+    });
+  });
+
 });
 
 
