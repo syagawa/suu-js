@@ -442,6 +442,27 @@ describe("utils", function(){
     });
   });
 
+  describe("makeHeptanacciSequence", function(){
+    it("0, 0, 0, 0, 0, 0, 1", () => {
+      const res1 = utils.makeHeptanacciSequence();
+      assert.equal("0", core.numArrayToString(res1[0]));
+      assert.equal("0", core.numArrayToString(res1[1]));
+      assert.equal("0", core.numArrayToString(res1[2]));
+      assert.equal("0", core.numArrayToString(res1[3]));
+      assert.equal("0", core.numArrayToString(res1[4]));
+      assert.equal("0", core.numArrayToString(res1[5]));
+      assert.equal("1", core.numArrayToString(res1[6]));
+      assert.equal("1", core.numArrayToString(res1[7]));
+      assert.equal("2", core.numArrayToString(res1[8]));
+      assert.equal("4", core.numArrayToString(res1[9]));
+      assert.equal("8", core.numArrayToString(res1[10]));
+      assert.equal("16", core.numArrayToString(res1[11]));
+      assert.equal("32", core.numArrayToString(res1[12]));
+      assert.equal("64", core.numArrayToString(res1[13]));
+      assert.equal("127", core.numArrayToString(res1[14]));
+    });
+  });
+
 });
 
 
