@@ -598,6 +598,51 @@ describe("utils", function(){
     });
   });
 
+  describe("makeIcosanacciSequence", function(){
+    it("0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1", () => {
+      const res1 = utils.makeIcosanacciSequence();
+      assert.equal("0", core.numArrayToString(res1[0]));
+      assert.equal("0", core.numArrayToString(res1[1]));
+      assert.equal("0", core.numArrayToString(res1[2]));
+      assert.equal("0", core.numArrayToString(res1[3]));
+      assert.equal("0", core.numArrayToString(res1[4]));
+      assert.equal("0", core.numArrayToString(res1[5]));
+      assert.equal("0", core.numArrayToString(res1[6]));
+      assert.equal("0", core.numArrayToString(res1[7]));
+      assert.equal("0", core.numArrayToString(res1[8]));
+      assert.equal("0", core.numArrayToString(res1[9]));
+      assert.equal("0", core.numArrayToString(res1[10]));
+      assert.equal("0", core.numArrayToString(res1[11]));
+      assert.equal("0", core.numArrayToString(res1[12]));
+      assert.equal("0", core.numArrayToString(res1[13]));
+      assert.equal("0", core.numArrayToString(res1[14]));
+      assert.equal("0", core.numArrayToString(res1[15]));
+      assert.equal("0", core.numArrayToString(res1[16]));
+      assert.equal("0", core.numArrayToString(res1[17]));
+      assert.equal("1", core.numArrayToString(res1[18]));
+      assert.equal("1", core.numArrayToString(res1[19]));
+      assert.equal("2", core.numArrayToString(res1[20]));
+      assert.equal("4", core.numArrayToString(res1[21]));
+      assert.equal("8", core.numArrayToString(res1[22]));
+      assert.equal("16", core.numArrayToString(res1[23]));
+      assert.equal("32", core.numArrayToString(res1[24]));
+      assert.equal("64", core.numArrayToString(res1[25]));
+      assert.equal("128", core.numArrayToString(res1[26]));
+      assert.equal("256", core.numArrayToString(res1[27]));
+      assert.equal("512", core.numArrayToString(res1[28]));
+      assert.equal("1024", core.numArrayToString(res1[29]));
+      assert.equal("2048", core.numArrayToString(res1[30]));
+      assert.equal("4096", core.numArrayToString(res1[31]));
+      assert.equal("8192", core.numArrayToString(res1[32]));
+      assert.equal("16384", core.numArrayToString(res1[33]));
+      assert.equal("32768", core.numArrayToString(res1[34]));
+      assert.equal("65536", core.numArrayToString(res1[35]));
+      assert.equal("131072", core.numArrayToString(res1[36]));
+      assert.equal("262144", core.numArrayToString(res1[37]));
+      assert.equal("524287", core.numArrayToString(res1[38]));
+    });
+  });
+
 
 
 });
