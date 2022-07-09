@@ -298,7 +298,6 @@ const fibonacciReccurenceRelation = function({array, limit}){
 
   const items_length = array.length;
 
-
   const func = function(array){
     if(array.length >= max){
       return array;
@@ -391,9 +390,8 @@ utils.makeIcosanacciSequence = function(){
 };
 
 utils.makeLucaSequence = function(){
-  const n1 = utils.getNumber("2");
-  const n2 = utils.getNumber("1");
-  return fibonacciReccurenceRelation({array: [n1, n2], limit: 100});
+  const arr = makeFibonacciInitialArray({first: "2", last: "1", length: 2});
+  return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
 
