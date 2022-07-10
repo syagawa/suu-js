@@ -646,6 +646,22 @@ describe("utils", function(){
   });
 
 
+  describe("makeLucaSequence", function(){
+    it("0, 1", () => {
+      const res = utils.makeLucaSequence();
+      assert.equal("2", core.numArrayToString(res[0]));
+      assert.equal("1", core.numArrayToString(res[1]));
+      assert.equal("3", core.numArrayToString(res[2]));
+      assert.equal("4", core.numArrayToString(res[3]));
+      assert.equal("7", core.numArrayToString(res[4]));
+      assert.equal("11", core.numArrayToString(res[5]));
+      assert.equal("18", core.numArrayToString(res[6]));
+      assert.equal("29", core.numArrayToString(res[7]));
+      assert.equal("47", core.numArrayToString(res[8]));
+      assert.equal("76", core.numArrayToString(res[9]));
+    });
+  });
+
 
 });
 
