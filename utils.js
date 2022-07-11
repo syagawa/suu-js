@@ -394,6 +394,15 @@ utils.makeLucaSequence = function(){
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
+utils.summation = function({array}){
+  let sum = utils.getNumber("0");
+  if(Array.isArray(array)){
+    for(let i = 0; i < array.length; i++){
+      sum = core.add(sum, array[i]);
+    }
+  }
+  return sum;
+};
 
 
 export default utils;
