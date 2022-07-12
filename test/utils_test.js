@@ -662,6 +662,13 @@ describe("utils", function(){
     });
   });
 
+  describe("summation", function(){
+    it("0, 1", () => {
+      const res = utils.summation({array: ["1", "2"]});
+      assert.equal("3", core.numArrayToString(res));
+    });
+  });
+
 
 });
 
