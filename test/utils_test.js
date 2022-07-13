@@ -663,9 +663,15 @@ describe("utils", function(){
   });
 
   describe("summation", function(){
-    it("0, 1", () => {
+    
+    it("1, 2 => 3", () => {
       const res = utils.summation({array: ["1", "2"]});
       assert.equal("3", core.numArrayToString(res));
+    });
+    
+    it("1, 2, 3, 4, 5 => 15", () => {
+      const res = utils.summation({array: ["1", "2", "3", "4", "5"]});
+      assert.equal("15", core.numArrayToString(res));
     });
   });
 
