@@ -404,5 +404,15 @@ utils.summation = function({array}){
   return sum;
 };
 
+utils.soujou = function({array}){
+  let res = utils.getNumber("0");
+  if(Array.isArray(array)){
+    for(let i = 0; i < array.length; i++){
+      res = core.multiple(res, array[i]);
+    }
+  }
+  return res;
+};
+
 
 export default utils;
