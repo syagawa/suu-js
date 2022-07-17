@@ -405,7 +405,6 @@ utils.summation = function({array}){
 };
 
 utils.infiniteProduct = function({array}){
-  // 総乗/総積
   let res = utils.getNumber("0");
   if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++){
@@ -413,6 +412,23 @@ utils.infiniteProduct = function({array}){
     }
   }
   return res;
+};
+
+
+utils.whatIs = function({name="", lang="ja"}){
+  if(!name){
+    return "";
+  }
+  const map = {
+    getNumber: {
+      ja: "suu オブジェクトの取得",
+    },
+    copy: {
+      ja: "suu オブジェクトをコピーする",
+    }
+  };
+  const tgt = map[name];
+  return tgt && tgt[lang] ? tgt[lang] : "";
 };
 
 
