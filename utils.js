@@ -419,12 +419,24 @@ utils.whatIs = function({name="", lang="ja"}){
   if(!name){
     return "";
   }
+
+  const exists = utils[name] ? true : false;
+  if(!exists){
+    return "";
+  }
+
   const map = {
     getNumber: {
       ja: "suu オブジェクトの取得",
     },
     copy: {
       ja: "suu オブジェクトをコピーする",
+    },
+    getLarge: {
+      ja:  "2つの数のうち大きい方を取得する"
+    },
+    getSmall: {
+      ja:  "2つの数のうち小さい方を取得する"
     }
   };
   const tgt = map[name];
