@@ -404,7 +404,13 @@ utils.summation = function({array}){
   return sum;
 };
 
-utils.infiniteProduct = function({array}){
+utils.infiniteProduct = function({array, what}){
+  if(what){
+    return {
+      ja: "総乗/総積"
+    };
+  }
+
   let res = utils.getNumber("0");
   if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++){
@@ -420,27 +426,32 @@ utils.whatIs = function({name="", lang="ja"}){
     return "";
   }
 
-  const exists = utils[name] ? true : false;
+  const target = utils[name]
+
+  const exists = target ? true : false;
   if(!exists){
     return "";
   }
 
-  const map = {
-    getNumber: {
-      ja: "suu オブジェクトの取得",
-    },
-    copy: {
-      ja: "suu オブジェクトをコピーする",
-    },
-    getLarge: {
-      ja:  "2つの数のうち大きい方を取得する"
-    },
-    getSmall: {
-      ja:  "2つの数のうち小さい方を取得する"
-    }
-  };
-  const tgt = map[name];
-  return tgt && tgt[lang] ? tgt[lang] : "";
+  const res = target({what: true});
+  return res && res[lang] ? res[lang] : "";
+
+  // const map = {
+  //   getNumber: {
+  //     ja: "suu オブジェクトの取得",
+  //   },
+  //   copy: {
+  //     ja: "suu オブジェクトをコピーする",
+  //   },
+  //   getLarge: {
+  //     ja:  "2つの数のうち大きい方を取得する"
+  //   },
+  //   getSmall: {
+  //     ja:  "2つの数のうち小さい方を取得する"
+  //   }
+  // };
+  // const tgt = map[name];
+  // return tgt && tgt[lang] ? tgt[lang] : "";
 };
 
 
