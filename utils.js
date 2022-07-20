@@ -394,7 +394,13 @@ utils.makeLucaSequence = function(){
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.summation = function({array}){
+utils.summation = function({array, what}){
+  if(what){
+    return {
+      ja: "総和"
+    };
+  }
+  
   let sum = utils.getNumber("0");
   if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++){
@@ -435,23 +441,6 @@ utils.whatIs = function({name="", lang="ja"}){
 
   const res = target({what: true});
   return res && res[lang] ? res[lang] : "";
-
-  // const map = {
-  //   getNumber: {
-  //     ja: "suu オブジェクトの取得",
-  //   },
-  //   copy: {
-  //     ja: "suu オブジェクトをコピーする",
-  //   },
-  //   getLarge: {
-  //     ja:  "2つの数のうち大きい方を取得する"
-  //   },
-  //   getSmall: {
-  //     ja:  "2つの数のうち小さい方を取得する"
-  //   }
-  // };
-  // const tgt = map[name];
-  // return tgt && tgt[lang] ? tgt[lang] : "";
 };
 
 
