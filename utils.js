@@ -440,7 +440,16 @@ utils.whatIs = function({name="", lang="ja"}){
   }
 
   const res = target({what: true});
-  return res && res[lang] ? res[lang] : "";
+  if(res && res[lang]){
+    return res[lang];
+  }
+  const other_lang = Object.keys(res)[0];
+  if(other_lang){
+    return res[other_lang];
+  }
+
+  return "";
+
 };
 
 
