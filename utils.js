@@ -286,7 +286,8 @@ utils.commonMultiple = function(a, b, limit){
   return arr;
 };
 
-utils.leastCommonMultiple = function(a, b, limit, what){
+utils.leastCommonMultiple = function(a, b, limit){
+  const what = a && a.what ? true : false;
   if(what){
     return {
       ja: "最小公倍数"
