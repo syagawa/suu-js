@@ -248,6 +248,14 @@ utils.greatestCommonDivisor = function(a, b){
 };
 
 utils.commonMultiple = function(a, b, limit){
+
+  const what = a && a.what ? true : false;
+  if(what){
+    return {
+      ja: "公倍数"
+    };
+  }
+
   const limit_length = limit ? limit : 10;
   const arr = [];
   if(!a && a !== 0){
