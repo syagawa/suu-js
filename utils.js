@@ -240,6 +240,12 @@ utils.commonDivisors = function(a, b){
 };
 
 utils.greatestCommonDivisor = function(a, b){
+  const what = a && a.what ? true : false;
+  if(what){
+    return {
+      ja: "最大公約数"
+    };
+  }
   const arr = utils.commonDivisors(a, b);
   if(!arr.length){
     return null;
