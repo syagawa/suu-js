@@ -211,6 +211,12 @@ utils.getDivisors = function(n){
 };
 
 utils.commonDivisors = function(a, b){
+  const what = a && a.what ? true : false;
+  if(what){
+    return {
+      ja: "公約数"
+    };
+  }
   const arr = [];
   if(!a && a !== 0){
     return arr;
