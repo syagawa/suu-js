@@ -3,7 +3,9 @@ import core from "./core_new.js";
 import utils from "./utils.js";
 
 const map = {
-
+  infiniteProduct: {
+    ja: "総乗/総積"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}){
@@ -18,7 +20,7 @@ const whatIs = function({name="", lang="ja"}){
     return "";
   }
 
-  const res = target({what: true});
+  const res = map[name];
   if(res && res[lang]){
     return res[lang];
   }

@@ -436,13 +436,7 @@ utils.summation = function({array, what}){
   return sum;
 };
 
-utils.infiniteProduct = function({array, what}){
-  if(what){
-    return {
-      ja: "総乗/総積"
-    };
-  }
-
+utils.infiniteProduct = function({array}){
   let res = utils.getNumber("0");
   if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++){
@@ -453,30 +447,7 @@ utils.infiniteProduct = function({array, what}){
 };
 
 
-utils.whatIs = function({name="", lang="ja"}){
-  if(!name){
-    return "";
-  }
 
-  const target = utils[name]
-
-  const exists = target ? true : false;
-  if(!exists){
-    return "";
-  }
-
-  const res = target({what: true});
-  if(res && res[lang]){
-    return res[lang];
-  }
-  const other_lang = Object.keys(res)[0];
-  if(other_lang){
-    return res[other_lang];
-  }
-
-  return "";
-
-};
 
 
 export default utils;
