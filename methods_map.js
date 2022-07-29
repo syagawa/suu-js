@@ -5,6 +5,9 @@ import utils from "./utils.js";
 const map = {
   infiniteProduct: {
     ja: "総乗/総積"
+  },
+  summation: {
+    ja: "総和"
   }
 };
 
