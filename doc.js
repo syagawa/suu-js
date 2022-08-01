@@ -8,6 +8,15 @@ const map = {
   },
   summation: {
     ja: "総和"
+  },
+  commonMultiple: {
+    ja: "公倍数"
+  },
+  greatestCommonDivisor: {
+    ja: "最大公約数"
+  },
+  commonDivisors: {
+    js: "公約数"
   }
 };
 

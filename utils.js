@@ -211,12 +211,6 @@ utils.getDivisors = function(n){
 };
 
 utils.commonDivisors = function(a, b){
-  const what = a && a.what ? true : false;
-  if(what){
-    return {
-      ja: "公約数"
-    };
-  }
   const arr = [];
   if(!a && a !== 0){
     return arr;
@@ -246,12 +240,6 @@ utils.commonDivisors = function(a, b){
 };
 
 utils.greatestCommonDivisor = function(a, b){
-  const what = a && a.what ? true : false;
-  if(what){
-    return {
-      ja: "最大公約数"
-    };
-  }
   const arr = utils.commonDivisors(a, b);
   if(!arr.length){
     return null;
@@ -260,13 +248,6 @@ utils.greatestCommonDivisor = function(a, b){
 };
 
 utils.commonMultiple = function(a, b, limit){
-
-  const what = a && a.what ? true : false;
-  if(what){
-    return {
-      ja: "公倍数"
-    };
-  }
 
   const limit_length = limit ? limit : 10;
   const arr = [];
