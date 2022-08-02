@@ -16,7 +16,10 @@ const map = {
     ja: "最大公約数"
   },
   commonDivisors: {
-    js: "公約数"
+    ja: "公約数"
+  },
+  makeFibonacciSequence: {
+    ja: "フィボナッチ数列"
   }
 };
 
