@@ -416,6 +416,14 @@ utils.infiniteProduct = function({array}){
 };
 
 
+utils.digitSum = function(num){
+  const n = utils.getNumber(num);
+  let res = utils.getNumber("0");
+  n.array.forEach(item => {
+    res = core.add(res, item);
+  })
+  return res;
+}
 
 
 

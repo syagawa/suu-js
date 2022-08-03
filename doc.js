@@ -1,14 +1,7 @@
 import core from "./core_new.js";
-
 import utils from "./utils.js";
 
 const map = {
-  infiniteProduct: {
-    ja: "総乗/総積"
-  },
-  summation: {
-    ja: "総和"
-  },
   commonMultiple: {
     ja: "公倍数"
   },
@@ -20,7 +13,13 @@ const map = {
   },
   makeFibonacciSequence: {
     ja: "フィボナッチ数列"
-  }
+  },
+  summation: {
+    ja: "総和"
+  },
+  infiniteProduct: {
+    ja: "総乗/総積"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}){
