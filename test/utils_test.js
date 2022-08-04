@@ -680,6 +680,27 @@ describe("utils", function(){
     });
 
   });
+  
+  describe("digitSum", function(){
+    
+    it("0 => 0", () => {
+      const res = utils.digitSum("0");
+      assert.equal("0", core.numArrayToString(res));
+    });
+
+
+    it("123 => 6", () => {
+      const res = utils.digitSum("123");
+      assert.equal("6", core.numArrayToString(res));
+    });
+
+    it("123456789 => 45", () => {
+      const res = utils.digitSum("123456789");
+      assert.equal("45", core.numArrayToString(res));
+    });
+    
+
+  });
 
 
 });
