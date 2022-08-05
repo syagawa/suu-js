@@ -20,6 +20,9 @@ const map = {
   infiniteProduct: {
     ja: "総乗/総積"
   },
+  digitSum: {
+    ja: "数字和/各桁の総和"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}){
