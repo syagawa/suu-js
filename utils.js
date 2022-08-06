@@ -421,9 +421,22 @@ utils.digitSum = function(num){
   let res = utils.getNumber("0");
   n.array.forEach(item => {
     res = core.add(res, item);
-  })
+  });
   return res;
-}
+};
+
+utils.makeTriangleNumber = function(num){
+  const n = utils.getNumber(num);
+  if(core.isZero(n)){
+    return null;
+  }
+  if(utils.isNegative(n)){
+    return null;
+  }
+  const  res1 = core.multiple(n, core.add(num, "1"));
+  const res2 = core.divide(res1, "2");
+  return res2;
+};
 
 
 
