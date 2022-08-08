@@ -707,6 +707,18 @@ describe("utils", function(){
       const res = utils.makeTriangleNumber("1");
       assert.equal("1", core.numArrayToString(res));
     });
+    it("2 => 3", () => {
+      const res = utils.makeTriangleNumber("2");
+      assert.equal("3", core.numArrayToString(res));
+    });
+    it("3 => 6", () => {
+      const res = utils.makeTriangleNumber("3");
+      assert.equal("6", core.numArrayToString(res));
+    });
+    it("4 => 10", () => {
+      const res = utils.makeTriangleNumber("4");
+      assert.equal("10", core.numArrayToString(res));
+    });
 
   });
 
