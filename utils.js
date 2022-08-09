@@ -438,6 +438,18 @@ utils.makeTriangleNumber = function(num){
   return res2;
 };
 
+utils.makePronicNumber = function(num){
+  const n = utils.getNumber(num);
+  if(core.isZero(n)){
+    return null;
+  }
+  if(utils.isNegative(n)){
+    return null;
+  }
+  const  res = core.multiple(n, core.add(num, "1"));
+  return res
+};
+
 
 
 export default utils;

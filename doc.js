@@ -23,6 +23,12 @@ const map = {
   digitSum: {
     ja: "数字和/各桁の総和"
   },
+  makeTriangleNumber: {
+    ja: "三角数"
+  },
+  makePronicNumber: {
+    ja: "矩形数"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}){
