@@ -721,6 +721,27 @@ describe("utils", function(){
     });
 
   });
+  
+  describe("makePronicNumber", function(){
+    
+    it("1 => 2", () => {
+      const res = utils.makePronicNumber("1");
+      assert.equal("2", core.numArrayToString(res));
+    });
+    it("2 => 6", () => {
+      const res = utils.makePronicNumber("2");
+      assert.equal("6", core.numArrayToString(res));
+    });
+    it("3 => 12", () => {
+      const res = utils.makePronicNumber("3");
+      assert.equal("12", core.numArrayToString(res));
+    });
+    it("4 => 20", () => {
+      const res = utils.makePronicNumber("4");
+      assert.equal("20", core.numArrayToString(res));
+    });
+
+  });
 
 
 });
