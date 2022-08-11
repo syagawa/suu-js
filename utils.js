@@ -447,7 +447,33 @@ utils.makePronicNumber = function(num){
     return null;
   }
   const  res = core.multiple(n, core.add(num, "1"));
-  return res
+  return res;
+};
+utils.factorial = function(num){
+  const n = utils.getNumber(num);
+  if(core.isZero(n)){
+    return null;
+  }
+  if(utils.isNegative(n)){
+    return null;
+  }
+  if(!utils.isInteger(n)){
+    return null;
+  }
+
+  let go = true;
+  let temp = n;
+  while(go){
+    const a = temp;
+    const b = core.subtract(a, "1");
+    if(core.isSmall(b, "1")){
+      go = false;
+      break;
+    }
+    temp = core.multiple(a, b);
+  }
+
+  return temp;
 };
 
 
