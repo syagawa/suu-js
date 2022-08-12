@@ -742,6 +742,14 @@ describe("utils", function(){
     });
 
   });
+  describe("factorial", function(){
+    
+    it("1 => 1", () => {
+      const res = utils.factorial("1");
+      assert.equal("1", core.numArrayToString(res));
+    });
+
+  });
 
 
 });

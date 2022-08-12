@@ -28,7 +28,11 @@ const map = {
   },
   makePronicNumber: {
     ja: "矩形数"
-  }
+  },
+  factorial: {
+    ja: "階乗"
+  },
+
 };
 
 const whatIs = function({name="", lang="ja"}){
