@@ -463,14 +463,16 @@ utils.factorial = function(num){
 
   let go = true;
   let temp = n;
+  let current = n;
   while(go){
-    const a = temp;
-    const b = core.subtract(a, "1");
+    const a = current;
+    const b = core.subtract(current, "1");
     if(core.isSmall(b, "1")){
       go = false;
       break;
     }
     temp = core.multiple(a, b);
+    current = b;
   }
 
   return temp;
