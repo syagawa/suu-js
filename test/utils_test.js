@@ -763,6 +763,11 @@ describe("utils", function(){
       const res = utils.factorial("4");
       assert.equal("24", core.numArrayToString(res));
     });
+    
+    it("5 => 120", () => {
+      const res = utils.factorial("5");
+      assert.equal("120", core.numArrayToString(res));
+    });
 
 
   });
