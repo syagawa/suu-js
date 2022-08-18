@@ -460,18 +460,22 @@ utils.factorial = function(num){
   if(!utils.isInteger(n)){
     return null;
   }
+  
+  if(core.isOne(n)){
+    return core.getOne();
+  }
 
   let go = true;
   let temp = n;
   let current = n;
   while(go){
     const target = core.subtract(current, "1");
-    if(core.isSmall(target, "1")){
+    temp = core.multiple(temp, target);
+    current = target;
+    if(core.isSmall(current, "2")){
       go = false;
       break;
     }
-    temp = core.multiple(temp, target);
-    current = target;
   }
 
   return temp;
