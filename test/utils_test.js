@@ -744,6 +744,11 @@ describe("utils", function(){
   });
   describe("factorial", function(){
     
+    it("0 => 0", () => {
+      const res = utils.factorial("0");
+      assert.equal("0", core.numArrayToString(res));
+    });
+
     it("1 => 1", () => {
       const res = utils.factorial("1");
       assert.equal("1", core.numArrayToString(res));
