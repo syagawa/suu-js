@@ -449,6 +449,7 @@ utils.makePronicNumber = function(num){
   const  res = core.multiple(n, core.add(num, "1"));
   return res;
 };
+
 utils.factorial = function(num){
   const n = utils.getNumber(num);
   if(core.isZero(n)){
@@ -468,9 +469,10 @@ utils.factorial = function(num){
   let go = true;
   let temp = n;
   let current = n;
+  const arr = [temp];
   while(go){
     const target = core.subtract(current, "1");
-    temp = core.multiple(temp, target);
+    arr.push(target);
     current = target;
     if(core.isSmall(current, "2")){
       go = false;
@@ -478,7 +480,7 @@ utils.factorial = function(num){
     }
   }
 
-  return temp;
+  return utils.infiniteProduct(arr);
 };
 
 
