@@ -680,6 +680,22 @@ describe("utils", function(){
     });
 
   });
+
+  describe("infiniteProduct", function(){
+    
+    it("0, 0 => 0", () => {
+      const res = utils.infiniteProduct({array: ["0", "0"]});
+      assert.equal("0", core.numArrayToString(res));
+    });
+    
+    it("1, 2 => 2", () => {
+      const res = utils.infiniteProduct({array: ["1", "2"]});
+      assert.equal("2", core.numArrayToString(res));
+    });
+    
+    
+
+  });
   
   describe("digitSum", function(){
     

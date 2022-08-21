@@ -406,9 +406,9 @@ utils.summation = function({array}){
 };
 
 utils.infiniteProduct = function({array}){
-  let res = utils.getNumber("0");
+  let res = array[0];
   if(Array.isArray(array)){
-    for(let i = 0; i < array.length; i++){
+    for(let i = 1; i < array.length; i++){
       res = core.multiple(res, array[i]);
     }
   }
