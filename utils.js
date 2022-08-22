@@ -480,7 +480,7 @@ utils.factorial = function(num){
     }
   }
 
-  return utils.infiniteProduct(arr);
+  return utils.infiniteProduct({array: arr});
 };
 
 
