@@ -692,6 +692,21 @@ describe("utils", function(){
       const res = utils.infiniteProduct({array: ["1", "2"]});
       assert.equal("2", core.numArrayToString(res));
     });
+
+    it("1, 2, 3 => 6", () => {
+      const res = utils.infiniteProduct({array: ["1", "2", "3"]});
+      assert.equal("6", core.numArrayToString(res));
+    });
+
+    it("1, 2, 3, 4 => 24", () => {
+      const res = utils.infiniteProduct({array: ["1", "2", "3", "4"]});
+      assert.equal("24", core.numArrayToString(res));
+    });
+
+    it("1, 2, 3, 4, 5 => 120", () => {
+      const res = utils.infiniteProduct({array: ["1", "2", "3", "4", "5"]});
+      assert.equal("120", core.numArrayToString(res));
+    });
     
     
 
