@@ -708,7 +708,11 @@ describe("utils", function(){
       assert.equal("120", core.numArrayToString(res));
     });
     
-    
+    it("'' => ''", () => {
+      const res = utils.infiniteProduct({array: [""]});
+      assert.equal("", core.numArrayToString(res));
+    });
+
 
   });
   
