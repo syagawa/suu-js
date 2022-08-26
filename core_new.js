@@ -1,5 +1,15 @@
 const core = {};
 
+core.getError = function({message, n}){
+  try{
+    const str = `${message}, ${n.toString()}`
+    const error = new Error(str);
+    return error;
+  }catch(e){
+    return e;
+  }
+};
+
 core.isNumber = function(n){
   if(typeof n === "number"){
     if(Number.isNaN(n)){
