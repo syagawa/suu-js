@@ -10,7 +10,7 @@ core.getError = function({message, n}){
   }
 };
 
-core.isNumber = function(n){
+const isNumber = function(n){
   if(typeof n === "number"){
     if(Number.isNaN(n)){
       return false;
@@ -80,8 +80,7 @@ core.numToArrayWithDecimal = function(n){
   for(let i = 0; i < str.length; i++){
 
     const num = Number(str[i]);
-    const isNumber = core.isNumber(num);
-    if(!isNumber){
+    if(!isNumber(num)){
       throw new Error("This function has been called with incorrect parameters");
     }
     arr.push(num);
