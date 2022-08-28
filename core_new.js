@@ -22,31 +22,35 @@ const isNumber = function(n){
 };
 
 core.moldNumArray = function({ array, negative, decimal_index }){
-  while(decimal_index < array.length && array[array.length - 1] === 0){
-    array.pop();
-  }
-  while(decimal_index > 1 && array[0] === 0){
-    array.shift();
-    decimal_index--;
-  }
+  try{
+    while(decimal_index < array.length && array[array.length - 1] === 0){
+      array.pop();
+    }
+    while(decimal_index > 1 && array[0] === 0){
+      array.shift();
+      decimal_index--;
+    }
 
-  if(array.length === 0){
-    array.push(0);
-    decimal_index = 1;
-  }
+    if(array.length === 0){
+      array.push(0);
+      decimal_index = 1;
+    }
 
-  const o = {
-    array: array,
-    negative: negative,
-    is_num_array: true,
-  };
-  if(decimal_index === 0 || decimal_index > 0){
-     o.decimal_index = decimal_index;
-  }else{
-    o.decimal_index = array.length;
-  }
+    const o = {
+      array: array,
+      negative: negative,
+      is_num_array: true,
+    };
+    if(decimal_index === 0 || decimal_index > 0){
+      o.decimal_index = decimal_index;
+    }else{
+      o.decimal_index = array.length;
+    }
 
-  return o;
+    return o;
+  }catch(e){
+    return core.getError(e);
+  }
 
 };
 
