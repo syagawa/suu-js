@@ -1,8 +1,8 @@
 const core = {};
 
-core.getError = function({message, n}){
+core.getError = function({message, variable}){
   try{
-    const str = `${message}, ${n.toString()}`
+    const str = `${message}, ${variable.toString()}`
     const error = new Error(str);
     return error;
   }catch(e){
@@ -22,6 +22,9 @@ const isNumber = function(n){
 };
 
 core.moldNumArray = function({ array, negative, decimal_index }){
+  if(!array){
+    return core.getError({ message: "array is not exists", variable: array});
+  }
   try{
     while(decimal_index < array.length && array[array.length - 1] === 0){
       array.pop();
@@ -49,7 +52,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
     return o;
   }catch(e){
-    return core.getError(e);
+    return core.getError({message: e.message, variable: array});
   }
 
 };
