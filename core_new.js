@@ -88,7 +88,7 @@ core.numToArrayWithDecimal = function(n){
 
     const num = Number(str[i]);
     if(!isNumber(num)){
-      throw new Error("This function has been called with incorrect parameters");
+      return core.makeError("This function has been called with incorrect parameters", num);
     }
     arr.push(num);
   }
