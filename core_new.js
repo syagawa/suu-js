@@ -25,6 +25,10 @@ core.moldNumArray = function({ array, negative, decimal_index }){
   if(!array){
     return core.makeError({ message: "array is not exists", variable: array});
   }
+
+  if(typeof decimal_index !== "number" || isNaN(decimal_index)){
+    return core.makeError({ message: "decimal_index is not number", variable: decimal_index});
+  }
   try{
     while(decimal_index < array.length && array[array.length - 1] === 0){
       array.pop();
