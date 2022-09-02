@@ -45,7 +45,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
     const o = {
       array: array,
-      negative: negative,
+      negative: !!negative,
       is_num_array: true,
     };
     if(decimal_index === 0 || decimal_index > 0){
