@@ -66,7 +66,7 @@ core.numToArrayWithDecimal = function(n){
     return core.clone(n);
   }
   if(typeof n === "object"){
-    return console.log("Paremeter is object.", n);
+    return core.makeError({message: "Paremeter is object.", variable: n});
   }
   let str = String(n);
   let negative = false;
