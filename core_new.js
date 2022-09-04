@@ -118,105 +118,109 @@ core.numArrayToString = function(n){
 };
 
 core.compare = function(a, b){
-  const o = {
-    small: null,
-    large: null,
-    equal: false
-  };
+  try{
+    const o = {
+      small: null,
+      large: null,
+      equal: false
+    };
 
-  if(!a || !b){
-    return o;
-  }
-
-  let a_ = a;
-  let b_ = b;
-
-  if(!a_.is_num_array){
-    a_ = core.numToArrayWithDecimal(a_);
-    if(!a_){
+    if(!a || !b){
       return o;
     }
-  }
-  if(!b_.is_num_array){
-    b_ = core.numToArrayWithDecimal(b_);
-    if(!b_){
+
+    let a_ = a;
+    let b_ = b;
+
+    if(!a_.is_num_array){
+      a_ = core.numToArrayWithDecimal(a_);
+      if(!a_){
+        return o;
+      }
+    }
+    if(!b_.is_num_array){
+      b_ = core.numToArrayWithDecimal(b_);
+      if(!b_){
+        return o;
+      }
+    }
+
+    const a_array = a_.array;
+    const b_array = b_.array;
+
+    const a_len = a_array.length;
+    const b_len = b_array.length;
+    const a_str = a_array.join("");
+    const b_str = b_array.join("");
+
+    const a_int_len = a_.decimal_index;
+    const b_int_len = b_.decimal_index;
+
+    const a_dec_len = a_len - a_int_len;
+    const b_dec_len = b_len - b_int_len;
+
+    if(a_len === 1 && a_str === "0" && b_len === 1 && b_str === "0"){
+      o.equal = true;
       return o;
     }
-  }
+    if(!a_.negative && b_.negative){
+      o.small = b_;
+      o.large = a_;
+      return o;
+    }
+    if(a_.negative && !b_.negative){
+      o.small = a_;
+      o.large = b_;
+      return o;
+    }
 
-  const a_array = a_.array;
-  const b_array = b_.array;
+    const negative = a_.negative;
 
-  const a_len = a_array.length;
-  const b_len = b_array.length;
-  const a_str = a_array.join("");
-  const b_str = b_array.join("");
+    const o_a_b = {
+      large: negative ? b_ : a_,
+      small: negative ? a_ : b_,
+      equal: false,
+    };
+    const o_b_a = {
+      large: negative ? a_ : b_,
+      small: negative ? b_ : a_,
+      equal: false
+    };
 
-  const a_int_len = a_.decimal_index;
-  const b_int_len = b_.decimal_index;
-
-  const a_dec_len = a_len - a_int_len;
-  const b_dec_len = b_len - b_int_len;
-
-  if(a_len === 1 && a_str === "0" && b_len === 1 && b_str === "0"){
-    o.equal = true;
-    return o;
-  }
-  if(!a_.negative && b_.negative){
-    o.small = b_;
-    o.large = a_;
-    return o;
-  }
-  if(a_.negative && !b_.negative){
-    o.small = a_;
-    o.large = b_;
-    return o;
-  }
-
-  const negative = a_.negative;
-
-  const o_a_b = {
-    large: negative ? b_ : a_,
-    small: negative ? a_ : b_,
-    equal: false,
-  };
-  const o_b_a = {
-    large: negative ? a_ : b_,
-    small: negative ? b_ : a_,
-    equal: false
-  };
-
-  if(a_int_len > b_int_len){
-    return o_a_b;
-  }
-  
-  if(a_int_len < b_int_len){
-    return o_b_a;
-  }
-
-  for(let i = 0; i < a_int_len; i++){
-    if(a_array[i] > b_array[i]){
+    if(a_int_len > b_int_len){
       return o_a_b;
     }
-    if(a_array[i] < b_array[i]){
-      return o_b_a;  
-    }
-  }
-
-  const dec_len = a_dec_len > b_dec_len ? a_dec_len : b_dec_len;
-  for(let i = 0; i < dec_len; i++){
-    const aa = a_array[a_int_len + i] ? a_array[a_int_len + i] : 0;
-    const bb = b_array[b_int_len + i] ? b_array[b_int_len + i] : 0;
-    if(aa > bb){
-      return o_a_b;
-    }
-    if(aa < bb){
+    
+    if(a_int_len < b_int_len){
       return o_b_a;
     }
-  }
 
-  o.equal = true;
-  return o;
+    for(let i = 0; i < a_int_len; i++){
+      if(a_array[i] > b_array[i]){
+        return o_a_b;
+      }
+      if(a_array[i] < b_array[i]){
+        return o_b_a;  
+      }
+    }
+
+    const dec_len = a_dec_len > b_dec_len ? a_dec_len : b_dec_len;
+    for(let i = 0; i < dec_len; i++){
+      const aa = a_array[a_int_len + i] ? a_array[a_int_len + i] : 0;
+      const bb = b_array[b_int_len + i] ? b_array[b_int_len + i] : 0;
+      if(aa > bb){
+        return o_a_b;
+      }
+      if(aa < bb){
+        return o_b_a;
+      }
+    }
+
+    o.equal = true;
+    return o;
+  }catch(err){
+    return this.makeError({message: err.message, variable: a})
+  }
 
 };
 
