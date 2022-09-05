@@ -219,7 +219,7 @@ core.compare = function(a, b){
     o.equal = true;
     return o;
   }catch(err){
-    return this.makeError({message: err.message, variable: a})
+    return this.makeError({message: err.message, variable: [a, b]})
   }
 
 };
