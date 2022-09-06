@@ -105,15 +105,18 @@ core.numArrayToString = function(n){
   if(!n.is_num_array || !n.array || !n.decimal_index){
     return "";
   }
+  try{
+    const arr = [...n.array];
+    arr.splice(n.decimal_index, 0, ".");
+    let str = arr.join("");
+    if(n.negative){
+      str = `-${str}`;
+    }
 
-  const arr = [...n.array];
-  arr.splice(n.decimal_index, 0, ".");
-  let str = arr.join("");
-  if(n.negative){
-    str = `-${str}`;
+    return str.replace(/\.$/, "");
+  }catch(err){
+    return "";
   }
-
-  return str.replace(/\.$/, "");
 
 };
 
