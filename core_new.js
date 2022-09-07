@@ -281,52 +281,55 @@ core.getOne = function(){
 };
 
 core.fixCarry = function(arr, minus){
-
-  let minus_ = minus;
-  for(let i = arr.length - 1; i >=0; i--){
-    const elm = arr[i];
-    if(elm < 0){
-      minus_ = true;
-      break;
-    }else if(elm === 0){
-      continue;
-    }else{
-      break;
+  try {
+    let minus_ = minus;
+    for(let i = arr.length - 1; i >=0; i--){
+      const elm = arr[i];
+      if(elm < 0){
+        minus_ = true;
+        break;
+      }else if(elm === 0){
+        continue;
+      }else{
+        break;
+      }
     }
-  }
-  if(minus_){
-    const cache = [];
-    arr.forEach( elm => {
-      cache.push(-elm);
-    });
-    arr = cache;
-  }
-  const new_arr = [];
-  let carry = 0;
-  for(let i = 0; i < arr.length; i++){
-    let val = arr[i] + carry;
-    if(val > 9){
-      const arr1 = String(val).split("");
-      val = Number(arr1[arr1.length - 1]);
-      const arr2 = arr1.slice(0, arr1.length - 1);
-      carry = Number(arr2.join(""));
-    }else if( val >= 0 && val <= 9){
-      carry = 0;
-    }else{
-      val = 10 + val;
-      carry = -1;
-
+    if(minus_){
+      const cache = [];
+      arr.forEach( elm => {
+        cache.push(-elm);
+      });
+      arr = cache;
     }
-    new_arr.push(val);
-  }
-  if(carry !== 0){
-    new_arr.push(carry);
-  }
+    const new_arr = [];
+    let carry = 0;
+    for(let i = 0; i < arr.length; i++){
+      let val = arr[i] + carry;
+      if(val > 9){
+        const arr1 = String(val).split("");
+        val = Number(arr1[arr1.length - 1]);
+        const arr2 = arr1.slice(0, arr1.length - 1);
+        carry = Number(arr2.join(""));
+      }else if( val >= 0 && val <= 9){
+        carry = 0;
+      }else{
+        val = 10 + val;
+        carry = -1;
 
-  return {
-    new_array: new_arr,
-    minus: minus_
-  };
+      }
+      new_arr.push(val);
+    }
+    if(carry !== 0){
+      new_arr.push(carry);
+    }
+
+    return {
+      new_array: new_arr,
+      minus: minus_
+    };
+  }catch(err){
+    return this.makeError({message: err.message, variable: [arr, minus]})
+  }
 
 };
 
