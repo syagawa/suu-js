@@ -268,7 +268,7 @@ core.isOne = function(n){
   if(!n.is_num_array){
     return false;
   }
-  const one = core.numToArrayWithDecimal("1");
+  const one = core.getOne();
   return core.isEqual(one, n);
 };
 
