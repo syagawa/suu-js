@@ -328,20 +328,24 @@ core.fixCarry = function(arr, minus){
       minus: minus_
     };
   }catch(err){
-    return this.makeError({message: err.message, variable: [arr, minus]})
+    return core.makeError({message: err.message, variable: [arr, minus]})
   }
 
 };
 
 core.clone = function(n){
-  if(!n.is_num_array){
-    return null;
+  try{
+    if(!n.is_num_array){
+      return null;
+    }
+    const o = {
+      ...n,
+      array: [...n.array],
+    };
+    return o;
+  }catch(err){
+    return core.makeError({message: err.message, variable: n});
   }
-  const o = {
-    ...n,
-    array: [...n.array],
-  };
-  return o;
 };
 
 core.add_and_subtract = function(a, b, mode){
