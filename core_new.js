@@ -363,7 +363,7 @@ core.add_and_subtract = function(a, b, mode){
   }else if(mode === "-"){
     plus = false;
   }else{
-    return;
+    return core.makeError({message: "mode must be '+' or '-'.", variable: mode});
   }
 
   let a_ = null;
