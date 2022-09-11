@@ -366,89 +366,93 @@ core.add_and_subtract = function(a, b, mode){
     return core.makeError({message: "mode must be '+' or '-'.", variable: mode});
   }
 
-  let a_ = null;
-  let b_ = null;
-  if(a.is_num_array){
-    a_ = core.clone(a);
-  }else{
-    a_ = core.numToArrayWithDecimal(a ? a : 0);
-  }
-  if(b.is_num_array){
-    b_ = core.clone(b);
-  }else{
-    b_ = core.numToArrayWithDecimal(b ? b : 0);
-  }
-
-  const a_arr = a_.array;
-  const b_arr = b_.array;
-
-
-  const a_is_zero = core.isZero(a_);
-  const b_is_zero = core.isZero(b_);
-
-  if(a_is_zero && b_is_zero){
-    return a_;
-  }else if(a_is_zero){
-    if(!plus){
-      b_.negative = !b_.negative;
+  try {
+    let a_ = null;
+    let b_ = null;
+    if(a.is_num_array){
+      a_ = core.clone(a);
+    }else{
+      a_ = core.numToArrayWithDecimal(a ? a : 0);
     }
-    return b_;
-  }else if(b_is_zero){
-    return a_;
-  }
-
-  const a_dec_length = a_.array.length - a_.decimal_index;
-  const b_dec_length = b_.array.length - b_.decimal_index;
-
-  const dec_gap = a_dec_length - b_dec_length;
-
-  if(dec_gap > 0){
-    b_arr.push(...Array(dec_gap).fill(0));
-  }else if(dec_gap < 0){
-    a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
-  }
-
-  const calc = function({a, b, plus}){
-    const arr = [];
-    let len = a.array.length;
-    if(a.array.length < b.array.length){
-      len = b.array.length;
+    if(b.is_num_array){
+      b_ = core.clone(b);
+    }else{
+      b_ = core.numToArrayWithDecimal(b ? b : 0);
     }
-    const arr_a = a.array;
-    const arr_b = b.array;
-    const a_one = a.negative ? -1 : 1;
-    const b_one = b.negative ? -1 : 1;
-    for(let i = 0; i < len; i++){
-      const aa = arr_a[i] ? arr_a[i] * a_one : 0;
-      const bb = arr_b[i] ? arr_b[i] * b_one : 0;
-      let res = plus ? aa + bb : aa - bb;
-      arr.push(res);
+
+    const a_arr = a_.array;
+    const b_arr = b_.array;
+
+
+    const a_is_zero = core.isZero(a_);
+    const b_is_zero = core.isZero(b_);
+
+    if(a_is_zero && b_is_zero){
+      return a_;
+    }else if(a_is_zero){
+      if(!plus){
+        b_.negative = !b_.negative;
+      }
+      return b_;
+    }else if(b_is_zero){
+      return a_;
     }
-    return core.fixCarry(arr);
-  };
 
-  const { new_array, minus } = calc({
-    a: {
-      array: [...a_arr].reverse(),
-      negative: a_.negative,
-    },
-    b: {
-      array: [...b_arr].reverse(),
-      negative: b_.negative
-    },
-    plus: plus
-  });
+    const a_dec_length = a_.array.length - a_.decimal_index;
+    const b_dec_length = b_.array.length - b_.decimal_index;
 
-  const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
-  const new_int_length = new_array.length - dec_length;
+    const dec_gap = a_dec_length - b_dec_length;
 
-  const new_decimal_index = new_int_length;
+    if(dec_gap > 0){
+      b_arr.push(...Array(dec_gap).fill(0));
+    }else if(dec_gap < 0){
+      a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
+    }
 
-  return core.moldNumArray({
-    array: [...new_array].reverse(),
-    negative: minus ? true : false,
-    decimal_index: new_decimal_index
-  });
+    const calc = function({a, b, plus}){
+      const arr = [];
+      let len = a.array.length;
+      if(a.array.length < b.array.length){
+        len = b.array.length;
+      }
+      const arr_a = a.array;
+      const arr_b = b.array;
+      const a_one = a.negative ? -1 : 1;
+      const b_one = b.negative ? -1 : 1;
+      for(let i = 0; i < len; i++){
+        const aa = arr_a[i] ? arr_a[i] * a_one : 0;
+        const bb = arr_b[i] ? arr_b[i] * b_one : 0;
+        let res = plus ? aa + bb : aa - bb;
+        arr.push(res);
+      }
+      return core.fixCarry(arr);
+    };
+
+    const { new_array, minus } = calc({
+      a: {
+        array: [...a_arr].reverse(),
+        negative: a_.negative,
+      },
+      b: {
+        array: [...b_arr].reverse(),
+        negative: b_.negative
+      },
+      plus: plus
+    });
+
+    const dec_length = a_dec_length >= b_dec_length ? a_dec_length : b_dec_length;
+    const new_int_length = new_array.length - dec_length;
+
+    const new_decimal_index = new_int_length;
+
+    return core.moldNumArray({
+      array: [...new_array].reverse(),
+      negative: minus ? true : false,
+      decimal_index: new_decimal_index
+    });
+  }catch(err){
+    return core.makeError({message: err.message, variable: [a, b]});
+  }
 
 };
 
