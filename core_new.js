@@ -501,67 +501,73 @@ core.multiplication = function(a, b){
     return a_;
   }
 
+  try{
 
-  const a_negative = a_.negative;
-  const b_negative = b_.negative;
-  let negative;
-  if(a_negative && b_negative){
-    negative = false;
-  }else if(a_negative || b_negative){
-    negative = true;
-  }else{
-    negative = false;
-  }
 
-  const a_dec_length = a_.array.length - a_.decimal_index;
-  const b_dec_length = b_.array.length - b_.decimal_index;
-  const dec_length = a_dec_length + b_dec_length;
 
-  const calc = function({a, b}){
-    const array = [];
-    const arr_a = a.array;
-    const arr_b = b.array;
-    for(let i = 0; i < arr_a.length; i++){
-      const aa = arr_a[i] ? arr_a[i] : 0;
-      const arr = new Array(i);
-      arr.fill(0, 0, i);
-
-      for(let j = 0; j < arr_b.length; j++){
-        const bb = arr_b[j] ? arr_b[j] : 0;
-        let res = aa * bb;
-        
-        arr.push(res);
-
-        const tgt_index = i + j;
-        let tgt = array[tgt_index];
-        if(!tgt){
-          tgt = 0;
-        }
-        const new_tgt = tgt + res;
-        array[tgt_index] = new_tgt;
-      }
+    const a_negative = a_.negative;
+    const b_negative = b_.negative;
+    let negative;
+    if(a_negative && b_negative){
+      negative = false;
+    }else if(a_negative || b_negative){
+      negative = true;
+    }else{
+      negative = false;
     }
-    return core.fixCarry(array);
-  };
 
-  const { new_array } = calc({
-    a: {
-      array: [...a_arr].reverse(),
-      negative: a_.negative,
-    },
-    b: {
-      array: [...b_arr].reverse(),
-      negative: b_.negative
-    },
-  });
+    const a_dec_length = a_.array.length - a_.decimal_index;
+    const b_dec_length = b_.array.length - b_.decimal_index;
+    const dec_length = a_dec_length + b_dec_length;
 
-  const new_decimal_index = new_array.length - dec_length;
+    const calc = function({a, b}){
+      const array = [];
+      const arr_a = a.array;
+      const arr_b = b.array;
+      for(let i = 0; i < arr_a.length; i++){
+        const aa = arr_a[i] ? arr_a[i] : 0;
+        const arr = new Array(i);
+        arr.fill(0, 0, i);
 
-  return core.moldNumArray({
-    array: [...new_array].reverse(),
-    negative: negative,
-    decimal_index: new_decimal_index
-  });
+        for(let j = 0; j < arr_b.length; j++){
+          const bb = arr_b[j] ? arr_b[j] : 0;
+          let res = aa * bb;
+          
+          arr.push(res);
+
+          const tgt_index = i + j;
+          let tgt = array[tgt_index];
+          if(!tgt){
+            tgt = 0;
+          }
+          const new_tgt = tgt + res;
+          array[tgt_index] = new_tgt;
+        }
+      }
+      return core.fixCarry(array);
+    };
+
+    const { new_array } = calc({
+      a: {
+        array: [...a_arr].reverse(),
+        negative: a_.negative,
+      },
+      b: {
+        array: [...b_arr].reverse(),
+        negative: b_.negative
+      },
+    });
+
+    const new_decimal_index = new_array.length - dec_length;
+
+    return core.moldNumArray({
+      array: [...new_array].reverse(),
+      negative: negative,
+      decimal_index: new_decimal_index
+    });
+  }catch(err){
+    return core.makeError({message: err.message, variable: [a, b]});
+  }
 
 };
 
