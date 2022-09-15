@@ -503,8 +503,6 @@ core.multiplication = function(a, b){
 
   try{
 
-
-
     const a_negative = a_.negative;
     const b_negative = b_.negative;
     let negative;
@@ -576,19 +574,23 @@ core.multiple = function(a, b){
 };
 
 core.getDecimal = function(n){
-  const n_ = core.numToArrayWithDecimal(n);
-  let str = "0.";
-  const len = n_.array.length - n_.decimal_index;
-  if(len > 0){
-    for(let i = n_.decimal_index; i <= len; i++){
-      const s = String(n_.array[i]);
-      str = str + s;
+  try{
+    const n_ = core.numToArrayWithDecimal(n);
+    let str = "0.";
+    const len = n_.array.length - n_.decimal_index;
+    if(len > 0){
+      for(let i = n_.decimal_index; i <= len; i++){
+        const s = String(n_.array[i]);
+        str = str + s;
+      }
+    }else{
+      str = str + "0";
     }
-  }else{
-    str = str + "0";
+    const num = core.numToArrayWithDecimal(str);
+    return num;
+  }catch(err){
+    return core.makeError({message: err.message, variable: n});
   }
-  const num = core.numToArrayWithDecimal(str);
-  return num;
 };
 
 
