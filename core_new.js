@@ -596,235 +596,239 @@ core.getDecimal = function(n){
 
 core.division = function(a, b){
 
-  if(!a || !b){
-    if(a !== 0 && b !== 0){
+  try {
+    if(!a || !b){
+      if(a !== 0 && b !== 0){
+        return undefined;
+      }
+    }
+
+    let a_ = null;
+    let b_ = null;
+    if(a.is_num_array){
+      a_ = core.clone(a);
+    }else{
+      a_ = core.numToArrayWithDecimal(a ? a : 0);
+    }
+    if(b.is_num_array){
+      b_ = core.clone(b);
+    }else{
+      b_ = core.numToArrayWithDecimal(b ? b : 0);
+    }
+
+    if(core.isZero(b_)){
       return undefined;
     }
-  }
 
-  let a_ = null;
-  let b_ = null;
-  if(a.is_num_array){
-    a_ = core.clone(a);
-  }else{
-    a_ = core.numToArrayWithDecimal(a ? a : 0);
-  }
-  if(b.is_num_array){
-    b_ = core.clone(b);
-  }else{
-    b_ = core.numToArrayWithDecimal(b ? b : 0);
-  }
-
-  if(core.isZero(b_)){
-    return undefined;
-  }
-
-  if(core.isZero(a_)){
-    return {
-      ...core.getZero(),
-      remainder: core.getZero(),
-    }
-  }
-
-  if(core.isOne(b_)){
-    return {
-      ...a_,
-      remainder: core.getZero(),
-    };
-  }
-
-  if(core.isEqual(a_, b_)){
-    return {
-      ...core.getOne(),
-      remainder: core.getZero(),
-    }
-  }
-
-  const a_negative = a_.negative;
-  const b_negative = b_.negative;
-
-  if(a_.negative){
-    a_.negative = false;
-  }
-
-  if(b_.negative){
-    b_.negative = false;
-  }
-
-  let negative;
-  if(a_negative && b_negative){
-    negative = false;
-  }else if(a_negative || b_negative){
-    negative = true;
-  }else{
-    negative = false;
-  }
-
-  const calc = function({a, b, max}){
-    const result_arr = [];
-    let remain = core.getZero();
-    const a_ = core.clone(a);
-    const b_ = core.clone(b);
-    let decimal_index = a.decimal_index;
-    let decimal_index_remain = decimal_index;
-
-    let a_int = core.clone(a_);
-    a_int.decimal_index = a_int.array.length;
-    let a_zero_length = 0;
-    const a_zero_res = a_.array.join("").match(/^0+/);
-    if(a_zero_res && a_zero_res[0]){
-      a_zero_length = a_zero_res[0].length;
-      a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
+    if(core.isZero(a_)){
+      return {
+        ...core.getZero(),
+        remainder: core.getZero(),
+      }
     }
 
-    let b_int = core.clone(b_);
-    b_int.decimal_index = b_int.array.length;
-    let b_zero_length = 0;
-    const b_zero_res = b_int.array.join("").match(/^0+/);
-    if(b_zero_res && b_zero_res[0]){
-      b_zero_length = b_zero_res[0].length;
-      b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
+    if(core.isOne(b_)){
+      return {
+        ...a_,
+        remainder: core.getZero(),
+      };
     }
 
-    const zero_gap = a_zero_length - b_zero_length;
-    const a_array = [...a_int.array];
-    const a_decimal_length = a_.array.length - a_.decimal_index;
-    const b_decimal_length = b_.array.length - b_.decimal_index;
-    const decimal_gap = a_decimal_length - b_decimal_length;
+    if(core.isEqual(a_, b_)){
+      return {
+        ...core.getOne(),
+        remainder: core.getZero(),
+      }
+    }
 
-    const times = Number(core.add(a_int.array.length, max).array.join(""));
+    const a_negative = a_.negative;
+    const b_negative = b_.negative;
 
-    const a_len = a_int.array.length;
-    let remain_is_decimal = false;
-    let remain_arr = [0];
+    if(a_.negative){
+      a_.negative = false;
+    }
 
-    let decimal_count = 0;
-    let remain_and_a_len_gap = 0;
-    for(let i = 0; i < times; i++){
-      let is_less = true;
-      let count = core.getZero();
-      const remain1 = core.multiplication(remain, "10");
-      const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
-      remain = core.add(remain1, remain2);
+    if(b_.negative){
+      b_.negative = false;
+    }
 
-      remain_and_a_len_gap = remain.array.length - a_len;
-      let product = core.getZero();
-      if(i === a_len){
-        decimal_index = i;
-        if(core.isZero(remain)){
-          break;
-        }else {
-          remain_is_decimal = true;
-          decimal_count = decimal_count++;
-        }
-      }else if(i > a_len){
-        decimal_count = decimal_count++;
-        if(core.isZero(remain)){
-          break;
-        }
+    let negative;
+    if(a_negative && b_negative){
+      negative = false;
+    }else if(a_negative || b_negative){
+      negative = true;
+    }else{
+      negative = false;
+    }
+
+    const calc = function({a, b, max}){
+      const result_arr = [];
+      let remain = core.getZero();
+      const a_ = core.clone(a);
+      const b_ = core.clone(b);
+      let decimal_index = a.decimal_index;
+      let decimal_index_remain = decimal_index;
+
+      let a_int = core.clone(a_);
+      a_int.decimal_index = a_int.array.length;
+      let a_zero_length = 0;
+      const a_zero_res = a_.array.join("").match(/^0+/);
+      if(a_zero_res && a_zero_res[0]){
+        a_zero_length = a_zero_res[0].length;
+        a_int = core.numToArrayWithDecimal(a_int.array.slice(a_zero_length, a_int.array.length).join(""));
       }
 
-      const max_count = max;
-      while(is_less){
-        count = core.add(count, "1");
-        if(core.isLarge(count, max_count)){
-          is_less = false;
-          break;
-        }
-        const pre_product = product;
-        product = core.multiplication(b_int, count);
+      let b_int = core.clone(b_);
+      b_int.decimal_index = b_int.array.length;
+      let b_zero_length = 0;
+      const b_zero_res = b_int.array.join("").match(/^0+/);
+      if(b_zero_res && b_zero_res[0]){
+        b_zero_length = b_zero_res[0].length;
+        b_int = core.numToArrayWithDecimal(b_int.array.slice(b_zero_length, b_int.array.length).join(""));
+      }
 
-        if(core.isEqual(remain, product)){
-          is_less = false;
-          const result = count;
-          result_arr.push(result);
-          remain = core.subtract(remain, product);
-          break;
-        }
-        if(core.isLarge(product, remain)){
-          is_less = false;
-          const result = core.subtract(count, "1");
-          result_arr.push(result);
-          remain = core.subtract(remain, pre_product);
+      const zero_gap = a_zero_length - b_zero_length;
+      const a_array = [...a_int.array];
+      const a_decimal_length = a_.array.length - a_.decimal_index;
+      const b_decimal_length = b_.array.length - b_.decimal_index;
+      const decimal_gap = a_decimal_length - b_decimal_length;
 
-          if(remain_is_decimal){
-            remain_arr.push(0);
+      const times = Number(core.add(a_int.array.length, max).array.join(""));
+
+      const a_len = a_int.array.length;
+      let remain_is_decimal = false;
+      let remain_arr = [0];
+
+      let decimal_count = 0;
+      let remain_and_a_len_gap = 0;
+      for(let i = 0; i < times; i++){
+        let is_less = true;
+        let count = core.getZero();
+        const remain1 = core.multiplication(remain, "10");
+        const remain2 = String(a_array.slice(i, i + 1).length === 1 ? a_array.slice(i, i + 1)[0] : "0");
+        remain = core.add(remain1, remain2);
+
+        remain_and_a_len_gap = remain.array.length - a_len;
+        let product = core.getZero();
+        if(i === a_len){
+          decimal_index = i;
+          if(core.isZero(remain)){
+            break;
+          }else {
+            remain_is_decimal = true;
+            decimal_count = decimal_count++;
           }
-          break;
+        }else if(i > a_len){
+          decimal_count = decimal_count++;
+          if(core.isZero(remain)){
+            break;
+          }
+        }
+
+        const max_count = max;
+        while(is_less){
+          count = core.add(count, "1");
+          if(core.isLarge(count, max_count)){
+            is_less = false;
+            break;
+          }
+          const pre_product = product;
+          product = core.multiplication(b_int, count);
+
+          if(core.isEqual(remain, product)){
+            is_less = false;
+            const result = count;
+            result_arr.push(result);
+            remain = core.subtract(remain, product);
+            break;
+          }
+          if(core.isLarge(product, remain)){
+            is_less = false;
+            const result = core.subtract(count, "1");
+            result_arr.push(result);
+            remain = core.subtract(remain, pre_product);
+
+            if(remain_is_decimal){
+              remain_arr.push(0);
+            }
+            break;
+          }
         }
       }
-    }
 
-    remain_arr.push(...remain.array);
-    const new_arr = result_arr.flatMap(e => e.array);
+      remain_arr.push(...remain.array);
+      const new_arr = result_arr.flatMap(e => e.array);
 
-    if(zero_gap > 0){
-      for(let i = 0; i < zero_gap; i++){
-        new_arr.unshift(0);
-        decimal_index++;
-      }
-    }
-
-    if(decimal_gap < 0){
-      for(let i = 0; i < Math.abs(decimal_gap); i++){
-        new_arr.push(0);
-        decimal_index++;
-      }
-    }else if(decimal_gap > 0){
-      for(let i = 0; i < Math.abs(decimal_gap); i++){
-        new_arr.unshift(0);
-      }
-    }
-
-    if(remain_and_a_len_gap > 0){
-      for(let i = 0; i < remain_and_a_len_gap; i++){
-        const tgt = remain_arr[0];
-        if(tgt === 0){
-          remain_arr.shift();
-        }else{
-          decimal_index_remain = decimal_index_remain - remain_and_a_len_gap;
+      if(zero_gap > 0){
+        for(let i = 0; i < zero_gap; i++){
+          new_arr.unshift(0);
+          decimal_index++;
         }
-        remain_arr.push(0);
       }
-    }else if(remain_and_a_len_gap < 0){
-      const len = Math.abs(remain_and_a_len_gap);
-      const arr = Array(len).fill(0);
-      remain_arr.unshift(...arr);
-    }
 
-    if(remain_is_decimal){
-      remain_arr = [...remain_arr];
-    }
+      if(decimal_gap < 0){
+        for(let i = 0; i < Math.abs(decimal_gap); i++){
+          new_arr.push(0);
+          decimal_index++;
+        }
+      }else if(decimal_gap > 0){
+        for(let i = 0; i < Math.abs(decimal_gap); i++){
+          new_arr.unshift(0);
+        }
+      }
+
+      if(remain_and_a_len_gap > 0){
+        for(let i = 0; i < remain_and_a_len_gap; i++){
+          const tgt = remain_arr[0];
+          if(tgt === 0){
+            remain_arr.shift();
+          }else{
+            decimal_index_remain = decimal_index_remain - remain_and_a_len_gap;
+          }
+          remain_arr.push(0);
+        }
+      }else if(remain_and_a_len_gap < 0){
+        const len = Math.abs(remain_and_a_len_gap);
+        const arr = Array(len).fill(0);
+        remain_arr.unshift(...arr);
+      }
+
+      if(remain_is_decimal){
+        remain_arr = [...remain_arr];
+      }
+
+      return {
+        new_array: new_arr,
+        decimal_index: decimal_index,
+        remain_array: remain_arr,
+        remain_decimal_index: decimal_index_remain,
+      }
+    };
+
+    const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
+
+    const { new_array, decimal_index, remain_array, remain_decimal_index} = calc({a: a_, b: b_, max: max_times_if_not_divisible});
+
+
+    const remainder = core.moldNumArray({
+      array: [...remain_array],
+      negative: negative,
+      decimal_index: remain_decimal_index
+    });
+
+
+    const quotient = core.moldNumArray({
+      array: [...new_array],
+      negative: negative,
+      decimal_index: decimal_index
+    });
 
     return {
-      new_array: new_arr,
-      decimal_index: decimal_index,
-      remain_array: remain_arr,
-      remain_decimal_index: decimal_index_remain,
+      ...quotient,
+      remainder:remainder,
     }
-  };
-
-  const max_times_if_not_divisible = core.numToArrayWithDecimal("10");
-
-  const { new_array, decimal_index, remain_array, remain_decimal_index} = calc({a: a_, b: b_, max: max_times_if_not_divisible});
-
-
-  const remainder = core.moldNumArray({
-    array: [...remain_array],
-    negative: negative,
-    decimal_index: remain_decimal_index
-  });
-
-
-  const quotient = core.moldNumArray({
-    array: [...new_array],
-    negative: negative,
-    decimal_index: decimal_index
-  });
-
-  return {
-    ...quotient,
-    remainder:remainder,
+  }catch(err){
+    return core.makeError({message: err.message, variable: [a, b]});
   }
   
 };
