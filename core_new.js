@@ -838,21 +838,25 @@ core.divide = function(a, b){
 };
 
 core.floor = function(num){
-  const n = core.numToArrayWithDecimal(num);
-  const is_decimal = n.decimal_index < n.array.length;
-  const dec = n.array.slice(n.decimal_index, n.array.length);
-  const dec_n = core.numToArrayWithDecimal(dec.join(""));
-  if(core.isZero(dec_n)){
-    return n;
+  try{
+    const n = core.numToArrayWithDecimal(num);
+    const is_decimal = n.decimal_index < n.array.length;
+    const dec = n.array.slice(n.decimal_index, n.array.length);
+    const dec_n = core.numToArrayWithDecimal(dec.join(""));
+    if(core.isZero(dec_n)){
+      return n;
+    }
+    let n_ = {
+      ...n,
+      array: n.array.slice(0, n.decimal_index)
+    };
+    if(n.negative && is_decimal){
+      n_ = core.subtract(n_, "1");
+    }
+    return n_;
+  }catch(err){
+    return core.makeError({message: err.messsage, variable: num});
   }
-  let n_ = {
-    ...n,
-    array: n.array.slice(0, n.decimal_index)
-  };
-  if(n.negative && is_decimal){
-    n_ = core.subtract(n_, "1");
-  }
-  return n_;
 };
 
 core.ceil = function(num){
