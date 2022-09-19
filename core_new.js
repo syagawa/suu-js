@@ -884,79 +884,82 @@ core.ceil = function(num){
 
 
 core.modulo = function(a, b){
+  try{
+    if(!a || !b){
+      if(a !== 0 && b !== 0){
+        return undefined;
+      }
+    }
 
-  if(!a || !b){
-    if(a !== 0 && b !== 0){
+    let a_ = null;
+    let b_ = null;
+    if(a.is_num_array){
+      a_ = core.clone(a);
+    }else{
+      a_ = core.numToArrayWithDecimal(a ? a : 0);
+    }
+    if(b.is_num_array){
+      b_ = core.clone(b);
+    }else{
+      b_ = core.numToArrayWithDecimal(b ? b : 0);
+    }
+
+    if(core.isZero(b_)){
       return undefined;
     }
-  }
 
-  let a_ = null;
-  let b_ = null;
-  if(a.is_num_array){
-    a_ = core.clone(a);
-  }else{
-    a_ = core.numToArrayWithDecimal(a ? a : 0);
-  }
-  if(b.is_num_array){
-    b_ = core.clone(b);
-  }else{
-    b_ = core.numToArrayWithDecimal(b ? b : 0);
-  }
-
-  if(core.isZero(b_)){
-    return undefined;
-  }
-
-  if(core.isZero(a_)){
-    return {
-      ...core.getZero(),
-      remainder: core.getZero(),
+    if(core.isZero(a_)){
+      return {
+        ...core.getZero(),
+        remainder: core.getZero(),
+      }
     }
-  }
 
-  const a_posi = core.clone(a_);
-  const b_posi = core.clone(b_);
-  a_posi.negative = false;
-  b_posi.negative = false;
+    const a_posi = core.clone(a_);
+    const b_posi = core.clone(b_);
+    a_posi.negative = false;
+    b_posi.negative = false;
 
-  if(core.isLarge(b_posi, a_posi)){
-    const a_ = core.numToArrayWithDecimal(a);
-    return a_;
-  }
-
-  if(core.isEqual(a_, b_)){
-    return {
-      ...core.getZero(),
-      remainder: core.getZero(),
+    if(core.isLarge(b_posi, a_posi)){
+      const a_ = core.numToArrayWithDecimal(a);
+      return a_;
     }
-  }
 
-  let negative;
-  if(a_.negative){
-    negative = true;
-  }else{
-    negative = false;
-  }
+    if(core.isEqual(a_, b_)){
+      return {
+        ...core.getZero(),
+        remainder: core.getZero(),
+      }
+    }
 
-  const calc = function({a, b}){
-    // 15.5 - (2 * Math.floor(15.5 / 2))
-    const divided = core.divide(a, b);
-    const floored = core.floor(divided);
-    const multipled = core.multiple(b, floored);
-    const res = core.subtract(a, multipled);
-    return res;
-  };
+    let negative;
+    if(a_.negative){
+      negative = true;
+    }else{
+      negative = false;
+    }
 
-  const res = calc({a: {...a_, negative: false}, b: {...b_, negative: false} });
+    const calc = function({a, b}){
+      // 15.5 - (2 * Math.floor(15.5 / 2))
+      const divided = core.divide(a, b);
+      const floored = core.floor(divided);
+      const multipled = core.multiple(b, floored);
+      const res = core.subtract(a, multipled);
+      return res;
+    };
 
-  const quotient = core.moldNumArray({
-    ...res,
-    negative: negative,
-  });
+    const res = calc({a: {...a_, negative: false}, b: {...b_, negative: false} });
 
-  return {
-    ...quotient,
+    const quotient = core.moldNumArray({
+      ...res,
+      negative: negative,
+    });
+
+    return {
+      ...quotient,
+    }
+  }catch(err){
+    return core.makeError({message: err.message, variable: [a, b]});
   }
   
 };
