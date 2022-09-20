@@ -48,6 +48,19 @@ describe("core", function(){
       assert.equal(res.decimal_index, 10);
       assert.equal(res.negative, true);
     });
+
+    it("null => Error", () => {
+      const par = null;
+      let error = null;
+      try{
+        core.numToArrayWithDecimal(par);
+      }catch(err){
+        error = err;
+      }
+      const res = error.name.match(/error/i) ? true : false;
+      assert.equal(res, true);
+    });
+
   });
   describe("isZero", function(){
     it("0 is true", () => {
