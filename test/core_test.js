@@ -49,6 +49,15 @@ describe("core", function(){
       assert.equal(res.negative, true);
     });
 
+    it(" '' => 0", () => {
+      const str = "";
+      const res = core.numToArrayWithDecimal(str);
+      assert.equal(res.array.length, 1);
+      assert.equal(res.array[0], 0);
+      assert.equal(res.decimal_index, 1);
+      assert.equal(res.negative, false);
+    });
+
     it("null => Error", () => {
       const par = null;
       let error = null;
