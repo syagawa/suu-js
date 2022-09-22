@@ -49,7 +49,7 @@ describe("core", function(){
       assert.equal(res.negative, true);
     });
 
-    it(" '' => 0", () => {
+    it("'' => 0", () => {
       const str = "";
       const res = core.numToArrayWithDecimal(str);
       assert.equal(res.array.length, 1);
@@ -60,6 +60,18 @@ describe("core", function(){
 
     it("null => Error", () => {
       const par = null;
+      let error = null;
+      try{
+        core.numToArrayWithDecimal(par);
+      }catch(err){
+        error = err;
+      }
+      const res = error.name.match(/error/i) ? true : false;
+      assert.equal(res, true);
+    });
+
+    it("undefined => Error", () => {
+      const par = undefined;
       let error = null;
       try{
         core.numToArrayWithDecimal(par);
