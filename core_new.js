@@ -68,6 +68,11 @@ core.numToArrayWithDecimal = function(n){
   if(typeof n === "object"){
     return core.makeError({message: "Paremeter is object.", variable: n});
   }
+
+  if(!n && n !== 0){
+    return core.makeError({message: "Paremeter is undefined, null, or empty.", variable: n});
+  }
+
   let str = String(n);
   let negative = false;
   while(str && str[0].match(/^-/)){
