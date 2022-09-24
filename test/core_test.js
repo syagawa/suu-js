@@ -49,13 +49,11 @@ describe("core", function(){
       assert.equal(res.negative, true);
     });
 
-    
-
     it("'' => Error", () => {
       const par = "";
       let error = null;
       try{
-        core.numToArrayWithDecimal(par);
+        error = core.numToArrayWithDecimal(par);
       }catch(err){
         error = err;
       }
