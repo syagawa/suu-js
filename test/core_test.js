@@ -65,7 +65,7 @@ describe("core", function(){
       const par = null;
       let error = null;
       try{
-        core.numToArrayWithDecimal(par);
+        error = core.numToArrayWithDecimal(par);
       }catch(err){
         error = err;
       }
@@ -77,7 +77,19 @@ describe("core", function(){
       const par = undefined;
       let error = null;
       try{
-        core.numToArrayWithDecimal(par);
+        error = core.numToArrayWithDecimal(par);
+      }catch(err){
+        error = err;
+      }
+      const res = error.name.match(/error/i) ? true : false;
+      assert.equal(res, true);
+    });
+    
+    it("NaN => Error", () => {
+      const par = NaN;
+      let error = null;
+      try{
+        error = core.numToArrayWithDecimal(par);
       }catch(err){
         error = err;
       }
