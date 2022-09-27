@@ -115,11 +115,18 @@ describe("core", function(){
       assert.equal(res, true);
     });
 
+    it("-0 is true", () => {
+      const zero = core.numToArrayWithDecimal("-0");
+      const res = core.isZero(zero);
+      assert.equal(res, true);
+    });
+
     it("'' is false", () => {
       const zero = core.numToArrayWithDecimal("");
       const res = core.isZero(zero);
       assert.equal(res, false);
     });
+
   });
   describe("isOne", function(){
     it("1 is true", () => {
