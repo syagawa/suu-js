@@ -274,7 +274,14 @@ core.isOne = function(n){
     return false;
   }
   const one = core.getOne();
-  return core.isEqual(one, n);
+  const minusone = core.numToArrayWithDecimal("-1");
+  if(core.isEqual(one, n)){
+    return true;
+  }else if(core.isEqual(minusone, n)){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 core.getZero = function(){

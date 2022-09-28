@@ -126,8 +126,8 @@ describe("core", function(){
       const res = core.isZero(zero);
       assert.equal(res, false);
     });
-
   });
+
   describe("isOne", function(){
     it("1 is true", () => {
       const one = core.numToArrayWithDecimal("1");
