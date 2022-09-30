@@ -144,6 +144,11 @@ describe("core", function(){
       const res = core.isOne(zero);
       assert.equal(res, false);
     });
+    it("-1 is false", () => {
+      const zero = core.numToArrayWithDecimal("-1");
+      const res = core.isOne(zero);
+      assert.equal(res, false);
+    });
   });
   describe("compare", function(){
     it("1, 2", () => {
@@ -202,6 +207,15 @@ describe("core", function(){
       assert.equal(res.large, num1);
       assert.equal(res.small, num2);
       assert.equal(res.equal, false);
+    });
+
+    it("1, 1.0", () => {
+      const num1 = core.numToArrayWithDecimal("1");
+      const num2 = core.numToArrayWithDecimal("1.0");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, null);
+      assert.equal(res.small, null);
+      assert.equal(res.equal, true);
     });
 
     it("1, 0.1", () => {
