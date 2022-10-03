@@ -82,6 +82,14 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getDecimal", () => {
+    const num1 = utils.getNumber("1");
+    const dec = utils.getDecimal(num1);
+    const num2 = utils.getNumber("0");
+    const res = utils.isEqual(dec, num2);
+    assert.equal(res, true);
+  });
+
   it("isNaturalNumber", () => {
     const num1 = utils.getNumber("1.0");
     const num2 = utils.getNumber("1.11");
