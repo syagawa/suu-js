@@ -345,7 +345,7 @@ core.fixCarry = function(arr, minus){
 core.clone = function(n){
   try{
     if(!n.is_num_array){
-      return null;
+      return core.makeError({message: "Paremeter is not compatible", variable: n});
     }
     const o = {
       ...n,
