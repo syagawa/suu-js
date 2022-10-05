@@ -344,6 +344,9 @@ core.fixCarry = function(arr, minus){
 
 core.clone = function(n){
   try{
+    if(!n){
+      return core.makeError({message: "variable is not exists", variable: n});
+    }
     if(!n.is_num_array){
       return core.makeError({message: "Paremeter is not compatible", variable: n});
     }
@@ -360,7 +363,7 @@ core.clone = function(n){
 core.add_and_subtract = function(a, b, mode){
   if(!a || !b){
     if(a !== 0 && b !== 0){
-    return core.makeError({message: "variables is not exists", variable: [a, b]});
+    return core.makeError({message: "variables are not exists", variable: [a, b]});
     }
   }
   
