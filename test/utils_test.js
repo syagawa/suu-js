@@ -821,7 +821,21 @@ describe("utils", function(){
       const res = utils.factorial("6");
       assert.equal("720", core.numArrayToString(res));
     });
+    
+    it("7 => 5040", () => {
+      const res = utils.factorial("7");
+      assert.equal("5040", core.numArrayToString(res));
+    });
 
+    it("1.1 => null", () => {
+      const res = utils.factorial("1.1");
+      assert.equal(null, res);
+    });
+
+    it("-1 => null", () => {
+      const res = utils.factorial("-1");
+      assert.equal(null, res);
+    });
 
   });
 
