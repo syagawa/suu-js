@@ -446,6 +446,9 @@ utils.makePronicNumber = function(num){
   if(utils.isNegative(n)){
     return null;
   }
+  if(!utils.isInteger(n)){
+    return null;
+  }
   const  res = core.multiple(n, core.add(num, "1"));
   return res;
 };
