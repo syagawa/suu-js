@@ -763,6 +763,22 @@ describe("utils", function(){
       assert.equal("10", core.numArrayToString(res));
     });
 
+    it("0 => null", () => {
+      const res = utils.makeTriangleNumber("0");
+      assert.equal(null, res);
+    });
+
+    it("-1 => null", () => {
+      const res = utils.makeTriangleNumber("-1");
+      assert.equal(null, res);
+    });
+
+    it("1.1 => null", () => {
+      const res = utils.makeTriangleNumber("1.1");
+      assert.equal(null, res);
+    });
+
+
   });
   
   describe("makePronicNumber", function(){

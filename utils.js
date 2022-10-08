@@ -433,6 +433,11 @@ utils.makeTriangleNumber = function(num){
   if(utils.isNegative(n)){
     return null;
   }
+
+  if(!utils.isInteger(n)){
+    return null;
+  }
+  
   const  res1 = core.multiple(n, core.add(num, "1"));
   const res2 = core.divide(res1, "2");
   return res2;
