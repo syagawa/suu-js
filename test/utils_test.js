@@ -742,6 +742,12 @@ describe("utils", function(){
       assert.equal("45", core.numArrayToString(res));
     });
 
+
+    it("'' => 45", () => {
+      const res = utils.digitSum("");
+      assert.equal("0", core.numArrayToString(res));
+    });
+
   });
 
   describe("makeTriangleNumber", function(){
