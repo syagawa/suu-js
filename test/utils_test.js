@@ -716,9 +716,14 @@ describe("utils", function(){
       assert.equal("120", core.numArrayToString(res));
     });
     
-    it("'' => ''", () => {
+    it("'' => 0", () => {
       const res = utils.infiniteProduct({array: [""]});
-      assert.equal("", core.numArrayToString(res));
+      assert.equal("0", core.numArrayToString(res));
+    });
+
+    it("null => 0", () => {
+      const res = utils.infiniteProduct({array: null});
+      assert.equal("0", core.numArrayToString(res));
     });
 
 

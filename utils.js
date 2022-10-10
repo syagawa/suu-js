@@ -406,11 +406,12 @@ utils.summation = function({array}){
 };
 
 utils.infiniteProduct = function({array}){
+  if(!array || !Array.isArray(array)){
+    return core.getZero();
+  }
   let res = array[0];
-  if(Array.isArray(array)){
-    for(let i = 1; i < array.length; i++){
-      res = core.multiple(res, array[i]);
-    }
+  for(let i = 1; i < array.length; i++){
+    res = core.multiple(res, array[i]);
   }
   return res;
 };
