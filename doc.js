@@ -14,6 +14,9 @@ const map = {
   makeFibonacciSequence: {
     ja: "フィボナッチ数列"
   },
+  makeLucaSequence: {
+    ja: "リュカ数列"
+  },
   summation: {
     ja: "総和"
   },
