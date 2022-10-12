@@ -17,6 +17,40 @@ const map = {
   makeLucaSequence: {
     ja: "リュカ数列"
   },
+
+  makeTribonacciSequence: {
+    ja: "トリボナッチ数列"
+  },
+  makeTetranacciSequence: {
+    ja: "テトラナッチ数列"
+  },
+  makePentanacciSequence: {
+    ja: "ペンタナッチ数列"
+  },
+  makeHexanacciSequence: {
+    ja: "ヘキサナッチ数列"
+  },
+  makeHeptanacciSequence: {
+    ja: "ヘプタナッチ数列"
+  },
+  makeOctanacciSequence: {
+    ja: "オクタナッチ数列"
+  },
+  makeNonanacciSequence: {
+    ja: "ノナナッチ数列"
+  },
+  makeDecanacciSequence: {
+    ja: "デカナッチ数列"
+  },
+  makeUndecanacciSequence: {
+    ja: "ウンデカナッチ数列"
+  },
+  makeDodecanacciSequence: {
+    ja: "ドデカナッチ数列"
+  },
+  makeIcosanacciSequence: {
+    ja: "イコサナッチ数列"
+  },
   summation: {
     ja: "総和"
   },
