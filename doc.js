@@ -17,7 +17,6 @@ const map = {
   makeLucaSequence: {
     ja: "リュカ数列"
   },
-
   makeTribonacciSequence: {
     ja: "トリボナッチ数列"
   },
@@ -77,7 +76,10 @@ const whatIs = function({name="", lang="ja"}){
     return "";
   }
 
-  const target = utils[name]
+  let target = utils[name];
+  if(!target){
+    target = core[name];
+  }
 
   const exists = target ? true : false;
   if(!exists){
