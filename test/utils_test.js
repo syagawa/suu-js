@@ -687,6 +687,11 @@ describe("utils", function(){
       assert.equal("15", core.numArrayToString(res));
     });
 
+    it("0.1, 0.5, 0.3 => 0.9", () => {
+      const res = utils.summation({array: ["0.1", "0.5", "0.3"]});
+      assert.equal("0.9", core.numArrayToString(res));
+    });
+
   });
 
   describe("infiniteProduct", function(){
