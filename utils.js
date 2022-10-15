@@ -409,6 +409,9 @@ utils.infiniteProduct = function({array}){
   if(!array || !Array.isArray(array)){
     return core.getZero();
   }
+  if(array.length === 1){
+    return utils.getNumber(array[0]);
+  }
   let res = array[0];
   for(let i = 1; i < array.length; i++){
     res = core.multiple(res, array[i]);

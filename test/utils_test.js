@@ -721,9 +721,9 @@ describe("utils", function(){
       assert.equal("120", core.numArrayToString(res));
     });
     
-    it("'' => 0", () => {
+    it("'' => Error", () => {
       const res = utils.infiniteProduct({array: [""]});
-      assert.equal("0", core.numArrayToString(res));
+      assert.equal(true, res instanceof Error);
     });
 
     it("null => 0", () => {
