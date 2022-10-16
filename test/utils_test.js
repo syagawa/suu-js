@@ -9,6 +9,11 @@ describe("utils", function(){
     assert.equal(num.is_num_array, true);
   });
 
+  it("getNumber Error", () => {
+    const num = utils.getNumber("");
+    assert.equal(true, num instanceof Error);
+  });
+
   it("copy", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.copy(num1);
