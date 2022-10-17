@@ -21,6 +21,11 @@ describe("utils", function(){
     const num2_str = core.numArrayToString(num2);
     assert.equal(num1_str, num2_str);
   });
+  
+  it("copy Error", () => {
+    const num = utils.copy("");
+    assert.equal(true, num instanceof Error);
+  });
 
   it("getLarge", () => {
     const num1 = utils.getNumber("1");
