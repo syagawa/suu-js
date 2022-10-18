@@ -35,6 +35,11 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getLarge '' is null", () => {
+    const res = utils.getLarge("", "");
+    assert.equal(null, res);
+  });
+
   it("getSmall", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("2");
