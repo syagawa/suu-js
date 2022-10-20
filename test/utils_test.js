@@ -22,7 +22,7 @@ describe("utils", function(){
     assert.equal(num1_str, num2_str);
   });
   
-  it("copy Error", () => {
+  it("copy '' is Error", () => {
     const num = utils.copy("");
     assert.equal(true, num instanceof Error);
   });
@@ -58,6 +58,11 @@ describe("utils", function(){
     const num2 = utils.getNumber("1");
     const res = utils.isEqual(num1, num2);
     assert.equal(res, true);
+  });
+  
+  it("isEqual '' is false", () => {
+    const res = utils.isEqual("", "");
+    assert.equal(res, false);
   });
 
   
