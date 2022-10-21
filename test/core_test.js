@@ -312,6 +312,15 @@ describe("core", function(){
       assert.equal(res.small, num1);
       assert.equal(res.equal, false);
     });
+    
+    it("null, null", () => {
+      const num1 = core.numToArrayWithDecimal(null);
+      const num2 = core.numToArrayWithDecimal(null);
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, null);
+      assert.equal(res.small, null);
+      assert.equal(res.equal, true);
+    });
   });
 
   describe("getLarge", function(){
