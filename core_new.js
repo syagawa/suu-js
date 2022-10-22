@@ -129,16 +129,16 @@ core.numArrayToString = function(n){
 
 core.compare = function(a, b){
   try{
+    
+    if(!a || !b){
+      return core.makeError({ message: "Paremeters are undefined, null, or empty.", variable: [a, b]});
+    }
+    
     const o = {
       small: null,
       large: null,
       equal: false
     };
-
-    if(!a || !b){
-      return o;
-    }
-
     let a_ = a;
     let b_ = b;
 
