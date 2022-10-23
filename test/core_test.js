@@ -317,6 +317,12 @@ describe("core", function(){
       const res = core.compare(null, null);
       assert.equal(true, res instanceof Error);
     });
+
+    it("'', ''", () => {
+      const res = core.compare("", "");
+      assert.equal(true, res instanceof Error);
+    });
+
   });
 
   describe("getLarge", function(){
