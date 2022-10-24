@@ -126,6 +126,19 @@ describe("core", function(){
       const res = core.isZero(zero);
       assert.equal(res, false);
     });
+
+    it("null is false", () => {
+      const zero = core.numToArrayWithDecimal(null);
+      const res = core.isZero(zero);
+      assert.equal(res, false);
+    });
+
+    it("NaN is false", () => {
+      const zero = core.numToArrayWithDecimal(NaN);
+      const res = core.isZero(zero);
+      assert.equal(res, false);
+    });
+
   });
 
   describe("isOne", function(){
