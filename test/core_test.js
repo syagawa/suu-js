@@ -139,6 +139,12 @@ describe("core", function(){
       assert.equal(res, false);
     });
 
+    it("undefined is false", () => {
+      const zero = core.numToArrayWithDecimal();
+      const res = core.isZero(zero);
+      assert.equal(res, false);
+    });
+
   });
 
   describe("isOne", function(){
