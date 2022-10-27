@@ -174,11 +174,19 @@ describe("core", function(){
       const res = core.isOne(zero);
       assert.equal(res, false);
     });
+
     it("01 is true", () => {
       const zero = core.numToArrayWithDecimal("01");
       const res = core.isOne(zero);
       assert.equal(res, true);
     });
+
+    it("false is false", () => {
+      const zero = core.numToArrayWithDecimal(false);
+      const res = core.isOne(zero);
+      assert.equal(res, false);
+    });
+
   });
   describe("compare", function(){
     it("1, 2", () => {
