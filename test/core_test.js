@@ -193,6 +193,18 @@ describe("core", function(){
       assert.equal(res, false);
     });
 
+    it("'' is false", () => {
+      const zero = core.numToArrayWithDecimal('');
+      const res = core.isOne(zero);
+      assert.equal(res, false);
+    });
+
+    it("null is false", () => {
+      const zero = core.numToArrayWithDecimal(null);
+      const res = core.isOne(zero);
+      assert.equal(res, false);
+    });
+
   });
   describe("compare", function(){
     it("1, 2", () => {
