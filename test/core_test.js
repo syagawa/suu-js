@@ -367,6 +367,11 @@ describe("core", function(){
       const res = core.compare('', '');
       assert.equal(true, res instanceof Error);
     });
+    
+    it("false, false", () => {
+      const res = core.compare(false, false);
+      assert.equal(true, res instanceof Error);
+    });
 
   });
 
