@@ -400,9 +400,17 @@ describe("core", function(){
     it("1, 2", () => {
       const num1 = core.numToArrayWithDecimal("1");
       const num2 = core.numToArrayWithDecimal("2");
-      const res = core.getSmall(num1, num2);
-      assert.equal(res, num1);
+      const res = core.getLarge(num1, num2);
+      assert.equal(res, num2);
     });
+
+    // it("null, null", () => {
+    //   const num1 = core.numToArrayWithDecimal(null);
+    //   const num2 = core.numToArrayWithDecimal(null);
+    //   const res = core.getLarge(num1, num2);
+    //   assert.equal(true, res instanceof Error);
+    // });
+
   });
 
   describe("getSmall", function(){
