@@ -404,12 +404,10 @@ describe("core", function(){
       assert.equal(res, num2);
     });
 
-    // it("null, null", () => {
-    //   const num1 = core.numToArrayWithDecimal(null);
-    //   const num2 = core.numToArrayWithDecimal(null);
-    //   const res = core.getLarge(num1, num2);
-    //   assert.equal(true, res instanceof Error);
-    // });
+    it("null, null", () => {
+      const res = core.getLarge(null, null);
+      assert.equal(null, res);
+    });
 
   });
 
