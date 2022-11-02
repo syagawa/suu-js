@@ -408,6 +408,11 @@ describe("core", function(){
       const res = core.getLarge(null, null);
       assert.equal(null, res);
     });
+    
+    it("false, false", () => {
+      const res = core.getLarge(false, false);
+      assert.equal(null, res);
+    });
 
   });
 
