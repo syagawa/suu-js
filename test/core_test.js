@@ -414,6 +414,11 @@ describe("core", function(){
       assert.equal(null, res);
     });
 
+    it("'', ''", () => {
+      const res = core.getLarge('', '');
+      assert.equal(null, res);
+    });
+
   });
 
   describe("getSmall", function(){
