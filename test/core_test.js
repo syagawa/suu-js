@@ -440,6 +440,28 @@ describe("core", function(){
       const res = core.getSmall(num1, num2);
       assert.equal(res, num2);
     });
+
+    it("null, null", () => {
+      const res = core.getSmall(null, null);
+      assert.equal(null, res);
+    });
+    
+    it("false, false", () => {
+      const res = core.getSmall(false, false);
+      assert.equal(null, res);
+    });
+
+    it("'', ''", () => {
+      const res = core.getSmall('', '');
+      assert.equal(null, res);
+    });
+
+    it("undefined, undefined", () => {
+      const res = core.getSmall(undefined, undefined);
+      assert.equal(null, res);
+    });
+
+
   });
 
   describe("isEqual", function(){
