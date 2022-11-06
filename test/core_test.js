@@ -499,6 +499,28 @@ describe("core", function(){
       const res = core.isEqual(num1, num2);
       assert.equal(res, false);
     });
+
+    it("null, null", () => {
+      const res = core.isEqual(null, null);
+      assert.equal(false, res);
+    });
+    
+    it("false, false", () => {
+      const res = core.isEqual(false, false);
+      assert.equal(false, res);
+    });
+
+    it("'', ''", () => {
+      const res = core.isEqual('', '');
+      assert.equal(false, res);
+    });
+
+    it("undefined, undefined", () => {
+      const res = core.isEqual(undefined, undefined);
+      assert.equal(false, res);
+    });
+
+
   });
 
   describe("isSmall", function(){
