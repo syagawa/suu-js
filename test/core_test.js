@@ -615,6 +615,27 @@ describe("core", function(){
       assert.equal(res, true);
     });
 
+    it("null, null", () => {
+      const res = core.isSmall(null, null);
+      assert.equal(false, res);
+    });
+    
+    it("false, false", () => {
+      const res = core.isSmall(false, false);
+      assert.equal(false, res);
+    });
+
+    it("'', ''", () => {
+      const res = core.isSmall('', '');
+      assert.equal(false, res);
+    });
+
+    it("undefined, undefined", () => {
+      const res = core.isSmall(undefined, undefined);
+      assert.equal(false, res);
+    });
+
+
   });
 
   describe("isLarge", function(){
