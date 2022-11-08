@@ -730,6 +730,26 @@ describe("core", function(){
       assert.equal(res, false);
     });
 
+    it("null, null", () => {
+      const res = core.isLarge(null, null);
+      assert.equal(false, res);
+    });
+    
+    it("false, false", () => {
+      const res = core.isLarge(false, false);
+      assert.equal(false, res);
+    });
+
+    it("'', ''", () => {
+      const res = core.isLarge('', '');
+      assert.equal(false, res);
+    });
+
+    it("undefined, undefined", () => {
+      const res = core.isLarge(undefined, undefined);
+      assert.equal(false, res);
+    });
+
   });
 
   describe("add", function(){
