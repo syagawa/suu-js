@@ -973,6 +973,12 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1500.0015");
     });
+    
+    
+    it("null + null = Error", () => {
+      const res = core.add(null, null);
+      assert.equal(true, res instanceof Error);
+    });
 
 
   });
