@@ -980,6 +980,16 @@ describe("core", function(){
       assert.equal(true, res instanceof Error);
     });
 
+    it("'' + '' = Error", () => {
+      const res = core.add('', '');
+      assert.equal(true, res instanceof Error);
+    });
+
+    it("false + false = Error", () => {
+      const res = core.add(false, false);
+      assert.equal(true, res instanceof Error);
+    });
+
 
   });
 
