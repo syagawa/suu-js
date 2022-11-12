@@ -990,6 +990,11 @@ describe("core", function(){
       assert.equal(true, res instanceof Error);
     });
 
+    it("undefined + undefined = Error", () => {
+      const res = core.add(undefined, undefined);
+      assert.equal(true, res instanceof Error);
+    });
+
 
   });
 
