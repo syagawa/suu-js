@@ -1225,6 +1225,26 @@ describe("core", function(){
       assert.equal(str, "1500.0015");
     });
 
+    it("null + null = Error", () => {
+      const res = core.subtract(null, null);
+      assert.equal(true, res instanceof Error);
+    });
+
+    it("'' + '' = Error", () => {
+      const res = core.subtract('', '');
+      assert.equal(true, res instanceof Error);
+    });
+
+    it("false + false = Error", () => {
+      const res = core.subtract(false, false);
+      assert.equal(true, res instanceof Error);
+    });
+
+    it("undefined + undefined = Error", () => {
+      const res = core.subtract(undefined, undefined);
+      assert.equal(true, res instanceof Error);
+    });
+
   });
 
 });
