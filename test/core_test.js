@@ -1367,6 +1367,26 @@ describe("multiplication", function(){
     assert.equal(str, "0");
   });
 
+  it("null + null = Error", () => {
+    const res = core.multiplication(null, null);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("'' + '' = Error", () => {
+    const res = core.multiplication('', '');
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("false + false = Error", () => {
+    const res = core.multiplication(false, false);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("undefined + undefined = Error", () => {
+    const res = core.multiplication(undefined, undefined);
+    assert.equal(true, res instanceof Error);
+  });
+
 
 });
 
