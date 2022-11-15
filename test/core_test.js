@@ -973,8 +973,7 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1500.0015");
     });
-    
-    
+
     it("null + null = Error", () => {
       const res = core.add(null, null);
       assert.equal(true, res instanceof Error);
@@ -994,7 +993,6 @@ describe("core", function(){
       const res = core.add(undefined, undefined);
       assert.equal(true, res instanceof Error);
     });
-
 
   });
 
@@ -2107,6 +2105,27 @@ describe("division", function(){
     assert.equal(str, "0.0333333333");
     assert.equal(check_result.equal, true);
   });
+
+  it("null + null = undefined", () => {
+    const res = core.division(null, null);
+    assert.equal(undefined, res);
+  });
+
+  it("'' + '' = undefined", () => {
+    const res = core.division('', '');
+    assert.equal(undefined, res);
+  });
+
+  it("false + false = undefined", () => {
+    const res = core.division(false, false);
+    assert.equal(undefined, res);
+  });
+
+  it("undefined + undefined = undefined", () => {
+    const res = core.division(undefined, undefined);
+    assert.equal(undefined, res);
+  });
+
 
 });
 
