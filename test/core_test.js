@@ -2108,22 +2108,22 @@ describe("division", function(){
 
   it("null + null = undefined", () => {
     const res = core.division(null, null);
-    assert.equal(undefined, res);
+    assert.equal(true, res instanceof Error);
   });
 
   it("'' + '' = undefined", () => {
     const res = core.division('', '');
-    assert.equal(undefined, res);
+    assert.equal(true, res instanceof Error);
   });
 
   it("false + false = undefined", () => {
     const res = core.division(false, false);
-    assert.equal(undefined, res);
+    assert.equal(true, res instanceof Error);
   });
 
   it("undefined + undefined = undefined", () => {
     const res = core.division(undefined, undefined);
-    assert.equal(undefined, res);
+    assert.equal(true, res instanceof Error);
   });
 
 
