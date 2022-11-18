@@ -2106,22 +2106,22 @@ describe("division", function(){
     assert.equal(check_result.equal, true);
   });
 
-  it("null + null = undefined", () => {
+  it("null + null = Error", () => {
     const res = core.division(null, null);
     assert.equal(true, res instanceof Error);
   });
 
-  it("'' + '' = undefined", () => {
+  it("'' + '' = Error", () => {
     const res = core.division('', '');
     assert.equal(true, res instanceof Error);
   });
 
-  it("false + false = undefined", () => {
+  it("false + false = Error", () => {
     const res = core.division(false, false);
     assert.equal(true, res instanceof Error);
   });
 
-  it("undefined + undefined = undefined", () => {
+  it("undefined + undefined = Error", () => {
     const res = core.division(undefined, undefined);
     assert.equal(true, res instanceof Error);
   });
@@ -2183,6 +2183,12 @@ describe("floor", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "-101");
   });
+
+  it("undefined + undefined = Error", () => {
+    const res = core.floor(undefined);
+    assert.equal(true, res instanceof Error);
+  });
+
 
 });
 
