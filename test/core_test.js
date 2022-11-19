@@ -2184,8 +2184,23 @@ describe("floor", function(){
     assert.equal(str, "-101");
   });
 
-  it("undefined + undefined = Error", () => {
+  it("undefined = Error", () => {
     const res = core.floor(undefined);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("'' = Error", () => {
+    const res = core.floor('');
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("null = Error", () => {
+    const res = core.floor(null);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("false = Error", () => {
+    const res = core.floor(false);
     assert.equal(true, res instanceof Error);
   });
 
