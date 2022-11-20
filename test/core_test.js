@@ -2265,6 +2265,28 @@ describe("ceil", function(){
     assert.equal(str, "-100");
   });
 
+  it("undefined = Error", () => {
+    const res = core.ceil(undefined);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("'' = Error", () => {
+    const res = core.ceil('');
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("null = Error", () => {
+    const res = core.ceil(null);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("false = Error", () => {
+    const res = core.ceil(false);
+    assert.equal(true, res instanceof Error);
+  });
+
+
+
 });
 
 
