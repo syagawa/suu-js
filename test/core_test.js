@@ -2441,6 +2441,27 @@ describe("modulo", function(){
   });
 
 
+  it("null + null = Error", () => {
+    const res = core.modulo(null, null);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("'' + '' = Error", () => {
+    const res = core.modulo('', '');
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("false + false = Error", () => {
+    const res = core.modulo(false, false);
+    assert.equal(true, res instanceof Error);
+  });
+
+  it("undefined + undefined = Error", () => {
+    const res = core.modulo(undefined, undefined);
+    assert.equal(true, res instanceof Error);
+  });
+
+
 });
 
 
