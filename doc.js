@@ -1,4 +1,4 @@
-import core from "./core_new.js";
+import core from "./core.js";
 import utils from "./utils.js";
 
 const map = {

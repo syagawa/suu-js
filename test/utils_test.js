@@ -1,6 +1,6 @@
 const assert = require('assert');
 const app = require("../app.js");
-const core = app.core2;
+const core = app.core;
 const utils = app.utils;
 
 describe("utils", function(){
