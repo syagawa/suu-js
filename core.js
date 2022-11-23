@@ -901,7 +901,7 @@ core.modulo = function(a, b){
   try{
     if(!a || !b){
       if(a !== 0 && b !== 0){
-        return undefined;
+        return core.makeError({message: "variables is not exists", variable: [a, b]});
       }
     }
 
