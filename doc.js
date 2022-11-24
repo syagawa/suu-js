@@ -68,7 +68,9 @@ const map = {
   factorial: {
     ja: "階乗"
   },
-
+  modulo: {
+    ja: "剰余演算"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}){
