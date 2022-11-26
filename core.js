@@ -919,7 +919,12 @@ core.modulo = function(a, b){
     }
 
     if(core.isZero(b_)){
-      return undefined;
+      if(core.isLarge(a_, "0")){
+        return Infinity;
+      }else if(core.isSmall(a_, "0")){
+        return -Infinity;
+      }
+      return "not a number";
     }
 
     if(core.isZero(a_)){
