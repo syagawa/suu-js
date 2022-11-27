@@ -920,11 +920,11 @@ core.modulo = function(a, b){
 
     if(core.isZero(b_)){
       if(core.isLarge(a_, "0")){
-        return Infinity;
+        return "Infinity";
       }else if(core.isSmall(a_, "0")){
-        return -Infinity;
+        return "Negative Infinity";
       }
-      return "not a number";
+      return "Not a Number";
     }
 
     if(core.isZero(a_)){
