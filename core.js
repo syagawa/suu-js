@@ -631,7 +631,12 @@ core.division = function(a, b){
     }
 
     if(core.isZero(b_)){
-      return undefined;
+      if(core.isLarge(a_, "0")){
+        return "Infinity";
+      }else if(core.isSmall(a_, "0")){
+        return "Negative Infinity";
+      }
+      return "Not a Number";
     }
 
     if(core.isZero(a_)){
@@ -959,7 +964,6 @@ core.modulo = function(a, b){
     }
 
     const calc = function({a, b}){
-      // 15.5 - (2 * Math.floor(15.5 / 2))
       const divided = core.divide(a, b);
       const floored = core.floor(divided);
       const multipled = core.multiple(b, floored);
