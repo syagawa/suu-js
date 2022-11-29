@@ -365,7 +365,7 @@ core.clone = function(n){
 core.add_and_subtract = function(a, b, mode){
   if(!a || !b){
     if(a !== 0 && b !== 0){
-    return core.makeError({message: "variables are not exists", variable: [a, b]});
+      return core.makeError({message: "Parameters are must be a Number or a String.", variable: [a, b]});
     }
   }
   
