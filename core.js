@@ -1,8 +1,16 @@
 const core = {};
 
-core.makeError = function({message, variable}){
+core.makeError = function({message, variable, parameter}){
   try{
-    const str = `${message}, ${variable.toString()}`
+    const v = variable.toString();
+    const p = parameter.toString();
+    let str = message;
+    if(v){
+      str = `${str}, ${v ? v : ""}`;
+    }
+    if(p){
+      str = `${str}, ${p ? p : ""}`;
+    }
     const error = new Error(str);
     return error;
   }catch(e){
