@@ -31,11 +31,11 @@ const isNumber = function(n){
 
 core.moldNumArray = function({ array, negative, decimal_index }){
   if(!array){
-    return core.makeError({ message: "array is not exists", variable: array});
+    return core.makeError({ message: "array is not exists", patameter: array});
   }
 
   if(typeof decimal_index !== "number" || isNaN(decimal_index)){
-    return core.makeError({ message: "decimal_index is not number", variable: decimal_index});
+    return core.makeError({ message: "decimal_index is not number", patameter: decimal_index});
   }
   try{
     while(decimal_index < array.length && array[array.length - 1] === 0){
@@ -64,7 +64,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
     return o;
   }catch(e){
-    return core.makeError({message: e.message, variable: array});
+    return core.makeError({message: e.message, paramter: array});
   }
 
 };
