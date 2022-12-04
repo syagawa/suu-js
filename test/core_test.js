@@ -1400,12 +1400,12 @@ describe("division", function(){
 
   it("0 / 0 = undefined", () => {
     const res = core.division("0", "0");
-    assert.equal(res, undefined);
+    assert.equal(res, "Not a Number");
   });
 
   it("1 / 0 = undefined", () => {
     const res = core.division("1", "0");
-    assert.equal(res, undefined);
+    assert.equal(res, "Infinity");
   });
 
   it("0 / 1 = 0", () => {

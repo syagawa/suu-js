@@ -106,7 +106,7 @@ core.numToArrayWithDecimal = function(n){
 
     const num = Number(str[i]);
     if(!isNumber(num)){
-      return core.makeError({message: "This function has been called with incorrect parameters", parameter: num});
+      return core.makeError({message: "This method has been called with incorrect parameters", parameter: num});
     }
     arr.push(num);
   }
@@ -138,7 +138,7 @@ core.compare = function(a, b){
   try{
     
     if(!a || !b){
-      return core.makeError({ message: "Paremeters are undefined, null, or empty.", variable: [a, b]});
+      return core.makeError({ message: "Paremeters are undefined, null, or empty.", parameter: [a, b]});
     }
     
     const o = {
