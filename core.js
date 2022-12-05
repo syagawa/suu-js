@@ -64,7 +64,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
     return o;
   }catch(e){
-    return core.makeError({message: e.message, paramter: array});
+    return core.makeError({message: e.message, parameter: array});
   }
 
 };
@@ -236,7 +236,7 @@ core.compare = function(a, b){
     o.equal = true;
     return o;
   }catch(err){
-    return this.makeError({message: err.message, variable: [a, b]})
+    return this.makeError({message: err.message, parameter: [a, b]})
   }
 
 };
