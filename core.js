@@ -71,7 +71,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
 core.numToArrayWithDecimal = function(n){
   if(!n && n !== 0){
-    return core.makeError({message: "Paremeter is undefined, null, or empty.", paraneter: n});
+    return core.makeError({message: "Paremeter is undefined, null, or empty.", parameter: n});
   }
 
   if(n.is_num_array){
@@ -79,7 +79,7 @@ core.numToArrayWithDecimal = function(n){
   }
 
   if(typeof n === "object"){
-    return core.makeError({message: "Paremeter is object.", paraneter: n});
+    return core.makeError({message: "Paremeter is object.", parameter: n});
   }
 
   let str = String(n);
