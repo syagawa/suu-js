@@ -71,7 +71,7 @@ core.moldNumArray = function({ array, negative, decimal_index }){
 
 core.numToArrayWithDecimal = function(n){
   if(!n && n !== 0){
-    return core.makeError({message: "Paremeter is undefined, null, or empty.", parameter: n});
+    return core.makeError({message: "Parameter is undefined, null, or empty.", parameter: n});
   }
 
   if(n.is_num_array){
@@ -79,7 +79,7 @@ core.numToArrayWithDecimal = function(n){
   }
 
   if(typeof n === "object"){
-    return core.makeError({message: "Paremeter is object.", parameter: n});
+    return core.makeError({message: "Parameter is object.", parameter: n});
   }
 
   let str = String(n);
@@ -138,7 +138,7 @@ core.compare = function(a, b){
   try{
     
     if(!a || !b){
-      return core.makeError({ message: "Paremeters are undefined, null, or empty.", parameter: [a, b]});
+      return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }
     
     const o = {
@@ -346,7 +346,7 @@ core.fixCarry = function(arr, minus){
       minus: minus_
     };
   }catch(err){
-    return core.makeError({message: err.message, variable: [arr, minus]})
+    return core.makeError({message: err.message, parameter: [arr, minus]})
   }
 
 };
@@ -354,10 +354,10 @@ core.fixCarry = function(arr, minus){
 core.clone = function(n){
   try{
     if(!n){
-      return core.makeError({message: "variable is not exists", variable: n});
+      return core.makeError({message: "Parameter is not exists", parameter: n});
     }
     if(!n.is_num_array){
-      return core.makeError({message: "Paremeter is not compatible", variable: n});
+      return core.makeError({message: "Parameter is not compatible", parameter: n});
     }
     const o = {
       ...n,
@@ -365,7 +365,7 @@ core.clone = function(n){
     };
     return o;
   }catch(err){
-    return core.makeError({message: err.message, variable: n});
+    return core.makeError({message: err.message, parameter: n});
   }
 };
 
