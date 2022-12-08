@@ -372,7 +372,7 @@ core.clone = function(n){
 core.add_and_subtract = function(a, b, mode){
   if(!a || !b){
     if(a !== 0 && b !== 0){
-      return core.makeError({message: "Parameters are must be a Number or a String.", variable: [a, b]});
+      return core.makeError({message: "Parameters are must be a Number or a String.", parameter: [a, b]});
     }
   }
   
@@ -384,7 +384,7 @@ core.add_and_subtract = function(a, b, mode){
   }else if(mode === "-"){
     plus = false;
   }else{
-    return core.makeError({message: "mode must be '+' or '-'.", variable: mode});
+    return core.makeError({message: "mode must be '+' or '-'.", parameter: mode});
   }
 
   try {
@@ -472,7 +472,7 @@ core.add_and_subtract = function(a, b, mode){
       decimal_index: new_decimal_index
     });
   }catch(err){
-    return core.makeError({message: err.message, variable: [a, b]});
+    return core.makeError({message: err.message, parameter: [a, b]});
   }
 
 };
