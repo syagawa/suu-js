@@ -490,7 +490,7 @@ core.multiplication = function(a, b){
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
-      return core.makeError({message: "variables is not exists", variable: [a, b]});
+      return core.makeError({message: "Parameters are not exists", parameter: [a, b]});
     }
   }
 
@@ -585,7 +585,7 @@ core.multiplication = function(a, b){
       decimal_index: new_decimal_index
     });
   }catch(err){
-    return core.makeError({message: err.message, variable: [a, b]});
+    return core.makeError({message: err.message, parameter: [a, b]});
   }
 
 };
@@ -610,7 +610,7 @@ core.getDecimal = function(n){
     const num = core.numToArrayWithDecimal(str);
     return num;
   }catch(err){
-    return core.makeError({message: err.message, variable: n});
+    return core.makeError({message: err.message, parameter: n});
   }
 };
 
@@ -620,7 +620,7 @@ core.division = function(a, b){
   try {
     if(!a || !b){
       if(a !== 0 && b !== 0){
-        return core.makeError({message: "variables is not exists", variable: [a, b]});
+        return core.makeError({message: "Parameters are not exists", parameter: [a, b]});
       }
     }
 
@@ -854,7 +854,7 @@ core.division = function(a, b){
       remainder:remainder,
     }
   }catch(err){
-    return core.makeError({message: err.message, variable: [a, b]});
+    return core.makeError({message: err.message, parameter: [a, b]});
   }
   
 };
@@ -881,7 +881,7 @@ core.floor = function(num){
     }
     return n_;
   }catch(err){
-    return core.makeError({message: err.messsage, variable: num});
+    return core.makeError({message: err.messsage, parameter: num});
   }
 };
 
@@ -903,7 +903,7 @@ core.ceil = function(num){
     }
     return n_;
   }catch(err){
-    return core.makeError({message: err.message, variable: num});
+    return core.makeError({message: err.message, parameter: num});
   }
 
 };
@@ -913,7 +913,7 @@ core.modulo = function(a, b){
   try{
     if(!a || !b){
       if(a !== 0 && b !== 0){
-        return core.makeError({message: "variables is not exists", variable: [a, b]});
+        return core.makeError({message: "Parameters are not exists", parameter: [a, b]});
       }
     }
 
@@ -989,7 +989,7 @@ core.modulo = function(a, b){
       ...quotient,
     }
   }catch(err){
-    return core.makeError({message: err.message, variable: [a, b]});
+    return core.makeError({message: err.message, parameter: [a, b]});
   }
   
 };
