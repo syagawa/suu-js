@@ -909,6 +909,11 @@ describe("utils", function(){
       assert.equal(null, res);
     });
 
+    it("null => null", () => {
+      const res = utils.factorial(null);
+      assert.equal(null, res);
+    });
+
   });
 
 
