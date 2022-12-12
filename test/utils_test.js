@@ -859,57 +859,57 @@ describe("utils", function(){
   });
   describe("factorial", function(){
     
-    it("0 => 0", () => {
+    it("0! => 1", () => {
       const res = utils.factorial("0");
-      assert.equal("0", core.numArrayToString(res));
+      assert.equal("1", core.numArrayToString(res));
     });
 
-    it("1 => 1", () => {
+    it("1! => 1", () => {
       const res = utils.factorial("1");
       assert.equal("1", core.numArrayToString(res));
     });
     
-    it("2 => 2", () => {
+    it("2! => 2", () => {
       const res = utils.factorial("2");
       assert.equal("2", core.numArrayToString(res));
     });
 
-    it("3 => 6", () => {
+    it("3! => 6", () => {
       const res = utils.factorial("3");
       assert.equal("6", core.numArrayToString(res));
     });
 
-    it("4 => 24", () => {
+    it("4! => 24", () => {
       const res = utils.factorial("4");
       assert.equal("24", core.numArrayToString(res));
     });
     
-    it("5 => 120", () => {
+    it("5! => 120", () => {
       const res = utils.factorial("5");
       assert.equal("120", core.numArrayToString(res));
     });
 
-    it("6 => 720", () => {
+    it("6! => 720", () => {
       const res = utils.factorial("6");
       assert.equal("720", core.numArrayToString(res));
     });
     
-    it("7 => 5040", () => {
+    it("7! => 5040", () => {
       const res = utils.factorial("7");
       assert.equal("5040", core.numArrayToString(res));
     });
 
-    it("1.1 => null", () => {
+    it("1.1! => null", () => {
       const res = utils.factorial("1.1");
       assert.equal(null, res);
     });
 
-    it("-1 => null", () => {
+    it("-1! => null", () => {
       const res = utils.factorial("-1");
       assert.equal(null, res);
     });
 
-    it("null => null", () => {
+    it("null! => null", () => {
       const res = utils.factorial(null);
       assert.equal(null, res);
     });

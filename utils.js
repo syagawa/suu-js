@@ -468,7 +468,7 @@ utils.makePronicNumber = function(num){
 utils.factorial = function(num){
   const n = utils.getNumber(num);
   if(core.isZero(n)){
-    return core.getZero();
+    return core.getOne();
   }
   if(utils.isNegative(n)){
     return null;
