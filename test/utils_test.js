@@ -840,6 +840,10 @@ describe("utils", function(){
       const res = utils.makePronicNumber("4");
       assert.equal("20", core.numArrayToString(res));
     });
+    it("5 => 30", () => {
+      const res = utils.makePronicNumber("5");
+      assert.equal("30", core.numArrayToString(res));
+    });
 
     it("1.1 => null", () => {
       const res = utils.makePronicNumber("1.1");
