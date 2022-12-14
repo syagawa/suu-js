@@ -470,11 +470,8 @@ utils.factorial = function(num){
   if(core.isZero(n)){
     return core.getOne();
   }
-  if(utils.isNegative(n)){
-    return null;
-  }
-  if(!utils.isInteger(n)){
-    return null;
+  if(utils.isNegative(n) || !utils.isInteger(n)){
+    return core.makeError({message: "Prameter is negative or not integer.", parameter: [num]});
   }
   
   if(core.isOne(n)){
