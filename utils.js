@@ -467,15 +467,12 @@ utils.makePronicNumber = function(num){
 
 utils.factorial = function(num){
   const n = utils.getNumber(num);
-  if(core.isZero(n)){
+  if(core.isZero(n) || core.isOne(n)){
     return core.getOne();
   }
+
   if(utils.isNegative(n) || !utils.isInteger(n)){
     return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
-  }
-  
-  if(core.isOne(n)){
-    return core.getOne();
   }
 
   let go = true;
