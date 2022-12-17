@@ -479,17 +479,21 @@ utils.factorial = function(num){
   let temp = n;
   let current = n;
   const arr = [temp];
-  while(go){
-    const target = core.subtract(current, "1");
-    arr.push(target);
-    current = target;
-    if(core.isSmall(current, "2")){
-      go = false;
-      break;
+  try{
+    while(go){
+      const target = core.subtract(current, "1");
+      arr.push(target);
+      current = target;
+      if(core.isSmall(current, "2")){
+        go = false;
+        break;
+      }
     }
-  }
 
-  return utils.infiniteProduct({array: arr});
+    return utils.infiniteProduct({array: arr});
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [num]});
+  }
 };
 
 
