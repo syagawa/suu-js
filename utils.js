@@ -453,7 +453,7 @@ utils.makeTriangleNumber = function(num){
 utils.makePronicNumber = function(num){
   const n = utils.getNumber(num);
   if(core.isZero(n)){
-    return null;
+    return core.getZero();
   }
   if(utils.isNegative(n)){
     return null;
@@ -461,7 +461,7 @@ utils.makePronicNumber = function(num){
   if(!utils.isInteger(n)){
     return null;
   }
-  const  res = core.multiple(n, core.add(num, "1"));
+  const  res = core.multiple(n, core.add(n, "1"));
   return res;
 };
 
