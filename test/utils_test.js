@@ -905,17 +905,20 @@ describe("utils", function(){
 
     it("1.1! => null", () => {
       const res = utils.factorial("1.1");
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
+
     });
 
     it("-1! => null", () => {
       const res = utils.factorial("-1");
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
+
     });
 
     it("null! => null", () => {
       const res = utils.factorial(null);
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
+
     });
 
   });
