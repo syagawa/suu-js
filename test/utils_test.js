@@ -855,9 +855,9 @@ describe("utils", function(){
       assert.equal(null, res);
     });
 
-    it("0 => null", () => {
+    it("0 => 0", () => {
       const res = utils.makePronicNumber("0");
-      assert.equal(null, res);
+      assert.equal("0", core.numArrayToString(res));
     });
 
   });
