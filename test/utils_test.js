@@ -845,20 +845,21 @@ describe("utils", function(){
       assert.equal("30", core.numArrayToString(res));
     });
 
-    it("1.1 => null", () => {
-      const res = utils.makePronicNumber("1.1");
-      assert.equal(null, res);
-    });
-
-    it("-1 => null", () => {
-      const res = utils.makePronicNumber("-1");
-      assert.equal(null, res);
-    });
-
     it("0 => 0", () => {
       const res = utils.makePronicNumber("0");
       assert.equal("0", core.numArrayToString(res));
     });
+
+    it("1.1 => Error", () => {
+      const res = utils.makePronicNumber("1.1");
+      assert.equal(true, res instanceof Error);
+    });
+
+    it("-1 => Error", () => {
+      const res = utils.makePronicNumber("-1");
+      assert.equal(true, res instanceof Error);
+    });
+
 
   });
   describe("factorial", function(){
