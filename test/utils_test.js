@@ -904,19 +904,19 @@ describe("utils", function(){
       assert.equal("5040", core.numArrayToString(res));
     });
 
-    it("1.1! => null", () => {
+    it("1.1! => Error", () => {
       const res = utils.factorial("1.1");
       assert.equal(true, res instanceof Error);
 
     });
 
-    it("-1! => null", () => {
+    it("-1! => Error", () => {
       const res = utils.factorial("-1");
       assert.equal(true, res instanceof Error);
 
     });
 
-    it("null! => null", () => {
+    it("null! => Error", () => {
       const res = utils.factorial(null);
       assert.equal(true, res instanceof Error);
 

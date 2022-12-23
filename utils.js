@@ -437,15 +437,11 @@ utils.makeTriangleNumber = function(num){
   if(core.isZero(n)){
     return null;
   }
-  if(utils.isNegative(n)){
-    return null;
-  }
-
-  if(!utils.isInteger(n)){
-    return null;
+  if(utils.isNegative(n) || !utils.isInteger(n)){
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]})
   }
   
-  const  res1 = core.multiple(n, core.add(num, "1"));
+  const res1 = core.multiple(n, core.add(n, "1"));
   const res2 = core.divide(res1, "2");
   return res2;
 };
