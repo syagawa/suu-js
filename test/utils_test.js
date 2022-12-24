@@ -806,17 +806,17 @@ describe("utils", function(){
 
     it("0 => null", () => {
       const res = utils.makeTriangleNumber("0");
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
     });
 
     it("-1 => null", () => {
       const res = utils.makeTriangleNumber("-1");
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
     });
 
     it("1.1 => null", () => {
       const res = utils.makeTriangleNumber("1.1");
-      assert.equal(null, res);
+      assert.equal(true, res instanceof Error);
     });
 
 

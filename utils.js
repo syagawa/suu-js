@@ -435,10 +435,10 @@ utils.digitSum = function(num){
 utils.makeTriangleNumber = function(num){
   const n = utils.getNumber(num);
   if(core.isZero(n)){
-    return null;
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
   }
   if(utils.isNegative(n) || !utils.isInteger(n)){
-    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]})
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
   }
   
   const res1 = core.multiple(n, core.add(n, "1"));
@@ -452,7 +452,7 @@ utils.makePronicNumber = function(num){
     return core.getZero();
   }
   if(utils.isNegative(n) || !utils.isInteger(n)){
-    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]})
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
   }
   const  res = core.multiple(n, core.add(n, "1"));
   return res;
