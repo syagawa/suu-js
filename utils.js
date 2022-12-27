@@ -426,6 +426,9 @@ utils.digitSum = function(num){
     return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
   }
   let res = utils.getNumber("0");
+  if(core.isZero(n)){
+    return res;
+  }
   n.array.forEach(item => {
     res = core.add(res, item);
   });
