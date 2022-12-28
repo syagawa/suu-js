@@ -407,7 +407,7 @@ utils.summation = function({array}){
 
 utils.infiniteProduct = function({array}){
   if(!array || !Array.isArray(array)){
-    return core.getZero();
+    return core.makeError({message: "Parameter must be Array.", parameter: [array]});
   }
   if(array.length === 1){
     return utils.getNumber(array[0]);
