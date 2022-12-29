@@ -753,7 +753,7 @@ describe("utils", function(){
 
     it("null => 0", () => {
       const res = utils.infiniteProduct({array: null});
-      assert.equal("0", core.numArrayToString(res));
+      assert.equal(true, res instanceof Error);
     });
 
 
@@ -778,9 +778,9 @@ describe("utils", function(){
     });
 
 
-    it("'' => 45", () => {
+    it("'' => Error", () => {
       const res = utils.digitSum("");
-      assert.equal("0", core.numArrayToString(res));
+      assert.equal(true, res instanceof Error);
     });
 
   });
