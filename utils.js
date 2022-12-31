@@ -396,7 +396,7 @@ utils.makeLucaSequence = function(){
 };
 
 utils.summation = function({array}){
-  let sum = utils.getNumber("0");
+  let sum = core.getZero();
   if(Array.isArray(array)){
     for(let i = 0; i < array.length; i++){
       sum = core.add(sum, array[i]);
