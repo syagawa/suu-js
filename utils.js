@@ -413,19 +413,22 @@ utils.infiniteProduct = function({array}){
     return utils.getNumber(array[0]);
   }
   let res = array[0];
-  for(let i = 1; i < array.length; i++){
-    res = core.multiple(res, array[i]);
+  try{
+    for(let i = 1; i < array.length; i++){
+      res = core.multiple(res, array[i]);
+    }
+  }catch(e){
+    return core.makeError({message: e.message, parameter: array});
   }
   return res;
 };
-
 
 utils.digitSum = function(num){
   const n = utils.getNumber(num);
   if(!n || !Array.isArray(n.array)){
     return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
   }
-  let res = utils.getNumber("0");
+  let res = core.getZero();
   if(core.isZero(n)){
     return res;
   }
