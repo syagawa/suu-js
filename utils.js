@@ -432,10 +432,14 @@ utils.digitSum = function(num){
   if(core.isZero(n)){
     return res;
   }
-  n.array.forEach(item => {
-    res = core.add(res, item);
-  });
-  return res;
+  try{
+    n.array.forEach(item => {
+      res = core.add(res, item);
+    });
+    return res;
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [num]});
+  }
 };
 
 utils.makeTriangleNumber = function(num){
