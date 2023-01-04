@@ -398,8 +398,12 @@ utils.makeLucaSequence = function(){
 utils.summation = function({array}){
   let sum = core.getZero();
   if(Array.isArray(array)){
-    for(let i = 0; i < array.length; i++){
-      sum = core.add(sum, array[i]);
+    try{
+      for(let i = 0; i < array.length; i++){
+        sum = core.add(sum, array[i]);
+      }
+    }catch(e){
+      return core.makeError({message: e.message, parameter: array});
     }
   }
   return sum;
