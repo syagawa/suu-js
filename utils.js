@@ -320,12 +320,16 @@ const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }){
   const a = utils.getNumber(first);
   const b = utils.getNumber(last);
   const arr = [];
-  for(let i = 0; i < len; i++){
-    let tgt = a;
-    if(i === (len -1)){
-      tgt = b;
+  try{
+    for(let i = 0; i < len; i++){
+      let tgt = a;
+      if(i === (len -1)){
+        tgt = b;
+      }
+      arr.push(tgt);
     }
-    arr.push(tgt);
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [first, last, length]});
   }
   return arr;
 };
