@@ -303,14 +303,18 @@ const fibonacciReccurenceRelation = function({array, limit}){
     if(array.length >= max){
       return array;
     }
-    let res = utils.getNumber("0");
-    for(let i = 0; i < items_length; i++){
-      const index = array.length - (items_length - i);
-      const num = array[index];
-      res = core.add(res, num);
+    try{
+      let res = utils.getNumber("0");
+      for(let i = 0; i < items_length; i++){
+        const index = array.length - (items_length - i);
+        const num = array[index];
+        res = core.add(res, num);
+      }
+      array.push(res);
+      return func(array);
+    }catch(e){
+      return core.makeError({message: e.message, parameter: [array, limit]});
     }
-    array.push(res);
-    return func(array);
   };
   return func(array);
 };
