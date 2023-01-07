@@ -258,33 +258,37 @@ utils.commonMultiple = function(a, b, limit){
     return arr;
   }
 
-  const a_ = utils.getNumber(a);
-  const b_ = utils.getNumber(b);
+  try{
+    const a_ = utils.getNumber(a);
+    const b_ = utils.getNumber(b);
 
-  if(core.isEqual(a_, b_)){
-    arr.push(a_);
-    return arr;
-  }
-
-  const a_arr = [];
-  const b_arr = [];
-  for(let i = 1; i <= limit_length; i++){
-    const a_num = core.multiple(a_, i);
-    a_arr.push(a_num);
-  }
-  for(let j = 1; j <= limit_length; j++){
-    const b_num = core.multiple(b_, j);
-    b_arr.push(b_num);
-  }
-
-  a_arr.forEach(a_n => {
-    const tgt = b_arr.find(b_n => core.isEqual(a_n, b_n));
-    if(tgt){
-      arr.push(tgt);
+    if(core.isEqual(a_, b_)){
+      arr.push(a_);
+      return arr;
     }
-  });
 
-  return arr;
+    const a_arr = [];
+    const b_arr = [];
+    for(let i = 1; i <= limit_length; i++){
+      const a_num = core.multiple(a_, i);
+      a_arr.push(a_num);
+    }
+    for(let j = 1; j <= limit_length; j++){
+      const b_num = core.multiple(b_, j);
+      b_arr.push(b_num);
+    }
+
+    a_arr.forEach(a_n => {
+      const tgt = b_arr.find(b_n => core.isEqual(a_n, b_n));
+      if(tgt){
+        arr.push(tgt);
+      }
+    });
+
+    return arr;
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [a, b, limit]});
+  }
 };
 
 utils.leastCommonMultiple = function(a, b, limit){
