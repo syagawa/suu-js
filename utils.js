@@ -240,11 +240,12 @@ utils.commonDivisors = function(a, b){
 };
 
 utils.greatestCommonDivisor = function(a, b){
-  const arr = utils.commonDivisors(a, b);
-  if(!arr.length){
-    return null;
+  try{
+    const arr = utils.commonDivisors(a, b);
+    return arr[arr.length - 1];
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [a, b]});
   }
-  return arr[arr.length - 1];
 };
 
 utils.commonMultiple = function(a, b, limit){
