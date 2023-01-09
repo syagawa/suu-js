@@ -219,24 +219,29 @@ utils.commonDivisors = function(a, b){
     return arr;
   }
 
-  const a_ = utils.getNumber(a);
-  const b_ = utils.getNumber(b);
+  try{
 
-  const a_divisors = utils.getDivisors(a_);
-  if(core.isEqual(a_, b_)){
-    return a_divisors;
-  }
-  const b_divisors = utils.getDivisors(b_);
-  for(let i = 0; i < a_divisors.length; i++){
-    const a_n = a_divisors[i];
-    for(let j = 0; j < b_divisors.length; j++){
-      const b_n = b_divisors[j];
-      if(core.isEqual(a_n, b_n)){
-        arr.push(a_n);
+    const a_ = utils.getNumber(a);
+    const b_ = utils.getNumber(b);
+    
+    const a_divisors = utils.getDivisors(a_);
+    if(core.isEqual(a_, b_)){
+      return a_divisors;
+    }
+    const b_divisors = utils.getDivisors(b_);
+    for(let i = 0; i < a_divisors.length; i++){
+      const a_n = a_divisors[i];
+      for(let j = 0; j < b_divisors.length; j++){
+        const b_n = b_divisors[j];
+        if(core.isEqual(a_n, b_n)){
+          arr.push(a_n);
+        }
       }
     }
+    return arr;
+  }catch(e){
+    return core.makeError({message: e.message, parameter: [a, b]});
   }
-  return arr;
 };
 
 utils.greatestCommonDivisor = function(a, b){
