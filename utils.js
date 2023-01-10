@@ -179,10 +179,10 @@ utils.isOddNumber = function(n){
 
 
 utils.getDivisors = function(n){
-  const arr = [];
   if(!n && n !== 0){
-    return arr;
+    return core.makeError({message: "Parameter must be integer", parameter: [n]});
   }
+  const arr = [];
   const num = utils.getNumber(n);
 
   if(!num){
@@ -220,7 +220,6 @@ utils.commonDivisors = function(a, b){
   }
 
   try{
-
     const a_ = utils.getNumber(a);
     const b_ = utils.getNumber(b);
     
