@@ -717,6 +717,15 @@ describe("utils", function(){
       assert.equal("0.9", core.numArrayToString(res));
     });
 
+    it("null => Error", () => {
+      const res = utils.summation(null);
+      assert.equal(true, res instanceof Error);
+    });
+    it("[''] => Error", () => {
+      const res = utils.summation({array: [""]});
+      assert.equal(true, res instanceof Error);
+    });
+
   });
 
   describe("infiniteProduct", function(){
@@ -751,7 +760,7 @@ describe("utils", function(){
       assert.equal(true, res instanceof Error);
     });
 
-    it("null => 0", () => {
+    it("null => Error", () => {
       const res = utils.infiniteProduct({array: null});
       assert.equal(true, res instanceof Error);
     });
