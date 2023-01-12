@@ -412,9 +412,12 @@ utils.makeLucaSequence = function(){
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.summation = function({ array }){
+utils.summation = function({ array = [] }){
   if(!array || !Array.isArray(array)){
     return core.makeError({message: "Parameter must be Array.", parameter: [array]});
+  }
+  if(array.length === 0){
+    return core.makeError({message: "array length is zero", parameter: [array]});
   }
   let sum = core.getZero();
   if(Array.isArray(array)){
