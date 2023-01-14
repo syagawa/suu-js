@@ -698,22 +698,22 @@ describe("utils", function(){
   describe("summation", function(){
     
     it("0, 0 => 0", () => {
-      const res = utils.summation({array: ["0", "0"]});
+      const res = utils.summation(["0", "0"]);
       assert.equal("0", core.numArrayToString(res));
     });
     
     it("1, 2 => 3", () => {
-      const res = utils.summation({array: ["1", "2"]});
+      const res = utils.summation(["1", "2"]);
       assert.equal("3", core.numArrayToString(res));
     });
     
     it("1, 2, 3, 4, 5 => 15", () => {
-      const res = utils.summation({array: ["1", "2", "3", "4", "5"]});
+      const res = utils.summation(["1", "2", "3", "4", "5"]);
       assert.equal("15", core.numArrayToString(res));
     });
 
     it("0.1, 0.5, 0.3 => 0.9", () => {
-      const res = utils.summation({array: ["0.1", "0.5", "0.3"]});
+      const res = utils.summation(["0.1", "0.5", "0.3"]);
       assert.equal("0.9", core.numArrayToString(res));
     });
 
@@ -723,7 +723,7 @@ describe("utils", function(){
     });
 
     it("[''] => Error", () => {
-      const res = utils.summation({array: [""]});
+      const res = utils.summation([""]);
       assert.equal(true, res instanceof Error);
     });
 
