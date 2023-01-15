@@ -432,7 +432,7 @@ utils.summation = function(array){
   return sum;
 };
 
-utils.infiniteProduct = function({array}){
+utils.infiniteProduct = function(array){
   if(!array || !Array.isArray(array)){
     return core.makeError({message: "Parameter must be Array.", parameter: [array]});
   }
@@ -521,7 +521,7 @@ utils.factorial = function(num){
       }
     }
 
-    return utils.infiniteProduct({array: arr});
+    return utils.infiniteProduct(arr);
   }catch(e){
     return core.makeError({message: e.message, parameter: [num]});
   }

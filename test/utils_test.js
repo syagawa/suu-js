@@ -732,37 +732,37 @@ describe("utils", function(){
   describe("infiniteProduct", function(){
     
     it("0, 0 => 0", () => {
-      const res = utils.infiniteProduct({array: ["0", "0"]});
+      const res = utils.infiniteProduct(["0", "0"]);
       assert.equal("0", core.numArrayToString(res));
     });
     
     it("1, 2 => 2", () => {
-      const res = utils.infiniteProduct({array: ["1", "2"]});
+      const res = utils.infiniteProduct(["1", "2"]);
       assert.equal("2", core.numArrayToString(res));
     });
 
     it("1, 2, 3 => 6", () => {
-      const res = utils.infiniteProduct({array: ["1", "2", "3"]});
+      const res = utils.infiniteProduct(["1", "2", "3"]);
       assert.equal("6", core.numArrayToString(res));
     });
 
     it("1, 2, 3, 4 => 24", () => {
-      const res = utils.infiniteProduct({array: ["1", "2", "3", "4"]});
+      const res = utils.infiniteProduct(["1", "2", "3", "4"]);
       assert.equal("24", core.numArrayToString(res));
     });
 
     it("1, 2, 3, 4, 5 => 120", () => {
-      const res = utils.infiniteProduct({array: ["1", "2", "3", "4", "5"]});
+      const res = utils.infiniteProduct(["1", "2", "3", "4", "5"]);
       assert.equal("120", core.numArrayToString(res));
     });
     
     it("'' => Error", () => {
-      const res = utils.infiniteProduct({array: [""]});
+      const res = utils.infiniteProduct([""]);
       assert.equal(true, res instanceof Error);
     });
 
     it("null => Error", () => {
-      const res = utils.infiniteProduct({array: null});
+      const res = utils.infiniteProduct(null);
       assert.equal(true, res instanceof Error);
     });
 
