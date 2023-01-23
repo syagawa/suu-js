@@ -4,4 +4,10 @@ type MoldNumArray = {
   decimal_index: number
 }
 
+export type Core = {
+  makeError: Function
+}
+
+
 type SuuNumber = MoldNumArray
+
