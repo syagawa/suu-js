@@ -6,6 +6,7 @@ type MoldNumArray = {
 
 export type Core = {
   makeError: Function
+  moldNumArray: Function
 }
 
 

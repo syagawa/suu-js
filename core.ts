@@ -1,6 +1,7 @@
 import { Core } from "./interfaces";
 
-const core: Core = {};
+const core: Core = {
+};
 
 core.makeError = function({message, variable, parameter}){
   try{
@@ -20,7 +21,7 @@ core.makeError = function({message, variable, parameter}){
   }
 };
 
-const isNumber = function(n){
+const isNumber = function(n): boolean{
   if(typeof n === "number"){
     if(Number.isNaN(n)){
       return false;
