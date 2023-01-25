@@ -1,6 +1,8 @@
-import { Core } from "./interfaces";
+import { Core, MoldNumArray } from "./interfaces";
 
 const core: Core = {
+  makeError: function(){},
+  moldNumArray: function(){},
 };
 
 core.makeError = function({message, variable, parameter}){
@@ -32,7 +34,7 @@ const isNumber = function(n): boolean{
   return false;
 };
 
-core.moldNumArray = function({ array, negative, decimal_index }){
+core.moldNumArray = function({ array, negative, decimal_index }: MoldNumArray){
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
   }
