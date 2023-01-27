@@ -34,7 +34,7 @@ const isNumber = function(n): boolean{
   return false;
 };
 
-core.moldNumArray = function({ array, negative, decimal_index }: MoldNumArray){
+core.moldNumArray = function({ array, negative, decimal_index }){
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
   }
@@ -56,10 +56,11 @@ core.moldNumArray = function({ array, negative, decimal_index }: MoldNumArray){
       decimal_index = 1;
     }
 
-    const o = {
+    const o: MoldNumArray = {
       array: array,
       negative: !!negative,
       is_num_array: true,
+      decimal_index: decimal_index
     };
     if(decimal_index === 0 || decimal_index > 0){
       o.decimal_index = decimal_index;
