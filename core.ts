@@ -1,9 +1,6 @@
-import { Core, MoldNumArray } from "./interfaces";
+import { MoldNumArray } from "./interfaces";
 
-const core: Core = {
-  makeError: function(){},
-  moldNumArray: function(){},
-};
+const core:any = {};
 
 core.makeError = function({message, variable, parameter}){
   try{
