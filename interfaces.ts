@@ -5,11 +5,6 @@ export type MoldNumArray = {
   is_num_array: boolean
 }
 
-export type Core = {
-  makeError: Function
-  moldNumArray: Function
-}
-
 
 type SuuNumber = MoldNumArray
 

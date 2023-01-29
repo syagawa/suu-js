@@ -2,21 +2,25 @@ import { MoldNumArray } from "./interfaces";
 
 const core:any = {};
 
-core.makeError = function({message, variable, parameter}){
+core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
+  let error = new Error();
   try{
-    const v = variable.toString();
-    const p = parameter.toString();
-    let str = message;
+    const v = o.variable.toString();
+    const p = o.parameter.toString();
+    let str = o.message;
     if(v){
       str = `${str}, ${v ? v : ""}`;
     }
     if(p){
       str = `${str}, ${p ? p : ""}`;
     }
-    const error = new Error(str);
+    error = new Error(str);
+  }catch(e: unknown){
+    if(e instanceof Error){
+      error = e;
+    }
+  }finally{
     return error;
-  }catch(e){
-    return e;
   }
 };
 
