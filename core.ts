@@ -24,7 +24,7 @@ core.makeError = function(o: {message: string, variable: any, parameter: any}): 
   }
 };
 
-const isNumber = function(n): boolean{
+const isNumber = function(n): Boolean{
   if(typeof n === "number"){
     if(Number.isNaN(n)){
       return false;
@@ -35,7 +35,7 @@ const isNumber = function(n): boolean{
   return false;
 };
 
-core.moldNumArray = function({ array, negative, decimal_index }){
+core.moldNumArray = function({ array, negative, decimal_index }): MoldNumArray | Error{
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
   }
@@ -70,8 +70,12 @@ core.moldNumArray = function({ array, negative, decimal_index }){
     }
 
     return o;
-  }catch(e){
-    return core.makeError({message: e.message, parameter: array});
+  }catch(e: unknown){
+    if(e instanceof Error){
+      return core.makeError({message: e.message, parameter: array});
+    }else{
+      return core.makeError({message: "unknown error", paramater: array});
+    }
   }
 
 };
