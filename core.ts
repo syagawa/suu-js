@@ -80,7 +80,7 @@ core.moldNumArray = function({ array, negative, decimal_index }): MoldNumArray |
 
 };
 
-core.numToArrayWithDecimal = function(n){
+core.numToArrayWithDecimal = function(n): MoldNumArray | Error{
   if(!n && n !== 0){
     return core.makeError({message: "Parameter is undefined, null, or empty.", parameter: n});
   }
@@ -93,7 +93,7 @@ core.numToArrayWithDecimal = function(n){
     return core.makeError({message: "Parameter is object.", parameter: n});
   }
 
-  let str = String(n);
+  let str: string = String(n);
   let negative = false;
   while(str && str[0].match(/^-/)){
     str = str.replace(/^-/, "");
@@ -106,13 +106,15 @@ core.numToArrayWithDecimal = function(n){
     return;
   }
   if(res && res.length === 1){
-    dec_index = str.match(/\./).index;
+    const res1 = str.match(/\./);
+    const first_index = res1?.index
+    dec_index = first_index
     str = str.replace(/\./, "");
   }else{
     dec_index = str.length;
   }
 
-  const arr = [];
+  const arr: number[] = [];
   for(let i = 0; i < str.length; i++){
 
     const num = Number(str[i]);
