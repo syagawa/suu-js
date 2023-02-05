@@ -103,7 +103,7 @@ core.numToArrayWithDecimal = function(n): MoldNumArray | Error{
   let dec_index;
   let res = str.match(/\./g);
   if(res && res.length > 1){
-    return;
+    return core.makeError({message: "2 or more decimal points", parameter: n});
   }
   if(res && res.length === 1){
     const res1 = str.match(/\./);
@@ -128,7 +128,7 @@ core.numToArrayWithDecimal = function(n): MoldNumArray | Error{
 
 };
 
-core.numArrayToString = function(n){
+core.numArrayToString = function(n): string | Error{
   if(!n.is_num_array || !n.array || !n.decimal_index){
     return "";
   }
@@ -141,8 +141,12 @@ core.numArrayToString = function(n){
     }
 
     return str.replace(/\.$/, "");
-  }catch(err){
-    return core.makeError({message: err.message, parameter: n});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: n});
+    }else{
+      return core.makeError({message: "unknown error", paramater: n});
+    }
   }
 
 };
