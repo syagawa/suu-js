@@ -1,5 +1,7 @@
 import { MoldNumArray } from "./interfaces";
 
+type Suu = MoldNumArray;
+
 const core:any = {};
 
 core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
