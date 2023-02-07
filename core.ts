@@ -37,7 +37,7 @@ const isNumber = function(n): Boolean{
   return false;
 };
 
-core.moldNumArray = function({ array, negative, decimal_index }): MoldNumArray | Error{
+core.moldNumArray = function({ array, negative, decimal_index }): Suu | Error{
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
   }
@@ -59,7 +59,7 @@ core.moldNumArray = function({ array, negative, decimal_index }): MoldNumArray |
       decimal_index = 1;
     }
 
-    const o: MoldNumArray = {
+    const o: Suu = {
       array: array,
       negative: !!negative,
       is_num_array: true,
@@ -82,7 +82,7 @@ core.moldNumArray = function({ array, negative, decimal_index }): MoldNumArray |
 
 };
 
-core.numToArrayWithDecimal = function(n): MoldNumArray | Error{
+core.numToArrayWithDecimal = function(n): Suu | Error{
   if(!n && n !== 0){
     return core.makeError({message: "Parameter is undefined, null, or empty.", parameter: n});
   }
