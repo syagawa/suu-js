@@ -1,4 +1,4 @@
-import { MoldNumArray } from "./interfaces";
+import { MoldNumArray, CompareObject, SuuNumber } from "./interfaces";
 
 type Suu = MoldNumArray;
 
@@ -153,7 +153,7 @@ core.numArrayToString = function(n): string | Error{
 
 };
 
-core.compare = function(a, b){
+core.compare = function(a, b): CompareObject | Error {
   try{
     
     if(!a || !b){

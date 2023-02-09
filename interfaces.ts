@@ -7,8 +7,8 @@ export type MoldNumArray = {
 
 export type CompareObject = {
   small: boolean | null
-  large: boolen | null
+  large: boolean | null
   equal: boolean | null
 }
 
-type SuuNumber = MoldNumArray
+export type SuuNumber = MoldNumArray
