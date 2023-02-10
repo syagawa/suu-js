@@ -160,7 +160,7 @@ core.compare = function(a, b): CompareObject | Error {
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }
     
-    const o = {
+    const o: CompareObject = {
       small: null,
       large: null,
       equal: false
@@ -181,13 +181,13 @@ core.compare = function(a, b): CompareObject | Error {
       }
     }
 
-    const a_array = a_.array;
-    const b_array = b_.array;
+    const a_array: number[] = a_.array;
+    const b_array: number[] = b_.array;
 
-    const a_len = a_array.length;
-    const b_len = b_array.length;
-    const a_str = a_array.join("");
-    const b_str = b_array.join("");
+    const a_len: number = a_array.length;
+    const b_len: number = b_array.length;
+    const a_str: string = a_array.join("");
+    const b_str: string = b_array.join("");
 
     const a_int_len = a_.decimal_index;
     const b_int_len = b_.decimal_index;
