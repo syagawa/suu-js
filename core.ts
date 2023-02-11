@@ -254,9 +254,14 @@ core.compare = function(a, b): CompareObject | Error {
 
     o.equal = true;
     return o;
-  }catch(err){
-    return this.makeError({message: err.message, parameter: [a, b]})
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
+
 
 };
 
