@@ -265,15 +265,15 @@ core.compare = function(a, b): CompareObject | Error {
 
 };
 
-core.getLarge = function(a, b){
+core.getLarge = function(a, b): boolean{
   return core.compare(a, b).large;
 };
 
-core.getSmall = function(a, b){
+core.getSmall = function(a, b): boolean{
   return core.compare(a, b).small;
 };
 
-core.isEqual = function(a, b){
+core.isEqual = function(a, b): boolean{
   const res = core.compare(a, b);
   if(res.equal){
     return true;
@@ -281,14 +281,14 @@ core.isEqual = function(a, b){
   return false;
 };
 
-core.isSmall = function(a, b){
+core.isSmall = function(a, b): boolean{
   return core.isEqual(core.getSmall(a, b), a);
 };
-core.isLarge = function(a, b){
+core.isLarge = function(a, b): boolean{
   return core.isEqual(core.getLarge(a, b), a);
 };
 
-core.isZero = function(n){
+core.isZero = function(n): boolean{
   if(!n){
     return false;
   }
