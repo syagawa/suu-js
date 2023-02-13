@@ -273,7 +273,7 @@ core.getSmall = function(a, b): boolean{
   return core.compare(a, b).small;
 };
 
-core.isEqual = function(a, b): boolean{
+core.isEqual = function(a, b): boolean {
   const res = core.compare(a, b);
   if(res.equal){
     return true;
@@ -281,14 +281,14 @@ core.isEqual = function(a, b): boolean{
   return false;
 };
 
-core.isSmall = function(a, b): boolean{
+core.isSmall = function(a, b): boolean {
   return core.isEqual(core.getSmall(a, b), a);
 };
-core.isLarge = function(a, b): boolean{
+core.isLarge = function(a, b): boolean {
   return core.isEqual(core.getLarge(a, b), a);
 };
 
-core.isZero = function(n): boolean{
+core.isZero = function(n): boolean {
   if(!n){
     return false;
   }
@@ -299,7 +299,7 @@ core.isZero = function(n): boolean{
   return core.isEqual(zero, n);
 };
 
-core.isOne = function(n){
+core.isOne = function(n): boolean {
   if(!n){
     return false;
   }
@@ -314,7 +314,7 @@ core.isOne = function(n){
   }
 };
 
-core.getZero = function(){
+core.getZero = function(): Suu {
   return core.numToArrayWithDecimal("0");
 };
 
