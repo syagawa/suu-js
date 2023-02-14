@@ -1,7 +1,5 @@
 import { MoldNumArray, CompareObject, SuuNumber } from "./interfaces";
 
-type Suu = MoldNumArray;
-
 const core:any = {};
 
 core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
@@ -37,7 +35,7 @@ const isNumber = function(n): Boolean{
   return false;
 };
 
-core.moldNumArray = function({ array, negative, decimal_index }): Suu | Error{
+core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Error {
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
   }
@@ -82,7 +80,7 @@ core.moldNumArray = function({ array, negative, decimal_index }): Suu | Error{
 
 };
 
-core.numToArrayWithDecimal = function(n): Suu | Error{
+core.numToArrayWithDecimal = function(n): SuuNumber | Error{
   if(!n && n !== 0){
     return core.makeError({message: "Parameter is undefined, null, or empty.", parameter: n});
   }
@@ -130,7 +128,7 @@ core.numToArrayWithDecimal = function(n): Suu | Error{
 
 };
 
-core.numArrayToString = function(n): string | Error{
+core.numArrayToString = function(n): string | Error {
   if(!n.is_num_array || !n.array || !n.decimal_index){
     return "";
   }
@@ -265,11 +263,11 @@ core.compare = function(a, b): CompareObject | Error {
 
 };
 
-core.getLarge = function(a, b): boolean{
+core.getLarge = function(a, b): boolean {
   return core.compare(a, b).large;
 };
 
-core.getSmall = function(a, b): boolean{
+core.getSmall = function(a, b): boolean {
   return core.compare(a, b).small;
 };
 
@@ -314,7 +312,7 @@ core.isOne = function(n): boolean {
   }
 };
 
-core.getZero = function(): Suu {
+core.getZero = function(): SuuNumber {
   return core.numToArrayWithDecimal("0");
 };
 
