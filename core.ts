@@ -316,11 +316,11 @@ core.getZero = function(): SuuNumber {
   return core.numToArrayWithDecimal("0");
 };
 
-core.getOne = function(){
+core.getOne = function(): SuuNumber {
   return core.numToArrayWithDecimal("1");
 };
 
-core.fixCarry = function(arr, minus){
+core.fixCarry = function(arr, minus): {new_array: number[], minus: boolean} {
   try {
     let minus_ = minus;
     for(let i = arr.length - 1; i >=0; i--){
