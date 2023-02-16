@@ -320,7 +320,7 @@ core.getOne = function(): SuuNumber {
   return core.numToArrayWithDecimal("1");
 };
 
-core.fixCarry = function(arr, minus): {new_array: number[], minus: boolean} {
+core.fixCarry = function(arr: number[], minus: boolean): {new_array: number[], minus: boolean} {
   try {
     let minus_ = minus;
     for(let i = arr.length - 1; i >=0; i--){
@@ -335,16 +335,16 @@ core.fixCarry = function(arr, minus): {new_array: number[], minus: boolean} {
       }
     }
     if(minus_){
-      const cache = [];
-      arr.forEach( elm => {
+      const cache: number[] = [];
+      arr.forEach( (elm: number) => {
         cache.push(-elm);
       });
       arr = cache;
     }
-    const new_arr = [];
+    const new_arr: number[] = [];
     let carry = 0;
     for(let i = 0; i < arr.length; i++){
-      let val = arr[i] + carry;
+      let val = Number(arr[i] + carry);
       if(val > 9){
         const arr1 = String(val).split("");
         val = Number(arr1[arr1.length - 1]);
@@ -367,9 +367,14 @@ core.fixCarry = function(arr, minus): {new_array: number[], minus: boolean} {
       new_array: new_arr,
       minus: minus_
     };
-  }catch(err){
-    return core.makeError({message: err.message, parameter: [arr, minus]})
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [arr, minus]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [arr, minus]});
+    }
   }
+
 
 };
 
