@@ -378,7 +378,7 @@ core.fixCarry = function(arr: number[], minus: boolean): {new_array: number[], m
 
 };
 
-core.clone = function(n){
+core.clone = function(n: any): SuuNumber | Error {
   try{
     if(!n){
       return core.makeError({message: "Parameter is not exists", parameter: n});
