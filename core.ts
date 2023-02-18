@@ -57,7 +57,7 @@ core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Er
       decimal_index = 1;
     }
 
-    const o: Suu = {
+    const o: SuuNumber = {
       array: array,
       negative: !!negative,
       is_num_array: true,
@@ -391,8 +391,12 @@ core.clone = function(n: any): SuuNumber | Error {
       array: [...n.array],
     };
     return o;
-  }catch(err){
-    return core.makeError({message: err.message, parameter: n});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [n]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [n]});
+    }
   }
 };
 
