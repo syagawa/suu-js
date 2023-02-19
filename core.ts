@@ -400,7 +400,7 @@ core.clone = function(n: any): SuuNumber | Error {
   }
 };
 
-core.add_and_subtract = function(a, b, mode){
+core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
   if(!a || !b){
     if(a !== 0 && b !== 0){
       return core.makeError({message: "Parameters are must be a Number or a String.", parameter: [a, b]});
@@ -409,7 +409,7 @@ core.add_and_subtract = function(a, b, mode){
   
   let plus;
   if(!mode){
-    return;
+    return core.makeError({message: "Parameters mode is required", parameter: [a, b, mode]});;
   }else if(mode === "+"){
     plus = true;
   }else if(mode === "-"){
@@ -419,8 +419,8 @@ core.add_and_subtract = function(a, b, mode){
   }
 
   try {
-    let a_ = null;
-    let b_ = null;
+    let a_: SuuNumber = core.getZero();
+    let b_: SuuNumber = core.getZero();
     if(a.is_num_array){
       a_ = core.clone(a);
     }else{
