@@ -461,8 +461,8 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
       a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
     }
 
-    const calc = function({a, b, plus}){
-      const arr = [];
+    const calc = function({a, b, plus}): number[]{
+      const arr: number[] = [];
       let len = a.array.length;
       if(a.array.length < b.array.length){
         len = b.array.length;
