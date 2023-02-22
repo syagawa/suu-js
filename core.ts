@@ -467,10 +467,10 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
       if(a.array.length < b.array.length){
         len = b.array.length;
       }
-      const arr_a = a.array;
-      const arr_b = b.array;
-      const a_one = a.negative ? -1 : 1;
-      const b_one = b.negative ? -1 : 1;
+      const arr_a: number[] = a.array;
+      const arr_b: number[] = b.array;
+      const a_one: number = a.negative ? -1 : 1;
+      const b_one: number = b.negative ? -1 : 1;
       for(let i = 0; i < len; i++){
         const aa = arr_a[i] ? arr_a[i] * a_one : 0;
         const bb = arr_b[i] ? arr_b[i] * b_one : 0;
@@ -508,7 +508,7 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
 
 };
 
-core.add = function(a, b){
+core.add = function(a, b): SuuNumber {
   return core.add_and_subtract(a, b, "+");
 };
 
