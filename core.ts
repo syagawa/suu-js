@@ -461,7 +461,7 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
       a_arr.push(...Array(Math.abs(dec_gap)).fill(0));
     }
 
-    const calc = function({a, b, plus}): number[]{
+    const calc = function({a, b, plus}): { new_array: number[], minus: boolean } {
       const arr: number[] = [];
       let len = a.array.length;
       if(a.array.length < b.array.length){
@@ -502,8 +502,12 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
       negative: minus ? true : false,
       decimal_index: new_decimal_index
     });
-  }catch(err){
-    return core.makeError({message: err.message, parameter: [a, b]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
 
 };
