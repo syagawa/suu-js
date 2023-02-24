@@ -512,11 +512,11 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
 
 };
 
-core.add = function(a, b): SuuNumber {
+core.add = function(a, b): SuuNumber | Error {
   return core.add_and_subtract(a, b, "+");
 };
 
-core.subtract = function(a, b){
+core.subtract = function(a, b): SuuNumber | Error {
   return core.add_and_subtract(a, b, "-");
 };
 
