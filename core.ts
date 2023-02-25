@@ -521,7 +521,7 @@ core.subtract = function(a, b): SuuNumber | Error {
 };
 
 
-core.multiplication = function(a, b){
+core.multiplication = function(a, b): SuuNumber | Error {
 
   if(!a || !b){
     if(a !== 0 && b !== 0){
@@ -529,8 +529,8 @@ core.multiplication = function(a, b){
     }
   }
 
-  let a_ = null;
-  let b_ = null;
+  let a_: SuuNumber = core.getZero();
+  let b_: SuuNumber = core.getZero();
   if(a.is_num_array){
     a_ = core.clone(a);
   }else{
@@ -575,7 +575,7 @@ core.multiplication = function(a, b){
     const dec_length = a_dec_length + b_dec_length;
 
     const calc = function({a, b}){
-      const array = [];
+      const array: number[] = [];
       const arr_a = a.array;
       const arr_b = b.array;
       for(let i = 0; i < arr_a.length; i++){
@@ -590,7 +590,7 @@ core.multiplication = function(a, b){
           arr.push(res);
 
           const tgt_index = i + j;
-          let tgt = array[tgt_index];
+          let tgt: number = array[tgt_index];
           if(!tgt){
             tgt = 0;
           }
@@ -619,8 +619,12 @@ core.multiplication = function(a, b){
       negative: negative,
       decimal_index: new_decimal_index
     });
-  }catch(err){
-    return core.makeError({message: err.message, parameter: [a, b]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
 
 };
