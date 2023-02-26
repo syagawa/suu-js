@@ -633,7 +633,7 @@ core.multiple = function(a, b){
   return core.multiplication(a, b);
 };
 
-core.getDecimal = function(n){
+core.getDecimal = function(n): SuuNumber | Error {
   try{
     const n_ = core.numToArrayWithDecimal(n);
     let str = "0.";
@@ -649,7 +649,11 @@ core.getDecimal = function(n){
     const num = core.numToArrayWithDecimal(str);
     return num;
   }catch(err){
-    return core.makeError({message: err.message, parameter: n});
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: n})
+    }else{
+      return core.makeError({message: "unknown error", paramater: n});
+    }
   }
 };
 
