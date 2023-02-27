@@ -629,7 +629,7 @@ core.multiplication = function(a, b): SuuNumber | Error {
 
 };
 
-core.multiple = function(a, b){
+core.multiple = function(a, b): SuuNumber | Error {
   return core.multiplication(a, b);
 };
 
@@ -658,7 +658,7 @@ core.getDecimal = function(n): SuuNumber | Error {
 };
 
 
-core.division = function(a, b){
+core.division = function(a, b): SuuNumber | Error {
 
   try {
     if(!a || !b){
