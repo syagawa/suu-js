@@ -658,7 +658,7 @@ core.getDecimal = function(n): SuuNumber | Error {
 };
 
 
-core.division = function(a, b): SuuNumber | Error {
+core.division = function(a, b): SuuNumber | Error | string {
 
   try {
     if(!a || !b){
@@ -667,8 +667,8 @@ core.division = function(a, b): SuuNumber | Error {
       }
     }
 
-    let a_ = null;
-    let b_ = null;
+    let a_: SuuNumber = core.getZero();
+    let b_: SuuNumber = core.getZero();
     if(a.is_num_array){
       a_ = core.clone(a);
     }else{
