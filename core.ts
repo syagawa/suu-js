@@ -896,8 +896,12 @@ core.division = function(a, b): SuuNumber | Error | string {
       ...quotient,
       remainder:remainder,
     }
-  }catch(err){
-    return core.makeError({message: err.message, parameter: [a, b]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
   
 };
