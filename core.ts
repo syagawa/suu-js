@@ -906,11 +906,11 @@ core.division = function(a, b): SuuNumber | Error | string {
   
 };
 
-core.divide = function(a, b){
+core.divide = function(a, b): SuuNumber | Error {
   return core.division(a, b);
 };
 
-core.floor = function(num){
+core.floor = function(num): SuuNumber | Error {
   try{
     const n = core.numToArrayWithDecimal(num);
     const is_decimal = n.decimal_index < n.array.length;
@@ -927,8 +927,12 @@ core.floor = function(num){
       n_ = core.subtract(n_, "1");
     }
     return n_;
-  }catch(err){
-    return core.makeError({message: err.messsage, parameter: num});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: num})
+    }else{
+      return core.makeError({message: "unknown error", paramater: num});
+    }
   }
 };
 
