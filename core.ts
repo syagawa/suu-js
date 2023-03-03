@@ -731,7 +731,7 @@ core.division = function(a, b): SuuNumber | Error | string {
     }
 
     const calc = function({a, b, max}){
-      const result_arr = [];
+      const result_arr: SuuNumber[] = [];
       let remain = core.getZero();
       const a_ = core.clone(a);
       const b_ = core.clone(b);
