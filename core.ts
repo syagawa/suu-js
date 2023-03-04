@@ -936,7 +936,7 @@ core.floor = function(num): SuuNumber | Error {
   }
 };
 
-core.ceil = function(num){
+core.ceil = function(num: SuuNumber): SuuNumber | Error {
   try{
     const n = core.numToArrayWithDecimal(num);
     const is_decimal = n.decimal_index < n.array.length;
@@ -953,8 +953,12 @@ core.ceil = function(num){
       n_ = core.add(n_, "1");
     }
     return n_;
-  }catch(err){
-    return core.makeError({message: err.message, parameter: num});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: num})
+    }else{
+      return core.makeError({message: "unknown error", paramater: num});
+    }
   }
 
 };
