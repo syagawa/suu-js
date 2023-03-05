@@ -964,7 +964,7 @@ core.ceil = function(num: SuuNumber): SuuNumber | Error {
 };
 
 
-core.modulo = function(a, b){
+core.modulo = function(a, b): SuuNumber | Error | string {
   try{
     if(!a || !b){
       if(a !== 0 && b !== 0){
@@ -972,8 +972,8 @@ core.modulo = function(a, b){
       }
     }
 
-    let a_ = null;
-    let b_ = null;
+    let a_ = core.getZero();
+    let b_ = core.getZero();
     if(a.is_num_array){
       a_ = core.clone(a);
     }else{
@@ -1043,8 +1043,12 @@ core.modulo = function(a, b){
     return {
       ...quotient,
     }
-  }catch(err){
-    return core.makeError({message: err.message, parameter: [a, b]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
   
 };
