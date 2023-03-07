@@ -1,7 +1,7 @@
 import core from "./core.ts";
 import utils from "./utils.js";
 
-const map = {
+const map: object = {
   commonMultiple: {
     ja: "公倍数"
   },
@@ -73,7 +73,7 @@ const map = {
   }
 };
 
-const whatIs = function({name="", lang="ja"}){
+const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
   if(!name){
     return "";
   }
