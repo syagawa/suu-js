@@ -1,3 +1,4 @@
+import constants from "./contants"
 import { MoldNumArray, CompareObject, SuuNumber } from "./interfaces";
 
 const core:any = {};
