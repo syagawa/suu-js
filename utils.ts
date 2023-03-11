@@ -1,9 +1,12 @@
-import core from "./core.ts";
+import core from "./core";
 
-const utils = {};
+import { SuuNumber } from "./interfaces";
+
+const utils:any = {};
 
 
-utils.getNumber = function(n){
+
+utils.getNumber = function(n): SuuNumber{
   return core.numToArrayWithDecimal(n);
 };
 
