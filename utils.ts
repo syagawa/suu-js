@@ -4,13 +4,11 @@ import { SuuNumber } from "./interfaces";
 
 const utils:any = {};
 
-
-
 utils.getNumber = function(n): SuuNumber{
   return core.numToArrayWithDecimal(n);
 };
 
-utils.copy = function(n){
+utils.copy = function(n): SuuNumber{
   const c = core.clone(n);
   if(!c){
     const s = core.numArrayToString(n);
@@ -19,30 +17,30 @@ utils.copy = function(n){
   return c;
 };
 
-utils.getLarge = function(a, b){
+utils.getLarge = function(a, b): SuuNumber{
   return core.getLarge(a, b);
 };
 
-utils.getSmall = function(a, b){
+utils.getSmall = function(a, b): SuuNumber{
   return core.getSmall(a, b);
 };
 
-utils.isEqual = function(a, b){
+utils.isEqual = function(a, b): boolean{
   return core.isEqual(a, b);
 }
 
-utils.getZero = function(){
+utils.getZero = function(): SuuNumber{
   return core.getZero();
 };
 
-utils.getOne = function(){
+utils.getOne = function(): SuuNumber{
   return core.getOne();
 };
 
-utils.isZero = function(n){
+utils.isZero = function(n): boolean{
   return core.isZero(n);
 }
-utils.isOne = function(n){
+utils.isOne = function(n): boolean{
   return core.isOne(n);
 }
 
