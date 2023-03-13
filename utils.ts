@@ -44,11 +44,11 @@ utils.isOne = function(n): boolean{
   return core.isOne(n);
 }
 
-utils.square = function(n){
+utils.square = function(n): SuuNumber{
   return core.multiplication(n, n);
 };
 
-utils.getInteger = function(n){
+utils.getInteger = function(n): SuuNumber{
   let str = "";
   for(let i = 0; i < n.decimal_index; i++){
     const s = String(n.array[i]);
