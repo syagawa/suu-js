@@ -58,11 +58,11 @@ utils.getInteger = function(n): SuuNumber{
   return num;
 };
 
-utils.getDecimal = function(n){
+utils.getDecimal = function(n): SuuNumber{
   return core.getDecimal(n);
 };
 
-utils.isNaturalNumber = function(n){
+utils.isNaturalNumber = function(n): boolean{
   const decimal = utils.getDecimal(n);
   const is_zero = utils.isZero(decimal);
   if(is_zero && !n.negative){
@@ -71,7 +71,7 @@ utils.isNaturalNumber = function(n){
   return false;
 };
 
-utils.includeDecimal = function(n){
+utils.includeDecimal = function(n): boolean{
   const decimal = utils.getDecimal(n);
   const is_zero = utils.isZero(decimal);
   if(is_zero){
@@ -80,12 +80,12 @@ utils.includeDecimal = function(n){
   return true;
 };
 
-utils.isNegative = function(n){
+utils.isNegative = function(n): boolean{
   const n_ = core.numToArrayWithDecimal(n);
   return n_.negative;
 };
 
-utils.isPositive = function(n){
+utils.isPositive = function(n): boolean{
   const n_ = core.numToArrayWithDecimal(n);
   return !n_.negative;
 };
