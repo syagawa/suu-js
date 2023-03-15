@@ -90,7 +90,7 @@ utils.isPositive = function(n): boolean{
   return !n_.negative;
 };
 
-utils.negate = function(n){
+utils.negate = function(n): SuuNumber{
   const num = core.numToArrayWithDecimal(n);
   if(num){
     num.negative = true;
@@ -98,7 +98,7 @@ utils.negate = function(n){
   return num;
 };
 
-utils.makePositive = function(n){
+utils.makePositive = function(n): SuuNumber{
   const num = core.numToArrayWithDecimal(n);
   if(num){
     num.negative = false;
@@ -106,11 +106,11 @@ utils.makePositive = function(n){
   return num;
 };
 
-utils.getNegativeNumber = function(n){
+utils.getNegativeNumber = function(n): SuuNumber{
   return utils.negate(n);
 };
 
-utils.getPositiveNumber = function(n){
+utils.getPositiveNumber = function(n): SuuNumber{
   const num = core.numToArrayWithDecimal(n);
   if(num){
     num.negative = false;
