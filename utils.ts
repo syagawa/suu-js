@@ -118,15 +118,15 @@ utils.getPositiveNumber = function(n): SuuNumber{
   return num;
 };
 
-utils.getNext = function(n){
+utils.getNext = function(n): SuuNumber{
   return core.add(n, "1");
 };
 
-utils.getPrev = function(n){
+utils.getPrev = function(n): SuuNumber{
   return core.subtract(n, "1");
 };
 
-utils.isInteger = function(n){
+utils.isInteger = function(n): boolean{
   if(utils.isZero(n)){
     return true;
   }
@@ -140,7 +140,7 @@ utils.isInteger = function(n){
 };
 
 
-utils.isEvenNumber = function(n){
+utils.isEvenNumber = function(n): boolean{
   if(utils.isZero(n)){
     return true;
   }
@@ -159,7 +159,7 @@ utils.isEvenNumber = function(n){
   return false;
 };
 
-utils.isOddNumber = function(n){
+utils.isOddNumber = function(n): boolean{
   if(utils.isZero(n)){
     return false;
   }
@@ -179,12 +179,12 @@ utils.isOddNumber = function(n){
 };
 
 
-utils.getDivisors = function(n){
+utils.getDivisors = function(n): SuuNumber[] | Error{
   if(!n && n !== 0){
     return core.makeError({message: "Parameter must be integer", parameter: [n]});
   }
-  const arr = [];
-  const num = utils.getNumber(n);
+  const arr: SuuNumber[] = [];
+  const num: SuuNumber = utils.getNumber(n);
 
   if(!num){
     return arr;
