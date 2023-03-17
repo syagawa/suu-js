@@ -211,8 +211,8 @@ utils.getDivisors = function(n): SuuNumber[] | Error{
   return arr;
 };
 
-utils.commonDivisors = function(a, b){
-  const arr = [];
+utils.commonDivisors = function(a, b): SuuNumber[] | Error{
+  const arr: SuuNumber[] = [];
   if(!a && a !== 0){
     return arr;
   }
@@ -221,18 +221,18 @@ utils.commonDivisors = function(a, b){
   }
 
   try{
-    const a_ = utils.getNumber(a);
-    const b_ = utils.getNumber(b);
+    const a_: SuuNumber = utils.getNumber(a);
+    const b_: SuuNumber = utils.getNumber(b);
     
-    const a_divisors = utils.getDivisors(a_);
+    const a_divisors: SuuNumber[] = utils.getDivisors(a_);
     if(core.isEqual(a_, b_)){
       return a_divisors;
     }
-    const b_divisors = utils.getDivisors(b_);
+    const b_divisors: SuuNumber[] = utils.getDivisors(b_);
     for(let i = 0; i < a_divisors.length; i++){
-      const a_n = a_divisors[i];
+      const a_n: SuuNumber = a_divisors[i];
       for(let j = 0; j < b_divisors.length; j++){
-        const b_n = b_divisors[j];
+        const b_n: SuuNumber = b_divisors[j];
         if(core.isEqual(a_n, b_n)){
           arr.push(a_n);
         }
