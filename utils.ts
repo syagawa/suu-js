@@ -239,8 +239,12 @@ utils.commonDivisors = function(a, b): SuuNumber[] | Error{
       }
     }
     return arr;
-  }catch(e){
-    return core.makeError({message: e.message, parameter: [a, b]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b]});
+    }
   }
 };
 
