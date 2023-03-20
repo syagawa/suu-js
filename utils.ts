@@ -261,7 +261,7 @@ utils.greatestCommonDivisor = function(a, b): SuuNumber | Error{
   }
 };
 
-utils.commonMultiple = function(a, b, limit){
+utils.commonMultiple = function(a, b, limit): SuuNumber | Error{
 
   const limit_length = limit ? limit : 10;
   const arr = [];
@@ -300,8 +300,12 @@ utils.commonMultiple = function(a, b, limit){
     });
 
     return arr;
-  }catch(e){
-    return core.makeError({message: e.message, parameter: [a, b, limit]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return this.makeError({message: err.message, parameter: [a, b, limit]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [a, b, limit]});
+    }
   }
 };
 
