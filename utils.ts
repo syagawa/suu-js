@@ -261,10 +261,10 @@ utils.greatestCommonDivisor = function(a, b): SuuNumber | Error{
   }
 };
 
-utils.commonMultiple = function(a, b, limit): SuuNumber | Error{
+utils.commonMultiple = function(a, b, limit): SuuNumber[] | Error{
 
   const limit_length = limit ? limit : 10;
-  const arr = [];
+  const arr: SuuNumber[] = [];
   if(!a && a !== 0){
     return arr;
   }
@@ -281,8 +281,8 @@ utils.commonMultiple = function(a, b, limit): SuuNumber | Error{
       return arr;
     }
 
-    const a_arr = [];
-    const b_arr = [];
+    const a_arr: SuuNumber[] = [];
+    const b_arr: SuuNumber[] = [];
     for(let i = 1; i <= limit_length; i++){
       const a_num = core.multiple(a_, i);
       a_arr.push(a_num);
