@@ -309,8 +309,8 @@ utils.commonMultiple = function(a, b, limit): SuuNumber[] | Error{
   }
 };
 
-utils.leastCommonMultiple = function(a, b, limit){
-  const arr = utils.commonMultiple(a, b, limit);
+utils.leastCommonMultiple = function(a, b, limit): SuuNumber{
+  const arr: SuuNumber[] = utils.commonMultiple(a, b, limit);
   return arr[0];
 };
 
