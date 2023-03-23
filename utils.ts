@@ -241,7 +241,7 @@ utils.commonDivisors = function(a, b): SuuNumber[] | Error{
     return arr;
   }catch(err: unknown){
     if(err instanceof Error){
-      return this.makeError({message: err.message, parameter: [a, b]})
+      return core.makeError({message: err.message, parameter: [a, b]})
     }else{
       return core.makeError({message: "unknown error", paramater: [a, b]});
     }
@@ -254,7 +254,7 @@ utils.greatestCommonDivisor = function(a, b): SuuNumber | Error{
     return arr[arr.length - 1];
   }catch(err: unknown){
     if(err instanceof Error){
-      return this.makeError({message: err.message, parameter: [a, b]})
+      return core.makeError({message: err.message, parameter: [a, b]})
     }else{
       return core.makeError({message: "unknown error", paramater: [a, b]});
     }
@@ -302,7 +302,7 @@ utils.commonMultiple = function(a, b, limit): SuuNumber[] | Error{
     return arr;
   }catch(err: unknown){
     if(err instanceof Error){
-      return this.makeError({message: err.message, parameter: [a, b, limit]})
+      return core.makeError({message: err.message, parameter: [a, b, limit]})
     }else{
       return core.makeError({message: "unknown error", paramater: [a, b, limit]});
     }
@@ -315,7 +315,7 @@ utils.leastCommonMultiple = function(a, b, limit): SuuNumber{
 };
 
 
-const fibonacciReccurenceRelation = function({array, limit}){
+const fibonacciReccurenceRelation = function({array, limit}): SuuNumber | Error {
 
   const max = limit ? limit : 100;
 
@@ -334,8 +334,12 @@ const fibonacciReccurenceRelation = function({array, limit}){
       }
       array.push(res);
       return func(array);
-    }catch(e){
-      return core.makeError({message: e.message, parameter: [array, limit]});
+    }catch(err: unknown){
+      if(err instanceof Error){
+        return core.makeError({message: err.message, parameter: [array, limit]})
+      }else{
+        return core.makeError({message: "unknown error", paramater: [array, limit]});
+      }
     }
   };
   return func(array);
