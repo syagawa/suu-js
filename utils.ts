@@ -345,11 +345,11 @@ const fibonacciReccurenceRelation = function({array, limit}): SuuNumber | Error 
   return func(array);
 };
 
-const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }){
+const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }): SuuNumber[] | Error {
   const len = length;
   const a = utils.getNumber(first);
   const b = utils.getNumber(last);
-  const arr = [];
+  const arr: SuuNumber[] = [];
   try{
     for(let i = 0; i < len; i++){
       let tgt = a;
@@ -358,8 +358,12 @@ const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }){
       }
       arr.push(tgt);
     }
-  }catch(e){
-    return core.makeError({message: e.message, parameter: [first, last, length]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: [first, last, length]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [first, last, length]});
+    }
   }
   return arr;
 };
