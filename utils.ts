@@ -309,13 +309,13 @@ utils.commonMultiple = function(a, b, limit): SuuNumber[] | Error{
   }
 };
 
-utils.leastCommonMultiple = function(a, b, limit): SuuNumber{
+utils.leastCommonMultiple = function(a, b, limit): SuuNumber {
   const arr: SuuNumber[] = utils.commonMultiple(a, b, limit);
   return arr[0];
 };
 
 
-const fibonacciReccurenceRelation = function({array, limit}): SuuNumber | Error {
+const fibonacciReccurenceRelation = function({array, limit}): SuuNumber[] | Error {
 
   const max = limit ? limit : 100;
 
@@ -368,7 +368,7 @@ const makeFibonacciInitialArray = function({ first="0", last="1", length=2 }): S
   return arr;
 };
 
-utils.makeFibonacciSequence = function(first="0", last="1"){
+utils.makeFibonacciSequence = function(first="0", last="1"): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first, last, length: 2});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
