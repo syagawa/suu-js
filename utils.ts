@@ -373,57 +373,57 @@ utils.makeFibonacciSequence = function(first="0", last="1"): SuuNumber[] | Error
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeTribonacciSequence = function(){
+utils.makeTribonacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 3});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeTetranacciSequence = function(){
+utils.makeTetranacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 4});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makePentanacciSequence = function(){
+utils.makePentanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 5});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeHexanacciSequence = function(){
+utils.makeHexanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 6});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeHeptanacciSequence = function(){
+utils.makeHeptanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 7});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeOctanacciSequence = function(){
+utils.makeOctanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 8});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeNonanacciSequence = function(){
+utils.makeNonanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 9});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeDecanacciSequence = function(){
+utils.makeDecanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 10});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeUndecanacciSequence = function(){
+utils.makeUndecanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 11});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeDodecanacciSequence = function(){
+utils.makeDodecanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 12});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeIcosanacciSequence = function(){
+utils.makeIcosanacciSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "0", last: "1", length: 20});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
