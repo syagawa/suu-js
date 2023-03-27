@@ -428,7 +428,7 @@ utils.makeIcosanacciSequence = function(): SuuNumber[] | Error {
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.makeLucaSequence = function(){
+utils.makeLucaSequence = function(): SuuNumber[] | Error {
   const arr = makeFibonacciInitialArray({first: "2", last: "1", length: 2});
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
