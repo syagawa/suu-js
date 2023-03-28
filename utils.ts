@@ -433,7 +433,7 @@ utils.makeLucaSequence = function(): SuuNumber[] | Error {
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
-utils.summation = function(array){
+utils.summation = function(array): SuuNumber | Error {
   if(!array || !Array.isArray(array)){
     return core.makeError({message: "Parameter must be Array.", parameter: [array]});
   }
@@ -446,14 +446,18 @@ utils.summation = function(array){
       for(let i = 0; i < array.length; i++){
         sum = core.add(sum, array[i]);
       }
-    }catch(e){
-      return core.makeError({message: e.message, parameter: array});
+    }catch(err: unknown){
+      if(err instanceof Error){
+        return core.makeError({message: err.message, parameter: [array]})
+      }else{
+        return core.makeError({message: "unknown error", paramater: [array]});
+      }
     }
   }
   return sum;
 };
 
-utils.infiniteProduct = function(array){
+utils.infiniteProduct = function(array): SuuNumber | Error{
   if(!array || !Array.isArray(array)){
     return core.makeError({message: "Parameter must be Array.", parameter: [array]});
   }
@@ -465,8 +469,12 @@ utils.infiniteProduct = function(array){
     for(let i = 1; i < array.length; i++){
       res = core.multiple(res, array[i]);
     }
-  }catch(e){
-    return core.makeError({message: e.message, parameter: array});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: [array]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [array]});
+    }
   }
   return res;
 };
