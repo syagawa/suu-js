@@ -479,7 +479,7 @@ utils.infiniteProduct = function(array): SuuNumber | Error{
   return res;
 };
 
-utils.digitSum = function(num){
+utils.digitSum = function(num): SuuNumber | Error {
   const n = utils.getNumber(num);
   if(!n || !Array.isArray(n.array)){
     return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
@@ -494,7 +494,11 @@ utils.digitSum = function(num){
     });
     return res;
   }catch(e){
-    return core.makeError({message: e.message, parameter: [num]});
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: [num]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [num]});
+    }
   }
 };
 
