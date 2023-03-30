@@ -493,7 +493,7 @@ utils.digitSum = function(num): SuuNumber | Error {
       res = core.add(res, item);
     });
     return res;
-  }catch(e){
+  }catch(err: unknown){
     if(err instanceof Error){
       return core.makeError({message: err.message, parameter: [num]})
     }else{
@@ -502,7 +502,7 @@ utils.digitSum = function(num): SuuNumber | Error {
   }
 };
 
-utils.makeTriangleNumber = function(num){
+utils.makeTriangleNumber = function(num): SuuNumber | Error{
   const n = utils.getNumber(num);
   if(core.isZero(n) || utils.isNegative(n) || !utils.isInteger(n)){
     return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
