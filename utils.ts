@@ -513,7 +513,7 @@ utils.makeTriangleNumber = function(num): SuuNumber | Error{
   return res2;
 };
 
-utils.makePronicNumber = function(num){
+utils.makePronicNumber = function(num): SuuNumber | Error {
   const n = utils.getNumber(num);
   if(core.isZero(n)){
     return core.getZero();
@@ -524,8 +524,12 @@ utils.makePronicNumber = function(num){
   try{
     const  res = core.multiple(n, core.add(n, "1"));
     return res;
-  }catch(e){
-    return core.makeError({message: e.message, parameter: [num]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: [num]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [num]});
+    }
   }
 };
 
@@ -555,8 +559,12 @@ utils.factorial = function(num){
     }
 
     return utils.infiniteProduct(arr);
-  }catch(e){
-    return core.makeError({message: e.message, parameter: [num]});
+  }catch(err: unknown){
+    if(err instanceof Error){
+      return core.makeError({message: err.message, parameter: [num]})
+    }else{
+      return core.makeError({message: "unknown error", paramater: [num]});
+    }
   }
 };
 
