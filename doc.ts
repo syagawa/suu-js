@@ -1,4 +1,4 @@
-import core from "./core.ts";
+import core from "./core";
 import utils from "./utils.js";
 
 const map: object = {
