@@ -1,5 +1,5 @@
 import core from "./core";
-import utils from "./utils.js";
+import utils from "./utils";
 
 const map: object = {
   commonMultiple: {
