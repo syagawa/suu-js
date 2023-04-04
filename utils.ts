@@ -48,6 +48,25 @@ utils.square = function(n): SuuNumber{
   return core.multiplication(n, n);
 };
 
+utils.exponentiate = function(base, exponent): SuuNumber{
+  let res = core.getZero();
+  let count = core.getOne();
+
+  if(utils.isZero(exponent)){
+    return core.getOne();
+  }
+
+  if(utils.isOne(exponent)){
+    return base;
+  }
+  
+  while(utils.isEqual(count, exponent)){
+
+  }
+
+
+};
+
 utils.getInteger = function(n): SuuNumber{
   let str = "";
   for(let i = 0; i < n.decimal_index; i++){
