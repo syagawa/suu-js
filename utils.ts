@@ -63,6 +63,8 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   let bool = utils.isSmall(count, exponent);
   while(bool){
     res = core.multiple(res, base);
+    count = core.add(count, "1");
+    bool = utils.isSmall(count, exponent);
   }
 
   return res;
