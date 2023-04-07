@@ -49,22 +49,23 @@ utils.square = function(n): SuuNumber{
 };
 
 utils.exponentiate = function(base, exponent): SuuNumber{
-  let count = core.getOne();
-  
   if(utils.isZero(exponent)){
     return core.getOne();
   }
-  
   if(utils.isOne(exponent)){
     return base;
   }
-  
+
+  let count = core.getOne();
+  const getBool = (count, exponent) => {
+    return utils.isSmall(count, exponent);
+  }  
   let res = base;
-  let bool = utils.isSmall(count, exponent);
+  let bool = getBool(count, exponent);
   while(bool){
     res = core.multiple(res, base);
     count = core.add(count, "1");
-    bool = utils.isSmall(count, exponent);
+    bool = getBool(count, exponent);
   }
 
   return res;
