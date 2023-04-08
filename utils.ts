@@ -56,6 +56,11 @@ utils.exponentiate = function(base, exponent): SuuNumber{
     return base;
   }
 
+  let multi = true;
+  if(utils.isSmall(exponent, core.getOne()){
+    multi = false;
+  }
+
   let count = core.getOne();
   const getBool = (count, exponent) => {
     return utils.isSmall(count, exponent);
