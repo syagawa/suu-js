@@ -48,6 +48,14 @@ utils.square = function(n): SuuNumber{
   return core.multiplication(n, n);
 };
 
+utils.getAbsolute = function(n): SuuNumber{
+  let clone = core.clone(n);
+  if(clone.negative){
+    clone = utils.makePositive(clone);
+  }
+  return clone;
+}
+
 utils.exponentiate = function(base, exponent): SuuNumber{
   if(utils.isZero(exponent)){
     return core.getOne();
@@ -57,7 +65,7 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   }
 
   let multi = true;
-  if(utils.isSmall(exponent, core.getOne()){
+  if(utils.isSmall(exponent, core.getOne())){
     multi = false;
   }
 
