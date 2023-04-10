@@ -54,7 +54,7 @@ utils.getAbsolute = function(n): SuuNumber{
     clone = utils.makePositive(clone);
   }
   return clone;
-}
+};
 
 utils.exponentiate = function(base, exponent): SuuNumber{
   if(utils.isZero(exponent)){
@@ -65,20 +65,21 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   }
 
   let multi = true;
-  if(utils.isSmall(exponent, core.getOne())){
+  if(utils.isSmall(exponent, core.getZero())){
     multi = false;
   }
 
   let count = core.getOne();
-  const getBool = (count, exponent) => {
-    return utils.isSmall(count, exponent);
-  }  
+  const exp = utils.getAbsolute(exponent);
+  const getBool = (count) => {
+    return utils.isSmall(count, exp);
+  }
   let res = base;
-  let bool = getBool(count, exponent);
+  let bool = getBool(count);
   while(bool){
     res = core.multiple(res, base);
     count = core.add(count, "1");
-    bool = getBool(count, exponent);
+    bool = getBool(count);
   }
 
   return res;
