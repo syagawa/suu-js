@@ -98,6 +98,13 @@ describe("utils", function(){
     const res = utils.isEqual(sq, utils.getNumber("9"));
     assert.equal(res, true);
   });
+  
+  it("getAbsolute", () => {
+    const num = utils.getNumber("-3");
+    const abs = utils.getAbsolute(num);
+    const res = utils.isEqual(abs, "3");
+    assert.equal(res, true);
+  });
 
   it("getDecimal", () => {
     const num1 = utils.getNumber("1.11");
@@ -765,7 +772,6 @@ describe("utils", function(){
       const res = utils.infiniteProduct(null);
       assert.equal(true, res instanceof Error);
     });
-
 
   });
   
