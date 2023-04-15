@@ -1,8 +1,8 @@
 import s from "./su.js";
 import SK from "./SK.js";
-import core from "./core";
-import utils from "./utils";
-import doc from "./doc";
+import core from "./corets";
+import utils from "./utilsts";
+import doc from "./docts";
 import constants from "./constants"
 
 export default {
