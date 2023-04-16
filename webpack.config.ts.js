@@ -51,7 +51,10 @@ module.exports = {
       formatter: "stylish" //"codeframe"
     })
   ],
-  resolve: {},
+  resolve: {
+    extensions: [".ts"],
+    modules: [path.resolve(__dirname, "./"), "node_modules"],
+  },
 };
 
 if (ENV !== 'production') {
