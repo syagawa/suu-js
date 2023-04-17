@@ -106,6 +106,15 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("exponentiate 2 x 2", () => {
+    const base = utils.getNumber("2");
+    const ex = utils.getNumber("2");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.equal(res1, "4");
+    assert.equal(res2, true);
+  });
+
+
   it("getDecimal", () => {
     const num1 = utils.getNumber("1.11");
     const dec = utils.getDecimal(num1);
