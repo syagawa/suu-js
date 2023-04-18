@@ -106,11 +106,27 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("exponentiate 2 x 2", () => {
+  it("exponentiate 2^2", () => {
     const base = utils.getNumber("2");
     const ex = utils.getNumber("2");
     const res1 = utils.exponentiate(base, ex);
     const res2 = utils.equal(res1, "4");
+    assert.equal(res2, true);
+  });
+
+  it("exponentiate 2^3", () => {
+    const base = utils.getNumber("2");
+    const ex = utils.getNumber("3");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.equal(res1, "8");
+    assert.equal(res2, true);
+  });
+
+  it("exponentiate 2.5^3", () => {
+    const base = utils.getNumber("2.5");
+    const ex = utils.getNumber("3");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.equal(res1, "15.625");
     assert.equal(res2, true);
   });
 
