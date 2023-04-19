@@ -65,14 +65,14 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   }
 
   let multi = true;
-  if(utils.isSmall(exponent, core.getZero())){
+  if(core.isSmall(exponent, core.getZero())){
     multi = false;
   }
 
   let count = core.getOne();
   const exp = utils.getAbsolute(exponent);
   const getBool = (count) => {
-    return utils.isSmall(count, exp);
+    return core.isSmall(count, exp);
   }
   let res = base;
   let bool = getBool(count);
