@@ -13,4 +13,5 @@ export default {
   utils: utils,
   doc: doc,
   constants: constants,
+  ts: true,
 };
