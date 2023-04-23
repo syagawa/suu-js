@@ -110,7 +110,7 @@ describe("utils", function(){
     const base = utils.getNumber("2");
     const ex = utils.getNumber("2");
     const res1 = utils.exponentiate(base, ex);
-    const res2 = utils.equal(res1, "4");
+    const res2 = utils.isEqual(res1, "4");
     assert.equal(res2, true);
   });
 
@@ -118,7 +118,7 @@ describe("utils", function(){
     const base = utils.getNumber("2");
     const ex = utils.getNumber("3");
     const res1 = utils.exponentiate(base, ex);
-    const res2 = utils.equal(res1, "8");
+    const res2 = utils.isEqual(res1, "8");
     assert.equal(res2, true);
   });
 
@@ -126,7 +126,7 @@ describe("utils", function(){
     const base = utils.getNumber("2.5");
     const ex = utils.getNumber("3");
     const res1 = utils.exponentiate(base, ex);
-    const res2 = utils.equal(res1, "15.625");
+    const res2 = utils.isEqual(res1, "15.625");
     assert.equal(res2, true);
   });
 
