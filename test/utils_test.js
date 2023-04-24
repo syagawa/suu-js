@@ -129,6 +129,13 @@ describe("utils", function(){
     const res2 = utils.isEqual(res1, "15.625");
     assert.equal(res2, true);
   });
+  
+  it("exponentiate 2.5^2.5", () => {
+    const base = utils.getNumber("2.5");
+    const ex = utils.getNumber("3");
+    const res = utils.exponentiate(base, ex);
+    assert.equal(true, res instanceof Error);
+  });
 
 
   it("getDecimal", () => {
