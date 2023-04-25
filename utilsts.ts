@@ -57,6 +57,10 @@ utils.getAbsolute = function(n): SuuNumber{
 };
 
 utils.exponentiate = function(base, exponent): SuuNumber{
+  if(!utils.isInteger(exponent)){
+    return core.makeError({message: "Exponent must be integer", parameter: [exponent]});
+  }
+  
   if(utils.isZero(exponent)){
     return core.getOne();
   }
