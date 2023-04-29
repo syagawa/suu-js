@@ -81,7 +81,11 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   let res = base;
   let bool = getBool(count);
   while(bool){
-    res = core.multiple(res, base);
+    if(multi){
+      res = core.multiple(res, base);
+    }else{
+      res = core.divide(res, base);
+    }
     count = core.add(count, "1");
     bool = getBool(count);
   }
