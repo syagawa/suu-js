@@ -4,6 +4,8 @@ import { SuuNumber } from "./interfaces";
 
 const utils:any = {};
 
+utils.ts = () => {return "ts"};
+
 utils.getNumber = function(n): SuuNumber{
   return core.numToArrayWithDecimal(n);
 };
@@ -58,18 +60,22 @@ utils.getAbsolute = function(n): SuuNumber{
 
 utils.exponentiate = function(base, exponent): SuuNumber{
   if(!utils.isInteger(exponent)){
+    console.log(1)
     return core.makeError({message: "Exponent must be integer", parameter: [exponent]});
   }
   
   if(utils.isZero(exponent)){
+    console.log(2)
     return core.getOne();
   }
   if(utils.isOne(exponent)){
+    console.log(3)
     return base;
   }
 
   let multi = true;
   if(core.isSmall(exponent, core.getZero())){
+    console.log(4)
     multi = false;
   }
 
@@ -81,6 +87,7 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   let res = base;
   let bool = getBool(count);
   while(bool){
+    console.log(5, bool)
     if(multi){
       res = core.multiple(res, base);
     }else{
