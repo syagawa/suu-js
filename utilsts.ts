@@ -90,15 +90,17 @@ utils.exponentiate = function(base, exponent): SuuNumber{
   while(bool){
     console.log("ex5", bool)
     if(multi){
+      console.log("ex6", multi)
       res = core.multiple(res, base);
     }else{
+      console.log("ex7", multi)
       res = core.divide(res, base);
     }
     count = core.add(count, "1");
     bool = getBool(count);
   }
 
-  console.log("ex6")
+  console.log("ex8", res)
   return res;
 
 };
