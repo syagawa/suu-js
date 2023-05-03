@@ -51,7 +51,8 @@ utils.square = function(n): SuuNumber{
 };
 
 utils.getAbsolute = function(n): SuuNumber{
-  let clone = core.clone(n);
+  const num = utils.getNumber(n);
+  let clone = core.clone(num);
   if(clone.negative){
     clone = utils.makePositive(clone);
   }
@@ -60,49 +61,38 @@ utils.getAbsolute = function(n): SuuNumber{
 
 utils.exponentiate = function(base, exponent): SuuNumber{
   if(!utils.isInteger(exponent)){
-    console.log("ex0")
     return core.makeError({message: "Exponent must be integer", parameter: [exponent]});
   }
   
   if(utils.isZero(exponent)){
-    console.log("ex1")
     return core.getOne();
   }
   if(utils.isOne(exponent)){
-    console.log("ex2")
     return base;
   }
 
   let multi = true;
   if(core.isSmall(exponent, core.getZero())){
-    console.log("ex3")
     multi = false;
   }
 
   let count = core.getOne();
   const exp = utils.getAbsolute(exponent);
   const getBool = (count) => {
-    console.log("ex4")
     return core.isSmall(count, exp);
   }
   let res = base;
   let bool = getBool(count);
   while(bool){
-    console.log("ex5", bool)
     if(multi){
-      console.log("ex6", multi)
       res = core.multiple(res, base);
     }else{
-      console.log("ex7", multi)
       res = core.divide(res, base);
     }
     count = core.add(count, "1");
     bool = getBool(count);
   }
-
-  console.log("ex8", res)
   return res;
-
 };
 
 utils.getInteger = function(n): SuuNumber{

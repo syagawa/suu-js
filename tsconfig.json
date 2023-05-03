@@ -7,5 +7,8 @@
     "target": "es5",
     "outDir": "dist2",
     "strict": true,
+    "lib": [
+      "es2019"
+    ]
   },
 }
