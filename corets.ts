@@ -5,8 +5,8 @@ const core:any = {};
 core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
   let error = new Error();
   try{
-    const v = o.variable.toString();
-    const p = o.parameter.toString();
+    const v = o.variable ? o.variable.toString() : "";
+    const p = o.parameter ? o.parameter.toString() : "";
     let str = o.message;
     if(v){
       str = `${str}, ${v ? v : ""}`;
