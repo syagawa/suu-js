@@ -121,6 +121,30 @@ describe("utils", function(){
     const res2 = utils.isEqual(res1, "8");
     assert.equal(res2, true);
   });
+  
+  it("exponentiate 1^10", () => {
+    const base = utils.getNumber("1");
+    const ex = utils.getNumber("10");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.isEqual(res1, "1");
+    assert.equal(res2, true);
+  });
+
+  it("exponentiate 2.5^3", () => {
+    const base = utils.getNumber("2.5");
+    const ex = utils.getNumber("3");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.isEqual(res1, "15.625");
+    assert.equal(res2, true);
+  });
+
+  it("exponentiate 2.5^2.5", () => {
+    const base = utils.getNumber("2.5");
+    const ex = utils.getNumber("2.5");
+    const res = utils.exponentiate(base, ex);
+    assert.equal(true, res instanceof Error);
+  });
+
 
   it("exponentiate -2^2", () => {
     const base = utils.getNumber("-2");
@@ -138,27 +162,13 @@ describe("utils", function(){
     assert.equal(res2, true);
   });
 
-  it("exponentiate 2.5^3", () => {
-    const base = utils.getNumber("2.5");
-    const ex = utils.getNumber("3");
-    const res1 = utils.exponentiate(base, ex);
-    const res2 = utils.isEqual(res1, "15.625");
-    assert.equal(res2, true);
-  });
+
 
   it("exponentiate -2.5^3", () => {
     const base = utils.getNumber("-2.5");
     const ex = utils.getNumber("3");
     const res1 = utils.exponentiate(base, ex);
     const res2 = utils.isEqual(res1, "-15.625");
-    assert.equal(res2, true);
-  });
-
-  it("exponentiate -2^2", () => {
-    const base = utils.getNumber("-2");
-    const ex = utils.getNumber("2");
-    const res1 = utils.exponentiate(base, ex);
-    const res2 = utils.isEqual(res1, "4");
     assert.equal(res2, true);
   });
 
@@ -177,7 +187,7 @@ describe("utils", function(){
     const res2 = utils.isEqual(res1, "1");
     assert.equal(res2, true);
   });
-
+  
   
   it("exponentiate -2.5^3", () => {
     const base = utils.getNumber("-2.5");
@@ -185,13 +195,6 @@ describe("utils", function(){
     const res1 = utils.exponentiate(base, ex);
     const res2 = utils.isEqual(res1, "-15.625");
     assert.equal(res2, true);
-  });
-
-  it("exponentiate 2.5^2.5", () => {
-    const base = utils.getNumber("2.5");
-    const ex = utils.getNumber("2.5");
-    const res = utils.exponentiate(base, ex);
-    assert.equal(true, res instanceof Error);
   });
 
 
