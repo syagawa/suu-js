@@ -168,6 +168,14 @@ describe("utils", function(){
     const res2 = utils.isEqual(res1, "0");
     assert.equal(res2, true);
   });
+  
+  it("exponentiate 0^0", () => {
+    const base = utils.getNumber("0");
+    const ex = utils.getNumber("0");
+    const res1 = utils.exponentiate(base, ex);
+    const res2 = utils.isEqual(res1, "0");
+    assert.equal(res2, true);
+  });
 
 
   it("exponentiate -2^2", () => {
