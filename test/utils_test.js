@@ -146,6 +146,13 @@ describe("utils", function(){
     assert.equal(res2, true);
   });
 
+  it("exponentiate 3^2.5", () => {
+    const base = utils.getNumber("3");
+    const ex = utils.getNumber("2.5");
+    const res = utils.exponentiate(base, ex);
+    assert.equal(true, res instanceof Error);
+  });
+
   it("exponentiate 2.5^2.5", () => {
     const base = utils.getNumber("2.5");
     const ex = utils.getNumber("2.5");
