@@ -315,13 +315,20 @@ describe("utils", function(){
       assert.equal(true, res instanceof Error);
     });
     
+    it("0.1^2", () => {
+      const base = utils.getNumber("0.1");
+      const ex = utils.getNumber("2");
+      const res1 = utils.exponentiate(base, ex);
+      const res2 = utils.isEqual(res1, "0.1");
+      assert.equal(res2, true);
+    });
+
     it("0.5^2", () => {
       const base = utils.getNumber("0.5");
       const ex = utils.getNumber("2");
       const res1 = utils.exponentiate(base, ex);
       const res2 = utils.isEqual(res1, "0.25");
       assert.equal(res2, true);
-
     });
   
     it("1^0", () => {
