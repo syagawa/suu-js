@@ -319,7 +319,7 @@ describe("utils", function(){
       const base = utils.getNumber("0.1");
       const ex = utils.getNumber("2");
       const res1 = utils.exponentiate(base, ex);
-      const res2 = utils.isEqual(res1, "0.1");
+      const res2 = utils.isEqual(res1, "0.01");
       assert.equal(res2, true);
     });
 
