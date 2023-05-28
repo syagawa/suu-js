@@ -420,6 +420,13 @@ describe("utils", function(){
       const res2 = utils.isEqual(res1, "-0.5");
       assert.equal(res2, true);
     });
+    
+    it("-2^-0.5", () => {
+      const base = utils.getNumber("-2");
+      const ex = utils.getNumber("-0.5");
+      const res = utils.exponentiate(base, ex);
+      assert.equal(true, res instanceof Error);
+    });
 
 
 
