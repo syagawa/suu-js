@@ -62,6 +62,11 @@ utils.getAbsolute = function(n): SuuNumber{
 utils.exponentiate = function(base, exponent): SuuNumber{
   const b = utils.getNumber(base);
   const exp = utils.getNumber(exponent);
+
+  if(utils.includeDecimal(exp)){
+    return core.makeError({message: "Not supported when exponent is decimal", parameter: [exponent]});
+  }
+
   if(!utils.isInteger(exp)){
     return core.makeError({message: "Exponent must be integer", parameter: [exponent]});
   }
