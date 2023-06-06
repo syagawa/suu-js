@@ -268,6 +268,14 @@ describe("utils", function(){
       const res2 = utils.isEqual(res1, "1");
       assert.equal(res2, true);
     });
+    
+    it("2^1", () => {
+      const base = utils.getNumber("2");
+      const ex = utils.getNumber("1");
+      const res1 = utils.exponentiate(base, ex);
+      const res2 = utils.isEqual(res1, "2");
+      assert.equal(res2, true);
+    });
   
     it("2^2", () => {
       const base = utils.getNumber("2");
@@ -435,7 +443,6 @@ describe("utils", function(){
       const res2 = utils.isEqual(res1, "-2.5");
       assert.equal(res2, true);
     });
-
 
 
   });
