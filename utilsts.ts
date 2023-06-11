@@ -623,5 +623,26 @@ utils.factorial = function(num){
 };
 
 
+utils.makeMersenneNumbers = function(max){
+
+  const max_ = 100;
+
+  if(!max || max > max_){
+    max = max_;
+  }
+  const two = utils.getNumber(2);
+  const arr:SuuNumber[]  = [];
+  let current = utils.getNumber(0);
+  let ex = utils.getNumber(1);
+  
+  while(current.isSmall(max)){
+    current = two.exponentiate(ex).subtract(utils.getNumber(1));
+    arr.push(current);
+    ex = ex.add(utils.getNumber(1));
+  }
+  return arr;
+
+};
+
 
 export default utils;
