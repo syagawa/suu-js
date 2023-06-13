@@ -625,7 +625,7 @@ utils.factorial = function(num){
 
 utils.makeMersenneNumbers = function(max){
 
-  const max_ = 10;
+  const max_ = 25;
 
   if(!max || max > max_){
     max = max_;
