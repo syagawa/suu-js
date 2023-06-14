@@ -636,7 +636,8 @@ utils.makeMersenneNumbers = function(max){
   let ex = utils.getNumber(1);
   
   while(current.isSmall(max)){
-    current = two.exponentiate(ex).subtract(utils.getNumber(1));
+    current = utils.exponentiate(two,ex);
+    current = core.subtract(current, utils.getNumber(1));
     arr.push(current);
     ex = ex.add(utils.getNumber(1));
   }
