@@ -1128,6 +1128,12 @@ describe("utils", function(){
 
   });
 
+  describe("makeMersenneNumbers", function(){
+    it("restult is array", () => {
+      const res = utils.makeMersenneNumbers(25);
+      assert.equal(true, res instanceof Array);
+    });
+  });
 
 });
 
