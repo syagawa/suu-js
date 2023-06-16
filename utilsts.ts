@@ -639,7 +639,7 @@ utils.makeMersenneNumbers = function(max){
     current = utils.exponentiate(two,ex);
     current = core.subtract(current, utils.getNumber(1));
     arr.push(current);
-    ex = ex.add(utils.getNumber(1));
+    ex = core.add(ex, utils.getNumber(1));
   }
   return arr;
 
