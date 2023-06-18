@@ -625,9 +625,9 @@ utils.factorial = function(num){
 
 utils.makeMersenneNumbers = function(max){
 
-  const max_ = 25;
+  const max_ = utils.getNumber(25);
 
-  if(!max || max > max_){
+  if(!max || core.isLarge(max, max_)){
     max = max_;
   }
   const two = utils.getNumber(2);
@@ -642,7 +642,6 @@ utils.makeMersenneNumbers = function(max){
     ex = core.add(ex, utils.getNumber(1));
   }
   return arr;
-
 };
 
 
