@@ -1133,6 +1133,10 @@ describe("utils", function(){
       const res = utils.makeMersenneNumbers(25);
       assert.equal(true, res instanceof Array);
     });
+    it("first is 1", () => {
+      const res = utils.makeMersenneNumbers(1);
+      assert.equal("1", "30", core.numArrayToString(res[0]));
+    });
   });
 
 });
