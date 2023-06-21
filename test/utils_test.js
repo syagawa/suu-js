@@ -1139,8 +1139,13 @@ describe("utils", function(){
     });
 
     it("second is 3", () => {
-      const res = utils.makeMersenneNumbers(1);
+      const res = utils.makeMersenneNumbers(2);
       assert.equal("3", core.numArrayToString(res[1]));
+    });
+
+    it("third is 7", () => {
+      const res = utils.makeMersenneNumbers(3);
+      assert.equal("7", core.numArrayToString(res[2]));
     });
 
   });
