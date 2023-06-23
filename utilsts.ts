@@ -632,14 +632,16 @@ utils.makeMersenneNumbers = function(max){
   }
   const two = utils.getNumber(2);
   const arr:SuuNumber[]  = [];
+  let counter = utils.getNumber(0);
   let current = utils.getNumber(0);
   let ex = utils.getNumber(1);
   
-  while(core.isSmall(current, max)){
+  while(core.isSmall(counter, max)){
     current = utils.exponentiate(two,ex);
     current = core.subtract(current, utils.getNumber(1));
     arr.push(current);
     ex = core.add(ex, utils.getNumber(1));
+    counter = core.add(counter, utils.getNumber(1));
   }
   return arr;
 };
