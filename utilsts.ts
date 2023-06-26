@@ -631,13 +631,13 @@ utils.makeMersenneNumbers = function(max){
     max = max_;
   }
 
-  const nextMax = core.add(max, utils.getNumber("1"));
+  max = core.add(max, utils.getNumber("1"));
   const two = utils.getNumber(2);
   const arr:SuuNumber[]  = [];
   let current = utils.getNumber(0);
   let ex = utils.getNumber(1);
   
-  while(core.isSmall(ex, nextMax)){
+  while(core.isSmall(ex, max)){
     current = utils.exponentiate(two,ex);
     current = core.subtract(current, utils.getNumber(1));
     arr.push(current);
