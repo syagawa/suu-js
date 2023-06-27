@@ -646,5 +646,23 @@ utils.makeMersenneNumbers = function(max){
   return arr;
 };
 
+utils.makePrimeNumbers = function(max){
+  const max_ = utils.getNumber(25);
+  if(!max || core.isLarge(max, max_)){
+    max = max_;
+  }
+  max = core.add(max, utils.getNumber("1"));
+  let length = 0;
+  const arr:SuuNumber = [];
+  while(core.isSmall(lengh, max)){
+    const num = utils.getNumber();
+    if(utils.isPrimeNumber(num)){
+      arr.push(num);
+      length = arr.length;
+    }
+  }
+  return arr;
+};
+
 
 export default utils;
