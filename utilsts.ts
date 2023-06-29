@@ -652,8 +652,6 @@ utils.isPrimeNumber = function(n){
     return false;
   }
 
-
-
 };
 
 utils.makePrimeNumbers = function(max){
@@ -663,8 +661,8 @@ utils.makePrimeNumbers = function(max){
   }
   max = core.add(max, utils.getNumber("1"));
   let length = 0;
-  const arr:SuuNumber = [];
-  while(core.isSmall(lengh, max)){
+  const arr:SuuNumber[] = [];
+  while(core.isSmall(length, max)){
     const num = utils.getNumber();
     if(utils.isPrimeNumber(num)){
       arr.push(num);
