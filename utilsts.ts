@@ -655,6 +655,14 @@ utils.isPrimeNumber = function(n){
   if(utils.isZero(num) || utils.isOne(num)){
     return false;
   }
+  if(utils.isEqual(num, "2")){
+    return true;
+  }
+
+  if(utils.isEvenNumber(num)){
+    return false;
+  }
+
 
 };
 
