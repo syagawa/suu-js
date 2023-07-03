@@ -662,8 +662,12 @@ utils.isPrimeNumber = function(n){
   if(utils.isEvenNumber(num)){
     return false;
   }
-  
+
   if(utils.includeDecimal(num)){
+    return false;
+  }
+
+  if(utils.isSmall(num, "0")){
     return false;
   }
 
