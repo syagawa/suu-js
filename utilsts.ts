@@ -667,8 +667,20 @@ utils.isPrimeNumber = function(n){
     return false;
   }
 
-  if(utils.isSmall(num, "0")){
+  if(utils.isSmall(num, utils.getNumber("0"))){
     return false;
+  }
+
+  const prev = utils.subtract(num, utils.getNumber("1"));
+  const start = utils.division(prev, utils.getNumber("2"));
+
+  let current = start;
+
+  while(core.isBig(current, utils.getNumber("2"))){
+
+    const res = core.division(num, current);
+    
+
   }
 
 
