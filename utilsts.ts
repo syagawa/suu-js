@@ -676,14 +676,20 @@ utils.isPrimeNumber = function(n){
 
   let current = start;
 
-  while(core.isBig(current, utils.getNumber("2"))){
+  let is_prime = true;
 
-    const res = core.division(num, current);
-    
+  while(is_prime && core.isBig(current, utils.getNumber("2"))){
 
+    const res = core.modulo(num, current);
+
+    if(utils.isZero(res)){
+      is_prime = false;
+      break;
+    }
+    current = core.subtract(current, utils.getNumber("1"));
   }
 
-
+  return is_prime;
 
 };
 
