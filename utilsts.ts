@@ -27,6 +27,13 @@ utils.getSmall = function(a, b): SuuNumber{
   return core.getSmall(a, b);
 };
 
+utils.isSmall = function(a, b): boolean{
+  return core.isSmall(a, b);
+}
+utils.isLarge = function(a, b): boolean{
+  return core.isLarge(a, b);
+}
+
 utils.isEqual = function(a, b): boolean{
   return core.isEqual(a, b);
 }
@@ -671,14 +678,14 @@ utils.isPrimeNumber = function(n){
     return false;
   }
 
-  const prev = utils.subtract(num, utils.getNumber("1"));
-  const start = utils.division(prev, utils.getNumber("2"));
+  const prev = core.subtract(num, utils.getNumber("1"));
+  const start = core.division(prev, utils.getNumber("2"));
 
   let current = start;
 
   let is_prime = true;
 
-  while(is_prime && core.isBig(current, utils.getNumber("2"))){
+  while(is_prime && core.isLarge(current, utils.getNumber("2"))){
 
     const res = core.modulo(num, current);
 
