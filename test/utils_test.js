@@ -1128,6 +1128,14 @@ describe("utils", function(){
 
   });
 
+  describe("isPrimeNumber", function(){
+    it("1=> false", () => {
+      const res = utils.isPrimeNumber("1");
+      assert.equal(false, res);
+    });
+  });
+
+
   describe("makeMersenneNumbers", function(){
     it("restult is array", () => {
       const res = utils.makeMersenneNumbers(25);
