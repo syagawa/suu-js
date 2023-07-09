@@ -1133,6 +1133,11 @@ describe("utils", function(){
       const res = utils.isPrimeNumber("1");
       assert.equal(false, res);
     });
+
+    it("2=> true", () => {
+      const res = utils.isPrimeNumber("2");
+      assert.equal(true, res);
+    });
   });
 
 
