@@ -1148,6 +1148,19 @@ describe("utils", function(){
       const res = utils.isPrimeNumber("4");
       assert.equal(false, res);
     });
+
+    it("0=> false", () => {
+      const res = utils.isPrimeNumber("0");
+      assert.equal(false, res);
+    });
+
+    it("0.5=> false", () => {
+      const res = utils.isPrimeNumber("0.5");
+      assert.equal(false, res);
+    });
+
+
+
   });
 
 
