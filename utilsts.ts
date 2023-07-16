@@ -708,12 +708,13 @@ utils.makePrimeNumbers = function(max){
   max = core.add(max, utils.getNumber("1"));
   let length = 0;
   const arr:SuuNumber[] = [];
+  let num = utils.getNumber("1");
   while(core.isSmall(length, max)){
-    const num = utils.getNumber();
     if(utils.isPrimeNumber(num)){
       arr.push(num);
       length = arr.length;
     }
+    num = core.add(num, utils.getNumber("1"))
   }
   return arr;
 };

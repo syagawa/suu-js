@@ -1186,8 +1186,6 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
-
-
   });
 
 
