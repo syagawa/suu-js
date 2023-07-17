@@ -705,17 +705,30 @@ utils.makePrimeNumbers = function(max){
   if(!max || core.isLarge(max, max_)){
     max = max_;
   }
+  console.log("aaa")
   max = core.add(max, utils.getNumber("1"));
-  let length = 0;
+  let length = utils.getZero();
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("1");
+
   while(core.isSmall(length, max)){
+    console.log("isSmall", core.isSmall(length, max))
+    console.log("length", length)
+    console.log("max", max)
+    console.log("num", num)
+
     if(utils.isPrimeNumber(num)){
+      
       arr.push(num);
-      length = arr.length;
+      length = utils.getNumber(arr.length);
     }
+    // if(utils.isEqual(num, utils.getNumber("100"))){
+      // break;
+    // }
     num = core.add(num, utils.getNumber("1"))
   }
+  
+
   return arr;
 };
 
