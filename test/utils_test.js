@@ -195,10 +195,14 @@ describe("utils", function(){
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("2");
     const num3 = utils.getNumber("2.2");
+    const num4 = utils.getNumber("13");
+    const num5 = utils.getNumber("23");
     const res1 = utils.isEvenNumber(num1);
     const res2 = utils.isEvenNumber(num2);
     const res3 = utils.isEvenNumber(num3);
-    const res = !res1 && res2 && !res3;
+    const res4 = utils.isEvenNumber(num4);
+    const res5 = utils.isEvenNumber(num5);
+    const res = !res1 && res2 && !res3 && !res4 && !res5;
     assert.equal(res, true);
   });
 

@@ -660,21 +660,26 @@ utils.trialDivision = function(n){
 utils.isPrimeNumber = function(n){
   const num = utils.getNumber(n);
   if(utils.isZero(num) || utils.isOne(num)){
+    console.log("1")
     return false;
   }
   if(utils.isEqual(num, "2")){
+    console.log("2")
     return true;
   }
 
   if(utils.isEvenNumber(num)){
+    console.log("3")
     return false;
   }
 
   if(utils.includeDecimal(num)){
+    console.log("4")
     return false;
   }
 
   if(utils.isSmall(num, utils.getNumber("0"))){
+    console.log("5")
     return false;
   }
 
@@ -685,10 +690,12 @@ utils.isPrimeNumber = function(n){
 
   let is_prime = true;
 
+  console.log("a",num, current)
+
   while(is_prime && core.isLarge(current, utils.getNumber("2"))){
 
     const res = core.modulo(num, current);
-
+    console.log("aa",num, current, res)
     if(utils.isZero(res)){
       is_prime = false;
       break;
