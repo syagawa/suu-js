@@ -210,11 +210,9 @@ utils.isEvenNumber = function(n): boolean{
     return false;
   }
 
-  const res = core.division(n, "2");
+  const res = core.modulo(n, "2");
 
-  const decimal = utils.getDecimal(res);
-  console.log("decimal", decimal)
-  const is_zero = utils.isZero(decimal);
+  const is_zero = utils.isZero(res);
   if(is_zero){
     return true;
   }
