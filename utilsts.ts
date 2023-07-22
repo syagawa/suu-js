@@ -228,11 +228,10 @@ utils.isOddNumber = function(n): boolean{
     return false;
   }
 
-  const res = core.division(n, "2");
+  const res = core.modulo(n, "2");
 
-  const decimal = utils.getDecimal(res);
-  const bool = core.isEqual("0.5", decimal);
-  if(bool){
+  const is_zero = utils.isZero(res);
+  if(!is_zero){
     return true;
   }
   return false;
