@@ -658,26 +658,21 @@ utils.trialDivision = function(n){
 utils.isPrimeNumber = function(n){
   const num = utils.getNumber(n);
   if(utils.isZero(num) || utils.isOne(num)){
-    console.log("1")
     return false;
   }
   if(utils.isEqual(num, "2")){
-    console.log("2")
     return true;
   }
 
   if(utils.isEvenNumber(num)){
-    console.log("3")
     return false;
   }
 
   if(utils.includeDecimal(num)){
-    console.log("4")
     return false;
   }
 
   if(utils.isSmall(num, utils.getNumber("0"))){
-    console.log("5")
     return false;
   }
 
@@ -688,12 +683,10 @@ utils.isPrimeNumber = function(n){
 
   let is_prime = true;
 
-  console.log("a",num, current)
 
   while(is_prime && core.isLarge(current, utils.getNumber("2"))){
 
     const res = core.modulo(num, current);
-    console.log("aa",num, current, res)
     if(utils.isZero(res)){
       is_prime = false;
       break;
@@ -710,20 +703,14 @@ utils.makePrimeNumbers = function(max){
   if(!max || core.isLarge(max, max_)){
     max = max_;
   }
-  console.log("aaa")
   max = core.add(max, utils.getNumber("1"));
   let length = utils.getZero();
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("1");
 
   while(core.isSmall(length, max)){
-    console.log("isSmall", core.isSmall(length, max))
-    console.log("length", length)
-    console.log("max", max)
-    console.log("num", num)
-
     if(utils.isPrimeNumber(num)){
-      
+
       arr.push(num);
       length = utils.getNumber(arr.length);
     }
