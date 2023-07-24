@@ -184,10 +184,12 @@ describe("utils", function(){
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("1.1");
     const num3 = utils.getNumber("-1");
+    const num4 = utils.getNumber("10001");
     const res1 = utils.isInteger(num1);
     const res2 = utils.isInteger(num2);
     const res3 = utils.isInteger(num3);
-    const res = res1 && !res2 && res3;
+    const res4 = utils.isInteger(num4);
+    const res = res1 && !res2 && res3 && res4;
     assert.equal(res, true);
   });
 
