@@ -27,12 +27,20 @@ describe("utils", function(){
     assert.equal(true, num instanceof Error);
   });
 
-  it("getLarge", () => {
+  it("getLarge 2 > 1 => true", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("2");
     const large = utils.getLarge(num1, num2);
     const res = utils.isEqual(num2, large);
     assert.equal(res, true);
+  });
+  
+  it("getLarge 1 > 2 => false", () => {
+    const num1 = utils.getNumber("2");
+    const num2 = utils.getNumber("1");
+    const large = utils.getLarge(num1, num2);
+    const res = utils.isEqual(num2, large);
+    assert.equal(res, false);
   });
 
   it("getLarge '' is null", () => {
