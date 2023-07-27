@@ -4,8 +4,18 @@ const core = app.core;
 const utils = app.utils;
 
 describe("utils", function(){
-  it("getNumber", () => {
+  it("getNumber 1", () => {
     const num = utils.getNumber("1");
+    assert.equal(num.is_num_array, true);
+  });
+
+  it("getNumber 101", () => {
+    const num = utils.getNumber("101");
+    assert.equal(num.is_num_array, true);
+  });
+ 
+  it("getNumber -101.523", () => {
+    const num = utils.getNumber("-101.523");
     assert.equal(num.is_num_array, true);
   });
 
