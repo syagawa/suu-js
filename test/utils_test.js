@@ -60,6 +60,14 @@ describe("utils", function(){
     const res = utils.isEqual(num1, large);
     assert.equal(res, true);
   });
+  
+  it("getLarge 2.0001 > 2 => true", () => {
+    const num1 = utils.getNumber("2.0001");
+    const num2 = utils.getNumber("2");
+    const large = utils.getLarge(num1, num2);
+    const res = utils.isEqual(num1, large);
+    assert.equal(res, true);
+  });
 
   it("getLarge '' is null", () => {
     const res = utils.getLarge("", "");
