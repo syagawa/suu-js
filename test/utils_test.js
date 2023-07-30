@@ -69,6 +69,13 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getLarge 1 > 1 => true", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("1");
+    const large = utils.getLarge(num1, num2);
+    assert.equal(large, null);
+  });
+
   it("getLarge '' is null", () => {
     const res = utils.getLarge("", "");
     assert.equal(null, res);
