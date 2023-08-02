@@ -125,8 +125,15 @@ describe("utils", function(){
     assert.equal(null, res);
   });
 
-  it("isEqual", () => {
+  it("isEqual 1 = 1", () => {
     const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("1");
+    const res = utils.isEqual(num1, num2);
+    assert.equal(res, true);
+  });
+
+  it("isEqual 1.0 = 1", () => {
+    const num1 = utils.getNumber("1.0");
     const num2 = utils.getNumber("1");
     const res = utils.isEqual(num1, num2);
     assert.equal(res, true);
