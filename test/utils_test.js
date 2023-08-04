@@ -93,7 +93,7 @@ describe("utils", function(){
     const num1 = utils.getNumber("2");
     const num2 = utils.getNumber("1");
     const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num1, small);
+    const res = utils.isEqual(num2, small);
     assert.equal(res, true);
   });
   
@@ -109,7 +109,7 @@ describe("utils", function(){
     const num1 = utils.getNumber("2");
     const num2 = utils.getNumber("1.999");
     const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num1, small);
+    const res = utils.isEqual(num2, small);
     assert.equal(res, true);
   });
   
