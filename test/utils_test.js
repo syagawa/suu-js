@@ -124,8 +124,15 @@ describe("utils", function(){
   it("getSmall 1 > 1 => null", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("1");
-    const large = utils.getSmall(num1, num2);
-    assert.equal(large, null);
+    const small = utils.getSmall(num1, num2);
+    assert.equal(small, null);
+  });
+  
+  it("getSmall 1 > -1 => true", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("-1");
+    const small = utils.getSmall(num1, num2);
+    assert.equal(small, num2);
   });
   
   it("getSmall '' is null", () => {
