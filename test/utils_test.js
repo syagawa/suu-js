@@ -134,6 +134,14 @@ describe("utils", function(){
     const small = utils.getSmall(num1, num2);
     assert.equal(small, num2);
   });
+
+  it("getSmall 1 > -10 => true", () => {
+    const num1 = utils.getNumber("1");
+    const num2 = utils.getNumber("-10");
+    const small = utils.getSmall(num1, num2);
+    assert.equal(small, num2);
+  });
+
   
   it("getSmall '' is null", () => {
     const res = utils.getSmall("", "");
