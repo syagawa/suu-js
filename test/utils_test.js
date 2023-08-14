@@ -228,6 +228,13 @@ describe("utils", function(){
     assert.equal(res, true);
   });
   
+  it("square", () => {
+    const num = utils.getNumber("1.1");
+    const sq = utils.square(num);
+    const res = utils.isEqual(sq, utils.getNumber("1.21"));
+    assert.equal(res, true);
+  });
+  
   it("getAbsolute", () => {
     const num = utils.getNumber("-3");
     const abs = utils.getAbsolute(num);
