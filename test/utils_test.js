@@ -221,18 +221,24 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("square", () => {
+  it("square 3 => 9", () => {
     const num = utils.getNumber("3");
     const sq = utils.square(num);
     const res = utils.isEqual(sq, utils.getNumber("9"));
     assert.equal(res, true);
   });
   
-  it("square", () => {
+  it("square 1.1 => ", () => {
     const num = utils.getNumber("1.1");
     const sq = utils.square(num);
     const res = utils.isEqual(sq, utils.getNumber("1.21"));
     assert.equal(res, true);
+  });
+
+  it("square 0 => Error", () => {
+    const num = utils.getNumber("0");
+    const sq = utils.square(num);
+    assert.equal(true, sq instanceof Error);
   });
   
   it("getAbsolute", () => {
