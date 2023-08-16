@@ -240,6 +240,11 @@ describe("utils", function(){
     const sq = utils.square(num);
     assert.equal(true, sq instanceof Error);
   });
+
+  it("square '' => Error", () => {
+    const sq = utils.square("");
+    assert.equal(true, sq instanceof Error);
+  });
   
   it("getAbsolute", () => {
     const num = utils.getNumber("-3");
