@@ -235,10 +235,11 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("square 0 => Error", () => {
+  it("square 0 => 0", () => {
     const num = utils.getNumber("0");
     const sq = utils.square(num);
-    assert.equal(true, sq instanceof Error);
+    const res = utils.isEqual(sq, utils.getNumber("0"));
+    assert.equal(res, true);
   });
 
   it("square '' => Error", () => {
