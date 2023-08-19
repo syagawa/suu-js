@@ -247,10 +247,31 @@ describe("utils", function(){
     assert.equal(true, sq instanceof Error);
   });
   
-  it("getAbsolute", () => {
+  it("getAbsolute 3 => 3", () => {
+    const num = utils.getNumber("3");
+    const abs = utils.getAbsolute(num);
+    const res = utils.isEqual(abs, "3");
+    assert.equal(res, true);
+  });
+  
+  it("getAbsolute -3 => 3", () => {
     const num = utils.getNumber("-3");
     const abs = utils.getAbsolute(num);
     const res = utils.isEqual(abs, "3");
+    assert.equal(res, true);
+  });
+
+  it("getAbsolute 1.5 => 1.5", () => {
+    const num = utils.getNumber("1.5");
+    const abs = utils.getAbsolute(num);
+    const res = utils.isEqual(abs, "1.5");
+    assert.equal(res, true);
+  });
+
+  it("getAbsolute -1.5 => 1.5", () => {
+    const num = utils.getNumber("-1.5");
+    const abs = utils.getAbsolute(num);
+    const res = utils.isEqual(abs, "1.5");
     assert.equal(res, true);
   });
 
