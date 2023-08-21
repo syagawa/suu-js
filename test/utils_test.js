@@ -275,6 +275,13 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getAbsolute 0 => 0", () => {
+    const num = utils.getNumber("0");
+    const abs = utils.getAbsolute(num);
+    const res = utils.isEqual(abs, "0");
+    assert.equal(res, true);
+  });
+
   it("getDecimal 1.11", () => {
     const num1 = utils.getNumber("1.11");
     const dec = utils.getDecimal(num1);
