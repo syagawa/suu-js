@@ -320,6 +320,12 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isNaturalNumber 0 => true", () => {
+    const num = utils.getNumber("0");
+    const res = utils.isNaturalNumber(num);
+    assert.equal(res, true);
+  });
+
   it("isNaturalNumber 1.11 => false", () => {
     const num1 = utils.getNumber("1.11");
     const res = utils.isNaturalNumber(num1);
