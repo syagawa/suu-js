@@ -332,13 +332,16 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("includeDecimal", () => {
-    const num1 = utils.getNumber("1.11");
-    const num2 = utils.getNumber("1.0");
-    const res1 = utils.includeDecimal(num1);
-    const res2 = utils.includeDecimal(num2);
-    const res = res1 && !res2;
+  it("includeDecimal 1.11 => true", () => {
+    const num = utils.getNumber("1.11");
+    const res = utils.includeDecimal(num);
     assert.equal(res, true);
+  });
+  
+  it("includeDecimal 1.0 => false", () => {
+    const num = utils.getNumber("1.0");
+    const res = utils.includeDecimal(num);
+    assert.equal(res, false);
   });
 
   it("isNegative", () => {
