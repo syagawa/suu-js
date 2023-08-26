@@ -343,6 +343,14 @@ describe("utils", function(){
     const res = utils.includeDecimal(num);
     assert.equal(res, false);
   });
+  
+  it("includeDecimal 0 => false", () => {
+    const num = utils.getNumber("0");
+    const res = utils.includeDecimal(num);
+    assert.equal(res, false);
+  });
+
+
 
   it("isNegative", () => {
     const num1 = utils.getNumber("-1.11");
