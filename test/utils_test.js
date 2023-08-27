@@ -282,6 +282,18 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("getAbsolute '' => Error", () => {
+
+    let error = null;
+    try{
+      const abs = utils.getAbsolute("");
+    }catch(err){
+      error = err;
+    }
+    const res = error === typeof Error;
+    assert.equal(res, true);
+  });
+
   it("getDecimal 1.11", () => {
     const num1 = utils.getNumber("1.11");
     const dec = utils.getDecimal(num1);
