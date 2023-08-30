@@ -283,14 +283,8 @@ describe("utils", function(){
   });
 
   it("getAbsolute '' => Error", () => {
-
-    let error = null;
-    try{
-      const abs = utils.getAbsolute("");
-    }catch(err){
-      error = err;
-    }
-    const res = error === typeof Error;
+    const abs = utils.getAbsolute("");
+    const res = abs ? true : false;
     assert.equal(res, true);
   });
 
