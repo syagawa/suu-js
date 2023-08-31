@@ -4,7 +4,7 @@ export type MoldNumArray = {
   decimal_index: number
   is_num_array: boolean,
   remainder?: any
-}
+} | Error
 
 export type CompareObject = {
   small: boolean | null

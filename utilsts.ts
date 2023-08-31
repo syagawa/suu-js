@@ -58,7 +58,10 @@ utils.square = function(n): SuuNumber{
 };
 
 utils.getAbsolute = function(n): SuuNumber{
-  const num = utils.getNumber(n);
+  const num: any = utils.getNumber(n);
+  if(num instanceof Error){
+    return num;
+  }
   let clone = core.clone(num);
   if(clone.negative){
     clone = utils.makePositive(clone);
