@@ -319,6 +319,11 @@ describe("utils", function(){
     const res = utils.isEqual(dec, num2);
     assert.equal(res, true);
   });
+  
+  it("getDecimal '' => Error", () => {
+    const dec = utils.getDecimal("");
+    assert.equal(dec instanceof Error, true);
+  });
 
   it("isNaturalNumber 1.0 => true", () => {
     const num = utils.getNumber("1.0");
