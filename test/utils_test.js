@@ -325,6 +325,12 @@ describe("utils", function(){
     assert.equal(dec instanceof Error, true);
   });
 
+  it("isNaturalNumber 1 => true", () => {
+    const num = utils.getNumber("1");
+    const res = utils.isNaturalNumber(num);
+    assert.equal(res, true);
+  });
+
   it("isNaturalNumber 1.0 => true", () => {
     const num = utils.getNumber("1.0");
     const res = utils.isNaturalNumber(num);
@@ -339,6 +345,12 @@ describe("utils", function(){
 
   it("isNaturalNumber 1.11 => false", () => {
     const num1 = utils.getNumber("1.11");
+    const res = utils.isNaturalNumber(num1);
+    assert.equal(res, false);
+  });
+
+  it("isNaturalNumber -1 => false", () => {
+    const num1 = utils.getNumber("-1");
     const res = utils.isNaturalNumber(num1);
     assert.equal(res, false);
   });
