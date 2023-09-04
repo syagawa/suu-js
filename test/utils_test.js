@@ -373,25 +373,27 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-
-  it("isNegative", () => {
+  it("isNegative -1.11 => true", () => {
     const num = utils.getNumber("-1.11");
     const res = utils.isNegative(num);
     assert.equal(res, true);
   });
 
-  it("isNegative", () => {
+  it("isNegative 1.0 => false", () => {
     const num = utils.getNumber("1.0");
     const res = utils.isNegative(num);
     assert.equal(res, false);
   });
 
-  it("isPositive", () => {
-    const num1 = utils.getNumber("1.11");
-    const num2 = utils.getNumber("-1.0");
-    const res1 = utils.isPositive(num1);
-    const res2 = utils.isPositive(num2);
-    const res = res1 && !res2;
+  it("isPositive 1.11 => true", () => {
+    const num = utils.getNumber("1.11");
+    const res = utils.isPositive(num);
+    assert.equal(res, true);
+  });
+
+  it("isPositive -1.0 => false", () => {
+    const num = utils.getNumber("-1.0");
+    const res = utils.isPositive(num);
     assert.equal(res, true);
   });
 
