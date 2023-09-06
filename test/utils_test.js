@@ -385,6 +385,12 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
+  it("isNegative 0 => false", () => {
+    const num = utils.getNumber("0");
+    const res = utils.isNegative(num);
+    assert.equal(res, false);
+  });
+
   it("isPositive 1.11 => true", () => {
     const num = utils.getNumber("1.11");
     const res = utils.isPositive(num);
@@ -399,6 +405,12 @@ describe("utils", function(){
   
   it("isPositive 1 => true", () => {
     const num = utils.getNumber("1");
+    const res = utils.isPositive(num);
+    assert.equal(res, true);
+  });
+
+  it("isPositive 0 => true", () => {
+    const num = utils.getNumber("0");
     const res = utils.isPositive(num);
     assert.equal(res, true);
   });
