@@ -57,7 +57,7 @@ utils.square = function(n): SuuNumber{
   return core.multiplication(n, n);
 };
 
-utils.getAbsolute = function(n): SuuNumber{
+utils.getAbsolute = function(n): SuuNumber | Error{
   const num: any = utils.getNumber(n);
   if(num instanceof Error){
     return num;
