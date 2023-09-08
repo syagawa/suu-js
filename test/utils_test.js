@@ -409,10 +409,10 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("isPositive 0 => true", () => {
+  it("isPositive 0 => false", () => {
     const num = utils.getNumber("0");
     const res = utils.isPositive(num);
-    assert.equal(res, true);
+    assert.equal(res, false);
   });
 
   it("getNegativeNumber", () => {

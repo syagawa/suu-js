@@ -145,11 +145,17 @@ utils.includeDecimal = function(n): boolean{
 };
 
 utils.isNegative = function(n): boolean{
+  if(utils.isZero(n)){
+    return false;
+  }
   const n_ = core.numToArrayWithDecimal(n);
   return n_.negative;
 };
 
 utils.isPositive = function(n): boolean{
+  if(utils.isZero(n)){
+    return false;
+  }
   const n_ = core.numToArrayWithDecimal(n);
   return !n_.negative;
 };
