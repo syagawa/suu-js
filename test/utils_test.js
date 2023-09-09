@@ -415,11 +415,10 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("getNegativeNumber", () => {
+  it("getNegativeNumber 1 => -1", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNegativeNumber(num1);
-    const res = utils.isNegative(num2);
-    assert.equal(res, true);
+    assert.equal(core.numArrayToString(num2), "-1");
   });
 
   it("getNext", () => {
