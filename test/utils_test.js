@@ -442,6 +442,14 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(next));
   });
 
+  it("getNext 1.1 => 2.1", () => {
+    const num1 = utils.getNumber("1.1");
+    const next = utils.getNumber("2.1");
+    const res = utils.getNext(num1);
+    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+  });
+
+
   it("getPrev", () => {
     const num1 = utils.getNumber("1");
     const prev = utils.getNumber("0");
