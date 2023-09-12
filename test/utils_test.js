@@ -450,12 +450,20 @@ describe("utils", function(){
   });
 
 
-  it("getPrev", () => {
+  it("getPrev 1 => 0", () => {
     const num1 = utils.getNumber("1");
     const prev = utils.getNumber("0");
     const res = utils.getPrev(num1);
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
+
+  it("getPrev 0 => -1", () => {
+    const num1 = utils.getNumber("0");
+    const prev = utils.getNumber("-1");
+    const res = utils.getPrev(num1);
+    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+  });
+  
 
   it("isInteger", () => {
     const num1 = utils.getNumber("1");
