@@ -464,6 +464,12 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
   
+  it("getPrev 1.1 => 0.1", () => {
+    const num1 = utils.getNumber("1.1");
+    const prev = utils.getNumber("0.1");
+    const res = utils.getPrev(num1);
+    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+  });
 
   it("isInteger", () => {
     const num1 = utils.getNumber("1");
