@@ -471,6 +471,12 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
 
+  it("isInteger 1 => true", () => {
+    const num = utils.getNumber("1");
+    const res = utils.isInteger(num);
+    assert.equal(res, true);
+  });
+
   it("isInteger", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("1.1");
