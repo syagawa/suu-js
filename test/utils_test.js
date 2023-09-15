@@ -477,6 +477,12 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isInteger 1.1 => false", () => {
+    const num = utils.getNumber("1.1");
+    const res = utils.isInteger(num);
+    assert.equal(res, false);
+  });
+
   it("isInteger", () => {
     const num1 = utils.getNumber("1");
     const num2 = utils.getNumber("1.1");
