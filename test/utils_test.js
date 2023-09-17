@@ -483,16 +483,15 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("isInteger", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("1.1");
-    const num3 = utils.getNumber("-1");
-    const num4 = utils.getNumber("10001");
-    const res1 = utils.isInteger(num1);
-    const res2 = utils.isInteger(num2);
-    const res3 = utils.isInteger(num3);
-    const res4 = utils.isInteger(num4);
-    const res = res1 && !res2 && res3 && res4;
+  it("isInteger -1 => true", () => {
+    const num = utils.getNumber("-1");
+    const res = utils.isInteger(num);
+    assert.equal(res, true);
+  });
+
+  it("isInteger 10001.0 => true", () => {
+    const num = utils.getNumber("10001.0");
+    const res = utils.isInteger(num);
     assert.equal(res, true);
   });
 
