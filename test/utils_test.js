@@ -495,20 +495,44 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("isEvenNumber", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("2");
-    const num3 = utils.getNumber("2.2");
-    const num4 = utils.getNumber("13");
-    const num5 = utils.getNumber("23");
-    const res1 = utils.isEvenNumber(num1);
-    const res2 = utils.isEvenNumber(num2);
-    const res3 = utils.isEvenNumber(num3);
-    const res4 = utils.isEvenNumber(num4);
-    const res5 = utils.isEvenNumber(num5);
-    const res = !res1 && res2 && !res3 && !res4 && !res5;
+
+
+  it("isEvenNumber 1 => false", () => {
+    const num = utils.getNumber("1");
+    const res = utils.isEvenNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isEvenNumber 2 => true", () => {
+    const num = utils.getNumber("2");
+    const res = utils.isEvenNumber(num);
     assert.equal(res, true);
   });
+
+  it("isEvenNumber 2.2 => false", () => {
+    const num = utils.getNumber("2.2");
+    const res = utils.isEvenNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isEvenNumber 13 => false", () => {
+    const num = utils.getNumber("13");
+    const res = utils.isEvenNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isEvenNumber 23 => false", () => {
+    const num = utils.getNumber("23");
+    const res = utils.isEvenNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isEvenNumber 1112.0 => true", () => {
+    const num = utils.getNumber("1112.0");
+    const res = utils.isEvenNumber(num);
+    assert.equal(res, true);
+  });
+
 
   it("isOddNumber", () => {
     const num1 = utils.getNumber("1");
