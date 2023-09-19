@@ -495,8 +495,6 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-
-
   it("isEvenNumber 1 => false", () => {
     const num = utils.getNumber("1");
     const res = utils.isEvenNumber(num);
@@ -530,6 +528,12 @@ describe("utils", function(){
   it("isEvenNumber 1112.0 => true", () => {
     const num = utils.getNumber("1112.0");
     const res = utils.isEvenNumber(num);
+    assert.equal(res, true);
+  });
+
+  it("isOddNumber 1 => true", () => {
+    const num = utils.getNumber("1");
+    const res = utils.isOddNumber(num);
     assert.equal(res, true);
   });
 
