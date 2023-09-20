@@ -537,25 +537,48 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
+  it("isOddNumber 2 => false", () => {
+    const num = utils.getNumber("2");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, false);
+  });
 
-  it("isOddNumber", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("2");
-    const num3 = utils.getNumber("2.2");
-    const num4 = utils.getNumber("10");
-    const num5 = utils.getNumber("11");
-    const num6 = utils.getNumber("13");
-    const num7 = utils.getNumber("29");
-    const res1 = utils.isOddNumber(num1);
-    const res2 = utils.isOddNumber(num2);
-    const res3 = utils.isOddNumber(num3);
-    const res4 = utils.isOddNumber(num4);
-    const res5 = utils.isOddNumber(num5);
-    const res6 = utils.isOddNumber(num6);
-    const res7 = utils.isOddNumber(num7);
-    const res = res1 && !res2 && !res3 && !res4 && res5 && res6 && res7;
+  it("isOddNumber 2.2 => false", () => {
+    const num = utils.getNumber("2.2");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isOddNumber 3.3 => false", () => {
+    const num = utils.getNumber("3.3");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isOddNumber 10 => false", () => {
+    const num = utils.getNumber("10");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, false);
+  });
+
+  it("isOddNumber 11 => true", () => {
+    const num = utils.getNumber("11");
+    const res = utils.isOddNumber(num);
     assert.equal(res, true);
   });
+
+  it("isOddNumber 13 => true", () => {
+    const num = utils.getNumber("13");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, true);
+  });
+
+  it("isOddNumber 29 => true", () => {
+    const num = utils.getNumber("29");
+    const res = utils.isOddNumber(num);
+    assert.equal(res, true);
+  });
+
 
   describe("getDivisors", function(){
     it("1", () => {
