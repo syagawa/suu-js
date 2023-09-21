@@ -531,52 +531,54 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("isOddNumber 1 => true", () => {
-    const num = utils.getNumber("1");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, true);
-  });
+  describe("isOddNumber", function(){
+    it("1 => true", () => {
+      const num = utils.getNumber("1");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, true);
+    });
 
-  it("isOddNumber 2 => false", () => {
-    const num = utils.getNumber("2");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, false);
-  });
+    it("2 => false", () => {
+      const num = utils.getNumber("2");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isOddNumber 2.2 => false", () => {
-    const num = utils.getNumber("2.2");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, false);
-  });
+    it("2.2 => false", () => {
+      const num = utils.getNumber("2.2");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isOddNumber 3.3 => false", () => {
-    const num = utils.getNumber("3.3");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, false);
-  });
+    it("3.3 => false", () => {
+      const num = utils.getNumber("3.3");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isOddNumber 10 => false", () => {
-    const num = utils.getNumber("10");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, false);
-  });
+    it("10 => false", () => {
+      const num = utils.getNumber("10");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isOddNumber 11 => true", () => {
-    const num = utils.getNumber("11");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, true);
-  });
+    it("11 => true", () => {
+      const num = utils.getNumber("11");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, true);
+    });
 
-  it("isOddNumber 13 => true", () => {
-    const num = utils.getNumber("13");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, true);
-  });
+    it("13 => true", () => {
+      const num = utils.getNumber("13");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, true);
+    });
 
-  it("isOddNumber 29 => true", () => {
-    const num = utils.getNumber("29");
-    const res = utils.isOddNumber(num);
-    assert.equal(res, true);
+    it("29 => true", () => {
+      const num = utils.getNumber("29");
+      const res = utils.isOddNumber(num);
+      assert.equal(res, true);
+    });
   });
 
 
