@@ -495,40 +495,43 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("isEvenNumber 1 => false", () => {
-    const num = utils.getNumber("1");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, false);
-  });
 
-  it("isEvenNumber 2 => true", () => {
-    const num = utils.getNumber("2");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, true);
-  });
+  describe("isEvenNumber", function(){
+    it("1 => false", () => {
+      const num = utils.getNumber("1");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isEvenNumber 2.2 => false", () => {
-    const num = utils.getNumber("2.2");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, false);
-  });
+    it("2 => true", () => {
+      const num = utils.getNumber("2");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, true);
+    });
 
-  it("isEvenNumber 13 => false", () => {
-    const num = utils.getNumber("13");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, false);
-  });
+    it("2.2 => false", () => {
+      const num = utils.getNumber("2.2");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isEvenNumber 23 => false", () => {
-    const num = utils.getNumber("23");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, false);
-  });
+    it("13 => false", () => {
+      const num = utils.getNumber("13");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, false);
+    });
 
-  it("isEvenNumber 1112.0 => true", () => {
-    const num = utils.getNumber("1112.0");
-    const res = utils.isEvenNumber(num);
-    assert.equal(res, true);
+    it("23 => false", () => {
+      const num = utils.getNumber("23");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, false);
+    });
+
+    it("1112.0 => true", () => {
+      const num = utils.getNumber("1112.0");
+      const res = utils.isEvenNumber(num);
+      assert.equal(res, true);
+    });
   });
 
   describe("isOddNumber", function(){
