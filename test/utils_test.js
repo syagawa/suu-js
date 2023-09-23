@@ -471,28 +471,30 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
   });
 
-  it("isInteger 1 => true", () => {
-    const num = utils.getNumber("1");
-    const res = utils.isInteger(num);
-    assert.equal(res, true);
-  });
+  describe("isInteger", function(){
+    it("1 => true", () => {
+      const num = utils.getNumber("1");
+      const res = utils.isInteger(num);
+      assert.equal(res, true);
+    });
 
-  it("isInteger 1.1 => false", () => {
-    const num = utils.getNumber("1.1");
-    const res = utils.isInteger(num);
-    assert.equal(res, false);
-  });
+    it("1.1 => false", () => {
+      const num = utils.getNumber("1.1");
+      const res = utils.isInteger(num);
+      assert.equal(res, false);
+    });
 
-  it("isInteger -1 => true", () => {
-    const num = utils.getNumber("-1");
-    const res = utils.isInteger(num);
-    assert.equal(res, true);
-  });
+    it("-1 => true", () => {
+      const num = utils.getNumber("-1");
+      const res = utils.isInteger(num);
+      assert.equal(res, true);
+    });
 
-  it("isInteger 10001.0 => true", () => {
-    const num = utils.getNumber("10001.0");
-    const res = utils.isInteger(num);
-    assert.equal(res, true);
+    it("10001.0 => true", () => {
+      const num = utils.getNumber("10001.0");
+      const res = utils.isInteger(num);
+      assert.equal(res, true);
+    });
   });
 
 
