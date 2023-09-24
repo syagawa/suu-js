@@ -449,27 +449,29 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(res), core.numArrayToString(next));
   });
 
+  describe("getPrev", function(){
+    it("1 => 0", () => {
+      const num1 = utils.getNumber("1");
+      const prev = utils.getNumber("0");
+      const res = utils.getPrev(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+    });
 
-  it("getPrev 1 => 0", () => {
-    const num1 = utils.getNumber("1");
-    const prev = utils.getNumber("0");
-    const res = utils.getPrev(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+    it("0 => -1", () => {
+      const num1 = utils.getNumber("0");
+      const prev = utils.getNumber("-1");
+      const res = utils.getPrev(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+    });
+    
+    it("1.1 => 0.1", () => {
+      const num1 = utils.getNumber("1.1");
+      const prev = utils.getNumber("0.1");
+      const res = utils.getPrev(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
+    });
   });
 
-  it("getPrev 0 => -1", () => {
-    const num1 = utils.getNumber("0");
-    const prev = utils.getNumber("-1");
-    const res = utils.getPrev(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
-  });
-  
-  it("getPrev 1.1 => 0.1", () => {
-    const num1 = utils.getNumber("1.1");
-    const prev = utils.getNumber("0.1");
-    const res = utils.getPrev(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(prev));
-  });
 
   describe("isInteger", function(){
     it("1 => true", () => {
