@@ -421,32 +421,34 @@ describe("utils", function(){
     assert.equal(core.numArrayToString(num2), "-1");
   });
 
-  it("getNext 1 => 2", () => {
-    const num1 = utils.getNumber("1");
-    const next = utils.getNumber("2");
-    const res = utils.getNext(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
-  });
+  describe("getNext", function(){
+    it("getNext 1 => 2", () => {
+      const num1 = utils.getNumber("1");
+      const next = utils.getNumber("2");
+      const res = utils.getNext(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+    });
 
-  it("getNext 0 => 1", () => {
-    const num1 = utils.getNumber("0");
-    const next = utils.getNumber("1");
-    const res = utils.getNext(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
-  });
+    it("getNext 0 => 1", () => {
+      const num1 = utils.getNumber("0");
+      const next = utils.getNumber("1");
+      const res = utils.getNext(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+    });
 
-  it("getNext -1 => 0", () => {
-    const num1 = utils.getNumber("-1");
-    const next = utils.getNumber("0");
-    const res = utils.getNext(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
-  });
+    it("getNext -1 => 0", () => {
+      const num1 = utils.getNumber("-1");
+      const next = utils.getNumber("0");
+      const res = utils.getNext(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+    });
 
-  it("getNext 1.1 => 2.1", () => {
-    const num1 = utils.getNumber("1.1");
-    const next = utils.getNumber("2.1");
-    const res = utils.getNext(num1);
-    assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+    it("getNext 1.1 => 2.1", () => {
+      const num1 = utils.getNumber("1.1");
+      const next = utils.getNumber("2.1");
+      const res = utils.getNext(num1);
+      assert.equal(core.numArrayToString(res), core.numArrayToString(next));
+    });
   });
 
   describe("getPrev", function(){
