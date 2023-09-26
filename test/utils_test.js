@@ -415,11 +415,26 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("getNegativeNumber 1 => -1", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNegativeNumber(num1);
-    assert.equal(core.numArrayToString(num2), "-1");
+  describe("getNegativeNumber", function(){
+    it("1 => -1", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNegativeNumber(num1);
+      assert.equal(core.numArrayToString(num2), "-1");
+    });
+
+    it("1.0 => -1", () => {
+      const num1 = utils.getNumber("1.0");
+      const num2 = utils.getNegativeNumber(num1);
+      assert.equal(core.numArrayToString(num2), "-1");
+    });
+
+    it("1.5 => -1.5", () => {
+      const num1 = utils.getNumber("1.5");
+      const num2 = utils.getNegativeNumber(num1);
+      assert.equal(core.numArrayToString(num2), "-1.5");
+    });
   });
+
 
   describe("getNext", function(){
     it("getNext 1 => 2", () => {
