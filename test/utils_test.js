@@ -373,22 +373,24 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("isNegative -1.11 => true", () => {
-    const num = utils.getNumber("-1.11");
-    const res = utils.isNegative(num);
-    assert.equal(res, true);
-  });
+  describe("isNegative", function(){
+    it("-1.11 => true", () => {
+      const num = utils.getNumber("-1.11");
+      const res = utils.isNegative(num);
+      assert.equal(res, true);
+    });
 
-  it("isNegative 1.0 => false", () => {
-    const num = utils.getNumber("1.0");
-    const res = utils.isNegative(num);
-    assert.equal(res, false);
-  });
+    it("1.0 => false", () => {
+      const num = utils.getNumber("1.0");
+      const res = utils.isNegative(num);
+      assert.equal(res, false);
+    });
 
-  it("isNegative 0 => false", () => {
-    const num = utils.getNumber("0");
-    const res = utils.isNegative(num);
-    assert.equal(res, false);
+    it("0 => false", () => {
+      const num = utils.getNumber("0");
+      const res = utils.isNegative(num);
+      assert.equal(res, false);
+    });
   });
 
   describe("isPositive", function(){
