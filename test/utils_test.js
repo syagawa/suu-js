@@ -355,22 +355,24 @@ describe("utils", function(){
     assert.equal(res, false);
   });
 
-  it("includeDecimal 1.11 => true", () => {
-    const num = utils.getNumber("1.11");
-    const res = utils.includeDecimal(num);
-    assert.equal(res, true);
-  });
-  
-  it("includeDecimal 1.0 => false", () => {
-    const num = utils.getNumber("1.0");
-    const res = utils.includeDecimal(num);
-    assert.equal(res, false);
-  });
-  
-  it("includeDecimal 0 => false", () => {
-    const num = utils.getNumber("0");
-    const res = utils.includeDecimal(num);
-    assert.equal(res, false);
+  describe("includeDecimal", function(){
+    it("1.11 => true", () => {
+      const num = utils.getNumber("1.11");
+      const res = utils.includeDecimal(num);
+      assert.equal(res, true);
+    });
+    
+    it("1.0 => false", () => {
+      const num = utils.getNumber("1.0");
+      const res = utils.includeDecimal(num);
+      assert.equal(res, false);
+    });
+    
+    it("0 => false", () => {
+      const num = utils.getNumber("0");
+      const res = utils.includeDecimal(num);
+      assert.equal(res, false);
+    });
   });
 
   describe("isNegative", function(){
