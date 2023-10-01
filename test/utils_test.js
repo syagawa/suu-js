@@ -288,41 +288,43 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("getDecimal 1.11", () => {
-    const num1 = utils.getNumber("1.11");
-    const dec = utils.getDecimal(num1);
-    const num2 = utils.getNumber("0.11");
-    const res = utils.isEqual(dec, num2);
-    assert.equal(res, true);
-  });
+  describe("getDecimal", function(){
+    it("1.11", () => {
+      const num1 = utils.getNumber("1.11");
+      const dec = utils.getDecimal(num1);
+      const num2 = utils.getNumber("0.11");
+      const res = utils.isEqual(dec, num2);
+      assert.equal(res, true);
+    });
 
-  it("getDecimal 1", () => {
-    const num1 = utils.getNumber("1");
-    const dec = utils.getDecimal(num1);
-    const num2 = utils.getNumber("0");
-    const res = utils.isEqual(dec, num2);
-    assert.equal(res, true);
-  });
+    it("1", () => {
+      const num1 = utils.getNumber("1");
+      const dec = utils.getDecimal(num1);
+      const num2 = utils.getNumber("0");
+      const res = utils.isEqual(dec, num2);
+      assert.equal(res, true);
+    });
 
-  it("getDecimal 1.0", () => {
-    const num1 = utils.getNumber("1.0");
-    const dec = utils.getDecimal(num1);
-    const num2 = utils.getNumber("0");
-    const res = utils.isEqual(dec, num2);
-    assert.equal(res, true);
-  });
+    it("1.0", () => {
+      const num1 = utils.getNumber("1.0");
+      const dec = utils.getDecimal(num1);
+      const num2 = utils.getNumber("0");
+      const res = utils.isEqual(dec, num2);
+      assert.equal(res, true);
+    });
 
-  it("getDecimal 1.05", () => {
-    const num1 = utils.getNumber("1.05");
-    const dec = utils.getDecimal(num1);
-    const num2 = utils.getNumber("0.05");
-    const res = utils.isEqual(dec, num2);
-    assert.equal(res, true);
-  });
-  
-  it("getDecimal '' => Error", () => {
-    const dec = utils.getDecimal("");
-    assert.equal(dec instanceof Error, true);
+    it("1.05", () => {
+      const num1 = utils.getNumber("1.05");
+      const dec = utils.getDecimal(num1);
+      const num2 = utils.getNumber("0.05");
+      const res = utils.isEqual(dec, num2);
+      assert.equal(res, true);
+    });
+    
+    it("'' => Error", () => {
+      const dec = utils.getDecimal("");
+      assert.equal(dec instanceof Error, true);
+    });
   });
 
   describe("isNaturalNumber", function(){
