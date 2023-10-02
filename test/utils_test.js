@@ -247,45 +247,47 @@ describe("utils", function(){
     assert.equal(true, sq instanceof Error);
   });
   
-  it("getAbsolute 3 => 3", () => {
-    const num = utils.getNumber("3");
-    const abs = utils.getAbsolute(num);
-    const res = utils.isEqual(abs, "3");
-    assert.equal(res, true);
-  });
-  
-  it("getAbsolute -3 => 3", () => {
-    const num = utils.getNumber("-3");
-    const abs = utils.getAbsolute(num);
-    const res = utils.isEqual(abs, "3");
-    assert.equal(res, true);
-  });
+  describe("getAbsolute", function(){
+    it("3 => 3", () => {
+      const num = utils.getNumber("3");
+      const abs = utils.getAbsolute(num);
+      const res = utils.isEqual(abs, "3");
+      assert.equal(res, true);
+    });
+    
+    it("-3 => 3", () => {
+      const num = utils.getNumber("-3");
+      const abs = utils.getAbsolute(num);
+      const res = utils.isEqual(abs, "3");
+      assert.equal(res, true);
+    });
 
-  it("getAbsolute 1.5 => 1.5", () => {
-    const num = utils.getNumber("1.5");
-    const abs = utils.getAbsolute(num);
-    const res = utils.isEqual(abs, "1.5");
-    assert.equal(res, true);
-  });
+    it("1.5 => 1.5", () => {
+      const num = utils.getNumber("1.5");
+      const abs = utils.getAbsolute(num);
+      const res = utils.isEqual(abs, "1.5");
+      assert.equal(res, true);
+    });
 
-  it("getAbsolute -1.5 => 1.5", () => {
-    const num = utils.getNumber("-1.5");
-    const abs = utils.getAbsolute(num);
-    const res = utils.isEqual(abs, "1.5");
-    assert.equal(res, true);
-  });
+    it("-1.5 => 1.5", () => {
+      const num = utils.getNumber("-1.5");
+      const abs = utils.getAbsolute(num);
+      const res = utils.isEqual(abs, "1.5");
+      assert.equal(res, true);
+    });
 
-  it("getAbsolute 0 => 0", () => {
-    const num = utils.getNumber("0");
-    const abs = utils.getAbsolute(num);
-    const res = utils.isEqual(abs, "0");
-    assert.equal(res, true);
-  });
+    it("0 => 0", () => {
+      const num = utils.getNumber("0");
+      const abs = utils.getAbsolute(num);
+      const res = utils.isEqual(abs, "0");
+      assert.equal(res, true);
+    });
 
-  it("getAbsolute '' => Error", () => {
-    const abs = utils.getAbsolute("");
-    const res = abs ? true : false;
-    assert.equal(res, true);
+    it("'' => Error", () => {
+      const abs = utils.getAbsolute("");
+      const res = abs ? true : false;
+      assert.equal(res, true);
+    });
   });
 
   describe("getDecimal", function(){
