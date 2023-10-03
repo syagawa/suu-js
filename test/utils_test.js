@@ -221,30 +221,32 @@ describe("utils", function(){
     assert.equal(res, true);
   });
 
-  it("square 3 => 9", () => {
-    const num = utils.getNumber("3");
-    const sq = utils.square(num);
-    const res = utils.isEqual(sq, utils.getNumber("9"));
-    assert.equal(res, true);
-  });
-  
-  it("square 1.1 => ", () => {
-    const num = utils.getNumber("1.1");
-    const sq = utils.square(num);
-    const res = utils.isEqual(sq, utils.getNumber("1.21"));
-    assert.equal(res, true);
-  });
+  describe("square", function(){
+    it("3 => 9", () => {
+      const num = utils.getNumber("3");
+      const sq = utils.square(num);
+      const res = utils.isEqual(sq, utils.getNumber("9"));
+      assert.equal(res, true);
+    });
+    
+    it("1.1 => 1.21", () => {
+      const num = utils.getNumber("1.1");
+      const sq = utils.square(num);
+      const res = utils.isEqual(sq, utils.getNumber("1.21"));
+      assert.equal(res, true);
+    });
 
-  it("square 0 => 0", () => {
-    const num = utils.getNumber("0");
-    const sq = utils.square(num);
-    const res = utils.isEqual(sq, utils.getNumber("0"));
-    assert.equal(res, true);
-  });
+    it("0 => 0", () => {
+      const num = utils.getNumber("0");
+      const sq = utils.square(num);
+      const res = utils.isEqual(sq, utils.getNumber("0"));
+      assert.equal(res, true);
+    });
 
-  it("square '' => Error", () => {
-    const sq = utils.square("");
-    assert.equal(true, sq instanceof Error);
+    it("'' => Error", () => {
+      const sq = utils.square("");
+      assert.equal(true, sq instanceof Error);
+    });
   });
   
   describe("getAbsolute", function(){
