@@ -208,17 +208,29 @@ describe("utils", function(){
     const res = utils.isEqual(num1, num2);
     assert.equal(res, true);
   });
-
+  
   it("isZero", () => {
     const num1 = utils.getZero();
     const res = utils.isZero(num1);
     assert.equal(res, true);
   });
 
-  it("isOne", () => {
-    const num1 = utils.getOne();
-    const res = utils.isOne(num1);
-    assert.equal(res, true);
+  describe("isOne", function(){
+    it("1 => true", () => {
+      const num1 = utils.getNumber("1");
+      const res = utils.isOne(num1);
+      assert.equal(res, true);
+    });
+    it("-1 => false", () => {
+      const num1 = utils.getNumber("-1");
+      const res = utils.isOne(num1);
+      assert.equal(res, false);
+    });
+    it("getOne => true", () => {
+      const num1 = utils.getOne();
+      const res = utils.isOne(num1);
+      assert.equal(res, true);
+    });
   });
 
   describe("square", function(){
