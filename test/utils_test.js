@@ -221,16 +221,26 @@ describe("utils", function(){
       const res = utils.isOne(num1);
       assert.equal(res, true);
     });
+    it("1.0 => true", () => {
+      const num1 = utils.getNumber("1.0");
+      const res = utils.isOne(num1);
+      assert.equal(res, true);
+    });
     it("-1 => false", () => {
       const num1 = utils.getNumber("-1");
       const res = utils.isOne(num1);
       assert.equal(res, false);
     });
-    it("getOne => true", () => {
-      const num1 = utils.getOne();
+    it("1.1 => false", () => {
+      const num1 = utils.getNumber("1.1");
       const res = utils.isOne(num1);
-      assert.equal(res, true);
+      assert.equal(res, false);
     });
+  });
+  it("getOne => true", () => {
+    const num1 = utils.getOne();
+    const res = utils.isOne(num1);
+    assert.equal(res, true);
   });
 
   describe("square", function(){
