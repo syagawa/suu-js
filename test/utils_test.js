@@ -202,6 +202,15 @@ describe("utils", function(){
     assert.equal(res, true);
   });
   
+  
+  describe("isZero", function(){
+    it("0 => true", () => {
+      const num1 = utils.getZero();
+      const res = utils.isZero(num1);
+      assert.equal(res, true);
+    });
+  });
+  
   it("getOne", () => {
     const num1 = utils.getOne();
     const num2 = utils.getNumber("1");
@@ -209,12 +218,6 @@ describe("utils", function(){
     assert.equal(res, true);
   });
   
-  it("isZero", () => {
-    const num1 = utils.getZero();
-    const res = utils.isZero(num1);
-    assert.equal(res, true);
-  });
-
   describe("isOne", function(){
     it("1 => true", () => {
       const num1 = utils.getNumber("1");
@@ -237,6 +240,7 @@ describe("utils", function(){
       assert.equal(res, false);
     });
   });
+
   it("getOne => true", () => {
     const num1 = utils.getOne();
     const res = utils.isOne(num1);
