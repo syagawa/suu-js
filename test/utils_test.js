@@ -204,8 +204,13 @@ describe("utils", function(){
   
   
   describe("isZero", function(){
-    it("0 => true", () => {
+    it("getZero => true", () => {
       const num1 = utils.getZero();
+      const res = utils.isZero(num1);
+      assert.equal(res, true);
+    });
+    it("0 => true", () => {
+      const num1 = utils.getNumber("0");
       const res = utils.isZero(num1);
       assert.equal(res, true);
     });
