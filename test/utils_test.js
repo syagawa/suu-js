@@ -214,6 +214,11 @@ describe("utils", function(){
       const res = utils.isZero(num1);
       assert.equal(res, true);
     });
+    it("0.0 => true", () => {
+      const num1 = utils.getNumber("0.0");
+      const res = utils.isZero(num1);
+      assert.equal(res, true);
+    });
   });
   
   it("getOne", () => {
