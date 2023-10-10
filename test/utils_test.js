@@ -224,6 +224,12 @@ describe("utils", function(){
       const res = utils.isZero(num1);
       assert.equal(res, false);
     });
+
+    it("0.1 => false", () => {
+      const num1 = utils.getNumber("0.1");
+      const res = utils.isZero(num1);
+      assert.equal(res, false);
+    });
   });
   
   it("getOne", () => {
