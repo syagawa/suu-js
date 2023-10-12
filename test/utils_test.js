@@ -147,51 +147,53 @@ describe("utils", function(){
     assert.equal(null, res);
   });
 
-  it("isEqual 1 = 1 => true", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("1");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, true);
-  });
-  
-  it("isEqual 0 = 0 => true", () => {
-    const num1 = utils.getNumber("0");
-    const num2 = utils.getNumber("0");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, true);
-  });
+  describe("isEqual", function(){
+    it("1 = 1 => true", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("1");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
+    
+    it("0 = 0 => true", () => {
+      const num1 = utils.getNumber("0");
+      const num2 = utils.getNumber("0");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
 
-  it("isEqual 1.0 = 1 => true", () => {
-    const num1 = utils.getNumber("1.0");
-    const num2 = utils.getNumber("1");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, true);
-  });
+    it("1.0 = 1 => true", () => {
+      const num1 = utils.getNumber("1.0");
+      const num2 = utils.getNumber("1");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
 
-  it("isEqual -1 = -1 => true", () => {
-    const num1 = utils.getNumber("-1");
-    const num2 = utils.getNumber("-1");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, true);
-  });
+    it("-1 = -1 => true", () => {
+      const num1 = utils.getNumber("-1");
+      const num2 = utils.getNumber("-1");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, true);
+    });
 
-  it("isEqual 1 = 2 is false", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("2");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, false);
-  });
+    it("1 = 2 is false", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("2");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, false);
+    });
 
-  it("isEqual 10 = 1.0 is false", () => {
-    const num1 = utils.getNumber("10");
-    const num2 = utils.getNumber("1.0");
-    const res = utils.isEqual(num1, num2);
-    assert.equal(res, false);
-  });
+    it("10 = 1.0 is false", () => {
+      const num1 = utils.getNumber("10");
+      const num2 = utils.getNumber("1.0");
+      const res = utils.isEqual(num1, num2);
+      assert.equal(res, false);
+    });
 
-  it("isEqual '' is false", () => {
-    const res = utils.isEqual("", "");
-    assert.equal(res, false);
+    it("'' is false", () => {
+      const res = utils.isEqual("", "");
+      assert.equal(res, false);
+    });
   });
 
 
@@ -229,7 +231,6 @@ describe("utils", function(){
       const res = utils.isZero(num1);
       assert.equal(res, false);
     });
-
     it("0.1 => false", () => {
       const num1 = utils.getNumber("0.1");
       const res = utils.isZero(num1);
