@@ -89,62 +89,65 @@ describe("utils", function(){
     assert.equal(null, res);
   });
   
-  it("getSmall 2 > 1 => true", () => {
-    const num1 = utils.getNumber("2");
-    const num2 = utils.getNumber("1");
-    const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num2, small);
-    assert.equal(res, true);
-  });
-  
-  it("getSmall 2 < 1 => false", () => {
-    const num1 = utils.getNumber("2");
-    const num2 = utils.getNumber("1");
-    const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num1, small);
-    assert.equal(res, false);
-  });
-  
-  it("getSmall 1.999 < 2 => true", () => {
-    const num1 = utils.getNumber("2");
-    const num2 = utils.getNumber("1.999");
-    const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num2, small);
-    assert.equal(res, true);
-  });
-  
-  it("getSmall 2.0001 > 2 => true", () => {
-    const num1 = utils.getNumber("2.0001");
-    const num2 = utils.getNumber("2");
-    const small = utils.getSmall(num1, num2);
-    const res = utils.isEqual(num2, small);
-    assert.equal(res, true);
-  });
+  describe("getSmall", function(){
 
-  it("getSmall 1 > 1 => null", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("1");
-    const small = utils.getSmall(num1, num2);
-    assert.equal(small, null);
-  });
-  
-  it("getSmall 1 > -1 => true", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("-1");
-    const small = utils.getSmall(num1, num2);
-    assert.equal(small, num2);
-  });
+    it("2 > 1 => true", () => {
+      const num1 = utils.getNumber("2");
+      const num2 = utils.getNumber("1");
+      const small = utils.getSmall(num1, num2);
+      const res = utils.isEqual(num2, small);
+      assert.equal(res, true);
+    });
+    
+    it("2 < 1 => false", () => {
+      const num1 = utils.getNumber("2");
+      const num2 = utils.getNumber("1");
+      const small = utils.getSmall(num1, num2);
+      const res = utils.isEqual(num1, small);
+      assert.equal(res, false);
+    });
+    
+    it("1.999 < 2 => true", () => {
+      const num1 = utils.getNumber("2");
+      const num2 = utils.getNumber("1.999");
+      const small = utils.getSmall(num1, num2);
+      const res = utils.isEqual(num2, small);
+      assert.equal(res, true);
+    });
+    
+    it("2.0001 > 2 => true", () => {
+      const num1 = utils.getNumber("2.0001");
+      const num2 = utils.getNumber("2");
+      const small = utils.getSmall(num1, num2);
+      const res = utils.isEqual(num2, small);
+      assert.equal(res, true);
+    });
 
-  it("getSmall 1 > -10 => true", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("-10");
-    const small = utils.getSmall(num1, num2);
-    assert.equal(small, num2);
-  });
+    it("1 > 1 => null", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("1");
+      const small = utils.getSmall(num1, num2);
+      assert.equal(small, null);
+    });
+    
+    it("1 > -1 => true", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("-1");
+      const small = utils.getSmall(num1, num2);
+      assert.equal(small, num2);
+    });
 
-  it("getSmall '' is null", () => {
-    const res = utils.getSmall("", "");
-    assert.equal(null, res);
+    it("1 > -10 => true", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("-10");
+      const small = utils.getSmall(num1, num2);
+      assert.equal(small, num2);
+    });
+
+    it("'' is null", () => {
+      const res = utils.getSmall("", "");
+      assert.equal(null, res);
+    });
   });
 
   describe("isEqual", function(){
