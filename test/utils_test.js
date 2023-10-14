@@ -37,57 +37,60 @@ describe("utils", function(){
     assert.equal(true, num instanceof Error);
   });
 
-  it("getLarge 2 > 1 => true", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("2");
-    const large = utils.getLarge(num1, num2);
-    const res = utils.isEqual(num2, large);
-    assert.equal(res, true);
-  });
-  
-  it("getLarge 1 > 2 => false", () => {
-    const num1 = utils.getNumber("2");
-    const num2 = utils.getNumber("1");
-    const large = utils.getLarge(num1, num2);
-    const res = utils.isEqual(num2, large);
-    assert.equal(res, false);
-  });
-  
-  it("getLarge 1.999 < 2 => true", () => {
-    const num1 = utils.getNumber("2");
-    const num2 = utils.getNumber("1.999");
-    const large = utils.getLarge(num1, num2);
-    const res = utils.isEqual(num1, large);
-    assert.equal(res, true);
-  });
-  
-  it("getLarge 2.0001 > 2 => true", () => {
-    const num1 = utils.getNumber("2.0001");
-    const num2 = utils.getNumber("2");
-    const large = utils.getLarge(num1, num2);
-    const res = utils.isEqual(num1, large);
-    assert.equal(res, true);
+  describe("getLarge", function(){
+    it("2 > 1 => true", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("2");
+      const large = utils.getLarge(num1, num2);
+      const res = utils.isEqual(num2, large);
+      assert.equal(res, true);
+    });
+    
+    it("1 > 2 => false", () => {
+      const num1 = utils.getNumber("2");
+      const num2 = utils.getNumber("1");
+      const large = utils.getLarge(num1, num2);
+      const res = utils.isEqual(num2, large);
+      assert.equal(res, false);
+    });
+    
+    it("1.999 < 2 => true", () => {
+      const num1 = utils.getNumber("2");
+      const num2 = utils.getNumber("1.999");
+      const large = utils.getLarge(num1, num2);
+      const res = utils.isEqual(num1, large);
+      assert.equal(res, true);
+    });
+    
+    it("2.0001 > 2 => true", () => {
+      const num1 = utils.getNumber("2.0001");
+      const num2 = utils.getNumber("2");
+      const large = utils.getLarge(num1, num2);
+      const res = utils.isEqual(num1, large);
+      assert.equal(res, true);
+    });
+
+    it("1 > -1 => true", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("-1");
+      const large = utils.getLarge(num1, num2);
+      const res = utils.isEqual(num1, large);
+      assert.equal(res, true);
+    });
+
+    it("1 > 1 => null", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.getNumber("1");
+      const large = utils.getLarge(num1, num2);
+      assert.equal(large, null);
+    });
+
+    it("'' is null", () => {
+      const res = utils.getLarge("", "");
+      assert.equal(null, res);
+    });
   });
 
-  it("getLarge 1 > -1 => true", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("-1");
-    const large = utils.getLarge(num1, num2);
-    const res = utils.isEqual(num1, large);
-    assert.equal(res, true);
-  });
-
-  it("getLarge 1 > 1 => null", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.getNumber("1");
-    const large = utils.getLarge(num1, num2);
-    assert.equal(large, null);
-  });
-
-  it("getLarge '' is null", () => {
-    const res = utils.getLarge("", "");
-    assert.equal(null, res);
-  });
   
   describe("getSmall", function(){
 
