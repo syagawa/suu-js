@@ -24,17 +24,19 @@ describe("utils", function(){
     assert.equal(true, num instanceof Error);
   });
 
-  it("copy", () => {
-    const num1 = utils.getNumber("1");
-    const num2 = utils.copy(num1);
-    const num1_str = core.numArrayToString(num1);
-    const num2_str = core.numArrayToString(num2);
-    assert.equal(num1_str, num2_str);
-  });
-  
-  it("copy '' is Error", () => {
-    const num = utils.copy("");
-    assert.equal(true, num instanceof Error);
+  describe("copy", function(){
+    it("1 => 1", () => {
+      const num1 = utils.getNumber("1");
+      const num2 = utils.copy(num1);
+      const str1 = core.numArrayToString(num1);
+      const str2 = core.numArrayToString(num2);
+      assert.equal(str1, str2);
+    });
+    
+    it("'' is Error", () => {
+      const num = utils.copy("");
+      assert.equal(true, num instanceof Error);
+    });
   });
 
   describe("getLarge", function(){
