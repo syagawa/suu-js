@@ -1600,6 +1600,11 @@ describe("utils", function(){
   });
 
   describe("isPrimeNumber", function(){
+    it("0=> false", () => {
+      const res = utils.isPrimeNumber("0");
+      assert.equal(false, res);
+    });
+
     it("1=> false", () => {
       const res = utils.isPrimeNumber("1");
       assert.equal(false, res);
@@ -1630,11 +1635,13 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
-
-    it("0=> false", () => {
-      const res = utils.isPrimeNumber("0");
-      assert.equal(false, res);
+    it("7=> true", () => {
+      const res = utils.isPrimeNumber("7");
+      assert.equal(true, res);
     });
+
+
+    
 
     it("-1=> false", () => {
       const res = utils.isPrimeNumber("-1");

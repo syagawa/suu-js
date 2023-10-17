@@ -660,9 +660,9 @@ utils.makeMersenneNumbers = function(max){
   return arr;
 };
 
-utils.trialDivision = function(n){
-  const num = utils.getNumber(n);
-};
+// utils.trialDivision = function(n){
+//   const num = utils.getNumber(n);
+// };
 
 utils.isPrimeNumber = function(n){
   const num = utils.getNumber(n);
