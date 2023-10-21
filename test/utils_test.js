@@ -1671,6 +1671,31 @@ describe("utils", function(){
       const res = utils.isPrimeNumber("14");
       assert.equal(false, res);
     });
+
+    it("15=> false", () => {
+      const res = utils.isPrimeNumber("15");
+      assert.equal(false, res);
+    });
+    it("16=> false", () => {
+      const res = utils.isPrimeNumber("16");
+      assert.equal(false, res);
+    });
+    it("17=> true", () => {
+      const res = utils.isPrimeNumber("17");
+      assert.equal(true, res);
+    });
+    it("18=> false", () => {
+      const res = utils.isPrimeNumber("18");
+      assert.equal(false, res);
+    });
+    it("19=> true", () => {
+      const res = utils.isPrimeNumber("19");
+      assert.equal(true, res);
+    });
+    it("20=> false", () => {
+      const res = utils.isPrimeNumber("20");
+      assert.equal(false, res);
+    });
     
 
     it("-1=> false", () => {
