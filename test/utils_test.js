@@ -1701,7 +1701,17 @@ describe("utils", function(){
       const res = utils.isPrimeNumber("21");
       assert.equal(false, res);
     });
-    
+
+    it("22=> false", () => {
+      const res = utils.isPrimeNumber("22");
+      assert.equal(false, res);
+    });
+
+    it("23=> true", () => {
+      const res = utils.isPrimeNumber("23");
+      assert.equal(true, res);
+    });
+   
 
     it("-1=> false", () => {
       const res = utils.isPrimeNumber("-1");
