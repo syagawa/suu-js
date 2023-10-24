@@ -1600,116 +1600,121 @@ describe("utils", function(){
   });
 
   describe("isPrimeNumber", function(){
-    it("0=> false", () => {
+    it("0= > false", () => {
       const res = utils.isPrimeNumber("0");
       assert.equal(false, res);
     });
 
-    it("1=> false", () => {
+    it("1= > false", () => {
       const res = utils.isPrimeNumber("1");
       assert.equal(false, res);
     });
 
-    it("2=> true", () => {
+    it("2= > true", () => {
       const res = utils.isPrimeNumber("2");
       assert.equal(true, res);
     });
 
-    it("3=> true", () => {
+    it("3= > true", () => {
       const res = utils.isPrimeNumber("3");
       assert.equal(true, res);
     });
 
-    it("4=> false", () => {
+    it("4= > false", () => {
       const res = utils.isPrimeNumber("4");
       assert.equal(false, res);
     });
 
-    it("5=> true", () => {
+    it("5= > true", () => {
       const res = utils.isPrimeNumber("5");
       assert.equal(true, res);
     });
 
-    it("6=> false", () => {
+    it("6= > false", () => {
       const res = utils.isPrimeNumber("6");
       assert.equal(false, res);
     });
 
-    it("7=> true", () => {
+    it("7= > true", () => {
       const res = utils.isPrimeNumber("7");
       assert.equal(true, res);
     });
 
-    it("8=> false", () => {
+    it("8= > false", () => {
       const res = utils.isPrimeNumber("8");
       assert.equal(false, res);
     });
-    it("9=> false", () => {
+    it("9= > false", () => {
       const res = utils.isPrimeNumber("9");
       assert.equal(false, res);
     });
-    it("10=> false", () => {
+    it("10 => false", () => {
       const res = utils.isPrimeNumber("10");
       assert.equal(false, res);
     });
-    it("11=> true", () => {
+    it("11 => true", () => {
       const res = utils.isPrimeNumber("11");
       assert.equal(true, res);
     });
 
-    it("12=> false", () => {
+    it("12 => false", () => {
       const res = utils.isPrimeNumber("12");
       assert.equal(false, res);
     });
 
-    it("13=> true", () => {
+    it("13 => true", () => {
       const res = utils.isPrimeNumber("13");
       assert.equal(true, res);
     });
 
-    it("14=> false", () => {
+    it("14 => false", () => {
       const res = utils.isPrimeNumber("14");
       assert.equal(false, res);
     });
 
-    it("15=> false", () => {
+    it("15 => false", () => {
       const res = utils.isPrimeNumber("15");
       assert.equal(false, res);
     });
-    it("16=> false", () => {
+    it("16 => false", () => {
       const res = utils.isPrimeNumber("16");
       assert.equal(false, res);
     });
-    it("17=> true", () => {
+    it("17 => true", () => {
       const res = utils.isPrimeNumber("17");
       assert.equal(true, res);
     });
-    it("18=> false", () => {
+    it("18 => false", () => {
       const res = utils.isPrimeNumber("18");
       assert.equal(false, res);
     });
-    it("19=> true", () => {
+    it("19 => true", () => {
       const res = utils.isPrimeNumber("19");
       assert.equal(true, res);
     });
-    it("20=> false", () => {
+    it("20 => false", () => {
       const res = utils.isPrimeNumber("20");
       assert.equal(false, res);
     });
     
-    it("21=> false", () => {
+    it("21 => false", () => {
       const res = utils.isPrimeNumber("21");
       assert.equal(false, res);
     });
 
-    it("22=> false", () => {
+    it("22 => false", () => {
       const res = utils.isPrimeNumber("22");
       assert.equal(false, res);
     });
 
-    it("23=> true", () => {
+    it("23 => true", () => {
       const res = utils.isPrimeNumber("23");
       assert.equal(true, res);
+    });
+
+    it("24 => false", () => {
+      const res = utils.isPrimeNumber("24");
+      assert.equal(false, res);
     });
    
 
