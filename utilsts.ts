@@ -666,9 +666,13 @@ utils.makeMersenneNumbers = function(max){
 
 utils.isPrimeNumber = function(n){
   const num = utils.getNumber(n);
-  if(utils.isZero(num) || utils.isOne(num)){
+  if(utils.isZero(num)){
     return false;
   }
+  if(utils.isOne(num)){
+    return false;
+  }
+
   if(utils.isEqual(num, "2")){
     return true;
   }
