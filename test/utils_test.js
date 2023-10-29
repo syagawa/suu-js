@@ -1773,7 +1773,7 @@ describe("utils", function(){
 
 
   describe("makeMersenneNumbers", function(){
-    it("restult is array", () => {
+    it("restult is Array", () => {
       const res = utils.makeMersenneNumbers(25);
       assert.equal(true, res instanceof Array);
     });
@@ -1791,6 +1791,11 @@ describe("utils", function(){
     it("third is 7", () => {
       const res = utils.makeMersenneNumbers(3);
       assert.equal("7", core.numArrayToString(res[2]));
+    });
+    
+    it("fourth is 15", () => {
+      const res = utils.makeMersenneNumbers(4);
+      assert.equal("15", core.numArrayToString(res[3]));
     });
 
     it("result length is 10", () => {
