@@ -1797,6 +1797,11 @@ describe("utils", function(){
       const res = utils.makeMersenneNumbers(4);
       assert.equal("15", core.numArrayToString(res[3]));
     });
+    
+    it("fifth is 31", () => {
+      const res = utils.makeMersenneNumbers(5);
+      assert.equal("31", core.numArrayToString(res[4]));
+    });
 
     it("result length is 10", () => {
       const res = utils.makeMersenneNumbers(10);
