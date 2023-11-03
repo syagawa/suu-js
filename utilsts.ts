@@ -690,12 +690,9 @@ utils.isPrimeNumber = function(n){
   }
 
   const prev = core.subtract(num, utils.getNumber("1"));
-  const start = core.division(prev, utils.getNumber("2"));
-
-  let current = start;
+  let current = core.division(prev, utils.getNumber("2"));
 
   let is_prime = true;
-
 
   while(is_prime && core.isLarge(current, utils.getNumber("2"))){
 
