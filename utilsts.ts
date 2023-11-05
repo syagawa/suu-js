@@ -637,6 +637,12 @@ utils.factorial = function(num){
 };
 
 
+utils.isMersenneNumber = function(num){
+
+  return false;
+
+};
+
 utils.makeMersenneNumbers = function(max){
 
   const max_ = utils.getNumber(25);
