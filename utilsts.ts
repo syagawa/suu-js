@@ -652,15 +652,22 @@ utils.isMersenneNumber = function(num){
   //   }
   // }
 
+  let result = false;
   const num1 = utils.getNumber(num);
   const num2 = core.add(num1, "1");
 
   if(utils.isOddNumber(num2)){
-    return false;
+    return result;
+  }
+  while(true){
+    const res = core.division(num2, "2");
+    if(utils.isEqual(res, "2")){
+      result = true;
+      break;
+    }
   }
 
-
-  return false;
+  return result;
 
 };
 
