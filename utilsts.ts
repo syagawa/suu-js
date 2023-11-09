@@ -665,6 +665,9 @@ utils.isMersenneNumber = function(num){
       result = true;
       break;
     }
+    if(utils.isOddNumber(res)){
+      break;
+    }
   }
 
   return result;
