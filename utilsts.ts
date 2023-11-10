@@ -654,6 +654,18 @@ utils.isMersenneNumber = function(num){
 
   let result = false;
   const num1 = utils.getNumber(num);
+
+  if(!utils.isInteger(res)){
+    return result;
+  }
+
+  if(utils.isZro(res)){
+    return result;
+  }
+
+  if(utils.isNegative(res)){
+    return result;
+  }
   const num2 = core.add(num1, "1");
 
   if(utils.isOddNumber(num2)){
@@ -661,6 +673,13 @@ utils.isMersenneNumber = function(num){
   }
   while(true){
     const res = core.division(num2, "2");
+    if(utils.isInteger(res)){
+
+    }
+    if(utils.isEqual(res, "1")){
+      result = true;
+      break;
+    }
     if(utils.isEqual(res, "2")){
       result = true;
       break;
