@@ -639,31 +639,18 @@ utils.factorial = function(num){
 
 utils.isMersenneNumber = function(num){
 
-  // const arr = ["1", "2", "4", "8", "16", "32", "64", "128", "256", "512", "1048"];
-
-  // const str = core.numArrayToString(num);
-
-  // for(let i = 0; i < arr.length; i++){
-  //   const num = utils.getNmuber(arr[i]);
-  //   const num_minus_one = core.subtract(num, "1");
-  //   const str = core.numArrayToString(num_minus_one);
-  //   if(s === str){
-  //     return true;
-  //   }
-  // }
-
   let result = false;
   const num1 = utils.getNumber(num);
 
-  if(!utils.isInteger(res)){
+  if(!utils.isInteger(num1)){
     return result;
   }
 
-  if(utils.isZro(res)){
+  if(utils.isZro(num1)){
     return result;
   }
 
-  if(utils.isNegative(res)){
+  if(utils.isNegative(num1)){
     return result;
   }
   const num2 = core.add(num1, "1");
@@ -673,8 +660,8 @@ utils.isMersenneNumber = function(num){
   }
   while(true){
     const res = core.division(num2, "2");
-    if(utils.isInteger(res)){
-
+    if(!utils.isInteger(res)){
+      break;
     }
     if(utils.isEqual(res, "1")){
       result = true;
