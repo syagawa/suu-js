@@ -658,6 +658,15 @@ utils.isMersenneNumber = function(num){
   if(utils.isOddNumber(num2)){
     return result;
   }
+  if(utils.isEqual(num2, "1")){
+    result = true;
+    return result;
+  }
+  if(utils.isEqual(num2, "2")){
+    result = true;
+    return result;
+  }
+
   while(true){
     const res = core.division(num2, "2");
     if(!utils.isInteger(res)){
