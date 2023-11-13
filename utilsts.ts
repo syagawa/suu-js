@@ -646,7 +646,7 @@ utils.isMersenneNumber = function(num){
     return result;
   }
 
-  if(utils.isZro(num1)){
+  if(utils.isZero(num1)){
     return result;
   }
 
@@ -656,10 +656,6 @@ utils.isMersenneNumber = function(num){
   const num2 = core.add(num1, "1");
 
   if(utils.isOddNumber(num2)){
-    return result;
-  }
-  if(utils.isEqual(num2, "1")){
-    result = true;
     return result;
   }
   if(utils.isEqual(num2, "2")){
