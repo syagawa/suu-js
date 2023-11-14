@@ -653,11 +653,11 @@ utils.isMersenneNumber = function(num){
   if(utils.isNegative(num1)){
     return result;
   }
-  const num2 = core.add(num1, "1");
-
-  if(utils.isOddNumber(num2)){
+  if(utils.isEvenNumber(num2)){
     return result;
   }
+  const num2 = core.add(num1, "1");
+
   if(utils.isEqual(num2, "2")){
     result = true;
     return result;
