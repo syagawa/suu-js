@@ -639,30 +639,29 @@ utils.factorial = function(num){
 
 utils.isMersenneNumber = function(num){
 
-  let result = false;
   const num1 = utils.getNumber(num);
 
   if(!utils.isInteger(num1)){
-    return result;
+    return false;
   }
 
   if(utils.isZero(num1)){
-    return result;
+    return false;
   }
 
   if(utils.isNegative(num1)){
-    return result;
+    return false;
   }
   if(utils.isEvenNumber(num2)){
-    return result;
+    return false;
   }
   const num2 = core.add(num1, "1");
 
   if(utils.isEqual(num2, "2")){
-    result = true;
-    return result;
+    return true;
   }
 
+  let result = false;
   while(true){
     const res = core.division(num2, "2");
     if(!utils.isInteger(res)){
