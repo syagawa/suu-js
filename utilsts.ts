@@ -644,17 +644,19 @@ utils.isMersenneNumber = function(num){
   if(!utils.isInteger(num1)){
     return false;
   }
-
   if(utils.isZero(num1)){
     return false;
   }
-
   if(utils.isNegative(num1)){
     return false;
   }
-  if(utils.isEvenNumber(num2)){
+  if(utils.isEvenNumber(num1)){
     return false;
   }
+  if(utils.isEqual(num1, "1")){
+    return true;
+  }
+
   const num2 = core.add(num1, "1");
 
   if(utils.isEqual(num2, "2")){

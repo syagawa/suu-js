@@ -1772,6 +1772,13 @@ describe("utils", function(){
   });
 
 
+  describe("isMersenneNumber", function(){
+    it("1 => true", () => {
+      const res = utils.isMersenneNumbers("1");
+      assert.equal(true, res);
+    });
+  });
+
   describe("makeMersenneNumbers", function(){
     it("restult is Array", () => {
       const res = utils.makeMersenneNumbers(25);
