@@ -659,9 +659,6 @@ utils.isMersenneNumber = function(num){
 
   const num2 = core.add(num1, "1");
 
-  if(utils.isEqual(num2, "2")){
-    return true;
-  }
 
   let result = false;
   while(true){

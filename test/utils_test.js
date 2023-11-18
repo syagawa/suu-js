@@ -1774,18 +1774,18 @@ describe("utils", function(){
 
   describe("isMersenneNumber", function(){
     it("1 => true", () => {
-      const res = utils.isMersenneNumbers("1");
+      const res = utils.isMersenneNumber("1");
       assert.equal(true, res);
     });
     
-    it("2 => true", () => {
-      const res = utils.isMersenneNumbers("2");
-      assert.equal(true, res);
+    it("2 => false", () => {
+      const res = utils.isMersenneNumber("2");
+      assert.equal(false, res);
     });
 
-    it("3 => false", () => {
-      const res = utils.isMersenneNumbers("3");
-      assert.equal(false, res);
+    it("3 => true", () => {
+      const res = utils.isMersenneNumber("3");
+      assert.equal(true, res);
     });
   });
 
