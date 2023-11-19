@@ -1787,6 +1787,12 @@ describe("utils", function(){
       const res = utils.isMersenneNumber("3");
       assert.equal(true, res);
     });
+
+    it("4 => false", () => {
+      const res = utils.isMersenneNumber("4");
+      assert.equal(false, res);
+    });
+
   });
 
   describe("makeMersenneNumbers", function(){
