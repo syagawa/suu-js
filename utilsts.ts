@@ -659,22 +659,28 @@ utils.isMersenneNumber = function(num){
 
   const num2 = core.add(num1, "1");
 
-
   let result = false;
+  let count = 0;
+  let n = num2;
   while(true){
-    const res = core.division(num2, "2");
-    if(!utils.isInteger(res)){
+    count++;
+    if(count > 100){
       break;
     }
-    if(utils.isEqual(res, "1")){
+    n = core.division(n, "2");
+    console.log(count, n);
+    if(!utils.isInteger(n)){
+      break;
+    }
+    if(utils.isEqual(n, "1")){
       result = true;
       break;
     }
-    if(utils.isEqual(res, "2")){
+    if(utils.isEqual(n, "2")){
       result = true;
       break;
     }
-    if(utils.isOddNumber(res)){
+    if(utils.isOddNumber(n)){
       break;
     }
   }

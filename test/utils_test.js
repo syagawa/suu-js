@@ -1793,6 +1793,26 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
+    it("5 => false", () => {
+      const res = utils.isMersenneNumber("5");
+      assert.equal(false, res);
+    });
+
+    it("6 => false", () => {
+      const res = utils.isMersenneNumber("6");
+      assert.equal(false, res);
+    });
+
+    it("7 => true", () => {
+      const res = utils.isMersenneNumber("7");
+      assert.equal(true, res);
+    });
+
+    it("8 => false", () => {
+      const res = utils.isMersenneNumber("8");
+      assert.equal(false, res);
+    });
+
   });
 
   describe("makeMersenneNumbers", function(){
