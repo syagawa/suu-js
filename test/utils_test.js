@@ -1848,6 +1848,31 @@ describe("utils", function(){
       assert.equal(true, res);
     });
 
+    it("16 => false", () => {
+      const res = utils.isMersenneNumber("16");
+      assert.equal(false, res);
+    });
+
+    it("17 => false", () => {
+      const res = utils.isMersenneNumber("17");
+      assert.equal(false, res);
+    });
+
+    it("18 => false", () => {
+      const res = utils.isMersenneNumber("18");
+      assert.equal(false, res);
+    });
+
+    it("19 => false", () => {
+      const res = utils.isMersenneNumber("19");
+      assert.equal(false, res);
+    });
+
+    it("20 => false", () => {
+      const res = utils.isMersenneNumber("20");
+      assert.equal(false, res);
+    });
+
   });
 
   describe("makeMersenneNumbers", function(){

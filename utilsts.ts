@@ -660,15 +660,9 @@ utils.isMersenneNumber = function(num){
   const num2 = core.add(num1, "1");
 
   let result = false;
-  let count = 0;
   let n = num2;
   while(true){
-    count++;
-    if(count > 100){
-      break;
-    }
     n = core.division(n, "2");
-    console.log(count, n);
     if(!utils.isInteger(n)){
       break;
     }
