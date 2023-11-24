@@ -1872,6 +1872,25 @@ describe("utils", function(){
       const res = utils.isMersenneNumber("20");
       assert.equal(false, res);
     });
+    
+    it("30 => false", () => {
+      const res = utils.isMersenneNumber("30");
+      assert.equal(false, res);
+    });
+
+    it("31 => true", () => {
+      const res = utils.isMersenneNumber("31");
+      assert.equal(true, res);
+    });
+    
+    it("32 => false", () => {
+      const res = utils.isMersenneNumber("32");
+      assert.equal(false, res);
+    });
+
+    
+
+    
 
   });
 
