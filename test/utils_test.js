@@ -1888,7 +1888,22 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
+    it("62 => false", () => {
+      const res = utils.isMersenneNumber("62");
+      assert.equal(false, res);
+    });
+
+    it("63 => true", () => {
+      const res = utils.isMersenneNumber("63");
+      assert.equal(true, res);
+    });
     
+    it("64 => false", () => {
+      const res = utils.isMersenneNumber("64");
+      assert.equal(false, res);
+    });
+
+
 
     
 
