@@ -1903,9 +1903,20 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
+    it("126 => false", () => {
+      const res = utils.isMersenneNumber("126");
+      assert.equal(false, res);
+    });
 
-
+    it("127 => true", () => {
+      const res = utils.isMersenneNumber("127");
+      assert.equal(true, res);
+    });
     
+    it("128 => false", () => {
+      const res = utils.isMersenneNumber("128");
+      assert.equal(false, res);
+    });
 
   });
 
