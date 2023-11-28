@@ -754,29 +754,23 @@ utils.isPrimeNumber = function(n){
 
 };
 
-utils.makePrimeNumbers = function(max){
-  const max_ = utils.getNumber(25);
-  if(!max || core.isLarge(max, max_)){
-    max = max_;
+utils.makePrimeNumbers = function(maxlength){
+  const max_length = utils.getNumber(25);
+  if(!maxlength || core.isLarge(maxlength, max_length)){
+    maxlength = max_length;
   }
-  max = core.add(max, utils.getNumber("1"));
+  maxlength = core.add(max, utils.getNumber("1"));
   let length = utils.getZero();
   const arr:SuuNumber[] = [];
-  let num = utils.getNumber("1");
+  let num = utils.getNumber("0");
 
-  while(core.isSmall(length, max)){
+  while(core.isSmall(length, maxlength)){
+    num = core.add(num, utils.getNumber("1"))
     if(utils.isPrimeNumber(num)){
-
       arr.push(num);
       length = utils.getNumber(arr.length);
     }
-    // if(utils.isEqual(num, utils.getNumber("100"))){
-      // break;
-    // }
-    num = core.add(num, utils.getNumber("1"))
   }
-  
-
   return arr;
 };
 
