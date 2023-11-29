@@ -759,7 +759,7 @@ utils.makePrimeNumbers = function(maxlength){
   if(!maxlength || core.isLarge(maxlength, max_length)){
     maxlength = max_length;
   }
-  maxlength = core.add(max, utils.getNumber("1"));
+  maxlength = core.add(maxlength, utils.getNumber("1"));
   let length = utils.getZero();
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("0");
