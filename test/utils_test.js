@@ -1966,6 +1966,47 @@ describe("utils", function(){
       assert.equal(10, res.length);
     });
 
+  });
+  describe("makePrimeNumbers", function(){
+    it("restult is Array", () => {
+      const res = utils.makePrimeNumbers(25);
+      assert.equal(true, res instanceof Array);
+    });
+
+    it("first is 2", () => {
+      const res = utils.makePrimeNumbers(1);
+      assert.equal("2", core.numArrayToString(res[0]));
+    });
+
+    it("second is 3", () => {
+      const res = utils.makePrimeNumbers(2);
+      assert.equal("3", core.numArrayToString(res[1]));
+    });
+
+    it("third is 5", () => {
+      const res = utils.makePrimeNumbers(3);
+      assert.equal("5", core.numArrayToString(res[2]));
+    });
+    
+    it("fourth is 7", () => {
+      const res = utils.makePrimeNumbers(4);
+      assert.equal("7", core.numArrayToString(res[3]));
+    });
+    
+    it("fifth is 11", () => {
+      const res = utils.makePrimeNumbers(5);
+      assert.equal("11", core.numArrayToString(res[4]));
+    });
+    
+    it("sixth is 13", () => {
+      const res = utils.makePrimeNumbers(6);
+      assert.equal("13", core.numArrayToString(res[5]));
+    });
+
+    it("result length is 10", () => {
+      const res = utils.makePrimeNumbers(10);
+      assert.equal(10, res.length);
+    });
 
   });
 
