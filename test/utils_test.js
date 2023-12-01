@@ -2002,6 +2002,11 @@ describe("utils", function(){
       const res = utils.makePrimeNumbers(6);
       assert.equal("13", core.numArrayToString(res[5]));
     });
+    
+    it("seventh is 17", () => {
+      const res = utils.makePrimeNumbers(7);
+      assert.equal("17", core.numArrayToString(res[6]));
+    });
 
     it("result length is 10", () => {
       const res = utils.makePrimeNumbers(10);
