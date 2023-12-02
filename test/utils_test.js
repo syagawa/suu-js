@@ -2008,7 +2008,7 @@ describe("utils", function(){
       assert.equal("17", core.numArrayToString(res[6]));
     });
 
-    it("result length is 10", () => {
+    it("result length is 11", () => {
       const res = utils.makePrimeNumbers(10);
       assert.equal(10, res.length);
     });
