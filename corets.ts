@@ -154,7 +154,10 @@ core.numArrayToString = function(n): string | Error {
 core.compare = function(a, b): CompareObject | Error {
   try{
     
-    if(!a || !b){
+
+    if(!a && a !== 0){
+      return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
+    }else if(!b && b !== 0){
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }
     
