@@ -760,15 +760,15 @@ utils.makePrimeNumbers = function(maxlength){
     maxlength = max_length;
   }
   maxlength = core.add(maxlength, utils.getNumber("1"));
-  let length = utils.getZero();
+  let count = utils.getZero();
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("0");
 
-  while(core.isSmall(length, maxlength)){
+  while(core.isSmall(count, maxlength)){
     num = core.add(num, utils.getNumber("1"))
     if(utils.isPrimeNumber(num)){
       arr.push(num);
-      length = utils.getNumber(arr.length);
+      count = utils.getNumber(arr.length);
     }
   }
   return arr;
