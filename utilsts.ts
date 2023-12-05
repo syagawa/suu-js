@@ -760,9 +760,9 @@ utils.makePrimeNumbers = function(maxlength){
     maxlength = max_length;
   }
   maxlength = core.add(maxlength, utils.getNumber("1"));
-  let count = utils.getZero();
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("0");
+  let count = utils.getZero();
 
   while(core.isSmall(count, maxlength)){
     num = core.add(num, utils.getNumber("1"))

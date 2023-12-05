@@ -2008,6 +2008,17 @@ describe("utils", function(){
       assert.equal("17", core.numArrayToString(res[6]));
     });
 
+   
+    it("result length is 0", () => {
+      const res = utils.makePrimeNumbers(0);
+      assert.equal(25, res.length);
+    });
+
+    it("result length is 1", () => {
+      const res = utils.makePrimeNumbers(1);
+      assert.equal(1, res.length);
+    });
+    
     it("result length is 10", () => {
       const res = utils.makePrimeNumbers(10);
       assert.equal(10, res.length);
