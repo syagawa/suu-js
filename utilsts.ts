@@ -759,13 +759,11 @@ utils.makePrimeNumbers = function(maxlength){
   if(!maxlength || core.isLarge(maxlength, max_length)){
     maxlength = max_length;
   }
-  maxlength = core.add(maxlength, utils.getNumber("1"));
   const arr:SuuNumber[] = [];
   let num = utils.getNumber("0");
   let count = utils.getZero();
-
   while(core.isSmall(count, maxlength)){
-    num = core.add(num, utils.getNumber("1"))
+    num = core.add(num, utils.getNumber("1"));
     if(utils.isPrimeNumber(num)){
       arr.push(num);
       count = utils.getNumber(arr.length);
