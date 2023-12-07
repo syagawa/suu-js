@@ -2007,7 +2007,11 @@ describe("utils", function(){
       const res = utils.makePrimeNumbers(7);
       assert.equal("17", core.numArrayToString(res[6]));
     });
-
+    
+    it("eighth is 19", () => {
+      const res = utils.makePrimeNumbers(8);
+      assert.equal("19", core.numArrayToString(res[7]));
+    });
    
     it("result length is 0", () => {
       const res = utils.makePrimeNumbers(0);
