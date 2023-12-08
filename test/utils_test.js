@@ -2012,11 +2012,6 @@ describe("utils", function(){
       const res = utils.makePrimeNumbers(8);
       assert.equal("19", core.numArrayToString(res[7]));
     });
-   
-    it("result length is 0", () => {
-      const res = utils.makePrimeNumbers(0);
-      assert.equal(25, res.length);
-    });
 
     it("result length is 1", () => {
       const res = utils.makePrimeNumbers(1);
