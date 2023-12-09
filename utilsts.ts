@@ -772,5 +772,12 @@ utils.makePrimeNumbers = function(maxlength){
   return arr;
 };
 
+utils.isMersennePrimeNumber = function(n){
+  if(utils.isPrimeNumber(n) && utils.isMersenneNumber(n)){
+    return true;
+  }
+  return false;
+};
+
 
 export default utils;
