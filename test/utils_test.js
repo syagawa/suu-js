@@ -2025,6 +2025,40 @@ describe("utils", function(){
 
   });
 
+  describe("isMersennePrimeNumber", () => {
+    it("0 => false", () =>{
+      const res = utils.isMersennePrimeNumber("0");
+      assert.equal(false, res);
+    });
+    it("1 => false", () =>{
+      const res = utils.isMersennePrimeNumber("1");
+      assert.equal(false, res);
+    });
+    it("2 => false", () =>{
+      const res = utils.isMersennePrimeNumber("2");
+      assert.equal(false, res);
+    });
+    it("3 => true", () =>{
+      const res = utils.isMersennePrimeNumber("3");
+      assert.equal(true, res);
+    });
+    it("4 => false", () =>{
+      const res = utils.isMersennePrimeNumber("4");
+      assert.equal(false, res);
+    });
+    it("5 => false", () =>{
+      const res = utils.isMersennePrimeNumber("5");
+      assert.equal(false, res);
+    });
+    it("6 => false", () =>{
+      const res = utils.isMersennePrimeNumber("6");
+      assert.equal(false, res);
+    });
+    it("7 => true", () =>{
+      const res = utils.isMersennePrimeNumber("7");
+      assert.equal(true, res);
+    });
+  });
 });
 
 
