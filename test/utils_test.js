@@ -2058,6 +2058,18 @@ describe("utils", function(){
       const res = utils.isMersennePrimeNumber("7");
       assert.equal(true, res);
     });
+    it("8 => false", () =>{
+      const res = utils.isMersennePrimeNumber("8");
+      assert.equal(false, res);
+    });
+    it("9 => false", () =>{
+      const res = utils.isMersennePrimeNumber("9");
+      assert.equal(false, res);
+    });
+    it("10 => false", () =>{
+      const res = utils.isMersennePrimeNumber("10");
+      assert.equal(false, res);
+    });
   });
 });
 
