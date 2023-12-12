@@ -2070,6 +2070,10 @@ describe("utils", function(){
       const res = utils.isMersennePrimeNumber("10");
       assert.equal(false, res);
     });
+    it("11 => false", () =>{
+      const res = utils.isMersennePrimeNumber("11");
+      assert.equal(false, res);
+    });
   });
 });
 
