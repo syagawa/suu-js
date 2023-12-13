@@ -73,6 +73,9 @@ const map: object = {
   },
   exponentiate: {
     ja: "冪（べき）乗"
+  },
+  isMersenneNumber: {
+    ja: "メルセンヌ数"
   }
 };
 

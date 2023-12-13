@@ -779,5 +779,8 @@ utils.isMersennePrimeNumber = function(n){
   return false;
 };
 
+utils.isCompositeNumber = function(n){
+  
+};
 
 export default utils;
