@@ -780,7 +780,18 @@ utils.isMersennePrimeNumber = function(n){
 };
 
 utils.isCompositeNumber = function(n){
-  
+  if(!n && n !== 0){
+    return false;
+  }
+  const num = utils.getNumber(n);
+  if(utils.isZero(num)){
+    return false;
+  }
+  if(utils.isOne(num)){
+    return true;
+  }
+
+
 };
 
 export default utils;
