@@ -791,7 +791,12 @@ utils.isCompositeNumber = function(n){
     return true;
   }
 
+  const res = utils.isPrimeNumber(num);
 
+  if(res instanceof Error){
+    return false;
+  }
+  return !res;
 };
 
 export default utils;
