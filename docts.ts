@@ -76,6 +76,9 @@ const map: object = {
   },
   isMersenneNumber: {
     ja: "メルセンヌ数"
+  },
+  isCompositeNumber: {
+    ja: "合成数"
   }
 };
 
