@@ -799,4 +799,8 @@ utils.isCompositeNumber = function(n){
   return !res;
 };
 
+utils.isHarshadNumber = function(n){
+  return false;
+};
+
 export default utils;
