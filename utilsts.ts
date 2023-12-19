@@ -803,4 +803,12 @@ utils.isHarshadNumber = function(n){
   return false;
 };
 
+utils.isZuckermanNumber = function(n){
+  return false;
+};
+
+utils.isRepunitNumber = function(n){
+  return false;
+};
+
 export default utils;
