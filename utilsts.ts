@@ -800,6 +800,11 @@ utils.isCompositeNumber = function(n){
 };
 
 utils.isHarshadNumber = function(n){
+  if(!n && n !== 0){
+    return false;
+  }
+  const divisors = utils.getDivisors(n);
+
   return false;
 };
 
