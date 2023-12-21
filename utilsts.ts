@@ -805,7 +805,17 @@ utils.isHarshadNumber = function(n){
   }
   const divisors = utils.getDivisors(n);
 
-  return false;
+  const dsum = utils.digitSum(n);
+
+  let bool = false;
+  for(let i = 0; i < divisors.length; i++){
+    const d = divisors[i];
+    if(utils.isEqual(d, dsum)){
+      bool = true;
+      break;
+    }
+  }
+  return bool;
 };
 
 utils.isZuckermanNumber = function(n){
