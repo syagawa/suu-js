@@ -2075,6 +2075,12 @@ describe("utils", function(){
       assert.equal(false, res);
     });
   });
+  describe("isHarshadNumber", () => {
+    it("0 => false", () =>{
+      const res = utils.isHarshadNumber("0");
+      assert.equal(false, res);
+    });
+  });
 });
 
 
