@@ -2080,6 +2080,26 @@ describe("utils", function(){
       const res = utils.isHarshadNumber("0");
       assert.equal(false, res);
     });
+    it("1 => true", () =>{
+      const res = utils.isHarshadNumber("1");
+      assert.equal(true, res);
+    });
+    it("2 => true", () =>{
+      const res = utils.isHarshadNumber("2");
+      assert.equal(true, res);
+    });
+    it("3 => true", () =>{
+      const res = utils.isHarshadNumber("3");
+      assert.equal(true, res);
+    });
+    it("4 => true", () =>{
+      const res = utils.isHarshadNumber("4");
+      assert.equal(true, res);
+    });
+    it("5 => true", () =>{
+      const res = utils.isHarshadNumber("5");
+      assert.equal(true, res);
+    });
   });
 });
 
