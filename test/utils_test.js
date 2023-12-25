@@ -2120,6 +2120,17 @@ describe("utils", function(){
       const res = utils.isHarshadNumber("10");
       assert.equal(true, res);
     });
+
+    it("11 => false", () =>{
+      const res = utils.isHarshadNumber("11");
+      assert.equal(false, res);
+    });
+
+    it("12 => true", () =>{
+      const res = utils.isHarshadNumber("12");
+      assert.equal(true, res);
+    });
+
   });
 });
 
