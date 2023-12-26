@@ -2131,6 +2131,26 @@ describe("utils", function(){
       assert.equal(true, res);
     });
 
+    it("13 => false", () =>{
+      const res = utils.isHarshadNumber("13");
+      assert.equal(false, res);
+    });
+
+    it("14 => false", () =>{
+      const res = utils.isHarshadNumber("14");
+      assert.equal(false, res);
+    });
+
+    it("15 => false", () =>{
+      const res = utils.isHarshadNumber("15");
+      assert.equal(false, res);
+    });
+    
+    it("16 => false", () =>{
+      const res = utils.isHarshadNumber("16");
+      assert.equal(false, res);
+    });
+
   });
 });
 
