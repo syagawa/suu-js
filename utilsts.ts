@@ -557,9 +557,7 @@ utils.digitSum = function(num): SuuNumber | Error {
     return res;
   }
   try{
-    n.array.forEach(item => {
-      res = core.add(res, item);
-    });
+    res = utils.summation(n.array)
     return res;
   }catch(err: unknown){
     if(err instanceof Error){
