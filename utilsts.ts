@@ -827,6 +827,18 @@ utils.isHarshadNumber = function(n){
 };
 
 utils.isZuckermanNumber = function(n){
+  if(!n && n !== 0){
+    return false;
+  }
+
+  const num = utils.getNumber(n);
+
+  if(utils.isEqual("0")){
+    return false;
+  }
+  if(utils.isSmall(num, "0")){
+    return false;
+  }
   return false;
 };
 
