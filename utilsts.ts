@@ -836,9 +836,18 @@ utils.isZuckermanNumber = function(n){
   if(utils.isEqual("0")){
     return false;
   }
-  if(utils.isSmall(num, "0")){
+  if(utils.isNegative(num)){
     return false;
   }
+  
+  if(!utils.isInteger(num)){
+    return false;
+  }
+
+
+  const product = utils.infiniteProduct(num.array);
+
+
   return false;
 };
 
