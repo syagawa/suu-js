@@ -810,6 +810,10 @@ utils.isHarshadNumber = function(n){
   if(utils.isSmall(num, "0")){
     return false;
   }
+  
+  if(!utils.isInteger(num)){
+    return false;
+  }
 
   const divisors = utils.getDivisors(n);
 
