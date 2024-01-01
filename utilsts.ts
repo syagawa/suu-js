@@ -831,28 +831,38 @@ utils.isHarshadNumber = function(n){
 };
 
 utils.isZuckermanNumber = function(n){
+
+  let res = false;
+
   if(!n && n !== 0){
-    return false;
+    return res;
   }
 
   const num = utils.getNumber(n);
 
   if(utils.isEqual("0")){
-    return false;
+    return res;
   }
   if(utils.isNegative(num)){
-    return false;
+    return res;
   }
   
   if(!utils.isInteger(num)){
-    return false;
+    return res;
   }
 
 
   const product = utils.infiniteProduct(num.array);
+  const divisors = utils.getDivisors(n);
 
-
-  return false;
+  for(let i = 0; i < divisors.length; i++){
+    const d = divisors[i];
+    if(utils.isEqual(product, d)){
+      res = true;
+      break;
+    }
+  }
+  return res;
 };
 
 utils.isRepunitNumber = function(n){
