@@ -2075,6 +2075,7 @@ describe("utils", function(){
       assert.equal(false, res);
     });
   });
+  
   describe("isHarshadNumber", () => {
     it("0 => false", () =>{
       const res = utils.isHarshadNumber("0");
@@ -2152,6 +2153,14 @@ describe("utils", function(){
     });
 
   });
+
+  describe("isZuckermanNumber", () => {
+    it("0 => false", () =>{
+      const res = utils.isZuckermanNumber("0");
+      assert.equal(false, res);
+    });
+  });
+
 });
 
 
