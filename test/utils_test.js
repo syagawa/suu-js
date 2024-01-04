@@ -2159,6 +2159,12 @@ describe("utils", function(){
       const res = utils.isZuckermanNumber("0");
       assert.equal(false, res);
     });
+
+    it("1 => true", () =>{
+      const res = utils.isZuckermanNumber("1");
+      assert.equal(true, res);
+    });
+
   });
 
 });
