@@ -2165,6 +2165,23 @@ describe("utils", function(){
       assert.equal(true, res);
     });
 
+    it("2 => true", () =>{
+      const res = utils.isZuckermanNumber("2");
+      assert.equal(true, res);
+    });
+    it("3 => true", () =>{
+      const res = utils.isZuckermanNumber("3");
+      assert.equal(true, res);
+    });
+    it("4 => true", () =>{
+      const res = utils.isZuckermanNumber("4");
+      assert.equal(true, res);
+    });
+    it("5 => true", () =>{
+      const res = utils.isZuckermanNumber("5");
+      assert.equal(true, res);
+    });
+
   });
 
 });
