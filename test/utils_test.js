@@ -2182,6 +2182,28 @@ describe("utils", function(){
       assert.equal(true, res);
     });
 
+    it("6 => true", () =>{
+      const res = utils.isZuckermanNumber("6");
+      assert.equal(true, res);
+    });
+
+    it("7 => true", () =>{
+      const res = utils.isZuckermanNumber("7");
+      assert.equal(true, res);
+    });
+    it("8 => true", () =>{
+      const res = utils.isZuckermanNumber("8");
+      assert.equal(true, res);
+    });
+    it("9 => true", () =>{
+      const res = utils.isZuckermanNumber("9");
+      assert.equal(true, res);
+    });
+    it("10 => false", () =>{
+      const res = utils.isZuckermanNumber("10");
+      assert.equal(false, res);
+    });
+
   });
 
 });
