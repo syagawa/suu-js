@@ -866,7 +866,26 @@ utils.isZuckermanNumber = function(n){
 };
 
 utils.isRepunitNumber = function(n){
-  return false;
+  let res = false;
+
+  if(!n && n !== 0){
+    return res;
+  }
+
+  const num = utils.getNumber(n);
+
+  if(utils.isEqual("0")){
+    return res;
+  }
+  if(utils.isNegative(num)){
+    return res;
+  }
+  
+  if(!utils.isInteger(num)){
+    return res;
+  }
+
+  return res;
 };
 
 export default utils;
