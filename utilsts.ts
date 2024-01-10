@@ -885,6 +885,16 @@ utils.isRepunitNumber = function(n){
     return res;
   }
 
+  const arr = num.array;
+  res = true;
+  for(let i = 0; i < arr.length; i++){
+    const elm = arr[i];
+    if(elm !== 1){
+      res = false;
+      break;
+    }
+  }
+
   return res;
 };
 
