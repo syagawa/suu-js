@@ -2212,6 +2212,13 @@ describe("utils", function(){
 
   });
 
+  describe("isRepunitNumber", () => {
+    it("0 => false", () =>{
+      const res = utils.isRepunitNumber("0");
+      assert.equal(false, res);
+    });
+  });
+
 });
 
 
