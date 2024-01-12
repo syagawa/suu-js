@@ -2217,6 +2217,18 @@ describe("utils", function(){
       const res = utils.isRepunitNumber("0");
       assert.equal(false, res);
     });
+    
+    it("1 => true", () =>{
+      const res = utils.isRepunitNumber("1");
+      assert.equal(true, res);
+    });
+    
+    it("2 => false", () =>{
+      const res = utils.isRepunitNumber("2");
+      assert.equal(false, res);
+    });
+
+
   });
 
 });
