@@ -2228,6 +2228,21 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
+    it("10 => false", () =>{
+      const res = utils.isRepunitNumber("10");
+      assert.equal(false, res);
+    });
+
+    it("11 => true", () =>{
+      const res = utils.isRepunitNumber("11");
+      assert.equal(true, res);
+    });
+
+    it("12 => false", () =>{
+      const res = utils.isRepunitNumber("12");
+      assert.equal(false, res);
+    });
+
 
   });
 
