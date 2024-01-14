@@ -2243,6 +2243,21 @@ describe("utils", function(){
       assert.equal(false, res);
     });
 
+    it("110 => false", () =>{
+      const res = utils.isRepunitNumber("110");
+      assert.equal(false, res);
+    });
+
+    it("111 => true", () =>{
+      const res = utils.isRepunitNumber("111");
+      assert.equal(true, res);
+    });
+
+    it("112 => false", () =>{
+      const res = utils.isRepunitNumber("112");
+      assert.equal(false, res);
+    });
+
 
   });
 
