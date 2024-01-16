@@ -82,6 +82,9 @@ const map: object = {
   },
   isCompositeNumber: {
     ja: "合成数"
+  },
+  isHarshadNumber: {
+    ja: "ハーシャッド数"
   }
 };
 
