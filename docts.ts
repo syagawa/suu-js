@@ -83,9 +83,12 @@ const map: object = {
   isCompositeNumber: {
     ja: "合成数"
   },
+  isZuckermanNumber: {
+    ja: "ズッカーマン数"
+  },
   isHarshadNumber: {
     ja: "ハーシャッド数"
-  }
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
