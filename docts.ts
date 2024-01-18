@@ -75,19 +75,19 @@ const map: object = {
     ja: "冪（べき）乗"
   },
   isMersenneNumber: {
-    ja: "メルセンヌ数"
+    ja: "メルセンヌ数かどうか"
   },
   isMersennePrimeNumber: {
-    ja: "メルセンヌ素数"
+    ja: "メルセンヌ素数かどうか"
   },
   isCompositeNumber: {
-    ja: "合成数"
+    ja: "合成数かどうか"
   },
   isZuckermanNumber: {
-    ja: "ズッカーマン数"
+    ja: "ズッカーマン数かどうか"
   },
   isHarshadNumber: {
-    ja: "ハーシャッド数"
+    ja: "ハーシャッド数かどうか"
   },
 };
 
