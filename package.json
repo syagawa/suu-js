@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
-    "build": "cross-env NODE_ENV=production webpack",
+    "build": "build-ts",
     "build-dev": "cross-env NODE_ENV=development webpack",
+    "build-ts": "cross-env NODE_ENV=development webpack --config webpack.config.ts.js",
     "postinstall": "husky install",
-    "prepare": "husky install",
-    "build-ts": "cross-env NODE_ENV=development webpack --config webpack.config.ts.js"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
