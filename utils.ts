@@ -1,4 +1,4 @@
-import core from "./corets";
+import core from "./core";
 
 import { SuuNumber } from "./interfaces";
 

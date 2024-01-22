@@ -1,6 +1,6 @@
-import core from "./corets";
-import utils from "./utilsts";
-import doc from "./docts";
+import core from "./core";
+import utils from "./utils";
+import doc from "./doc";
 import constants from "./constants"
 
 export default {

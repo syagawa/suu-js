@@ -13,7 +13,7 @@ module.exports = {
   entry: [
     // "core-js/modules/es6.promise",
     // "core-js/modules/es6.array.iterator",
-    "./indexts.ts"
+    "./index.ts"
   ],
   output: {
     filename: "app_new.js",
