@@ -16,3 +16,4 @@ const replServer = repl.start({
 });
 
 replServer.context["app"] = app;
+replServer.context["execute"] = execute;
