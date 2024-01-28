@@ -5,9 +5,12 @@ const execute = async (method, params) => {
   const d = new Date();
   const id = String(d.getTime());
   console.time(id);
-  await new Promise((resolve) => {
+  const res = await new Promise((resolve) => {
     return resolve(method(params));
-  });
+  })
+    .catch(e => e)
+    .then(res => res);
+  console.log(res);
   console.timeEnd(id);
 };
 
