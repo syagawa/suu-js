@@ -89,6 +89,9 @@ const map: object = {
   isHarshadNumber: {
     ja: "ハーシャッド数かどうか"
   },
+  isRepunitNumber: {
+    ja: "レピュニット数かどうか"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
