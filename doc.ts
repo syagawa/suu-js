@@ -5,6 +5,9 @@ const map: object = {
   commonMultiple: {
     ja: "公倍数"
   },
+  leastCommonMultiple: {
+    ja: "最小公倍数"
+  },
   greatestCommonDivisor: {
     ja: "最大公約数"
   },
@@ -83,11 +86,11 @@ const map: object = {
   isCompositeNumber: {
     ja: "合成数かどうか"
   },
-  isZuckermanNumber: {
-    ja: "ズッカーマン数かどうか"
-  },
   isHarshadNumber: {
     ja: "ハーシャッド数かどうか"
+  },
+  isZuckermanNumber: {
+    ja: "ズッカーマン数かどうか"
   },
   isRepunitNumber: {
     ja: "レピュニット数かどうか"
