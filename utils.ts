@@ -899,7 +899,7 @@ utils.isRepunitNumber = function(n){
 };
 
 utils.inversionNumber = function(n){
-  let res = false;
+  let res = 0;
 
   if(!n && n !== 0){
     return res;
@@ -910,6 +910,20 @@ utils.inversionNumber = function(n){
   if(utils.isEqual("0")){
     return res;
   }
+
+  const orderedArray = [];
+
+  for(let i = 0; i < num.array.length; i++){
+    const s = num.array[i];
+    let index = 0;
+    for(let j = 0; j < orderedArray.length; j++){
+
+    }
+    orderedArray[index] = s;
+  }
+
+
+
 };
 
 export default utils;
