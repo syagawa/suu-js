@@ -898,6 +898,44 @@ utils.isRepunitNumber = function(n){
   return res;
 };
 
+const sort = function(array: [], order?: "asc" | "desc"){
+
+  const new_arr = [...array];
+
+  const asc = (a_n, b_n) => {
+    if(a_n < b_n){
+      return -1;
+    }else if(a_n > b_n){
+      return 1;
+    }
+    return 0;
+  };
+
+  const desc = (a_n, b_n) => {
+    if(a_n < b_n){
+      return 1;
+    }else if(a_n > b_n){
+      return -1;
+    }
+    return 0;
+  };
+
+  new_arr.sort((a, b) => {
+    const a_n = Number(a);
+    const b_n = Number(b);
+
+    if(order === "asc"){
+      return asc(a_n, b_n);
+    }else if(order === "desc"){
+      return desc(a_n, b_n);
+    }else{
+      return asc(a_n, b_n)
+    }
+
+  });
+
+};
+
 utils.inversionNumber = function(n){
   let res = 0;
 
@@ -921,8 +959,6 @@ utils.inversionNumber = function(n){
     }
     orderedArray[index] = s;
   }
-
-
 
 };
 
