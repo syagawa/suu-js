@@ -931,8 +931,8 @@ const sort = function(array: [], order?: "asc" | "desc"){
     }else{
       return asc(a_n, b_n)
     }
-
   });
+  return new_arr;
 
 };
 
