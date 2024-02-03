@@ -949,7 +949,7 @@ utils.inversionNumber = function(n){
     return res;
   }
 
-  const orderedArray = [];
+  const orderedArray: any[] = sort(num.array, "asc");
 
   for(let i = 0; i < num.array.length; i++){
     const s = num.array[i];
