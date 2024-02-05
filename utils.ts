@@ -937,28 +937,40 @@ const sort = function(array: [], order?: "asc" | "desc"){
 };
 
 utils.inversionNumber = function(n){
-  let res = 0;
+  let count = utils.getZero();
 
   if(!n && n !== 0){
-    return res;
+    return count;
   }
 
   const num = utils.getNumber(n);
 
   if(utils.isEqual("0")){
-    return res;
+    return count;
+  }
+  
+  if(utils.isNegative(num)){
+    return count;
   }
 
   const orderedArray: any[] = sort(num.array, "asc");
 
   for(let i = 0; i < num.array.length; i++){
-    const s = num.array[i];
-    let index = 0;
-    for(let j = 0; j < orderedArray.length; j++){
+    const ordered_elm = orderedArray[i];
+    const original_elm = num.array[i];
 
+    const gap = core.subtract(ordered_elm, original_elm);
+    if(utils.isNegative(gap)){
+      continue;
     }
-    orderedArray[index] = s;
+    if(utils.isZero(gap)){
+      continue;
+    }
+    count = core.add(count, gap);
+   
   }
+
+  return count;
 
 };
 
