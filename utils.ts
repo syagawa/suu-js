@@ -958,7 +958,6 @@ utils.inversionNumber = function(n){
   for(let i = 0; i < num.array.length; i++){
     const ordered_elm = orderedArray[i];
     const original_elm = num.array[i];
-
     const gap = core.subtract(ordered_elm, original_elm);
     if(utils.isNegative(gap)){
       continue;
@@ -967,7 +966,6 @@ utils.inversionNumber = function(n){
       continue;
     }
     count = core.add(count, gap);
-   
   }
 
   return count;

@@ -95,6 +95,9 @@ const map: object = {
   isRepunitNumber: {
     ja: "レピュニット数かどうか"
   },
+  inversionNumber: {
+    ja: "転倒数"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
