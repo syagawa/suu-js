@@ -2275,6 +2275,14 @@ describe("utils", function(){
 
   });
 
+  describe("inversionNumber", () => {
+    it("0 => 0", () =>{
+      const res = utils.inversionNumber("0");
+      assert.equal("0", core.numArrayToString(res));
+    });
+  });
+
+
 });
 
 
