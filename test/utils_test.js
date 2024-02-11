@@ -2280,6 +2280,21 @@ describe("utils", function(){
       const res = utils.inversionNumber("0");
       assert.equal("0", core.numArrayToString(res));
     });
+
+    it("1 => 0", () =>{
+      const res = utils.inversionNumber("1");
+      assert.equal("0", core.numArrayToString(res));
+    });
+
+    it("11 => 0", () =>{
+      const res = utils.inversionNumber("11");
+      assert.equal("0", core.numArrayToString(res));
+    });
+
+    it("21 => 1", () =>{
+      const res = utils.inversionNumber("21");
+      assert.equal("1", core.numArrayToString(res));
+    });
   });
 
 
