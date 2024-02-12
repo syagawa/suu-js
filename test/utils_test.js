@@ -2295,6 +2295,11 @@ describe("utils", function(){
       const res = utils.inversionNumber("21");
       assert.equal("1", core.numArrayToString(res));
     });
+
+    it("54321 => 6", () =>{
+      const res = utils.inversionNumber("54321");
+      assert.equal("6", core.numArrayToString(res));
+    });
   });
 
 
