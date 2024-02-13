@@ -794,7 +794,10 @@ utils.isCompositeNumber = function(n){
   if(res instanceof Error){
     return false;
   }
-  return !res;
+  if(typeof res === "boolean"){
+    return !res;
+  }
+  return false;
 };
 
 utils.isHarshadNumber = function(n){
