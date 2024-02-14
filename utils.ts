@@ -975,4 +975,20 @@ utils.inversionNumber = function(n){
 
 };
 
+utils.getReciprocal = function(n){
+  let res = null;
+  if(!n && n !== 0){
+    return res;
+  }
+
+  const num = utils.getNumber(n);
+
+  if(utils.isEqual("0")){
+    return res;
+  }
+
+  return res;
+
+};
+
 export default utils;
