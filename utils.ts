@@ -987,6 +987,10 @@ utils.getReciprocal = function(n){
     return res;
   }
 
+  if(utils.isOne(num)){
+    return utils.getOne();
+  }
+
   return res;
 
 };
