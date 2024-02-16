@@ -991,6 +991,8 @@ utils.getReciprocal = function(n){
     return utils.getOne();
   }
 
+  res = core.division(utils.getOne(), num);
+
   return res;
 
 };
