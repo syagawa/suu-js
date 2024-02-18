@@ -983,7 +983,7 @@ utils.getReciprocal = function(n){
 
   const num = utils.getNumber(n);
 
-  if(utils.isEqual("0")){
+  if(utils.isZero(num)){
     return res;
   }
 

@@ -2302,6 +2302,21 @@ describe("utils", function(){
     });
   });
 
+  describe("getReciprocal", () => {
+    it("0 => null", () =>{
+      const res = utils.getReciprocal("0");
+      assert.equal(null, res);
+    });
+
+    it("1 => 1", () =>{
+      const res = utils.getReciprocal("1");
+      assert.equal("1", core.numArrayToString(res));
+    });
+
+
+  });
+
+
 
 });
 
