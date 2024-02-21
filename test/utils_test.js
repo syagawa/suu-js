@@ -2318,6 +2318,11 @@ describe("utils", function(){
       assert.equal("0.5", core.numArrayToString(res));
     });
 
+    it("4 => 0.25", () =>{
+      const res = utils.getReciprocal("4");
+      assert.equal("0.25", core.numArrayToString(res));
+    });
+
 
   });
 
