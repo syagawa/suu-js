@@ -975,6 +975,10 @@ utils.inversionNumber = function(n){
 
 };
 
+utils.isIndivisible = function(n){
+
+};
+
 utils.getReciprocal = function(n){
   let res = null;
   if(!n && n !== 0){
