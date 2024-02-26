@@ -2327,6 +2327,11 @@ describe("utils", function(){
       const res = utils.getReciprocal("5");
       assert.equal("0.2", core.numArrayToString(res));
     });
+    
+    it("10 => 0.1", () =>{
+      const res = utils.getReciprocal("10");
+      assert.equal("0.1", core.numArrayToString(res));
+    });
 
 
   });
