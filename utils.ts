@@ -998,4 +998,36 @@ utils.getReciprocal = function(n){
 
 };
 
+utils.getReverse = function(n){
+  let res = null;
+
+  if(!n && n !== 0){
+    return res;
+  }
+
+  
+
+  const num = utils.getNumber(n);
+
+  if(num.negative){
+    return num;
+  }
+
+  if(utils.isZero(num)){
+    return num;
+  }
+
+
+  if(utils.isOne(num)){
+    return utils.getOne();
+  }
+
+  res = core.division(utils.getOne(), num);
+
+  return res;
+
+
+
+};
+
 export default utils;
