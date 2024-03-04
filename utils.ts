@@ -1005,12 +1005,11 @@ utils.getReverse = function(n){
     return res;
   }
 
-  
 
   const num = utils.getNumber(n);
 
   if(num.negative){
-    return num;
+    return res;
   }
 
   if(utils.isZero(num)){
@@ -1019,14 +1018,19 @@ utils.getReverse = function(n){
 
 
   if(utils.isOne(num)){
-    return utils.getOne();
+    return num
   }
 
-  res = core.division(utils.getOne(), num);
+  if(utils.isSmall(num, utils.getNumber("10"))){
+    return num;
+  }
+
+  
+
+
+
 
   return res;
-
-
 
 };
 
