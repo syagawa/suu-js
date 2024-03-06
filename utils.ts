@@ -1012,23 +1012,11 @@ utils.getReverse = function(n){
     return res;
   }
 
-  if(utils.isZero(num)){
-    return num;
-  }
-
-
-  if(utils.isOne(num)){
-    return num
-  }
-
   if(utils.isSmall(num, utils.getNumber("10"))){
     return num;
   }
 
-  
-
-
-
+  const array = [...num.array].reverse();
 
   return res;
 
