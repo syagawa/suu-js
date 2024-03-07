@@ -1017,8 +1017,10 @@ utils.getReverse = function(n){
   }
 
   const array = [...num.array].reverse();
+  const str = array.join("");
+  const new_num = utils.getNumber(str);
 
-  return res;
+  return new_num;
 
 };
 
