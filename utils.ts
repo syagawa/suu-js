@@ -1005,10 +1005,12 @@ utils.getReverse = function(n){
     return res;
   }
 
-
   const num = utils.getNumber(n);
 
   if(num.negative){
+    return res;
+  }
+  if(utils.includeDecimal(num)){
     return res;
   }
 
