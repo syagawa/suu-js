@@ -2332,8 +2332,16 @@ describe("utils", function(){
       const res = utils.getReciprocal("10");
       assert.equal("0.1", core.numArrayToString(res));
     });
+  });
+  
+  describe("getReverse", () => {
+    it("0 => 0", () =>{
+      const res = utils.getReverse("0");
+      assert.equal("0", core.numArrayToString(res));
 
+    });
 
+  
   });
 
 
