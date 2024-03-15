@@ -2338,7 +2338,11 @@ describe("utils", function(){
     it("0 => 0", () =>{
       const res = utils.getReverse("0");
       assert.equal("0", core.numArrayToString(res));
+    });
 
+    it("11 => 11", () =>{
+      const res = utils.getReverse("11");
+      assert.equal("11", core.numArrayToString(res));
     });
 
   
