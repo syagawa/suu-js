@@ -2350,6 +2350,11 @@ describe("utils", function(){
       assert.equal("21", core.numArrayToString(res));
     });
 
+    it("123 => 321", () =>{
+      const res = utils.getReverse("123");
+      assert.equal("321", core.numArrayToString(res));
+    });
+
   
   });
 
