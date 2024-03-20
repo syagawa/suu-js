@@ -2360,6 +2360,11 @@ describe("utils", function(){
       assert.equal("1", core.numArrayToString(res));
     });
 
+    it("1.1 => null", () =>{
+      const res = utils.getReverse("1.1");
+      assert.equal(null, res);
+    });
+
   
   });
 
