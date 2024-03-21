@@ -2365,6 +2365,11 @@ describe("utils", function(){
       assert.equal(null, res);
     });
 
+    it("-1 => null", () =>{
+      const res = utils.getReverse("-1");
+      assert.equal(null, res);
+    });
+
   
   });
 
