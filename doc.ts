@@ -97,6 +97,9 @@ const map: object = {
   },
   inversionNumber: {
     ja: "転倒数"
+  },
+  getReciprocal: {
+    ja: "逆数"
   }
 };
 
