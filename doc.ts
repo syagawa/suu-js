@@ -100,7 +100,10 @@ const map: object = {
   },
   getReciprocal: {
     ja: "逆数"
-  }
+  },
+  getReverse: {
+    ja: "数の逆順"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
