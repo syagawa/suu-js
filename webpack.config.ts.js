@@ -16,7 +16,7 @@ module.exports = {
     "./index.ts"
   ],
   output: {
-    filename: "app_new.js",
+    filename: "app.js",
     path: path.resolve(__dirname, "./"),
     library: 'su',
     libraryExport: "default",
