@@ -440,6 +440,19 @@ describe("utils", function(){
       assert.equal(res, false);
     });
     
+    it("10.1 => true", () => {
+      const num = utils.getNumber("10.1");
+      const res = utils.includeDecimal(num);
+      assert.equal(res, true);
+    });
+
+    it("10.01 => true", () => {
+      const num = utils.getNumber("10.01");
+      const res = utils.includeDecimal(num);
+      assert.equal(res, true);
+    });
+
+
     it("0 => false", () => {
       const num = utils.getNumber("0");
       const res = utils.includeDecimal(num);
