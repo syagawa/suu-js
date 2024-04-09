@@ -2207,6 +2207,14 @@ describe("floor", function(){
 
 });
 
+describe("getDecimal", function(){
+  it("1 => 0", () => {
+    const res = core.getDecimal("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+});
+
 describe("ceil", function(){
   it("1 => 1", () => {
     const res = core.ceil("1");
