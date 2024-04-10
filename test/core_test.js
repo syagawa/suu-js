@@ -2213,6 +2213,11 @@ describe("getDecimal", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "0");
   });
+  it("1.1 => 0.1", () => {
+    const res = core.getDecimal("1.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
 });
 
 describe("ceil", function(){
