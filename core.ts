@@ -640,9 +640,9 @@ core.getDecimal = function(n): SuuNumber | Error {
   try{
     const n_ = core.numToArrayWithDecimal(n);
     let str = "0.";
-    const len = n_.array.length - n_.decimal_index;
+    const len = n_.array.length;
     if(len > 0){
-      for(let i = n_.decimal_index; i <= (len + n_.decimal_index); i++){
+      for(let i = n_.decimal_index; i < len; i++){
         const s = String(n_.array[i]);
         str = str + s;
       }
