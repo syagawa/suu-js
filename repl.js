@@ -1,5 +1,5 @@
 const repl = require("node:repl");
-const app = require("./app_new.js");
+const app = require("./app.js");
 
 const execute = async (method, params) => {
   const d = new Date();
