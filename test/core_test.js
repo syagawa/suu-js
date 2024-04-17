@@ -1,5 +1,5 @@
 const assert = require('assert');
-const app = require("../app_new.js");
+const app = require("../app.js");
 const core = app.core;
 
 const checkRmainderAndQuotient = function({ dividend, divisor, quotient, remainder}){
