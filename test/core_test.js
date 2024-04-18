@@ -2230,6 +2230,12 @@ describe("getDecimal", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "0.01");
   });
+
+  it("10.10101 => 0.10101", () => {
+    const res = core.getDecimal("10.10101");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.10101");
+  });
 });
 
 describe("ceil", function(){
