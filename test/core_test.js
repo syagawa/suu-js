@@ -2236,6 +2236,30 @@ describe("getDecimal", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "0.10101");
   });
+  
+  it("1.1 => 0.1", () => {
+    const res = core.getDecimal("1.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
+
+  it("0.1 => 0.1", () => {
+    const res = core.getDecimal("0.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
+
+  it("1.000001 => 0.000001", () => {
+    const res = core.getDecimal("1.000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.000001");
+  });
+
+  it("0.000001 => 0.000001", () => {
+    const res = core.getDecimal("0.000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.000001");
+  });
 });
 
 describe("ceil", function(){
