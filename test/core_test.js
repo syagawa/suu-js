@@ -2218,6 +2218,12 @@ describe("getDecimal", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "0.1");
   });
+
+  it("1.0 => 0.0", () => {
+    const res = core.getDecimal("1.0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
   
   it("1.01 => 0.01", () => {
     const res = core.getDecimal("1.01");
