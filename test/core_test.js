@@ -99,18 +99,24 @@ describe("core", function(){
 
   });
   describe("isZero", function(){
-    it("0 is true", () => {
+    it("'0' is true", () => {
       const zero = core.numToArrayWithDecimal("0");
       const res = core.isZero(zero);
       assert.equal(res, true);
     });
-    it("1 is false", () => {
+    it("'1' is false", () => {
       const one = core.numToArrayWithDecimal("1");
       const res = core.isZero(one);
       assert.equal(res, false);
     });
     it("0.0 is true", () => {
       const zero = core.numToArrayWithDecimal("0.0");
+      const res = core.isZero(zero);
+      assert.equal(res, true);
+    });
+
+    it("0 is true", () => {
+      const zero = core.numToArrayWithDecimal(0);
       const res = core.isZero(zero);
       assert.equal(res, true);
     });
