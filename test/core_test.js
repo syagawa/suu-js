@@ -212,6 +212,7 @@ describe("core", function(){
     });
 
   });
+
   describe("compare", function(){
     it("1, 2 => 1 < 2", () => {
       const num1 = core.numToArrayWithDecimal("1");
@@ -756,6 +757,14 @@ describe("core", function(){
       assert.equal(false, res);
     });
 
+  });
+
+  describe("getZero", function(){
+    it("getZero => 0", () => {
+      const res = core.getZero();
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
   });
 
   describe("add", function(){
