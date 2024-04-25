@@ -766,6 +766,14 @@ describe("core", function(){
       assert.equal(str, "0");
     });
   });
+  
+  describe("getOne", function(){
+    it("getOne => 1", () => {
+      const res = core.getOne();
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1");
+    });
+  });
 
   describe("add", function(){
     it("0 + 0 = 0", () => {
