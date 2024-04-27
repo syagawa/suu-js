@@ -775,6 +775,16 @@ describe("core", function(){
     });
   });
 
+  describe("clone", function(){
+    it("clone(1) => 1", () => {
+      const one = core.getOne();
+      const res = core.clone(one);
+      const str = core.numArrayToString(res);
+      assert.equal(str, "1");
+
+    });
+  });
+
   describe("add", function(){
     it("0 + 0 = 0", () => {
       const res = core.add("0", "0");
