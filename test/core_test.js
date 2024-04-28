@@ -776,12 +776,18 @@ describe("core", function(){
   });
 
   describe("clone", function(){
+    it("clone(0) => 0", () => {
+      const zero = core.getZero();
+      const res = core.clone(zero);
+      const str = core.numArrayToString(res);
+      assert.equal(str, "0");
+    });
+    
     it("clone(1) => 1", () => {
       const one = core.getOne();
       const res = core.clone(one);
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
-
     });
   });
 
