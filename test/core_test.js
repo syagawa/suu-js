@@ -789,6 +789,13 @@ describe("core", function(){
       const str = core.numArrayToString(res);
       assert.equal(str, "1");
     });
+
+    it("clone(-1) => -1", () => {
+      const num = core.numToArrayWithDecimal("-1");
+      const res = core.clone(num);
+      const str = core.numArrayToString(res);
+      assert.equal(str, "-1");
+    });
   });
 
   describe("add", function(){
