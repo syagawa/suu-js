@@ -939,7 +939,7 @@ const sort = function(array: [], order?: "asc" | "desc"){
 
 };
 
-utils.inversionNumber = function(n){
+utils.getInversionNumber = function(n){
   let count = utils.getZero();
 
   if(!n && n !== 0){

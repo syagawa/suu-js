@@ -95,8 +95,8 @@ const map: object = {
   isRepunitNumber: {
     ja: "レピュニット数かどうか"
   },
-  inversionNumber: {
-    ja: "転倒数"
+  getInversionNumber: {
+    ja: "転倒数の取得"
   },
   getReciprocal: {
     ja: "逆数"
