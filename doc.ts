@@ -99,10 +99,10 @@ const map: object = {
     ja: "転倒数の取得"
   },
   getReciprocal: {
-    ja: "逆数"
+    ja: "逆数の取得"
   },
   getReverse: {
-    ja: "数の逆順"
+    ja: "数の逆順の取得"
   },
 };
 
