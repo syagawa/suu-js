@@ -63,10 +63,10 @@ const map: object = {
     ja: "数字和/各桁の総和"
   },
   makeTriangleNumber: {
-    ja: "三角数"
+    ja: "三角数の生成"
   },
   makePronicNumber: {
-    ja: "矩形数"
+    ja: "矩形数の生成"
   },
   factorial: {
     ja: "階乗"
