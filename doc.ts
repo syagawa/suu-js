@@ -15,43 +15,43 @@ const map: object = {
     ja: "公約数"
   },
   makeFibonacciSequence: {
-    ja: "フィボナッチ数列"
+    ja: "フィボナッチ数列を作成"
   },
   makeLucaSequence: {
-    ja: "リュカ数列"
+    ja: "リュカ数列を作成"
   },
   makeTribonacciSequence: {
-    ja: "トリボナッチ数列"
+    ja: "トリボナッチ数列を作成"
   },
   makeTetranacciSequence: {
-    ja: "テトラナッチ数列"
+    ja: "テトラナッチ数列を作成"
   },
   makePentanacciSequence: {
-    ja: "ペンタナッチ数列"
+    ja: "ペンタナッチ数列を作成"
   },
   makeHexanacciSequence: {
-    ja: "ヘキサナッチ数列"
+    ja: "ヘキサナッチ数列を作成"
   },
   makeHeptanacciSequence: {
-    ja: "ヘプタナッチ数列"
+    ja: "ヘプタナッチ数列を作成"
   },
   makeOctanacciSequence: {
-    ja: "オクタナッチ数列"
+    ja: "オクタナッチ数列を作成"
   },
   makeNonanacciSequence: {
-    ja: "ノナナッチ数列"
+    ja: "ノナナッチ数列を作成"
   },
   makeDecanacciSequence: {
-    ja: "デカナッチ数列"
+    ja: "デカナッチ数列を作成"
   },
   makeUndecanacciSequence: {
-    ja: "ウンデカナッチ数列"
+    ja: "ウンデカナッチ数列を作成"
   },
   makeDodecanacciSequence: {
-    ja: "ドデカナッチ数列"
+    ja: "ドデカナッチ数列を作成"
   },
   makeIcosanacciSequence: {
-    ja: "イコサナッチ数列"
+    ja: "イコサナッチ数列を作成"
   },
   summation: {
     ja: "総和"
