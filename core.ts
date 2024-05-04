@@ -35,6 +35,13 @@ const isNumber = function(n): Boolean{
   return false;
 };
 
+const isSuuNumber = function(n): Boolean{
+  if(n.is_num_array){
+    return true;
+  }
+  return false;
+};
+
 core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Error {
   if(!array){
     return core.makeError({ message: "Array is not exists", patameter: array});
