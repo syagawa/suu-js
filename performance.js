@@ -2,7 +2,7 @@ const app = require("./app.js");
 
 let counter = 0;
 
-const func1 = function(){
+const addSuu = function(){
 
   for(let i = 0; i < 100; i++){
     app.core.add("1", "1");
@@ -10,7 +10,7 @@ const func1 = function(){
 
 };
 
-const func2 = function(){
+const addNative = function(){
 
   for(let i = 0; i < 100; i++){
     1 + 1;
@@ -18,9 +18,9 @@ const func2 = function(){
 
 };
 
-const execute = function(func){
+const execute = function(func, name){
   counter++;
-  const id = `test-${String(counter)}`;
+  const id = `${name}-${String(counter)}`;
   performance.mark("testStart");
   func();
   performance.mark("testEnd");
@@ -38,8 +38,12 @@ const execute = function(func){
 
 const main = function(){
 
-  execute(func1);
-  execute(func2);
+  execute(addSuu, "addSuu");
+  execute(addNative, "addNative");
+
+
+
+
 
 };
 
