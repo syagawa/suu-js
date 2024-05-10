@@ -5,27 +5,39 @@ let counter = 0;
 const funcs = {
 
   "add": {
-    "suu":  function(){
-      for(let i = 0; i < 100; i++){
+    "suu":  function(loopCount){
+      for(let i = 0; i < loopCount; i++){
         app.core.add("1", "1");
       }
     },
-    "native": function(){
-  
-      for(let i = 0; i < 100; i++){
+    "native": function(loopCount){
+      for(let i = 0; i < loopCount; i++){
         1 + 1;
       }
     },
-  }
+  },
+  "subtract": {
+    "suu":  function(loopCount){
+      for(let i = 0; i < loopCount; i++){
+        app.core.subtract("1", "1");
+      }
+    },
+    "native": function(loopCount){
+      for(let i = 0; i < loopCount; i++){
+        1 - 1;
+      }
+    },
+  },
 };
 
 
 
 const execute = function(func, name){
   counter++;
-  const id = name;
+  const loopCount = 100;
+  const id = `${name}-loop_count_${String(loopCount)}`;
   performance.mark("testStart");
-  func();
+  func(loopCount);
   performance.mark("testEnd");
 
   performance.measure(
