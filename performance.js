@@ -23,7 +23,7 @@ const funcs = {
 
 const execute = function(func, name){
   counter++;
-  const id = `${name}-${String(counter)}`;
+  const id = name;
   performance.mark("testStart");
   func();
   performance.mark("testEnd");
