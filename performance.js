@@ -41,9 +41,6 @@ const execute = function(func, name){
 
 const main = function(obj){
 
-  execute(addSuu, "addSuu");
-  execute(addNative, "addNative");
-
   let count = 0;
   for(let targetname in obj){
     const target = obj[targetname];
