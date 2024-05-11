@@ -48,7 +48,7 @@ const execute = function(func, name){
 
   const results = performance.getEntriesByName(id);
 
-  console.log(results[0]);
+  console.log(`${results[0].name}: ${results[0].duration}ms`);
 };
 
 const main = function(obj){
