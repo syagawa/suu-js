@@ -40,6 +40,18 @@ const funcs = {
       }
     },
   },
+  "division": {
+    "suu":  function(loopCount){
+      for(let i = 0; i < loopCount; i++){
+        app.core.division("1", "1");
+      }
+    },
+    "native": function(loopCount){
+      for(let i = 0; i < loopCount; i++){
+        1 / 1;
+      }
+    },
+  },
 };
 
 
