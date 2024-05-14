@@ -5,50 +5,66 @@ let counter = 0;
 const funcs = {
 
   "add": {
-    "suu":  function(loopCount){
+    "suu":  function(a, b, loopCount){
+      const a_ = String(a);
+      const b_ = String(b);
       for(let i = 0; i < loopCount; i++){
-        app.core.add("1", "1");
+        app.core.add(a_, b_);
       }
     },
-    "native": function(loopCount){
+    "native": function(a, b, loopCount){
+      const a_ = Number(a);
+      const b_ = Number(b);
       for(let i = 0; i < loopCount; i++){
-        1 + 1;
+        a_ + b_;
       }
     },
   },
   "subtract": {
-    "suu":  function(loopCount){
+    "suu":  function(a, b, loopCount){
+      const a_ = String(a);
+      const b_ = String(b);
       for(let i = 0; i < loopCount; i++){
-        app.core.subtract("1", "1");
+        app.core.subtract(a_, b_);
       }
     },
-    "native": function(loopCount){
+    "native": function(a, b, loopCount){
+      const a_ = Number(a);
+      const b_ = Number(b);
       for(let i = 0; i < loopCount; i++){
-        1 - 1;
+        a_ + b_;
       }
     },
   },
   "multiplication": {
-    "suu":  function(loopCount){
+    "suu":  function(a, b, loopCount){
+      const a_ = String(a);
+      const b_ = String(b);
       for(let i = 0; i < loopCount; i++){
-        app.core.multiplication("1", "1");
+        app.core.multiplication(a_, b_);
       }
     },
-    "native": function(loopCount){
+    "native": function(a, b, loopCount){
+      const a_ = Number(a);
+      const b_ = Number(b);
       for(let i = 0; i < loopCount; i++){
-        1 * 1;
+        a_ * b_;
       }
     },
   },
   "division": {
-    "suu":  function(loopCount){
+    "suu":  function(a, b, loopCount){
+      const a_ = String(a);
+      const b_ = String(b);
       for(let i = 0; i < loopCount; i++){
-        app.core.division("1", "1");
+        app.core.division(a_, b_);
       }
     },
-    "native": function(loopCount){
+    "native": function(a, b, loopCount){
+      const a_ = Number(a);
+      const b_ = Number(b);
       for(let i = 0; i < loopCount; i++){
-        1 / 1;
+        a_ / b_;
       }
     },
   },
@@ -60,8 +76,10 @@ const execute = function(func, name){
   counter++;
   const loopCount = 100;
   const id = `${name}-loop_count_${String(loopCount)}`;
+  const a = 1;
+  const b = 1;
   performance.mark("testStart");
-  func(loopCount);
+  func(a, b, loopCount);
   performance.mark("testEnd");
 
   performance.measure(
