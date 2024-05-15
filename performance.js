@@ -72,12 +72,10 @@ const funcs = {
 
 
 
-const execute = function(func, name){
+const execute = function({func, name, a, b}){
   counter++;
   const loopCount = 100;
   const id = `${name}-loop_count_${String(loopCount)}`;
-  const a = 1;
-  const b = 1;
   performance.mark("testStart");
   func(a, b, loopCount);
   performance.mark("testEnd");
@@ -102,7 +100,7 @@ const main = function(obj){
       count++;
       const name = `${targetname}-${key}-${count}`;
       const func = target[key];
-      execute(func, name);
+      execute({func, name, a: "1", b: "1"});
     }
   }
 
