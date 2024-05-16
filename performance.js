@@ -93,6 +93,13 @@ const execute = function({func, name, a, b}){
 
 const main = function(obj){
 
+  const argv = process.argv;
+  const a_ = Number(process.argv[2]);
+  const b_ = Number(process.argv[3]);
+
+  const a = a_ ? String(a_) : "1";
+  const b = b_ ? String(b_) : "1";
+
   let count = 0;
   for(let targetname in obj){
     const target = obj[targetname];
@@ -100,7 +107,7 @@ const main = function(obj){
       count++;
       const name = `${targetname}-${key}-${count}`;
       const func = target[key];
-      execute({func, name, a: "1", b: "1"});
+      execute({func, name, a, b});
     }
   }
 
