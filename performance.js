@@ -93,9 +93,9 @@ const execute = function({func, name, a, b, loopCount}){
 const main = function(obj){
 
   const argv = process.argv;
-  const a_ = Number(process.argv[2]);
-  const b_ = Number(process.argv[3]);
-  const loopCount_ = Number(process.argv[4]);
+  const a_ = Number(argv[2]);
+  const b_ = Number(argv[3]);
+  const loopCount_ = Number(argv[4]);
 
   const a = a_ ? String(a_) : "1";
   const b = b_ ? String(b_) : "1";
