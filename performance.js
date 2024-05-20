@@ -70,6 +70,15 @@ const funcs = {
   },
 };
 
+const resutls = [];
+const showResults = function(results){
+
+  for(let i = 0; i < results.length; i++){
+    const result = results[i];
+    console.log(`${result.name}: ${result.duration}ms`);
+  }
+
+};
 
 
 const execute = function({func, name, a, b, loopCount}){
@@ -85,9 +94,10 @@ const execute = function({func, name, a, b, loopCount}){
     "testEnd",
   );
 
-  const results = performance.getEntriesByName(id);
+  const result = performance.getEntriesByName(id);
 
-  console.log(`${results[0].name}: ${results[0].duration}ms`);
+  results.push(result[0]);
+  // console.log(`${result[0].name}: ${result[0].duration}ms`);
 };
 
 const main = function(obj){
@@ -113,6 +123,7 @@ const main = function(obj){
     }
   }
 
+  showResults(results);
 
 };
 
