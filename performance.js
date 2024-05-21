@@ -78,6 +78,25 @@ const showResults = function(results){
     console.log(`${result.name}: ${result.duration}ms`);
   }
 
+  const results2 = [...results];
+
+  results2.sort((a, b) => {
+    const a_d = a.duration;
+    const b_d = b.duration;
+    if(a_d > b_d){
+      return 1;
+    }else if(a_d < b_d){
+      return -1;
+    }else{
+      return 0;
+    }
+  });
+
+  for(let i = 0; i < results2.length; i++){
+    const result = results2[i];
+    console.log(`${i + 1} ${result.name}: ${result.duration}ms`);
+  }
+
 };
 
 
