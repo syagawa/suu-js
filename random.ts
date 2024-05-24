@@ -4,8 +4,13 @@ import { SuuNumber } from "./interfaces";
 
 const random:any = {};
 
-random.getNotRandom = (n: any) => {
-    return n;
+random.getNotRandom = (seed: any) => {
+  return seed;
 };
+
+random.getRandomNumber = (seed: any) => {
+  
+};
+  
 
 export default random;
