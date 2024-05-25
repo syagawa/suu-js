@@ -70,7 +70,7 @@ const funcs = {
   },
 };
 
-const resutls = [];
+const results = [];
 const showResults = function(results){
 
   for(let i = 0; i < results.length; i++){
