@@ -9,8 +9,8 @@ random.getNotRandom = (seed: any) => {
 };
 
 random.getRandomNumber = (seed: any) => {
-  
+  return Math.random();
 };
-  
+
 
 export default random;
