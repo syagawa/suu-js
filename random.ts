@@ -9,7 +9,8 @@ random.getNotRandom = (seed: any) => {
 };
 
 random.getRandomNumber = (seed: any) => {
-  return Math.random();
+  const num = Math.random();
+  return core.getSuuNumber(num);
 };
 
 
