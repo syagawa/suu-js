@@ -4,8 +4,8 @@ import { SuuNumber } from "./interfaces";
 
 const random:any = {};
 
-random.getNotRandom = (seed: any) => {
-  return seed;
+random.getNotRandomNumber = () => {
+  return core.numToArrayWithDecimal("1");
 };
 
 random.getRandomNumber = (seed: any) => {
