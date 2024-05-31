@@ -26,5 +26,16 @@ random.getRandomNumberByMiddleSquareMethod = () => {
   return secondnum;
 };
 
+random.getRandomNumberByLinearCongruentialGenerators = () => {
+  const a = core.getSuuNumber("3");
+  const b = core.getSuuNumber("5");
+  const m = core.getSuuNumber("13");
+  const seed = core.getSuuNumber("8");
+  // (a x seed + b) mod m
+  const res1 = core.multiple(a, seed);
+  const res2 = core.add(res1, b);
+  const res3 = core.modulo(res2, m);
+  return res3;
+};
 
 export default random;
