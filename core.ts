@@ -1064,7 +1064,7 @@ core.modulo = function(a, b): SuuNumber | Error | string {
 };
 
 core.getSuuNumber = (n: any) => {
-  return core.numToArrayWithDecimal(a);
+  return core.numToArrayWithDecimal(n);
 }
 
 export default core;
