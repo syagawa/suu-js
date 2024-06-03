@@ -14,9 +14,14 @@ random.getRandomNumber = (seed: any) => {
   return core.getSuuNumber(num);
 };
 
-random.getRandomNumberByMiddleSquareMethod = () => {
-  const seed = "1234";
-  const first = core.getSuuNumber(seed);
+random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
+  let first = null;
+  if(seed){
+    first = core.getSuuNumber(seed);
+  }else{
+    seed = "1234";
+    first = core.getSuuNumber(seed);
+  }
   const res = utils.square(first);
   let second = res.array.slice(2, 6).join("");
   if(res.array.length === 7){
