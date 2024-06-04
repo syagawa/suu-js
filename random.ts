@@ -5,8 +5,11 @@ import { SuuNumber } from "./interfaces";
 
 const random:any = {};
 
-random.getNotRandomNumber = () => {
-  return core.getSuuNumber("1");
+random.getNotRandomNumber = (seed: any) => {
+  if(!seed){
+    return core.getSuuNumber("1");
+  }
+  return core.getSuuNumber(seed);
 };
 
 random.getRandomNumber = (seed: any) => {
