@@ -5,10 +5,15 @@ import { SuuNumber } from "./interfaces";
 
 const random:any = {};
 
+const seeds:any = {};
+
 random.getNotRandomNumber = (seed: any) => {
-  if(!seed){
-    return core.getSuuNumber("1");
+  const mayName = "getNotRandomNumber";
+  let storedSeed = seeds[mayName];
+  if(!storedSeed && !seed){
+    seed = "1";
   }
+  seeds[mayName] = seed;
   return core.getSuuNumber(seed);
 };
 
