@@ -9,12 +9,19 @@ const seeds:any = {};
 
 random.getNotRandomNumber = (seed: any) => {
   const mayName = "getNotRandomNumber";
-  let storedSeed = seeds[mayName];
-  if(!storedSeed && !seed){
-    seed = "1";
+  if(!seeds[mayName]){
+    if(!seed){
+      seed = "1";
+    }
+    seeds[mayName] = seed;
   }
-  seeds[mayName] = seed;
-  return core.getSuuNumber(seed);
+  if(seed){
+    seeds[mayName] = seed;
+  }
+
+  const storedSeed = seeds[mayName];
+
+  return core.getSuuNumber(storedSeed);
 };
 
 random.getRandomNumber = (seed: any) => {
