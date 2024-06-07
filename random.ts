@@ -9,18 +9,15 @@ const seeds:any = {};
 
 random.getNotRandomNumber = (seed: any) => {
   const mayName = "getNotRandomNumber";
-  if(!seeds[mayName]){
-    if(!seed){
-      seed = "1";
-    }
-    seeds[mayName] = seed;
-  }
   if(seed){
     seeds[mayName] = seed;
+  }else{
+    seed = seeds[mayName];
+    if(!seed){
+      throw new Error("Require seed parameter");
+    }
   }
-
   const storedSeed = seeds[mayName];
-
   return core.getSuuNumber(storedSeed);
 };
 
