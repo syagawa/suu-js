@@ -37,12 +37,9 @@ random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
       throw new Error("Require seed parameter");
     }
   }
-  let storedSeed = seeds[mayName];
-  if(!storedSeed){
-    seeds[mayName] = "1234";
-    storedSeed = seeds[myName];
+  const storedSeed = seeds[mayName];
+  // seeds[mayName] = "1234";
 
-  }
   first = core.getSuuNumber(storedSeed);
   const res = utils.square(first);
   let second = res.array.slice(2, 6).join("");
