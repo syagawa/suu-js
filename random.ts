@@ -7,6 +7,21 @@ const random:any = {};
 
 const seeds:any = {};
 
+const getAndSetSeed = (seed: any, name: string) => {
+  const storedSeed = seeds[name];
+  
+  if(seed){
+    seeds[name] = seed;
+  }else{
+    seed = seeds[name];
+    if(!seed){
+      throw new Error("Require seed parameter");
+    }
+  }
+
+  return seed;
+};
+
 random.getNotRandomNumber = (seed: any) => {
   const mayName = "getNotRandomNumber";
   if(seed){
