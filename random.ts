@@ -8,15 +8,11 @@ const random:any = {};
 const seeds:any = {};
 
 const getAndSetSeed = (seed: any, name: string) => {
-  const storedSeed = seeds[name];
-  
+ 
   if(seed){
     seeds[name] = seed;
   }else{
     seed = seeds[name];
-    if(!seed){
-      throw new Error("Require seed parameter");
-    }
   }
 
   return seed;
@@ -24,15 +20,11 @@ const getAndSetSeed = (seed: any, name: string) => {
 
 random.getNotRandomNumber = (seed: any) => {
   const mayName = "getNotRandomNumber";
-  if(seed){
-    seeds[mayName] = seed;
-  }else{
-    seed = seeds[mayName];
-    if(!seed){
-      throw new Error("Require seed parameter");
-    }
+  const storedSeed = getAndSetSeed(seed);
+  if(!storedSeed){
+    throw new Error("Require seed parameter");
   }
-  const storedSeed = seeds[mayName];
+
   return core.getSuuNumber(storedSeed);
 };
 
