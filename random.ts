@@ -19,8 +19,8 @@ const getAndSetSeed = (seed: any, name: string) => {
 };
 
 random.getNotRandomNumber = (seed: any) => {
-  const mayName = "getNotRandomNumber";
-  const storedSeed = getAndSetSeed(seed);
+  const myName = "getNotRandomNumber";
+  const storedSeed = getAndSetSeed(seed, myName);
   if(!storedSeed){
     throw new Error("Require seed parameter");
   }
@@ -37,14 +37,14 @@ random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
   const myName = "getRandomNumberByMiddleSquareMethod";
   let first = null;
   if(seed){
-    seeds[mayName] = seed;
+    seeds[myName] = seed;
   }else{
-    seed = seeds[mayName];
+    seed = seeds[myName];
     if(!seed){
       throw new Error("Require seed parameter");
     }
   }
-  const storedSeed = seeds[mayName];
+  const storedSeed = seeds[myName];
   // seeds[mayName] = "1234";
 
   first = core.getSuuNumber(storedSeed);
