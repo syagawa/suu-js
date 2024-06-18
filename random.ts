@@ -42,6 +42,7 @@ random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
     second = res.array.slice(1, 5).join("");
   }
   const secondnum = core.getSuuNumber(second);
+  getAndSetSeed(second, myName);
   return secondnum;
 };
 
