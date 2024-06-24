@@ -60,4 +60,8 @@ random.getRandomNumberByLinearCongruentialGenerators = () => {
   return res3;
 };
 
+random.getRandomNumberByLinearFeedbackShiftRegister = () => {
+
+};
+
 export default random;
