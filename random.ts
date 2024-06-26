@@ -18,6 +18,12 @@ const getAndSetSeed = (seed: any, name: string) => {
   return seed;
 };
 
+let register = 0x1111
+const lfsr = (seed: any) => {
+
+}
+
+
 random.getNotRandomNumber = (seed: any) => {
   const myName = "getNotRandomNumber";
   const storedSeed = getAndSetSeed(seed, myName);
