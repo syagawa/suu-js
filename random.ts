@@ -18,9 +18,11 @@ const getAndSetSeed = (seed: any, name: string) => {
   return seed;
 };
 
-let register = 0x1111
+let register = 0x1111;
 const lfsr = (seed: any) => {
-
+  if(seed){
+    register = 0xffff & seed;
+  }
 }
 
 
