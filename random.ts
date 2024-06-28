@@ -19,10 +19,12 @@ const getAndSetSeed = (seed: any, name: string) => {
 };
 
 let register = 0x1111;
-const lfsr = (seed: any) => {
+const lfsr = (seed: number) => {
   if(seed){
     register = 0xffff & seed;
   }
+  let bit = seed & 0xffff;
+
 }
 
 
