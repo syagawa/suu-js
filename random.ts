@@ -62,9 +62,9 @@ random.getRandomNumberByLinearCongruentialGenerators = (seed: any) => {
   const b = core.getSuuNumber("5");
   const m = core.getSuuNumber("13");
   const storedSeed = getAndSetSeed(seed, myName);
-  const seed = core.getSuuNumber(storedSeed ? storedSeed : "8");
+  const new_seed = core.getSuuNumber(storedSeed ? storedSeed : "8");
   // (a x seed + b) mod m
-  const res1 = core.multiple(a, seed);
+  const res1 = core.multiple(a, new_seed);
   const res2 = core.add(res1, b);
   const res3 = core.modulo(res2, m);
   return res3;
