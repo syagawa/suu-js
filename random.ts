@@ -20,10 +20,25 @@ const getAndSetSeed = (seed: any, name: string) => {
 
 let register = 0x1111;
 const lfsr = (seed: number) => {
+
+  console.log("register", register.toString(2))
+  
   if(seed){
+    console.log("seed", seed.toString(2))
     register = 0xffff & seed;
+    console.log("register", register.toString(2))
   }
   let bit = seed & 0xffff;
+  console.log("bit", bit.toString(2))
+  bit = (register & 0x0001) ^
+    ((register & 0x0004) >> 2) ^
+    ((register & 0x0008) >> 3) ^
+    ((register & 0x0020) >> 5);
+  console.log("bit", bit.toString(2))
+  
+  register = (register >> 1) | (bit << 15);
+  console.log("register", seed.toString(2))
+  return register;
 
 }
 
