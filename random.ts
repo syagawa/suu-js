@@ -30,6 +30,10 @@ const lfsr = (seed: number) => {
   }
   let bit = seed & 0xffff;
   console.log("bit", bit.toString(2))
+  const res1 = (register & 0x0001);
+  console.log("res1", res1.toString(2))
+  const res2 = res1 ^ ((register & 0x0004) >> 2);
+  console.log("res2", res2.toString(2))
   bit = (register & 0x0001) ^
     ((register & 0x0004) >> 2) ^
     ((register & 0x0008) >> 3) ^
