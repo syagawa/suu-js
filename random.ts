@@ -34,11 +34,15 @@ const lfsr = (seed: number) => {
   console.log("res1", res1.toString(2))
   const res2 = res1 ^ ((register & 0x0004) >> 2);
   console.log("res2", res2.toString(2))
-  bit = (register & 0x0001) ^
-    ((register & 0x0004) >> 2) ^
-    ((register & 0x0008) >> 3) ^
-    ((register & 0x0020) >> 5);
-  console.log("bit", bit.toString(2))
+  const res3 = res2 ^ ((register & 0x0008) >> 3);
+  console.log("res3", res3.toString(2))
+  const res4 = res3 ^ ((register & 0x0020) >> 5);
+  console.log("res4", res4.toString(2))
+  // bit = (register & 0x0001) ^
+  //   ((register & 0x0004) >> 2) ^
+  //   ((register & 0x0008) >> 3) ^
+  //   ((register & 0x0020) >> 5);
+  // console.log("bit", bit.toString(2))
   
   register = (register >> 1) | (bit << 15);
   console.log("register", seed.toString(2))
