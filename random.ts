@@ -45,7 +45,7 @@ const lfsr = (seed: number) => {
   // console.log("bit", bit.toString(2))
 
   register = (register >> 1) | (bit << 15);
-  console.log("register", seed.toString(2))
+  // console.log("register", seed.toString(2))
   return {register, bit};
 
 }
