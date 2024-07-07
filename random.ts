@@ -18,35 +18,45 @@ const getAndSetSeed = (seed: any, name: string) => {
   return seed;
 };
 
-let register = 0x1111;
-const lfsr = (seed: number) => {
+let register1 = 0x1111;
+let register2 = 0x1111;
+const lfsr = (seed) => {
 
-  console.log("register", register.toString(2))
+  console.log("register", register1.toString(2))
   
   if(seed){
     console.log("seed", seed.toString(2))
-    register = 0xffff & seed;
-    console.log("register", register.toString(2))
+    register1 = 0xffff & seed;
+    register2 = 0xffff & seed;
+    console.log("register1", register1.toString(2))
+    console.log("register2", register2.toString(2))
   }
-  let bit = seed & 0xffff;
-  console.log("bit", bit.toString(2))
-  const res1 = (register & 0x0001);
+  let bit1 = seed & 0xffff;
+  let bit2 = seed & 0xffff;
+  console.log("bit", bit1.toString(2))
+  const res1 = (register1 & 0x0001);
   console.log("res1", res1.toString(2))
-  const res2 = res1 ^ ((register & 0x0004) >> 2);
+  const res2 = res1 ^ ((register1 & 0x0004) >> 2);
   console.log("res2", res2.toString(2))
-  const res3 = res2 ^ ((register & 0x0008) >> 3);
+  const res3 = res2 ^ ((register1 & 0x0008) >> 3);
   console.log("res3", res3.toString(2))
-  bit = res3 ^ ((register & 0x0020) >> 5);
-  console.log("bit", bit.toString(2))
-  // bit = (register & 0x0001) ^
-  //   ((register & 0x0004) >> 2) ^
-  //   ((register & 0x0008) >> 3) ^
-  //   ((register & 0x0020) >> 5);
+  bit1 = res3 ^ ((register1 & 0x0020) >> 5);
+  console.log("bit", bit1.toString(2))
+  bit2 = (register2 & 0x0001) ^
+    ((register2 & 0x0004) >> 2) ^
+    ((register2 & 0x0008) >> 3) ^
+    ((register2 & 0x0020) >> 5);
   // console.log("bit", bit.toString(2))
 
-  register = (register >> 1) | (bit << 15);
+  register1 = (register1 >> 1) | (bit1 << 15);
+  register2 = (register2 >> 1) | (bit2 << 15);
   // console.log("register", seed.toString(2))
-  return {register, bit};
+  return {
+    register1: register1,
+    register2: register2,
+    bit1: bit1,
+    bit2: bit2
+  };
 
 }
 
