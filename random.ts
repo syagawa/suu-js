@@ -109,9 +109,8 @@ random.getRandomNumberByLinearFeedbackShiftRegister = (seed) => {
   console.log("register", register.toString(2))
   
   const storedSeed = getAndSetSeed();
-  if(storedSeed){
-    seed = storedSeed;
-  }else if(seed){
+
+  if(!storedSeed && seed){
     seed = getAndSetSeed(seed);
     console.log("seed", seed.toString(2))
     register = 0xffff & seed;
