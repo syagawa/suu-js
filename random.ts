@@ -106,12 +106,13 @@ random.getRandomNumberByLinearCongruentialGenerators = (seed: any) => {
 let register = 0x1111;
 random.getRandomNumberByLinearFeedbackShiftRegister = (seed) => {
 
+  const myName = "getRandomNumberByLinearFeedbackShiftRegister";
   console.log("register", register.toString(2))
   
-  const storedSeed = getAndSetSeed();
+  const storedSeed = getAndSetSeed(null, myName);
 
   if(!storedSeed && seed){
-    seed = getAndSetSeed(seed);
+    seed = getAndSetSeed(seed, myName);
     console.log("seed", seed.toString(2))
     register = 0xffff & seed;
     console.log("register1", register.toString(2))
