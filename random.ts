@@ -128,6 +128,9 @@ random.getRandomNumberByLinearFeedbackShiftRegister = (seed) => {
   bit = res3 ^ ((register & 0x0020) >> 5);
   console.log("bit", bit.toString(2))
   register = (register >> 1) | (bit << 15);
+
+  getOrSetSeed(register, myName);
+
   return register;
   
 };
