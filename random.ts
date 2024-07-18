@@ -7,6 +7,10 @@ const random:any = {};
 
 const seeds:any = {};
 
+const getSeed = (name: string) => {
+  return seeds[name];
+};
+
 const getOrSetSeed = (seed: any, name: string) => {
  
   if(seed){
