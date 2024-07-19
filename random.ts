@@ -11,6 +11,10 @@ const getSeed = (name: string) => {
   return seeds[name];
 };
 
+const setSeed = (seed: any, name: string) => {
+  seeds[name] = seed;
+};
+
 const getOrSetSeed = (seed: any, name: string) => {
  
   if(seed){
