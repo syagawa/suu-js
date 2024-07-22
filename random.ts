@@ -85,7 +85,7 @@ random.getRandomNumber = (seed: any) => {
 
 random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
   const myName = "getRandomNumberByMiddleSquareMethod";
-  const storedSeed = getOrSetSeed(null, myName);
+  const storedSeed = getSeed(myName);
   const first = core.getSuuNumber(storedSeed ? storedSeed : "1234");
   const res = utils.square(first);
   let second = res.array.slice(2, 6).join("");
@@ -93,7 +93,7 @@ random.getRandomNumberByMiddleSquareMethod = (seed: any) => {
     second = res.array.slice(1, 5).join("");
   }
   const secondnum = core.getSuuNumber(second);
-  getOrSetSeed(second, myName);
+  setSeed(second, myName);
   return secondnum;
 };
 
