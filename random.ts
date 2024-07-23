@@ -71,10 +71,11 @@ const lfsr = (seed) => {
 
 random.getNotRandomNumber = (seed: any) => {
   const myName = "getNotRandomNumber";
-  const storedSeed = getOrSetSeed(seed, myName);
+  const storedSeed = getSeed(myName);
   if(!storedSeed){
     throw new Error("Require seed parameter");
   }
+  setSeed(storedSeed, myName);
   return core.getSuuNumber(storedSeed);
 };
 
