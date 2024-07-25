@@ -104,6 +104,9 @@ const map: object = {
   getReverse: {
     ja: "数の逆順の取得"
   },
+  getRandomNumberByLinearCongruentialGenerators: {
+    ja: "線形合同法での疑似乱数取得"
+  },
   getRandomNumberByMiddleSquareMethod: {
     ja: "平方採中法での疑似乱数取得"
   },
