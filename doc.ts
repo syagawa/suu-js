@@ -110,6 +110,9 @@ const map: object = {
   getRandomNumberByMiddleSquareMethod: {
     ja: "平方採中法での疑似乱数取得"
   },
+  getRandomNumberByLinearFeedbackShiftRegister: {
+    ja: "線形帰還シフトレジスタによる疑似乱数取得"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
