@@ -901,6 +901,18 @@ utils.isRepunitNumber = function(n){
   return res;
 };
 
+utils.isSafePrimeNumber = function(n){
+  const sp = utils.getNumber(n);
+  const sg1 = core.subtract(sp, "1");
+  const sg = core.division(sg1, "2");
+
+  if(utils.isPrimeNumber(sp) && utils.isPrimeNumber(sg)){
+    return true;
+  }
+  return false;
+
+};
+
 const sort = function(array: [], order?: "asc" | "desc"){
 
   const new_arr = [...array];
