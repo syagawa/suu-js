@@ -901,6 +901,18 @@ utils.isRepunitNumber = function(n){
   return res;
 };
 
+utils.isSophieGermainPrime = function(n){
+  const num = utils.getNumber(n);
+  const sp1 = core.multiple(num, "2");
+  const sp2 = core.add(sp1, "1");
+
+  if(utils.isPrimeNumber(num) && utils.isPrimeNumber(sp2)){
+    return true;
+  }
+  return false;
+
+};
+
 utils.isSafePrimeNumber = function(n){
   const sp = utils.getNumber(n);
   const sg1 = core.subtract(sp, "1");
