@@ -901,6 +901,25 @@ utils.isRepunitNumber = function(n){
   return res;
 };
 
+const makeSophieGermanPrimeAndSafePrimeNumber = function(n){
+  const num = utils.getNumber(n);
+  const sp1 = core.multiple(num, "2");
+  const sp2 = core.add(sp1, "1");
+
+  if(utils.isPrimeNumber(num) && utils.isPrimeNumber(sp2)){
+    return {
+      ...res,
+      sophieGermainPrime: num,
+      safePrime: sp2,
+    };
+  }
+  return {
+    sophieGermainPrime: null,
+    safePrime: null,
+  };;
+
+};
+
 utils.isSophieGermainPrime = function(n){
   const num = utils.getNumber(n);
   const sp1 = core.multiple(num, "2");
@@ -910,7 +929,6 @@ utils.isSophieGermainPrime = function(n){
     return true;
   }
   return false;
-
 };
 
 utils.isSafePrimeNumber = function(n){
