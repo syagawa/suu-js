@@ -902,15 +902,15 @@ utils.isRepunitNumber = function(n){
 };
 
 const makeSophieGermanPrimeAndSafePrimeNumber = function(n){
-  const num = utils.getNumber(n);
-  const sp1 = core.multiple(num, "2");
-  const sp2 = core.add(sp1, "1");
+  const safe_prime_expected = utils.getNumber(n);
+  const num1 = core.multiple(safe_prime_expected, "2");
+  const sophie_german_expected = core.add(num1, "1");
 
-  if(utils.isPrimeNumber(num) && utils.isPrimeNumber(sp2)){
+  if(utils.isPrimeNumber(safe_prime_expected) && utils.isPrimeNumber(sophie_german_expected)){
     return {
       ...res,
-      sophieGermainPrime: num,
-      safePrime: sp2,
+      sophieGermainPrime: safe_prime_expected,
+      safePrime: sophie_german_expected,
     };
   }
   return {
