@@ -921,22 +921,21 @@ const makeSophieGermanPrimeAndSafePrimeNumber = function(n){
 };
 
 utils.isSophieGermainPrime = function(n){
-  const num = utils.getNumber(n);
-  const sp1 = core.multiple(num, "2");
-  const sp2 = core.add(sp1, "1");
+  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrimeNumber(n);
 
-  if(utils.isPrimeNumber(num) && utils.isPrimeNumber(sp2)){
+  if(sophieGermainPrime && safePrime){
     return true;
   }
   return false;
 };
 
 utils.isSafePrimeNumber = function(n){
-  const sp = utils.getNumber(n);
-  const sg1 = core.subtract(sp, "1");
-  const sg = core.division(sg1, "2");
+  const num1 = utils.getNumber(n);
+  const num2 = core.subtract(num1, "1");
+  const num3 = core.division(num2, "2");
+  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrimeNumber(num3);
 
-  if(utils.isPrimeNumber(sp) && utils.isPrimeNumber(sg)){
+  if(sophieGermainPrime && safePrime){
     return true;
   }
   return false;
