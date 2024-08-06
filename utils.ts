@@ -901,7 +901,7 @@ utils.isRepunitNumber = function(n){
   return res;
 };
 
-const makeSophieGermanPrimeAndSafePrimeNumber = function(n){
+const makeSophieGermanPrimeAndSafePrime = function(n){
   const safe_prime_expected = utils.getNumber(n);
   const num1 = core.multiple(safe_prime_expected, "2");
   const sophie_german_expected = core.add(num1, "1");
@@ -916,12 +916,12 @@ const makeSophieGermanPrimeAndSafePrimeNumber = function(n){
   return {
     sophieGermainPrime: null,
     safePrime: null,
-  };;
+  };
 
 };
 
 utils.isSophieGermainPrime = function(n){
-  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrimeNumber(n);
+  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrime(n);
 
   if(sophieGermainPrime && safePrime){
     return true;
@@ -929,11 +929,11 @@ utils.isSophieGermainPrime = function(n){
   return false;
 };
 
-utils.isSafePrimeNumber = function(n){
+utils.isSafePrime = function(n){
   const num1 = utils.getNumber(n);
   const num2 = core.subtract(num1, "1");
   const num3 = core.division(num2, "2");
-  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrimeNumber(num3);
+  const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrime(num3);
 
   if(sophieGermainPrime && safePrime){
     return true;
