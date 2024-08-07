@@ -922,7 +922,6 @@ const makeSophieGermanPrimeAndSafePrime = function(n){
 
 utils.isSophieGermainPrime = function(n){
   const { sophieGermainPrime, safePrime } = makeSophieGermanPrimeAndSafePrime(n);
-
   if(sophieGermainPrime && safePrime){
     return true;
   }

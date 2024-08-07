@@ -112,7 +112,11 @@ const map: object = {
   },
   getRandomNumberByLinearFeedbackShiftRegister: {
     ja: "線形帰還シフトレジスタによる疑似乱数取得"
+  },
+  isSophieGermainPrime: {
+    ja: "ソフィージェルマン素数かどうか"
   }
+
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
