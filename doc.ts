@@ -115,6 +115,9 @@ const map: object = {
   },
   isSophieGermainPrime: {
     ja: "ソフィージェルマン素数かどうか"
+  },
+  isSafePrime: {
+    ja: "安全素数かどうか"
   }
 
 };
