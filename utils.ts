@@ -908,7 +908,6 @@ const makeSophieGermanPrimeAndSafePrime = function(n){
 
   if(utils.isPrimeNumber(safe_prime_expected) && utils.isPrimeNumber(sophie_german_expected)){
     return {
-      ...res,
       sophieGermainPrime: safe_prime_expected,
       safePrime: sophie_german_expected,
     };
