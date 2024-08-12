@@ -1068,10 +1068,10 @@ utils.getReverse = function(n){
 utils.getFermatNumber = function(n){
   const num = utils.getNumber(n);
   const base = utils.getNumber("2");
-  const ex = utils.exponent(base, num);
+  const ex = utils.exponentiate(base, num);
   const one = utils.getOne();
-  const res1 = utils.exponent(base, ex);
-  const res2 = utils.add(res1, one);
+  const res1 = utils.exponentiate(base, ex);
+  const res2 = core.add(res1, one);
   return res2;
 };
 
