@@ -1075,4 +1075,19 @@ utils.getFermatNumber = function(n){
   return res2;
 };
 
+utils.isFermatNumber = function(n){
+  const num = utils.getNumber(n);
+  let count = 0;
+  const max = 5;
+  let bool = false;
+  for(let i = 0; i < max; i++){
+    const f = utils.getFermatNumber(`${i}`);
+    if(utils.isEqual(f, num)){
+      bool = true;
+      break;
+    }
+  }
+  return bool;
+};
+
 export default utils;
