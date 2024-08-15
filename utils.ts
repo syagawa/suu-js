@@ -1077,9 +1077,9 @@ utils.getFermatNumber = function(n){
 
 utils.isFermatNumber = function(n){
   const num = utils.getNumber(n);
-  const max = 5;
+  const max = 6;
   let bool = false;
-  for(let i = 0; i < max; i++){
+  for(let i = 0; i <= max; i++){
     const f = utils.getFermatNumber(`${i}`);
     if(utils.isEqual(f, num)){
       bool = true;
