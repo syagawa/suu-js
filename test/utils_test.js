@@ -2393,7 +2393,15 @@ describe("utils", function(){
       assert.equal(null, res);
     });
 
-  
+  });
+  describe("getFermatNumber", () => {
+    it("0 => 3", () =>{
+      const res = utils.getFermatNumber("0");
+      assert.equal("3", core.numArrayToString(res));
+    });
+
+
+
   });
 
 
