@@ -1089,4 +1089,13 @@ utils.isFermatNumber = function(n){
   return bool;
 };
 
+utils.isFermatPrime = function(n){
+  const num = utils.getNumber(n);
+  const max = 6;
+  if(utils.isFermatNumber(num) && utils.isPrimeNumber){
+    return true
+  }
+  return false;
+};
+
 export default utils;
