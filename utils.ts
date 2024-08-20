@@ -1091,7 +1091,6 @@ utils.isFermatNumber = function(n){
 
 utils.isFermatPrime = function(n){
   const num = utils.getNumber(n);
-  const max = 6;
   if(utils.isFermatNumber(num) && utils.isPrimeNumber){
     return true
   }
