@@ -2399,9 +2399,15 @@ describe("utils", function(){
       const res = utils.getFermatNumber("0");
       assert.equal("3", core.numArrayToString(res));
     });
+
     it("1 => 5", () =>{
       const res = utils.getFermatNumber("1");
       assert.equal("5", core.numArrayToString(res));
+    });
+
+    it("2 => 17", () =>{
+      const res = utils.getFermatNumber("2");
+      assert.equal("17", core.numArrayToString(res));
     });
 
 
