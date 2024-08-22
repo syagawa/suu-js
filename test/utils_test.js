@@ -2394,6 +2394,7 @@ describe("utils", function(){
     });
 
   });
+ 
   describe("getFermatNumber", () => {
     it("0 => 3", () =>{
       const res = utils.getFermatNumber("0");
@@ -2410,7 +2411,13 @@ describe("utils", function(){
       assert.equal("17", core.numArrayToString(res));
     });
 
+  });
 
+  describe("isFermatNumber", () => {
+    it("0 => false", () =>{
+      const res = utils.isFermatNumber("0");
+      assert.equal(res, false);
+    });
   });
 
 
