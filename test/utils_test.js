@@ -2418,6 +2418,21 @@ describe("utils", function(){
       const res = utils.isFermatNumber("0");
       assert.equal(res, false);
     });
+
+    it("1 => false", () =>{
+      const res = utils.isFermatNumber("1");
+      assert.equal(res, false);
+    });
+
+    it("2 => false", () =>{
+      const res = utils.isFermatNumber("2");
+      assert.equal(res, false);
+    });
+
+    it("3 => true", () =>{
+      const res = utils.isFermatNumber("3");
+      assert.equal(res, true);
+    });
   });
 
 
