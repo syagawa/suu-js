@@ -2433,6 +2433,16 @@ describe("utils", function(){
       const res = utils.isFermatNumber("3");
       assert.equal(res, true);
     });
+
+    it("4 => false", () =>{
+      const res = utils.isFermatNumber("4");
+      assert.equal(res, false);
+    });
+
+    it("5 => true", () =>{
+      const res = utils.isFermatNumber("5");
+      assert.equal(res, true);
+    });
   });
 
 
