@@ -2443,6 +2443,11 @@ describe("utils", function(){
       const res = utils.isFermatNumber("5");
       assert.equal(res, true);
     });
+
+    it("6 => false", () =>{
+      const res = utils.isFermatNumber("6");
+      assert.equal(res, false);
+    });
   });
 
 
