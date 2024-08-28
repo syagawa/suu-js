@@ -1097,4 +1097,8 @@ utils.isFermatPrime = function(n){
   return false;
 };
 
+utils.getPierpontPrime = function(){
+
+};
+
 export default utils;
