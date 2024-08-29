@@ -1100,5 +1100,8 @@ utils.isFermatPrime = function(n){
 utils.getPierpontPrime = function(){
 
 };
+utils.isPierpontPrime = function(){
+
+};
 
 export default utils;
