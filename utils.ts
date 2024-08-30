@@ -1097,6 +1097,15 @@ utils.isFermatPrime = function(n){
   return false;
 };
 
+utils.cullenNumber = function(n){
+  const num = utils.getNumber(n);
+  const base = utils.getNumbera("2");
+  const ex = utils.exponentiate(base, num);
+  const res1 = utils.multiplication(num, ex);
+  const res2 = utils.add(res1, utils.getOne());
+  return res2;
+};
+
 utils.getPierpontPrime = function(){
 
 };
