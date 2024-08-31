@@ -1097,13 +1097,27 @@ utils.isFermatPrime = function(n){
   return false;
 };
 
-utils.cullenNumber = function(n){
+utils.getCullenNumber = function(n){
   const num = utils.getNumber(n);
   const base = utils.getNumbera("2");
   const ex = utils.exponentiate(base, num);
   const res1 = utils.multiplication(num, ex);
   const res2 = utils.add(res1, utils.getOne());
   return res2;
+};
+
+utils.isCullenNumber = function(n){
+  const num = utils.getNumber(n);
+  const max = 20;
+  let bool = false;
+  for(let i = 0; i <= max; i++){
+    const f = utils.getCullenNumber(`${i}`);
+    if(utils.isEqual(f, num)){
+      bool = true;
+      break;
+    }
+  }
+  return bool;
 };
 
 utils.getPierpontPrime = function(){
