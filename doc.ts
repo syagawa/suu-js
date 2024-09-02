@@ -118,6 +118,9 @@ const map: object = {
   },
   isSafePrime: {
     ja: "安全素数かどうか"
+  },
+  isCullenNumber: {
+    ja: "カレン数かどうか"
   }
 
 };
