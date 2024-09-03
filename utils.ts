@@ -1120,6 +1120,15 @@ utils.isCullenNumber = function(n){
   return bool;
 };
 
+utils.isCullenPrime = function(n){
+  const num = utils.getNumber(n);
+  let bool = false;
+  if(utils.isPrimeNumber(num) && utils.isCullenNumber(num)){
+    bool = true;
+  }
+  return bool;
+};
+
 utils.getPierpontPrime = function(){
 
 };
