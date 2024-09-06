@@ -1129,6 +1129,18 @@ utils.isCullenPrime = function(n){
   return bool;
 };
 
+utils.getProthNumber = function(n){
+  const num = utils.getNumber(n);
+
+  if(utils.isZero(num)){
+    return;
+  }
+  if(utils.isSmall(num, utils.getZero())){
+    return;
+  }
+
+};
+
 utils.getPierpontPrime = function(){
 
 };

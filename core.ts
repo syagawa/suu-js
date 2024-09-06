@@ -292,6 +292,7 @@ core.isEqual = function(a, b): boolean {
 core.isSmall = function(a, b): boolean {
   return core.isEqual(core.getSmall(a, b), a);
 };
+
 core.isLarge = function(a, b): boolean {
   return core.isEqual(core.getLarge(a, b), a);
 };
