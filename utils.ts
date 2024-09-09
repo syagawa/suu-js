@@ -1129,15 +1129,19 @@ utils.isCullenPrime = function(n){
   return bool;
 };
 
-utils.getProthNumber = function(n){
-  const num = utils.getNumber(n);
+utils.getProthNumber = function(k, n){
+  const k_num = utils.getNumber(k);
+  const n_num = utils.getNumber(n);
 
-  if(utils.isZero(num)){
+  if(utils.isZero(k_num) || utils.isZero(n_num)){
     return;
   }
-  if(utils.isSmall(num, utils.getZero())){
+  if(utils.isSmall(k_num, utils.getZero()) || utils.isSmall(n_num, utils.getZero())){
     return;
   }
+
+
+
 
 };
 
