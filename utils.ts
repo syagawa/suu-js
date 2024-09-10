@@ -1134,14 +1134,18 @@ utils.getProthNumber = function(k, n){
   const n_num = utils.getNumber(n);
 
   if(utils.isZero(k_num) || utils.isZero(n_num)){
-    return;
+    return null;
   }
   if(utils.isSmall(k_num, utils.getZero()) || utils.isSmall(n_num, utils.getZero())){
-    return;
+    return null;
+  }
+  if(utils.isInteger(k) || utils.isInteger(n)){
+    if(utils.isOddNumber(k)){
+      
+    }
   }
 
-
-
+  return null;
 
 };
 
