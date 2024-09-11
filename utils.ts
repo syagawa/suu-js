@@ -1139,9 +1139,14 @@ utils.getProthNumber = function(k, n){
   if(utils.isSmall(k_num, utils.getZero()) || utils.isSmall(n_num, utils.getZero())){
     return null;
   }
-  if(utils.isInteger(k) || utils.isInteger(n)){
-    if(utils.isOddNumber(k)){
-      
+  if(utils.isInteger(k_num) || utils.isInteger(n_num)){
+    if(utils.isOddNumber(k_num)){
+      const res1 = utils.exponentiate(utils.getNumber("2"), n_num);
+      if(utils.isLarge(res1, k_num)){
+        const res2 = utils.multiple(res1, k_num);
+        const res3 = utils.add(res2, utils.getOne());
+        return res3;
+      }
     }
   }
 
