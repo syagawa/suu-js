@@ -1139,6 +1139,7 @@ utils.getProthNumber = function(k, n){
   if(utils.isSmall(k_num, utils.getZero()) || utils.isSmall(n_num, utils.getZero())){
     return null;
   }
+
   if(utils.isInteger(k_num) || utils.isInteger(n_num)){
     if(utils.isOddNumber(k_num)){
       const res1 = utils.exponentiate(utils.getNumber("2"), n_num);
@@ -1152,6 +1153,10 @@ utils.getProthNumber = function(k, n){
 
   return null;
 
+};
+
+utils.makeProthNumbers = function(){
+  
 };
 
 utils.getPierpontPrime = function(){
