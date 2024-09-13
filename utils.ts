@@ -1102,7 +1102,7 @@ utils.getCullenNumber = function(n){
   const base = utils.getNumbera("2");
   const ex = utils.exponentiate(base, num);
   const res1 = utils.multiplication(num, ex);
-  const res2 = utils.add(res1, utils.getOne());
+  const res2 = core.add(res1, utils.getOne());
   return res2;
 };
 
@@ -1156,7 +1156,21 @@ utils.getProthNumber = function(k, n){
 };
 
 utils.makeProthNumbers = function(){
-  
+  const max = 10;
+  const list: any[] = [];
+
+  let k = utils.getNumber("1");
+  let n = utils.getNumber("1");
+  for(let i = 0; i < max; i++){
+    const res = utils.getProthNumber(k, n);
+    list.push(res);
+    if(utils.isEqual(k, n)){
+      n = core.add(n, utils.getOne());
+    }else{
+      k = core.add(k, utils.getOne());
+    }
+  }
+  return list;
 };
 
 utils.getPierpontPrime = function(){
