@@ -1172,6 +1172,8 @@ utils.makeProthNumbers = function(){
   }
   return list;
 };
+utils.isProthNumber = function(){
+};
 
 utils.getPierpontPrime = function(){
 
