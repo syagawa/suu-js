@@ -1172,7 +1172,16 @@ utils.makeProthNumbers = function(){
   }
   return list;
 };
-utils.isProthNumber = function(){
+utils.isProthNumber = function(n){
+  const num = utils.getNumber(n);
+  const list = utils.makeProthNumbers();
+  for(let i = 0; i < list.length; i++){
+    const p = list[i];
+    if(utils.isEqual(p, num)){
+      return true;
+    }
+  }
+  return false;
 };
 
 utils.getPierpontPrime = function(){
