@@ -1155,8 +1155,12 @@ utils.getProthNumber = function(k, n){
 
 };
 
-utils.makeProthNumbers = function(){
-  const max = 10;
+utils.makeProthNumbers = function(max){
+  if(!max){
+    max = 10;
+  }else if(max > 10){
+    max = 10;
+  }
   const list: any[] = [];
 
   let k = utils.getNumber("1");
@@ -1174,7 +1178,7 @@ utils.makeProthNumbers = function(){
 };
 utils.isProthNumber = function(n){
   const num = utils.getNumber(n);
-  const list = utils.makeProthNumbers();
+  const list = utils.makeProthNumbers(10);
   for(let i = 0; i < list.length; i++){
     const p = list[i];
     if(utils.isEqual(p, num)){
