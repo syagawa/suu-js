@@ -125,6 +125,9 @@ const map: object = {
   isCullenPrime: {
     ja: "カレン素数かどうか"
   },
+  isProthNumber: {
+    ja: "プロス数かどうか"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
