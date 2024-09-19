@@ -1156,10 +1156,11 @@ utils.getProthNumber = function(k, n){
 };
 
 utils.makeProthNumbers = function(max){
+  const default_max = 30;
   if(!max){
-    max = 10;
-  }else if(max > 10){
-    max = 10;
+    max = default_max;
+  }else if(max > default_max){
+    max = default_max;
   }
   const list: any[] = [];
 
