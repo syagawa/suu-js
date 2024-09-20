@@ -1177,14 +1177,23 @@ utils.makeProthNumbers = function(max){
   }
   return list;
 };
+
 utils.isProthNumber = function(n){
   const num = utils.getNumber(n);
-  const list = utils.makeProthNumbers(10);
+  const list = utils.makeProthNumbers();
   for(let i = 0; i < list.length; i++){
     const p = list[i];
     if(utils.isEqual(p, num)){
       return true;
     }
+  }
+  return false;
+};
+
+utils.isProthPrime = function(n){
+  const num = utils.getNumber(n);
+  if(utils.isProthNumber(num) && utils.isPrimeNumber(num)){
+    return true;
   }
   return false;
 };
