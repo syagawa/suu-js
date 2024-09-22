@@ -1099,9 +1099,9 @@ utils.isFermatPrime = function(n){
 
 utils.getCullenNumber = function(n){
   const num = utils.getNumber(n);
-  const base = utils.getNumbera("2");
+  const base = utils.getNumber("2");
   const ex = utils.exponentiate(base, num);
-  const res1 = utils.multiplication(num, ex);
+  const res1 = core.multiple(num, ex);
   const res2 = core.add(res1, utils.getOne());
   return res2;
 };
@@ -1144,7 +1144,7 @@ utils.getProthNumber = function(k, n){
     if(utils.isOddNumber(k_num)){
       const res1 = utils.exponentiate(utils.getNumber("2"), n_num);
       if(utils.isLarge(res1, k_num)){
-        const res2 = utils.multiple(res1, k_num);
+        const res2 = core.multiple(res1, k_num);
         const res3 = utils.add(res2, utils.getOne());
         return res3;
       }
