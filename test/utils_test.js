@@ -2437,6 +2437,20 @@ describe("utils", function(){
       const res = utils.isCullenNumber("0");
       assert.equal(res, false);
     });
+
+    it("3 => true", () =>{
+      const res = utils.isCullenNumber("3");
+      assert.equal(res, true);
+    });
+
+    it("9 => true", () =>{
+      const res = utils.isCullenNumber("9");
+      assert.equal(res, true);
+    });
+    it("25 => true", () =>{
+      const res = utils.isCullenNumber("25");
+      assert.equal(res, true);
+    });
   });
 
 
