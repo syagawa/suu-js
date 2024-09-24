@@ -128,6 +128,9 @@ const map: object = {
   isProthNumber: {
     ja: "プロス数かどうか"
   },
+  isProthPrime: {
+    ja: "プロス素数かどうか"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
