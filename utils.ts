@@ -1198,8 +1198,10 @@ utils.isProthPrime = function(n){
   return false;
 };
 
-utils.getPierpontPrime = function(){
-
+utils.getPierpontPrime = function(u, v){
+  // 2u 3v + 1
+  const u_n = utils.getNumber(u);
+  const v_n = utils.getNumber(v);
 };
 utils.isPierpontPrime = function(){
 
