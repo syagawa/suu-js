@@ -1202,6 +1202,12 @@ utils.getPierpontPrime = function(u, v){
   // 2u 3v + 1
   const u_n = utils.getNumber(u);
   const v_n = utils.getNumber(v);
+  if(utils.isInteger(u_n) && utils.isInteger(v_n)){
+    if(!utils.isNegative(u_n) && !utils.isNegative(v_n)){
+      
+    }
+  }
+
 };
 utils.isPierpontPrime = function(){
 
