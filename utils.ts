@@ -1209,6 +1209,9 @@ utils.getPierpontPrime = function(u, v){
     return null;
   }
 
+  const res1 = utils.exponent(utils.getNumber("2"), u_n);
+  const res2 = utils.exponent(utils.getNumber("3"), v_n);
+
 };
 utils.isPierpontPrime = function(){
 
