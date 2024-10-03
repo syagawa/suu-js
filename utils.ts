@@ -1211,11 +1211,7 @@ utils.getPierpontPrime = function(u, v){
 
   const res1 = utils.exponent(utils.getNumber("2"), u_n);
   const res2 = utils.exponent(utils.getNumber("3"), v_n);
-  const res3 = utils.getOne();
-
-  let res = core.add(res1, res2);
-  res = core.add(res, res3);
-
+  const res = utils.summation([res1, res2, utils.gtOne()]);
   return res;
 
 };
