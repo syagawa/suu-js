@@ -1198,7 +1198,7 @@ utils.isProthPrime = function(n){
   return false;
 };
 
-utils.getPierpontPrime = function(u, v){
+utils.makePierpontNumber = function(u, v){
   // 2u 3v + 1
   const u_n = utils.getNumber(u);
   const v_n = utils.getNumber(v);
@@ -1213,8 +1213,30 @@ utils.getPierpontPrime = function(u, v){
   const res2 = utils.exponent(utils.getNumber("3"), v_n);
   const res = utils.summation([res1, res2, utils.gtOne()]);
   return res;
+};
+
+utils.getPierpontPrime = function(){
+  // 2u 3v + 1
+  let u = utils.getZero();
+  let v = utils.getZero();
+  let res = null;
+  while(true){
+    res = utils.makePierpontNumber(u, v);
+    if(!res){
+      if(utils.isEqual(u, v)){
+        u = core.add(u, "1");
+      }else{
+        v = core.add(v, "1");
+      }
+    }else{
+      break;
+    }
+  }
+
+  return res;
 
 };
+
 utils.isPierpontPrime = function(){
 
 };
