@@ -1215,13 +1215,15 @@ utils.makePierpontNumber = function(u, v){
   return res;
 };
 
-utils.getPierpontPrime = function(){
+utils.makePierpontNumbers = function(){
   // 2u 3v + 1
   let u = utils.getZero();
   let v = utils.getZero();
-  let res = null;
-  while(true){
-    res = utils.makePierpontNumber(u, v);
+  
+  const arr: any[] = [];
+  const max = 10;
+  for(let i = 0; i < max; i++){
+    const res: any = utils.makePierpontNumber(u, v);
     if(!res){
       if(utils.isEqual(u, v)){
         u = core.add(u, "1");
@@ -1229,12 +1231,11 @@ utils.getPierpontPrime = function(){
         v = core.add(v, "1");
       }
     }else{
-      break;
+      arr.push(res);
     }
   }
-
-  return res;
-
+  return arr;
+  
 };
 
 utils.isPierpontPrime = function(){
