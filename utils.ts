@@ -1235,7 +1235,18 @@ utils.makePierpontNumbers = function(){
     }
   }
   return arr;
-  
+};
+
+utils.makePierpontPrimes = function(){
+  const arr1 = utils.makePierpontNumbers();
+  const arr2: any[] = [];
+  for(let i = 0; i < arr1.length; i++){
+    const num = arr1[i];
+    if(utils.isPrimeNumber(num)){
+      arr2.push(num);
+    }
+  }
+  return arr2;
 };
 
 utils.isPierpontPrime = function(){
