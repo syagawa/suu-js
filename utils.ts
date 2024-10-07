@@ -1215,13 +1215,18 @@ utils.makePierpontNumber = function(u, v){
   return res;
 };
 
-utils.makePierpontNumbers = function(){
+utils.makePierpontNumbers = function(max){
   // 2u 3v + 1
   let u = utils.getZero();
   let v = utils.getZero();
   
   const arr: any[] = [];
-  const max = 10;
+  const max_default = 20;
+  if(!max){
+    max = max_default;
+  }else if(max > max_default){
+    max = max_default;
+  }
   for(let i = 0; i < max; i++){
     const res: any = utils.makePierpontNumber(u, v);
     if(!res){
