@@ -1254,8 +1254,19 @@ utils.makePierpontPrimes = function(){
   return arr2;
 };
 
-utils.isPierpontPrime = function(){
+utils.isPierpontPrime = function(n){
+  const num = utils.getNumber(n);
+  if(utils.isZero(num)){
+    return false;
+  }
+  const arr = utils.makePierpontPrimes();
 
+  for(let i = 0; i < arr.length; i++){
+    if(utils.isEqual(num, arr[i])){
+      return true;
+    }
+  }
+  return false;
 };
 
 export default utils;
