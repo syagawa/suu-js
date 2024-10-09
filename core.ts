@@ -1,6 +1,9 @@
 import {CompareObject, SuuNumber } from "./interfaces";
 
 const core:any = {};
+const settings = {
+  mode: "suu",// "suu", "js"
+};
 
 core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
   let error = new Error();
