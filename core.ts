@@ -2,7 +2,23 @@ import {CompareObject, SuuNumber } from "./interfaces";
 
 const core:any = {};
 const settings = {
-  mode: "suu",// "suu", "js"
+  modes: ["suu", "js"],
+  mode: 0,
+};
+
+core.changeMode = function(mode: string){
+  if(!mode){
+    return;
+  }
+  const index = settings.modes.findIndex(m => m === mode);
+  if(index >= 0){
+    settings.mode = index;
+  }
+};
+
+core.getMode = function(){
+  const m = settings.modes[settings.mode];
+  return m;
 };
 
 core.makeError = function(o: {message: string, variable: any, parameter: any}): Error{
