@@ -430,7 +430,7 @@ core.clone = function(n: any): SuuNumber | Error {
   }
 };
 
-const add_and_subtract_js = function(a, b): SuuNumber | Error {
+const add_and_subtract_js = function(a, b) {
 
 };
 
