@@ -430,7 +430,27 @@ core.clone = function(n: any): SuuNumber | Error {
   }
 };
 
-const add_and_subtract_js = function(a, b) {
+const add_and_subtract_js = function(a, b, mode) {
+
+  if(!a || !b){
+    if(a !== 0 && b !== 0){
+      return core.makeError({message: "Parameters are must be a Number or a String.", parameter: [a, b]});
+    }
+  }
+  
+  let plus;
+  if(!mode){
+    return core.makeError({message: "Parameters mode is required", parameter: [a, b, mode]});;
+  }else if(mode === "+"){
+    plus = true;
+  }else if(mode === "-"){
+    plus = false;
+  }else{
+    return core.makeError({message: "mode must be '+' or '-'.", parameter: mode});
+  }
+
+
+  
 
 };
 
