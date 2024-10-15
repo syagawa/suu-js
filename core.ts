@@ -449,6 +449,13 @@ const add_and_subtract_js = function(a, b, mode) {
     return core.makeError({message: "mode must be '+' or '-'.", parameter: mode});
   }
 
+  const a_s = core.numArrayToString(a);
+  const b_s = core.numArrayToString(b);
+
+  const a_n = Number(a_s);
+  const b_n = Number(b_s);
+
+
 
   
 
