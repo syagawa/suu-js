@@ -456,7 +456,11 @@ const add_and_subtract_js = function(a, b, mode) {
   const b_n = Number(b_s);
 
 
-
+  if(plus){
+    return a_n + b_n;
+  }else{
+    return a_n - b_n;
+  }
   
 
 };
