@@ -590,6 +590,28 @@ core.subtract = function(a, b): SuuNumber | Error {
 };
 
 
+const multiplication_js = function(a, b) {
+
+  if(!a || !b){
+    if(a !== 0 && b !== 0){
+      return core.makeError({message: "Parameters are must be a Number or a String.", parameter: [a, b]});
+    }
+  }
+  
+  try{
+    const a_s = core.numArrayToString(a);
+    const b_s = core.numArrayToString(b);
+  
+    const a_n = Number(a_s);
+    const b_n = Number(b_s);
+  
+    return a_n * b_n;
+  }catch(err: Error | any){
+    return core.makeError({message: err.message, parameter: [a, b]});
+  }
+
+};
+
 core.multiplication = function(a, b): SuuNumber | Error {
 
   if(!a || !b){
