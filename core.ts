@@ -54,7 +54,7 @@ const isNumber = function(n): Boolean{
   return false;
 };
 
-const isSuuNumber = function(n): Boolean{
+core.isSuuNumber = function(n): Boolean{
   if(n.is_num_array){
     return true;
   }
@@ -455,8 +455,7 @@ const add_and_subtract_js = function(a, b, mode) {
   
     const a_n = Number(a_s);
     const b_n = Number(b_s);
-  
-  
+
     if(plus){
       return a_n + b_n;
     }else{
