@@ -2,22 +2,22 @@ import {CompareObject, SuuNumber } from "./interfaces";
 
 const core:any = {};
 const settings = {
-  modes: ["suu", "js"],
-  mode: 0,
+  calculation_modes: ["suu", "js"],
+  calculation_mode: 0,
 };
 
-core.changeMode = function(mode: string){
+core.changeCalculationMode = function(mode: string){
   if(!mode){
     return;
   }
-  const index = settings.modes.findIndex(m => m === mode);
+  const index = settings.calculation_modes.findIndex(m => m === mode);
   if(index >= 0){
-    settings.mode = index;
+    settings.calculation_mode = index;
   }
 };
 
-core.getMode = function(){
-  const m = settings.modes[settings.mode];
+core.getCalculationMode = function(){
+  const m = settings.calculation_modes[settings.calculation_mode];
   return m;
 };
 
