@@ -2,6 +2,9 @@ import core from "./core";
 import utils from "./utils";
 
 const map: object = {
+  add: {
+    ja: "加算 和"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
