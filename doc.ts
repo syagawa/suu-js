@@ -3,7 +3,10 @@ import utils from "./utils";
 
 const map: object = {
   add: {
-    ja: "加算 和"
+    ja: "加算"
+  },
+  subtract: {
+    ja: "減算"
   },
   commonMultiple: {
     ja: "公倍数"
