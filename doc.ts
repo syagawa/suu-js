@@ -8,6 +8,12 @@ const map: object = {
   subtract: {
     ja: "減算"
   },
+  multiplication: {
+    ja: "乗算"
+  },
+  multiple: {
+    ja: "乗算"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
