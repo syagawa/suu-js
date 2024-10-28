@@ -14,6 +14,12 @@ const map: object = {
   multiple: {
     ja: "乗算"
   },
+  division: {
+    ja: "除算"
+  },
+  divide: {
+    ja: "除算"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
