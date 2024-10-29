@@ -20,6 +20,12 @@ const map: object = {
   divide: {
     ja: "除算"
   },
+  floor: {
+    ja: "切り捨て"
+  },
+  ceil: {
+    ja: "切り上げ"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
