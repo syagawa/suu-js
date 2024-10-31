@@ -26,8 +26,11 @@ const map: object = {
   ceil: {
     ja: "切り上げ"
   },
+  clone: {
+    ja: "クローン/コピー"
+  },
   copy: {
-    ja: "コピー"
+    ja: "クローン/コピー"
   },
   commonMultiple: {
     ja: "公倍数"
