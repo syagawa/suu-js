@@ -32,6 +32,12 @@ const map: object = {
   copy: {
     ja: "クローン/コピー"
   },
+  getLarge: {
+    ja: "2つの引数のうち大きい方を取得"
+  },
+  getSmall: {
+    ja: "2つの引数のうち小さい方を取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
