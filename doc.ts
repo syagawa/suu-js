@@ -38,6 +38,12 @@ const map: object = {
   getSmall: {
     ja: "2つの引数のうち小さい方を取得"
   },
+  isLarge: {
+    ja: "第一引数が第二引数より大きいか"
+  },
+  isSmall: {
+    ja: "第一引数が第二引数より小さいか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
