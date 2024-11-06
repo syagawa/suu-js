@@ -44,6 +44,9 @@ const map: object = {
   isSmall: {
     ja: "第一引数が第二引数より小さいか"
   },
+  isEqual: {
+    ja: "第一引数と第二引数が等しいか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
