@@ -47,6 +47,9 @@ const map: object = {
   isEqual: {
     ja: "第一引数と第二引数が等しいか"
   },
+  getZero: {
+    ja: "0を取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
