@@ -50,6 +50,9 @@ const map: object = {
   getZero: {
     ja: "0を取得"
   },
+  getOne: {
+    ja: "1を取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
