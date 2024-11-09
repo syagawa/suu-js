@@ -53,6 +53,9 @@ const map: object = {
   getOne: {
     ja: "1を取得"
   },
+  isZero: {
+    ja: "0かどうか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
