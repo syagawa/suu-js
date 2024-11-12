@@ -59,6 +59,9 @@ const map: object = {
   isOne: {
     ja: "1かどうか"
   },
+  square: {
+    ja: "平方数"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
