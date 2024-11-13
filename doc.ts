@@ -62,6 +62,9 @@ const map: object = {
   square: {
     ja: "平方数"
   },
+  getAbsolute:{
+    ja: "絶対値の取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
