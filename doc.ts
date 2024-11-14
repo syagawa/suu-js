@@ -65,6 +65,9 @@ const map: object = {
   getAbsolute:{
     ja: "絶対値の取得"
   },
+  exponentiate: {
+    ja: "べき乗",
+  },
   commonMultiple: {
     ja: "公倍数"
   },
