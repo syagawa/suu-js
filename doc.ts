@@ -68,6 +68,9 @@ const map: object = {
   exponentiate: {
     ja: "べき乗",
   },
+  getInteger: {
+    ja: "整数を取得",
+  },
   commonMultiple: {
     ja: "公倍数"
   },
