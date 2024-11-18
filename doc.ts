@@ -69,7 +69,10 @@ const map: object = {
     ja: "べき乗",
   },
   getInteger: {
-    ja: "整数を取得",
+    ja: "整数部を取得",
+  },
+  getDecimal: {
+    ja: "小数部を取得",
   },
   commonMultiple: {
     ja: "公倍数"
