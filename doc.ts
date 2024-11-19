@@ -74,6 +74,9 @@ const map: object = {
   getDecimal: {
     ja: "小数部を取得",
   },
+  isNaturalNumber: {
+    ja: "自然数かどうか",
+  },
   commonMultiple: {
     ja: "公倍数"
   },
