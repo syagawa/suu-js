@@ -77,6 +77,9 @@ const map: object = {
   isNaturalNumber: {
     ja: "自然数かどうか",
   },
+  includeDecimal: {
+    ja: "小数部を含むかどうか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
