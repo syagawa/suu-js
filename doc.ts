@@ -80,6 +80,9 @@ const map: object = {
   includeDecimal: {
     ja: "小数部を含むかどうか"
   },
+  isNegative: {
+    ja: "負数かどうか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
