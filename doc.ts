@@ -87,7 +87,10 @@ const map: object = {
     ja: "正数かどうか"
   },
   negate: {
-    ja: "負数にする"
+    ja: "正数の場合負数にする"
+  },
+  makePositive: {
+    ja: "負数の場合正数にする"
   },
   commonMultiple: {
     ja: "公倍数"
