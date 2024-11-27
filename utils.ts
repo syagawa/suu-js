@@ -176,17 +176,6 @@ utils.makePositive = function(n): SuuNumber{
   return num;
 };
 
-utils.getNegativeNumber = function(n): SuuNumber{
-  return utils.negate(n);
-};
-
-utils.getPositiveNumber = function(n): SuuNumber{
-  const num = core.numToArrayWithDecimal(n);
-  if(num){
-    num.negative = false;
-  }
-  return num;
-};
 
 utils.getNext = function(n): SuuNumber{
   return core.add(n, "1");
