@@ -92,6 +92,9 @@ const map: object = {
   makePositive: {
     ja: "負数の場合正数にする"
   },
+  getNext: {
+    ja: "整数1を追加した数を取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
