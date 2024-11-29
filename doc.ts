@@ -95,6 +95,9 @@ const map: object = {
   getNext: {
     ja: "整数1を追加した数を取得"
   },
+  getPrev: {
+    ja: "整数1を引いた数を取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
