@@ -170,9 +170,6 @@ const map: object = {
   modulo: {
     ja: "剰余演算"
   },
-  exponentiate: {
-    ja: "冪（べき）乗"
-  },
   isMersenneNumber: {
     ja: "メルセンヌ数かどうか"
   },
