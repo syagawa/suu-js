@@ -98,6 +98,9 @@ const map: object = {
   getPrev: {
     ja: "整数1を引いた数を取得"
   },
+  isInteger: {
+    ja: "整数かどうか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
