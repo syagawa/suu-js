@@ -104,6 +104,9 @@ const map: object = {
   isEvenNumber: {
     ja: "偶数かどうか"
   },
+  isOddNumber: {
+    ja: "奇数かどうか"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
