@@ -107,6 +107,9 @@ const map: object = {
   isOddNumber: {
     ja: "奇数かどうか"
   },
+  getDivisors: {
+    ja: "公倍数の取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
