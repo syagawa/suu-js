@@ -108,7 +108,10 @@ const map: object = {
     ja: "奇数かどうか"
   },
   getDivisors: {
-    ja: "公倍数の取得"
+    ja: "約数の取得"
+  },
+  commonDivisors: {
+    ja: "引数1と引数2の公約数の取得"
   },
   commonMultiple: {
     ja: "公倍数"
