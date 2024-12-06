@@ -113,6 +113,9 @@ const map: object = {
   commonDivisors: {
     ja: "引数1と引数2の公約数の取得"
   },
+  greatestCommonDivisor: {
+    ja: "引数1と引数2の最大公約数の取得"
+  },
   commonMultiple: {
     ja: "公倍数"
   },
