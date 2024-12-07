@@ -122,12 +122,6 @@ const map: object = {
   leastCommonMultiple: {
     ja: "最小公倍数"
   },
-  greatestCommonDivisor: {
-    ja: "最大公約数"
-  },
-  commonDivisors: {
-    ja: "公約数"
-  },
   makeFibonacciSequence: {
     ja: "フィボナッチ数列を作成"
   },
