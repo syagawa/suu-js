@@ -117,10 +117,10 @@ const map: object = {
     ja: "引数1と引数2の最大公約数の取得"
   },
   commonMultiple: {
-    ja: "公倍数"
+   ja: "引数1と引数2の公倍数の取得"
   },
   leastCommonMultiple: {
-    ja: "最小公倍数"
+    ja: "引数1と引数2の最小公倍数の取得"
   },
   makeFibonacciSequence: {
     ja: "フィボナッチ数列を作成"
