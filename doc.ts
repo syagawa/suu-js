@@ -185,6 +185,9 @@ const map: object = {
   isMersenneNumber: {
     ja: "メルセンヌ数かどうか"
   },
+  makeMersenneNumbers: {
+    ja: "メルセンヌ数の生成"
+  },
   isMersennePrimeNumber: {
     ja: "メルセンヌ素数かどうか"
   },
