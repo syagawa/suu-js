@@ -191,6 +191,9 @@ const map: object = {
   isPrimeNumber: {
     ja: "素数かどうか"
   },
+  makePrimeNumbers: {
+    ja: "素数の生成"
+  },
   isMersennePrimeNumber: {
     ja: "メルセンヌ素数かどうか"
   },
