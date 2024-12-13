@@ -233,6 +233,9 @@ const map: object = {
   isSafePrime: {
     ja: "安全素数かどうか"
   },
+  getFermatNumber: {
+    ja: "フェルマー数の取得"
+  },
   isCullenNumber: {
     ja: "カレン数かどうか"
   },
