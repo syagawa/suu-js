@@ -236,6 +236,9 @@ const map: object = {
   getFermatNumber: {
     ja: "フェルマー数の取得"
   },
+  isFermatNumber: {
+    ja: "フェルマー数かどうか"
+  },
   isCullenNumber: {
     ja: "カレン数かどうか"
   },
