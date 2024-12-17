@@ -239,6 +239,9 @@ const map: object = {
   isFermatNumber: {
     ja: "フェルマー数かどうか"
   },
+  isFermatPrime: {
+    ja: "フェルマー素数かどうか"
+  },
   isCullenNumber: {
     ja: "カレン数かどうか"
   },
