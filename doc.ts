@@ -242,6 +242,9 @@ const map: object = {
   isFermatPrime: {
     ja: "フェルマー素数かどうか"
   },
+  getCullenNumber: {
+    ja: "カレン数の取得"
+  },
   isCullenNumber: {
     ja: "カレン数かどうか"
   },
