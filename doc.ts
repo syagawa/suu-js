@@ -251,6 +251,9 @@ const map: object = {
   isCullenPrime: {
     ja: "カレン素数かどうか"
   },
+  getProthNumber: {
+    ja: "プロス数の取得"
+  },
   isProthNumber: {
     ja: "プロス数かどうか"
   },
