@@ -254,6 +254,9 @@ const map: object = {
   getProthNumber: {
     ja: "プロス数の取得"
   },
+  makeProthNumbers: {
+    ja: "プロス数の生成"
+  },
   isProthNumber: {
     ja: "プロス数かどうか"
   },
