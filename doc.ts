@@ -263,6 +263,9 @@ const map: object = {
   isProthPrime: {
     ja: "プロス素数かどうか"
   },
+  makePierpontNumber: {
+    ja: "ピアポント数の生成"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
