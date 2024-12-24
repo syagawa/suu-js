@@ -265,6 +265,9 @@ const map: object = {
   },
   makePierpontNumber: {
     ja: "ピアポント数の生成"
+  },
+  makePierpontPrimes: {
+    ja: "ピアポント素数の生成"
   }
 };
 
