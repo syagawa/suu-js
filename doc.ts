@@ -268,7 +268,10 @@ const map: object = {
   },
   makePierpontPrimes: {
     ja: "ピアポント素数の生成"
-  }
+  },
+  isPierpontPrime: {
+    ja: "ピアポント素数かどうか"
+  },
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
