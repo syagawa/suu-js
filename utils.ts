@@ -775,7 +775,13 @@ utils.isCompositeNumber = function(n){
     return false;
   }
   if(utils.isOne(num)){
-    return true;
+    return false;
+  }
+
+  if(utils.isEvenNumber(n)){
+    if(utils.isLarge(n, "4")){
+      return true;
+    }
   }
 
   const res = utils.isPrimeNumber(num);
