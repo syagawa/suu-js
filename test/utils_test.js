@@ -2448,10 +2448,17 @@ describe("utils", function(){
       const res = utils.isCullenPrime("2");
       assert.equal(res, false);
     });
+
     it("3 => true", () =>{
       const res = utils.isCullenPrime("3");
       assert.equal(res, true);
     });
+
+    it("4 => false", () =>{
+      const res = utils.isCullenPrime("4");
+      assert.equal(res, false);
+    });
+
   });
 
 
