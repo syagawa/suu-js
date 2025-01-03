@@ -2418,6 +2418,15 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
+    it("1 => true", () =>{
+      const res = utils.isCullenNumber("1");
+      assert.equal(res, true);
+    });
+    it("2 => false", () =>{
+      const res = utils.isCullenNumber("2");
+      assert.equal(res, false);
+    });
+
     it("3 => true", () =>{
       const res = utils.isCullenNumber("3");
       assert.equal(res, true);
@@ -2427,6 +2436,7 @@ describe("utils", function(){
       const res = utils.isCullenNumber("9");
       assert.equal(res, true);
     });
+  
     it("25 => true", () =>{
       const res = utils.isCullenNumber("25");
       assert.equal(res, true);
@@ -2460,6 +2470,11 @@ describe("utils", function(){
       assert.equal(res, false);
     });
     
+    it("5 => false", () =>{
+      const res = utils.isCullenPrime("5");
+      assert.equal(res, false);
+    });
+
     it("5 => false", () =>{
       const res = utils.isCullenPrime("5");
       assert.equal(res, false);
