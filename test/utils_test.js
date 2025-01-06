@@ -2437,6 +2437,11 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
+    it("5 => false", () =>{
+      const res = utils.isCullenNumber("5");
+      assert.equal(res, false);
+    });
+
     it("8 => false", () =>{
       const res = utils.isCullenNumber("8");
       assert.equal(res, false);
