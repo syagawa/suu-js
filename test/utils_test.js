@@ -2466,7 +2466,7 @@ describe("utils", function(){
       const res = utils.isCullenNumber("10");
       assert.equal(res, false);
     });
-  
+
     it("25 => true", () =>{
       const res = utils.isCullenNumber("25");
       assert.equal(res, true);
@@ -2505,8 +2505,8 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
-    it("5 => false", () =>{
-      const res = utils.isCullenPrime("5");
+    it("6 => false", () =>{
+      const res = utils.isCullenPrime("6");
       assert.equal(res, false);
     });
 
