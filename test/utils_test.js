@@ -2512,6 +2512,15 @@ describe("utils", function(){
 
   });
 
+  describe("isProthNumber", () => {
+    it("0 => false", () => {
+      const res = utils.isProthNumber("0");
+      assert.equal(res, false);
+    })
+
+
+  });
+
 
 
 });

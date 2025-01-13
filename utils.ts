@@ -1140,7 +1140,7 @@ utils.getProthNumber = function(k, n){
       const res1 = utils.exponentiate(utils.getNumber("2"), n_num);
       if(utils.isLarge(res1, k_num)){
         const res2 = core.multiple(res1, k_num);
-        const res3 = utils.add(res2, utils.getOne());
+        const res3 = core.add(res2, utils.getOne());
         return res3;
       }
     }
