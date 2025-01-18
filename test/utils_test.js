@@ -2538,9 +2538,9 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
-    it("5 => false", () => {
+    it("5 => true", () => {
       const res = utils.isProthNumber("5");
-      assert.equal(res, false);
+      assert.equal(res, true);
     });
     
     it("6 => false", () => {
