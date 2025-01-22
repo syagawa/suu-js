@@ -2573,6 +2573,21 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
+    it("12 => false", () => {
+      const res = utils.isProthNumber("12");
+      assert.equal(res, false);
+    });
+
+    it("13 => true", () => {
+      const res = utils.isProthNumber("13");
+      assert.equal(res, true);
+    });
+
+    it("14 => false", () => {
+      const res = utils.isProthNumber("14");
+      assert.equal(res, false);
+    });
+
     
 
 
