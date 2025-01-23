@@ -2588,6 +2588,16 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
+    it("17 => true", () => {
+      const res = utils.isProthNumber("17");
+      assert.equal(res, true);
+    });
+
+    it("25 => true", () => {
+      const res = utils.isProthNumber("25");
+      assert.equal(res, true);
+    });
+
     
 
 
