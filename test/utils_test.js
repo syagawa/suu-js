@@ -2598,8 +2598,15 @@ describe("utils", function(){
       assert.equal(res, true);
     });
 
-    
+    it("97 => true", () => {
+      const res = utils.isProthNumber("97");
+      assert.equal(res, true);
+    });
 
+    it("113 => true", () => {
+      const res = utils.isProthNumber("113");
+      assert.equal(res, true);
+    });
 
   });
 
