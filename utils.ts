@@ -1137,11 +1137,11 @@ utils.getProthNumber = function(k, n){
 
   if(utils.isInteger(k_num) || utils.isInteger(n_num)){
     if(utils.isOddNumber(k_num)){
-      const res1 = utils.exponentiate(utils.getNumber("2"), n_num);
-      if(utils.isLarge(res1, k_num)){
-        const res2 = core.multiple(res1, k_num);
-        const res3 = core.add(res2, utils.getOne());
-        return res3;
+      const ex = utils.exponentiate(utils.getNumber("2"), n_num);
+      if(utils.isLarge(ex, k_num)){
+        const res = core.multiple(ex, k_num);
+        const res2 = core.add(res, utils.getOne());
+        return res2;
       }
     }
   }
@@ -1159,15 +1159,13 @@ utils.makeProthNumbers = function(max){
   }
   const list: any[] = [];
 
-  let k = utils.getNumber("1");
-  let n = utils.getNumber("1");
+  
   for(let i = 0; i < max; i++){
-    const res = utils.getProthNumber(k, n);
-    list.push(res);
-    if(utils.isEqual(k, n)){
-      n = core.add(n, utils.getOne());
-    }else{
-      k = core.add(k, utils.getOne());
+    const k = utils.getNumber(String(i * 2 + 1));
+    for(let j = 0; j < max; j++){
+      const n = utils.getNumber(String(i + 1));
+      const res = utils.getProthNumber(k, n);
+      list.push(res);
     }
   }
   return list;
