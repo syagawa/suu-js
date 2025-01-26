@@ -1163,11 +1163,20 @@ utils.makeProthNumbers = function(max){
   for(let i = 0; i < max; i++){
     const k = utils.getNumber(String(i * 2 + 1));
     for(let j = 0; j < max; j++){
-      const n = utils.getNumber(String(i + 1));
+      const n = utils.getNumber(String(j + 1));
       const res = utils.getProthNumber(k, n);
-      list.push(res);
+      if(res){
+        list.push(res);
+      }
     }
   }
+  list.sort((a: SuuNumber, b: SuuNumber) => {
+    const a_is_small = utils.isSmall(a, b)
+    if(a_is_small){
+      return -1
+    }
+    return 1
+  })
   return list;
 };
 
