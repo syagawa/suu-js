@@ -1151,7 +1151,7 @@ utils.getProthNumber = function(k, n){
 };
 
 utils.makeProthNumbers = function(max){
-  const default_max = 30;
+  const default_max = 10;
   if(!max){
     max = default_max;
   }else if(max > default_max){
