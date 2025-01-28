@@ -1158,8 +1158,6 @@ utils.makeProthNumbers = function(max){
     max = default_max;
   }
   const list: any[] = [];
-
-  
   for(let i = 0; i < max; i++){
     const k = utils.getNumber(String(i * 2 + 1));
     for(let j = 0; j < max; j++){

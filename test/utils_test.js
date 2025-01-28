@@ -2603,10 +2603,22 @@ describe("utils", function(){
       assert.equal(res, true);
     });
 
+    it("112 => false", () => {
+      const res = utils.isProthNumber("112");
+      assert.equal(res, false);
+    });
+
+
     it("113 => true", () => {
       const res = utils.isProthNumber("113");
       assert.equal(res, true);
     });
+
+    it("209 => true", () => {
+      const res = utils.isProthNumber("209");
+      assert.equal(res, true);
+    });
+
 
   });
 
