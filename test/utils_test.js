@@ -2636,6 +2636,28 @@ describe("utils", function(){
 });
 
 
+describe("isProthPrime", () => {
+  it("0 => false", () => {
+    const res = utils.isProthPrime("0");
+    assert.equal(res, false);
+  });
+
+  it("1 => false", () => {
+    const res = utils.isProthPrime("1");
+    assert.equal(res, false);
+  });
+
+  it("2 => false", () => {
+    const res = utils.isProthPrime("2");
+    assert.equal(res, false);
+  });
+
+  it("3 => true", () => {
+    const res = utils.isProthPrime("3");
+    assert.equal(res, true);
+  });
+});
+
 
 
 
