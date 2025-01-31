@@ -2656,6 +2656,11 @@ describe("isProthPrime", () => {
     const res = utils.isProthPrime("3");
     assert.equal(res, true);
   });
+
+  it("4 => false", () => {
+    const res = utils.isProthPrime("4");
+    assert.equal(res, false);
+  });
 });
 
 
