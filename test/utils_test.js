@@ -2682,6 +2682,11 @@ describe("isProthPrime", () => {
     assert.equal(res, false);
   });
 
+  it("9 => false", () => {
+    const res = utils.isProthPrime("9");
+    assert.equal(res, false);
+  });
+
 
 });
 
