@@ -2642,6 +2642,11 @@ describe("isProthPrime", () => {
     assert.equal(res, false);
   });
 
+  it("0.1 => false", () => {
+    const res = utils.isProthPrime("0.1");
+    assert.equal(res, false);
+  });
+
   it("1 => false", () => {
     const res = utils.isProthPrime("1");
     assert.equal(res, false);
@@ -2684,6 +2689,11 @@ describe("isProthPrime", () => {
 
   it("9 => false", () => {
     const res = utils.isProthPrime("9");
+    assert.equal(res, false);
+  });
+
+  it("10 => false", () => {
+    const res = utils.isProthPrime("10");
     assert.equal(res, false);
   });
 
