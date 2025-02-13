@@ -2608,7 +2608,6 @@ describe("utils", function(){
       assert.equal(res, false);
     });
 
-
     it("113 => true", () => {
       const res = utils.isProthNumber("113");
       assert.equal(res, true);
@@ -2696,6 +2695,27 @@ describe("isProthPrime", () => {
     const res = utils.isProthPrime("10");
     assert.equal(res, false);
   });
+
+  it("13 => true", () => {
+    const res = utils.isProthPrime("13");
+    assert.equal(res, true);
+  });
+
+  it("97 => true", () => {
+    const res = utils.isProthPrime("97");
+    assert.equal(res, true);
+  });
+
+  it("112 => false", () => {
+    const res = utils.isProthPrime("112");
+    assert.equal(res, false);
+  });
+
+  it("113 => true", () => {
+    const res = utils.isProthPrime("113");
+    assert.equal(res, true);
+  });
+
 
 
 });
