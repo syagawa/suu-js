@@ -2725,6 +2725,12 @@ describe("isPierpontPrime", () => {
     const res = utils.isPierpontPrime("0");
     assert.equal(res, false);
   });
+
+  it("1 => false", () => {
+    const res = utils.isPierpontPrime("1");
+    assert.equal(res, false);
+  });
+
 });
 
 
