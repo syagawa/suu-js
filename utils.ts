@@ -1209,9 +1209,9 @@ utils.makePierpontNumber = function(u, v){
     return null;
   }
 
-  const res1 = utils.exponent(utils.getNumber("2"), u_n);
-  const res2 = utils.exponent(utils.getNumber("3"), v_n);
-  const res = utils.summation([res1, res2, utils.gtOne()]);
+  const res1 = utils.exponentiate(utils.getNumber("2"), u_n);
+  const res2 = utils.exponentiate(utils.getNumber("3"), v_n);
+  const res = utils.summation([res1, res2, utils.getOne()]);
   return res;
 };
 
