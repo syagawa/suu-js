@@ -1229,15 +1229,18 @@ utils.makePierpontNumbers = function(max){
   }
   for(let i = 0; i < max; i++){
     const res: any = utils.makePierpontNumber(u, v);
-    if(!res){
-      if(utils.isEqual(u, v)){
-        u = core.add(u, "1");
-      }else{
-        v = core.add(v, "1");
-      }
-    }else{
-      arr.push(res);
+    if(res){
+      arr.push(res)
     }
+
+    if(utils.isEqual(u, v)){
+      u = core.add(u, "1");
+    }else{
+      v = core.add(v, "1");
+    }
+
+
+
   }
   return arr;
 };
