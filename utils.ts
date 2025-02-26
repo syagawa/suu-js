@@ -1221,26 +1221,21 @@ utils.makePierpontNumbers = function(max){
   let v = utils.getZero();
   
   const arr: any[] = [];
-  const max_default = 20;
+  const max_default = 10;
   if(!max){
     max = max_default;
   }else if(max > max_default){
     max = max_default;
   }
   for(let i = 0; i < max; i++){
-    const res: any = utils.makePierpontNumber(u, v);
-    if(res){
-      arr.push(res)
+    let u = utils.getNumber(i);
+    for(let j = 0; j < max; j++){
+      let v = utils.getNumber(j);
+      const res: any = utils.makePierpontNumber(u, v);
+      if(res){
+        arr.push(res)
+      }
     }
-
-    if(utils.isEqual(u, v)){
-      u = core.add(u, "1");
-    }else{
-      v = core.add(v, "1");
-    }
-
-
-
   }
   return arr;
 };
