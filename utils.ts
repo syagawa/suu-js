@@ -1217,8 +1217,6 @@ utils.makePierpontNumber = function(u, v){
 
 utils.makePierpontNumbers = function(max){
   // 2u 3v + 1
-  let u = utils.getZero();
-  let v = utils.getZero();
   
   const arr: any[] = [];
   const max_default = 10;
