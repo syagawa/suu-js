@@ -1235,6 +1235,16 @@ utils.makePierpontNumbers = function(max){
       }
     }
   }
+  for(let i = 0; i < max; i++){
+    let v = utils.getNumber(i);
+    for(let j = 0; j < max; j++){
+      let u = utils.getNumber(j);
+      const res: any = utils.makePierpontNumber(u, v);
+      if(res){
+        arr.push(res)
+      }
+    }
+  }
   return arr;
 };
 
