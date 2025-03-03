@@ -1218,7 +1218,7 @@ utils.makePierpontNumber = function(u, v){
 utils.makePierpontNumbers = function(max){
   // 2u 3v + 1
   
-  const arr: any[] = [];
+  const list: any[] = [];
   const max_default = 10;
   if(!max){
     max = max_default;
@@ -1231,7 +1231,7 @@ utils.makePierpontNumbers = function(max){
       let v = utils.getNumber(j);
       const res: any = utils.makePierpontNumber(u, v);
       if(res){
-        arr.push(res)
+        list.push(res)
       }
     }
   }
@@ -1241,11 +1241,18 @@ utils.makePierpontNumbers = function(max){
       let u = utils.getNumber(j);
       const res: any = utils.makePierpontNumber(u, v);
       if(res){
-        arr.push(res)
+        list.push(res)
       }
     }
   }
-  return arr;
+  list.sort((a: SuuNumber, b: SuuNumber) => {
+    const a_is_small = utils.isSmall(a, b)
+    if(a_is_small){
+      return -1
+    }
+    return 1
+  })
+  return list;
 };
 
 utils.makePierpontPrimes = function(){
