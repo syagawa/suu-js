@@ -1231,6 +1231,11 @@ utils.makePierpontNumbers = function(max){
       let v = utils.getNumber(j);
       const res: any = utils.makePierpontNumber(u, v);
       if(res){
+        if(list.find((elm) => {
+          return core.isEqual(elm, res)
+        })){
+          continue;
+        }
         list.push(res)
       }
     }
@@ -1241,6 +1246,11 @@ utils.makePierpontNumbers = function(max){
       let u = utils.getNumber(j);
       const res: any = utils.makePierpontNumber(u, v);
       if(res){
+        if(list.find((elm) => {
+          return core.isEqual(elm, res)
+        })){
+          continue;
+        }
         list.push(res)
       }
     }
