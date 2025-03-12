@@ -2780,6 +2780,11 @@ describe("isPierpontPrime", () => {
     const res = utils.isPierpontPrime("11");
     assert.equal(res, false);
   });
+  
+  it("12 => false", () => {
+    const res = utils.isPierpontPrime("12");
+    assert.equal(res, false);
+  });
 
   
 });
