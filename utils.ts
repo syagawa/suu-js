@@ -1285,10 +1285,9 @@ utils.isPierpontPrime = function(n){
   if(utils.isZero(num)){
     return false;
   }
-  const arr = utils.makePierpontPrimes();
-
+  const arr = utils.makePierpontNumbers();
   for(let i = 0; i < arr.length; i++){
-    if(utils.isEqual(num, arr[i])){
+    if(utils.isEqual(num, arr[i]) && utils.isPrimeNumber(num)){
       return true;
     }
   }
