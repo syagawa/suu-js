@@ -1265,21 +1265,6 @@ utils.makePierpontNumbers = function(max){
   return list;
 };
 
-utils.makePierpontPrimes = function(){
-  const arr1 = utils.makePierpontNumbers();
-  console.log("a", arr1)
-  const arr2: any[] = [];
-  for(let i = 0; i < arr1.length; i++){
-    console.log(i)
-    const num = arr1[i];
-    if(utils.isPrimeNumber(num)){
-      console.log("b")
-      arr2.push(num);
-    }
-  }
-  return arr2;
-};
-
 utils.isPierpontPrime = function(n){
   const num = utils.getNumber(n);
   if(utils.isZero(num)){
