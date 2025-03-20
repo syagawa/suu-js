@@ -1208,10 +1208,10 @@ utils.makePierpontNumber = function(u, v){
   if(!utils.isInteger(u_n) || !utils.isInteger(v_n)){
     return null;
   }
-
   const res1 = utils.exponentiate(utils.getNumber("2"), u_n);
   const res2 = utils.exponentiate(utils.getNumber("3"), v_n);
-  const res = utils.summation([res1, res2, utils.getOne()]);
+  const res3 = core.multiple(res1, res2)
+  const res = core.add(res3, utils.getOne());
   return res;
 };
 
