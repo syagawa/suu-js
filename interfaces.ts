@@ -2,8 +2,9 @@ export type MoldNumArray = {
   array: number[]
   negative: boolean
   decimal_index: number
-  is_num_array: boolean,
+  is_num_array: boolean
   remainder?: any
+  getJSNumber?: Function
 }
 
 export type CompareObject = {

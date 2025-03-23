@@ -87,7 +87,11 @@ core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Er
       array: array,
       negative: !!negative,
       is_num_array: true,
-      decimal_index: decimal_index
+      decimal_index: decimal_index,
+      getJSNumber: function(){
+        console.log(this);
+        return Number(core.numArrayToString(this))
+      }
     };
     if(decimal_index === 0 || decimal_index > 0){
       o.decimal_index = decimal_index;
@@ -179,8 +183,6 @@ core.numArrayToString = function(n): string | Error {
 
 core.compare = function(a, b): CompareObject | Error {
   try{
-    
-
     if(!a && a !== 0){
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }else if(!b && b !== 0){
