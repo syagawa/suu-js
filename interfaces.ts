@@ -5,6 +5,7 @@ export type MoldNumArray = {
   is_num_array: boolean
   remainder?: any
   getJSNumber?: Function
+  getString?: Function
 }
 
 export type CompareObject = {

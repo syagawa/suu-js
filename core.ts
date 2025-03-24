@@ -89,8 +89,10 @@ core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Er
       is_num_array: true,
       decimal_index: decimal_index,
       getJSNumber: function(){
-        console.log(this);
-        return Number(core.numArrayToString(this))
+        return Number(core.numArrayToString(this));
+      },
+      getString: function(){
+        return core.numArrayToString(this);
       }
     };
     if(decimal_index === 0 || decimal_index > 0){
