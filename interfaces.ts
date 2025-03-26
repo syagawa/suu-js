@@ -4,6 +4,7 @@ export type MoldNumArray = {
   decimal_index: number
   is_num_array: boolean
   remainder?: any
+  system: number | string
   getJSNumber?: Function
   getString?: Function
 }

@@ -88,12 +88,13 @@ core.moldNumArray = function({ array, negative, decimal_index }): SuuNumber | Er
       negative: !!negative,
       is_num_array: true,
       decimal_index: decimal_index,
+      system: 10,
       getJSNumber: function(){
         return Number(core.numArrayToString(this));
       },
       getString: function(){
         return core.numArrayToString(this);
-      }
+      },
     };
     if(decimal_index === 0 || decimal_index > 0){
       o.decimal_index = decimal_index;
