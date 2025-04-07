@@ -6,6 +6,7 @@ const settings = {
   calculation_mode: 0,
 };
 
+
 core.changeCalculationMode = function(mode: string){
   if(!mode){
     return;
@@ -192,11 +193,32 @@ core.compare = function(a, b): CompareObject | Error {
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }
     
+    
+
     const o: CompareObject = {
       small: null,
       large: null,
       equal: false
     };
+
+    if(core.getCalculationMode() === "js") {
+      const a_num = a.getJSNumber();
+      const b_num = b.getJSNumber();
+      if(a_num === b_num){
+        o.equal = true;
+        return o;
+      }else if(a_num < b_num){
+        o.small = a;
+        o.large = b;
+        return o;
+      }else if (a_num > b_num){
+        o.small = b;
+        o.large = a;
+        return o;
+      }
+    }
+
+
     let a_ = a;
     let b_ = b;
 
