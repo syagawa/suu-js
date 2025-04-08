@@ -185,23 +185,21 @@ core.numArrayToString = function(n): string | Error {
 
 };
 
-core.compare = function(a, b): CompareObject | Error {
+core.compare = function(a, b, mode): CompareObject | Error {
   try{
     if(!a && a !== 0){
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }else if(!b && b !== 0){
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
     }
-    
-    
-
+  
     const o: CompareObject = {
       small: null,
       large: null,
       equal: false
     };
 
-    if(core.getCalculationMode() === "js") {
+    if(mode === "js" || core.getCalculationMode() === "js") {
       const a_num = a.getJSNumber();
       const b_num = b.getJSNumber();
       if(a_num === b_num){
