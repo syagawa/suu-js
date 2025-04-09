@@ -317,16 +317,16 @@ core.compare = function(a, b, mode): CompareObject | Error {
 
 };
 
-core.getLarge = function(a, b): boolean {
-  return core.compare(a, b).large;
+core.getLarge = function(a, b, mode): boolean {
+  return core.compare(a, b, mode).large;
 };
 
-core.getSmall = function(a, b): boolean {
-  return core.compare(a, b).small;
+core.getSmall = function(a, b, mode): boolean {
+  return core.compare(a, b, mode).small;
 };
 
-core.isEqual = function(a, b): boolean {
-  const res = core.compare(a, b);
+core.isEqual = function(a, b, mode): boolean {
+  const res = core.compare(a, b, mode);
   if(res.equal){
     return true;
   }
