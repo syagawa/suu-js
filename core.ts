@@ -185,7 +185,7 @@ core.numArrayToString = function(n): string | Error {
 
 };
 
-core.compare = function(a, b, mode): CompareObject | Error {
+core.compare = function(a, b): CompareObject | Error {
   try{
     if(!a && a !== 0){
       return core.makeError({ message: "Parameters are undefined, null, or empty.", parameter: [a, b]});
@@ -199,7 +199,7 @@ core.compare = function(a, b, mode): CompareObject | Error {
       equal: false
     };
 
-    if(mode === "js" || core.getCalculationMode() === "js") {
+    if(core.getCalculationMode() === "js") {
       const a_num = a.getJSNumber();
       const b_num = b.getJSNumber();
       if(a_num === b_num){
@@ -317,16 +317,16 @@ core.compare = function(a, b, mode): CompareObject | Error {
 
 };
 
-core.getLarge = function(a, b, mode): boolean {
-  return core.compare(a, b, mode).large;
+core.getLarge = function(a, b): boolean {
+  return core.compare(a, b).large;
 };
 
-core.getSmall = function(a, b, mode): boolean {
-  return core.compare(a, b, mode).small;
+core.getSmall = function(a, b): boolean {
+  return core.compare(a, b).small;
 };
 
-core.isEqual = function(a, b, mode): boolean {
-  const res = core.compare(a, b, mode);
+core.isEqual = function(a, b): boolean {
+  const res = core.compare(a, b);
   if(res.equal){
     return true;
   }
