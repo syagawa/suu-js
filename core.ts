@@ -348,6 +348,15 @@ core.isZero = function(n): boolean {
   if(!n.is_num_array){
     return false;
   }
+
+  if(core.getCalculationMode() === "js"){
+    if(n.getJSNumber() === 0){
+      return true;
+    }
+    return false;
+  }
+
+
   const zero = core.getZero();
   return core.isEqual(zero, n);
 };
