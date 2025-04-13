@@ -356,7 +356,6 @@ core.isZero = function(n): boolean {
     return false;
   }
 
-
   const zero = core.getZero();
   return core.isEqual(zero, n);
 };
@@ -368,6 +367,14 @@ core.isOne = function(n): boolean {
   if(!n.is_num_array){
     return false;
   }
+
+  if(core.getCalculationMode() === "js"){
+    if(n.getJSNumber() === 1){
+      return true;
+    }
+    return false;
+  }
+
   const one = core.getOne();
   if(core.isEqual(one, n)){
     return true;
