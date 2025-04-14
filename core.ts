@@ -372,11 +372,17 @@ core.isOne = function(n): boolean {
     if(n.getJSNumber() === 1){
       return true;
     }
+    if(n.getJSNumber() === -1){
+      return true;
+    }
     return false;
   }
 
   const one = core.getOne();
+  const minus_one = core.getSuuNumber("-1")
   if(core.isEqual(one, n)){
+    return true;
+  }else if(core.isEqual(minus_one, n)){
     return true;
   }else{
     return false;
