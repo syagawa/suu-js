@@ -526,7 +526,6 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
     return add_and_subtract_js(a, b, mode);
   }
 
-
   let plus;
   if(!mode){
     return core.makeError({message: "Parameters mode is required", parameter: [a, b, mode]});;
