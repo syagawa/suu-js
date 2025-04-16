@@ -670,6 +670,10 @@ core.multiplication = function(a, b): SuuNumber | Error {
     }
   }
 
+  if(core.getCalculationMode() === "js"){
+    return multiplication_js(a, b);
+  }
+
   let a_: SuuNumber = core.getZero();
   let b_: SuuNumber = core.getZero();
   if(a.is_num_array){
