@@ -848,6 +848,10 @@ core.division = function(a, b): SuuNumber | Error | string {
       b_ = core.numToArrayWithDecimal(b ? b : 0);
     }
 
+    if(core.getCalculationMode() === "js"){
+      return division_js(a_, b_);
+    }
+
     if(core.isZero(b_)){
       if(core.isLarge(a_, "0")){
         return "Infinity";
