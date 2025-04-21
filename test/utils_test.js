@@ -35,6 +35,14 @@ describe("utils", function(){
       const str2 = core.numArrayToString(num2);
       assert.equal(str1, str2);
     });
+
+    it("100 => 100", () => {
+      const num1 = utils.getNumber("100");
+      const num2 = utils.copy(num1);
+      const str1 = core.numArrayToString(num1);
+      const str2 = core.numArrayToString(num2);
+      assert.equal(str1, str2);
+    });
     
     it("'' is Error", () => {
       const num = utils.copy("");
