@@ -117,6 +117,12 @@ describe("core", function(){
       assert.equal(res, false);
     });
 
+    it("'1.1' is false", () => {
+      const one = core.numToArrayWithDecimal("1.1");
+      const res = core.isZero(one);
+      assert.equal(res, false);
+    });
+
     it("0.0 is true", () => {
       const zero = core.numToArrayWithDecimal("0.0");
       const res = core.isZero(zero);
