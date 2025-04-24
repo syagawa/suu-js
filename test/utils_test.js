@@ -10,6 +10,11 @@ describe("utils", function(){
       assert.equal(num.is_num_array, true);
     });
 
+    it("1.00000", () => {
+      const num = utils.getNumber("1.00000");
+      assert.equal(num.is_num_array, true);
+    });
+    
     it("101", () => {
       const num = utils.getNumber("101");
       assert.equal(num.is_num_array, true);
