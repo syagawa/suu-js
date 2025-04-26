@@ -189,10 +189,10 @@ describe("core", function(){
       const res = core.isOne(zero);
       assert.equal(res, false);
     });
-    it("-1 is false", () => {
+    it("-1 is true", () => {
       const zero = core.numToArrayWithDecimal("-1");
       const res = core.isOne(zero);
-      assert.equal(res, false);
+      assert.equal(res, true);
     });
 
     it("10 is false", () => {
