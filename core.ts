@@ -694,11 +694,11 @@ core.multiplication = function(a, b): SuuNumber | Error {
     return core.numToArrayWithDecimal("0");
   }
 
-  if(core.isOne(a_)){
+  if(core.isOne(a_) && core.isLarge(a_, "0")){
     return b_;
   }
 
-  if(core.isOne(b_)){
+  if(core.isOne(b_) && core.isLarge(b_, "0")){
     return a_;
   }
 
