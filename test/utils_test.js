@@ -292,6 +292,12 @@ describe("utils", function(){
       const res = utils.isOne(num1);
       assert.equal(res, false);
     });
+
+    it("100.0 => false", () => {
+      const num1 = utils.getNumber("100.0");
+      const res = utils.isOne(num1);
+      assert.equal(res, false);
+    });
   });
 
   it("getOne => true", () => {
