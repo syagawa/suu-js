@@ -868,7 +868,7 @@ core.division = function(a, b): SuuNumber | Error | string {
       }
     }
 
-    if(core.isOne(b_)){
+    if(core.isOne(b_) && core.isLarge(b_, "0")){
       return {
         ...a_,
         remainder: core.getZero(),
