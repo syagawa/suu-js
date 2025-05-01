@@ -590,7 +590,7 @@ utils.makePronicNumber = function(num): SuuNumber | Error {
 
 utils.factorial = function(num){
   const n = utils.getNumber(num);
-  if(core.isZero(n) || core.isOne(n)){
+  if(core.isZero(n) || (core.isOne(n) && core.isLarge(n, "0"))){
     return core.getOne();
   }
 
