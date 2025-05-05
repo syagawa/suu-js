@@ -703,7 +703,6 @@ core.multiplication = function(a, b): SuuNumber | Error {
   }
 
   try{
-
     const a_negative = a_.negative;
     const b_negative = b_.negative;
     let negative;
