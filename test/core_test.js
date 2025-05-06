@@ -356,7 +356,6 @@ describe("core", function(){
       assert.equal(res.equal, true);
     });
 
-
     it("0.1, -0.1", () => {
       const num1 = core.numToArrayWithDecimal("0.1");
       const num2 = core.numToArrayWithDecimal("-0.1");
@@ -374,6 +373,7 @@ describe("core", function(){
       assert.equal(res.small, num1);
       assert.equal(res.equal, false);
     });
+
     it("0.000001, -0.1", () => {
       const num1 = core.numToArrayWithDecimal("0.000001");
       const num2 = core.numToArrayWithDecimal("-0.1");
@@ -389,6 +389,15 @@ describe("core", function(){
       assert.equal(res.large, num2);
       assert.equal(res.small, num1);
       assert.equal(res.equal, false);
+    });
+
+    it("1000, 1000.00000", () => {
+      const num1 = core.numToArrayWithDecimal("1000");
+      const num2 = core.numToArrayWithDecimal("1000.00000");
+      const res = core.compare(num1, num2);
+      assert.equal(res.large, num2);
+      assert.equal(res.small, num1);
+      assert.equal(res.equal, true);
     });
     
     it("null, null", () => {
