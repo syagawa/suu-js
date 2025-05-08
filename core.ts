@@ -554,7 +554,6 @@ core.add_and_subtract = function(a, b, mode): SuuNumber | Error {
     const a_arr = a_.array;
     const b_arr = b_.array;
 
-
     const a_is_zero: boolean = core.isZero(a_);
     const b_is_zero: boolean = core.isZero(b_);
 

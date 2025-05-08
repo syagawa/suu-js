@@ -2204,8 +2204,67 @@ describe("division", function(){
     const res = core.division(undefined, undefined);
     assert.equal(true, res instanceof Error);
   });
+});
 
+describe("getDecimal", function(){
+  it("1 => 0", () => {
+    const res = core.getDecimal("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+  it("1.1 => 0.1", () => {
+    const res = core.getDecimal("1.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
 
+  it("1.0 => 0.0", () => {
+    const res = core.getDecimal("1.0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0");
+  });
+  
+  it("1.01 => 0.01", () => {
+    const res = core.getDecimal("1.01");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.01");
+  });
+  
+  it("10.01 => 0.01", () => {
+    const res = core.getDecimal("10.01");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.01");
+  });
+
+  it("10.10101 => 0.10101", () => {
+    const res = core.getDecimal("10.10101");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.10101");
+  });
+  
+  it("1.1 => 0.1", () => {
+    const res = core.getDecimal("1.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
+
+  it("0.1 => 0.1", () => {
+    const res = core.getDecimal("0.1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.1");
+  });
+
+  it("1.000001 => 0.000001", () => {
+    const res = core.getDecimal("1.000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.000001");
+  });
+
+  it("0.000001 => 0.000001", () => {
+    const res = core.getDecimal("0.000001");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "0.000001");
+  });
 });
 
 describe("floor", function(){
@@ -2281,69 +2340,6 @@ describe("floor", function(){
   it("false = Error", () => {
     const res = core.floor(false);
     assert.equal(true, res instanceof Error);
-  });
-
-
-});
-
-describe("getDecimal", function(){
-  it("1 => 0", () => {
-    const res = core.getDecimal("1");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
-  });
-  it("1.1 => 0.1", () => {
-    const res = core.getDecimal("1.1");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.1");
-  });
-
-  it("1.0 => 0.0", () => {
-    const res = core.getDecimal("1.0");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0");
-  });
-  
-  it("1.01 => 0.01", () => {
-    const res = core.getDecimal("1.01");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.01");
-  });
-  
-  it("10.01 => 0.01", () => {
-    const res = core.getDecimal("10.01");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.01");
-  });
-
-  it("10.10101 => 0.10101", () => {
-    const res = core.getDecimal("10.10101");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.10101");
-  });
-  
-  it("1.1 => 0.1", () => {
-    const res = core.getDecimal("1.1");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.1");
-  });
-
-  it("0.1 => 0.1", () => {
-    const res = core.getDecimal("0.1");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.1");
-  });
-
-  it("1.000001 => 0.000001", () => {
-    const res = core.getDecimal("1.000001");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.000001");
-  });
-
-  it("0.000001 => 0.000001", () => {
-    const res = core.getDecimal("0.000001");
-    const str = core.numArrayToString(res);
-    assert.equal(str, "0.000001");
   });
 });
 
