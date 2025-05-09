@@ -398,6 +398,13 @@ describe("core", function(){
       assert.equal(res.equal, true);
     });
     
+    it("1000.5, 1000.500000", () => {
+      const num1 = core.numToArrayWithDecimal("1000.5");
+      const num2 = core.numToArrayWithDecimal("1000.500000");
+      const res = core.compare(num1, num2);
+      assert.equal(res.equal, true);
+    });
+    
     it("null, null", () => {
       const res = core.compare(null, null);
       assert.equal(true, res instanceof Error);
