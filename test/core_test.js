@@ -2361,6 +2361,14 @@ describe("ceil", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "2");
   });
+
+  it("1.05 => 2", () => {
+    const res = core.ceil("1.05");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "2");
+  });
+
+
   it("1.00000000001 => 2", () => {
     const res = core.ceil("1.00000000001");
     const str = core.numArrayToString(res);
@@ -2392,6 +2400,12 @@ describe("ceil", function(){
 
   it("-0.5 => 0", () => {
     const res = core.ceil("-0.5");
+    const is_zero = core.isZero(res)
+    assert.equal(is_zero, true);
+  });
+
+  it("-0.05 => 0", () => {
+    const res = core.ceil("-0.05");
     const is_zero = core.isZero(res)
     assert.equal(is_zero, true);
   });
