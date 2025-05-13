@@ -418,6 +418,14 @@ describe("utils", function(){
       assert.equal(res, true);
     });
 
+    it("999.00000005", () => {
+      const num1 = utils.getNumber("999.00000005");
+      const dec = utils.getDecimal(num1);
+      const num2 = utils.getNumber("0.00000005");
+      const res = utils.isEqual(dec, num2);
+      assert.equal(res, true);
+    });
+
     it("'' => Error", () => {
       const dec = utils.getDecimal("");
       assert.equal(dec instanceof Error, true);
