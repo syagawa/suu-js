@@ -3,6 +3,7 @@ import utils from "./utils";
 import random from "./random";
 import doc from "./doc";
 import constants from "./constants"
+import measurement from "./measurement";
 
 export default {
   core: core,
@@ -11,4 +12,5 @@ export default {
   doc: doc,
   constants: constants,
   ts: true,
+  measurement,
 };
