@@ -20,7 +20,7 @@ const measurement = async function(func, args){
   const lengthOfTime = endTime - startTime;
 
   return {
-    lengthOfTime,
+    lengthOfTimeMS: lengthOfTime,
   };
 
 };
