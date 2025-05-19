@@ -1,14 +1,15 @@
 import { SuuNumber } from "./interfaces";
 
 
-const measurement = async function(func, args){
+const measurement = async function(func, ...args){
   const startTime = new Date().getTime();
 
+  console.log(args);
   try{
     if(Array.isArray(args)){
       await func(...args);
     }else if(args !== null && typeof args === "object"){
-      await func({...args});
+      await func(args);
     }else{
       await func(args);
     }
