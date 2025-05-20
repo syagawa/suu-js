@@ -5,13 +5,14 @@ const measurement = async function(func, ...args){
   const startTime = new Date().getTime();
 
   console.log(args);
+  let res = null;
   try{
     if(Array.isArray(args)){
-      await func(...args);
+      res = await func(...args);
     }else if(args !== null && typeof args === "object"){
-      await func(args);
+      res = await func(args);
     }else{
-      await func(args);
+      res = await func(args);
     }
   }catch(e){
     console.log(e);
@@ -21,6 +22,7 @@ const measurement = async function(func, ...args){
   const lengthOfTime = endTime - startTime;
 
   return {
+    result: res,
     lengthOfTimeMS: lengthOfTime,
   };
 
