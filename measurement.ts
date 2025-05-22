@@ -8,11 +8,23 @@ const measurement = async function(func, ...args){
   let res = null;
   try{
     if(Array.isArray(args)){
-      res = await func(...args);
+      if(func.constructor.name === "AsyncFunction"){
+        res = await func(...args);
+      }else{
+        res = func(...args);
+      }
     }else if(args !== null && typeof args === "object"){
-      res = await func(args);
+      if(func.constructor.name === "AsyncFunction"){
+        res = await func(args);
+      }else{
+        res = func(args);
+      }
     }else{
-      res = await func(args);
+      if(func.constructor.name === "AsyncFunction"){
+        res = await func(args);
+      }else{
+        res = func(args);
+      }
     }
   }catch(e){
     console.log(e);
