@@ -1223,8 +1223,14 @@ core.modulo = function(a, b): SuuNumber | Error | string {
   
 };
 
+core.opposite = (n: any) => {
+  const num = core.getSuuNumber(n);
+  const op = core.multiple(num, "-1");
+  return op;
+};
+
 core.getSuuNumber = (n: any) => {
   return core.numToArrayWithDecimal(n);
-}
+};
 
 export default core;
