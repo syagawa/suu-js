@@ -2597,7 +2597,6 @@ describe("modulo", function(){
     assert.equal(str, "0.249");
   });
 
-
   it("null + null = Error", () => {
     const res = core.modulo(null, null);
     assert.equal(true, res instanceof Error);
@@ -2622,6 +2621,14 @@ describe("modulo", function(){
 });
 
 
+
+describe("opposite", function(){
+  it("1 => -1", () => {
+    const res = core.opposite("1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-1");
+  });
+});
 
 
 
