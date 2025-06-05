@@ -2628,6 +2628,12 @@ describe("opposite", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "-1");
   });
+
+  it("-1 => 1", () => {
+    const res = core.opposite("-1");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "1");
+  });
 });
 
 
