@@ -2634,6 +2634,14 @@ describe("opposite", function(){
     const str = core.numArrayToString(res);
     assert.equal(str, "1");
   });
+
+  it("0.5 => -0.5", () => {
+    const res = core.opposite("0.5");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-0.5");
+  });
+
+
 });
 
 
