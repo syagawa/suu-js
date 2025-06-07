@@ -2642,6 +2642,14 @@ describe("opposite", function(){
   });
 
 
+  it("0 => -0", () => {
+    const res = core.opposite("0");
+    const str = core.numArrayToString(res);
+    assert.equal(str, "-0");
+  });
+
+
+
 });
 
 
