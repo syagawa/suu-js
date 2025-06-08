@@ -1229,6 +1229,15 @@ core.opposite = (n: any) => {
   return op;
 };
 
+core.squareRoot = (n: any) => {
+  const num = core.getSuuNumber(n);
+  if(core.isZero()){
+    return core.getZero();
+  }
+
+};
+
+
 core.getSuuNumber = (n: any) => {
   return core.numToArrayWithDecimal(n);
 };
