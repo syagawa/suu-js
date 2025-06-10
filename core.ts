@@ -1231,8 +1231,12 @@ core.opposite = (n: any) => {
 
 core.squareRoot = (n: any) => {
   const num = core.getSuuNumber(n);
-  if(core.isZero()){
+  if(core.isZero(num)){
     return core.getZero();
+  }
+
+  if(core.isOne(num)){
+    return core.getOne();
   }
 
 };
