@@ -1229,6 +1229,10 @@ core.opposite = (n: any) => {
   return op;
 };
 
+core.factorization = (n: any) => {
+
+};
+
 core.squareRoot = (n: any) => {
   const num = core.getSuuNumber(n);
   if(core.isZero(num)){
