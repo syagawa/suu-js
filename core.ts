@@ -1230,6 +1230,22 @@ core.opposite = (n: any) => {
 };
 
 core.factorization = (n: any) => {
+  const num = core.getSuuNumber(n);
+
+  const res = [];
+   if(core.isZero(num)){
+    return res;
+  }
+
+  if(core.isOne(num)){
+    return res;
+  }
+  let bool = true;
+  while(bool){
+    const nums = num.
+
+    break;
+  }
 
 };
 
