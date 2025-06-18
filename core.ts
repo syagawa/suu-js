@@ -1241,8 +1241,9 @@ core.factorization = (n: any) => {
     return res;
   }
   let bool = true;
+  const half = core.divide(num, "2");
   while(bool){
-    const nums = num.
+    const nums = [half];
 
     break;
   }
