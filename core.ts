@@ -1229,6 +1229,13 @@ core.opposite = (n: any) => {
   return op;
 };
 
+const getHalfWithFloor = (n: any) => {
+  const num = core.getSuuNumber(n);
+  const half = core.divide(num, "2");
+  const res = core.floor(half);
+  return res;
+};
+
 core.factorization = (n: any) => {
   const num = core.getSuuNumber(n);
 
