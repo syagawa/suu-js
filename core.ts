@@ -1248,9 +1248,20 @@ core.factorization = (n: any) => {
     return res;
   }
   let bool = true;
-  const half = core.divide(num, "2");
+  const half = getHalfWithFloor(num);
+  let one = half;
+  let two = half;
+
   while(bool){
-    const nums = [half];
+    const res = core.multiple(one, two);
+    if(core.isEqual(res, num)){
+      bool = false;
+      res.push(...[one, two]);
+      break;
+    }else{
+      one = core.subtract(one, "1");
+      two = two;
+    }
 
     break;
   }
