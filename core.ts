@@ -1239,13 +1239,13 @@ const getHalfWithFloor = (n: any) => {
 core.factorization = (n: any) => {
   const num = core.getSuuNumber(n);
 
-  const res = [];
+  const array: SuuNumber[] = [];
    if(core.isZero(num)){
-    return res;
+    return array;
   }
 
   if(core.isOne(num)){
-    return res;
+    return array;
   }
   let bool = true;
   const half = getHalfWithFloor(num);
@@ -1253,10 +1253,10 @@ core.factorization = (n: any) => {
   let two = half;
 
   while(bool){
-    const res = core.multiple(one, two);
-    if(core.isEqual(res, num)){
+    const result = core.multiple(one, two);
+    if(core.isEqual(result, num)){
       bool = false;
-      res.push(...[one, two]);
+      array.push(...[one, two]);
       break;
     }else{
       one = core.subtract(one, "1");
