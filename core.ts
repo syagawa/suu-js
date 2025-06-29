@@ -1259,10 +1259,20 @@ core.factorization = (n: any) => {
       array.push(...[one, two]);
       break;
     }else{
-      one = core.subtract(one, "1");
-      two = two;
+      if(core.isEqual(two, "1") && core.isEqual(one, "1")){
+        bool = false;
+        break;
+      }else if(core.isEqual(two, "1")){
+        one = core.subtract(one, "1");
+        two = core.subtract(one, "1");
+      }else if(core.isEqual(one, "1")){
+        bool = false;
+        break;
+      }else{
+        one = one;
+        two = core.subtract(two, "1");
+      }
     }
-
     break;
   }
 
