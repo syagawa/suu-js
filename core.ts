@@ -1252,6 +1252,7 @@ core.factorization = (n: any) => {
   let one = half;
   let two = half;
 
+
   while(bool){
     const result = core.multiple(one, two);
     if(core.isEqual(result, num)){
@@ -1273,9 +1274,8 @@ core.factorization = (n: any) => {
         two = core.subtract(two, "1");
       }
     }
-    break;
   }
-
+  return array;
 };
 
 core.squareRoot = (n: any) => {
