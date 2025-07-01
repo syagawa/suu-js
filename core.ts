@@ -1265,7 +1265,7 @@ core.factorization = (n: any) => {
         break;
       }else if(core.isEqual(two, "1")){
         one = core.subtract(one, "1");
-        two = core.subtract(one, "1");
+        two = one;
       }else if(core.isEqual(one, "1")){
         bool = false;
         break;
