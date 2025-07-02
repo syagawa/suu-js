@@ -1239,6 +1239,10 @@ const getHalfWithFloor = (n: any) => {
 core.factorization = (n: any) => {
   const num = core.getSuuNumber(n);
 
+  if(num.name === "Error"){
+    return num;
+  }
+
   const array: SuuNumber[] = [];
    if(core.isZero(num)){
     return array;
