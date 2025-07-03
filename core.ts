@@ -1236,11 +1236,15 @@ const getHalfWithFloor = (n: any) => {
   return res;
 };
 
-core.factorization = (n: any) => {
+core.factorization = (n: any, square?: boolean) => {
   const num = core.getSuuNumber(n);
 
   if(num.name === "Error"){
     return num;
+  }
+
+  if(!square){
+    square = false;
   }
 
   const array: SuuNumber[] = [];
@@ -1256,22 +1260,21 @@ core.factorization = (n: any) => {
   let one = half;
   let two = half;
 
-
   while(bool){
     const result = core.multiple(one, two);
     if(core.isEqual(result, num)){
-      bool = false;
       array.push(...[one, two]);
       break;
     }else{
       if(core.isEqual(two, "1") && core.isEqual(one, "1")){
-        bool = false;
         break;
+      }else if(square){
+        one = core.subtract(one, "1");
+        two = one;
       }else if(core.isEqual(two, "1")){
         one = core.subtract(one, "1");
         two = one;
       }else if(core.isEqual(one, "1")){
-        bool = false;
         break;
       }else{
         one = one;
