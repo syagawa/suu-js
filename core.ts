@@ -1294,6 +1294,8 @@ core.squareRoot = (n: any) => {
   if(core.isOne(num)){
     return core.getOne();
   }
+  const res = core.factorization(num, true);
+  return res;
 
 };
 
