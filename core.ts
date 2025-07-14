@@ -1285,7 +1285,7 @@ core.factorization = (n: any, square?: boolean) => {
   return array;
 };
 
-core.squareRoot = (n: any) => {
+core.squareRoot = (n: any, approximate: boolean) => {
   const num = core.getSuuNumber(n);
   if(core.isZero(num)){
     return core.getZero();
