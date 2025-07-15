@@ -1294,9 +1294,12 @@ core.squareRoot = (n: any, approximate: boolean) => {
   if(core.isOne(num)){
     return core.getOne();
   }
-  const res = core.factorization(num, true);
-  return res;
+  if(approximate){
 
+  }else{
+    const res = core.factorization(num, true);
+    return res;
+  }
 };
 
 
