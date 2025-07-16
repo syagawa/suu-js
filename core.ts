@@ -1295,7 +1295,20 @@ core.squareRoot = (n: any, approximate: boolean) => {
     return core.getOne();
   }
   if(approximate){
-
+    let num2 = num;
+    let res = null;
+    while(true){
+      num2 = core.subtraction(num2, "1");
+      if(core.isZero(num2)){
+        break;
+      }
+      const res2 = core.factorization(num2, true);
+      if(res2){
+        res = res2;
+        break;
+      }
+    }
+    return res;
   }else{
     const res = core.factorization(num, true);
     return res;
