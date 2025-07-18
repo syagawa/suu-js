@@ -1295,7 +1295,9 @@ core.squareRoot = (n: any, approximate: boolean) => {
     return core.getOne();
   }
   const res = core.factorization(num, true);
-  if(!res && approximate){
+  console.log("in squareRoot", res);
+  if(res.length === 0 && approximate){
+    console.log("in squareRoot0", approximate);
     let num2 = num;
     let res = null;
     while(true){
