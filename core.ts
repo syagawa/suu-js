@@ -1294,19 +1294,17 @@ core.squareRoot = (n: any, approximate: boolean) => {
   if(core.isOne(num)){
     return core.getOne();
   }
-  const res = core.factorization(num, true);
-  console.log("in squareRoot", res);
+  let res = core.factorization(num, true);
   if(res.length === 0 && approximate){
-    console.log("in squareRoot0", approximate);
     let num2 = num;
-    let res = null;
+    let res2: SuuNumber[] | null = null;
     while(true){
       num2 = core.subtract(num2, "1");
       if(core.isZero(num2)){
         break;
       }
-      const res2 = core.factorization(num2, true);
-      if(res2){
+      res2 = core.factorization(num2, true);
+      if(res2  && res2.length === 2){
         res = res2;
         break;
       }
