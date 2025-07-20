@@ -1285,6 +1285,8 @@ core.factorization = (n: any, square?: boolean) => {
   return array;
 };
 
+
+
 core.squareRoot = (n: any, approximate: boolean) => {
   const num = core.getSuuNumber(n);
   if(core.isZero(num)){
@@ -1311,6 +1313,10 @@ core.squareRoot = (n: any, approximate: boolean) => {
     }
   }
   return res;
+};
+
+core.squareRootWithDecimal = (n: any) => {
+
 };
 
 
