@@ -1316,6 +1316,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
 };
 
 core.squareRootWithDecimal = (n: any) => {
+  const res = core.squareRoot(n);
 
 };
 
