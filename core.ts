@@ -1296,8 +1296,12 @@ core.squareRoot = (n: any, approximate: boolean) => {
   if(core.isOne(num)){
     return core.getOne();
   }
-  let res = core.factorization(num, true);
-  if(res.length === 0 && approximate){
+  let res = {
+    approximate: false,
+    result: []
+  };
+  let res1 = core.factorization(num, true);
+  if(res1.length === 0 && approximate){
     let num2 = num;
     let res2: SuuNumber[] | null = null;
     while(true){
@@ -1307,11 +1311,15 @@ core.squareRoot = (n: any, approximate: boolean) => {
       }
       res2 = core.factorization(num2, true);
       if(res2  && res2.length === 2){
-        res = res2;
+        res1 = res2;
         break;
       }
     }
   }
+  
+  res.result = res1;
+  res.approximate = approximate;
+  
   return res;
 };
 
