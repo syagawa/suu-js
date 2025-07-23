@@ -1297,7 +1297,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
     return core.getOne();
   }
   let res = {
-    approximate: false,
+    approximate: approximate ? true : false,
     result: []
   };
   let res1 = core.factorization(num, true);
