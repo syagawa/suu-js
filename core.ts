@@ -1316,16 +1316,16 @@ core.squareRoot = (n: any, approximate: boolean) => {
       }
     }
   }
-  
+
   res.result = res1;
   res.approximate = approximate;
   
   return res;
 };
 
-core.squareRootWithDecimal = (n: any) => {
-  const res = core.squareRoot(n);
-
+core.squareRootWithDecimal = (n: SuuNumber) => {
+  const res = core.squareRoot(n, true);
+  return res;
 };
 
 
