@@ -1324,8 +1324,20 @@ core.squareRoot = (n: any, approximate: boolean) => {
 };
 
 core.squareRootWithDecimal = (n: SuuNumber) => {
-  const res = core.squareRoot(n, true);
-  return res;
+  const num = core.getSuuNumber(n);
+  const res1 = core.squareRoot(num, true);
+  
+  let res2 = null;
+
+  if(res1.result.length === 2){
+    res2 = core.multiple(res1.result[0], res1.result[1]);
+    if(core.isEqual(res2, num)){
+      return res1;
+    }
+  }
+
+
+  //return res;
 };
 
 
