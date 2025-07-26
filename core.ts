@@ -1317,8 +1317,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
     }
   }
 
-  res.result = res1;
-  res.approximate = approximate;
+  res.result = res1[0];
   
   return res;
 };
@@ -1326,7 +1325,6 @@ core.squareRoot = (n: any, approximate: boolean) => {
 core.squareRootWithDecimal = (n: SuuNumber) => {
   const num = core.getSuuNumber(n);
   const res1 = core.squareRoot(num, true);
-  
   let res2 = null;
 
   if(res1.result.length === 2){
