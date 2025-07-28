@@ -1298,7 +1298,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
   }
   let res = {
     approximate: approximate ? true : false,
-    result: []
+    result: null
   };
   let res1 = core.factorization(num, true);
   if(res1.length === 0 && approximate){
@@ -1310,7 +1310,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
         break;
       }
       res2 = core.factorization(num2, true);
-      if(res2  && res2.length === 2){
+      if(res2 && res2.length === 2){
         res1 = res2;
         break;
       }
