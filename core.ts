@@ -1327,8 +1327,8 @@ core.squareRootWithDecimal = (n: SuuNumber) => {
   const res1 = core.squareRoot(num, true);
   let res2 = null;
 
-  if(res1.result.length === 2){
-    res2 = core.multiple(res1.result[0], res1.result[1]);
+  if(res1.result){
+    res2 = core.multiple(res1.result, res1.result);
     if(core.isEqual(res2, num)){
       return res1;
     }
