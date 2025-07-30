@@ -1332,6 +1332,9 @@ core.squareRootWithDecimal = (n: SuuNumber) => {
     if(core.isEqual(res2, num)){
       return res1;
     }
+
+  }else{
+    return res1;
   }
 
 
