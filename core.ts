@@ -1333,6 +1333,10 @@ core.squareRootWithDecimal = (n: SuuNumber) => {
       return res1;
     }
 
+    const remain = core.subtract(num, res2);
+    console.log(remain);
+   
+
   }else{
     return res1;
   }
