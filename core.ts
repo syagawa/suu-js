@@ -1296,9 +1296,9 @@ core.squareRoot = (n: any, approximate: boolean) => {
   if(core.isOne(num)){
     return core.getOne();
   }
-  let res = {
+  const res = {
     approximate: approximate ? true : false,
-    result: null
+    results: []
   };
   let res1 = core.factorization(num, true);
   if(res1.length === 0 && approximate){
@@ -1317,7 +1317,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
     }
   }
 
-  res.result = res1[0];
+  res.results = [res1[0], res1[1]];
   
   return res;
 };
@@ -1327,14 +1327,15 @@ core.squareRootWithDecimal = (n: SuuNumber) => {
   const res1 = core.squareRoot(num, true);
   let res2 = null;
 
-  if(res1.result){
-    res2 = core.multiple(res1.result, res1.result);
+  if(res1.results.length === 2){
+    res2 = core.multiple(res1.results[0], res1.results[1]);
     if(core.isEqual(res2, num)){
       return res1;
     }
 
     const remain = core.subtract(num, res2);
-    console.log(remain);
+    console.log("remain", remain);
+
   }else{
     return res1;
   }
