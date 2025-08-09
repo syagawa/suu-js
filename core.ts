@@ -1317,7 +1317,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
     }
   }
 
-  res.results = [res1[0], res1[1]];
+  // res.results = [res1[0], res1[1]];
   
   return res;
 };

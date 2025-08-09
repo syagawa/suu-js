@@ -557,33 +557,32 @@ utils.digitSum = function(num): SuuNumber | Error {
   }
 };
 
-utils.makeTriangleNumber = function(num): SuuNumber | Error{
-  const n = utils.getNumber(num);
+utils.makeTriangleNumber = function(nth): SuuNumber | Error{
+  const n = utils.getNumber(nth);
   if(core.isZero(n) || utils.isNegative(n) || !utils.isInteger(n)){
-    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [nth]});
   }
-  
   const res1 = core.multiple(n, core.add(n, "1"));
   const res2 = core.divide(res1, "2");
   return res2;
 };
 
-utils.makePronicNumber = function(num): SuuNumber | Error {
-  const n = utils.getNumber(num);
+utils.makePronicNumber = function(nth): SuuNumber | Error {
+  const n = utils.getNumber(nth);
   if(core.isZero(n)){
     return core.getZero();
   }
   if(utils.isNegative(n) || !utils.isInteger(n)){
-    return core.makeError({message: "Parameter must be a positive integer.", parameter: [num]});
+    return core.makeError({message: "Parameter must be a positive integer.", parameter: [nth]});
   }
   try{
     const  res = core.multiple(n, core.add(n, "1"));
     return res;
   }catch(err: unknown){
     if(err instanceof Error){
-      return core.makeError({message: err.message, parameter: [num]})
+      return core.makeError({message: err.message, parameter: [nth]})
     }else{
-      return core.makeError({message: "unknown error", paramater: [num]});
+      return core.makeError({message: "unknown error", paramater: [nth]});
     }
   }
 };
@@ -623,6 +622,29 @@ utils.factorial = function(num){
   }
 };
 
+utils.makeArithmeticSequence = function(first, end, diff){
+  const f = core.getSuuNumber(first);
+  const e = core.getSuuNumber(end)
+  const d = diff ? core.getSuuNumber(diff) : core.getOne();
+
+  if(utils.isEqual(f,e) || utils.isLarge(e, f) || utils.is){
+    return;
+  }
+
+  const arr: SuuNumber[] = [];
+
+  let bool = true;
+  let num = f;
+  while(bool){
+    if(utils.isLarge(f,e)){
+      bool = false;
+      break;
+    }
+    arr.push(num);
+    num = core.add(num, "1");
+  }
+  return arr;
+};
 
 utils.isMersenneNumber = function(num){
 
