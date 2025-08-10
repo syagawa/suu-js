@@ -624,11 +624,11 @@ utils.factorial = function(num){
 
 utils.makeArithmeticSequence = function(first, end, diff){
   const f = core.getSuuNumber(first);
-  const e = core.getSuuNumber(end)
+  const e = core.getSuuNumber(end);
   const d = diff ? core.getSuuNumber(diff) : core.getOne();
 
-  if(utils.isEqual(f,e) || utils.isLarge(e, f) || utils.is){
-    return;
+  if(utils.isEqual(f,e) || utils.isLarge(f, e)){
+    return "aa";
   }
 
   const arr: SuuNumber[] = [];
@@ -636,12 +636,12 @@ utils.makeArithmeticSequence = function(first, end, diff){
   let bool = true;
   let num = f;
   while(bool){
-    if(utils.isLarge(f,e)){
+    if(utils.isLarge(num,e)){
       bool = false;
       break;
     }
     arr.push(num);
-    num = core.add(num, "1");
+    num = core.add(num, d);
   }
   return arr;
 };
