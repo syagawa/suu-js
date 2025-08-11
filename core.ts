@@ -1296,7 +1296,10 @@ core.squareRoot = (n: any, approximate: boolean) => {
   if(core.isOne(num)){
     return core.getOne();
   }
-  const res = {
+  const res: {
+    approximate: boolean
+    results: SuuNumber[]
+  } = {
     approximate: approximate ? true : false,
     results: []
   };
@@ -1317,7 +1320,7 @@ core.squareRoot = (n: any, approximate: boolean) => {
     }
   }
 
-  // res.results = [res1[0], res1[1]];
+  res.results = [res1[0], res1[1]];
   
   return res;
 };
