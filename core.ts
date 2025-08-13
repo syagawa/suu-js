@@ -1320,14 +1320,20 @@ core.squareRoot = (n: any, approximate: boolean) => {
     let num3 = num;
     let res3: SuuNumber[] | null = null;
     while(true){
-      num3 = core.subtract(num3, "1");
-      if(core.isZero(num3)){
-        break;
-      }
+      num3 = core.add(num3, "1");
+      // if(core.isZero(num3)){
+      //   break;
+      // }
       res3 = core.factorization(num3, true) as SuuNumber[];
       if(res3 && res3.length === 2){
         break;
       }
+    }
+    if(!res2){
+      res2 = []
+    }
+    if(!res3){
+      res3 = []
     }
     res.results = [res2[0], res3[0]];
   }else{
