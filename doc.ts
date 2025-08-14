@@ -179,6 +179,9 @@ const map: object = {
   factorial: {
     ja: "階乗"
   },
+  factorizaion: {
+    ja: "因数分解"
+  },
   modulo: {
     ja: "剰余演算"
   },

@@ -1248,13 +1248,15 @@ core.factorization = (n: any, square?: boolean) => {
   }
 
   const array: SuuNumber[] = [];
-   if(core.isZero(num)){
+
+  if(core.isZero(num)){
     return array;
   }
 
   if(core.isOne(num)){
     return array;
   }
+
   let bool = true;
   const half = getHalfWithFloor(num);
   let one = half;
