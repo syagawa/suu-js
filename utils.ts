@@ -490,6 +490,11 @@ utils.makeLucaSequence = function(): SuuNumber[] | Error {
   return fibonacciReccurenceRelation({array: arr, limit: 100});
 };
 
+utils.fareySequence = function(n): SuuNumber[] | Error {
+  const arr: SuuNumber[] = [];
+  return arr;
+};
+
 utils.summation = function(array): SuuNumber | Error {
   if(!array || !Array.isArray(array)){
     return core.makeError({message: "Parameter must be Array.", parameter: [array]});
