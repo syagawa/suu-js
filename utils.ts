@@ -1306,4 +1306,23 @@ utils.isPierpontPrime = function(n){
   return false;
 };
 
+utils.makeFraction = function(n1: any, n2: any){
+  if(!n1 && n1 !== 0){
+    return;
+  }
+  if(!n2 && n2 !== 0){
+    n2 = "1";
+  }
+  const numerator = utils.getNumber(n1);
+  const denominator = utils.getNumber(n2);
+  if(utils.isZero(denominator)){
+    return;
+  }
+
+  return {
+    numerator,
+    denominator
+  }
+};
+
 export default utils;
