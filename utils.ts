@@ -1306,15 +1306,15 @@ utils.isPierpontPrime = function(n){
   return false;
 };
 
-utils.makeFraction = function(n1: any, n2: any){
-  if(!n1 && n1 !== 0){
+utils.makeFraction = function(nume: any, deno: any){
+  if(!nume && nume !== 0){
     return;
   }
-  if(!n2 && n2 !== 0){
-    n2 = "1";
+  if(!deno && deno !== 0){
+    deno = "1";
   }
-  const numerator = utils.getNumber(n1);
-  const denominator = utils.getNumber(n2);
+  const numerator = utils.getNumber(nume);
+  const denominator = utils.getNumber(deno);
   if(utils.isZero(denominator)){
     return;
   }
