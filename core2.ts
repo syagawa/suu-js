@@ -8,13 +8,48 @@ const matrix10 = [
 ];
 
 const addAndSubtract = (a, b, operator) => {
-  // a,   b,   c > 1,   2,   3
-  // a +  b =  c > 1 +  2 =  3
-  // b +  a =  c > 2 +  1 =  3
-  // c + -a =  b > 3 + -2 =  1
-  // c + -b =  a > 3 + -1 =  2
-  // a + -c = -b > 1 + -3 = -2
-  // b + -c = -a > 2 + -3 = -1
+  //  a,   b,   c > 1,   2,   3
+  // a +  b =  c > 1 +  2 =  3 ABC
+  // b +  a =  c > 2 +  1 =  3 BAC
+  // c + -a =  b > 3 + -2 =  1 CAB
+  // c + -b =  a > 3 + -1 =  2 CBA
+  // a + -c = -b > 1 + -3 = -2 ACB
+  // b + -c = -a > 2 + -3 = -1 BCA
+
+  let matrix = matrix10;
+  
+  let result = "";
+
+  for(let i = 0; i < matrix.length; i++){
+    const [A, B, C] = matrix[i];
+    // a +  b =  c > 1 +  2 =  3 ABC
+    if(a === A && b === B){
+      console.log("ABC", matrix[i]);
+      result = C;
+      break;
+    }
+    // b +  a =  c > 2 +  1 =  3 BAC
+    if(a === B && b === A){
+      console.log("BAC", matrix[i]);
+      result = C;
+      break;
+    }
+    // c + -a =  b > 3 + -2 =  1 CAB
+    if(a === C && b === A){
+      console.log("CAB", matrix[i]);
+      result = B;
+      break;
+    }
+    // c + -b =  a > 3 + -1 =  2 CBA
+    if(a === C && b === B){
+      console.log("CBA", matrix[i]);
+      result = A;
+      break;
+    }
+
+  }
+
+  return {result};
 
 };
 
@@ -101,7 +136,10 @@ const addAndSubtract01 = (a, b, add) => {
 };
 
 
-console.log(addAndSubtract01("0", "0", true));
-console.log(addAndSubtract01("1", "0", true));
-console.log(addAndSubtract01("0", "1", true));
-console.log(addAndSubtract01("1", "1", true));
+// console.log(addAndSubtract01("0", "0", true));
+// console.log(addAndSubtract01("1", "0", true));
+// console.log(addAndSubtract01("0", "1", true));
+// console.log(addAndSubtract01("1", "1", true));
+
+console.log(addAndSubtract("1", "2", null));
+console.log(addAndSubtract("2", "1", null));
