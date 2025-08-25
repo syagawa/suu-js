@@ -318,6 +318,14 @@ utils.greatestCommonDivisor = function(a, b): SuuNumber | Error{
   }
 };
 
+utils.isCoPrime = function(a, b): boolean {
+  const res = utils.greatestCommonDivisor(a, b);
+  if(res.length === 1 && utils.isOne(res[0])){
+    return true;
+  }
+  return false;
+};
+
 utils.commonMultiple = function(a, b, limit): SuuNumber[] | Error{
 
   const limit_length = limit ? limit : 10;
