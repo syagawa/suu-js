@@ -320,7 +320,7 @@ utils.greatestCommonDivisor = function(a, b): SuuNumber | Error{
 
 utils.isCoPrime = function(a, b): boolean {
   const res = utils.greatestCommonDivisor(a, b);
-  if(res.length === 1 && utils.isOne(res[0])){
+  if(res && utils.isOne(res)){
     return true;
   }
   return false;
@@ -1361,16 +1361,15 @@ utils.makePythagoreanTriple = function(n, m){
     const m2 = utils.square(num_m);
     const n2 = utils.square(num_n);
 
-    const a = utils.subtract(m2, n2);
-    const b = utils.multiple(utils.multiple("2", m2), n2);
-    const c = utils.add(m2, n2);
+    const a = core.subtract(m2, n2);
+    const b = core.multiple(core.multiple("2", num_m), num_n);
+    const c = core.add(m2, n2);
 
     return {
       a,b,c
     };
 
   }
-
 
 };
 

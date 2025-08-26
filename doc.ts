@@ -275,6 +275,9 @@ const map: object = {
   isPierpontPrime: {
     ja: "ピアポント素数かどうか"
   },
+  makePythagoreanTriple: {
+    ja: "ピタゴラス数の生成"
+  }
 };
 
 const whatIs = function({name="", lang="ja"}: { name: string, lang: string}): string{
