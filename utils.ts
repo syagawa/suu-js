@@ -1333,4 +1333,45 @@ utils.makeFraction = function(nume: any, deno: any){
   }
 };
 
+utils.makePythagoreanTriple = function(n, m){
+
+  if(!n){
+    return;
+  }
+
+  const num_n = utils.getNumber(n);
+
+  if(!num_n){
+    return;
+  }
+
+  let num_m = "";
+  if(!m){
+    num_m = core.add(num_n, "1");
+  }else{
+    num_m = utils.getNumber(m);
+  }
+
+  if(!num_m){
+    return;
+  }
+
+  if(utils.isInteger(num_n) && utils.isInteger(num_m) && utils.isCoPrime(num_n, num_m) && utils.isLarge(num_m, num_n) && utils.isNaturalNumber(num_n) && utils.isNaturalNumber(num_m)){
+
+    const m2 = utils.square(num_m);
+    const n2 = utils.square(num_n);
+
+    const a = utils.subtract(m2, n2);
+    const b = utils.multiple(utils.multiple("2", m2), n2);
+    const c = utils.add(m2, n2);
+
+    return {
+      a,b,c
+    };
+
+  }
+
+
+};
+
 export default utils;
