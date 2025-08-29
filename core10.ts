@@ -30,58 +30,51 @@ const addAndSubtract = (a, operator, b) => {
     return result;
   }
 
-  const reFunc = (a, operator, b, result) => {
-
-    for(let i = 0; i < matrix.length; i++){
-      const [A, B, C] = matrix[i];
-      // a +  b =  c > 1 +  2 =  3 ABC
-      if(operator === "+"){
-        // c + -a =  b > 3 + -2 =  1 CAB
-        if(a === A && b === B){
-          console.log("ABC", matrix[i]);
-          result = C;
-          break;
-        }
-        // b +  a =  c > 2 +  1 =  3 BAC
-        if(a === B && b === A){
-          console.log("BAC", matrix[i]);
-          result = C;
-          break;
-        }
-      }else if(operator === "-"){
-        // c + -a =  b > 3 + -2 =  1 CAB
-        if(a === C && b === A){
-          console.log("CAB", matrix[i]);
-          result = B;
-          break;
-        }
-        // c + -b =  a > 3 + -1 =  2 CBA
-        if(a === C && b === B){
-          console.log("CBA", matrix[i]);
-          result = A;
-          break;
-        }
-        // a + -c = -b > 1 + -3 = -2 ACB
-        if(a === A && b === C){
-          console.log("ACB", matrix[i]);
-          result = `-${B}`;
-          break;
-        }
-      
-        // b + -c = -a > 2 + -3 = -1 BCA
-        if(a === B && b === C){
-          console.log("BCA", matrix[i]);
-          result = `-${A}`;
-          break;
-        }
+  for(let i = 0; i < matrix.length; i++){
+    const [A, B, C] = matrix[i];
+    // a +  b =  c > 1 +  2 =  3 ABC
+    if(operator === "+"){
+      // c + -a =  b > 3 + -2 =  1 CAB
+      if(a === A && b === B){
+        console.log("ABC", matrix[i]);
+        result = C;
+        break;
+      }
+      // b +  a =  c > 2 +  1 =  3 BAC
+      if(a === B && b === A){
+        console.log("BAC", matrix[i]);
+        result = C;
+        break;
+      }
+    }else if(operator === "-"){
+      // c + -a =  b > 3 + -2 =  1 CAB
+      if(a === C && b === A){
+        console.log("CAB", matrix[i]);
+        result = B;
+        break;
+      }
+      // c + -b =  a > 3 + -1 =  2 CBA
+      if(a === C && b === B){
+        console.log("CBA", matrix[i]);
+        result = A;
+        break;
+      }
+      // a + -c = -b > 1 + -3 = -2 ACB
+      if(a === A && b === C){
+        console.log("ACB", matrix[i]);
+        result = `-${B}`;
+        break;
+      }
+    
+      // b + -c = -a > 2 + -3 = -1 BCA
+      if(a === B && b === C){
+        console.log("BCA", matrix[i]);
+        result = `-${A}`;
+        break;
       }
     }
-    return result;
-  };
-
-  const res = reFunc(a, operator, b, result);
-
-  return {result: res};
+  }
+  return result;
 
 };
 
