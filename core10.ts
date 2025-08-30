@@ -78,5 +78,17 @@ const addAndSubtract = (a, operator, b) => {
 
 };
 
+const numbersReg = /^[0-9]+$/;
+const operatorsReg = /^[+-]+$/;
+
+const calc = (...args) => {
+
+  const length = args.length;
+
+
+  
+
+};
+
 console.log(addAndSubtract("2", "-", "3"));
 console.log(addAndSubtract("9", "+", "3"));
