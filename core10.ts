@@ -82,13 +82,33 @@ const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
 const calc = (...args) => {
-
-  const length = args.length;
-
-
-  
+  let list = [...args];
+  let i = 0;
+  let bool = true;
+  let res;
+  while(bool){
+    const a = list[0];
+    const operator = list[1];
+    const b = list[2];
+    res = addAndSubtract(a, operator, b);
+    console.log(res);
+    if(res){
+      // acum = res;
+      if(list[i + 3] && list[i + 4]){
+        list = [res, ...list.slice(3)];
+      }else{
+        break;
+      }
+    }else{
+      bool = false;
+      break;
+    }
+    // break;
+  }
+  return res;
 
 };
 
 console.log(addAndSubtract("2", "-", "3"));
 console.log(addAndSubtract("9", "+", "3"));
+console.log(calc("1", "+", "1", "+", "2"));
