@@ -87,13 +87,31 @@ const calc = (...args) => {
   let i = 0;
   let bool = true;
   let res;
-  while(bool){
+  while(true){
     const a = list[0];
     const operator = list[1];
     const b = list[2];
     const a_len = a.length;
     const b_len = b.length;
-    res = addAndSubtract(a, operator, b);
+
+    const length = a_len > b_len ? a_len : b_len;
+    let count = 1;
+    let carry = "";
+    let resres = "";
+    while(true){
+      const current_a = a[a_len - count];
+      const current_b = b[b_len - count];
+      const res1 = addAndSubtract(current_a, operator, current_b);
+      const len = res1.length;
+      if(len === 2){
+        resres = `${res1[1]}${resres}`;
+        carry = res1[0];
+      }else{
+        resres= `${res1[1]}${resres}`;
+      }
+
+    }
+
     console.log(res);
     if(res){
       // acum = res;
