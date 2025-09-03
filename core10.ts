@@ -95,24 +95,34 @@ const calc = (...args) => {
     const b_len = b.length;
 
     const length = a_len > b_len ? a_len : b_len;
-    let count = 1;
-    let carry = "";
     let resres = "";
-    while(true){
-      const current_a = a[a_len - count];
-      const current_b = b[b_len - count];
+    const arr: any[] = [];
+    for(let i = 0; i < length; i++){
+      const current_a = a[i] ? a[i] : "0";
+      const current_b = b[i] ? b[i] : "0";
       const res1 = addAndSubtract(current_a, operator, current_b);
-      const len = res1.length;
-      if(len === 2){
-        resres = `${res1[1]}${resres}`;
-        carry = res1[0];
-      }else{
-        resres= `${res1[1]}${resres}`;
-      }
+      arr.push(res1);
+    }
+    let carry = "";
+    const new_arr: any[] = [];
+    for(let j = 0; j < length; j++){
 
+      let s = arr[length - j - 1];
+      if(carry){
+        s = addAndSubtract(s, operator, carry);
+      }
+      
+      if(s.length === 2){
+        carry = s[0];
+        s = s[1];
+      }
+      new_arr.unshift(s);
+      if(j === (length - 1)){
+        new_arr.unshift(carry);
+      }
     }
 
-    console.log(res);
+    console.log(new_arr);
     if(res){
       // acum = res;
       if(list[i + 3] && list[i + 4]){
