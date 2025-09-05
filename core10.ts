@@ -95,7 +95,7 @@ const calc = (...args) => {
     const b_len = b.length;
 
     const length = a_len > b_len ? a_len : b_len;
-    const arr: any[] = [];
+    const arr = [];
     for(let i = 0; i < length; i++){
       const current_a = a[i] ? a[i] : "0";
       const current_b = b[i] ? b[i] : "0";
@@ -103,7 +103,7 @@ const calc = (...args) => {
       arr.push(res1);
     }
     let carry = "";
-    const new_arr: any[] = [];
+    const new_arr = [];
     for(let j = 0; j < length; j++){
       let s = arr[length - j - 1];
       if(carry){
@@ -142,4 +142,4 @@ const calc = (...args) => {
 
 console.log(addAndSubtract("2", "-", "3"));
 console.log(addAndSubtract("9", "+", "3"));
-console.log(calc("11", "+", "1", "+", "5"));
+console.log(calc("11", "+", "11", "+", "5"));
