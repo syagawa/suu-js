@@ -102,6 +102,7 @@ const calc = (...args) => {
       const res1 = addAndSubtract(current_a, operator, current_b);
       arr.push(res1);
     }
+    console.log("1", arr)
     let carry = "";
     const new_arr = [];
     for(let j = 0; j < length; j++){
@@ -122,7 +123,8 @@ const calc = (...args) => {
       }
     }
 
-    console.log(new_arr);
+    console.log(2, new_arr);
+    return new_arr;
     if(res){
       // acum = res;
       if(list[i + 3] && list[i + 4]){
@@ -140,6 +142,6 @@ const calc = (...args) => {
 
 };
 
-console.log(addAndSubtract("2", "-", "3"));
-console.log(addAndSubtract("9", "+", "3"));
+// console.log(addAndSubtract("2", "-", "3"));
+// console.log(addAndSubtract("9", "+", "3"));
 console.log(calc("11", "+", "11", "+", "5"));
