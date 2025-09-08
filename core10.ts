@@ -83,6 +83,7 @@ const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
 const calc = (...args) => {
+  console.log("args", args)
   let list = [...args];
   let i = 0;
   let bool = true;
@@ -124,7 +125,10 @@ const calc = (...args) => {
     }
 
     console.log(2, new_arr);
-    return new_arr;
+
+    const new_arr2 = new_arr.filter(elm => elm)
+    // return new_arr;
+    console.log(new_arr2);
     if(res){
       // acum = res;
       if(list[i + 3] && list[i + 4]){
