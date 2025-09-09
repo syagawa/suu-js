@@ -129,6 +129,7 @@ const calc = (...args) => {
     const new_arr2 = new_arr.filter(elm => elm)
     // return new_arr;
     console.log(new_arr2);
+    res = new_arr2.join("");
     if(res){
       // acum = res;
       if(list[i + 3] && list[i + 4]){
