@@ -98,8 +98,11 @@ const calc = (...args) => {
     const arr = [];
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length);
     for(let i = 0; i < length; i++){
-      const current_a = a[i] ? a[i] : "0";
-      const current_b = b[i] ? b[i] : "0";
+      const current_a_len = a_len - i;
+      const current_b_len = b_len - i;
+      const current_a = a[current_a_len] ? a[current_a_len] : "0";
+      const current_b = b[current_b_len] ? b[current_b_len] : "0";
+      console.log("for", current_a, current_b)
       const res1 = addAndSubtract(current_a, operator, current_b);
       arr.push(res1);
     }
@@ -149,5 +152,5 @@ const calc = (...args) => {
 
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
-console.log(calc("11", "+", "5"));
+console.log(calc("12", "+", "5"));
 // console.log(calc("11", "+", "11", "+", "5"));
