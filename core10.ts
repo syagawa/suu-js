@@ -102,7 +102,7 @@ const calc = (...args) => {
       const current_b_len = b_len - i;
       const current_a = a[current_a_len] ? a[current_a_len] : "0";
       const current_b = b[current_b_len] ? b[current_b_len] : "0";
-      console.log("for", current_a, current_b)
+      console.log("for-i", current_a, current_b)
       const res1 = addAndSubtract(current_a, operator, current_b);
       arr.push(res1);
     }
@@ -111,6 +111,7 @@ const calc = (...args) => {
     const new_arr = [];
     for(let j = 0; j < length; j++){
       let s = arr[length - j - 1];
+      console.log("for-j", s)
       if(carry){
         s = addAndSubtract(s, operator, carry);
       }
