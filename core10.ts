@@ -100,9 +100,9 @@ const calc = (...args) => {
     for(let i = 0; i < length; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
-      const current_a = a[current_a_len] ? a[current_a_len] : "0";
-      const current_b = b[current_b_len] ? b[current_b_len] : "0";
-      console.log("for-i", current_a, current_b)
+      const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
+      const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
+      console.log("for-i", a_len, b_len, current_a_len, current_b_len, current_a, current_b)
       const res1 = addAndSubtract(current_a, operator, current_b);
       arr.push(res1);
     }
