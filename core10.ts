@@ -104,7 +104,7 @@ const calc = (...args) => {
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
       console.log("for-i", a_len, b_len, current_a_len, current_b_len, current_a, current_b)
       const res1 = addAndSubtract(current_a, operator, current_b);
-      arr.push(res1);
+      arr.unshift(res1);
     }
     console.log("1", arr)
     let carry = "";
@@ -153,5 +153,5 @@ const calc = (...args) => {
 
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
-console.log(calc("12", "+", "5"));
+console.log(calc("99", "+", "99"));
 // console.log(calc("11", "+", "11", "+", "5"));
