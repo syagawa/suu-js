@@ -94,10 +94,11 @@ const calc = (...args) => {
     const b = list[2];
     const a_len = a.length;
     const b_len = b.length;
-    const length = a_len > b_len ? a_len : b_len;
+    const length1 = a_len > b_len ? a_len : b_len;
     const arr = [];
-    console.log("a:", a, "operator:", operator, "b:", b, "length:", length);
-    for(let i = 0; i < length; i++){
+    let carry = "";
+    console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
+    for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
       const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
@@ -107,26 +108,34 @@ const calc = (...args) => {
       arr.unshift(res1);
     }
     console.log("1", arr)
-    let carry = "";
-    const new_arr = [];
-    for(let j = 0; j < length; j++){
-      let s = arr[length - j - 1];
-      console.log("for-j", s)
-      if(carry){
-        s = addAndSubtract(s, operator, carry);
-      }
+    // const new_arr = ["0", ...arr];
+    // const length2 = new_arr.length;
+    // // for(let j = 0; j < length2; j++){
+    // //   let s = arr[length2 - j - 1];
+    // //   console.log("for-j", s)
+
+    // //   if(carry){
+    // //     s = addAndSubtract(s, operator, carry);
+    // //   }
+
+    // //   let target = s;
+
+    // //   if(s.length === 2){
+    // //     carry = s[0];
+    // //     target = s[1];
+    // //   }
       
-      if(s.length === 2){
-        carry = s[0];
-        s = s[1];
-      }else{
-        carry = "";
-      }
-      new_arr.unshift(s);
-      if(j === (length - 1)){
-        new_arr.unshift(carry);
-      }
-    }
+    // //   if(s.length === 2){
+    // //     carry = s[0];
+    // //     s = s[1];
+    // //   }else{
+    // //     carry = "";
+    // //   }
+    // //   new_arr.unshift(s);
+    // //   if(j === (length1 - 1)){
+    // //     new_arr.unshift(carry);
+    // //   }
+    // // }
 
     console.log(2, new_arr);
 
