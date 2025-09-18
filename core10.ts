@@ -96,7 +96,7 @@ const calc = (...args) => {
     const b_len = b.length;
     const length1 = a_len > b_len ? a_len : b_len;
     const arr = [];
-    let carry = "";
+    let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
@@ -105,10 +105,22 @@ const calc = (...args) => {
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
       console.log("for-i", a_len, b_len, current_a_len, current_b_len, current_a, current_b)
       const res1 = addAndSubtract(current_a, operator, current_b);
-      arr.unshift(res1);
+
+      let s = res1;
+      if(s.startsWith("-") && s.length === 3){
+        carry = s[1];
+        s = s[2];
+      }else if(s.length === 2){
+        carry = s.slice(0, 2);
+        s = s[1];
+      }else{
+        carry = "";
+      }
+      
+      arr.unshift(s);
     }
     console.log("1", arr)
-    // const new_arr = ["0", ...arr];
+    const new_arr = ["0", ...arr];
     // const length2 = new_arr.length;
     // // for(let j = 0; j < length2; j++){
     // //   let s = arr[length2 - j - 1];
