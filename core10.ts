@@ -104,7 +104,26 @@ const calc = (...args) => {
       const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
       console.log("for-i", a_len, b_len, current_a_len, current_b_len, current_a, current_b)
-      const res1 = addAndSubtract(current_a, operator, current_b);
+
+      let res1;
+      if(carry !== "0"){
+        res1 = addAndSubtract(carry, operator, current_a);
+        if(res1.startsWith("-") && res1.length === 3){
+          carry = res1[1];
+          res1 = res1[2];
+        }else if(res1.length === 2){
+          carry = res1.slice(0, 2);
+          res1 = res1[1];
+        }else{
+          carry = "0";
+        }
+
+        res1 = addAndSubtract(res1, operator, current_b);
+
+      }else{
+        res1 = addAndSubtract(current_a, operator, current_b);
+      }
+
 
       let s = res1;
       if(s.startsWith("-") && s.length === 3){
@@ -114,7 +133,7 @@ const calc = (...args) => {
         carry = s.slice(0, 2);
         s = s[1];
       }else{
-        carry = "";
+        carry = "0";
       }
       
       arr.unshift(s);
