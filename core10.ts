@@ -136,9 +136,7 @@ const calc = (...args) => {
       const obj = fixCarry(res1);
       res1 = obj.res;
 
-      if(carry !== "0"){
-        carry = addAndSubtract(carry, operator, obj.carry);
-      }else{
+      if(carry === "0"){
         carry = obj.carry;
       }
 
