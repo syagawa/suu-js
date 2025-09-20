@@ -88,14 +88,26 @@ const calc = (...args) => {
   let i = 0;
   let bool = true;
   let res;
+  const fixCarry = function(res){
+    let r = res;
+    let c = "0";
+    if(res.startsWith("-") && res.length === 3){
+      c = res[1];
+      r = res[2];
+    }else if(res.length === 2){
+      c = res.slice(0, 1);
+      r = res[1];
+    }
+    return { res: r, carry: c };
+  };
   while(true){
     const a = list[0];
     const operator = list[1];
     const b = list[2];
     const a_len = a.length;
     const b_len = b.length;
-    const length1 = a_len > b_len ? a_len : b_len;
-    const arr = [];
+    const length1 = a_len > b_len ? a_len +1 : b_len + 1;
+    const arr: any[] = [];
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
     for(let i = 0; i < length1; i++){
@@ -103,42 +115,41 @@ const calc = (...args) => {
       const current_b_len = b_len - i;
       const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
-      console.log("for-i", a_len, b_len, current_a_len, current_b_len, current_a, current_b)
+      console.log("for-i1", i, "carry:", carry, current_a, current_b,)
 
       let res1;
       if(carry !== "0"){
         res1 = addAndSubtract(carry, operator, current_a);
-        if(res1.startsWith("-") && res1.length === 3){
-          carry = res1[1];
-          res1 = res1[2];
-        }else if(res1.length === 2){
-          carry = res1.slice(0, 2);
-          res1 = res1[1];
-        }else{
-          carry = "0";
-        }
-
+        // console.log("forfor011", carry, res1)
+        const obj = fixCarry(res1);
+        res1 = obj.res;
+        carry = obj.carry;
+        // console.log("forfor012", carry, res1)
+        // console.log("cccc", carry, res1)
         res1 = addAndSubtract(res1, operator, current_b);
-
+        // console.log("forfor013", carry, res1)
       }else{
         res1 = addAndSubtract(current_a, operator, current_b);
+        // console.log("forfor021", carry, res1)
       }
 
+      const obj = fixCarry(res1);
+      res1 = obj.res;
 
-      let s = res1;
-      if(s.startsWith("-") && s.length === 3){
-        carry = s[1];
-        s = s[2];
-      }else if(s.length === 2){
-        carry = s.slice(0, 2);
-        s = s[1];
+      if(carry !== "0"){
+        carry = addAndSubtract(carry, operator, obj.carry);
       }else{
-        carry = "0";
+        carry = obj.carry;
       }
+
+      // res1 = addAndSubtract(carry, operator, res1);
+      console.log("for-i2", i, "carry:", carry, res1,)
+
+
       
-      arr.unshift(s);
+      arr.unshift(res1);
     }
-    console.log("1", arr)
+    // console.log("1", arr)
     const new_arr = ["0", ...arr];
     // const length2 = new_arr.length;
     // // for(let j = 0; j < length2; j++){
@@ -168,11 +179,11 @@ const calc = (...args) => {
     // //   }
     // // }
 
-    console.log(2, new_arr);
+    // console.log(2, new_arr);
 
     const new_arr2 = new_arr.filter(elm => elm)
     // return new_arr;
-    console.log(new_arr2);
+    // console.log(new_arr2);
     res = new_arr2.join("");
     if(res){
       // acum = res;
