@@ -196,11 +196,21 @@ const calc = (...args) => {
     }
     // break;
   }
-  return res;
 
+  let zeroLength = 0;
+  for(let i = 0; i < res.length; i++){
+    const s = res[i];
+    if(s === "0"){
+      zeroLength++;
+    }else{
+      break;
+    }
+  }
+
+  return res.slice(zeroLength, res.length);
 };
 
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
-console.log(calc("99", "+", "99"));
+console.log(calc("9999", "+", "99"));
 // console.log(calc("11", "+", "11", "+", "5"));
