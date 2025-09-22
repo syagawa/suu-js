@@ -107,7 +107,7 @@ const calc = (...args) => {
     const a_len = a.length;
     const b_len = b.length;
     const length1 = a_len > b_len ? a_len +1 : b_len + 1;
-    const arr: any[] = [];
+    const arr = [];
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
     for(let i = 0; i < length1; i++){
@@ -206,11 +206,15 @@ const calc = (...args) => {
       break;
     }
   }
+  if(zeroLength === 1 && res.length === zeroLength){
+    return res;
+  }
 
   return res.slice(zeroLength, res.length);
 };
 
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
-console.log(calc("9999", "+", "99"));
 // console.log(calc("11", "+", "11", "+", "5"));
+// console.log(calc("9999", "+", "99"));
+console.log(calc("9", "-", "9"));
