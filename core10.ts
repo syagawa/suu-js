@@ -206,8 +206,8 @@ const calc = (...args) => {
       break;
     }
   }
-  if(zeroLength === 1 && res.length === zeroLength){
-    return res;
+  if(res.length === zeroLength){
+    return "0";
   }
 
   return res.slice(zeroLength, res.length);
