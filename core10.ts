@@ -91,9 +91,9 @@ const calc = (...args) => {
   const fixCarry = function(res){
     let r = res;
     let c = "0";
-    if(res.startsWith("-") && res.length === 3){
-      c = res[1];
-      r = res[2];
+    if(res.startsWith("-")){
+      // c = res[1];
+      // r = res[2];
     }else if(res.length === 2){
       c = res.slice(0, 1);
       r = res[1];
@@ -115,10 +115,13 @@ const calc = (...args) => {
       const current_b_len = b_len - i;
       const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
-      console.log("for-i1", i, "carry:", carry, current_a, current_b,)
+      console.log("for-i1", i, "carry:", carry, "a", current_a, "b", current_b,)
 
       let res1;
       if(carry !== "0"){
+        if(carry.startsWith("-")){
+          console.log("borrowww!!", carry);
+        }
         res1 = addAndSubtract(carry, operator, current_a);
         // console.log("forfor011", carry, res1)
         const obj = fixCarry(res1);
@@ -149,39 +152,8 @@ const calc = (...args) => {
     }
     // console.log("1", arr)
     const new_arr = ["0", ...arr];
-    // const length2 = new_arr.length;
-    // // for(let j = 0; j < length2; j++){
-    // //   let s = arr[length2 - j - 1];
-    // //   console.log("for-j", s)
-
-    // //   if(carry){
-    // //     s = addAndSubtract(s, operator, carry);
-    // //   }
-
-    // //   let target = s;
-
-    // //   if(s.length === 2){
-    // //     carry = s[0];
-    // //     target = s[1];
-    // //   }
-      
-    // //   if(s.length === 2){
-    // //     carry = s[0];
-    // //     s = s[1];
-    // //   }else{
-    // //     carry = "";
-    // //   }
-    // //   new_arr.unshift(s);
-    // //   if(j === (length1 - 1)){
-    // //     new_arr.unshift(carry);
-    // //   }
-    // // }
-
-    // console.log(2, new_arr);
-
     const new_arr2 = new_arr.filter(elm => elm)
-    // return new_arr;
-    // console.log(new_arr2);
+
     res = new_arr2.join("");
     if(res){
       // acum = res;
@@ -216,5 +188,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
-// console.log(calc("9999", "+", "99"));
-console.log(calc("9", "-", "9"));
+console.log(calc("9999", "+", "99"));
+// console.log(calc("10", "-", "9"));
