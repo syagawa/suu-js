@@ -92,8 +92,8 @@ const calc = (...args) => {
     let r = res;
     let c = "0";
     if(res.startsWith("-")){
-      // c = res[1];
-      // r = res[2];
+      c = res;
+      r = "0";
     }else if(res.length === 2){
       c = res.slice(0, 1);
       r = res[1];
@@ -188,5 +188,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("2", "-", "3"));
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
-console.log(calc("9999", "+", "99"));
-// console.log(calc("10", "-", "9"));
+//console.log(calc("9999", "+", "99"));
+console.log(calc("10", "-", "9"));
