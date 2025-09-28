@@ -113,7 +113,7 @@ const calc = (...args) => {
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
-      const current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
+      let current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
       const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
       console.log("for-i1", i, "carry:", carry, "a", current_a, "b", current_b,)
 
@@ -121,6 +121,10 @@ const calc = (...args) => {
       if(carry !== "0"){
         if(carry.startsWith("-")){
           console.log("borrowww!!", carry);
+          const res_pre = addAndSubtract("10", "-", carry.replace(/^-/, ""));
+          carry = "0";
+          arr[i - 1] = res_pre;
+          current_a = addAndSubtract(current_a, "-", "1" );
         }
         res1 = addAndSubtract(carry, operator, current_a);
         // console.log("forfor011", carry, res1)
@@ -185,8 +189,8 @@ const calc = (...args) => {
   return res.slice(zeroLength, res.length);
 };
 
-// console.log(addAndSubtract("2", "-", "3"));
+// console.log(addAndSubtract("10", "-", "9"));
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("10", "-", "9"));
+console.log(calc("100", "-", "9"));
