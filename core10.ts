@@ -82,6 +82,36 @@ const addAndSubtract = (a, operator, b) => {
 const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
+const getMaxMinPairByAbsoluteInt = (a, b) => {
+  let a_, b_;
+  if(a.startsWith("-")){
+    a_ = a.replace(/^-/, "");
+  }else{
+    a_ = a;
+  }
+  if(b.startsWith("-")){
+    b_ = b.replace(/^-/, "");
+  }else{
+    b_ = b;
+  }
+
+  if(a_.length > b_.length){
+    return {
+      max: a,
+      min: b,
+    }
+  }else if(a_.length < b_.length){
+    return {
+      max: b,
+      min: a,
+    }
+  }else{
+    
+  }
+
+
+};
+
 const calc = (...args) => {
   console.log("args", args)
   let list = [...args];
