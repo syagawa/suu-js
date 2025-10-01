@@ -106,7 +106,14 @@ const getMaxMinPairByAbsoluteInt = (a, b) => {
       min: a,
     }
   }else{
+    const arr = matrix10;
     
+    
+    const target = arr.find((elm) => {
+      if(elm[0] === a_){
+
+      }
+    })
   }
 
 
