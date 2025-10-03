@@ -95,29 +95,39 @@ const getMaxMinPairByAbsoluteInt = (a, b) => {
     b_ = b;
   }
 
-  if(a_.length > b_.length){
-    return {
-      max: a,
-      min: b,
-    }
-  }else if(a_.length < b_.length){
-    return {
-      max: b,
-      min: a,
-    }
-  }else{
-    const arr = matrix10_add_subtract;
-    
-    for(let i = 0; i < a_.length; i++){
-      const a = a_[a_.length - i - 1];
-      const b = b_[b_.length - i - 1];
-      const target = arr.find((elm) => {
-        if(elm[0] === a){
-          
-        }
-      })
-    }
+  let [ a_left, a_right="" ] = a_.split(".");
+  let [ b_left, b_right="" ] = b_.split(".");
+
+
+
+
+  if(a_left.length > b_left.length){
+    b_left = b_left.padStart(a_left.length, "0");
+  }else if(a_left.length < b_left.length){
+    a_left = a_left.padStart(b_left.length, "0");
   }
+
+  if(a_right.length > b_right.length){
+    b_right = b_right.padSEnd(a_right.length, "0");
+  }else if(a_right.length < b_right.length){
+    a_right = a_right.padSEnd(b_right.length, "0");
+  }
+
+
+  
+  const arr = matrix10_add_subtract;
+  const len_left = a_left.length;
+  
+  for(let i = 0; i < len_left; i++){
+    const a = a_left[i];
+    const b = b_left[i];
+    const target = arr.find((elm) => {
+      if(elm[0] === a){
+        
+      }
+    })
+  }
+  const len_right = a_right.length;
 
 
 };
