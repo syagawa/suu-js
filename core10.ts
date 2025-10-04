@@ -82,8 +82,13 @@ const addAndSubtract = (a, operator, b) => {
 const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
-const getMaxMinPairByAbsoluteInt = (a, b) => {
+const getMaxMinPair = (a, b) => {
   let a_, b_;
+  const res = {
+    min: "",
+    max: "",
+    same: false,
+  };
   if(a.startsWith("-")){
     a_ = a.replace(/^-/, "");
   }else{
@@ -99,8 +104,6 @@ const getMaxMinPairByAbsoluteInt = (a, b) => {
   let [ b_left, b_right="" ] = b_.split(".");
 
 
-
-
   if(a_left.length > b_left.length){
     b_left = b_left.padStart(a_left.length, "0");
   }else if(a_left.length < b_left.length){
@@ -108,27 +111,68 @@ const getMaxMinPairByAbsoluteInt = (a, b) => {
   }
 
   if(a_right.length > b_right.length){
-    b_right = b_right.padSEnd(a_right.length, "0");
+    b_right = b_right.padEnd(a_right.length, "0");
   }else if(a_right.length < b_right.length){
-    a_right = a_right.padSEnd(b_right.length, "0");
+    a_right = a_right.padEnd(b_right.length, "0");
   }
 
-
-  
   const arr = matrix10_add_subtract;
   const len_left = a_left.length;
   
   for(let i = 0; i < len_left; i++){
-    const a = a_left[i];
-    const b = b_left[i];
-    const target = arr.find((elm) => {
-      if(elm[0] === a){
-        
+    const a_l = a_left[i];
+    const b_l = b_left[i];
+    if(a_l === b_l){
+      continue;
+    }
+    for(let j = 0; j < arr.length; j++){
+      const [A, B, C] = arr[j];
+      if((A === a_l || B === a_l) && C === b_l){
+        return {
+          ...res,
+          min: a,
+          max: b,
+        }
       }
-    })
+      if((A === b_l || B === b_l) && C === a_l){
+        return {
+          ...res,
+          min: b,
+          max: a,
+        }
+      }
+    }
   }
-  const len_right = a_right.length;
 
+  const len_right = a_right.length;
+  for(let i = 0; i < len_right; i++){
+    const a_r = a_right[i];
+    const b_r = b_right[i];
+    if(a_r === b_r){
+      continue;
+    }
+    for(let j = 0; j < arr.length; j++){
+      const [A, B, C] = arr[j];
+      if((A === a_r || B === a_r) && C === b_r){
+        return {
+          ...res,
+          min: a,
+          max: b,
+        }
+      }
+      if((A === b_r || B === b_r) && C === a_r){
+        return {
+          ...res,
+          min: b,
+          max: a,
+        }
+      }
+    }
+  }
+  return {
+    ...res,
+    same: true
+  };
 
 };
 
@@ -244,3 +288,4 @@ const calc = (...args) => {
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
 console.log(calc("100", "-", "9"));
+console.log(getMaxMinPair("0.9", "1.0"))
