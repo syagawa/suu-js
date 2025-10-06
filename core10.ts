@@ -204,6 +204,10 @@ const calc = (...args) => {
     const arr = [];
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
+    if(operator === "-"){
+      const {min, max, same} = getMaxMinPair(a, b);
+      console.log(min, max, same);
+    }
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
@@ -288,4 +292,4 @@ const calc = (...args) => {
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
 console.log(calc("100", "-", "9"));
-console.log(getMaxMinPair("0.9", "1.0"))
+// console.log(getMaxMinPair("0100", "100.0"))
