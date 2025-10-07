@@ -82,6 +82,10 @@ const addAndSubtract = (a, operator, b) => {
 const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
+const arrangeDigit = (a, b) => {
+
+};
+
 const getMaxMinPair = (a, b) => {
   let a_, b_;
   const res = {
