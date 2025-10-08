@@ -83,6 +83,26 @@ const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
 const arrangeDigit = (a, b) => {
+  let [ a_left, a_right="" ] = a.split(".");
+  let [ b_left, b_right="" ] = b.split(".");
+
+  if(a_left.length > b_left.length){
+    b_left = b_left.padStart(a_left.length, "0");
+  }else if(a_left.length < b_left.length){
+    a_left = a_left.padStart(b_left.length, "0");
+  }
+
+  if(a_right.length > b_right.length){
+    b_right = b_right.padEnd(a_right.length, "0");
+  }else if(a_right.length < b_right.length){
+    a_right = a_right.padEnd(b_right.length, "0");
+  }
+  return {
+    a_left,
+    a_right,
+    b_left,
+    b_right,
+  }
 
 };
 
