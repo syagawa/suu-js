@@ -102,7 +102,9 @@ const arrangeDigit = (a, b) => {
     a_right,
     b_left,
     b_right,
-  }
+    a: `${a_left}.${a_right}`,
+    b: `${b_left}.${b_right}`,
+  };
 
 };
 
@@ -124,21 +126,7 @@ const getMaxMinPair = (a, b) => {
     b_ = b;
   }
 
-  let [ a_left, a_right="" ] = a_.split(".");
-  let [ b_left, b_right="" ] = b_.split(".");
-
-
-  if(a_left.length > b_left.length){
-    b_left = b_left.padStart(a_left.length, "0");
-  }else if(a_left.length < b_left.length){
-    a_left = a_left.padStart(b_left.length, "0");
-  }
-
-  if(a_right.length > b_right.length){
-    b_right = b_right.padEnd(a_right.length, "0");
-  }else if(a_right.length < b_right.length){
-    a_right = a_right.padEnd(b_right.length, "0");
-  }
+  let { a_left, a_right, b_left, b_right } = arrangeDigit(a, b);
 
   const arr = matrix10_add_subtract;
   const len_left = a_left.length;
