@@ -210,6 +210,8 @@ const calc = (...args) => {
     const a = list[0];
     const operator = list[1];
     const b = list[2];
+    const {min, max, same} = getMaxMinPair(a, b);
+    console.log(min, max, same);
     const a_len = a.length;
     const b_len = b.length;
     const length1 = a_len > b_len ? a_len +1 : b_len + 1;
@@ -217,8 +219,9 @@ const calc = (...args) => {
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
     if(operator === "-"){
-      const {min, max, same} = getMaxMinPair(a, b);
-      console.log(min, max, same);
+      // const {min, max, same} = getMaxMinPair(a, b);
+      // console.log(min, max, same);
+
     }
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
