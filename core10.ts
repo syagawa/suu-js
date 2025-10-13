@@ -218,6 +218,10 @@ const calc = (...args) => {
       // const {min, max, same} = getMaxMinPair(a, b);
       // console.log(min, max, same);
 
+    }else if(operator === "+"){
+
+    }else{
+      return;
     }
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
