@@ -203,13 +203,13 @@ const calc = (...args) => {
     return { res: r, carry: c };
   };
   while(true){
-    let a = list[0];
+    const a_origin = list[0];
     const operator = list[1];
-    let b = list[2];
-    const {min, max, same} = getMaxMinPair(a, b);
+    const b_origin = list[2];
+    const {min, max, same} = getMaxMinPair(a_origin, b_origin);
     console.log(min, max, same);
-    a = max;
-    b = min;
+    const a = max;
+    const b = min;
     const a_len = a.length;
     const b_len = b.length;
     const length1 = a_len > b_len ? a_len +1 : b_len + 1;
@@ -217,8 +217,6 @@ const calc = (...args) => {
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
     if(operator === "+"){
-      
-      
 
     }else if(operator === "-"){
 
