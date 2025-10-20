@@ -194,8 +194,8 @@ const calc = (...args) => {
     let r = res;
     let c = "0";
     if(res.startsWith("-")){
-      c = res;
-      r = "0";
+      r = addAndSubtract("10", "-", res.replace(/^-/, ""));
+      c = "-1";
     }else if(res.length === 2){
       c = res.slice(0, 1);
       r = res[1];
@@ -233,11 +233,11 @@ const calc = (...args) => {
       let res1;
       if(carry !== "0"){
         if(carry.startsWith("-")){
-          console.log("borrowww!!", carry);
-          const res_pre = addAndSubtract("10", "-", carry.replace(/^-/, ""));
-          carry = "0";
-          arr[i - 1] = res_pre;
-          current_a = addAndSubtract(current_a, "-", "1" );
+          // console.log("borrowww!!", carry);
+          // const res_pre = addAndSubtract("10", "-", carry.replace(/^-/, ""));
+          // carry = "0";
+          // arr[i - 1] = res_pre;
+          // current_a = addAndSubtract(current_a, "-", "1" );
         }
         res1 = addAndSubtract(carry, operator, current_a);
         // console.log("forfor011", carry, res1)
@@ -249,8 +249,8 @@ const calc = (...args) => {
         res1 = addAndSubtract(res1, operator, current_b);
         // console.log("forfor013", carry, res1)
       }else{
-        res1 = addAndSubtract(current_a, operator, current_b);
         // console.log("forfor021", carry, res1)
+        res1 = addAndSubtract(current_a, operator, current_b);
       }
 
       const obj = fixCarry(res1);
