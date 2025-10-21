@@ -231,23 +231,24 @@ const calc = (...args) => {
       console.log("for-i1", i, "carry:", carry, "a", current_a, "b", current_b,)
 
       let res1;
-      if(carry !== "0"){
+      if(carry !== "0"){//carry === "-1"
         if(carry.startsWith("-")){
-          // console.log("borrowww!!", carry);
-          // const res_pre = addAndSubtract("10", "-", carry.replace(/^-/, ""));
-          // carry = "0";
-          // arr[i - 1] = res_pre;
-          // current_a = addAndSubtract(current_a, "-", "1" );
+          console.log("borrowww!!", carry);
+          current_a = addAndSubtract(current_a, "-", carry.replace(/^-/, "") );
+          const obj = fixCarry(current_a);
+          res1 = obj.res;
+          carry = obj.carry;
+        }else{//carry === "1"
+          res1 = addAndSubtract(carry, operator, current_a);
+          // console.log("forfor011", carry, res1)
+          const obj = fixCarry(res1);
+          res1 = obj.res;
+          carry = obj.carry;
+          // console.log("forfor012", carry, res1)
+          // console.log("cccc", carry, res1)
+          res1 = addAndSubtract(res1, operator, current_b);
+          // console.log("forfor013", carry, res1)
         }
-        res1 = addAndSubtract(carry, operator, current_a);
-        // console.log("forfor011", carry, res1)
-        const obj = fixCarry(res1);
-        res1 = obj.res;
-        carry = obj.carry;
-        // console.log("forfor012", carry, res1)
-        // console.log("cccc", carry, res1)
-        res1 = addAndSubtract(res1, operator, current_b);
-        // console.log("forfor013", carry, res1)
       }else{
         // console.log("forfor021", carry, res1)
         res1 = addAndSubtract(current_a, operator, current_b);
@@ -306,5 +307,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("100", "-", "9"));
+console.log(calc("5019", "-", "9"));
 // console.log(getMaxMinPair("0100", "100.0"))
