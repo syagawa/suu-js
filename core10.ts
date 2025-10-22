@@ -113,15 +113,6 @@ const getMaxMinPair = (a, b) => {
     max: "",
     same: false,
   };
-  let a_ = a;
-  if(a.startsWith("-")){
-    a_ = a.replace(/^-/, "");
-  }
-  let b_ = b;
-  if(b.startsWith("-")){
-    b_ = b.replace(/^-/, "");
-  }
-
   let { a_left, a_right, b_left, b_right } = arrangeDigit(a, b);
 
   const arr = matrix10_add_subtract;
@@ -307,5 +298,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("5019", "-", "9"));
+console.log(calc("50190", "-", "900"));
 // console.log(getMaxMinPair("0100", "100.0"))
