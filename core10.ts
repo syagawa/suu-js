@@ -108,12 +108,27 @@ const arrangeDigit = (a, b) => {
 };
 
 const getMaxMinPair = (a, b) => {
+  
+  const regexMinus = /^-/;
   const res = {
     min: "",
     max: "",
     same: false,
   };
-  let { a_left, a_right, b_left, b_right } = arrangeDigit(a, b);
+  let a_abs = a;
+  let b_abs = b;
+  let a_is_minus = false;
+  let b_is_minus = false;
+  if(a.match(regexMinus)){
+    a_abs = a.replace(regexMinus, "");
+    a_is_minus = true;
+  }
+  if(b.math(regexMinus)){
+    b_abs = b.replace(regexMinus, "");
+    b_is_minus = true;
+  }
+
+  let { a_left, a_right, b_left, b_right } = arrangeDigit(a_abs, b_abs);
 
   const arr = matrix10_add_subtract;
   const len_left = a_left.length;
@@ -172,6 +187,9 @@ const getMaxMinPair = (a, b) => {
     ...res,
     same: true
   };
+  
+
+  
 
 };
 
@@ -299,4 +317,4 @@ const calc = (...args) => {
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
 console.log(calc("50190", "-", "900"));
-// console.log(getMaxMinPair("0100", "100.0"))
+console.log(getMaxMinPair("-101", "100.0"))
