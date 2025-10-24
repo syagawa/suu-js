@@ -123,7 +123,7 @@ const getMaxMinPair = (a, b) => {
     a_abs = a.replace(regexMinus, "");
     a_is_minus = true;
   }
-  if(b.math(regexMinus)){
+  if(b.match(regexMinus)){
     b_abs = b.replace(regexMinus, "");
     b_is_minus = true;
   }
@@ -142,17 +142,35 @@ const getMaxMinPair = (a, b) => {
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
       if((A === a_l || B === a_l) && C === b_l){
+        let min = a;
+        let max = b;
+        if(a_is_minus && b_is_minus){
+          min = b;
+          max = a;
+        }else if(!a_is_minus && b_is_minus){
+          min = b;
+          max = a;
+        }
         return {
           ...res,
-          min: a,
-          max: b,
+          min: min,
+          max: max,
         }
       }
       if((A === b_l || B === b_l) && C === a_l){
+        let min = b;
+        let max = a;
+        if(a_is_minus && b_is_minus){
+          min = a;
+          max = b;
+        }else if(a_is_minus && !b_is_minus){
+          min = a;
+          max = b;
+        }
         return {
           ...res,
-          min: b,
-          max: a,
+          min: min,
+          max: max,
         }
       }
     }
@@ -168,17 +186,35 @@ const getMaxMinPair = (a, b) => {
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
       if((A === a_r || B === a_r) && C === b_r){
+        let min = a;
+        let max = b;
+        if(a_is_minus && b_is_minus){
+          min = b;
+          max = a;
+        }else if(!a_is_minus && b_is_minus){
+          min = b;
+          max = a;
+        }
         return {
           ...res,
-          min: a,
-          max: b,
+          min: min,
+          max: max,
         }
       }
       if((A === b_r || B === b_r) && C === a_r){
+        let min = b;
+        let max = a;
+        if(a_is_minus && b_is_minus){
+          min = a;
+          max = b;
+        }else if(a_is_minus && !b_is_minus){
+          min = a;
+          max = b;
+        }
         return {
           ...res,
-          min: b,
-          max: a,
+          min: min,
+          max: max,
         }
       }
     }
@@ -187,9 +223,6 @@ const getMaxMinPair = (a, b) => {
     ...res,
     same: true
   };
-  
-
-  
 
 };
 
