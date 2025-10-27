@@ -219,10 +219,25 @@ const getMaxMinPair = (a, b) => {
       }
     }
   }
-  return {
-    ...res,
-    same: true
-  };
+  if((a_is_minus && b_is_minus) || (!a_is_minus && !b_is_minus)){
+    return {
+      ...res,
+      same: true
+    };
+  }else if(a_is_minus && !b_is_minus){
+    return {
+      ...res,
+      min: a,
+      max: b,
+    }
+  }else if(!a_is_minus && b_is_minus){
+    return {
+      ...res,
+      min: b,
+      max: a,
+    }
+  }
+
 
 };
 
@@ -349,5 +364,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("50190", "-", "900"));
-console.log(getMaxMinPair("-101", "100.0"))
+console.log(calc("1", "-", "900"));
+console.log(getMaxMinPair("-100", "100.0"))
