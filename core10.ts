@@ -265,8 +265,26 @@ const calc = (...args) => {
     const b_origin = list[2];
     const {min, max, same} = getMaxMinPair(a_origin, b_origin);
     console.log(min, max, same);
+
     const a = max;
     const b = min;
+
+    const regexMinus = /^-/;
+    let a_is_minus = false;
+    let b_is_minus = false;
+    if(a.match(regexMinus)){
+      a_is_minus = true;
+    }
+    if(b.match(regexMinus)){
+      b_is_minus = true;
+    }
+
+    if(a !== max){
+
+    }
+
+
+
     const a_len = a.length;
     const b_len = b.length;
     const length1 = a_len > b_len ? a_len +1 : b_len + 1;
