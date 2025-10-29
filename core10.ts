@@ -261,7 +261,7 @@ const calc = (...args) => {
   };
   while(true){
     const a_origin = list[0];
-    const operator = list[1];
+    const operator_origin = list[1];
     const b_origin = list[2];
     const {min, max, same} = getMaxMinPair(a_origin, b_origin);
     console.log(min, max, same);
@@ -272,16 +272,28 @@ const calc = (...args) => {
     const regexMinus = /^-/;
     let a_is_minus = false;
     let b_is_minus = false;
+    let operator = "";
     if(a.match(regexMinus)){
       a_is_minus = true;
     }
     if(b.match(regexMinus)){
       b_is_minus = true;
     }
+    
 
-    if(a !== max){
+    // -1 + -1 => -(1 + 1)
+    // -1 - -1 => -1 + 1
+    if(a_is_minus && b_is_minus){
+      if(operator_origin === "+"){
+
+      }
+    }
+    
+
+    if(a !== a_origin){
 
     }
+
 
 
 
