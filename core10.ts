@@ -107,7 +107,7 @@ const arrangeDigit = (a, b) => {
   };
 };
 
-const getMaxMinPair = (a, b) => {
+const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: boolean} => {
   
   const regexMinus = /^-/;
   const res = {
@@ -238,6 +238,7 @@ const getMaxMinPair = (a, b) => {
     }
   }
 
+  return res;
 
 };
 
@@ -284,7 +285,7 @@ const calc = (...args) => {
     //  1 +  1 =  2
     // -1 +  1 =  0
     //  1 + -1 =  0
-    // -1 + -1 = -2
+    // -1 + -1 = -2 mm+
     //  1 -  1 =  0
     // -1 -  1 = -2
     //  1 - -1 =  2
@@ -293,7 +294,7 @@ const calc = (...args) => {
     //  3 +  2 =  5
     // -3 +  2 =  1
     //  3 + -2 =  1
-    // -3 + -2 = -5
+    // -3 + -2 = -5 mm+
     //  3 -  2 =  1
     // -3 -  2 = -5
     //  3 - -2 =  5
@@ -302,15 +303,16 @@ const calc = (...args) => {
     //  2 +  3 =  5
     // -2 +  3 =  1
     //  2 + -3 =  1
-    // -2 + -3 = -5
+    // -2 + -3 = -5 mm+
     //  2 -  3 = -1
     // -2 -  3 = -5
     //  2 - -3 =  5
     // -2 - -3 =  1
 
 
-    
+    // mm
     if(a_is_minus && b_is_minus){
+      // mm+
       if(operator_origin === "+"){
 
       }
