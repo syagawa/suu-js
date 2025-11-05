@@ -310,11 +310,13 @@ const calc = (...args) => {
     // -2 - -3 =  1
 
 
+    let res_is_minus = false;
+
     // mm
     if(a_is_minus && b_is_minus){
       // mm+
       if(operator_origin === "+"){
-
+        res_is_minus = true;
       }
     }
     
