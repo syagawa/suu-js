@@ -107,7 +107,7 @@ const arrangeDigit = (a, b) => {
   };
 };
 
-const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: boolean} => {
+const getMaxMinPairByAbsolute = (a: string, b: string): {min: string, max: string, same: boolean} => {
   
   const regexMinus = /^-/;
   const res = {
@@ -115,18 +115,18 @@ const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: b
     max: "",
     same: false,
   };
-  let a_abs = a;
-  let b_abs = b;
-  let a_is_minus = false;
-  let b_is_minus = false;
-  if(a.match(regexMinus)){
-    a_abs = a.replace(regexMinus, "");
-    a_is_minus = true;
-  }
-  if(b.match(regexMinus)){
-    b_abs = b.replace(regexMinus, "");
-    b_is_minus = true;
-  }
+  let a_abs = a.replace(regexMinus, "");
+  let b_abs = b.replace(regexMinus, "");
+  // let a_is_minus = false;
+  // let b_is_minus = false;
+  // if(a.match(regexMinus)){
+  //   a_abs = a.replace(regexMinus, "");
+  //   a_is_minus = true;
+  // }
+  // if(b.match(regexMinus)){
+  //   b_abs = b.replace(regexMinus, "");
+  //   b_is_minus = true;
+  // }
 
   let { a_left, a_right, b_left, b_right } = arrangeDigit(a_abs, b_abs);
 
@@ -142,15 +142,8 @@ const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: b
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
       if((A === a_l || B === a_l) && C === b_l){
-        let min = a;
-        let max = b;
-        if(a_is_minus && b_is_minus){
-          min = b;
-          max = a;
-        }else if(!a_is_minus && b_is_minus){
-          min = b;
-          max = a;
-        }
+        const min = a;
+        const max = b;
         return {
           ...res,
           min: min,
@@ -158,15 +151,8 @@ const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: b
         }
       }
       if((A === b_l || B === b_l) && C === a_l){
-        let min = b;
-        let max = a;
-        if(a_is_minus && b_is_minus){
-          min = a;
-          max = b;
-        }else if(a_is_minus && !b_is_minus){
-          min = a;
-          max = b;
-        }
+        const min = b;
+        const max = a;
         return {
           ...res,
           min: min,
@@ -186,15 +172,8 @@ const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: b
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
       if((A === a_r || B === a_r) && C === b_r){
-        let min = a;
-        let max = b;
-        if(a_is_minus && b_is_minus){
-          min = b;
-          max = a;
-        }else if(!a_is_minus && b_is_minus){
-          min = b;
-          max = a;
-        }
+        const min = a;
+        const max = b;
         return {
           ...res,
           min: min,
@@ -202,39 +181,14 @@ const getMaxMinPair = (a: string, b: string): {min: string, max: string, same: b
         }
       }
       if((A === b_r || B === b_r) && C === a_r){
-        let min = b;
-        let max = a;
-        if(a_is_minus && b_is_minus){
-          min = a;
-          max = b;
-        }else if(a_is_minus && !b_is_minus){
-          min = a;
-          max = b;
-        }
+        const min = b;
+        const max = a;
         return {
           ...res,
           min: min,
           max: max,
         }
       }
-    }
-  }
-  if((a_is_minus && b_is_minus) || (!a_is_minus && !b_is_minus)){
-    return {
-      ...res,
-      same: true
-    };
-  }else if(a_is_minus && !b_is_minus){
-    return {
-      ...res,
-      min: a,
-      max: b,
-    }
-  }else if(!a_is_minus && b_is_minus){
-    return {
-      ...res,
-      min: b,
-      max: a,
     }
   }
 
@@ -264,7 +218,7 @@ const calc = (...args) => {
     const a_origin = list[0];
     const operator_origin = list[1];
     const b_origin = list[2];
-    const {min, max, same} = getMaxMinPair(a_origin, b_origin);
+    const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
     console.log(min, max, same);
 
     const a = max;
@@ -287,18 +241,18 @@ const calc = (...args) => {
     //  1 + -1 =  0
     // -1 + -1 = -2 mm+
     //  1 -  1 =  0
-    // -1 -  1 = -2
+    // -1 -  1 = -2 
     //  1 - -1 =  2
-    // -1 - -1 =  0
+    // -1 - -1 =  0 mm-
 
     //  3 +  2 =  5
     // -3 +  2 =  1
     //  3 + -2 =  1
     // -3 + -2 = -5 mm+
     //  3 -  2 =  1
-    // -3 -  2 = -5
+    // -3 -  2 = -5 
     //  3 - -2 =  5
-    // -3 - -2 =  1
+    // -3 - -2 = -1 mm-
 
     //  2 +  3 =  5
     // -2 +  3 =  1
@@ -307,7 +261,7 @@ const calc = (...args) => {
     //  2 -  3 = -1
     // -2 -  3 = -5
     //  2 - -3 =  5
-    // -2 - -3 =  1
+    // -2 - -3 =  1 mm-
 
 
     let res_is_minus = false;
@@ -317,6 +271,13 @@ const calc = (...args) => {
       // mm+
       if(operator_origin === "+"){
         res_is_minus = true;
+      // mm-
+      }else if (operator_origin === "-"){
+        if(a_origin === max){
+
+        }
+        res_is_minus = true;
+        
       }
     }
     
@@ -426,4 +387,4 @@ const calc = (...args) => {
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
 console.log(calc("1", "-", "900"));
-console.log(getMaxMinPair("-100", "100.0"))
+console.log(getMaxMinPairByAbsolute("-100", "100.0"))
