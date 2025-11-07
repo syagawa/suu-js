@@ -107,7 +107,7 @@ const arrangeDigit = (a, b) => {
   };
 };
 
-const getMaxMinPairByAbsolute = (a: string, b: string): {min: string, max: string, same: boolean} => {
+const getMaxMinPairByAbsolute = (a, b) => {
   
   const regexMinus = /^-/;
   const res = {
@@ -192,7 +192,10 @@ const getMaxMinPairByAbsolute = (a: string, b: string): {min: string, max: strin
     }
   }
 
-  return res;
+  return {
+    ...res,
+    same: true,
+  };
 
 };
 
@@ -221,8 +224,8 @@ const calc = (...args) => {
     const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
     console.log(min, max, same);
 
-    const a = max;
-    const b = min;
+    const a = max ? max : a_origin;
+    const b = min ? min : b_origin;
 
     const regexMinus = /^-/;
     let a_is_minus = false;
@@ -386,5 +389,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("1", "-", "900"));
+console.log(calc("1", "+", "900"));
 console.log(getMaxMinPairByAbsolute("-100", "100.0"))
