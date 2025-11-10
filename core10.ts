@@ -276,10 +276,11 @@ const calc = (...args) => {
         res_is_minus = true;
       // mm-
       }else if (operator_origin === "-"){
-        if(a_origin === max){
-
+        if (b_origin === max){
+          res_is_minus = false;
+        }else{
+          res_is_minus = true;
         }
-        res_is_minus = true;
         
       }
     }
@@ -389,5 +390,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("1", "+", "900"));
+console.log(calc("9", "+", "900"));
 console.log(getMaxMinPairByAbsolute("-100", "100.0"))
