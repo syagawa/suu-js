@@ -283,6 +283,9 @@ const calc = (...args) => {
         }
         
       }
+    //mp
+    }else if(a_is_minus && !b_is_minus){
+
     }
     
 
@@ -391,4 +394,4 @@ const calc = (...args) => {
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
 console.log(calc("9", "+", "900"));
-console.log(getMaxMinPairByAbsolute("-100", "100.0"))
+console.log(getMaxMinPairByAbsolute("-101", "100.0"))
