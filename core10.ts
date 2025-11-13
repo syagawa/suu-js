@@ -269,7 +269,7 @@ const calc = (...args) => {
 
     let res_is_minus = false;
 
-    // mm
+    // mm -1 -1
     if(a_is_minus && b_is_minus){
       // mm+
       if(operator_origin === "+"){
@@ -283,9 +283,16 @@ const calc = (...args) => {
         }
         
       }
-    //mp
+    //mp -1 1
     }else if(a_is_minus && !b_is_minus){
+      // mp+
+      if(operator_origin === "+"){
 
+      // mp-
+      }else if (operator_origin === "-"){
+        
+        
+      }
     }
     
 
