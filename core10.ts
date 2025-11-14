@@ -268,26 +268,24 @@ const calc = (...args) => {
 
 
     let res_is_minus = false;
-
     // mm -1 -1
     if(a_is_minus && b_is_minus){
-      // mm+
+      // mm+ -1 + -1
       if(operator_origin === "+"){
         res_is_minus = true;
-      // mm-
+      // mm- -1 - -1
       }else if (operator_origin === "-"){
         if (b_origin === max){
           res_is_minus = false;
-        }else{
-          res_is_minus = true;
         }
-        
       }
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
-      // mp+
+      // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
-
+        if (b_origin === max){
+          res_is_minus = true
+        }
       // mp-
       }else if (operator_origin === "-"){
         
