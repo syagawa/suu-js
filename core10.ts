@@ -273,8 +273,9 @@ const calc = (...args) => {
       // mm+ -1 + -1
       if(operator_origin === "+"){
         res_is_minus = true;
-      // mm- -1 - -1
+      // mm- -1 - -1, -2 - -1 = -1, -1 - -2 = 1
       }else if (operator_origin === "-"){
+        // -1 - -2 = 1
         if (b_origin === max){
           res_is_minus = false;
         }
@@ -283,13 +284,13 @@ const calc = (...args) => {
     }else if(a_is_minus && !b_is_minus){
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
-        if (b_origin === max){
+        // -2 + 1 = -1
+        if (a_origin === max){
           res_is_minus = true
         }
-      // mp-
+      // mp- -1 - 1 = -2, -2 - 1 = -3, -1 - 2 = -3
       }else if (operator_origin === "-"){
-        
-        
+        res_is_minus = true
       }
     }
     
