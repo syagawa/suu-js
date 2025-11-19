@@ -304,7 +304,17 @@ const calc = (...args) => {
       }else if (operator_origin === "-"){
         // res_is_minus = false
       }
-
+    //pp 1 1
+    }else if(!a_is_minus && !b_is_minus){
+      // pp+ 1 + 1 = 2
+      if(operator_origin === "+"){
+        // res_is_minus = false
+      // pm- 1 - 1 = 0, 2 - 1 = 1, 1 - 2 = -1
+      }else if (operator_origin === "-"){
+        if (b_origin === max){
+          res_is_minus = true
+        }
+      }
 
     }
     
