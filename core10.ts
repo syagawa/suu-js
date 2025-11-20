@@ -317,11 +317,6 @@ const calc = (...args) => {
       }
 
     }
-    
-
-    if(a !== a_origin){
-
-    }
 
 
 
@@ -332,13 +327,6 @@ const calc = (...args) => {
     const arr = [];
     let carry = "0";
     console.log("a:", a, "operator:", operator, "b:", b, "length:", length1);
-    if(operator === "+"){
-
-    }else if(operator === "-"){
-
-    }else{
-      return;
-    }
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
@@ -423,5 +411,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("9", "+", "900"));
+console.log(calc("1", "+", "1"));
 console.log(getMaxMinPairByAbsolute("-101", "100.0"))
