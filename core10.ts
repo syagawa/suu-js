@@ -273,6 +273,7 @@ const calc = (...args) => {
       // mm+ -1 + -1
       if(operator_origin === "+"){
         res_is_minus = true;
+        operator = "+";
       // mm- -1 - -1, -2 - -1 = -1, -1 - -2 = 1
       }else if (operator_origin === "-"){
         // -1 - -2 = 1
