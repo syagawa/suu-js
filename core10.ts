@@ -224,8 +224,8 @@ const calc = (...args) => {
     const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
     console.log(min, max, same);
 
-    const a = max ? max : a_origin;
-    const b = min ? min : b_origin;
+    const a = same ? a_origin : max ? max : a_origin;
+    const b = same ? b_origin : min ? min : b_origin;
 
     const regexMinus = /^-/;
     let a_is_minus = false;
