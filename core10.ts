@@ -230,14 +230,14 @@ const calc = (...args) => {
     const regexMinus = /^-/;
     let a_is_minus = false;
     let b_is_minus = false;
-    let operator = "";
+    let operator = operator_origin;
     if(a.match(regexMinus)){
       a_is_minus = true;
     }
     if(b.match(regexMinus)){
       b_is_minus = true;
     }
-    
+   
 
     //  1 +  1 =  2 pp+
     // -1 +  1 =  0 mp+
@@ -318,8 +318,6 @@ const calc = (...args) => {
       }
 
     }
-
-
 
 
     const a_len = a.length;
@@ -412,5 +410,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log(calc("1", "+", "1"));
+console.log("calc result: ", calc("2", "+", "1"));
 console.log(getMaxMinPairByAbsolute("-101", "100.0"))
