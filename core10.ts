@@ -205,6 +205,8 @@ const calc = (...args) => {
   let i = 0;
   let bool = true;
   let res;
+  let res_is_minus = false;
+
   const fixCarry = function(res){
     let r = res;
     let c = "0";
@@ -267,7 +269,6 @@ const calc = (...args) => {
     // -2 - -3 =  1 mm-
 
 
-    let res_is_minus = false;
     // mm -1 -1
     if(a_is_minus && b_is_minus){
       // mm+ -1 + -1
@@ -403,6 +404,10 @@ const calc = (...args) => {
     return "0";
   }
 
+  if(res_is_minus){
+    console.log("minusss!!")
+  }
+
   return res.slice(zeroLength, res.length);
 };
 
@@ -410,5 +415,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log("calc result: ", calc("2", "+", "1"));
+console.log("calc result: ", calc("-11", "-", "11"));
 console.log(getMaxMinPairByAbsolute("-101", "100.0"))
