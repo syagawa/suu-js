@@ -293,6 +293,7 @@ const calc = (...args) => {
       // mp- -1 - 1 = -2, -2 - 1 = -3, -1 - 2 = -3
       }else if (operator_origin === "-"){
         res_is_minus = true
+        operator = "+"
       }
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
