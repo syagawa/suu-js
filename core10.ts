@@ -405,11 +405,14 @@ const calc = (...args) => {
     return "0";
   }
 
+  res = res.slice(zeroLength, res.length);
+  
   if(res_is_minus){
     console.log("minusss!!")
+    res = `-${res}`;
   }
+  return res;
 
-  return res.slice(zeroLength, res.length);
 };
 
 // console.log(addAndSubtract("10", "-", "9"));
