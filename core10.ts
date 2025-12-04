@@ -271,6 +271,7 @@ const calc = (...args) => {
 
     // mm -1 -1
     if(a_is_minus && b_is_minus){
+      console.log("mm")
       // mm+ -1 + -1
       if(operator_origin === "+"){
         res_is_minus = true;
@@ -284,6 +285,7 @@ const calc = (...args) => {
       }
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
+      console.log("mp")
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
         // -2 + 1 = -1
@@ -297,6 +299,7 @@ const calc = (...args) => {
       }
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
+      console.log("pm")
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
       if(operator_origin === "+"){
         // 1 + -2 = -1
@@ -309,6 +312,7 @@ const calc = (...args) => {
       }
     //pp 1 1
     }else if(!a_is_minus && !b_is_minus){
+      console.log("pp")
       // pp+ 1 + 1 = 2
       if(operator_origin === "+"){
         // res_is_minus = false
@@ -321,6 +325,10 @@ const calc = (...args) => {
 
     }
 
+
+    if(res_is_minus){
+      console.log("minusssssss!")
+    }
 
     const a_len = a.length;
     const b_len = b.length;
@@ -419,5 +427,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log("calc result: ", calc("-11", "-", "11"));
-console.log(getMaxMinPairByAbsolute("-101", "100.0"))
+console.log("calc result: ", calc("-1", "-", "11"));
+// console.log(getMaxMinPairByAbsolute("-101", "100.0"))
