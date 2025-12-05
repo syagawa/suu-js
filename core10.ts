@@ -226,8 +226,9 @@ const calc = (...args) => {
     const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
     console.log(min, max, same);
 
-    const a = same ? a_origin : max ? max : a_origin;
-    const b = same ? b_origin : min ? min : b_origin;
+    
+    let a = same ? a_origin : max ? max : a_origin;
+    let b = same ? b_origin : min ? min : b_origin;
 
     const regexMinus = /^-/;
     let a_is_minus = false;
@@ -285,7 +286,7 @@ const calc = (...args) => {
       }
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
-      console.log("mp")
+      console.log("mp", a, b, a_origin, b_origin)
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
         // -2 + 1 = -1
@@ -299,7 +300,7 @@ const calc = (...args) => {
       }
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
-      console.log("pm")
+      console.log("pm", a, b, a_origin, b_origin)
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
       if(operator_origin === "+"){
         // 1 + -2 = -1
