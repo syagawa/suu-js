@@ -242,6 +242,15 @@ const calc = (...args) => {
     }
    
 
+    // + + +
+    // + - +
+    // + + -
+    // + - -
+    // - + +
+    // - + -
+    // - - +
+    // - - -
+
     //  1 +  1 =  2 pp+
     // -1 +  1 =  0 mp+
     //  1 + -1 =  0
@@ -428,5 +437,5 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log("calc result: ", calc("-1", "-", "11"));
+console.log("calc result: ", calc("-11", "-", "-1"));
 // console.log(getMaxMinPairByAbsolute("-101", "100.0"))
