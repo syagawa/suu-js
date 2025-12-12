@@ -257,12 +257,15 @@ const calc = (...args) => {
       console.log("mm")
       // mm+ -1 + -1
       if(operator_origin === "+"){
+        console.log("mm+")
         res_is_minus = true;
         operator = "+";
       // mm- -1 - -1, -2 - -1 = -1, -1 - -2 = 1
       }else if (operator_origin === "-"){
+        console.log("mm-")
         // -1 - -2 = 1
         if (b_origin === max){
+          console.log("mm-aa")
           res_is_minus = false;
         }
       }
@@ -313,8 +316,11 @@ const calc = (...args) => {
       console.log("minusssssss!")
     }
 
-    const a_len = a.length;
-    const b_len = b.length;
+    const a_abs = a.replace(/^-/, "");
+    const b_abs = b.replace(/^-/, "");
+    const a_len = a_abs.length;
+    const b_len = b_abs.length;
+    console.log("lenlen", a_len, b_len)
     const length1 = a_len > b_len ? a_len +1 : b_len + 1;
     const arr = [];
     let carry = "0";
@@ -322,8 +328,8 @@ const calc = (...args) => {
     for(let i = 0; i < length1; i++){
       const current_a_len = a_len - i;
       const current_b_len = b_len - i;
-      let current_a = a[current_a_len - 1] ? a[current_a_len - 1] : "0";
-      const current_b = b[current_b_len - 1] ? b[current_b_len - 1] : "0";
+      let current_a = a_abs[current_a_len - 1] ? a_abs[current_a_len - 1] : "0";
+      const current_b = b_abs[current_b_len - 1] ? b_abs[current_b_len - 1] : "0";
       console.log("for-i1", i, "carry:", carry, "a", current_a, "b", current_b,)
 
       let res1;
