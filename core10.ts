@@ -277,6 +277,7 @@ const calc = (...args) => {
         // -2 + 1 = -1
         if (a_origin === max){
           res_is_minus = true
+          operator = "-";
         }
       // mp- -1 - 1 = -2, -2 - 1 = -3, -1 - 2 = -3
       }else if (operator_origin === "-"){
@@ -416,6 +417,9 @@ const calc = (...args) => {
 // console.log(addAndSubtract("9", "+", "3"));
 // console.log(calc("11", "+", "11", "+", "5"));
 //console.log(calc("9999", "+", "99"));
-console.log("calc result mm: ", calc("-11", "-", "-1"));
-console.log("calc result mm: ", calc("-11", "+", "-1"));
 // console.log(getMaxMinPairByAbsolute("-101", "100.0"))
+
+// console.log("calc result mm: ", calc("-11", "-", "-1"));
+// console.log("calc result mm: ", calc("-11", "+", "-1"));
+console.log("calc result mp: ", calc("-11", "+", "1"));
+console.log("calc result mp: ", calc("-11", "-", "1"));
