@@ -421,5 +421,10 @@ const calc = (...args) => {
 
 // console.log("calc result mm: ", calc("-11", "-", "-1"));
 // console.log("calc result mm: ", calc("-11", "+", "-1"));
-console.log("calc result mp: ", calc("-11", "+", "1"));
-console.log("calc result mp: ", calc("-11", "-", "1"));
+// console.log("calc result mm: ", calc("-1", "-", "-11"));
+// console.log("calc result mm: ", calc("-1", "+", "-11"));
+// console.log("calc result mp: ", calc("-11", "+", "1"));
+// console.log("calc result mp: ", calc("-11", "-", "1"));
+console.log("calc result pm: ", calc("-1", "+", "11"));
+console.log("calc result pm: ", calc("-1", "-", "11"));
+
