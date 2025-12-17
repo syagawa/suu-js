@@ -290,11 +290,13 @@ const calc = (...args) => {
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
       if(operator_origin === "+"){
         // 1 + -2 = -1
+        operator = "-";
         if (b_origin === max){
           res_is_minus = true
         }
       // pm- 1 - -1 = 2, 2 - -1 = 3, 1 - -2 = 3
       }else if (operator_origin === "-"){
+        operator = "+";
         // res_is_minus = false
       }
     //pp 1 1
