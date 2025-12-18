@@ -225,19 +225,18 @@ const calc = (...args) => {
     const b_origin = list[2];
     const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
     console.log(min, max, same);
-
     
-    let a = same ? a_origin : max ? max : a_origin;
-    let b = same ? b_origin : min ? min : b_origin;
+    let a = a_origin;
+    let b = b_origin;
 
     const regexMinus = /^-/;
     let a_is_minus = false;
     let b_is_minus = false;
     let operator = operator_origin;
-    if(a.match(regexMinus)){
+    if(a_origin.match(regexMinus)){
       a_is_minus = true;
     }
-    if(b.match(regexMinus)){
+    if(b_origin.match(regexMinus)){
       b_is_minus = true;
     }
    
@@ -425,8 +424,14 @@ const calc = (...args) => {
 // console.log("calc result mm: ", calc("-11", "+", "-1"));
 // console.log("calc result mm: ", calc("-1", "-", "-11"));
 // console.log("calc result mm: ", calc("-1", "+", "-11"));
+
 // console.log("calc result mp: ", calc("-11", "+", "1"));
 // console.log("calc result mp: ", calc("-11", "-", "1"));
-console.log("calc result pm: ", calc("-1", "+", "11"));
-console.log("calc result pm: ", calc("-1", "-", "11"));
+// console.log("calc result mp: ", calc("-1", "+", "11"));
+// console.log("calc result mp: ", calc("-1", "-", "11"));
+
+// console.log("calc result pm: ", calc("11", "+", "-1"));
+// console.log("calc result pm: ", calc("11", "-", "-1"));
+// console.log("calc result pm: ", calc("1", "+", "-11"));
+// console.log("calc result pm: ", calc("1", "-", "-11"));
 
