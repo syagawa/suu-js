@@ -250,22 +250,24 @@ const calc = (...args) => {
     // - - + => -
     // - - - => +, - mm
 
-
     // mm -1 -1
     if(a_is_minus && b_is_minus){
       console.log("mm")
       // mm+ -1 + -1
       if(operator_origin === "+"){
-        console.log("mm+")
+        console.log("mm+");
         res_is_minus = true;
         operator = "+";
       // mm- -1 - -1, -2 - -1 = -1, -1 - -2 = 1
       }else if (operator_origin === "-"){
         console.log("mm-")
+        operator = "-";
         // -1 - -2 = 1
-        if (b_origin === max){
+        if (b === max){
           console.log("mm-aa")
           res_is_minus = false;
+        }else{
+          res_is_minus = true;
         }
       }
     //mp -1 1
