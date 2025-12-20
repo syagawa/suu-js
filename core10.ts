@@ -203,7 +203,6 @@ const calc = (...args) => {
   console.log("args", args)
   let list = [...args];
   let i = 0;
-  let bool = true;
   let res;
   let res_is_minus = false;
 
@@ -387,7 +386,6 @@ const calc = (...args) => {
         break;
       }
     }else{
-      bool = false;
       break;
     }
     // break;
