@@ -265,6 +265,8 @@ const calc = (...args) => {
         if (b === max){
           console.log("mm-aa")
           res_is_minus = false;
+          a = b;
+          b = a;
         }else{
           res_is_minus = true;
         }
@@ -420,10 +422,10 @@ const calc = (...args) => {
 //console.log(calc("9999", "+", "99"));
 // console.log(getMaxMinPairByAbsolute("-101", "100.0"))
 
-// console.log("calc result mm: ", calc("-11", "-", "-1"));
-// console.log("calc result mm: ", calc("-11", "+", "-1"));
-// console.log("calc result mm: ", calc("-1", "-", "-11"));
-// console.log("calc result mm: ", calc("-1", "+", "-11"));
+console.log("calc result mm: ", calc("-11", "-", "-1"));
+console.log("calc result mm: ", calc("-11", "+", "-1"));
+console.log("calc result mm: ", calc("-1", "-", "-11"));
+console.log("calc result mm: ", calc("-1", "+", "-11"));
 
 // console.log("calc result mp: ", calc("-11", "+", "1"));
 // console.log("calc result mp: ", calc("-11", "-", "1"));
