@@ -265,8 +265,8 @@ const calc = (...args) => {
         if (b === max){
           console.log("mm-aa")
           res_is_minus = false;
-          a = b;
-          b = a;
+          a = b_origin;
+          b = a_origin;
         }else{
           res_is_minus = true;
         }
