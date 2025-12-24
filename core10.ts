@@ -276,9 +276,15 @@ const calc = (...args) => {
       console.log("mp", a, b, a_origin, b_origin)
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
-        // -2 + 1 = -1
-        if (a_origin === max){
-          res_is_minus = true
+        operator = "-";
+        // -1 + 2 = 1
+        if (b === max){
+          res_is_minus = false;
+          a = b_origin;
+          b = a_origin;
+        // -2 + 1 = -1;
+        }else{
+          res_is_minus = true;
           operator = "-";
         }
       // mp- -1 - 1 = -2, -2 - 1 = -3, -1 - 2 = -3
@@ -422,15 +428,15 @@ const calc = (...args) => {
 //console.log(calc("9999", "+", "99"));
 // console.log(getMaxMinPairByAbsolute("-101", "100.0"))
 
-console.log("calc result mm: ", calc("-11", "-", "-1"));
-console.log("calc result mm: ", calc("-11", "+", "-1"));
-console.log("calc result mm: ", calc("-1", "-", "-11"));
-console.log("calc result mm: ", calc("-1", "+", "-11"));
+// console.log("calc result mm: ", calc("-11", "+", "-1"), "-12");
+// console.log("calc result mm: ", calc("-11", "-", "-1"), "-10");
+// console.log("calc result mm: ", calc("-1", "+", "-11"), "-12");
+// console.log("calc result mm: ", calc("-1", "-", "-11"), "10");
 
-// console.log("calc result mp: ", calc("-11", "+", "1"));
-// console.log("calc result mp: ", calc("-11", "-", "1"));
-// console.log("calc result mp: ", calc("-1", "+", "11"));
-// console.log("calc result mp: ", calc("-1", "-", "11"));
+console.log("calc result mp: ", calc("-11", "+", "1"), "-10");
+console.log("calc result mp: ", calc("-11", "-", "1"), "-12");
+console.log("calc result mp: ", calc("-1", "+", "11"), "10");
+console.log("calc result mp: ", calc("-1", "-", "11"), "-12");
 
 // console.log("calc result pm: ", calc("11", "+", "-1"));
 // console.log("calc result pm: ", calc("11", "-", "-1"));
