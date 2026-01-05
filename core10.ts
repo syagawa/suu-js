@@ -299,8 +299,10 @@ const calc = (...args) => {
       if(operator_origin === "+"){
         // 1 + -2 = -1
         operator = "-";
-        if (b_origin === max){
-          res_is_minus = true
+        if (b === max){
+          a = b_origin;
+          b = a_origin;
+          res_is_minus = true;
         }
       // pm- 1 - -1 = 2, 2 - -1 = 3, 1 - -2 = 3
       }else if (operator_origin === "-"){
@@ -438,8 +440,8 @@ const calc = (...args) => {
 // console.log("calc result mp: ", calc("-1", "+", "11"), "10");
 // console.log("calc result mp: ", calc("-1", "-", "11"), "-12");
 
-console.log("calc result pm: ", calc("11", "+", "-1"), "10");
-console.log("calc result pm: ", calc("11", "-", "-1"), "12");
+// console.log("calc result pm: ", calc("11", "+", "-1"), "10");
+// console.log("calc result pm: ", calc("11", "-", "-1"), "12");
 console.log("calc result pm: ", calc("1", "+", "-11"), "-10");
-console.log("calc result pm: ", calc("1", "-", "-11"), "12");
+// console.log("calc result pm: ", calc("1", "-", "-11"), "12");
 
