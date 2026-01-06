@@ -442,6 +442,10 @@ const calc = (...args) => {
 
 // console.log("calc result pm: ", calc("11", "+", "-1"), "10");
 // console.log("calc result pm: ", calc("11", "-", "-1"), "12");
-console.log("calc result pm: ", calc("1", "+", "-11"), "-10");
+// console.log("calc result pm: ", calc("1", "+", "-11"), "-10");
 // console.log("calc result pm: ", calc("1", "-", "-11"), "12");
 
+console.log("calc result pp: ", calc("11", "+", "1"), "12");
+console.log("calc result pp: ", calc("11", "-", "1"), "10");
+console.log("calc result pp: ", calc("1", "+", "11"), "12");
+console.log("calc result pp: ", calc("1", "-", "11"), "-10");
