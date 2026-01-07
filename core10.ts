@@ -318,7 +318,9 @@ const calc = (...args) => {
       // pm- 1 - 1 = 0, 2 - 1 = 1, 1 - 2 = -1
       }else if (operator_origin === "-"){
         if (b_origin === max){
-          res_is_minus = true
+          res_is_minus = true;
+          a = b_origin;
+          b = a_origin;
         }
       }
 
