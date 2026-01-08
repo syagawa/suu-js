@@ -117,16 +117,6 @@ const getMaxMinPairByAbsolute = (a, b) => {
   };
   let a_abs = a.replace(regexMinus, "");
   let b_abs = b.replace(regexMinus, "");
-  // let a_is_minus = false;
-  // let b_is_minus = false;
-  // if(a.match(regexMinus)){
-  //   a_abs = a.replace(regexMinus, "");
-  //   a_is_minus = true;
-  // }
-  // if(b.match(regexMinus)){
-  //   b_abs = b.replace(regexMinus, "");
-  //   b_is_minus = true;
-  // }
 
   let { a_left, a_right, b_left, b_right } = arrangeDigit(a_abs, b_abs);
 
@@ -240,14 +230,14 @@ const calc = (...args) => {
     }
    
 
-    // + + + => +
-    // + - + => +, - 
-    // + + - => +, -
-    // + - - => +
-    // - + + => +, -
-    // - + - => -    mm
-    // - - + => -
-    // - - - => +, - mm
+    // + + + => + pp
+    // + - + => - pp
+    // + + - => + pm
+    // + - - => - pm
+    // - + + => + mp 
+    // - + - => + mm
+    // - - + => - mp
+    // - - - => - mm
 
     // mm -1 -1
     if(a_is_minus && b_is_minus){
