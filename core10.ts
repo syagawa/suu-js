@@ -213,7 +213,6 @@ const calc = (...args) => {
     const operator_origin = list[1];
     const b_origin = list[2];
     const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
-    console.log(min, max, same);
     
     let a = a_origin;
     let b = b_origin;
@@ -241,19 +240,15 @@ const calc = (...args) => {
 
     // mm -1 -1
     if(a_is_minus && b_is_minus){
-      console.log("mm")
       // mm+ -1 + -1
       if(operator_origin === "+"){
-        console.log("mm+");
         res_is_minus = true;
         operator = "+";
       // mm- -1 - -1, -2 - -1 = -1, -1 - -2 = 1
       }else if (operator_origin === "-"){
-        console.log("mm-")
         operator = "-";
         // -1 - -2 = 1
         if (b === max){
-          console.log("mm-aa")
           res_is_minus = false;
           a = b_origin;
           b = a_origin;
@@ -263,7 +258,6 @@ const calc = (...args) => {
       }
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
-      console.log("mp", a, b, a_origin, b_origin)
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
       if(operator_origin === "+"){
         operator = "-";
@@ -284,7 +278,6 @@ const calc = (...args) => {
       }
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
-      console.log("pm", a, b, a_origin, b_origin)
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
       if(operator_origin === "+"){
         // 1 + -2 = -1
@@ -301,7 +294,6 @@ const calc = (...args) => {
       }
     //pp 1 1
     }else if(!a_is_minus && !b_is_minus){
-      console.log("pp")
       // pp+ 1 + 1 = 2
       if(operator_origin === "+"){
         // res_is_minus = false
@@ -318,7 +310,6 @@ const calc = (...args) => {
 
 
     if(res_is_minus){
-      console.log("minusssssss!")
     }
 
     const a_abs = a.replace(/^-/, "");
