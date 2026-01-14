@@ -407,11 +407,6 @@ const calc = (...args) => {
 
 };
 
-// console.log(addAndSubtract("10", "-", "9"));
-// console.log(addAndSubtract("9", "+", "3"));
-// console.log(calc("11", "+", "11", "+", "5"));
-//console.log(calc("9999", "+", "99"));
-// console.log(getMaxMinPairByAbsolute("-101", "100.0"))
 
 // console.log("calc result mm: ", calc("-11", "+", "-1"), "-12");
 // console.log("calc result mm: ", calc("-11", "-", "-1"), "-10");
@@ -428,7 +423,9 @@ const calc = (...args) => {
 // console.log("calc result pm: ", calc("1", "+", "-11"), "-10");
 // console.log("calc result pm: ", calc("1", "-", "-11"), "12");
 
-console.log("calc result pp: ", calc("11", "+", "1"), "12");
-console.log("calc result pp: ", calc("11", "-", "1"), "10");
-console.log("calc result pp: ", calc("1", "+", "11"), "12");
-console.log("calc result pp: ", calc("1", "-", "11"), "-10");
+// console.log("calc result pp: ", calc("11", "+", "1"), "12");
+// console.log("calc result pp: ", calc("11", "-", "1"), "10");
+// console.log("calc result pp: ", calc("1", "+", "11"), "12");
+// console.log("calc result pp: ", calc("1", "-", "11"), "-10");
+
+console.log("calc result:", calc("1", "+", "11", "+", "5"), "17");
