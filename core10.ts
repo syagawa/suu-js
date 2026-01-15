@@ -428,4 +428,5 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("1", "+", "11"), "12");
 // console.log("calc result pp: ", calc("1", "-", "11"), "-10");
 
-console.log("calc result:", calc("1", "+", "11", "+", "5"), "17");
+// console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
+console.log("calc result:", calc("0.5", "+", "0.5"), "1");
