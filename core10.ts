@@ -430,3 +430,4 @@ const calc = (...args) => {
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
 console.log("calc result:", calc("0.5", "+", "0.5"), "1");
+console.log("calc result:", calc("1.5", "+", "15"), "16.5");
