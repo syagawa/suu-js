@@ -120,6 +120,8 @@ const getMaxMinPairByAbsolute = (a, b) => {
 
   let { a_left, a_right, b_left, b_right } = arrangeDigit(a_abs, b_abs);
 
+  console.log("arrangeDigit", a_left, a_right, b_left, b_right)
+
   const arr = matrix10_add_subtract;
   const len_left = a_left.length;
 
@@ -429,5 +431,5 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("1", "-", "11"), "-10");
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
-console.log("calc result:", calc("0.5", "+", "0.5"), "1");
+// console.log("calc result:", calc("0.5", "+", "0.5"), "1");
 console.log("calc result:", calc("1.5", "+", "15"), "16.5");
