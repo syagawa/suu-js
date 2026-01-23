@@ -112,15 +112,21 @@ const arrangeDigit = (a, b) => {
 const getMaxMinPairByAbsolute = (a, b) => {
   
   const regexMinus = /^-/;
+  let a_abs = a.replace(regexMinus, "");
+  let b_abs = b.replace(regexMinus, "");
+  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length } = arrangeDigit(a_abs, b_abs);
   const res = {
     min: "",
     max: "",
     same: false,
+    a_left,
+    a_right,
+    a_digit_length,
+    b_left,
+    b_right,
+    b_digit_length
   };
-  let a_abs = a.replace(regexMinus, "");
-  let b_abs = b.replace(regexMinus, "");
 
-  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length } = arrangeDigit(a_abs, b_abs);
 
   console.log("arrangeDigit", a_left, a_right, a_digit_length, b_left, b_right, b_digit_length)
 
