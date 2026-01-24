@@ -98,6 +98,8 @@ const arrangeDigit = (a, b) => {
     a_right = a_right.padEnd(b_right.length, "0");
   }
   return {
+    a_unite: `${a_left}${a_right}`,
+    b_unite: `${b_left}${b_right}`,
     a_left,
     a_right,
     a_digit_length: a_right.length,
@@ -114,7 +116,7 @@ const getMaxMinPairByAbsolute = (a, b) => {
   const regexMinus = /^-/;
   let a_abs = a.replace(regexMinus, "");
   let b_abs = b.replace(regexMinus, "");
-  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length } = arrangeDigit(a_abs, b_abs);
+  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite } = arrangeDigit(a_abs, b_abs);
   const res = {
     min: "",
     max: "",
@@ -128,7 +130,7 @@ const getMaxMinPairByAbsolute = (a, b) => {
   };
 
 
-  console.log("arrangeDigit", a_left, a_right, a_digit_length, b_left, b_right, b_digit_length)
+  console.log("arrangeDigit", a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite)
 
   const arr = matrix10_add_subtract;
   const len_left = a_left.length;
