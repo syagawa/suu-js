@@ -97,6 +97,17 @@ const arrangeDigit = (a, b) => {
   }else if(a_right.length < b_right.length){
     a_right = a_right.padEnd(b_right.length, "0");
   }
+  
+  while(a_left.length === b_left.length && a_left[0] === "0" && b_left[0] === "0"){
+    a_left = a_left.slice(1, a_left.length);
+    b_left = b_left.slice(1, b_left.length);
+  }
+
+  while(a_right.length === b_right.length && a_right[a_right.length - 1] === "0" && b_right[b_right.length - 1] === "0"){
+    a_right = a_right.slice(0, a_right.length - 1);
+    b_right = b_right.slice(0, b_right.length - 1);
+  }
+
   return {
     a_unite: `${a_left}${a_right}`,
     b_unite: `${b_left}${b_right}`,
@@ -442,5 +453,5 @@ const calc = (...args) => {
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
-console.log("calc result:", calc("1.050", "+", "15.05"), "16.5");
+console.log("calc result:", calc("0001.050", "+", "15.050000000000000"), "16.5");
 // console.log("calc result:", calc("15", "+", "1505"), "1520");
