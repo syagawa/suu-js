@@ -144,17 +144,17 @@ const getMaxMinPairByAbsolute = (a, b) => {
   console.log("arrangeDigit", a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite)
 
   const arr = matrix10_add_subtract;
-  const len_left = a_left.length;
+  const len = a_unite.length;
 
-  for(let i = 0; i < len_left; i++){
-    const a_l = a_left[i];
-    const b_l = b_left[i];
-    if(a_l === b_l){
+  for(let i = 0; i < len; i++){
+    const a_elm = a_unite[i];
+    const b_elm = b_unite[i];
+    if(a_elm === b_elm){
       continue;
     }
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
-      if((A === a_l || B === a_l) && C === b_l){
+      if((A === a_elm || B === a_elm) && C === b_elm){
         const min = a;
         const max = b;
         return {
@@ -163,7 +163,7 @@ const getMaxMinPairByAbsolute = (a, b) => {
           max: max,
         }
       }
-      if((A === b_l || B === b_l) && C === a_l){
+      if((A === b_elm || B === b_elm) && C === a_elm){
         const min = b;
         const max = a;
         return {
@@ -175,35 +175,6 @@ const getMaxMinPairByAbsolute = (a, b) => {
     }
   }
 
-  const len_right = a_right.length;
-  for(let i = 0; i < len_right; i++){
-    const a_r = a_right[i];
-    const b_r = b_right[i];
-    if(a_r === b_r){
-      continue;
-    }
-    for(let j = 0; j < arr.length; j++){
-      const [A, B, C] = arr[j];
-      if((A === a_r || B === a_r) && C === b_r){
-        const min = a;
-        const max = b;
-        return {
-          ...res,
-          min: min,
-          max: max,
-        }
-      }
-      if((A === b_r || B === b_r) && C === a_r){
-        const min = b;
-        const max = a;
-        return {
-          ...res,
-          min: min,
-          max: max,
-        }
-      }
-    }
-  }
 
   return {
     ...res,
