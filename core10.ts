@@ -83,8 +83,20 @@ const numbersReg = /^[0-9]+$/;
 const operatorsReg = /^[+-]+$/;
 
 const arrangeDigit = (a, b) => {
-  let [ a_left, a_right="" ] = a.split(".");
-  let [ b_left, b_right="" ] = b.split(".");
+  const regexMinus = /^-/;
+  const a_is_minus = a.match(regexMinus);
+  let a_abs = a;
+  if(a_is_minus){
+    a_abs = a.replace(regexMinus, "");
+  }
+  const b_is_minus = b.match(regexMinus);
+  let b_abs = b;
+  if(b_is_minus){
+    b_abs = b.replace(regexMinus, "");
+  }
+
+  let [ a_left, a_right="" ] = a_abs.split(".");
+  let [ b_left, b_right="" ] = b_abs.split(".");
 
   if(a_left.length > b_left.length){
     b_left = b_left.padStart(a_left.length, "0");
