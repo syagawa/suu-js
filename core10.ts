@@ -131,6 +131,8 @@ const arrangeDigit = (a, b) => {
     b_digit_length: b_right.length,
     a: `${a_left}.${a_right}`,
     b: `${b_left}.${b_right}`,
+    a_is_minus,
+    b_is_minus,
   };
 };
 
