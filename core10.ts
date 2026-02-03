@@ -129,8 +129,6 @@ const arrangeDigit = (a, b) => {
     b_left,
     b_right,
     b_digit_length: b_right.length,
-    a: `${a_left}.${a_right}`,
-    b: `${b_left}.${b_right}`,
     a_is_minus,
     b_is_minus,
   };
@@ -141,7 +139,7 @@ const getMaxMinPairByAbsolute = (a, b) => {
   const regexMinus = /^-/;
   let a_abs = a.replace(regexMinus, "");
   let b_abs = b.replace(regexMinus, "");
-  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite } = arrangeDigit(a_abs, b_abs);
+  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite, a_is_minus, b_is_minus } = arrangeDigit(a_abs, b_abs);
   const res = {
     min: "",
     max: "",
