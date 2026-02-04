@@ -134,26 +134,15 @@ const arrangeDigit = (a, b) => {
   };
 };
 
-const getMaxMinPairByAbsolute = (a, b) => {
+const getMaxMinPairByAbsolute = (a_unite, b_unite) => {
   
-  const regexMinus = /^-/;
-  let a_abs = a.replace(regexMinus, "");
-  let b_abs = b.replace(regexMinus, "");
-  let { a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite, a_is_minus, b_is_minus } = arrangeDigit(a_abs, b_abs);
+  
   const res = {
     min: "",
     max: "",
-    same: false,
-    a_left,
-    a_right,
-    a_digit_length,
-    b_left,
-    b_right,
-    b_digit_length
+    same: false
   };
 
-
-  console.log("arrangeDigit", a_left, a_right, a_digit_length, b_left, b_right, b_digit_length, a_unite, b_unite)
 
   const arr = matrix10_add_subtract;
   const len = a_unite.length;
@@ -167,8 +156,8 @@ const getMaxMinPairByAbsolute = (a, b) => {
     for(let j = 0; j < arr.length; j++){
       const [A, B, C] = arr[j];
       if((A === a_elm || B === a_elm) && C === b_elm){
-        const min = a;
-        const max = b;
+        const min = a_unite;
+        const max = b_unite;
         return {
           ...res,
           min: min,
@@ -176,8 +165,8 @@ const getMaxMinPairByAbsolute = (a, b) => {
         }
       }
       if((A === b_elm || B === b_elm) && C === a_elm){
-        const min = b;
-        const max = a;
+        const min = b_unite;
+        const max = a_unite;
         return {
           ...res,
           min: min,
@@ -218,7 +207,10 @@ const calc = (...args) => {
     const a_origin = list[0];
     const operator_origin = list[1];
     const b_origin = list[2];
-    const {min, max, same} = getMaxMinPairByAbsolute(a_origin, b_origin);
+    
+    const { a_unite, b_unite } = arrangeDigit(a_origin, b_origin);
+
+    const {min, max, same} = getMaxMinPairByAbsolute(a_unite, b_unite);
     
     let a = a_origin;
     let b = b_origin;
