@@ -208,24 +208,13 @@ const calc = (...args) => {
     const operator_origin = list[1];
     const b_origin = list[2];
     
-    const { a_unite, b_unite } = arrangeDigit(a_origin, b_origin);
+    const { a_unite, b_unite, a_is_minus, b_is_minus } = arrangeDigit(a_origin, b_origin);
 
     const {min, max, same} = getMaxMinPairByAbsolute(a_unite, b_unite);
     
     let a = a_origin;
     let b = b_origin;
-
-    const regexMinus = /^-/;
-    let a_is_minus = false;
-    let b_is_minus = false;
-    let operator = operator_origin;
-    if(a_origin.match(regexMinus)){
-      a_is_minus = true;
-    }
-    if(b_origin.match(regexMinus)){
-      b_is_minus = true;
-    }
-   
+  
 
     // + + + => + pp
     // + - + => - pp
