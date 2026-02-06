@@ -214,8 +214,8 @@ const calc = (...args) => {
     
     let a = a_origin;
     let b = b_origin;
+    let operator = operator_origin;
   
-
     // + + + => + pp
     // + - + => - pp
     // + + - => + pm
@@ -417,5 +417,5 @@ const calc = (...args) => {
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
-console.log("calc result:", calc("0001.050", "+", "15.050000000000000"), "16.5");
+console.log("calc result:", calc("0001.050", "+", "15.050000000000000"), "16.1");
 // console.log("calc result:", calc("15", "+", "1505"), "1520");
