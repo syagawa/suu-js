@@ -210,6 +210,8 @@ const calc = (...args) => {
     
     const { a_unite, b_unite, a_is_minus, b_is_minus } = arrangeDigit(a_origin, b_origin);
 
+    console.log(a_unite, b_unite)
+
     const {min, max, same} = getMaxMinPairByAbsolute(a_unite, b_unite);
     
     let a = a_origin;
