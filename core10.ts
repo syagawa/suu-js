@@ -134,15 +134,13 @@ const arrangeDigit = (a, b) => {
   };
 };
 
-const getMaxMinPairByAbsolute = (a_unite, b_unite) => {
-  
+const getMaxMinPair = (a_unite, b_unite) => {
   
   const res = {
     min: "",
     max: "",
     same: false
   };
-
 
   const arr = matrix10_add_subtract;
   const len = a_unite.length;
@@ -212,7 +210,7 @@ const calc = (...args) => {
 
     console.log(a_unite, b_unite)
 
-    const {min, max, same} = getMaxMinPairByAbsolute(a_unite, b_unite);
+    const {min, max, same} = getMaxMinPair(a_unite, b_unite);
     
     let a = a_origin;
     let b = b_origin;
