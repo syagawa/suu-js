@@ -299,8 +299,8 @@ const calc = (...args) => {
     if(res_is_minus){
     }
 
-    const a_abs = a.replace(/^-/, "");
-    const b_abs = b.replace(/^-/, "");
+    const a_abs = a_unite;
+    const b_abs = b_unite;
     const a_len = a_abs.length;
     const b_len = b_abs.length;
     console.log("lenlen", a_len, b_len)
