@@ -206,8 +206,9 @@ const calc = (...args) => {
     const operator_origin = list[1];
     const b_origin = list[2];
     
-    const { a_unite, b_unite, a_is_minus, b_is_minus } = arrangeDigit(a_origin, b_origin);
+    const { a_unite, b_unite, a_is_minus, b_is_minus, a_digit_length } = arrangeDigit(a_origin, b_origin);
 
+    const digit_length = a_digit_length;
     console.log(a_unite, b_unite)
 
     const {min, max, same} = getMaxMinPair(a_unite, b_unite);
@@ -215,7 +216,7 @@ const calc = (...args) => {
     let a = a_origin;
     let b = b_origin;
     let operator = operator_origin;
-  
+    
     // + + + => + pp
     // + - + => - pp
     // + + - => + pm
@@ -356,8 +357,14 @@ const calc = (...args) => {
     // console.log("1", arr)
     const new_arr = ["0", ...arr];
     const new_arr2 = new_arr.filter(elm => elm)
+    if(digit_length > 0){
+      const left_arr = new_arr2.slice(0, new_arr2.length - digit_length);
+      const right_arr = new_arr2.slice(new_arr2.length - digit_length, new_arr2.length);
+      res = [...left_arr, ".", ...right_arr].join("");
+    }else{
+      res = new_arr2.join("");
+    }
 
-    res = new_arr2.join("");
     if(res){
       // acum = res;
       if(list[i + 3] && list[i + 4]){
