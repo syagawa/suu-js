@@ -360,6 +360,9 @@ const calc = (...args) => {
     if(digit_length > 0){
       const left_arr = new_arr2.slice(0, new_arr2.length - digit_length);
       const right_arr = new_arr2.slice(new_arr2.length - digit_length, new_arr2.length);
+      while(right_arr[right_arr.length - 1] === "0"){
+        right_arr.splice(right_arr.length - 1, right_arr.length);
+      }
       res = [...left_arr, ".", ...right_arr].join("");
     }else{
       res = new_arr2.join("");
@@ -424,5 +427,5 @@ const calc = (...args) => {
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
-console.log("calc result:", calc("0001.050", "+", "15.050000000000000"), "16.1");
+console.log("calc result:", calc("0001.050", "+", "0015.050000000000000"), "16.1");
 // console.log("calc result:", calc("15", "+", "1505"), "1520");
