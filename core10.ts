@@ -189,6 +189,7 @@ const calc = (...args) => {
   let res;
   let res_is_minus = false;
 
+  
   const fixCarry = function(res){
     let r = res;
     let c = "0";
@@ -296,10 +297,6 @@ const calc = (...args) => {
 
     }
 
-
-    if(res_is_minus){
-    }
-
     const a_abs = a_unite;
     const b_abs = b_unite;
     const a_len = a_abs.length;
@@ -349,8 +346,6 @@ const calc = (...args) => {
 
       // res1 = addAndSubtract(carry, operator, res1);
       console.log("for-i2", i, "carry:", carry, res1,)
-
-
       
       arr.unshift(res1);
     }
