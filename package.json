@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "test2": "mocha ./test/test_core10.js",
     "build": "npm run build-ts",
     "build-dev": "cross-env NODE_ENV=development webpack",
     "build-ts": "cross-env NODE_ENV=development webpack --config webpack.config.ts.js",
