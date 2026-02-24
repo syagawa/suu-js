@@ -7,9 +7,13 @@ console.log(calc);
 describe("calc", function(){
 
   describe("numToArrayWithDecimal", function(){
-    it("0", () => {
+    it("1 + 1 = 2", () => {
       const res = calc("1", "+", "1");
       assert.equal(res, "2");
+    });
+    it("1 - 1 = 0", () => {
+      const res = calc("1", "-", "1");
+      assert.equal(res, "0");
     });
   });
 });
