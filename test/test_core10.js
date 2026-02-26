@@ -15,6 +15,10 @@ describe("calc", function(){
       const res = calc("10", "+", "1");
       assert.equal(res, "11");
     });
+    it("1 + 10 = 11", () => {
+      const res = calc("1", "+", "10");
+      assert.equal(res, "11");
+    });
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
