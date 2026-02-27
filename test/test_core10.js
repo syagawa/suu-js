@@ -19,6 +19,10 @@ describe("calc", function(){
       const res = calc("1", "+", "10");
       assert.equal(res, "11");
     });
+    it("1.00 + 1 = 2", () => {
+      const res = calc("1.00", "+", "1");
+      assert.equal(res, "2");
+    });
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
