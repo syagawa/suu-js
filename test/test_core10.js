@@ -27,6 +27,10 @@ describe("calc", function(){
       const res = calc("1.00", "+", "1.00000000");
       assert.equal(res, "2");
     });
+    it("10.00 + 1.00000000 = 11", () => {
+      const res = calc("10.00", "+", "1.00000000");
+      assert.equal(res, "11");
+    });
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
