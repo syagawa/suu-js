@@ -41,6 +41,10 @@ describe("calc", function(){
       assert.equal(res, "10");
     });
 
+    it("1.0 + 9.0000 = 10", () => {
+      const res = calc("1.0", "+", "9.0000");
+      assert.equal(res, "10");
+    });
 
   });
   describe("-", function(){
