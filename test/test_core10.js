@@ -46,6 +46,12 @@ describe("calc", function(){
       assert.equal(res, "10");
     });
 
+    it("1 + 99 = 100", () => {
+      const res = calc("1", "+", "99");
+      assert.equal(res, "100");
+    });
+
+
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
