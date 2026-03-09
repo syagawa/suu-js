@@ -52,6 +52,12 @@ describe("calc", function(){
     });
 
 
+    it("1.000 + 99.000 = 100", () => {
+      const res = calc("1.000", "+", "99.000");
+      assert.equal(res, "100");
+    });
+
+
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
