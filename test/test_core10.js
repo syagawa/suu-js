@@ -62,6 +62,12 @@ describe("calc", function(){
       assert.equal(res, "2.5");
     });
 
+    it("9.5 + 0.5 = 10", () => {
+      const res = calc("9.5", "+", "0.5");
+      assert.equal(res, "10");
+    });
+
+
 
   });
   describe("-", function(){
