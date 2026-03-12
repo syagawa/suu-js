@@ -390,7 +390,12 @@ const calc = (...args) => {
   }
 
   res = res.slice(zeroLength, res.length);
+
+  if(res.match(/\.$/)){
+    res = res.replace(/\.$/, "");
+  }
   
+
   if(res_is_minus){
     console.log("minusss!!")
     res = `-${res}`;
