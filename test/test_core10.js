@@ -67,6 +67,10 @@ describe("calc", function(){
       assert.equal(res, "10");
     });
 
+    it("9.5 + 0.51 = 10.01", () => {
+      const res = calc("9.5", "+", "0.51");
+      assert.equal(res, "10.01");
+    });
 
 
   });
