@@ -72,6 +72,11 @@ describe("calc", function(){
       assert.equal(res, "10.01");
     });
 
+    it("9.5 + 0.5100 = 10.01", () => {
+      const res = calc("9.5", "+", "0.5100");
+      assert.equal(res, "10.01");
+    });
+
 
   });
   describe("-", function(){
