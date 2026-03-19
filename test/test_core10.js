@@ -81,6 +81,11 @@ describe("calc", function(){
       assert.equal(res, "10.1");
     });
 
+    it("100 + 0.000 = 100", () => {
+      const res = calc("100", "+", "0.000");
+      assert.equal(res, "100");
+    });
+
 
 
 
