@@ -35,6 +35,10 @@ describe("calc", function(){
       const res = calc("1", "+", "9");
       assert.equal(res, "10");
     });
+    it("9 + 1 = 10", () => {
+      const res = calc("9", "+", "1");
+      assert.equal(res, "10");
+    });
 
     it("1.0 + 9 = 10", () => {
       const res = calc("1.0", "+", "9");
