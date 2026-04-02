@@ -104,17 +104,23 @@ describe("calc", function(){
     });
 
 
-
-
   });
   describe("-", function(){
     it("1 - 1 = 0", () => {
       const res = calc("1", "0", "1");
       assert.equal(res, "0");
     });
+
+
     it("10 - 1 = 9", () => {
       const res = calc("10", "-", "1");
       assert.equal(res, "9");
     });
+
+    it("1 - 10 = -9", () => {
+      const res = calc("1", "-", "10");
+      assert.equal(res, "-9");
+    });
+
   });
 });
