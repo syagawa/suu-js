@@ -216,6 +216,8 @@ const calc = (...args) => {
     
     let a = a_origin;
     let b = b_origin;
+    let a_abs = a_unite;
+    let b_abs = b_unite;
     let operator = operator_origin;
     
     // + + + => + pp
@@ -241,6 +243,8 @@ const calc = (...args) => {
           res_is_minus = false;
           a = b_origin;
           b = a_origin;
+          a_abs = b_unite;
+          b_abs = a_unite;
         }else{
           res_is_minus = true;
         }
@@ -255,6 +259,8 @@ const calc = (...args) => {
           res_is_minus = false;
           a = b_origin;
           b = a_origin;
+          a_abs = b_unite;
+          b_abs = a_unite;
         // -2 + 1 = -1;
         }else{
           res_is_minus = true;
@@ -274,6 +280,8 @@ const calc = (...args) => {
         if (b === max){
           a = b_origin;
           b = a_origin;
+          a_abs = b_unite;
+          b_abs = a_unite;
           res_is_minus = true;
         }
       // pm- 1 - -1 = 2, 2 - -1 = 3, 1 - -2 = 3
@@ -292,13 +300,13 @@ const calc = (...args) => {
           res_is_minus = true;
           a = b_origin;
           b = a_origin;
+          a_abs = b_unite;
+          b_abs = a_unite;
         }
       }
-
     }
 
-    const a_abs = a_unite;
-    const b_abs = b_unite;
+  
     const a_len = a_abs.length;
     const b_len = b_abs.length;
     console.log("lenlen", a_len, b_len)
@@ -424,6 +432,7 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("11", "-", "1"), "10");
 // console.log("calc result pp: ", calc("1", "+", "11"), "12");
 console.log("calc result pp: ", calc("1", "-", "11"), "-10");
+// console.log("calc result pp: ", calc("1", "-", "1"), "0");
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
