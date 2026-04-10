@@ -131,6 +131,11 @@ describe("calc", function(){
       assert.equal(res, "-9");
     });
 
+    it("1 - 10.1 = -9.1", () => {
+      const res = calc("1", "-", "10.1");
+      assert.equal(res, "-9.1");
+    });
+
 
 
   });
