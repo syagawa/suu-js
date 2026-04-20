@@ -232,6 +232,7 @@ const calc = (...args) => {
     // mm -1 -1
     if(a_is_minus && b_is_minus){
       // mm+ -1 + -1
+      console.log("mm+");
       if(operator_origin === "+"){
         res_is_minus = true;
         operator = "+";
@@ -252,6 +253,7 @@ const calc = (...args) => {
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
+      console.log("mp+");
       if(operator_origin === "+"){
         operator = "-";
         // -1 + 2 = 1
@@ -274,6 +276,7 @@ const calc = (...args) => {
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
+      console.log("pm+");
       if(operator_origin === "+"){
         // 1 + -2 = -1
         operator = "-";
@@ -292,6 +295,7 @@ const calc = (...args) => {
     //pp 1 1
     }else if(!a_is_minus && !b_is_minus){
       // pp+ 1 + 1 = 2
+      console.log("pp+");
       if(operator_origin === "+"){
         // res_is_minus = false
       // pm- 1 - 1 = 0, 2 - 1 = 1, 1 - 2 = -1
@@ -305,7 +309,6 @@ const calc = (...args) => {
         }
       }
     }
-
   
     const a_len = a_abs.length;
     const b_len = b_abs.length;
@@ -431,7 +434,8 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("11", "+", "1"), "12");
 // console.log("calc result pp: ", calc("11", "-", "1"), "10");
 // console.log("calc result pp: ", calc("1", "+", "11"), "12");
-console.log("calc result pp: ", calc("1", "-", "11"), "-10");
+console.log("calc result pp: ", calc("1", "+", "-10"), "-9");
+console.log("calc result pp: ", calc("1", "-", "10"), "-9");
 // console.log("calc result pp: ", calc("1", "-", "1"), "0");
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
