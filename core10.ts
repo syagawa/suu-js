@@ -219,6 +219,7 @@ const calc = (...args) => {
     let a_abs = a_unite;
     let b_abs = b_unite;
     let operator = operator_origin;
+    console.log("aaaw", a, b, a_abs, b_abs, operator, max)
     
     // + + + => + pp
     // + - + => - pp
@@ -240,7 +241,7 @@ const calc = (...args) => {
       }else if (operator_origin === "-"){
         operator = "-";
         // -1 - -2 = 1
-        if (b === max){
+        if (b_abs === max){
           res_is_minus = false;
           a = b_origin;
           b = a_origin;
@@ -257,7 +258,7 @@ const calc = (...args) => {
       if(operator_origin === "+"){
         operator = "-";
         // -1 + 2 = 1
-        if (b === max){
+        if (b_abs === max){
           res_is_minus = false;
           a = b_origin;
           b = a_origin;
@@ -278,9 +279,12 @@ const calc = (...args) => {
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
       console.log("pm+");
       if(operator_origin === "+"){
+        console.log("pm+2");
+       
         // 1 + -2 = -1
         operator = "-";
-        if (b === max){
+        if (b_abs === max){
+          console.log("pm+3");
           a = b_origin;
           b = a_origin;
           a_abs = b_unite;
@@ -300,7 +304,9 @@ const calc = (...args) => {
         // res_is_minus = false
       // pm- 1 - 1 = 0, 2 - 1 = 1, 1 - 2 = -1
       }else if (operator_origin === "-"){
-        if (b_origin === max){
+        console.log("pp+2");
+        if (b_abs === max){
+          console.log("pp+3");
           res_is_minus = true;
           a = b_origin;
           b = a_origin;
@@ -435,7 +441,7 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("11", "-", "1"), "10");
 // console.log("calc result pp: ", calc("1", "+", "11"), "12");
 console.log("calc result pp: ", calc("1", "+", "-10"), "-9");
-console.log("calc result pp: ", calc("1", "-", "10"), "-9");
+// console.log("calc result pp: ", calc("1", "-", "10"), "-9");
 // console.log("calc result pp: ", calc("1", "-", "1"), "0");
 
 // console.log("calc result:", calc("1", "+", "11", "+", "5", "-", "10", "-"), "7");
