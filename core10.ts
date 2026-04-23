@@ -233,7 +233,6 @@ const calc = (...args) => {
     // mm -1 -1
     if(a_is_minus && b_is_minus){
       // mm+ -1 + -1
-      console.log("mm+");
       if(operator_origin === "+"){
         res_is_minus = true;
         operator = "+";
@@ -254,7 +253,6 @@ const calc = (...args) => {
     //mp -1 1
     }else if(a_is_minus && !b_is_minus){
       // mp+ -1 + 1 = 0, -2 + 1 = -1, -1 + 2 = 1
-      console.log("mp+");
       if(operator_origin === "+"){
         operator = "-";
         // -1 + 2 = 1
@@ -277,14 +275,10 @@ const calc = (...args) => {
     //pm 1 -1
     }else if(!a_is_minus && b_is_minus){
       // pm+ 1 + -1 = 0, 2 + -1 = 1, 1 + -2 = -1
-      console.log("pm+");
       if(operator_origin === "+"){
-        console.log("pm+2");
-       
         // 1 + -2 = -1
         operator = "-";
         if (b_abs === max){
-          console.log("pm+3");
           a = b_origin;
           b = a_origin;
           a_abs = b_unite;
@@ -299,14 +293,11 @@ const calc = (...args) => {
     //pp 1 1
     }else if(!a_is_minus && !b_is_minus){
       // pp+ 1 + 1 = 2
-      console.log("pp+");
       if(operator_origin === "+"){
         // res_is_minus = false
       // pm- 1 - 1 = 0, 2 - 1 = 1, 1 - 2 = -1
       }else if (operator_origin === "-"){
-        console.log("pp+2");
         if (b_abs === max){
-          console.log("pp+3");
           res_is_minus = true;
           a = b_origin;
           b = a_origin;
