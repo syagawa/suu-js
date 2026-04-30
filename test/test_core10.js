@@ -118,8 +118,6 @@ describe("calc", function(){
       assert.equal(res, "-9");
     });
 
-
-
     it("1 + -101 = -100", () => {
       const res = calc("1", "+", "-101");
       assert.equal(res, "-100");
@@ -128,6 +126,11 @@ describe("calc", function(){
     it("1 + -10.1 = -9.1", () => {
       const res = calc("1", "+", "-10.1");
       assert.equal(res, "-9.1");
+    });
+
+    it("1 + -100 = -99", () => {
+      const res = calc("1", "+", "-100");
+      assert.equal(res, "-99");
     });
 
   });
