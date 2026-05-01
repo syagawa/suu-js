@@ -29,7 +29,6 @@ describe("calc", function(){
       assert.equal(res, "2");
     });
 
-
     it("1.00 + 1.00000000 = 2", () => {
       const res = calc("1.00", "+", "1.00000000");
       assert.equal(res, "2");
@@ -111,6 +110,11 @@ describe("calc", function(){
     it("1 + -2 = -1", () => {
       const res = calc("1", "+", "-2");
       assert.equal(res, "-1");
+    });
+
+    it("-10 + 1 = -9", () => {
+      const res = calc("-10", "+", "1");
+      assert.equal(res, "-9");
     });
 
     it("1 + -10 = -9", () => {
