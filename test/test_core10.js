@@ -7,6 +7,18 @@ console.log(calc);
 describe("calc", function(){
 
   describe("+", function(){
+
+    it("0 + 1 = 1", () => {
+      const res = calc("0", "+", "1");
+      assert.equal(res, "1");
+    });
+
+    it("1 + 0 = 1", () => {
+      const res = calc("1", "+", "0");
+      assert.equal(res, "1");
+    });
+
+
     it("1 + 1 = 2", () => {
       const res = calc("1", "+", "1");
       assert.equal(res, "2");
