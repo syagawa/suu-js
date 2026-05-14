@@ -18,11 +18,18 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
+    it("1.0 + 0 = 1", () => {
+      const res = calc("1.0", "+", "0");
+      assert.equal(res, "1");
+    });
+
 
     it("1 + 1 = 2", () => {
       const res = calc("1", "+", "1");
       assert.equal(res, "2");
     });
+
+
     it("10 + 1 = 11", () => {
       const res = calc("10", "+", "1");
       assert.equal(res, "11");
