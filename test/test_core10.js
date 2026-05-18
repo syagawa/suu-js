@@ -23,6 +23,12 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
+    it("0 + 1.0 = 1", () => {
+      const res = calc("0", "+", "1.0");
+      assert.equal(res, "1");
+    });
+
+
 
     it("1 + 1 = 2", () => {
       const res = calc("1", "+", "1");
