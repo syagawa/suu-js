@@ -8,6 +8,18 @@ describe("calc", function(){
 
   describe("+", function(){
 
+    it("0 + 0 = 0", () => {
+      const res = calc("0", "+", "0");
+      assert.equal(res, "0");
+    });
+
+    it("0.0 + 0.0 = 0", () => {
+      const res = calc("0.0", "+", "0.0");
+      assert.equal(res, "0");
+    });
+
+
+
     it("0 + 1 = 1", () => {
       const res = calc("0", "+", "1");
       assert.equal(res, "1");
