@@ -29,6 +29,10 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
+    it("0 - 0 = 0", () => {
+      const res = calc("0", "-", "0");
+      assert.equal(res, "0");
+    });
 
 
     it("0 + 1 = 1", () => {
