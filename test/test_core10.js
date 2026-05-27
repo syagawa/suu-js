@@ -81,9 +81,9 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
-    it("0 - 1 = 1", () => {
+    it("0 - 1 = -1", () => {
       const res = calc("0", "-", "1");
-      assert.equal(res, "1");
+      assert.equal(res, "-1");
     });
 
     it("1 - 0 = 1", () => {
@@ -96,9 +96,9 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
-    it("0 - 1.0 = 1", () => {
+    it("0 - 1.0 = -1", () => {
       const res = calc("0", "-", "1.0");
-      assert.equal(res, "1");
+      assert.equal(res, "-1");
     });
 
     it("1.0 - 0.0 = 1", () => {
@@ -106,9 +106,9 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
-    it("0.0 - 1.0 = 1", () => {
+    it("0.0 - 1.0 = -1", () => {
       const res = calc("0.0", "-", "1.0");
-      assert.equal(res, "1");
+      assert.equal(res, "-1");
     });
 
 
