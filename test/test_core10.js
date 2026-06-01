@@ -122,6 +122,11 @@ describe("calc", function(){
       assert.equal(res, "2");
     });
 
+    it("1.0 + 1 = 2", () => {
+      const res = calc("1.0", "+", "1");
+      assert.equal(res, "2");
+    });
+
 
 
     it("10 + 1 = 11", () => {
