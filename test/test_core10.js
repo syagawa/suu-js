@@ -128,6 +128,12 @@ describe("calc", function(){
     });
 
 
+    it("1 + 1.0 = 2", () => {
+      const res = calc("1", "+", "1.0");
+      assert.equal(res, "2");
+    });
+
+
 
     it("10 + 1 = 11", () => {
       const res = calc("10", "+", "1");
