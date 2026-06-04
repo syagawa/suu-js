@@ -133,6 +133,28 @@ describe("calc", function(){
       assert.equal(res, "2");
     });
 
+    it("1 - 1 = 0", () => {
+      const res = calc("1", "-", "1");
+      assert.equal(res, "0");
+    });
+
+    it("1.0 - 1.0 = 0", () => {
+      const res = calc("1.0", "-", "1.0");
+      assert.equal(res, "0");
+    });
+
+    it("1.0 - 1 = 0", () => {
+      const res = calc("1.0", "-", "1");
+      assert.equal(res, "0");
+    });
+
+
+    it("1 - 1.0 = 0", () => {
+      const res = calc("1", "-", "1.0");
+      assert.equal(res, "0");
+    });
+
+
 
 
     it("10 + 1 = 11", () => {
