@@ -164,6 +164,12 @@ describe("calc", function(){
     });
 
 
+    it("10 + 1.0 = 11", () => {
+      const res = calc("10", "+", "1.0");
+      assert.equal(res, "11");
+    });
+
+
 
 
     it("1 + 10 = 11", () => {
