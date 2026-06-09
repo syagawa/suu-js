@@ -157,15 +157,16 @@ describe("calc", function(){
       const res = calc("10", "+", "1");
       assert.equal(res, "11");
     });
-
     it("10.0 + 1 = 11", () => {
       const res = calc("10.0", "+", "1");
       assert.equal(res, "11");
     });
-
-
     it("10 + 1.0 = 11", () => {
       const res = calc("10", "+", "1.0");
+      assert.equal(res, "11");
+    });
+    it("10.0 + 1.0 = 11", () => {
+      const res = calc("10.0", "+", "1.0");
       assert.equal(res, "11");
     });
 
