@@ -170,6 +170,22 @@ describe("calc", function(){
       assert.equal(res, "11");
     });
 
+    it("10 - 1 = 9", () => {
+      const res = calc("10", "-", "1");
+      assert.equal(res, "9");
+    });
+    it("10.0 - 1 = 9", () => {
+      const res = calc("10.0", "-", "1");
+      assert.equal(res, "9");
+    });
+    it("10 - 1.0 = 9", () => {
+      const res = calc("10", "-", "1.0");
+      assert.equal(res, "9");
+    });
+    it("10.0 - 1.0 = 9", () => {
+      const res = calc("10.0", "-", "1.0");
+      assert.equal(res, "9");
+    });
 
 
 
