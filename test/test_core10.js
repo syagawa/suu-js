@@ -153,6 +153,13 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
+
+    it("1 + 2 = 0", () => {
+      const res = calc("1", "+", "2");
+      assert.equal(res, "3");
+    });
+
+
     it("10 + 1 = 11", () => {
       const res = calc("10", "+", "1");
       assert.equal(res, "11");
