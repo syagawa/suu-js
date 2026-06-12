@@ -158,6 +158,21 @@ describe("calc", function(){
       const res = calc("1", "+", "2");
       assert.equal(res, "3");
     });
+    it("1.0 + 2 = 0", () => {
+      const res = calc("1.0", "+", "2");
+      assert.equal(res, "3");
+    });
+    it("1 + 2.0 = 0", () => {
+      const res = calc("1", "+", "2.0");
+      assert.equal(res, "3");
+    });
+    it("1.0 + 2.0 = 0", () => {
+      const res = calc("1.0", "+", "2.0");
+      assert.equal(res, "3");
+    });
+
+
+
 
 
     it("10 + 1 = 11", () => {
