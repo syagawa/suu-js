@@ -171,6 +171,22 @@ describe("calc", function(){
       assert.equal(res, "3");
     });
 
+    it("1 - 2 = -1", () => {
+      const res = calc("1", "-", "2");
+      assert.equal(res, "-1");
+    });
+    it("1.0 - 2 = -1", () => {
+      const res = calc("1.0", "-", "2");
+      assert.equal(res, "-1");
+    });
+    it("1 - 2.0 = -1", () => {
+      const res = calc("1", "-", "2.0");
+      assert.equal(res, "-1");
+    });
+    it("1.0 - 2.0 = -1", () => {
+      const res = calc("1.0", "-", "2.0");
+      assert.equal(res, "-1");
+    });
 
 
 
