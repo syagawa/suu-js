@@ -154,6 +154,24 @@ describe("calc", function(){
     });
 
 
+    it("2 + 1 = 3", () => {
+      const res = calc("2", "+", "1");
+      assert.equal(res, "3");
+    });
+    it("2.0 + 1 = 3", () => {
+      const res = calc("2.0", "+", "1");
+      assert.equal(res, "3");
+    });
+    it("2 + 1.0 = 3", () => {
+      const res = calc("2", "+", "1.0");
+      assert.equal(res, "3");
+    });
+    it("2.0 + 1.0 = 3", () => {
+      const res = calc("2.0", "+", "1.0");
+      assert.equal(res, "3");
+    });
+
+
     it("1 + 2 = 3", () => {
       const res = calc("1", "+", "2");
       assert.equal(res, "3");
