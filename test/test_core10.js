@@ -278,6 +278,22 @@ describe("calc", function(){
       const res = calc("1.0", "+", "10.0");
       assert.equal(res, "11");
     });
+    it("1 - 10 = -9", () => {
+      const res = calc("1", "-", "10");
+      assert.equal(res, "-9");
+    });
+    it("1.0 - 10 = -9", () => {
+      const res = calc("1.0", "-", "10");
+      assert.equal(res, "-9");
+    });
+    it("1 - 10.0 = -9", () => {
+      const res = calc("1", "-", "10.0");
+      assert.equal(res, "-9");
+    });
+    it("1.0 - 10.0 = -9", () => {
+      const res = calc("1.0", "-", "10.0");
+      assert.equal(res, "-9");
+    });
 
 
 
