@@ -329,6 +329,12 @@ describe("calc", function(){
       assert.equal(res, "-8");
     });
 
+    it("1 + 100 = 101", () => {
+      const res = calc("1", "+", "100");
+      assert.equal(res, "101");
+    });
+
+
 
 
 
