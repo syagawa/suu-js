@@ -362,6 +362,7 @@ const calc = (...args) => {
     const new_arr2 = new_arr.filter(elm => elm)
     if(digit_length > 0){
       const left_arr = new_arr2.slice(0, new_arr2.length - digit_length);
+      console.log("left_arr", left_arr)
       const right_arr = new_arr2.slice(new_arr2.length - digit_length, new_arr2.length);
       while(right_arr[right_arr.length - 1] === "0"){
         right_arr.splice(right_arr.length - 1, right_arr.length);
@@ -431,7 +432,7 @@ const calc = (...args) => {
 // console.log("calc result pp: ", calc("11", "+", "1"), "12");
 // console.log("calc result pp: ", calc("11", "-", "1"), "10");
 // console.log("calc result pp: ", calc("1", "+", "11"), "12");
-console.log("calc result pp: ", calc("1", "+", "-10"), "-9");
+// console.log("calc result pp: ", calc("1", "+", "-10"), "-9");
 // console.log("calc result pp: ", calc("1", "-", "10"), "-9");
 // console.log("calc result pp: ", calc("1", "-", "1"), "0");
 
@@ -439,6 +440,7 @@ console.log("calc result pp: ", calc("1", "+", "-10"), "-9");
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
 // console.log("calc result:", calc("0001.050", "+", "0015.050000000000000"), "16.1");
 // console.log("calc result:", calc("15", "+", "1505"), "1520");
+console.log("calc result:", calc("0.4", "+", "0.5"), "0.9");
 
 export default {
   calc,
