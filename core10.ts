@@ -397,10 +397,13 @@ const calc = (...args) => {
   if(res.length === zeroLength){
     return "0";
   }
-
+  console.log("resres1", res)
   res = res.slice(zeroLength, res.length);
+  console.log("resres2", res)
 
-  if(res.match(/\.$/)){
+  if(res.match(/^\./)){
+    res = res.replace(/^\./, "0.");
+  }else if(res.match(/\.$/)){
     res = res.replace(/\.$/, "");
   }
   
