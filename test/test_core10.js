@@ -362,6 +362,11 @@ describe("calc", function(){
       assert.equal(res, "0.2");
     });
 
+    it("0.5 + 0.5 = 1", () => {
+      const res = calc("0.5", "+", "0.5");
+      assert.equal(res, "1");
+    });
+
 
   });
   
