@@ -377,6 +377,11 @@ describe("calc", function(){
       assert.equal(res, "100");
     });
 
+    it("99 + 1 = 100", () => {
+      const res = calc("99", "+", "1");
+      assert.equal(res, "100");
+    });
+
 
 
 
