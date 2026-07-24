@@ -371,7 +371,13 @@ describe("calc", function(){
       const res = calc("0.05", "+", "0.05");
       assert.equal(res, "0.1");
     });
+
+    it("0.5 + 0.05 = 0.55", () => {
+      const res = calc("0.5", "+", "0.05");
+      assert.equal(res, "0.55");
+    });
     
+
     it("1 + 99 = 100", () => {
       const res = calc("1", "+", "99");
       assert.equal(res, "100");
@@ -382,7 +388,10 @@ describe("calc", function(){
       assert.equal(res, "100");
     });
 
-
+    it("1 + 99 = 100", () => {
+      const res = calc("1", "+", "99");
+      assert.equal(res, "100");
+    });
 
 
   });
