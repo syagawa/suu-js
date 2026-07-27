@@ -393,6 +393,13 @@ describe("calc", function(){
       assert.equal(res, "100");
     });
 
+    it("0.9 + 99.1 = 100", () => {
+      const res = calc("0.9", "+", "99.1");
+      assert.equal(res, "100");
+    });
+
+
+
 
   });
   
