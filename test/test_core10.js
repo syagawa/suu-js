@@ -333,6 +333,12 @@ describe("calc", function(){
       const res = calc("1", "+", "100");
       assert.equal(res, "101");
     });
+
+    it("100 + 1 = 101", () => {
+      const res = calc("100", "+", "1");
+      assert.equal(res, "101");
+    });
+
     it("1.0 + 100 = 101", () => {
       const res = calc("1.0", "+", "100");
       assert.equal(res, "101");
@@ -390,6 +396,11 @@ describe("calc", function(){
 
     it("1 + 99 = 100", () => {
       const res = calc("1", "+", "99");
+      assert.equal(res, "100");
+    });
+
+    it("0.9 + 99.1 = 100", () => {
+      const res = calc("0.9", "+", "99.1");
       assert.equal(res, "100");
     });
 
