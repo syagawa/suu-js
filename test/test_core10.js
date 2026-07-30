@@ -358,10 +358,10 @@ describe("calc", function(){
       assert.equal(res, "-99");
     });
 
-    // it("100 + 1 = 101", () => {
-    //   const res = calc("100", "+", "1");
-    //   assert.equal(res, "101");
-    // });
+    it("100 - 1 = 99", () => {
+      const res = calc("100", "-", "1");
+      assert.equal(res, "99");
+    });
 
     // it("1.0 + 100 = 101", () => {
     //   const res = calc("1.0", "+", "100");
