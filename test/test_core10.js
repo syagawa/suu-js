@@ -363,10 +363,10 @@ describe("calc", function(){
       assert.equal(res, "99");
     });
 
-    // it("1.0 + 100 = 101", () => {
-    //   const res = calc("1.0", "+", "100");
-    //   assert.equal(res, "101");
-    // });
+    it("1.0 - 100 = -99", () => {
+      const res = calc("1.0", "-", "100");
+      assert.equal(res, "-99");
+    });
     // it("1 + 100.0 = 101", () => {
     //   const res = calc("1", "+", "100.0");
     //   assert.equal(res, "101");
