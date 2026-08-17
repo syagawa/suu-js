@@ -421,6 +421,12 @@ describe("calc", function(){
       assert.equal(res, "0.1");
     });
 
+    it("0.05 - 0.05 = 0", () => {
+      const res = calc("0.05", "-", "0.05");
+      assert.equal(res, "0");
+    });
+
+
     it("0.5 + 0.05 = 0.55", () => {
       const res = calc("0.5", "+", "0.05");
       assert.equal(res, "0.55");
