@@ -443,7 +443,8 @@ const calc = (...args) => {
 // console.log("calc result:", calc("0.5", "+", "0.5"), "1");
 // console.log("calc result:", calc("0001.050", "+", "0015.050000000000000"), "16.1");
 // console.log("calc result:", calc("15", "+", "1505"), "1520");
-console.log("calc result:", calc("0.4", "+", "0.5"), "0.9");
+// console.log("calc result:", calc("0.4", "+", "0.5"), "0.9");
+console.log("calc result:", calc("0.5", "-", "0.5"), "0");
 
 export default {
   calc,
