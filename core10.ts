@@ -403,10 +403,15 @@ const calc = (...args) => {
 
   if(res.match(/^\./)){
     res = res.replace(/^\./, "0.");
-  }else if(res.match(/\.$/)){
+    console.log("resres3", res)
+  }
+  if(res.match(/\.$/)){
     res = res.replace(/\.$/, "");
+    console.log("resres4", res)
   }
   
+  console.log("resres5", res)
+
 
   if(res_is_minus){
     console.log("minusss!!")
