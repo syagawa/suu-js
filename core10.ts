@@ -397,21 +397,16 @@ const calc = (...args) => {
   if(res.length === zeroLength){
     return "0";
   }
-  console.log("resres1", res)
+  
   res = res.slice(zeroLength, res.length);
-  console.log("resres2", res)
-
+  
   if(res.match(/^\./)){
     res = res.replace(/^\./, "0.");
-    console.log("resres3", res)
   }
   if(res.match(/\.$/)){
     res = res.replace(/\.$/, "");
-    console.log("resres4", res)
   }
   
-  console.log("resres5", res)
-
 
   if(res_is_minus){
     console.log("minusss!!")
