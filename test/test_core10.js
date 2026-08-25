@@ -467,10 +467,10 @@ describe("calc", function(){
       assert.equal(res, "-98");
     });
 
-    // it("99 + 1 = 100", () => {
-    //   const res = calc("99", "+", "1");
-    //   assert.equal(res, "100");
-    // });
+    it("99 - 1 = 98", () => {
+      const res = calc("99", "-", "1");
+      assert.equal(res, "98");
+    });
 
     // it("1 + 99 = 100", () => {
     //   const res = calc("1", "+", "99");
