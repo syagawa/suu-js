@@ -472,10 +472,10 @@ describe("calc", function(){
       assert.equal(res, "98");
     });
 
-    // it("1 + 99 = 100", () => {
-    //   const res = calc("1", "+", "99");
-    //   assert.equal(res, "100");
-    // });
+    it("1 - 99 = -98", () => {
+      const res = calc("1", "-", "99");
+      assert.equal(res, "-98");
+    });
 
     // it("0.9 + 99.1 = 100", () => {
     //   const res = calc("0.9", "+", "99.1");
