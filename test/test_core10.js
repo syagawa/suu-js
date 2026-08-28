@@ -8,6 +8,7 @@ describe("calc", function(){
 
   describe("+", function(){
 
+    // 0 0
     it("0 + 0 = 0", () => {
       const res = calc("0", "+", "0");
       assert.equal(res, "0");
@@ -17,7 +18,6 @@ describe("calc", function(){
       const res = calc("0.0", "+", "0.0");
       assert.equal(res, "0");
     });
-
 
     it("0.0 + 0 = 0", () => {
       const res = calc("0.0", "+", "0");
@@ -50,7 +50,7 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
-
+    // 0 1
     it("0 + 1 = 1", () => {
       const res = calc("0", "+", "1");
       assert.equal(res, "1");
@@ -86,6 +86,7 @@ describe("calc", function(){
       assert.equal(res, "-1");
     });
 
+    // 1 0
     it("1 - 0 = 1", () => {
       const res = calc("1", "-", "0");
       assert.equal(res, "1");
@@ -111,7 +112,7 @@ describe("calc", function(){
       assert.equal(res, "-1");
     });
 
-
+    // 1 1
     it("1 + 1 = 2", () => {
       const res = calc("1", "+", "1");
       assert.equal(res, "2");
@@ -153,7 +154,7 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
-
+    // 2 1
     it("2 + 1 = 3", () => {
       const res = calc("2", "+", "1");
       assert.equal(res, "3");
@@ -188,7 +189,7 @@ describe("calc", function(){
       assert.equal(res, "1");
     });
 
-
+    // 1 2
     it("1 + 2 = 3", () => {
       const res = calc("1", "+", "2");
       assert.equal(res, "3");
@@ -225,7 +226,7 @@ describe("calc", function(){
 
 
 
-
+    // 10 1
     it("10 + 1 = 11", () => {
       const res = calc("10", "+", "1");
       assert.equal(res, "11");
@@ -261,7 +262,7 @@ describe("calc", function(){
     });
 
 
-
+    // 1 10
     it("1 + 10 = 11", () => {
       const res = calc("1", "+", "10");
       assert.equal(res, "11");
@@ -295,6 +296,43 @@ describe("calc", function(){
       assert.equal(res, "-9");
     });
 
+    // 9 1
+    it("9 + 1 = 10", () => {
+      const res = calc("9", "+", "1");
+      assert.equal(res, "10");
+    });
+    // it("1.0 + 9 = 10", () => {
+    //   const res = calc("1.0", "+", "9");
+    //   assert.equal(res, "10");
+    // });
+    // it("1 + 9.0 = 10", () => {
+    //   const res = calc("1", "+", "9.0");
+    //   assert.equal(res, "10");
+    // });
+    // it("1.0 + 9.0 = 10", () => {
+    //   const res = calc("1.0", "+", "9.0");
+    //   assert.equal(res, "10");
+    // });
+
+    // it("1 - 9 = -8", () => {
+    //   const res = calc("1", "-", "9");
+    //   assert.equal(res, "-8");
+    // });
+    // it("1.0 - 9 = -8", () => {
+    //   const res = calc("1.0", "-", "9");
+    //   assert.equal(res, "-8");
+    // });
+    // it("1 - 9.0 = -8", () => {
+    //   const res = calc("1", "-", "9.0");
+    //   assert.equal(res, "-8");
+    // });
+    // it("1.0 - 9.0 = -8", () => {
+    //   const res = calc("1.0", "-", "9.0");
+    //   assert.equal(res, "-8");
+    // });
+
+
+    // 1 9
     it("1 + 9 = 10", () => {
       const res = calc("1", "+", "9");
       assert.equal(res, "10");
@@ -481,11 +519,6 @@ describe("calc", function(){
       const res = calc("0.9", "-", "99.1");
       assert.equal(res, "-98.2");
     });
-
-    // it("0.9 + 99.1 = 100", () => {
-    //   const res = calc("0.9", "+", "99.1");
-    //   assert.equal(res, "100");
-    // });
 
 
 
