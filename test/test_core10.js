@@ -314,23 +314,24 @@ describe("calc", function(){
       assert.equal(res, "10");
     });
 
+    it("9 - 1 = 8", () => {
+      const res = calc("9", "-", "1");
+      assert.equal(res, "8");
+    });
+    it("9.0 - 1 = 8", () => {
+      const res = calc("9.0", "-", "1");
+      assert.equal(res, "8");
+    });
+    it("9 - 1.0 = 8", () => {
+      const res = calc("9", "-", "1.0");
+      assert.equal(res, "8");
+    });
+    it("9.0 - 1.0 = 8", () => {
+      const res = calc("9.0", "-", "1.0");
+      assert.equal(res, "8");
+    });
 
-    // it("1 - 9 = -8", () => {
-    //   const res = calc("1", "-", "9");
-    //   assert.equal(res, "-8");
-    // });
-    // it("1.0 - 9 = -8", () => {
-    //   const res = calc("1.0", "-", "9");
-    //   assert.equal(res, "-8");
-    // });
-    // it("1 - 9.0 = -8", () => {
-    //   const res = calc("1", "-", "9.0");
-    //   assert.equal(res, "-8");
-    // });
-    // it("1.0 - 9.0 = -8", () => {
-    //   const res = calc("1.0", "-", "9.0");
-    //   assert.equal(res, "-8");
-    // });
+
 
 
     // 1 9
