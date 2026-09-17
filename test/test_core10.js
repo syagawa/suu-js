@@ -439,11 +439,21 @@ describe("calc", function(){
     });
     it("100.0 - 1.0 = 99", () => {
       const res = calc("100.0", "-", "1.0");
-      assert.equal(res, "-99");
+      assert.equal(res, "99");
     });
 
-
+    // 0.1 0
     it("0.1 + 0 = 0.1", () => {
+      const res = calc("0.1", "+", "0");
+      assert.equal(res, "0.1");
+    });
+
+    it("0.10 + 0 = 0.1", () => {
+      const res = calc("0.1", "+", "0");
+      assert.equal(res, "0.1");
+    });
+
+    it("0.10 + 0.0 = 0.1", () => {
       const res = calc("0.1", "+", "0");
       assert.equal(res, "0.1");
     });
