@@ -483,13 +483,44 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
+    // 0.5 0.5
     it("0.5 + 0.5 = 1", () => {
       const res = calc("0.5", "+", "0.5");
       assert.equal(res, "1");
     });
 
+    it("0.50 + 0.5 = 1", () => {
+      const res = calc("0.50", "+", "0.5");
+      assert.equal(res, "1");
+    });
+
+    it("0.5 + 0.50 = 1", () => {
+      const res = calc("0.5", "+", "0.50");
+      assert.equal(res, "1");
+    });
+
+    it("0.50 + 0.50 = 1", () => {
+      const res = calc("0.50", "+", "0.50");
+      assert.equal(res, "1");
+    });
+
     it("0.5 - 0.5 = 0", () => {
       const res = calc("0.5", "-", "0.5");
+      assert.equal(res, "0");
+    });
+
+    it("0.50 - 0.5 = 0", () => {
+      const res = calc("0.50", "-", "0.5");
+      assert.equal(res, "0");
+    });
+
+    it("0.5 - 0.50 = 0", () => {
+      const res = calc("0.5", "-", "0.50");
+      assert.equal(res, "0");
+    });
+
+    it("0.50 - 0.50 = 0", () => {
+      const res = calc("0.50", "-", "0.50");
       assert.equal(res, "0");
     });
 
