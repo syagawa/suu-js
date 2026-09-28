@@ -524,8 +524,14 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
+    // 0.05 0.05
     it("0.05 + 0.05 = 0.1", () => {
       const res = calc("0.05", "+", "0.05");
+      assert.equal(res, "0.1");
+    });
+
+    it("0.050 + 0.05 = 0.1", () => {
+      const res = calc("0.050", "+", "0.05");
       assert.equal(res, "0.1");
     });
 
