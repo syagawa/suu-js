@@ -483,6 +483,13 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
+    // 5 5
+    it("5 + 5 = 10", () => {
+      const res = calc("5", "+", "5");
+      assert.equal(res, "10");
+    });
+
+
     // 0.5 0.5
     it("0.5 + 0.5 = 1", () => {
       const res = calc("0.5", "+", "0.5");
