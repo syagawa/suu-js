@@ -607,9 +607,21 @@ describe("calc", function(){
       assert.equal(res, "0");
     });
 
-
+    // 0.5 0.05
     it("0.5 + 0.05 = 0.55", () => {
       const res = calc("0.5", "+", "0.05");
+      assert.equal(res, "0.55");
+    });
+    it("0.50 + 0.05 = 0.55", () => {
+      const res = calc("0.50", "+", "0.05");
+      assert.equal(res, "0.55");
+    });
+    it("0.5 + 0.050 = 0.55", () => {
+      const res = calc("0.5", "+", "0.050");
+      assert.equal(res, "0.55");
+    });
+    it("0.50 + 0.050 = 0.55", () => {
+      const res = calc("0.50", "+", "0.050");
       assert.equal(res, "0.55");
     });
 
