@@ -641,15 +641,14 @@ describe("calc", function(){
       const res = calc("0.50", "-", "0.050");
       assert.equal(res, "0.45");
     });
-
-
-
-
-    it("0.5 - 0.05 = 0.45", () => {
-      const res = calc("0.5", "-", "0.05");
-      assert.equal(res, "0.45");
-    });
     
+    // 0.05 0.5
+    it("0.05 + 0.5 = 0.55", () => {
+      const res = calc("0.05", "+", "0.5");
+      assert.equal(res, "0.55");
+    });
+
+
 
     it("1 + 99 = 100", () => {
       const res = calc("1", "+", "99");
