@@ -653,6 +653,11 @@ describe("calc", function(){
       assert.equal(res, "0.55");
     });
 
+    it("0.05 + 0.50 = 0.55", () => {
+      const res = calc("0.05", "+", "0.50");
+      assert.equal(res, "0.55");
+    });
+
 
 
     it("1 + 99 = 100", () => {
