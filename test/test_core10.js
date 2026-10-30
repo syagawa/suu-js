@@ -663,24 +663,24 @@ describe("calc", function(){
       assert.equal(res, "0.55");
     });
 
-    it("0.05 - 0.5 = 0.45", () => {
+    it("0.05 - 0.5 = -0.45", () => {
       const res = calc("0.05", "-", "0.5");
-      assert.equal(res, "0.45");
+      assert.equal(res, "-0.45");
     });
 
-    it("0.050 - 0.5 = 0.45", () => {
+    it("0.050 - 0.5 = -0.45", () => {
       const res = calc("0.050", "-", "0.5");
-      assert.equal(res, "0.45");
+      assert.equal(res, "-0.45");
     });
 
-    it("0.05 - 0.50 = 0.45", () => {
+    it("0.05 - 0.50 = -0.45", () => {
       const res = calc("0.05", "-", "0.50");
-      assert.equal(res, "0.45");
+      assert.equal(res, "-0.45");
     });
 
-    it("0.050 - 0.50 = 0.45", () => {
+    it("0.050 - 0.50 = -0.45", () => {
       const res = calc("0.050", "-", "0.50");
-      assert.equal(res, "0.45");
+      assert.equal(res, "-0.45");
     });
 
 
