@@ -701,6 +701,22 @@ describe("calc", function(){
       const res = calc("1.0", "+", "99.0");
       assert.equal(res, "100");
     });
+    it("1 - 99 = -98", () => {
+      const res = calc("1", "-", "99");
+      assert.equal(res, "-98");
+    });
+    it("1.0 - 99 = -98", () => {
+      const res = calc("1.0", "-", "99");
+      assert.equal(res, "-98");
+    });
+    it("1 - 99.0 = -98", () => {
+      const res = calc("1", "-", "99.0");
+      assert.equal(res, "-98");
+    });
+    it("1.0 - 99.0 = -98", () => {
+      const res = calc("1.0", "-", "99.0");
+      assert.equal(res, "-98");
+    });
 
 
     it("99 + 1 = 100", () => {
