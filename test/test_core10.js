@@ -718,14 +718,21 @@ describe("calc", function(){
       assert.equal(res, "-98");
     });
 
-
+    // 99 1
     it("99 + 1 = 100", () => {
       const res = calc("99", "+", "1");
       assert.equal(res, "100");
     });
-
-    it("1 + 99 = 100", () => {
-      const res = calc("1", "+", "99");
+    it("99.0 + 1 = 100", () => {
+      const res = calc("99.0", "+", "1");
+      assert.equal(res, "100");
+    });
+    it("99 + 1.0 = 100", () => {
+      const res = calc("99", "+", "1.0");
+      assert.equal(res, "100");
+    });
+    it("99.0 + 1.0 = 100", () => {
+      const res = calc("99.0", "+", "1.0");
       assert.equal(res, "100");
     });
 
