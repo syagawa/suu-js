@@ -753,30 +753,24 @@ describe("calc", function(){
       assert.equal(res, "98");
     });
 
+    // 0.9 99.1
     it("0.9 + 99.1 = 100", () => {
       const res = calc("0.9", "+", "99.1");
       assert.equal(res, "100");
     });
-
-    it("0.9 + 99.1 = 100", () => {
-      const res = calc("0.9", "+", "99.1");
+    it("0.90 + 99.1 = 100", () => {
+      const res = calc("0.90", "+", "99.1");
+      assert.equal(res, "100");
+    });
+    it("0.9 + 99.10 = 100", () => {
+      const res = calc("0.9", "+", "99.10");
+      assert.equal(res, "100");
+    });
+    it("0.90 + 99.10 = 100", () => {
+      const res = calc("0.90", "+", "99.10");
       assert.equal(res, "100");
     });
   
-    it("1 - 99 = -98", () => {
-      const res = calc("1", "-", "99");
-      assert.equal(res, "-98");
-    });
-
-    it("99 - 1 = 98", () => {
-      const res = calc("99", "-", "1");
-      assert.equal(res, "98");
-    });
-
-    it("1 - 99 = -98", () => {
-      const res = calc("1", "-", "99");
-      assert.equal(res, "-98");
-    });
 
     it("0.9 - 99.1 = -98.2", () => {
       const res = calc("0.9", "-", "99.1");
