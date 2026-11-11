@@ -770,12 +770,25 @@ describe("calc", function(){
       const res = calc("0.90", "+", "99.10");
       assert.equal(res, "100");
     });
-  
 
     it("0.9 - 99.1 = -98.2", () => {
       const res = calc("0.9", "-", "99.1");
       assert.equal(res, "-98.2");
     });
+    it("0.90 - 99.1 = -98.2", () => {
+      const res = calc("0.90", "-", "99.1");
+      assert.equal(res, "-98.2");
+    });
+    it("0.9 - 99.10 = -98.2", () => {
+      const res = calc("0.9", "-", "99.10");
+      assert.equal(res, "-98.2");
+    });
+    it("0.90 - 99.10 = -98.2", () => {
+      const res = calc("0.90", "-", "99.10");
+      assert.equal(res, "-98.2");
+    });
+  
+
 
 
 
