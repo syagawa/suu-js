@@ -442,6 +442,13 @@ describe("calc", function(){
       assert.equal(res, "99");
     });
 
+    // 1 0.01
+    it("1 + 0.01 = 99", () => {
+      const res = calc("1", "+", "0.01");
+      assert.equal(res, "1.01");
+    });
+
+
     // 0.1 0
     it("0.1 + 0 = 0.1", () => {
       const res = calc("0.1", "+", "0");
