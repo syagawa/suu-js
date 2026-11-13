@@ -443,8 +443,20 @@ describe("calc", function(){
     });
 
     // 1 0.01
-    it("1 + 0.01 = 99", () => {
+    it("1 + 0.01 = 1.01", () => {
       const res = calc("1", "+", "0.01");
+      assert.equal(res, "1.01");
+    });
+    it("1.0 + 0.01 = 1.01", () => {
+      const res = calc("1.0", "+", "0.01");
+      assert.equal(res, "1.01");
+    });
+    it("1 + 0.010 = 1.01", () => {
+      const res = calc("1", "+", "0.010");
+      assert.equal(res, "1.01");
+    });
+    it("1.0 + 0.010 = 1.01", () => {
+      const res = calc("1.0", "+", "0.010");
       assert.equal(res, "1.01");
     });
 
