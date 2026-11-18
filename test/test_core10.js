@@ -495,6 +495,23 @@ describe("calc", function(){
       assert.equal(res, "1.01");
     });
 
+    it("0.01 - 1 = -0.99", () => {
+      const res = calc("0.01", "-", "1");
+      assert.equal(res, "-0.99");
+    });
+    it("0.010 - 1 = -0.99", () => {
+      const res = calc("0.010", "-", "1");
+      assert.equal(res, "-0.99");
+    });
+    it("0.01 - 1.0 = -0.99", () => {
+      const res = calc("0.01", "-", "1.0");
+      assert.equal(res, "-0.99");
+    });
+    it("0.010 - 1.0 = -0.99", () => {
+      const res = calc("0.010", "-", "1.0");
+      assert.equal(res, "-0.99");
+    });
+
 
     // 0.1 0
     it("0.1 + 0 = 0.1", () => {
